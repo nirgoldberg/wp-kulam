@@ -1,0 +1,208 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kulam-Scoop\n"
+"Report-Msgid-Bugs-To: \n"
+
+"PO-Revision-Date: 2019-01-21 15:01+0200\n"
+
+"Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e;"
+"esc_attr__;esc_attr_e;_x;_nx\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: functions.php:44 loop/single.php:46
+msgid "Add to My Siddur"
+msgstr "הוסף לסידור שלי"
+
+#: functions.php:45 loop/single.php:50
+msgid "Remove from My Siddur"
+msgstr "להסיר מהסידור שלי"
+
+#: functions.php:124 includes/cpt-config.php:55 loop/archive.php:32
+msgid "My Siddur"
+msgstr "הסידור שלי"
+
+#: includes/cpt-config.php:11 includes/cpt-config.php:13
+#: includes/cpt-config.php:23
+msgid "Post Types"
+msgstr "סוגי מאמרים"
+
+#: includes/cpt-config.php:12
+msgid "Post Type"
+msgstr "סוג מאמר"
+
+#: includes/cpt-config.php:14
+msgid "All Post Types"
+msgstr "כל סוגי הפרסומים"
+
+#: includes/cpt-config.php:15
+msgid "Edit Post Type"
+msgstr "ערוך סוג מאמר"
+
+#: includes/cpt-config.php:16
+msgid "View Post Type"
+msgstr "צפה בסוג מאמר"
+
+#: includes/cpt-config.php:17
+msgid "Update Post Type"
+msgstr "עדכן סוג מאמר"
+
+#: includes/cpt-config.php:18
+msgid "Add New Post Type"
+msgstr "הוסף סוג מאמר חדש"
+
+#: includes/cpt-config.php:19
+msgid "New Post Type Name"
+msgstr "שם סוג המאמר החדש"
+
+#: includes/cpt-config.php:54 includes/cpt-config.php:59
+msgid "Siddurim"
+msgstr "סידורים"
+
+#: loop/archive.php:18 loop/archive.php:20 loop/archive.php:22
+#, php-format
+msgid "Archive for %s"
+msgstr "ארכיון של %s"
+
+#: loop/archive.php:20
+msgid "F Y"
+msgstr "F Y"
+
+#: loop/archive.php:22
+msgid "Y"
+msgstr "Y"
+
+#: loop/archive.php:28 loop/archive.php:30
+#, php-format
+msgid "Archive %s"
+msgstr "ארכיון %s"
+
+#: loop/archive.php:41
+#, php-format
+msgid "All posts by %s"
+msgstr "כל סוגי המאמרים של %s"
+
+#: loop/archive.php:43
+msgid "Archive"
+msgstr "ארכיון"
+
+#: loop/archive.php:84
+#, php-format
+msgid "Click For More %s"
+msgstr "הקלק לעוד %s"
+
+#: loop/archive.php:111
+msgid "Back to category"
+msgstr "חזרה"
+
+#: loop/page.php:50
+msgid "&laquo; Previous"
+msgstr "&laquo; הקודם"
+
+#: loop/page.php:51
+msgid "Next &raquo;"
+msgstr "הבא &raquo;"
+
+#: loop/single.php:33
+msgid "No Comments"
+msgstr "אין תגובות"
+
+#: loop/single.php:33
+msgid "One Comment"
+msgstr "תגובה אחת"
+
+#: loop/single.php:33
+msgid "% Comments"
+msgstr "% תגובות"
+
+#: loop/single.php:55
+msgid "Facebook"
+msgstr "Facebook"
+
+#: loop/single.php:58
+msgid "Twitter"
+msgstr "Twitter"
+
+#: loop/single.php:61
+msgid "Print"
+msgstr "הדפסה"
+
+#: loop/single.php:64
+msgid "Send Email"
+msgstr "שלח דוא\"ל"
+
+#: loop/single.php:127
+msgid "About the Author"
+msgstr "אודות המחבר"
+
+#: loop/single.php:134
+msgid "View all posts by"
+msgstr "צפה בסוג מאמר"
+
+#: loop/single.php:147
+msgid "&laquo; Previous Post"
+msgstr "&laquo; המאמר הקודם"
+
+#: loop/single.php:148
+msgid "Next Post &raquo;"
+msgstr "המאמר הבא &raquo;"
+
+#: shortcodes.php:16
+msgid "Posts"
+msgstr "סוגי מאמרים"
+
+#: shortcodes.php:17
+msgid "Upload"
+msgstr "משהו משלך"
+
+#: shortcodes.php:18
+msgid "Upload somthing of your own"
+msgstr "שתף את העולם במנהגים שלך"
+
+#: shortcodes.php:19
+msgid "My Album"
+msgstr "האלבום שלי"
+
+#: shortcodes.php:20
+msgid "Save your favorite customs"
+msgstr "שמור את המנהגים המועדפים שלך"
+
+#: vendors/acf.php:23 vendors/acf.php:26
+msgid "Site Setup"
+msgstr "הגדרות אתר"
+
+#: vendors/acf.php:179
+msgid "Video Unavailable"
+msgstr "וידאו לא זמן"
+
+#: vendors/acf.php:219
+msgid "Submit for review"
+msgstr "שלח לאישור"
+
+#: vendors/acf.php:220
+msgid ""
+"<b>Success!</b> Your article was submitted successfully and will be reviewed "
+"shortly."
+msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
+
+#: vendors/acf.php:230
+msgid "Update Account"
+msgstr "עדכון חשבון"
+
+#: vendors/acf.php:231
+msgid "<b>Success!</b> Your account is now up-to-date with the new info."
+msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
+
+#~ msgid "My Siddur: %s"
+#~ msgstr "השבת שלי: %s"
+
+#~ msgid "Itay Banner"
+#~ msgstr "איתי בנר"

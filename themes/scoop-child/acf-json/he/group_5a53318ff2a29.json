@@ -1,0 +1,49 @@
+{
+    "key": "group_5a53318ff2a29",
+    "title": "הגדרות כלליות",
+    "fields": [
+        {
+            "key": "field_5a533190293dd",
+            "label": "תמונת ברירת מחדל לפוסטים",
+            "name": "placeholder_thumbnail",
+            "type": "image",
+            "value": null,
+            "instructions": "תמונה זו תופיע כאשר לפוסט אין \"וידאו ראשי\" או \"תמונה ראשית\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-site-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1515401670
+}

@@ -1,0 +1,22 @@
+@import "../../../scoop/assets/css/rtl.min.css";
+
+/* Your CSS code goes here
+-------------------------------------- */
+
+/* Subcategory Menu */
+
+nav {
+    float: right;
+}
+
+form.wpcf7-form {
+    direction: rtl;
+    display: flex;
+}
+.choosing-items {
+    direction: ltr;
+}
+
+#sidebar{
+    display: none;
+}

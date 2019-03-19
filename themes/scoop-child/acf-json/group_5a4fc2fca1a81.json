@@ -1,0 +1,43 @@
+{
+    "key": "group_5a4fc2fca1a81",
+    "title": "Load ACF_HEAD",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "fields": [
+        {
+            "key": "field_5a4fc2fce8615",
+            "label": "Enable ACF Front End Form",
+            "name": "enable_acf_head",
+            "type": "true_false",
+            "instructions": "סימון זה נחוץ רק בעמוד שבו מוצג טופס חיצוני של ACF",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "טען acf_head",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "modified": 1516834630
+}

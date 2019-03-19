@@ -1,0 +1,1 @@
+[25-Nov-2017 01:14:28 UTC] PHP Fatal error:  Call to undefined function plugin_basename() in /home/landcloudzone/public_html/wp-content/plugins/contact-form-7/wp-contact-form-7.php on line 19

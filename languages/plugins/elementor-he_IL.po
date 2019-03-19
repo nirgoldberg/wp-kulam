@@ -1,0 +1,3937 @@
+# Translation of Plugins - Elementor Page Builder - Stable (latest release) in Hebrew
+# This file is distributed under the same license as the Plugins - Elementor Page Builder - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-07-03 13:44:21+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: he_IL\n"
+"Project-Id-Version: Plugins - Elementor Page Builder - Stable (latest release)\n"
+
+#: modules/history/module.php:61
+msgid "All Content"
+msgstr "כל התוכן"
+
+#: modules/history/module.php:60
+msgid "Style Reset"
+msgstr "עיצוב אופס"
+
+#: modules/history/module.php:59
+msgid "Style Pasted"
+msgstr "עיצוב הודבק"
+
+#: includes/widgets/video.php:346
+msgid "Logo"
+msgstr "לוגו"
+
+#: includes/widgets/video.php:334
+msgid "Modest Branding"
+msgstr "להסתיר לוגו"
+
+#: includes/widgets/video.php:320
+msgid "Video Info"
+msgstr "פרטי וידאו"
+
+#: includes/widgets/video.php:125 includes/widgets/video.php:146
+#: includes/widgets/video.php:167 includes/widgets/video.php:188
+msgid "URL"
+msgstr "כתובת URL"
+
+#: includes/widgets/video.php:117
+msgid "Self Hosted"
+msgstr "אחסון עצמי"
+
+#: includes/widgets/video.php:116
+msgid "Dailymotion"
+msgstr "Dailymotion"
+
+#: includes/widgets/video.php:110
+msgid "Source"
+msgstr "מקור"
+
+#: includes/widgets/button.php:255
+msgid "Button ID"
+msgstr "ID כפתור"
+
+#: includes/widgets/audio.php:185
+msgid "Artwork"
+msgstr "תמונת שיר"
+
+#: includes/settings/settings.php:382
+msgid "Mobile Breakpoint"
+msgstr "נקודת שבירה למובייל"
+
+#: includes/settings/settings.php:368
+msgid "Tablet Breakpoint"
+msgstr "נקודת שבירה לטאבלט"
+
+#: includes/managers/elements.php:346
+msgid "WooCommerce"
+msgstr "ווקומרס"
+
+#: includes/managers/elements.php:342
+msgid "Site"
+msgstr "אתר"
+
+#: includes/managers/elements.php:335
+msgid "Pro"
+msgstr "פרו"
+
+#: includes/editor.php:662
+msgid "Got It"
+msgstr "הבנתי"
+
+#: includes/editor.php:661
+msgid "Now you can access all editing actions using right click."
+msgstr "מעכשיו ניתן לגשת לכפתורי העריכה באמצעות לחצן ימני בעכבר."
+
+#: includes/editor.php:660
+msgid "Meet Right Click"
+msgstr "הכירו את הלחצן ימני"
+
+#: includes/editor.php:656
+msgid "Copy All Content"
+msgstr "העתק את כל התוכן"
+
+#: includes/editor.php:653
+msgid "Save as a Global"
+msgstr "שמירה כוידג'ט גלובלי"
+
+#: includes/editor.php:652
+msgid "Reset Style"
+msgstr "איפוס עיצוב"
+
+#: includes/editor.php:650
+msgid "Copy Style"
+msgstr "העתק עיצוב"
+
+#: includes/editor.php:648
+msgid "Copy"
+msgstr "העתק"
+
+#: includes/editor-templates/panel.php:81
+msgid "Preview for %s"
+msgstr "תצודה מקדימה עבור %s"
+
+#: includes/editor-templates/global.php:31
+msgid "Drag widget here"
+msgstr "גרור וידג'ט לכאן"
+
+#: includes/admin.php:499
+msgid "Wait! Don't deactivate Elementor. You have to activate both Elementor and Elementor Pro in order for the plugin to work."
+msgstr "עצור! אל תכבה את אלמנטור. חייבים להפעיל את אלמנטור ואת אלמנטור פרו כדי שהתוספים האלו יעבדו."
+
+#: includes/admin.php:497
+msgid "I have Elementor Pro"
+msgstr "יש לי אלמנטור פרו"
+
+#: includes/admin.php:137
+msgid "Back to WordPress Editor"
+msgstr "חזרה ללוח הבקרה של וורדפרס"
+
+#. translators: %s: Document title
+#: core/documents-manager.php:321
+msgid "Elementor %s"
+msgstr "אלמנטור %s"
+
+#. translators: %s: Template type label.
+#: includes/template-library/sources/local.php:1238
+msgid "Add New %s"
+msgstr "הוספת %s חדש"
+
+#. translators: %d: Number of rows
+#: includes/utils.php:246
+msgid "%d row affected."
+msgid_plural "%d rows affected."
+msgstr[0] "שורה %d הושפעה."
+msgstr[1] "%d שורות הושפעו."
+
+#: modules/page-templates/module.php:145
+msgctxt "Page Template"
+msgid "Elementor Full Width"
+msgstr "אלמנטור רוחב מלא"
+
+#: modules/page-templates/module.php:144
+msgctxt "Page Template"
+msgid "Elementor Canvas"
+msgstr "אלמנטור קאנבאס"
+
+#: includes/elements/column.php:312 includes/elements/column.php:383
+#: includes/elements/section.php:615 includes/elements/section.php:686
+#: includes/widgets/image-box.php:297 includes/widgets/image-box.php:351
+#: includes/widgets/image.php:310 includes/widgets/image.php:344
+msgid "Opacity"
+msgstr "שקיפות"
+
+#: core/base/module.php:122 core/base/module.php:135 includes/plugin.php:403
+#: includes/plugin.php:416
+msgid "Something went wrong."
+msgstr "משהו השתבש."
+
+#: includes/widgets/image.php:267
+msgid "Max Width"
+msgstr "רוחב מרבי"
+
+#: includes/widgets/image-carousel.php:382
+#: includes/widgets/image-carousel.php:444
+msgid "Position"
+msgstr "מיקום"
+
+#: includes/template-library/sources/local.php:249
+msgid "Templates Help You <span>Work Efficiently</span>"
+msgstr "הטמפלטים עוזרים <span>לעבוד ביעילות</span>"
+
+#: includes/template-library/sources/local.php:237
+msgid "New Template"
+msgstr "טמפלט חדש"
+
+#. translators: %s: Element type.
+#. translators: %s: Section label
+#: includes/editor.php:622 includes/elements/section.php:231
+msgid "Delete %s"
+msgstr "מחק %s"
+
+#. translators: 1: Elementor, 2: Link to plugin review
+#: includes/admin.php:421
+msgid "Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!"
+msgstr "אהבתם את %1$s? אנא השאירו לנו דירוג %2$s. נודה לכם על תמיכתכם!"
+
+#: includes/settings/settings.php:123
+msgid "Knowledge Base"
+msgstr "בסיס ידע"
+
+#: modules/page-templates/module.php:311
+msgid "This template includes the header, full-width content and footer"
+msgstr "תבנית זו כוללת הדר, פוטר ותוכן ברוחב מלא"
+
+#: modules/page-templates/module.php:298
+msgid "No header, no footer, just Elementor"
+msgstr "בלי הדר, בלי פוטר, רק אלמנטור"
+
+#: modules/page-templates/module.php:285
+msgid "Default Page Template from your theme"
+msgstr "תבנית עמוד ברירת המחדל של תבנית העיצוב שלך"
+
+#: modules/page-templates/module.php:274
+msgid "Page Layout"
+msgstr "פריסת עמוד"
+
+#: modules/history/views/revisions-panel-template.php:49
+msgid "Current"
+msgstr "נוכחי"
+
+#: includes/widgets/video.php:823
+msgid "Play Video"
+msgstr "נגן וידאו"
+
+#: includes/widgets/icon-list.php:101
+msgid "Inline"
+msgstr "בתוך השורה"
+
+#: includes/widgets/counter.php:166
+msgid "Separator"
+msgstr "מפריד"
+
+#: includes/template-library/sources/local.php:1234
+msgid "Add templates and reuse them across your website. Easily export and import them to any other project, for an optimized workflow."
+msgstr "הוסף טמפלטים והשתמש בהם ברחבי האתר. ניתן לייצא ולייבא טמפלטים בקלות לכל פרויקט אחר, עבור זרימת עבודה אופטימאלית."
+
+#. translators: %s: Template type label.
+#: includes/template-library/sources/local.php:1231
+msgid "Create Your First %s"
+msgstr "צור את הטמפלט הראשון עבור %s"
+
+#: includes/template-library/sources/local.php:1151
+msgid "All"
+msgstr "הכל"
+
+#: includes/template-library/sources/local.php:320
+#: includes/template-library/sources/local.php:332
+#: includes/template-library/sources/local.php:400
+#: includes/template-library/sources/local.php:401
+msgctxt "Template Library"
+msgid "My Templates"
+msgstr "הטמפלטים שלי"
+
+#: includes/template-library/sources/local.php:297
+msgid "Create Template"
+msgstr "יצירת טמפלט"
+
+#: includes/template-library/sources/local.php:294
+msgid "Enter template name (optional)"
+msgstr "הזן שם לטמפלט"
+
+#: includes/template-library/sources/local.php:291
+msgid "Name your template"
+msgstr "השם של הטמפלט"
+
+#: includes/template-library/sources/local.php:266
+msgid "Select the type of template you want to work on"
+msgstr "בחר את הסוג של הטמפלט שאתה רוצה ליצור"
+
+#: includes/template-library/sources/local.php:264
+msgid "Choose Template Type"
+msgstr "בחירת סוג טמפלט"
+
+#: includes/template-library/sources/local.php:250
+msgid "Use templates to create the different pieces of your site, and reuse them with one click whenever needed."
+msgstr "השתמשו בתבניות כדי ליצור את החלקים השונים באתר, ולהשתמש בהם מחדש בקליק אחד בכל מקום."
+
+#: includes/settings/settings.php:170
+msgid "Custom Fonts allows you to add your self-hosted fonts and use them on your Elementor projects to create a unique brand language."
+msgstr "פונטים מותאמים אישית מאפשרים לך להעלות פונטים ישירות לשרת שלך ולהשתמש בהם כדי ליצור את השפה המיתוגית הייחודית לפרויקט שלך בתוך אלמנטור."
+
+#: includes/settings/settings.php:169
+msgid "Add Your Custom Fonts"
+msgstr "הוספת פונטים מותאמים אישית"
+
+#: includes/settings/settings.php:92 includes/settings/settings.php:93
+msgid "Custom Fonts"
+msgstr "פונטים מותאמים אישית"
+
+#: includes/editor.php:572
+msgid "Category"
+msgstr "קטגוריה"
+
+#: includes/editor-templates/templates.php:190
+msgid "More actions"
+msgstr "עוד פעולות"
+
+#: includes/editor-templates/templates.php:114
+msgid "Search Templates:"
+msgstr "חיפוש טמפלטים"
+
+#: includes/editor-templates/templates.php:44 modules/library/module.php:73
+msgid "Pages"
+msgstr "עמודים"
+
+#: includes/editor-templates/templates.php:43 modules/library/module.php:71
+msgid "Blocks"
+msgstr "בלוקים"
+
+#: includes/editor-templates/panel.php:247
+msgid "Dynamic"
+msgstr "דינאמי"
+
+#: includes/editor-templates/global.php:52
+msgid "This tag has no settings."
+msgstr "תגית זו ללא הגדרות"
+
+#: includes/controls/groups/border.php:68
+msgctxt "Border Control"
+msgid "Groove"
+msgstr "חריץ"
+
+#. translators: %s: Document title
+#: core/base/document.php:663 core/settings/page/model.php:126
+#: includes/editor-templates/panel.php:63
+msgid "%s Settings"
+msgstr "הגדרות %s"
+
+#: core/role-manager/role-manager.php:166
+msgid "Want to give access only to content?"
+msgstr "רוצה לאפשר גישה לעריכת התוכן בלבד?"
+
+#: core/role-manager/role-manager.php:131
+msgid "No access to editor"
+msgstr "ללא גישה אל העורך"
+
+#: core/role-manager/role-manager.php:124
+msgid "Role Excluded"
+msgstr "תפקיד לא נכלל"
+
+#: core/role-manager/role-manager.php:88
+msgid "Manage What Your Users Can Edit In Elementor"
+msgstr "נהל את מה שהמשתמשים יכולים לערוך באמצעות אלמנטור"
+
+#: core/role-manager/role-manager.php:30
+msgid "Role Manager"
+msgstr "ניהול תפקידים"
+
+#: core/dynamic-tags/tag.php:103
+msgid "Fallback"
+msgstr "תוכן גיבוי"
+
+#: core/document-types/post.php:196
+msgid "Featured Image"
+msgstr "תמונה ראשית"
+
+#: core/document-types/post.php:129
+msgid "Body Style"
+msgstr "סגנון עמוד"
+
+#: core/base/document.php:110
+msgid "Document"
+msgstr "מסמך"
+
+#: core/ajax-manager.php:168
+msgid "Action not found."
+msgstr "פעולה לא זוהתה."
+
+#: core/ajax-manager.php:143 includes/template-library/manager.php:532
+msgid "Post not found."
+msgstr "פוסט לא נמצא."
+
+#: core/ajax-manager.php:136
+msgid "Actions and Post ID are required."
+msgstr "דרושים רצפי פעולות ומזהה (ID) רשומה."
+
+#: core/ajax-manager.php:131
+msgid "Token Expired."
+msgstr "פג תוקף הקישור."
+
+#: core/ajax-manager.php:113
+msgid "Use `elementor/ajax/register_actions` hook to register ajax action."
+msgstr "השתמשו בהוק `elementor/ajax/register_actions` כדי לרשום פעולות ajax."
+
+#: includes/widgets/image-carousel.php:145
+msgid "Set how many slides are scrolled per swipe."
+msgstr "הגדר כמה שקופיות יגללו בכל החלקה."
+
+#: includes/controls/groups/background.php:304
+msgid "Note: Attachment Fixed works only on desktop."
+msgstr "שים לב: תכונה זו עובדת היטב רק במצב דסקטופ."
+
+#: includes/admin.php:591
+msgid "Create New Post"
+msgstr "צור פוסט חדש"
+
+#: includes/fonts.php:80
+msgid "Google Early Access"
+msgstr "גוגל גישה מוקדמת"
+
+#: includes/editor.php:644
+msgid "Unknown Error"
+msgstr "שגיאה לא ידועה"
+
+#: includes/editor.php:639
+msgid "Saving has been disabled until you’re reconnected."
+msgstr "שמירה אוטומטית הופסקה עד שיתחדש החיבור."
+
+#: includes/editor.php:642
+msgid "Server Error"
+msgstr "שגיאת שרת"
+
+#: includes/editor.php:643
+msgid "Connection Lost"
+msgstr "חיבור אבד"
+
+#: modules/history/revisions-manager.php:375
+msgid "There is an autosave of this post that is more recent than the version below. You can restore the saved data fron the Revisions panel"
+msgstr "קיימת גרסה חדשה יותר של הפוסט שנשמרה אוטומטית. באפשרותך לשחזר את הנתונים שנשמרו באזור היסטוריית הגרסאות."
+
+#: modules/history/revisions-manager.php:374
+msgid "Restore Auto Saved Data"
+msgstr "שחזר מידע שנשמר אוטומטית"
+
+#: modules/history/revisions-manager.php:373
+msgid "Restore"
+msgstr "שחזר"
+
+#: modules/history/revisions-manager.php:372
+msgid "Current Version"
+msgstr "גרסה נוכחית"
+
+#: modules/history/revisions-manager.php:369
+msgid "Edit Published"
+msgstr "עריכת תוכן קיים"
+
+#: modules/history/revisions-manager.php:368
+msgid "Edit Draft"
+msgstr "עריכת טיוטה"
+
+#: includes/widgets/video.php:388
+msgid "When you turn on privacy mode, YouTube won't store information about visitors on your website unless they play the video."
+msgstr "כשמפעילים מצב פרטיות, יוטיוב לא מאחסן מידע על גולשי האתר, אלא אם הגולש מפעיל את הסרטון."
+
+#: includes/widgets/video.php:386
+msgid "Privacy Mode"
+msgstr "מצב פרטיות"
+
+#: includes/widgets/shortcode.php:106
+msgid "Enter your shortcode"
+msgstr "הזן שורטקוד"
+
+#: includes/widgets/image.php:159
+msgid "Enter your image caption"
+msgstr "הזן תיאור תמונה"
+
+#: includes/widgets/html.php:97
+msgid "Enter your code"
+msgstr "הזן קוד"
+
+#: includes/widgets/heading.php:114
+msgid "Add Your Heading Text Here"
+msgstr "כתוב את הכותרת כאן"
+
+#: includes/widgets/alert.php:302 includes/widgets/alert.php:334
+msgid "Dismiss alert"
+msgstr "הסתר התראה"
+
+#: includes/widgets/alert.php:122 includes/widgets/icon-box.php:157
+#: includes/widgets/image-box.php:135
+msgid "Enter your description"
+msgstr "הזן תיאור"
+
+#: includes/widgets/alert.php:112
+msgid "This is an Alert"
+msgstr "זו התראה"
+
+#: includes/widgets/accordion.php:157 includes/widgets/toggle.php:154
+msgid "Active Icon"
+msgstr "אייקון מופעל"
+
+#. translators: 1: Editing date, 2: Author display name
+#: core/base/document.php:876
+msgid "Last edited on %1$s by %2$s"
+msgstr "נערך לאחרונה ב-%1$s על ידי %2$s"
+
+#. translators: 1: Saving date, 2: Author display name
+#: core/base/document.php:873
+msgid "Draft saved on %1$s by %2$s"
+msgstr "טיוטה נשמרה ב-%1$s על ידי %2$s"
+
+#: core/base/document.php:868
+msgctxt "revision date format"
+msgid "M j, H:i"
+msgstr "M j, H:i"
+
+#: includes/editor.php:638
+msgid "Dismiss"
+msgstr "הסתר"
+
+#: includes/editor.php:637
+msgid "View All Revisions"
+msgstr "הצג את כל הגרסאות"
+
+#: includes/editor.php:636
+msgid "Have a look"
+msgstr "העף מבט"
+
+#: includes/editor.php:635
+msgid "Keep Editing"
+msgstr "המשך לערוך"
+
+#: includes/editor.php:634
+msgid "This is just a draft. Play around and when you're done - click update."
+msgstr "זו רק טיוטה. ניתן לשנות את התוכן והעיצוב, ובסיום ניתן ללחוץ על כפתור העדכון."
+
+#. translators: %s: the document title.
+#: core/base/document.php:75
+msgid "Hurray! Your %s is live."
+msgstr "הידד! %s עכשיו באויר."
+
+#: includes/editor.php:633
+msgid "Submit"
+msgstr "שלח"
+
+#: includes/editor.php:632
+msgid "Update"
+msgstr "עדכן"
+
+#: includes/editor.php:628
+msgid "Published"
+msgstr "פורסם"
+
+#: includes/editor.php:597
+msgid "Proceed Anyway"
+msgstr "המשך בכל זאת"
+
+#: includes/editor.php:596
+msgid "Your browser isn't compatible with all of Elementor's editing features. We recommend you switch to another browser like Chrome or Firefox."
+msgstr "הדפדפן שלך אינו תואם לכל תכונות העריכה של אלמנטור. אנו ממליצים לעבור לדפדפן אחר כגון כרום או פיירפוקס."
+
+#: includes/editor.php:595
+msgid "Your browser isn't compatible"
+msgstr "הדפדפן אינו תואם"
+
+#: includes/editor.php:590
+msgid "No Results Found"
+msgstr "לא נמצאו תוצאות"
+
+#: includes/editor.php:589
+msgid "Please make sure your search is spelled correctly or try a different words."
+msgstr "יש לוודא שהאיות נכון או לנסות מילים אחרות."
+
+#: includes/editor.php:588
+msgid "No Favorite Templates"
+msgstr "אין תבניות מועדפות"
+
+#: includes/editor.php:587
+msgid "You can mark any pre-designed template as a favorite."
+msgstr "ניתן לסמן כל תבנית שעוצבה מראש כתבנית מועדפת."
+
+#: includes/editor.php:575
+msgid "Import Document Settings"
+msgstr "יבוא הגדרות מסמך"
+
+#: includes/editor.php:564
+msgid "Show Panel"
+msgstr "הצג פאנל"
+
+#: includes/editor.php:546
+msgid "Dashboard Settings"
+msgstr "הגדרות לוח בקרה"
+
+#: includes/editor-templates/templates.php:252
+msgid "Select File"
+msgstr "בחר קובץ"
+
+#: includes/editor-templates/templates.php:251
+msgid "or"
+msgstr "או"
+
+#: includes/editor-templates/templates.php:250
+msgid "Drag & drop your .JSON or .zip template file"
+msgstr "גרור ושחרר קובץ .JSON או .zip של הטמפלט"
+
+#: includes/editor-templates/templates.php:249
+msgid "Import Template to Your Library"
+msgstr "יבוא תבנית לספריה"
+
+#: includes/editor-templates/templates.php:240
+#: includes/editor-templates/templates.php:256
+#: includes/editor-templates/templates.php:269 includes/widgets/button.php:138
+#: includes/widgets/button.php:139
+msgid "Click here"
+msgstr "לחץ כאן"
+
+#: includes/editor-templates/templates.php:239
+#: includes/editor-templates/templates.php:255
+#: includes/editor-templates/templates.php:268
+msgid "Want to learn more about the Elementor library?"
+msgstr "רוצים ללמוד עוד על ספריית אלמנטור?"
+
+#: includes/editor-templates/templates.php:168
+msgid "Favorite"
+msgstr "מועדף"
+
+#: includes/editor-templates/templates.php:134
+msgid "Creation Date"
+msgstr "תאריך יצירה"
+
+#: includes/editor-templates/templates.php:130
+msgid "Created By"
+msgstr "מאת"
+
+#: includes/editor-templates/templates.php:115
+msgid "Search"
+msgstr "חיפוש"
+
+#: includes/editor-templates/templates.php:106
+msgid "My Favorites"
+msgstr "מועדפים"
+
+#: includes/editor-templates/templates.php:87
+msgid "Popular"
+msgstr "פופולארי"
+
+#: includes/editor-templates/templates.php:85
+msgid "Trend"
+msgstr "טרנד"
+
+#: includes/editor-templates/templates.php:83
+msgid "New"
+msgstr "חדש"
+
+#: includes/editor-templates/templates.php:29
+#: includes/editor-templates/templates.php:30
+msgid "Import Template"
+msgstr "יבוא תבנית"
+
+#: includes/editor-templates/repeater.php:22
+msgid "Remove"
+msgstr "הסר"
+
+#: includes/editor-templates/repeater.php:18 includes/editor.php:647
+msgid "Duplicate"
+msgstr "שכפל"
+
+#: includes/editor-templates/repeater.php:13
+msgid "Drag & Drop"
+msgstr "גרור ושחרר"
+
+#: includes/editor-templates/panel.php:142
+#: includes/editor-templates/panel.php:143 includes/editor.php:565
+msgid "Hide Panel"
+msgstr "הסתר פאנל"
+
+#: includes/editor-templates/panel.php:132 includes/editor.php:654
+msgid "Save as Template"
+msgstr "שמור כתבנית"
+
+#: includes/editor-templates/panel.php:128
+msgid "Save Draft"
+msgstr "שמור טיוטה"
+
+#: includes/editor-templates/panel.php:112
+#: includes/editor-templates/panel.php:114
+msgid "Save Options"
+msgstr "אפשרויות שמירה"
+
+#: includes/editor-templates/panel.php:107 includes/editor.php:629
+msgid "Publish"
+msgstr "פרסם"
+
+#: includes/editor-templates/panel.php:95
+#: includes/editor-templates/panel.php:98
+msgid "Preview Changes"
+msgstr "הצג שינויים"
+
+#: includes/editor-templates/panel.php:31
+msgid "Exit To Dashboard"
+msgstr "יציאה ללוח הבקרה"
+
+#: includes/editor-templates/panel-elements.php:33
+msgid "Search Widget:"
+msgstr "חיפוש וידג'ט:"
+
+#: includes/controls/popover-toggle.php:72
+#: includes/controls/popover-toggle.php:74
+msgid "Back to default"
+msgstr "חזרה לברירת מחדל"
+
+#: includes/controls/groups/typography.php:166
+msgctxt "Typography Control"
+msgid "Line Through"
+msgstr "קו חוצה"
+
+#: includes/controls/groups/typography.php:165
+msgctxt "Typography Control"
+msgid "Overline"
+msgstr "קו עליון"
+
+#: includes/controls/groups/typography.php:164
+msgctxt "Typography Control"
+msgid "Underline"
+msgstr "קו תחתון"
+
+#: includes/controls/groups/typography.php:159
+msgctxt "Typography Control"
+msgid "Decoration"
+msgstr "עיטור"
+
+#: includes/controls/dimensions.php:128
+msgid "Unlinked values"
+msgstr "ערכים לא מקושרים"
+
+#: includes/admin.php:706
+msgid "Blog"
+msgstr "בלוג"
+
+#: includes/admin.php:655
+msgid "(opens in a new window)"
+msgstr "(נפתח בעמוד חדש)"
+
+#: includes/admin.php:636
+msgid "News & Updates"
+msgstr "חדשות ועדכונים"
+
+#: includes/admin.php:625
+msgctxt "Dashboard Overview Widget Recently Date"
+msgid "M jS"
+msgstr "j בF"
+
+#: includes/admin.php:619
+msgid "Recently Edited"
+msgstr "נערך לאחרונה"
+
+#: includes/admin.php:588
+msgid "Create New Page"
+msgstr "צור עמוד חדש"
+
+#: includes/admin.php:550
+msgid "Elementor Overview"
+msgstr "סקירת אלמנטור"
+
+#: includes/admin.php:384
+msgid "Update Elementor Now"
+msgstr "עדכן את אלמנטור עכשיו"
+
+#: core/document-types/post.php:184
+msgid "Excerpt"
+msgstr "תיאור"
+
+#: includes/template-library/sources/local.php:481
+#: includes/template-library/sources/local.php:545
+#: includes/template-library/sources/local.php:674
+#: modules/history/revisions-manager.php:246
+#: modules/history/revisions-manager.php:276
+msgid "Access denied."
+msgstr "גישה נדחתה."
+
+#: includes/settings/settings.php:281
+msgid "Disable Default Fonts"
+msgstr "השבת פונטים ברירת מחדל"
+
+#: includes/widgets/accordion.php:323 includes/widgets/toggle.php:343
+msgid "End"
+msgstr "סיום"
+
+#: includes/widgets/accordion.php:319 includes/widgets/toggle.php:339
+msgid "Start"
+msgstr "התחלה"
+
+#: includes/editor.php:568
+msgid "Type Here"
+msgstr "הקלד כאן"
+
+#: includes/editor.php:667
+msgid "Reload Page"
+msgstr "טעינה מחדש"
+
+#: includes/editor.php:669
+msgid "Your session has expired. Please reload the page to continue editing."
+msgstr "פג תוקף הסשן. נא לטעון מחדש את העמוד כדי להמשיך לערוך."
+
+#: includes/editor.php:668
+msgid "Timeout"
+msgstr "נגמר הזמן"
+
+#: includes/editor.php:604
+msgid "We're sorry, but something went wrong. Click on 'Learn more' and follow each of the steps to quickly solve it."
+msgstr "אנחנו מצטערים אך משהו השתבש. לפתרון מהיר יש ללחוץ על 'מידע נוסף' ולבצע את כל השלבים."
+
+#: includes/editor.php:603
+msgid "The preview could not be loaded"
+msgstr "לא ניתן לטעון תצוגה מקדימה"
+
+#: includes/editor.php:547
+msgid "Default Colors"
+msgstr "צבעי ברירת מחדל"
+
+#: includes/admin.php:370
+msgid "Update Notification"
+msgstr "התראת עדכון"
+
+#: includes/editor.php:671
+msgid "Unknown Value"
+msgstr "ערך לא ידוע"
+
+#. Author URI of the plugin/theme
+msgid "https://elementor.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash"
+msgstr "https://elementor.com/?utm_source=wp-plugins&utm_campaign=author-uri&utm_medium=wp-dash"
+
+#. Plugin URI of the plugin/theme
+msgid "https://elementor.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
+msgstr "https://elementor.com/?utm_source=wp-plugins&utm_campaign=plugin-uri&utm_medium=wp-dash"
+
+#: modules/history/views/history-panel-template.php:27
+msgid "Once you start working, you'll be able to redo / undo any action you make in the editor."
+msgstr "לאחר שתתחיל לעבוד, תוכל לבצע שוב / לבטל כל פעולה שתבצע בעורך."
+
+#: modules/history/views/history-panel-template.php:26
+msgid "No History Yet"
+msgstr "אין עדיין היסטוריה"
+
+#: modules/history/views/history-panel-template.php:19
+#: modules/history/views/history-panel-template.php:28
+msgid "Switch to Revisions tab for older versions"
+msgstr "עבור אל לשונית גרסאות עבור גרסאות ישנות יותר"
+
+#: modules/history/views/history-panel-template.php:10
+#: modules/history/views/revisions-panel-template.php:26
+msgid "Revisions"
+msgstr "גרסאות"
+
+#: includes/editor-templates/templates.php:137
+#: modules/history/views/history-panel-template.php:9
+msgid "Actions"
+msgstr "פעולות"
+
+#: modules/history/module.php:57
+msgid "Moved"
+msgstr "הועבר"
+
+#: modules/history/module.php:54
+msgid "Added"
+msgstr "התווסף"
+
+#: includes/editor.php:666
+msgid "Documentation"
+msgstr "תיעוד"
+
+#: includes/editor-templates/panel.php:91
+#: includes/editor-templates/panel.php:93 modules/history/module.php:52
+msgid "History"
+msgstr "היסטוריה"
+
+#: core/settings/general/model.php:168 includes/widgets/video.php:661
+msgid "UI Hover Color"
+msgstr "צבע פקדים במעבר"
+
+#: core/settings/general/model.php:161 includes/widgets/video.php:650
+msgid "UI Color"
+msgstr "צבע פקדים"
+
+#: modules/history/module.php:56
+msgid "Edited"
+msgstr "נערך"
+
+#: modules/history/module.php:58
+msgid "Editing Started"
+msgstr "עריכה החלה"
+
+#: includes/widgets/video.php:611
+msgctxt "Text Shadow Control"
+msgid "Shadow"
+msgstr "צל"
+
+#: includes/widgets/video.php:287
+msgid "Mute"
+msgstr "השתק"
+
+#: includes/template-library/sources/local.php:890
+msgid "Choose an Elementor template JSON file or a .zip archive of Elementor templates, and add them to the list of templates available in your library."
+msgstr "בחר קובץ JSON או קובץ ZIP של הטמפלטים והוסף אותם לרשימת הטמפלטים הזמינים בספריה."
+
+#: includes/settings/settings.php:402
+msgid "You can customize the lightbox design by going to: Top-left hamburger icon > Global Settings > Lightbox."
+msgstr "ניתן להתאים אישית את עיצוב הלייטבוקס על ידי מעבר אל העורך > כפתור תפריט > הגדרות גלובליות > לייטבוקס"
+
+#: includes/controls/groups/text-shadow.php:61
+#: includes/controls/groups/text-shadow.php:88
+msgctxt "Text Shadow Control"
+msgid "Text Shadow"
+msgstr "טקסט מוצלל"
+
+#: core/settings/general/model.php:148
+msgid "Enable In Editor"
+msgstr "הפעל עורך"
+
+#: core/settings/general/model.php:144 includes/settings/settings.php:401
+msgid "Open all image links in a lightbox popup window. The lightbox will automatically work on any link that leads to an image file."
+msgstr "פתח את כל התמונות באמצעות אפקט לייטבוקס. אפקט הלייטבוקס יעבוד אוטומטית על כל תמונה עם קישור אל קובץ המדיה."
+
+#: core/settings/general/model.php:141 includes/settings/settings.php:396
+msgid "Image Lightbox"
+msgstr "לייטבוקס לתמונות"
+
+#: core/settings/general/model.php:67
+msgid "Global Settings"
+msgstr "הגדרות גלובליות"
+
+#: includes/settings/tools.php:258
+msgid "Please Note: We do not recommend updating to a beta version on production sites."
+msgstr "שים לב: אנחנו לא ממליצים לעדכן לגרסת בטא על אתר פעיל."
+
+#: includes/settings/tools.php:250
+msgid "Beta Tester"
+msgstr "בטא טסטר"
+
+#: includes/settings/tools.php:243
+msgid "Turn-on Beta Tester, to get notified when a new beta version of Elementor or E-Pro is available. The Beta version will not install automatically. You always have the option to ignore it."
+msgstr "הפעל מצב בטא טסטר, כדי לקבל התראות מתי שגרסאות בטא חדשות זמינות להתנסות עבור אלמנטור ואלמנטור פרו. גרסת בטא לא תותקן אוטומטית. אתה תמיד תוכל להתעלם מהתראה זו."
+
+#: includes/settings/tools.php:241
+msgid "Become a Beta Tester"
+msgstr "הצטרף לבטא טסטר"
+
+#: includes/settings/tools.php:235
+msgid "Warning: Please backup your database before making the rollback."
+msgstr "זהירות: אנא גבה את מסד הנתונים לפני החזרה לאחור."
+
+#. translators: %s: Elementor previous stable version
+#: includes/settings/tools.php:231
+msgid "Reinstall v%s"
+msgstr "התקנה מחדש גרסה %s"
+
+#: includes/settings/tools.php:223
+msgid "Rollback Version"
+msgstr "חזרה לגרסה קודמת"
+
+#. translators: %s: Elementor version
+#: includes/settings/tools.php:214
+msgid "Experiencing an issue with Elementor version %s? Rollback to a previous version before the issue appeared."
+msgstr "נתקל בבעיה עם גירסה %s של אלמנטור? עבור אל גרסה קודמת לפני שהבעיה הופיעה."
+
+#: includes/settings/tools.php:207
+msgid "Version Control"
+msgstr "ניהול גרסאות"
+
+#: includes/settings/settings.php:436
+msgid "Switch Editor Loader Method"
+msgstr "החלף שיטת טעינת אלמנטור"
+
+#: includes/settings/settings.php:410
+msgid "Integrations"
+msgstr "אינטגרציות"
+
+#: core/settings/general/model.php:113 includes/settings/settings.php:342
+msgid "Sets the default space between widgets (Default: 20)"
+msgstr "הגדרת רווח ברירת מחדל בין וידג'טים (ברירת מחדל: 20)"
+
+#: includes/settings/settings.php:334
+msgid "Space Between Widgets"
+msgstr "מרווח בין וידג'טים"
+
+#: includes/admin.php:58 includes/rollback.php:162
+#: includes/settings/tools.php:115 includes/settings/tools.php:210
+msgid "Rollback to Previous Version"
+msgstr "חזרה לגרסה קודמת"
+
+#: includes/elements/column.php:737 includes/elements/section.php:1197
+#: includes/widgets/common.php:133
+msgid "Animation Delay"
+msgstr "עיכוב אנימציה"
+
+#: includes/elements/column.php:694 includes/elements/section.php:1154
+#: includes/widgets/common.php:90
+msgid "Z-Index"
+msgstr "Z-Index"
+
+#: includes/elements/column.php:258 includes/elements/column.php:414
+#: includes/elements/column.php:521 includes/elements/section.php:561
+#: includes/elements/section.php:717 includes/elements/section.php:823
+#: includes/widgets/common.php:216 includes/widgets/common.php:320
+#: includes/widgets/google-maps.php:227 includes/widgets/image-box.php:315
+#: includes/widgets/image.php:370
+msgid "Transition Duration"
+msgstr "אורך המעבר"
+
+#: core/settings/general/model.php:109 includes/elements/column.php:178
+msgid "Widgets Space"
+msgstr "מרווח וידג'טים"
+
+#. translators: %s: Section label
+#: includes/elements/section.php:221
+msgid "Add %s"
+msgstr "הוספת %s"
+
+#: includes/editor.php:577
+msgid "Attention: Importing may override previous settings."
+msgstr "שימו לב: ייבוא זה יכול לדרוס את ההגדרות הקודמות."
+
+#: includes/editor.php:576
+msgid "Do you want to also import the document settings of the template?"
+msgstr "האם לייבא גם את הגדרות המסמך של הטמפלט?"
+
+#: includes/controls/url.php:110
+msgid "Add nofollow"
+msgstr "הוספת nofollow"
+
+#: includes/controls/url.php:106
+msgid "Open in new window"
+msgstr "פתיחה בלשונית חדשה"
+
+#: includes/controls/url.php:99
+msgid "Link Options"
+msgstr "אפשרויות קישור"
+
+#: includes/controls/groups/box-shadow.php:75
+msgctxt "Box Shadow Control"
+msgid "Outline"
+msgstr "חיצוני"
+
+#: includes/controls/groups/box-shadow.php:72
+msgctxt "Box Shadow Control"
+msgid "Position"
+msgstr "מיקום"
+
+#. translators: %s: Element name.
+#. translators: %s: Section label
+#: includes/editor.php:541 includes/elements/section.php:226
+msgid "Edit %s"
+msgstr "עריכת %s"
+
+#: includes/admin.php:57
+msgid "Are you sure you want to reinstall previous version?"
+msgstr "האם אתה בטוח שאתה רוצה להתקין מחדש את הגרסה הקודמת?"
+
+#. translators: %s: WordPress version
+#: elementor.php:97
+msgid "Elementor requires WordPress version %s+. Because you are using an earlier version, the plugin is currently NOT RUNNING."
+msgstr "אלמנטור דורש גרסה %s+ של וורדפרס. בגלל שאתה משתמש בגרסה ישנה יותר, התוסף אינו פעיל כרגע."
+
+#: includes/settings/settings.php:431
+msgid "Use internal CSS that is embedded in the head of the page. For troubleshooting server configuration conflicts and managing development environments."
+msgstr "השתמש ב CSS פנימי שיוטמע ב head של העמוד. מיועד עבור קונפליקטים עם קונפיגורציית שרת או  עבודה על סביבת פיתוח."
+
+#: includes/settings/settings.php:428
+msgid "Use external CSS files for all generated stylesheets. Choose this setting for better performance (recommended)."
+msgstr "השתמש בקבצי CSS חיצוניים עבור כל הסגנונות שמתווספים. בחר באפשרות זו לביצועים טובים יותר (מומלץ)."
+
+#: includes/settings/settings.php:425
+msgid "Internal Embedding"
+msgstr "הטמעה פנימית"
+
+#: includes/settings/settings.php:424
+msgid "External File"
+msgstr "קובץ חיצוני"
+
+#: includes/settings/settings.php:419
+msgid "CSS Print Method"
+msgstr "שיטת הדפסת CSS"
+
+#: includes/settings/settings.php:443
+msgid "For troubleshooting server configuration conflicts."
+msgstr "עבור קונפליקטים עם קונפיגורציות שרת מסויימות."
+
+#: core/debug/inspector.php:39 includes/settings/settings.php:441
+#: includes/settings/tools.php:256
+msgid "Enable"
+msgstr "לאפשר"
+
+#: core/debug/inspector.php:38 includes/settings/settings.php:440
+#: includes/settings/tools.php:255
+msgid "Disable"
+msgstr "לכבות"
+
+#: core/base/document.php:398
+msgid "Status"
+msgstr "סטטוס"
+
+#: includes/widgets/spacer.php:108 includes/widgets/text-editor.php:282
+msgid "Space"
+msgstr "מרווח"
+
+#: includes/widgets/text-editor.php:120 includes/widgets/text-editor.php:197
+msgid "Drop Cap"
+msgstr "אות פתיח"
+
+#: core/settings/general/model.php:130 includes/settings/settings.php:364
+msgid "Elementor lets you hide the page title. This works for themes that have \"h1.entry-title\" selector. If your theme's selector is different, please enter it above."
+msgstr "באמצעות הגדרות עמוד ניתן להסתיר את כותרת העמוד. זה עובד בדרך כלל עבור רוב התבניות שמשתמשות בסלקטור \"h1.entry-title\". אם התבנית הנוכחית משתמשת בסלקטור שונה, יש להזין אותו כאן."
+
+#: core/settings/general/model.php:127 includes/settings/settings.php:357
+msgid "Page Title Selector"
+msgstr "סלקטור כותרת עמוד"
+
+#: includes/settings/controls.php:162
+#: includes/template-library/sources/local.php:269
+msgid "Select"
+msgstr "בחירה"
+
+#: includes/editor.php:651
+msgid "Paste Style"
+msgstr "הדבק עיצוב"
+
+#: modules/history/module.php:53
+msgid "Template"
+msgstr "תבנית עמוד"
+
+#. translators: %s: Setting page link
+#: core/document-types/post.php:107
+msgid "Not working? You can set a different selector for the title in the <a href=\"%s\" target=\"_blank\">Settings page</a>."
+msgstr "לא עובד? ניתן לבחור סלקטור אחר עבור הכותרת באמצעות <a href=\"%s\" target=\"_blank\">עמוד ההגדרות</a>."
+
+#: core/document-types/post.php:103
+msgid "Hide Title"
+msgstr "להסתיר כותרת"
+
+#: includes/maintenance-mode.php:249
+msgid "Maintenance Mode ON"
+msgstr "מצב תחזוקה מופעל"
+
+#: includes/maintenance-mode.php:218
+msgid "Choose Template"
+msgstr "בחירת תבנית עמוד"
+
+#. translators: %s: Create page URL
+#: includes/maintenance-mode.php:164
+msgid "Select one or go ahead and <a target=\"_blank\" href=\"%s\">create one</a> now."
+msgstr "בחר טמפלט או <a target=\"_blank\" href=\"%s\">צור טמפלט חדש</a> עכשיו."
+
+#: includes/maintenance-mode.php:160
+msgid "To enable maintenance mode you have to set a template for the maintenance mode page."
+msgstr "כדי לאפשר את מצב התחזוקה יש להגדיר טמפלט שיוצג בעמוד."
+
+#: includes/maintenance-mode.php:157 includes/maintenance-mode.php:256
+msgid "Edit Template"
+msgstr "עריכת תבנית עמוד"
+
+#: includes/maintenance-mode.php:210
+msgid "Roles"
+msgstr "תפקידים"
+
+#: includes/maintenance-mode.php:204
+msgid "Logged In"
+msgstr "מחוברים"
+
+#: includes/maintenance-mode.php:198
+msgid "Who Can Access"
+msgstr "מי יכול לגשת"
+
+#: includes/maintenance-mode.php:193
+msgid "Coming Soon returns HTTP 200 code, meaning the site is ready to be indexed."
+msgstr "מצב האתר בבניה מחזיר הודעת HTTP 200 המעיד כי האתר מוכן לאינדוקס."
+
+#: includes/maintenance-mode.php:190
+msgid "Maintenance Mode returns HTTP 503 code, so search engines know to come back a short time later. It is not recommended to use this mode for more than a couple of days."
+msgstr "מצב תחזוקה מחזיר הודעת HTTP 503 על מנת שמנועי חיפוש ידעו לחזור לעמוד בזמן מאוחר יותר. לא מומלץ להשתמש במצב זה יותר מכמה ימים בודדים. "
+
+#: includes/maintenance-mode.php:187
+msgid "Choose between Coming Soon mode (returning HTTP 200 code) or Maintenance Mode (returning HTTP 503 code)."
+msgstr "בחר בין מצב האתר בבניה (מחזיר הודעת HTTP 200) לבין מצב תחזוקה (מחזיר הודעת HTTP 503)."
+
+#: includes/maintenance-mode.php:184
+msgid "Maintenance"
+msgstr "תחזוקה"
+
+#: includes/maintenance-mode.php:183
+msgid "Coming Soon"
+msgstr "האתר בבניה"
+
+#: includes/maintenance-mode.php:182
+msgid "Disabled"
+msgstr "מכובה"
+
+#: includes/maintenance-mode.php:178
+msgid "Choose Mode"
+msgstr "בחירת מצב"
+
+#: includes/maintenance-mode.php:174
+msgid "Set your entire website as MAINTENANCE MODE, meaning the site is offline temporarily for maintenance, or set it as COMING SOON mode, meaning the site is offline until it is ready to be launched."
+msgstr "הגדר את האתר על מצב תחזוקה, כדי שהאתר לא יהיה זמין בצורה זמנית, או הגדר מצב האתר בבניה, כדי שהאתר לא יהיה זמין עד שהוא יושק."
+
+#: includes/maintenance-mode.php:170
+msgid "Maintenance Mode"
+msgstr "מצב תחזוקה"
+
+#: includes/elements/section.php:997
+msgid "Bring to Front"
+msgstr "העבר קדימה"
+
+#: core/settings/general/manager.php:208 core/settings/general/model.php:138
+#: includes/widgets/image-carousel.php:214
+#: includes/widgets/image-gallery.php:156 includes/widgets/image.php:196
+#: includes/widgets/video.php:508 includes/widgets/video.php:626
+msgid "Lightbox"
+msgstr "לייטבוקס"
+
+#: includes/widgets/icon-list.php:182 includes/widgets/toggle.php:225
+msgid "Space Between"
+msgstr "מרווח מפריד"
+
+#: includes/widgets/icon-list.php:174
+msgid "List"
+msgstr "רשימה"
+
+#: includes/shapes.php:208
+msgctxt "Shapes"
+msgid "Book"
+msgstr "ספר"
+
+#: includes/shapes.php:204
+msgctxt "Shapes"
+msgid "Split"
+msgstr "מפוצל"
+
+#: includes/shapes.php:200
+msgctxt "Shapes"
+msgid "Arrow"
+msgstr "חץ"
+
+#: includes/shapes.php:196
+msgctxt "Shapes"
+msgid "Waves Pattern"
+msgstr "תבנית גלים"
+
+#: includes/shapes.php:192
+msgctxt "Shapes"
+msgid "Waves Brush"
+msgstr "מברשת גלים"
+
+#: includes/shapes.php:187
+msgctxt "Shapes"
+msgid "Waves"
+msgstr "גלים"
+
+#: includes/shapes.php:182
+msgctxt "Shapes"
+msgid "Curve Asymmetrical"
+msgstr "עקומה אסימטרית"
+
+#: includes/shapes.php:178
+msgctxt "Shapes"
+msgid "Curve"
+msgstr "עקומה"
+
+#: includes/shapes.php:175
+msgctxt "Shapes"
+msgid "Fan Opacity"
+msgstr "שקיפות מניפה"
+
+#: includes/shapes.php:171
+msgctxt "Shapes"
+msgid "Tilt Opacity"
+msgstr "שקיפות בהטיה"
+
+#: includes/shapes.php:166
+msgctxt "Shapes"
+msgid "Tilt"
+msgstr "הטיה"
+
+#: includes/shapes.php:161
+msgctxt "Shapes"
+msgid "Triangle Asymmetrical"
+msgstr "משולש אסימטרי"
+
+#: includes/shapes.php:157
+msgctxt "Shapes"
+msgid "Triangle"
+msgstr "משולש"
+
+#: includes/shapes.php:152
+msgctxt "Shapes"
+msgid "Pyramids"
+msgstr "פירמידות"
+
+#: includes/shapes.php:149
+msgctxt "Shapes"
+msgid "Zigzag"
+msgstr "זיגזג"
+
+#: includes/shapes.php:143
+msgctxt "Shapes"
+msgid "Clouds"
+msgstr "עננים"
+
+#: includes/shapes.php:137
+msgctxt "Shapes"
+msgid "Drops"
+msgstr "טיפות"
+
+#: includes/shapes.php:133
+msgctxt "Shapes"
+msgid "Mountains"
+msgstr "הרים"
+
+#: includes/elements/section.php:984
+msgid "Invert"
+msgstr "נגטיב"
+
+#: includes/elements/section.php:970
+msgid "Flip"
+msgstr "היפוך"
+
+#: includes/elements/section.php:866
+msgid "Shape Divider"
+msgstr "מפרידון צורה"
+
+#: includes/elements/column.php:575 includes/elements/section.php:1029
+msgid "Note: The following colors won't work if Default Colors are enabled."
+msgstr "שימו לב: הצבעים הבאים לא יעבדו במידה ואפשרות צבעים גלובליים מופעלת."
+
+#: includes/widgets/tabs.php:171
+msgid "Navigation Width"
+msgstr "רוחב ניווט"
+
+#: includes/elements/column.php:243 includes/elements/column.php:368
+#: includes/elements/column.php:486 includes/elements/section.php:546
+#: includes/elements/section.php:671 includes/elements/section.php:788
+#: includes/widgets/button.php:326 includes/widgets/common.php:201
+#: includes/widgets/common.php:285 includes/widgets/google-maps.php:212
+#: includes/widgets/icon-box.php:285 includes/widgets/icon-list.php:378
+#: includes/widgets/icon-list.php:436 includes/widgets/icon.php:241
+#: includes/widgets/image-box.php:336 includes/widgets/image.php:337
+msgid "Hover"
+msgstr "מעבר"
+
+#: includes/elements/column.php:756 includes/elements/section.php:1216
+#: includes/widgets/button.php:258 includes/widgets/common.php:152
+msgid "Add your custom id WITHOUT the Pound key. e.g: my-id"
+msgstr "ניתן להוסיף CSS ID מותאם אישית ללא סולמית, לדוגמא: my-id"
+
+#: includes/elements/column.php:753 includes/elements/section.php:1213
+#: includes/widgets/common.php:149
+msgid "CSS ID"
+msgstr "CSS ID"
+
+#: includes/controls/groups/background.php:196
+msgctxt "Background Control"
+msgid "Angle"
+msgstr "זווית"
+
+#: includes/controls/groups/background.php:185
+msgctxt "Background Control"
+msgid "Radial"
+msgstr "מעגלי"
+
+#: includes/controls/groups/background.php:184
+msgctxt "Background Control"
+msgid "Linear"
+msgstr "קווי"
+
+#: includes/controls/groups/background.php:181
+msgctxt "Background Control"
+msgid "Type"
+msgstr "סוג"
+
+#: includes/controls/groups/background.php:155
+msgctxt "Background Control"
+msgid "Second Color"
+msgstr "צבע שני"
+
+#: includes/controls/groups/background.php:140
+#: includes/controls/groups/background.php:166
+msgctxt "Background Control"
+msgid "Location"
+msgstr "מיקום"
+
+#: includes/controls/groups/background.php:96
+msgctxt "Background Control"
+msgid "Gradient"
+msgstr "מעבר צבע"
+
+#: includes/settings/settings.php:285
+msgid "Checking this box will disable Elementor's Default Fonts, and make Elementor inherit the fonts from your theme."
+msgstr "סימון תיבה זו ישבית את הפונטים הגלובליים של אלמנטור, על מנת לרשת את הפונטים מתבנית העיצוב."
+
+#: includes/settings/settings.php:277
+msgid "Checking this box will disable Elementor's Default Colors, and make Elementor inherit the colors from your theme."
+msgstr "סימון תיבה זו ישבית את הצבעים הגלובליים של אלמנטור, על מנת לרשת את הצבעים מתבנית העיצוב."
+
+#: includes/admin.php:311
+msgid "Video Tutorials"
+msgstr "מדריכי וידאו"
+
+#: includes/admin.php:311
+msgid "View Elementor Video Tutorials"
+msgstr "הצג מדריכי וידאו של אלמנטור"
+
+#: includes/admin.php:310
+msgid "Docs & FAQs"
+msgstr "תיעוד ושאלות נפוצות"
+
+#: includes/admin.php:310
+msgid "View Elementor Documentation"
+msgstr "הצג תיעוד של אלמנטור"
+
+#: includes/utils.php:221
+msgid "The `from` and `to` URL's must be different"
+msgstr "הקישורי URL חייבים להיות שונים"
+
+#: includes/utils.php:226
+msgid "The `from` and `to` URL's must be valid URL's"
+msgstr "הערכים `from` ו-`to` של ה-URL צריכים להיות תקניים"
+
+#: includes/settings/tools.php:199
+msgid "Enter your old and new URLs for your WordPress installation, to update all Elementor data (Relevant for domain transfers or move to 'HTTPS')."
+msgstr "יש להזין כתובת URL החדשה של התקנת הוורדפרס כדי לעדכן את כל הנתונים של אלמנטור (רלוונטי עבור שינוי דומיין או בעת מעבר אל HTTPS)."
+
+#: includes/settings/tools.php:195
+msgid "Update Site Address (URL)"
+msgstr "עדכן כתובת אתר (URL)"
+
+#. translators: %s: Codex URL
+#: includes/settings/tools.php:186
+msgid "<strong>Important:</strong> It is strongly recommended that you <a target=\"_blank\" href=\"%s\">backup your database</a> before using Replace URL."
+msgstr "<strong>שים לב:</strong> אנחנו מאוד ממליצים <a target=\"_blank\" href=\"%s\">לגבות את מסד הנתונים</a> לפני השימוש בהחלפת URL."
+
+#: includes/settings/tools.php:180 includes/settings/tools.php:198
+msgid "Replace URL"
+msgstr "החלפת כתובת"
+
+#. translators: 1: Minimum recommended_memory, 2: Codex URL
+#: includes/settings/system-info/classes/wordpress.php:91
+msgctxt "System Info"
+msgid "We recommend setting memory to at least %1$s. For more information, read about <a href=\"%2$s\">how to Increase memory allocated to PHP</a>."
+msgstr "אנחנו ממליצים על הגדרת מגבלת זכרון בשרת של לפחות %s. למידע נוסף ניתן לקרוא עוד על <a href=\"%s\">איך מגדילים את הקצאת הזכרון ל PHP בשרת</a>."
+
+#: modules/history/revisions-manager.php:284
+msgid "Cannot delete this revision."
+msgstr "לא ניתן למחוק גרסה זו."
+
+#. translators: 1: Human readable time difference, 2: Date
+#: modules/history/revisions-manager.php:170
+msgid "%1$s ago (%2$s)"
+msgstr "%1$s לפני (%2$s)"
+
+#: modules/history/revisions-manager.php:145
+msgctxt "revision date format"
+msgid "M j @ H:i"
+msgstr "M j @ H:i"
+
+#: includes/editor.php:665
+msgid "Autosave"
+msgstr "שמירה אוטומטית"
+
+#: modules/history/revisions-manager.php:376
+msgid "Revision"
+msgstr "גרסה"
+
+#. translators: %s: Codex URL
+#: modules/history/revisions-manager.php:381
+msgid "Learn more about <a target=\"_blank\" href=\"%s\">WordPress revisions</a>"
+msgstr "למד עוד אודות <a target=\"_blank\" href=\"%s\">היסטוריית גרסאות בוורדפרס</a>"
+
+#: modules/history/revisions-manager.php:378
+msgid "It looks like the post revision feature is unavailable in your website."
+msgstr "נראה שאפשרות היסטוריית גרסאות אינה זמינה באתר."
+
+#: modules/history/revisions-manager.php:371
+msgid "Start designing your page and you'll be able to see the entire revision history here."
+msgstr "התחל לעצב את העמוד וראה את היסטוריית הגרסאות כאן."
+
+#: modules/history/revisions-manager.php:370
+msgid "Revision history lets you save your previous versions of your work, and restore them any time."
+msgstr "היסטוריית גרסאות מאפשרת לשמור גרסאות קודמות של העיצוב ולשחזר אותן בכל זמן."
+
+#: modules/history/views/revisions-panel-template.php:44
+msgid "By"
+msgstr "על ידי"
+
+#: modules/history/views/revisions-panel-template.php:34
+msgid "No Revisions Saved Yet"
+msgstr "עדיין לא נשמרו גרסאות"
+
+#: includes/widgets/counter.php:155
+msgid "Thousand Separator"
+msgstr "מפריד אלפים"
+
+#: includes/controls/groups/background.php:263
+#: includes/controls/groups/background.php:288
+#: includes/controls/groups/background.php:318
+#: includes/controls/groups/background.php:338
+msgctxt "Background Control"
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: includes/managers/controls.php:894
+msgid "Custom CSS lets you add CSS code to any widget, and see it render live right in the editor."
+msgstr "CSS בהתאמה אישית מאפשר לך להוסיף קוד CSS לכל אלמנט ולראות את השינוי חי בתצוגה מקדימה."
+
+#: includes/managers/controls.php:891
+msgid "Meet Our Custom CSS"
+msgstr "תכירו את CSS מותאם אישית"
+
+#: includes/managers/controls.php:879
+msgid "Custom CSS"
+msgstr "CSS מותאם אישית"
+
+#: includes/editor-templates/panel-elements.php:54
+#: includes/managers/controls.php:897
+msgid "This feature is only available on Elementor Pro."
+msgstr "תכונה זו זמינה רק באלמנטור פרו."
+
+#: includes/editor-templates/panel-elements.php:53
+msgid "With this feature, you can save a widget as global, then add it to multiple areas. All areas will be editable from one single place."
+msgstr "באמצעות תכונה זו תוכלו לשמור את הוידג'ט כגלובלי, ולהוסיף אותו לאזורים שונים, כך תוכלו לערוך את הוידג'ט ממקום אחד."
+
+#: includes/editor-templates/panel-elements.php:52
+msgid "Meet Our Global Widget"
+msgstr "תכירו את גלובל וידג'ט"
+
+#: core/role-manager/role-manager.php:167 includes/admin.php:285
+#: includes/admin.php:717 includes/editor-templates/panel-elements.php:23
+#: includes/editor-templates/panel-elements.php:55
+#: includes/editor-templates/templates.php:217
+#: includes/managers/controls.php:900 includes/settings/settings.php:102
+#: includes/settings/settings.php:171
+msgid "Go Pro"
+msgstr "גו פרו"
+
+#: includes/editor-templates/panel-elements.php:22
+msgid "Get more with Elementor Pro"
+msgstr "קבל עוד עם אלמנטור פרו"
+
+#: includes/editor-templates/panel-elements.php:11
+msgid "Global"
+msgstr "גלובל"
+
+#: includes/widgets/icon-list.php:228 includes/widgets/text-editor.php:122
+#: includes/widgets/video.php:511
+msgid "Off"
+msgstr "Off"
+
+#: includes/widgets/icon-list.php:229 includes/widgets/text-editor.php:123
+#: includes/widgets/video.php:512
+msgid "On"
+msgstr "On"
+
+#: includes/widgets/button.php:93
+msgid "Extra Large"
+msgstr "ענק"
+
+#: includes/widgets/button.php:89
+msgid "Extra Small"
+msgstr "קטנטן"
+
+#: includes/settings/tools.php:164
+msgid "Styles set in Elementor are saved in CSS files in the uploads folder. Recreate those files, according to the most recent settings."
+msgstr "קבצי CSS של אלמנטור נשמרים בתיקיית uploads בשרת. לחץ כאן כדי ליצור את הקבצים הללו מחדש לפי ההגדרות האחרונות."
+
+#: includes/settings/tools.php:163
+msgid "Regenerate Files"
+msgstr "יצירת קבצים מחדש"
+
+#: includes/settings/tools.php:160
+msgid "Regenerate CSS"
+msgstr "יצירת CSS מחדש"
+
+#: includes/settings/settings.php:291
+msgid "Improve Elementor"
+msgstr "עזור לשפר את אלמנטור"
+
+#: includes/frontend.php:915
+msgid "Invalid Data: The Template ID cannot be the same as the currently edited template. Please choose a different one."
+msgstr "דטא לא חוקית: הטמפלט ID אינו יכול להיות כמו ה ID של הטמפלט הנוכחי. אנא בחר טמפלט אחר."
+
+#: includes/base/widget-base.php:268 includes/base/widget-base.php:277
+msgid "Skin"
+msgstr "סקין"
+
+#: includes/schemes/color-picker.php:66
+msgid "Choose which colors appear in the editor's color picker. This makes accessing the colors you chose for the site much easier."
+msgstr "בחר אילו צבעים מופיעים בדוגם הצבעים של המערכת. אפשרות זו מאפשרת לך גישה קלה יותר לצבעים שאתה משתמש באתר בצורה קלה יותר."
+
+#: includes/editor.php:557
+msgid "Descending order"
+msgstr "סדר יורד"
+
+#: includes/editor.php:556
+msgid "Ascending order"
+msgstr "סדר עולה"
+
+#: includes/editor.php:561
+msgid "Attention: We are going to DELETE ALL CONTENT from this page. Are you sure you want to do that?"
+msgstr "שים לב: לחיצה על אישור תמחק את כל התוכן של העמוד הזה. האם הינך בטוח שאתה רוצה לעשות את זה?"
+
+#: includes/editor.php:560 includes/editor.php:657
+msgid "Delete All Content"
+msgstr "מחיקת כל התוכן"
+
+#: includes/editor-templates/panel.php:172
+msgid "%s are disabled"
+msgstr "%s הושבתו"
+
+#: includes/editor-templates/panel.php:161
+msgid "Update changes to page"
+msgstr "עדכון שינויים בעמוד"
+
+#: includes/editor.php:545 includes/schemes/color-picker.php:228
+msgid "Color Picker"
+msgstr "דוגם צבע"
+
+#: includes/tracker.php:265
+msgid "No thanks"
+msgstr "לא תודה"
+
+#: core/settings/general/model.php:122 includes/settings/settings.php:353
+msgid "Enter parent element selector to which stretched sections will fit to (e.g. #primary / .wrapper / main etc). Leave blank to fit to page width."
+msgstr "האלמנט אליו תתיחס האפשרות של מתיחת אזור (e.g. #primary / .wrapper / main). השאר ריק כדי להתאים לרוחב העמוד המלא."
+
+#: core/settings/general/model.php:119 includes/settings/settings.php:346
+msgid "Stretched Section Fit To"
+msgstr "מתיחת האזור מותאם אל"
+
+#: core/settings/general/model.php:103 includes/settings/settings.php:330
+msgid "Sets the default width of the content area (Default: 1140)"
+msgstr "הגדרת רוחב ברירת מחדל של אזור התוכן (ברירת מחדל: 1140) "
+
+#: includes/elements/section.php:286
+msgid "Stretch the section to the full width of the page using JS."
+msgstr "מתיחת האזור לרוחב מלא של העמוד באמצעות JS."
+
+#: includes/elements/section.php:280
+msgid "Stretch Section"
+msgstr "מתיחת אזור"
+
+#: includes/controls/groups/background.php:389
+msgid "This cover image will replace the background video on mobile and tablet devices."
+msgstr "תמונת הכיסוי תחליף את הרקע וידאו במובייל ובטאבלטים."
+
+#: includes/elements/section.php:286 includes/settings/settings.php:299
+#: includes/tracker.php:264
+msgid "Learn more."
+msgstr "למידע נוסף."
+
+#: includes/elements/section.php:1252
+msgid "Reverse column order - When on mobile, the column order is reversed, so the last column appears on top and vice versa."
+msgstr "היפוך סדר העמודות - בתצוגת מובייל, סדר העמודות יוצג בצורה הפוכה, כך שעמודה האחרונה תופיע בראש האזור וכן הלאה."
+
+#: includes/elements/section.php:1247
+msgid "Reverse Columns"
+msgstr "היפוך עמודות"
+
+#: includes/editor-templates/panel.php:86
+msgid "Preview for 360px"
+msgstr "תצוגה עבור 360px"
+
+#: includes/editor-templates/panel.php:85
+msgid "Mobile"
+msgstr "מובייל"
+
+#: includes/editor-templates/panel.php:75
+msgid "Default Preview"
+msgstr "תצוגת ברירת מחדל"
+
+#: includes/controls/dimensions.php:121 includes/controls/dimensions.php:124
+msgid "Link values together"
+msgstr "קישור בין ערכים"
+
+#: includes/widgets/shortcode.php:42 includes/widgets/shortcode.php:99
+msgid "Shortcode"
+msgstr "שורטקוד"
+
+#: includes/template-library/sources/remote.php:46
+msgid "Remote"
+msgstr "מרוחק"
+
+#: includes/template-library/sources/local.php:896
+msgid "Import Now"
+msgstr "ייבא עכשיו"
+
+#: includes/template-library/sources/local.php:888
+msgid "Import Templates"
+msgstr "ייבוא טמפלטים"
+
+#: includes/template-library/sources/local.php:861
+msgid "Export Template"
+msgstr "ייצוא טמפלט"
+
+#: includes/template-library/sources/local.php:485
+msgid "(no title)"
+msgstr "(ללא כותרת)"
+
+#: includes/template-library/sources/local.php:369
+msgctxt "Template Library"
+msgid "Type"
+msgstr "סוג"
+
+#: includes/template-library/sources/local.php:330
+msgctxt "Template Library"
+msgid "No Templates found in Trash"
+msgstr "לא נמצאו טמפלטים בפח"
+
+#: includes/template-library/sources/local.php:329
+msgctxt "Template Library"
+msgid "No Templates found"
+msgstr "לא נמצאו טמפלטים"
+
+#: includes/template-library/sources/local.php:328
+msgctxt "Template Library"
+msgid "Search Template"
+msgstr "חיפוש טמפלט"
+
+#: includes/template-library/sources/local.php:327
+msgctxt "Template Library"
+msgid "View Template"
+msgstr "הצג טמפלט"
+
+#: includes/template-library/sources/local.php:326
+msgctxt "Template Library"
+msgid "All Templates"
+msgstr "כל הטמפלטים"
+
+#: includes/template-library/sources/local.php:325
+msgctxt "Template Library"
+msgid "New Template"
+msgstr "טמפלט חדש"
+
+#: includes/template-library/sources/local.php:324
+msgctxt "Template Library"
+msgid "Edit Template"
+msgstr "עריכת טמפלט"
+
+#: includes/template-library/sources/local.php:323
+msgctxt "Template Library"
+msgid "Add New Template"
+msgstr "הוספת טמפלט חדש"
+
+#: includes/template-library/sources/local.php:322
+msgctxt "Template Library"
+msgid "Add New"
+msgstr "הוספת חדש"
+
+#: includes/template-library/sources/local.php:321
+msgctxt "Template Library"
+msgid "Template"
+msgstr "טמפלט"
+
+#: includes/template-library/sources/local.php:172
+msgid "Local"
+msgstr "מקומי"
+
+#: includes/settings/tools.php:172
+msgid "Elementor Library automatically updates on a daily basis. You can also manually update it by clicking on the sync button."
+msgstr "הספריה של אלמנטור מתעדכנת מידי יום בצורה אוטומטית. בכל מקרה ניתן לעדכן אותה בצורה ידנית על ידי לחיצה על הכפתור סינכרון ספריה."
+
+#: includes/editor-templates/templates.php:33
+#: includes/editor-templates/templates.php:34 includes/settings/tools.php:168
+#: includes/settings/tools.php:171
+msgid "Sync Library"
+msgstr "סינכרון ספריה"
+
+#: includes/settings/tools.php:36 includes/settings/tools.php:37
+#: includes/settings/tools.php:293
+msgid "Tools"
+msgstr "כלים"
+
+#: includes/editor.php:574
+msgid "Are you sure you want to delete this template?"
+msgstr "אתה בטוח רוצה למחוק את הטמפלט הזה?"
+
+#: includes/editor.php:573
+msgid "Delete Template"
+msgstr "מחיקת טמפלט"
+
+#: core/document-types/post.php:53 includes/editor.php:580
+#: modules/library/documents/page.php:65
+msgid "Page"
+msgstr "עמוד"
+
+#. translators: %s: Template type.
+#: includes/editor.php:582
+msgid "Save Your %s to Library"
+msgstr "שמור את ה%s בספריה"
+
+#: includes/editor.php:591
+msgid "The following error(s) occurred while processing the request:"
+msgstr "השגיאה הבאה אירעה בעת עיבוד הבקשה:"
+
+#: includes/editor.php:571 includes/utils.php:239
+msgid "An error occurred"
+msgstr "התרחשה שגיאה"
+
+#: includes/editor.php:585
+msgid "This is where your templates should be. Design it. Save it. Reuse it."
+msgstr "זה המקום שהטמפלטים של האתר נמצאים בו. עצב משהו, שמור אותו, והוסף לכל מקום."
+
+#: includes/editor.php:586
+msgid "Haven’t Saved Templates Yet?"
+msgstr "עדיין לא שמרת טמפלט?"
+
+#: includes/editor-templates/templates.php:230
+msgid "Enter Template Name"
+msgstr "הזן שם לטמפלט"
+
+#: includes/editor.php:583
+msgid "Your designs will be available for export and reuse on any page or website"
+msgstr "העיצובים יהיו זמינים לייצוא ולשימוש חוזר בכל עמוד או בכל אתר"
+
+#: includes/editor-templates/templates.php:200
+#: includes/template-library/sources/local.php:1097
+msgid "Export"
+msgstr "ייצוא"
+
+#: includes/editor-templates/templates.php:145
+msgid "Stay tuned! More awesome templates coming real soon."
+msgstr "הישאר מעודכן! עוד עיצובים מדהימים יעלו ממש בקרוב."
+
+#: includes/editor-templates/templates.php:56
+msgid "Back to Library"
+msgstr "חזרה לספריה"
+
+#: includes/editor-templates/templates.php:186
+#: includes/editor-templates/templates.php:210
+msgid "Insert"
+msgstr "הוספה"
+
+#: includes/editor-templates/templates.php:45
+msgid "My Templates"
+msgstr "הטמפלטים שלי"
+
+#: includes/editor.php:578
+msgid "Library"
+msgstr "ספריה"
+
+#: includes/editor-templates/global.php:22
+#: includes/editor-templates/templates.php:13
+#: includes/editor-templates/templates.php:14
+#: includes/template-library/sources/local.php:243
+msgid "Close"
+msgstr "סגור"
+
+#: includes/editor-templates/global.php:34
+msgid "Select your Structure"
+msgstr "בחירת מבנה עמודות"
+
+#: includes/editor-templates/global.php:28
+msgid "Add Template"
+msgstr "הוספת טמפלט"
+
+#. translators: %s: Codex URL
+#: includes/settings/system-info/classes/theme.php:192
+msgctxt "System Info"
+msgid "If you want to modify the source code of your theme, we recommend using a <a href=\"%s\">child theme</a>."
+msgstr "כדי לערוך את קוד המקור של התבנית, אנחנו ממליצים להשתמש ב<a href=\"%s\">תבנית בת</a>."
+
+#: includes/editor.php:600
+msgid "Learn More"
+msgstr "למד עוד"
+
+#: includes/widgets/button.php:369 includes/widgets/icon-box.php:321
+#: includes/widgets/icon.php:277 includes/widgets/image-box.php:273
+#: includes/widgets/image.php:387 includes/widgets/social-icons.php:429
+msgid "Hover Animation"
+msgstr "אנימציית מעבר"
+
+#: includes/controls/groups/background.php:341
+msgctxt "Background Control"
+msgid "Contain"
+msgstr "הכלה"
+
+#: includes/widgets/google-maps.php:163
+msgid "Prevent Scroll"
+msgstr "למנוע גלילה"
+
+#: includes/elements/column.php:725 includes/elements/section.php:1185
+#: includes/widgets/common.php:121
+msgid "Fast"
+msgstr "מהיר"
+
+#: includes/elements/column.php:723 includes/elements/section.php:1183
+#: includes/widgets/common.php:119
+msgid "Slow"
+msgstr "איטי"
+
+#: includes/admin.php:461
+msgid "Submit & Deactivate"
+msgstr "כיבוי התוסף"
+
+#: includes/settings/settings.php:273
+msgid "Disable Default Colors"
+msgstr "להשבית צבעי ברירת מחדל"
+
+#: includes/editor.php:548 includes/schemes/typography.php:78
+msgid "Default Fonts"
+msgstr "פונטים ברירת מחדל"
+
+#: includes/schemes/color.php:78
+msgid "Color Palettes"
+msgstr "פלטות צבעים"
+
+#: includes/elements/column.php:707 includes/elements/section.php:1167
+#: includes/widgets/common.php:103 includes/widgets/video.php:711
+msgid "Entrance Animation"
+msgstr "אנימציית כניסה"
+
+#: includes/editor-templates/panel.php:173
+msgid "You can enable it from the <a href=\"%s\" target=\"_blank\">Elementor settings page</a>."
+msgstr "ניתן להפעיל את זה שוב באמצעות <a href=\"%s\" target=\"_blank\">עמוד ההגדרות של אלמנטור</a>."
+
+#: includes/controls/groups/box-shadow.php:76
+msgctxt "Box Shadow Control"
+msgid "Inset"
+msgstr "פנימי"
+
+#: includes/controls/groups/box-shadow.php:61
+#: includes/controls/groups/box-shadow.php:102
+msgctxt "Box Shadow Control"
+msgid "Box Shadow"
+msgstr "הצללה"
+
+#: includes/controls/box-shadow.php:73 includes/controls/text-shadow.php:76
+#: includes/widgets/tabs.php:151
+msgid "Vertical"
+msgstr "אנכי"
+
+#: includes/controls/box-shadow.php:68 includes/controls/text-shadow.php:71
+#: includes/widgets/tabs.php:150
+msgid "Horizontal"
+msgstr "אופקי"
+
+#: includes/controls/box-shadow.php:83
+msgid "Spread"
+msgstr "פיזור"
+
+#: includes/controls/box-shadow.php:78 includes/controls/text-shadow.php:66
+msgid "Blur"
+msgstr "טשטוש"
+
+#: includes/admin.php:462
+msgid "Skip & Deactivate"
+msgstr "דלג וכבה"
+
+#: includes/widgets/testimonial.php:162
+msgid "Aside"
+msgstr "בצד"
+
+#: includes/widgets/testimonial.php:137 includes/widgets/testimonial.php:338
+msgid "Job"
+msgstr "עיסוק"
+
+#: includes/widgets/testimonial.php:42 includes/widgets/testimonial.php:85
+msgid "Testimonial"
+msgstr "המלצה"
+
+#: includes/widgets/social-icons.php:254
+msgid "Official Color"
+msgstr "צבע רשמי"
+
+#: includes/widgets/social-icons.php:194
+msgid "Rounded"
+msgstr "מעוגל"
+
+#: includes/widgets/social-icons.php:42 includes/widgets/social-icons.php:85
+#: includes/widgets/social-icons.php:169
+msgid "Social Icons"
+msgstr "רשתות חברתיות"
+
+#: includes/widgets/progress.php:98
+msgid "My Skill"
+msgstr "המיומנות שלי"
+
+#: includes/widgets/audio.php:232
+msgid "Username"
+msgstr "שם משתמש"
+
+#: includes/widgets/audio.php:221
+msgid "Play Counts"
+msgstr "מספר השמעות"
+
+#: includes/widgets/audio.php:210
+msgid "Comments"
+msgstr "תגובות"
+
+#: includes/widgets/audio.php:199
+msgid "Share Button"
+msgstr "כפתור שיתוף"
+
+#: includes/widgets/audio.php:174
+msgid "Download Button"
+msgstr "כפתור הורדה"
+
+#: includes/widgets/audio.php:163
+msgid "Like Button"
+msgstr "כפתור לייק"
+
+#: includes/widgets/audio.php:152
+msgid "Buy Button"
+msgstr "כפתור רכישה"
+
+#: includes/widgets/audio.php:122
+msgid "Visual Player"
+msgstr "נגן ויזואלי"
+
+#: includes/widgets/audio.php:53 includes/widgets/audio.php:96
+msgid "SoundCloud"
+msgstr "SoundCloud"
+
+#: includes/elements/column.php:284 includes/elements/section.php:587
+msgid "Background Overlay"
+msgstr "שכבת רקע"
+
+#: includes/elements/section.php:338
+msgid "Extended"
+msgstr "מורחב"
+
+#: includes/admin.php:519
+msgid "If you have a moment, please share why you are deactivating Elementor:"
+msgstr "אם יש לך רגע, אנא שתף אותנו למה אתה מכבה את התוסף אלמנטור:"
+
+#: includes/admin.php:511
+msgid "Quick Feedback"
+msgstr "משוב מהיר"
+
+#: includes/admin.php:503
+msgid "Please share the reason"
+msgstr "אנא שתף את הסיבה"
+
+#: includes/admin.php:502
+msgid "Other"
+msgstr "אחר"
+
+#: includes/admin.php:493
+msgid "It's a temporary deactivation"
+msgstr "כיבוי זמני של התוסף"
+
+#: includes/admin.php:489
+msgid "I couldn't get the plugin to work"
+msgstr "לא הצלחתי להפעיל את התוסף"
+
+#: includes/admin.php:486
+msgid "Please share which plugin"
+msgstr "אנא שתף אותנו בשם התוסף"
+
+#: includes/admin.php:485
+msgid "I found a better plugin"
+msgstr "מצאתי תוסף טוב יותר"
+
+#: includes/admin.php:481
+msgid "I no longer need the plugin"
+msgstr "אין לי יותר צורך בתוסף"
+
+#: includes/admin.php:392
+msgid "Update Now"
+msgstr "עדכן עכשיו"
+
+#. translators: %s: Elementor version
+#: includes/admin.php:379
+msgid "View Elementor version %s details"
+msgstr "הצג פרטי גרסה %s של אלמנטור"
+
+#. translators: 1: Details URL, 2: Accessibility text, 3: Version number, 4:
+#. Update URL, 5: Accessibility text
+#: includes/admin.php:375
+msgid "There is a new version of Elementor Page Builder available. <a href=\"%1$s\" class=\"thickbox open-plugin-details-modal\" aria-label=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s\" class=\"update-link\" aria-label=\"%5$s\">update now</a>."
+msgstr "גרסה חדשה של אלמנטור זמינה לעדכון. <a href=\"%1$s\" class=\"thickbox open-plugin-details-modal\" aria-label=\"%2$s\">הצג פרטי גרסה %3$s</a> או <a href=\"%4$s\" class=\"update-link\" aria-label=\"%5$s\">בצע שדרוג</a>."
+
+#: includes/widgets/image-carousel.php:193 includes/widgets/image.php:172
+msgid "Custom URL"
+msgstr "כתובת מותאמת אישית"
+
+#: includes/editor.php:649
+msgid "Paste"
+msgstr "הדבק"
+
+#: includes/elements/column.php:216 includes/elements/section.php:505
+#: includes/widgets/accordion.php:240 includes/widgets/accordion.php:401
+#: includes/widgets/common.php:174 includes/widgets/toggle.php:260
+#: includes/widgets/toggle.php:421
+msgid "Background"
+msgstr "רקע"
+
+#: includes/elements/section.php:340
+msgid "Wider"
+msgstr "ממש רחב"
+
+#: core/role-manager/role-manager.php:56 includes/managers/elements.php:338
+#: includes/settings/settings.php:250 includes/settings/tools.php:155
+msgid "General"
+msgstr "כללי"
+
+#: includes/widgets/video.php:427
+msgid "Intro Byline"
+msgstr "שורת מידע"
+
+#: includes/widgets/accordion.php:367 includes/widgets/icon-box.php:333
+#: includes/widgets/icon-box.php:500 includes/widgets/image-box.php:222
+#: includes/widgets/image-box.php:436 includes/widgets/image-carousel.php:504
+#: includes/widgets/image-gallery.php:205 includes/widgets/image.php:499
+#: includes/widgets/social-icons.php:336 includes/widgets/toggle.php:387
+msgid "Spacing"
+msgstr "מרווח"
+
+#: includes/widgets/image-carousel.php:387
+#: includes/widgets/image-carousel.php:448
+msgid "Outside"
+msgstr "בחוץ"
+
+#: includes/widgets/image-carousel.php:386
+#: includes/widgets/image-carousel.php:449
+msgid "Inside"
+msgstr "בפנים"
+
+#: includes/widgets/image-carousel.php:343
+msgid "Direction"
+msgstr "כיוון"
+
+#: includes/widgets/audio.php:135 includes/widgets/image-carousel.php:257
+msgid "Additional Options"
+msgstr "אפשרויות נוספות"
+
+#: includes/widgets/image-carousel.php:175
+msgid "Arrows and Dots"
+msgstr "חיצים ונקודות"
+
+#: includes/widgets/alert.php:186
+msgid "Left Border Width"
+msgstr "רוחב מסגרת ימנית"
+
+#: includes/elements/column.php:719 includes/elements/section.php:1179
+#: includes/widgets/common.php:115 includes/widgets/counter.php:144
+msgid "Animation Duration"
+msgstr "משך זמן אנימציה"
+
+#: includes/widgets/image-carousel.php:158
+msgid "Image Stretch"
+msgstr "מתיחת תמונה"
+
+#: includes/widgets/image-carousel.php:43
+#: includes/widgets/image-carousel.php:100
+msgid "Image Carousel"
+msgstr "קרוסלת תמונות"
+
+#: includes/widgets/image-carousel.php:333
+msgid "Animation Speed"
+msgstr "מהירות אנימציה"
+
+#: includes/controls/groups/image-size.php:254
+msgid "You can crop the original image size to any custom size. You can also set a single value for height or width in order to keep the original size ratio."
+msgstr "ניתן לחתוך את התמונה המקורית לגודל מותאם אישית. כמו כן ניתן להגדיר ערך אחד עבור גובה או רוחב כדי לשמור על יחס תמונה מקורי."
+
+#: includes/editor.php:602
+msgid "You must call 'the_content' function in the current template, in order for Elementor to work on this page."
+msgstr "יש לכלול את הפונקציה 'the_content' בתבנית העמוד כדי להציג את אלמנטור בעמוד זה."
+
+#: includes/editor.php:601
+msgid "Sorry, the content area was not found in your page."
+msgstr "מצטערים, בעמוד זה לא נמצא אזור תוכן."
+
+#: includes/widgets/audio.php:243 includes/widgets/video.php:360
+msgid "Controls Color"
+msgstr "צבע פקדים"
+
+#: includes/widgets/video.php:413
+msgid "Intro Portrait"
+msgstr "תמונת משתמש"
+
+#: includes/widgets/video.php:399
+msgid "Intro Title"
+msgstr "כותרת וידאו"
+
+#: includes/widgets/video.php:295
+msgid "Loop"
+msgstr "לנגן בלופ"
+
+#: includes/widgets/video.php:270
+msgid "Video Options"
+msgstr "אפשרויות וידאו"
+
+#: includes/widgets/video.php:155
+msgid "Enter your Vimeo URL"
+msgstr "הזן קישור של סרטון וימאו"
+
+#: includes/widgets/video.php:115
+msgid "Vimeo"
+msgstr "וימאו"
+
+#: includes/widgets/video.php:44 includes/widgets/video.php:103
+#: includes/widgets/video.php:526
+msgid "Video"
+msgstr "וידאו"
+
+#: includes/widgets/image-gallery.php:277
+msgid "Display"
+msgstr "תצוגה"
+
+#: includes/widgets/image-gallery.php:173
+msgid "Ordering"
+msgstr "סידור"
+
+#: includes/controls/image-dimensions.php:81
+msgid "The server does not have ImageMagick or GD installed and/or enabled! Any of these libraries are required for WordPress to be able to resize images. Please contact your server administrator to enable this before continuing."
+msgstr "הספריות ImageMagick או GD לא מותקנות או לא מופעלת בשרת! וורדפרס דורשת את הספריות הללו כדי לאפשר את יכולת חיתוך התמונה. יש לפנות למנהל השרת כדי להשתמש בתכונה זו."
+
+#: includes/editor.php:612
+msgid "Insert Media"
+msgstr "הוספת מדיה"
+
+#. translators: %s: The number of images.
+#: includes/editor.php:610
+msgid "%s Images Selected"
+msgstr "%s תמונות נבחרו"
+
+#: includes/controls/groups/image-size.php:252
+msgctxt "Image Size Control"
+msgid "Image Dimension"
+msgstr "מימדי תמונה"
+
+#: includes/controls/groups/image-size.php:335
+msgctxt "Image Size Control"
+msgid "Custom"
+msgstr "מותאם"
+
+#: includes/controls/groups/border.php:67
+msgctxt "Border Control"
+msgid "Dashed"
+msgstr "מקווקו"
+
+#: includes/controls/groups/border.php:66
+msgctxt "Border Control"
+msgid "Dotted"
+msgstr "מנוקד"
+
+#: includes/controls/groups/border.php:65
+msgctxt "Border Control"
+msgid "Double"
+msgstr "כפול"
+
+#: includes/controls/groups/border.php:64
+msgctxt "Border Control"
+msgid "Solid"
+msgstr "רגיל"
+
+#: includes/editor.php:611
+msgid "No Images Selected"
+msgstr "לא נבחרה תמונה"
+
+#: includes/widgets/image-carousel.php:321
+msgid "Fade"
+msgstr "עמעום"
+
+#: includes/widgets/image-carousel.php:316
+msgid "Effect"
+msgstr "אפקט"
+
+#: includes/editor.php:608
+msgid "Are you sure you want to reset this gallery?"
+msgstr "האם אתה בטוח שאתה מעוניין לאפס את הגלריה הזו?"
+
+#: includes/controls/groups/image-size.php:332
+msgctxt "Image Size Control"
+msgid "Full"
+msgstr "מלא"
+
+#: includes/editor.php:607
+msgid "Reset Gallery"
+msgstr "איפוס גלרייה"
+
+#: includes/widgets/icon-box.php:476 includes/widgets/image-box.php:412
+msgid "Vertical Alignment"
+msgstr "יישור אנכי"
+
+#: includes/widgets/image-carousel.php:302
+msgid "Infinite Loop"
+msgstr "לולאה אינסופית"
+
+#: includes/widgets/image-carousel.php:177
+#: includes/widgets/image-carousel.php:432
+msgid "Dots"
+msgstr "נקודות"
+
+#: includes/controls/structure.php:54
+msgid "Reset Structure"
+msgstr "איפוס מבנה"
+
+#: includes/controls/groups/image-size.php:246
+msgctxt "Image Size Control"
+msgid "Image Size"
+msgstr "גודל תמונה"
+
+#: includes/controls/groups/typography.php:167
+msgctxt "Typography Control"
+msgid "None"
+msgstr "רגיל"
+
+#: includes/widgets/accordion.php:169 includes/widgets/icon-box.php:208
+#: includes/widgets/image-box.php:183 includes/widgets/toggle.php:166
+msgid "Title HTML Tag"
+msgstr "תגית HTML כותרת"
+
+#: includes/widgets/icon-box.php:156 includes/widgets/image-box.php:134
+msgid "Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+msgstr "יש ללחוץ על כפתור העריכה כדי לשנות את הטקסט הזה. לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי צש בלי"
+
+#: includes/widgets/icon-box.php:142 includes/widgets/image-box.php:120
+msgid "This is the heading"
+msgstr "כותרת אלמנט"
+
+#: includes/elements/column.php:768 includes/elements/section.php:1228
+#: includes/widgets/common.php:164
+msgid "Add your custom class WITHOUT the dot. e.g: my-class"
+msgstr "ניתן להוסיף מחלקות CSS מותאמות אישית ללא נקודה, לדוגמא: my-class"
+
+#: includes/elements/section.php:1268 includes/widgets/common.php:352
+msgid "Attention: The display settings (show/hide for mobile, tablet or desktop) will only take effect once you are on the preview or live page, and not while you're in editing mode in Elementor."
+msgstr "שימו לב: הגדרות התצוגה (להציג/להסתיר במובייל, טאבלט או דסקטופ) לא תופעלנה במצב של עריכה באלמנטור אלא אך ורק במצב תצוגה מקדימה או בפרונט של האתר."
+
+#: core/settings/general/model.php:96 includes/settings/settings.php:318
+msgid "The list of fonts used if the chosen font is not available."
+msgstr "רשימת הפונטים שיופעלו במקרה והפונט שבחרת אינו זמין."
+
+#: core/settings/general/model.php:93 includes/settings/settings.php:313
+msgid "Default Generic Fonts"
+msgstr "פונט גיבוי ברירת מחדל"
+
+#: includes/managers/elements.php:367
+msgid "Pojo Themes"
+msgstr "תבניות פוג'ו"
+
+#: includes/widgets/wordpress.php:221
+msgid "Form"
+msgstr "טופס"
+
+#: includes/settings/system-info/classes/server.php:122
+msgctxt "System Info"
+msgid "We recommend to use php 5.4 or higher"
+msgstr "אנו ממליצים על שימוש ב PHP גרסת 5.4 ומעלה"
+
+#: includes/controls/groups/background.php:356
+msgid "YouTube link or video file (mp4 is recommended)."
+msgstr "קישור יוטיוב או קישור לקובץ וידאו (מומלץ בפורמט MP4)."
+
+#: includes/editor-templates/panel-elements.php:10
+msgid "Elements"
+msgstr "אלמנטים"
+
+#. Description of the plugin/theme
+msgid "The most advanced frontend drag & drop page builder. Create high-end, pixel perfect websites at record speeds. Any theme, any page, any design."
+msgstr "יצירת עמודי אינטרנט מדהימים בקלות ובמהירות באמצעות עורך ויזואלי Drag & Drop מתקדם ישירות על הפרונט של האתר. כל תבנית, כל עמוד, כל עיצוב."
+
+#: includes/settings/settings.php:299
+msgid "Opt-in to our anonymous plugin data collection and to updates. We guarantee no sensitive data is collected."
+msgstr "אישור שליחת נתונים של התוסף בצורה אנונימית וקבלת עדכונים. אנחנו מתחייבים לא לאסוף שום מידע רגיש."
+
+#: core/dynamic-tags/base-tag.php:166 includes/admin.php:281
+#: includes/editor-templates/panel.php:61 includes/editor.php:550
+#: includes/managers/controls.php:297 includes/settings/settings.php:209
+msgid "Settings"
+msgstr "הגדרות"
+
+#: includes/controls/groups/typography.php:154
+msgctxt "Typography Control"
+msgid "Oblique"
+msgstr "אלכסוני"
+
+#: includes/controls/groups/typography.php:153
+msgctxt "Typography Control"
+msgid "Italic"
+msgstr "נטוי"
+
+#: includes/controls/groups/typography.php:142
+#: includes/controls/groups/typography.php:152
+msgctxt "Typography Control"
+msgid "Normal"
+msgstr "רגיל"
+
+#: includes/controls/groups/typography.php:141
+msgctxt "Typography Control"
+msgid "Capitalize"
+msgstr "אותיות רישיות גדולות"
+
+#: includes/controls/groups/typography.php:140
+msgctxt "Typography Control"
+msgid "Lowercase"
+msgstr "אותיות קטנות"
+
+#: includes/controls/groups/typography.php:139
+msgctxt "Typography Control"
+msgid "Uppercase"
+msgstr "אותיות גדולות"
+
+#. Author of the plugin/theme
+msgid "Elementor.com"
+msgstr "Elementor.com"
+
+#: includes/widgets/video.php:495 includes/widgets/video.php:558
+msgid "Play Icon"
+msgstr "אייקון הפעלה"
+
+#: includes/widgets/video.php:452 includes/widgets/video.php:459
+msgid "Image Overlay"
+msgstr "כיסוי תמונה"
+
+#: includes/widgets/video.php:306
+msgid "Player Controls"
+msgstr "פקדי נגן"
+
+#: includes/widgets/video.php:373
+msgid "Suggested Videos"
+msgstr "סרטונים מוצעים"
+
+#: includes/widgets/video.php:534
+msgid "Aspect Ratio"
+msgstr "יחס גובה-רוחב"
+
+#: includes/widgets/video.php:134
+msgid "Enter your YouTube URL"
+msgstr "הזן קישור של סרטון יוטיוב"
+
+#: includes/widgets/video.php:114
+msgid "YouTube"
+msgstr "יוטיוב"
+
+#: includes/widgets/toggle.php:107
+msgid "Toggle Content"
+msgstr "תוכן ספוילר"
+
+#: includes/widgets/toggle.php:97
+msgid "Toggle Title"
+msgstr "כותרת ספוילר"
+
+#: includes/widgets/toggle.php:124
+msgid "Toggle #2"
+msgstr "ספוילר #2"
+
+#: includes/widgets/toggle.php:120
+msgid "Toggle #1"
+msgstr "ספוילר #1"
+
+#: includes/widgets/toggle.php:115
+msgid "Toggle Items"
+msgstr "פריטי ספוילר"
+
+#: includes/widgets/toggle.php:43 includes/widgets/toggle.php:86
+#: includes/widgets/toggle.php:187
+msgid "Toggle"
+msgstr "ספוילר"
+
+#: includes/widgets/text-editor.php:114
+msgid "I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+msgstr "יש ללחוץ על כפתור העריכה כדי לשנות את הטקסט הזה. לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי צש בליא, צמוקו בלוקריה שיצמה ברורק."
+
+#: includes/widgets/text-editor.php:43 includes/widgets/text-editor.php:102
+#: includes/widgets/text-editor.php:134
+msgid "Text Editor"
+msgstr "עורך טקסט"
+
+#: includes/widgets/tabs.php:107 includes/widgets/tabs.php:108
+msgid "Tab Content"
+msgstr "תוכן לשונית"
+
+#: includes/widgets/tabs.php:97 includes/widgets/tabs.php:98
+msgid "Tab Title"
+msgstr "כותרת לשונית"
+
+#: includes/widgets/tabs.php:126
+msgid "Tab #2"
+msgstr "לשונית #2"
+
+#: includes/widgets/tabs.php:123 includes/widgets/tabs.php:127
+msgid "I am tab content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+msgstr "יש ללחוץ על כפתור העריכה כדי לשנות את הטקסט הזה. לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי צש בלי"
+
+#: includes/widgets/tabs.php:122
+msgid "Tab #1"
+msgstr "לשונית #1"
+
+#: includes/widgets/tabs.php:117
+msgid "Tabs Items"
+msgstr "פריטי לשוניות"
+
+#: includes/widgets/tabs.php:43 includes/widgets/tabs.php:86
+#: includes/widgets/tabs.php:163
+msgid "Tabs"
+msgstr "לשוניות"
+
+#: includes/widgets/image-carousel.php:264
+msgid "Pause on Hover"
+msgstr "השהה במעבר עכבר"
+
+#: includes/widgets/image-carousel.php:292
+msgid "Autoplay Speed"
+msgstr "מהירות הפעלה אוטומטית"
+
+#: includes/widgets/image-carousel.php:176
+#: includes/widgets/image-carousel.php:370
+msgid "Arrows"
+msgstr "חצים"
+
+#: includes/widgets/image-carousel.php:320
+msgid "Slide"
+msgstr "שקופית"
+
+#: includes/widgets/sidebar.php:89 includes/widgets/sidebar.php:107
+msgid "Choose Sidebar"
+msgstr "בחירת סיידבר"
+
+#: includes/widgets/sidebar.php:87
+msgid "No sidebars were found"
+msgstr "לא נמצאו סיידברים"
+
+#: includes/widgets/sidebar.php:42 includes/widgets/sidebar.php:102
+msgid "Sidebar"
+msgstr "סיידבר"
+
+#: includes/widgets/progress.php:217
+msgid "Title Style"
+msgstr "סגנון כותרת"
+
+#: includes/widgets/progress.php:204
+msgid "Inner Text Color"
+msgstr "צבע טקסט פנימי"
+
+#: includes/widgets/progress.php:151
+msgid "Web Designer"
+msgstr "עיצוב אתרים"
+
+#: includes/widgets/progress.php:150
+msgid "e.g. Web Designer"
+msgstr "לדוגמא: עיצוב אתרים"
+
+#: includes/widgets/progress.php:145
+msgid "Inner Text"
+msgstr "טקסט פנימי"
+
+#: includes/widgets/progress.php:133
+msgid "Display Percentage"
+msgstr "תצוגת אחוזים"
+
+#: includes/widgets/progress.php:122
+msgid "Percentage"
+msgstr "אחוזים"
+
+#: includes/widgets/progress.php:42 includes/widgets/progress.php:85
+#: includes/widgets/progress.php:170
+msgid "Progress Bar"
+msgstr "בר התקדמות"
+
+#: includes/widgets/menu-anchor.php:104
+msgid "For Example: About"
+msgstr "לדוגמא: About"
+
+#: includes/widgets/menu-anchor.php:102
+msgid "The ID of Menu Anchor."
+msgstr "השם הייחודי (ID) של עוגן תפריט"
+
+#: includes/widgets/menu-anchor.php:93
+msgid "This ID will be the CSS ID you will have to use in your own page, Without #."
+msgstr "שם ה ID של העוגן תפריט לשימוש באזור התפריטים כדי לקשר לעוגן בתוך העמוד, ללא #."
+
+#: includes/widgets/menu-anchor.php:86
+msgid "Anchor"
+msgstr "עוגן"
+
+#: includes/widgets/menu-anchor.php:43
+msgid "Menu Anchor"
+msgstr "קישור עוגן"
+
+#: includes/widgets/image-box.php:158 includes/widgets/testimonial.php:158
+msgid "Image Position"
+msgstr "מיקום תמונה"
+
+#: includes/widgets/image-carousel.php:520
+#: includes/widgets/image-gallery.php:222
+msgid "Image Spacing"
+msgstr "ריווח תמונה"
+
+#: includes/widgets/testimonial.php:260
+msgid "Image Size"
+msgstr "גודל תמונה"
+
+#: includes/widgets/image-box.php:42 includes/widgets/image-box.php:85
+msgid "Image Box"
+msgstr "תיבת תמונה"
+
+#: includes/widgets/social-icons.php:376
+msgid "Icon Hover"
+msgstr "מעבר מעל האייקון"
+
+#: includes/widgets/accordion.php:198 includes/widgets/icon-box.php:408
+#: includes/widgets/icon.php:341 includes/widgets/tabs.php:194
+#: includes/widgets/text-editor.php:321 includes/widgets/toggle.php:195
+msgid "Border Width"
+msgstr "רוחב מסגרת"
+
+#: includes/widgets/icon-box.php:393 includes/widgets/icon.php:326
+msgid "Rotate"
+msgstr "לסובב"
+
+#: includes/widgets/icon-box.php:267 includes/widgets/icon-box.php:305
+#: includes/widgets/icon.php:223 includes/widgets/icon.php:261
+#: includes/widgets/social-icons.php:277 includes/widgets/social-icons.php:399
+#: includes/widgets/text-editor.php:245
+msgid "Secondary Color"
+msgstr "צבע משני"
+
+#: includes/widgets/icon-box.php:250 includes/widgets/icon-box.php:292
+#: includes/widgets/icon.php:206 includes/widgets/icon.php:248
+#: includes/widgets/social-icons.php:263 includes/widgets/social-icons.php:384
+#: includes/widgets/text-editor.php:226
+msgid "Primary Color"
+msgstr "צבע ראשי"
+
+#: includes/widgets/icon-box.php:123 includes/widgets/icon.php:136
+#: includes/widgets/social-icons.php:195
+msgid "Square"
+msgstr "מרובע"
+
+#: includes/widgets/icon-box.php:122 includes/widgets/icon.php:135
+#: includes/widgets/social-icons.php:196
+msgid "Circle"
+msgstr "מעוגל"
+
+#: includes/widgets/icon-box.php:119 includes/widgets/icon.php:132
+#: includes/widgets/social-icons.php:190
+msgid "Shape"
+msgstr "צורה"
+
+#: includes/widgets/icon-box.php:106 includes/widgets/icon.php:122
+#: includes/widgets/text-editor.php:213
+msgid "Framed"
+msgstr "עם מסגרת"
+
+#: includes/widgets/icon-box.php:105 includes/widgets/icon.php:121
+#: includes/widgets/text-editor.php:212
+msgid "Stacked"
+msgstr "עם רקע"
+
+#: includes/widgets/icon-list.php:448
+msgid "Text Indent"
+msgstr "הזחת טקסט"
+
+#: includes/widgets/icon-list.php:120 includes/widgets/icon-list.php:121
+msgid "List Item"
+msgstr "רשימת פריטים"
+
+#: includes/widgets/icon-list.php:161
+msgid "List Item #3"
+msgstr "פריט ברשימה #3"
+
+#: includes/widgets/icon-list.php:157
+msgid "List Item #2"
+msgstr "פריט ברשימה #2"
+
+#: includes/widgets/icon-list.php:153
+msgid "List Item #1"
+msgstr "פריט ברשימה #1"
+
+#: includes/widgets/icon-list.php:42 includes/widgets/icon-list.php:85
+msgid "Icon List"
+msgstr "רשימת אייקונים"
+
+#: includes/widgets/button.php:151 includes/widgets/heading.php:126
+#: includes/widgets/icon-box.php:172 includes/widgets/icon-list.php:141
+#: includes/widgets/icon.php:154 includes/widgets/image-box.php:150
+#: includes/widgets/image-carousel.php:203 includes/widgets/image.php:185
+#: includes/widgets/social-icons.php:162 includes/widgets/testimonial.php:151
+msgid "https://your-link.com"
+msgstr "https://your-link.com"
+
+#: includes/widgets/icon-box.php:167 includes/widgets/image-box.php:145
+#: includes/widgets/image-carousel.php:187
+#: includes/widgets/image-carousel.php:201
+#: includes/widgets/image-gallery.php:142 includes/widgets/image.php:166
+#: includes/widgets/image.php:180 includes/widgets/testimonial.php:149
+msgid "Link to"
+msgstr "קישור אל"
+
+#: includes/widgets/button.php:226
+msgid "Icon Spacing"
+msgstr "ריווח אייקון"
+
+#: includes/widgets/icon-box.php:42 includes/widgets/icon-box.php:85
+msgid "Icon Box"
+msgstr "תיבת אייקון"
+
+#: includes/widgets/html.php:87
+msgid "HTML Code"
+msgstr "קוד HTML"
+
+#: includes/widgets/html.php:44
+msgid "HTML"
+msgstr "HTML"
+
+#: includes/elements/column.php:205 includes/elements/section.php:482
+#: includes/widgets/heading.php:154
+msgid "HTML Tag"
+msgstr "תגית HTML"
+
+#: includes/widgets/alert.php:111 includes/widgets/heading.php:113
+#: includes/widgets/icon-box.php:143 includes/widgets/image-box.php:121
+#: includes/widgets/progress.php:97
+msgid "Enter your title"
+msgstr "הזן כותרת"
+
+#: includes/widgets/heading.php:42
+msgid "Heading"
+msgstr "כותרת"
+
+#: includes/widgets/google-maps.php:111
+msgid "Address"
+msgstr "כתובת"
+
+#: includes/widgets/google-maps.php:107
+msgid "London Eye, London, United Kingdom"
+msgstr "אבן גבירול 69, תל אביב, ישראל"
+
+#: includes/widgets/google-maps.php:103 includes/widgets/google-maps.php:186
+msgid "Map"
+msgstr "מפה"
+
+#: includes/widgets/google-maps.php:44
+msgid "Google Maps"
+msgstr "מפות גוגל"
+
+#: includes/widgets/image-carousel.php:231
+#: includes/widgets/image-carousel.php:237
+#: includes/widgets/image-carousel.php:568
+#: includes/widgets/image-gallery.php:269 includes/widgets/image.php:156
+#: includes/widgets/image.php:433
+msgid "Caption"
+msgstr "כיתוב"
+
+#: includes/widgets/image-gallery.php:197
+msgid "Images"
+msgstr "תמונות"
+
+#: includes/widgets/image-gallery.php:177
+msgid "Random"
+msgstr "אקראי"
+
+#: includes/widgets/image-carousel.php:192
+#: includes/widgets/image-gallery.php:146 includes/widgets/image.php:171
+msgid "Media File"
+msgstr "קובץ מדיה"
+
+#: includes/widgets/image-gallery.php:147
+msgid "Attachment Page"
+msgstr "עמוד הקובץ"
+
+#: includes/controls/gallery.php:86 includes/widgets/image-carousel.php:107
+#: includes/widgets/image-gallery.php:108
+msgid "Add Images"
+msgstr "הוספת תמונות"
+
+#: includes/widgets/image-gallery.php:42 includes/widgets/image-gallery.php:101
+msgid "Image Gallery"
+msgstr "גלריית תמונות"
+
+#: includes/widgets/divider.php:216
+msgid "Gap"
+msgstr "רווח"
+
+#: includes/controls/box-shadow.php:110 includes/controls/text-shadow.php:103
+#: includes/elements/section.php:908 includes/widgets/accordion.php:251
+#: includes/widgets/accordion.php:339 includes/widgets/accordion.php:412
+#: includes/widgets/divider.php:147 includes/widgets/icon-box.php:517
+#: includes/widgets/icon-box.php:551 includes/widgets/icon-list.php:333
+#: includes/widgets/icon-list.php:362 includes/widgets/image-box.php:453
+#: includes/widgets/image-box.php:487 includes/widgets/image-carousel.php:418
+#: includes/widgets/image-carousel.php:480 includes/widgets/progress.php:178
+#: includes/widgets/social-icons.php:250 includes/widgets/tabs.php:246
+#: includes/widgets/tabs.php:294 includes/widgets/toggle.php:271
+#: includes/widgets/toggle.php:359 includes/widgets/toggle.php:432
+#: includes/widgets/video.php:571
+msgid "Color"
+msgstr "צבע"
+
+#: includes/widgets/divider.php:127 includes/widgets/icon-list.php:262
+msgid "Weight"
+msgstr "משקל"
+
+#: includes/widgets/spacer.php:42 includes/widgets/spacer.php:101
+msgid "Spacer"
+msgstr "מרווח"
+
+#: includes/widgets/divider.php:43 includes/widgets/divider.php:102
+#: includes/widgets/icon-list.php:226
+msgid "Divider"
+msgstr "מפריד"
+
+#: includes/widgets/counter.php:204
+msgid "Number"
+msgstr "מספר"
+
+#: includes/widgets/counter.php:185 includes/widgets/counter.php:186
+msgid "Cool Number"
+msgstr "מספר מגניב"
+
+#: includes/widgets/counter.php:137
+msgid "Plus"
+msgstr "פלוס"
+
+#: includes/widgets/counter.php:134
+msgid "Number Suffix"
+msgstr "סיומת מספר"
+
+#: includes/widgets/counter.php:124
+msgid "Number Prefix"
+msgstr "קידומת מספר"
+
+#: includes/widgets/counter.php:115
+msgid "Ending Number"
+msgstr "מספר סיום"
+
+#: includes/widgets/counter.php:106
+msgid "Starting Number"
+msgstr "מספר התחלה"
+
+#: includes/widgets/counter.php:42 includes/widgets/counter.php:99
+msgid "Counter"
+msgstr "מונה"
+
+#: includes/widgets/audio.php:144 includes/widgets/image-carousel.php:278
+#: includes/widgets/video.php:279
+msgid "Autoplay"
+msgstr "הפעלה אוטומטית"
+
+#: includes/widgets/image-carousel.php:143
+msgid "Slides to Scroll"
+msgstr "גלילת שקופיות"
+
+#: includes/widgets/image-carousel.php:131
+msgid "Slides to Show"
+msgstr "תצוגת שקופיות"
+
+#: includes/widgets/image-box.php:92 includes/widgets/image.php:108
+#: includes/widgets/testimonial.php:105
+msgid "Choose Image"
+msgstr "בחירת תמונה"
+
+#: includes/widgets/image-box.php:214 includes/widgets/image-carousel.php:496
+#: includes/widgets/image.php:42 includes/widgets/image.php:101
+#: includes/widgets/image.php:224 includes/widgets/testimonial.php:249
+#: includes/widgets/video.php:469
+msgid "Image"
+msgstr "תמונה"
+
+#: includes/elements/column.php:439 includes/elements/section.php:743
+#: includes/widgets/common.php:238
+msgid "Border"
+msgstr "מסגרת"
+
+#: core/dynamic-tags/tag.php:96 includes/widgets/button.php:215
+msgid "After"
+msgstr "אחרי"
+
+#: core/dynamic-tags/tag.php:89 includes/widgets/button.php:214
+msgid "Before"
+msgstr "לפני"
+
+#: includes/widgets/button.php:210 includes/widgets/icon-box.php:180
+msgid "Icon Position"
+msgstr "מיקום אייקון"
+
+#: includes/widgets/accordion.php:147 includes/widgets/accordion.php:304
+#: includes/widgets/button.php:200 includes/widgets/icon-box.php:92
+#: includes/widgets/icon-box.php:230 includes/widgets/icon-list.php:128
+#: includes/widgets/icon-list.php:354 includes/widgets/icon.php:42
+#: includes/widgets/icon.php:101 includes/widgets/icon.php:108
+#: includes/widgets/icon.php:189 includes/widgets/social-icons.php:94
+#: includes/widgets/social-icons.php:242 includes/widgets/toggle.php:144
+#: includes/widgets/toggle.php:324
+msgid "Icon"
+msgstr "אייקון"
+
+#: includes/widgets/button.php:189 includes/widgets/heading.php:137
+#: includes/widgets/icon-box.php:356 includes/widgets/icon-list.php:390
+#: includes/widgets/icon.php:289 includes/widgets/image-carousel.php:398
+#: includes/widgets/image-carousel.php:460
+#: includes/widgets/social-icons.php:291 includes/widgets/text-editor.php:260
+#: includes/widgets/video.php:586
+msgid "Size"
+msgstr "גודל"
+
+#: includes/widgets/button.php:177 includes/widgets/heading.php:190
+#: includes/widgets/icon-box.php:463 includes/widgets/image-box.php:399
+#: includes/widgets/image-carousel.php:595
+#: includes/widgets/image-gallery.php:309 includes/widgets/image.php:460
+#: includes/widgets/text-editor.php:158
+msgid "Justified"
+msgstr "מיושר לצדדים"
+
+#: includes/widgets/accordion.php:315 includes/widgets/button.php:161
+#: includes/widgets/divider.php:190 includes/widgets/heading.php:174
+#: includes/widgets/icon-box.php:447 includes/widgets/icon-list.php:203
+#: includes/widgets/icon.php:161 includes/widgets/image-box.php:383
+#: includes/widgets/image-carousel.php:579
+#: includes/widgets/image-gallery.php:293 includes/widgets/image.php:131
+#: includes/widgets/image.php:444 includes/widgets/social-icons.php:205
+#: includes/widgets/testimonial.php:176 includes/widgets/text-editor.php:142
+#: includes/widgets/toggle.php:335
+msgid "Alignment"
+msgstr "יישור"
+
+#: includes/widgets/heading.php:146
+msgid "XXL"
+msgstr "XXL"
+
+#: includes/widgets/heading.php:145
+msgid "XL"
+msgstr "XL"
+
+#: includes/widgets/button.php:92 includes/widgets/heading.php:144
+msgid "Large"
+msgstr "גדול"
+
+#: includes/widgets/button.php:91 includes/widgets/heading.php:143
+msgid "Medium"
+msgstr "בינוני"
+
+#: includes/widgets/button.php:90 includes/widgets/heading.php:142
+msgid "Small"
+msgstr "קטן"
+
+#: includes/widgets/button.php:43 includes/widgets/button.php:109
+#: includes/widgets/button.php:271
+msgid "Button"
+msgstr "כפתור"
+
+#: includes/base/widget-base.php:302 includes/controls/popover-toggle.php:69
+#: includes/elements/column.php:101
+msgid "Edit"
+msgstr "עריכה"
+
+#: includes/elements/section.php:1303 includes/widgets/common.php:387
+msgid "Hide On Mobile"
+msgstr "הסתר במובייל"
+
+#: includes/elements/section.php:1290 includes/widgets/common.php:374
+msgid "Hide On Tablet"
+msgstr "הסתר בטאבלט"
+
+#: includes/elements/section.php:1277 includes/widgets/common.php:361
+msgid "Hide On Desktop"
+msgstr "הסתר בדסקטופ"
+
+#: includes/elements/column.php:464 includes/elements/column.php:501
+#: includes/elements/section.php:767 includes/elements/section.php:803
+#: includes/widgets/button.php:392 includes/widgets/common.php:263
+#: includes/widgets/common.php:300 includes/widgets/icon-box.php:422
+#: includes/widgets/icon.php:355 includes/widgets/image-carousel.php:554
+#: includes/widgets/image-gallery.php:255 includes/widgets/image.php:408
+#: includes/widgets/social-icons.php:362 includes/widgets/testimonial.php:287
+#: includes/widgets/text-editor.php:302
+msgid "Border Radius"
+msgstr "עיגול פינות"
+
+#: includes/compatibility.php:135 includes/widgets/alert.php:235
+#: includes/widgets/icon-box.php:542 includes/widgets/image-box.php:478
+#: includes/widgets/image-carousel.php:238
+msgid "Description"
+msgstr "תיאור"
+
+#: core/base/document.php:380 includes/widgets/accordion.php:232
+#: includes/widgets/alert.php:205 includes/widgets/counter.php:182
+#: includes/widgets/counter.php:238 includes/widgets/heading.php:101
+#: includes/widgets/heading.php:108 includes/widgets/heading.php:215
+#: includes/widgets/icon-box.php:491 includes/widgets/image-box.php:427
+#: includes/widgets/image-carousel.php:236 includes/widgets/progress.php:92
+#: includes/widgets/tabs.php:237 includes/widgets/toggle.php:252
+msgid "Title"
+msgstr "כותרת"
+
+#: core/settings/general/model.php:154 includes/widgets/alert.php:164
+#: includes/widgets/button.php:309 includes/widgets/button.php:344
+#: includes/widgets/progress.php:193 includes/widgets/tabs.php:225
+#: includes/widgets/video.php:639
+msgid "Background Color"
+msgstr "צבע רקע"
+
+#: includes/elements/section.php:1281 includes/elements/section.php:1294
+#: includes/elements/section.php:1307 includes/widgets/alert.php:137
+#: includes/widgets/audio.php:154 includes/widgets/audio.php:165
+#: includes/widgets/audio.php:176 includes/widgets/audio.php:187
+#: includes/widgets/audio.php:201 includes/widgets/audio.php:212
+#: includes/widgets/audio.php:223 includes/widgets/audio.php:234
+#: includes/widgets/counter.php:159 includes/widgets/image-gallery.php:282
+#: includes/widgets/progress.php:138 includes/widgets/video.php:308
+#: includes/widgets/video.php:322 includes/widgets/video.php:348
+#: includes/widgets/video.php:375 includes/widgets/video.php:401
+#: includes/widgets/video.php:415 includes/widgets/video.php:429
+#: includes/widgets/video.php:461
+msgid "Hide"
+msgstr "הסתר"
+
+#: includes/elements/section.php:1282 includes/elements/section.php:1295
+#: includes/elements/section.php:1308 includes/widgets/alert.php:136
+#: includes/widgets/audio.php:155 includes/widgets/audio.php:166
+#: includes/widgets/audio.php:177 includes/widgets/audio.php:188
+#: includes/widgets/audio.php:202 includes/widgets/audio.php:213
+#: includes/widgets/audio.php:224 includes/widgets/audio.php:235
+#: includes/widgets/counter.php:158 includes/widgets/image-gallery.php:281
+#: includes/widgets/progress.php:137 includes/widgets/video.php:309
+#: includes/widgets/video.php:323 includes/widgets/video.php:349
+#: includes/widgets/video.php:376 includes/widgets/video.php:402
+#: includes/widgets/video.php:416 includes/widgets/video.php:430
+#: includes/widgets/video.php:462
+msgid "Show"
+msgstr "הצג"
+
+#: includes/widgets/alert.php:132
+msgid "Dismiss Button"
+msgstr "כפתור הסתרה"
+
+#: includes/widgets/alert.php:123
+msgid "I am a description. Click the edit button to change this text."
+msgstr "יש ללחוץ על כפתור העריכה כדי לשנות את התיאור."
+
+#: includes/widgets/alert.php:109 includes/widgets/icon-box.php:137
+#: includes/widgets/image-box.php:115
+msgid "Title & Description"
+msgstr "כותרת ותיאור"
+
+#: includes/widgets/alert.php:100 includes/widgets/button.php:124
+#: includes/widgets/progress.php:114
+msgid "Danger"
+msgstr "סכנה"
+
+#: includes/widgets/alert.php:99 includes/widgets/button.php:123
+#: includes/widgets/progress.php:113
+msgid "Warning"
+msgstr "אזהרה"
+
+#: includes/widgets/alert.php:98 includes/widgets/button.php:122
+#: includes/widgets/progress.php:112
+msgid "Success"
+msgstr "הצלחה"
+
+#: includes/widgets/alert.php:97 includes/widgets/button.php:121
+#: includes/widgets/progress.php:111
+msgid "Info"
+msgstr "מידע"
+
+#: includes/editor-templates/templates.php:126
+#: includes/elements/section.php:897
+#: includes/template-library/sources/local.php:1465
+#: includes/widgets/alert.php:93 includes/widgets/button.php:116
+#: includes/widgets/progress.php:106 includes/widgets/tabs.php:146
+msgid "Type"
+msgstr "סוג"
+
+#: includes/widgets/alert.php:43 includes/widgets/alert.php:86
+#: includes/widgets/alert.php:156
+msgid "Alert"
+msgstr "התראה"
+
+#: includes/widgets/accordion.php:266 includes/widgets/accordion.php:353
+#: includes/widgets/tabs.php:261 includes/widgets/toggle.php:286
+#: includes/widgets/toggle.php:373
+msgid "Active Color"
+msgstr "צבע מצב פעיל"
+
+#: includes/widgets/accordion.php:217 includes/widgets/alert.php:175
+#: includes/widgets/button.php:355 includes/widgets/social-icons.php:414
+#: includes/widgets/tabs.php:214 includes/widgets/toggle.php:213
+msgid "Border Color"
+msgstr "צבע מסגרת"
+
+#: includes/widgets/accordion.php:138 includes/widgets/alert.php:145
+#: includes/widgets/audio.php:251 includes/widgets/button.php:246
+#: includes/widgets/counter.php:193 includes/widgets/divider.php:236
+#: includes/widgets/google-maps.php:175 includes/widgets/heading.php:204
+#: includes/widgets/icon-box.php:101 includes/widgets/icon.php:117
+#: includes/widgets/image-box.php:203 includes/widgets/image-carousel.php:246
+#: includes/widgets/image-gallery.php:186 includes/widgets/image.php:213
+#: includes/widgets/progress.php:159 includes/widgets/social-icons.php:231
+#: includes/widgets/spacer.php:128 includes/widgets/tabs.php:137
+#: includes/widgets/testimonial.php:201 includes/widgets/text-editor.php:208
+#: includes/widgets/toggle.php:135 includes/widgets/video.php:441
+msgid "View"
+msgstr "סוג תצוגה"
+
+#: includes/widgets/accordion.php:110
+msgid "Accordion Content"
+msgstr "תוכן אקורדיון"
+
+#: includes/widgets/accordion.php:97
+msgid "Accordion Title"
+msgstr "כותרת אקורדיון"
+
+#: includes/widgets/accordion.php:95 includes/widgets/tabs.php:95
+#: includes/widgets/toggle.php:95
+msgid "Title & Content"
+msgstr "כותרת ותוכן"
+
+#: includes/widgets/accordion.php:127
+msgid "Accordion #2"
+msgstr "אקורדיון #2"
+
+#: includes/widgets/accordion.php:124 includes/widgets/accordion.php:128
+#: includes/widgets/toggle.php:121 includes/widgets/toggle.php:125
+msgid "I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo."
+msgstr "יש ללחוץ על כפתור העריכה כדי לשנות את הטקסט הזה. לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי צש בלי"
+
+#: includes/widgets/accordion.php:123
+msgid "Accordion #1"
+msgstr "אקורדיון #1"
+
+#: includes/widgets/accordion.php:118
+msgid "Accordion Items"
+msgstr "פריטי אקורדיון"
+
+#: includes/widgets/accordion.php:43 includes/widgets/accordion.php:86
+#: includes/widgets/accordion.php:190
+msgid "Accordion"
+msgstr "אקורדיון"
+
+#: includes/tracker.php:265
+msgid "Sure! I'd love to help"
+msgstr "ברור! אני אשמח לעזור"
+
+#: includes/tracker.php:250
+msgid "Love using Elementor? Become a super contributor by opting in to our anonymous plugin data collection and to our updates. We guarantee no sensitive data is collected."
+msgstr "אוהבים את אלמנטור? בואו תעזרו לנו להפוך אותו לטוב יותר על ידי שליחת נתונים של התוסף בצורה אנונימית וקבלת עדכונים. אנחנו מתחייבים לא לאסוף שום מידע רגיש."
+
+#: includes/settings/system-info/main.php:193
+msgid "You don't have a permission to download this file"
+msgstr "אין לך הרשאות כדי להוריד את הקובץ הזה"
+
+#: includes/settings/system-info/main.php:175
+msgid "Download System Info"
+msgstr "הורדת מצב מערכת"
+
+#: includes/settings/system-info/main.php:155
+msgid "You can copy the below info as simple text with Ctrl+C / Ctrl+V:"
+msgstr "ניתן להעתיק את המידע שמופיע כאן באמצעות Ctrl+C / Ctrl+V:"
+
+#: includes/settings/system-info/main.php:153
+msgid "Copy & Paste Info"
+msgstr "העתק & הדבק מידע"
+
+#: includes/settings/system-info/main.php:151
+#: includes/settings/system-info/main.php:312
+msgid "System Info"
+msgstr "מצב מערכת"
+
+#: includes/editor-templates/templates.php:122
+#: includes/widgets/testimonial.php:125 includes/widgets/testimonial.php:302
+msgid "Name"
+msgstr "שם"
+
+#: includes/controls/switcher.php:74 includes/editor.php:579
+#: includes/widgets/audio.php:127 includes/widgets/image-carousel.php:162
+#: includes/widgets/image-carousel.php:220
+#: includes/widgets/image-carousel.php:269
+#: includes/widgets/image-carousel.php:283
+#: includes/widgets/image-carousel.php:307
+#: includes/widgets/image-gallery.php:162 includes/widgets/image.php:202
+msgid "No"
+msgstr "לא"
+
+#: includes/admin.php:59 includes/controls/switcher.php:75
+#: includes/editor.php:592 includes/widgets/audio.php:126
+#: includes/widgets/image-carousel.php:163
+#: includes/widgets/image-carousel.php:219
+#: includes/widgets/image-carousel.php:268
+#: includes/widgets/image-carousel.php:282
+#: includes/widgets/image-carousel.php:306
+#: includes/widgets/image-gallery.php:161 includes/widgets/image.php:201
+msgid "Yes"
+msgstr "כן"
+
+#: includes/settings/settings.php:294
+msgid "Usage Data Tracking"
+msgstr "שליחת נתונים"
+
+#: core/role-manager/role-manager.php:61
+msgid "Exclude Roles"
+msgstr "מיעוט הרשאות לפי תפקידים"
+
+#: includes/settings/settings.php:264
+msgid "Post Types"
+msgstr "סוגי פוסטים מותאמים אישית"
+
+#: core/base/document.php:372
+msgid "General Settings"
+msgstr "הגדרות כלליות"
+
+#: includes/schemes/typography.php:96
+msgid "Accent Text"
+msgstr "טקסט מודגש"
+
+#: includes/schemes/typography.php:95
+msgid "Body Text"
+msgstr "טקסט עמוד"
+
+#: includes/schemes/typography.php:94
+msgid "Secondary Headline"
+msgstr "כותרת משנית"
+
+#: includes/schemes/typography.php:93
+msgid "Primary Headline"
+msgstr "כותרת ראשית"
+
+#: includes/schemes/color.php:96
+msgid "Accent"
+msgstr "מודגש"
+
+#: includes/schemes/color.php:95 includes/widgets/button.php:133
+#: includes/widgets/icon-list.php:117 includes/widgets/icon-list.php:412
+msgid "Text"
+msgstr "טקסט"
+
+#: includes/schemes/color.php:94
+msgid "Secondary"
+msgstr "משני"
+
+#: includes/schemes/color.php:93
+msgid "Primary"
+msgstr "ראשי"
+
+#: includes/managers/elements.php:372
+msgid "WordPress"
+msgstr "וורדפרס"
+
+#: includes/widgets/image-carousel.php:171
+#: includes/widgets/image-carousel.php:359
+msgid "Navigation"
+msgstr "ניווט"
+
+#: includes/managers/elements.php:331
+msgid "Basic"
+msgstr "בסיסי"
+
+#: includes/elements/section.php:1259
+msgid "Visibility"
+msgstr "נראות"
+
+#: includes/elements/column.php:156 includes/elements/section.php:451
+#: includes/widgets/video.php:692
+msgid "Content Position"
+msgstr "מיקום תוכן"
+
+#: includes/elements/column.php:162 includes/elements/section.php:438
+#: includes/elements/section.php:457 includes/widgets/icon-box.php:480
+#: includes/widgets/image-box.php:416
+msgid "Middle"
+msgstr "אמצע"
+
+#: includes/elements/section.php:436
+msgid "Stretch"
+msgstr "מתוח"
+
+#: includes/elements/section.php:432
+msgid "Column Position"
+msgstr "מיקום עמודה"
+
+#: includes/elements/section.php:364 includes/elements/section.php:408
+msgid "Minimum Height"
+msgstr "גובה מינימאלי"
+
+#: includes/elements/section.php:354 includes/elements/section.php:398
+msgid "Min Height"
+msgstr "גובה מינימאלי"
+
+#: includes/elements/section.php:353
+msgid "Fit To Screen"
+msgstr "מותאם למסך"
+
+#: includes/controls/image-dimensions.php:102 includes/elements/section.php:348
+#: includes/elements/section.php:393 includes/elements/section.php:951
+#: includes/widgets/google-maps.php:146 includes/widgets/icon-list.php:304
+msgid "Height"
+msgstr "גובה\t"
+
+#: includes/elements/section.php:339
+msgid "Wide"
+msgstr "רחב"
+
+#: includes/elements/section.php:337
+msgid "Narrow"
+msgstr "צר"
+
+#: includes/elements/section.php:336
+msgid "No Gap"
+msgstr "ללא מרווח"
+
+#: includes/elements/section.php:331
+msgid "Columns Gap"
+msgstr "ריווח בין עמודות"
+
+#: core/settings/general/model.php:100 includes/elements/section.php:295
+#: includes/elements/section.php:309 includes/settings/settings.php:322
+#: includes/widgets/video.php:673
+msgid "Content Width"
+msgstr "רוחב תוכן"
+
+#: includes/elements/section.php:300
+msgid "Full Width"
+msgstr "רוחב מלא"
+
+#: includes/elements/section.php:299
+msgid "Boxed"
+msgstr "Boxed"
+
+#: includes/controls/image-dimensions.php:96 includes/elements/section.php:922
+#: includes/widgets/divider.php:163 includes/widgets/icon-list.php:286
+#: includes/widgets/image-box.php:245 includes/widgets/image.php:232
+msgid "Width"
+msgstr "רוחב"
+
+#: includes/elements/column.php:120 includes/elements/section.php:272
+#: includes/managers/controls.php:296 includes/widgets/icon-list.php:92
+msgid "Layout"
+msgstr "פריסה"
+
+#: includes/editor.php:655
+msgid "Add New Column"
+msgstr "הוספת עמודה חדשה"
+
+#: includes/elements/column.php:128
+msgid "Column Width"
+msgstr "רוחב עמודה"
+
+#: includes/elements/column.php:764 includes/elements/section.php:1224
+#: includes/widgets/common.php:160
+msgid "CSS Classes"
+msgstr "CSS Classes"
+
+#: core/document-types/post.php:152 includes/elements/column.php:682
+#: includes/elements/section.php:1142 includes/widgets/accordion.php:290
+#: includes/widgets/accordion.php:436 includes/widgets/button.php:412
+#: includes/widgets/common.php:78 includes/widgets/icon-box.php:373
+#: includes/widgets/icon.php:306 includes/widgets/social-icons.php:308
+#: includes/widgets/toggle.php:310 includes/widgets/toggle.php:456
+msgid "Padding"
+msgstr "שוליים פנימיים"
+
+#: includes/elements/column.php:670 includes/elements/section.php:1123
+#: includes/widgets/common.php:66
+msgid "Margin"
+msgstr "שוליים חיצוניים"
+
+#: includes/elements/column.php:641 includes/elements/section.php:1095
+#: includes/widgets/button.php:169 includes/widgets/divider.php:198
+#: includes/widgets/heading.php:182 includes/widgets/icon-box.php:455
+#: includes/widgets/icon-list.php:211 includes/widgets/icon.php:169
+#: includes/widgets/image-box.php:391 includes/widgets/image-carousel.php:587
+#: includes/widgets/image-gallery.php:301 includes/widgets/image.php:139
+#: includes/widgets/image.php:452 includes/widgets/social-icons.php:213
+#: includes/widgets/testimonial.php:185 includes/widgets/text-editor.php:150
+#: includes/widgets/video.php:696
+msgid "Center"
+msgstr "ממורכז"
+
+#: includes/elements/column.php:633 includes/elements/section.php:1087
+msgid "Text Align"
+msgstr "יישור טקסט"
+
+#: includes/elements/column.php:621 includes/elements/section.php:1075
+msgid "Link Hover Color"
+msgstr "צבע קישור הובר"
+
+#: includes/elements/column.php:609 includes/elements/section.php:1063
+msgid "Link Color"
+msgstr "צבע קישור"
+
+#: includes/elements/column.php:584 includes/elements/section.php:1038
+msgid "Heading Color"
+msgstr "צבע כותרת"
+
+#: includes/elements/column.php:597 includes/elements/section.php:1051
+#: includes/widgets/alert.php:213 includes/widgets/alert.php:243
+#: includes/widgets/button.php:297 includes/widgets/button.php:333
+#: includes/widgets/counter.php:212 includes/widgets/counter.php:246
+#: includes/widgets/heading.php:223 includes/widgets/icon-list.php:420
+#: includes/widgets/image-carousel.php:609
+#: includes/widgets/image-gallery.php:326 includes/widgets/image.php:474
+#: includes/widgets/progress.php:225 includes/widgets/testimonial.php:221
+#: includes/widgets/testimonial.php:310 includes/widgets/testimonial.php:346
+#: includes/widgets/text-editor.php:171
+msgid "Text Color"
+msgstr "צבע טקסט"
+
+#: includes/elements/column.php:564 includes/elements/section.php:1019
+#: includes/schemes/typography.php:64
+msgid "Typography"
+msgstr "טיפוגרפיה"
+
+#: modules/history/module.php:55
+msgid "Removed"
+msgstr "הוסר"
+
+#: includes/elements/column.php:70
+msgid "Column"
+msgstr "עמודה"
+
+#: includes/editor.php:584 includes/elements/section.php:91
+#: includes/elements/section.php:216 modules/library/documents/section.php:64
+msgid "Section"
+msgstr "אזור"
+
+#: includes/controls/structure.php:47 includes/elements/section.php:492
+msgid "Structure"
+msgstr "מבנה"
+
+#: includes/elements/section.php:1239 includes/managers/controls.php:295
+#: includes/widgets/common.php:344
+msgid "Responsive"
+msgstr "רספונסיביות"
+
+#: core/dynamic-tags/tag.php:82 includes/elements/column.php:661
+#: includes/elements/section.php:1115 includes/managers/controls.php:294
+#: includes/settings/settings.php:414 includes/widgets/common.php:58
+msgid "Advanced"
+msgstr "מתקדם"
+
+#: core/settings/general/model.php:90 includes/editor.php:549
+#: includes/managers/controls.php:293 includes/settings/settings.php:308
+#: includes/widgets/divider.php:109 includes/widgets/icon-list.php:240
+msgid "Style"
+msgstr "סגנון"
+
+#: includes/managers/controls.php:292
+#: includes/template-library/sources/local.php:1392
+#: includes/widgets/accordion.php:108 includes/widgets/accordion.php:390
+#: includes/widgets/alert.php:120 includes/widgets/icon-box.php:439
+#: includes/widgets/image-box.php:129 includes/widgets/image-box.php:375
+#: includes/widgets/tabs.php:106 includes/widgets/tabs.php:285
+#: includes/widgets/testimonial.php:92 includes/widgets/testimonial.php:213
+#: includes/widgets/toggle.php:105 includes/widgets/toggle.php:410
+msgid "Content"
+msgstr "תוכן"
+
+#: includes/editor.php:553 includes/widgets/image-gallery.php:132
+msgid "Columns"
+msgstr "עמודות"
+
+#: includes/editor.php:544
+msgid "About Elementor"
+msgstr "אודות אלמנטור"
+
+#: modules/history/revisions-manager.php:377
+msgid "Revision History"
+msgstr "היסטוריית גרסאות"
+
+#: includes/editor.php:670
+msgid "Soon"
+msgstr "בקרוב"
+
+#: includes/schemes/color.php:64
+msgid "Colors"
+msgstr "צבעים"
+
+#: includes/editor.php:627
+msgid "Please note: All unsaved changes will be lost."
+msgstr "שים לב: כל השינויים שלא נשמרו יאבדו."
+
+#: includes/editor.php:631
+msgid "Saved"
+msgstr "נשמר"
+
+#: includes/editor.php:617
+msgid "Go Back"
+msgstr "חזרה"
+
+#: includes/editor.php:618
+msgid "Take Over"
+msgstr "השתלטות"
+
+#: includes/admin.php:60 includes/editor.php:539
+msgid "Cancel"
+msgstr "ביטול"
+
+#. translators: %s: User name.
+#: includes/editor.php:616
+msgid "%s has taken over and is currently editing. Do you want to take over this page editing?"
+msgstr "%s השתלט והוא עורך כרגע את הדף. האם אתה מעוניין להשתלט על עריכת הדף הזה?"
+
+#. translators: %s: Template type.
+#: includes/editor.php:624
+msgid "Are you sure you want to remove this %s?"
+msgstr "האם אתה בטוח שברצונך למחוק פריט זה %s?"
+
+#: includes/schemes/color.php:145
+msgid "More Palettes"
+msgstr "פלטות נוספות"
+
+#: includes/schemes/color.php:284
+msgid "Color Palette"
+msgstr "פלטת צבעים"
+
+#: includes/controls/image-dimensions.php:104
+#: includes/editor-templates/panel.php:163 includes/schemes/base.php:172
+#: modules/history/views/revisions-panel-template.php:18
+msgid "Apply"
+msgstr "החל"
+
+#: includes/schemes/base.php:168
+#: modules/history/views/revisions-panel-template.php:13
+msgid "Discard"
+msgstr "ביטול"
+
+#: includes/schemes/base.php:162
+msgid "Reset"
+msgstr "איפוס"
+
+#: includes/editor-templates/templates.php:182
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#: includes/editor-templates/templates.php:37
+#: includes/editor-templates/templates.php:38
+#: includes/editor-templates/templates.php:224
+#: includes/editor-templates/templates.php:235 includes/editor.php:630
+msgid "Save"
+msgstr "שמירה"
+
+#: includes/admin.php:710
+msgid "Help"
+msgstr "עזרה"
+
+#: includes/editor-templates/panel.php:79
+msgid "Tablet"
+msgstr "טאבלט"
+
+#: includes/editor-templates/panel.php:74
+msgid "Desktop"
+msgstr "דסקטופ"
+
+#: includes/editor-templates/panel.php:66
+#: includes/editor-templates/panel.php:68
+msgid "Responsive Mode"
+msgstr "מצב רספונסיבי"
+
+#: includes/editor-templates/panel.php:55
+#: includes/editor-templates/panel.php:56
+msgid "Widgets Panel"
+msgstr "תפריט וידג'טים"
+
+#: includes/editor-templates/panel.php:50
+#: includes/editor-templates/panel.php:51
+msgid "Menu"
+msgstr "תפריט"
+
+#: includes/editor-templates/panel-elements.php:34
+msgid "Search Widget..."
+msgstr "חיפוש וידג’ט…"
+
+#: includes/editor-templates/global.php:25
+msgid "Add New Section"
+msgstr "הוספת אזור חדש"
+
+#: includes/admin.php:158 includes/editor-templates/editor-wrapper.php:46
+#: includes/editor-templates/templates.php:67 modules/gutenberg/module.php:93
+msgid "Loading"
+msgstr "טוען"
+
+#. #-#-#-#-#  elementor-code.pot (Elementor 2.1.4)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: core/documents-manager.php:317 includes/admin.php:233 includes/admin.php:422
+#: includes/admin.php:599 includes/editor-templates/editor-wrapper.php:29
+#: includes/editor.php:537 includes/settings/settings.php:69
+#: includes/settings/settings.php:70 includes/settings/settings.php:464
+#: includes/template-library/sources/local.php:407
+#: includes/template-library/sources/local.php:408
+msgid "Elementor"
+msgstr "אלמנטור"
+
+#: includes/controls/structure.php:60
+msgid "More Structures"
+msgstr "מבנים נוספים"
+
+#: includes/controls/repeater.php:165
+msgid "Add Item"
+msgstr "הוספת פריט"
+
+#: includes/controls/media.php:141 includes/editor-templates/templates.php:195
+#: includes/editor.php:538
+#: modules/history/views/revisions-panel-template.php:52
+msgid "Delete"
+msgstr "מחיקה"
+
+#: includes/controls/icon.php:872 includes/controls/icon.php:873
+msgid "Select Icon"
+msgstr "בחר אייקון"
+
+#: includes/maintenance-mode.php:205 includes/widgets/image-carousel.php:508
+#: includes/widgets/image-gallery.php:209 includes/widgets/social-icons.php:255
+msgid "Custom"
+msgstr "מותאם"
+
+#: includes/controls/groups/typography.php:282
+msgctxt "Typography Control"
+msgid "Typography"
+msgstr "טיפוגרפיה"
+
+#: includes/controls/groups/typography.php:188
+msgctxt "Typography Control"
+msgid "Letter Spacing"
+msgstr "ריווח אותיות"
+
+#: includes/controls/groups/typography.php:172
+msgctxt "Typography Control"
+msgid "Line-Height"
+msgstr "גובה שורה"
+
+#: includes/elements/column.php:226 includes/elements/column.php:297
+#: includes/elements/column.php:346 includes/elements/column.php:449
+#: includes/elements/column.php:724 includes/elements/section.php:515
+#: includes/elements/section.php:600 includes/elements/section.php:649
+#: includes/elements/section.php:753 includes/elements/section.php:1184
+#: includes/widgets/button.php:290 includes/widgets/common.php:120
+#: includes/widgets/common.php:184 includes/widgets/common.php:248
+#: includes/widgets/google-maps.php:195 includes/widgets/heading.php:259
+#: includes/widgets/icon-box.php:243 includes/widgets/icon.php:199
+#: includes/widgets/image-box.php:282 includes/widgets/image.php:303
+msgid "Normal"
+msgstr "רגיל"
+
+#: includes/controls/groups/typography.php:147
+msgctxt "Typography Control"
+msgid "Style"
+msgstr "סגנון"
+
+#: includes/controls/groups/typography.php:134
+msgctxt "Typography Control"
+msgid "Transform"
+msgstr "Transform"
+
+#: includes/controls/groups/typography.php:127
+msgctxt "Typography Control"
+msgid "Weight"
+msgstr "משקל"
+
+#: includes/controls/groups/typography.php:98
+msgctxt "Typography Control"
+msgid "Family"
+msgstr "סוג"
+
+#: includes/controls/groups/typography.php:105
+msgctxt "Typography Control"
+msgid "Size"
+msgstr "גודל"
+
+#: includes/controls/groups/border.php:87
+msgctxt "Border Control"
+msgid "Color"
+msgstr "צבע"
+
+#: includes/controls/groups/border.php:76
+msgctxt "Border Control"
+msgid "Width"
+msgstr "רוחב"
+
+#: includes/widgets/divider.php:115 includes/widgets/icon-list.php:246
+msgid "Dashed"
+msgstr "מקווקו"
+
+#: includes/widgets/divider.php:114 includes/widgets/icon-list.php:245
+msgid "Dotted"
+msgstr "מנוקד"
+
+#: includes/widgets/divider.php:113 includes/widgets/icon-list.php:244
+msgid "Double"
+msgstr "כפול"
+
+#: includes/widgets/divider.php:112 includes/widgets/icon-list.php:243
+msgid "Solid"
+msgstr "רגיל"
+
+#: includes/controls/animation.php:133 includes/controls/groups/border.php:63
+#: includes/controls/hover-animation.php:108 includes/elements/section.php:874
+#: includes/widgets/image-carousel.php:178
+#: includes/widgets/image-carousel.php:191
+#: includes/widgets/image-carousel.php:235
+#: includes/widgets/image-gallery.php:148 includes/widgets/image.php:170
+msgid "None"
+msgstr "ללא"
+
+#: includes/controls/groups/border.php:60
+msgctxt "Border Control"
+msgid "Border Type"
+msgstr "סוג מסגרת"
+
+#: includes/controls/groups/background.php:388
+msgctxt "Background Control"
+msgid "Background Fallback"
+msgstr "תמונת כיסוי וידאו"
+
+#: includes/controls/groups/background.php:353
+msgctxt "Background Control"
+msgid "Video Link"
+msgstr "קישור לוידאו"
+
+#: includes/controls/groups/background.php:340
+msgctxt "Background Control"
+msgid "Cover"
+msgstr "כיסוי"
+
+#: includes/controls/groups/background.php:339
+msgctxt "Background Control"
+msgid "Auto"
+msgstr "אוטומטי"
+
+#: includes/controls/groups/background.php:334
+msgctxt "Background Control"
+msgid "Size"
+msgstr "גודל"
+
+#: includes/controls/groups/background.php:322
+msgctxt "Background Control"
+msgid "Repeat-y"
+msgstr "חזרה על ציר y"
+
+#: includes/controls/groups/background.php:321
+msgctxt "Background Control"
+msgid "Repeat-x"
+msgstr "חזרה על ציר x"
+
+#: includes/controls/groups/background.php:319
+msgctxt "Background Control"
+msgid "No-repeat"
+msgstr "לא לחזור"
+
+#: includes/controls/groups/background.php:314
+#: includes/controls/groups/background.php:320
+msgctxt "Background Control"
+msgid "Repeat"
+msgstr "לחזור"
+
+#: includes/controls/groups/background.php:290
+msgctxt "Background Control"
+msgid "Fixed"
+msgstr "קבוע"
+
+#: includes/controls/groups/background.php:289
+msgctxt "Background Control"
+msgid "Scroll"
+msgstr "גלילה"
+
+#: includes/controls/groups/background.php:284
+msgctxt "Background Control"
+msgid "Attachment"
+msgstr "קובץ מצורף"
+
+#: includes/controls/groups/background.php:230
+#: includes/controls/groups/background.php:272
+msgctxt "Background Control"
+msgid "Bottom Right"
+msgstr "תחתון ימין"
+
+#: includes/controls/groups/background.php:228
+#: includes/controls/groups/background.php:271
+msgctxt "Background Control"
+msgid "Bottom Center"
+msgstr "תחתון מרכז"
+
+#: includes/controls/groups/background.php:229
+#: includes/controls/groups/background.php:270
+msgctxt "Background Control"
+msgid "Bottom Left"
+msgstr "תחתון שמאל"
+
+#: includes/controls/groups/background.php:224
+#: includes/controls/groups/background.php:269
+msgctxt "Background Control"
+msgid "Center Right"
+msgstr "מרכז ימין"
+
+#: includes/controls/groups/background.php:222
+#: includes/controls/groups/background.php:268
+msgctxt "Background Control"
+msgid "Center Center"
+msgstr "מרכז מרכז"
+
+#: includes/controls/groups/background.php:223
+#: includes/controls/groups/background.php:267
+msgctxt "Background Control"
+msgid "Center Left"
+msgstr "מרכז שמאל"
+
+#: includes/controls/groups/background.php:227
+#: includes/controls/groups/background.php:266
+msgctxt "Background Control"
+msgid "Top Right"
+msgstr "עליון ימין"
+
+#: includes/controls/groups/background.php:225
+#: includes/controls/groups/background.php:265
+msgctxt "Background Control"
+msgid "Top Center"
+msgstr "עליון מרכז"
+
+#: includes/controls/groups/background.php:226
+#: includes/controls/groups/background.php:264
+msgctxt "Background Control"
+msgid "Top Left"
+msgstr "עליון שמאל"
+
+#: includes/controls/groups/background.php:219
+#: includes/controls/groups/background.php:259
+msgctxt "Background Control"
+msgid "Position"
+msgstr "מיקום"
+
+#: includes/controls/groups/background.php:249
+msgctxt "Background Control"
+msgid "Background Image"
+msgstr "תמונת רקע"
+
+#: includes/controls/groups/background.php:244
+msgctxt "Background Control"
+msgid "Image"
+msgstr "תמונה"
+
+#: includes/controls/groups/background.php:130
+msgctxt "Background Control"
+msgid "Background Color"
+msgstr "צבע רקע"
+
+#: includes/controls/groups/background.php:127
+msgctxt "Background Control"
+msgid "Color"
+msgstr "צבע"
+
+#: includes/controls/groups/background.php:120
+msgctxt "Background Control"
+msgid "Background Type"
+msgstr "סוג רקע"
+
+#: includes/controls/groups/background.php:100
+msgctxt "Background Control"
+msgid "Background Video"
+msgstr "וידאו רקע"
+
+#: includes/controls/groups/background.php:92
+msgctxt "Background Control"
+msgid "Classic"
+msgstr "קלאסי"
+
+#: includes/fonts.php:79
+msgid "Google"
+msgstr "גוגל"
+
+#: includes/fonts.php:78
+msgid "System"
+msgstr "מערכת"
+
+#: includes/widgets/audio.php:103 includes/widgets/button.php:146
+#: includes/widgets/heading.php:121 includes/widgets/icon-list.php:138
+#: includes/widgets/icon.php:149 includes/widgets/social-icons.php:156
+msgid "Link"
+msgstr "קישור"
+
+#: includes/controls/dimensions.php:91 includes/elements/column.php:637
+#: includes/elements/section.php:1091 includes/widgets/button.php:165
+#: includes/widgets/divider.php:194 includes/widgets/heading.php:178
+#: includes/widgets/icon-box.php:185 includes/widgets/icon-box.php:451
+#: includes/widgets/icon-list.php:207 includes/widgets/icon.php:165
+#: includes/widgets/image-box.php:163 includes/widgets/image-box.php:387
+#: includes/widgets/image-carousel.php:347
+#: includes/widgets/image-carousel.php:583
+#: includes/widgets/image-gallery.php:297 includes/widgets/image.php:135
+#: includes/widgets/image.php:448 includes/widgets/social-icons.php:209
+#: includes/widgets/testimonial.php:181 includes/widgets/text-editor.php:146
+msgid "Left"
+msgstr "שמאל"
+
+#: includes/controls/dimensions.php:90 includes/elements/column.php:163
+#: includes/elements/section.php:439 includes/elements/section.php:458
+#: includes/elements/section.php:883 includes/widgets/icon-box.php:481
+#: includes/widgets/image-box.php:417
+msgid "Bottom"
+msgstr "תחתון"
+
+#: includes/controls/dimensions.php:89 includes/elements/column.php:645
+#: includes/elements/section.php:1099 includes/widgets/button.php:173
+#: includes/widgets/divider.php:202 includes/widgets/heading.php:186
+#: includes/widgets/icon-box.php:193 includes/widgets/icon-box.php:459
+#: includes/widgets/icon-list.php:215 includes/widgets/icon.php:173
+#: includes/widgets/image-box.php:171 includes/widgets/image-box.php:395
+#: includes/widgets/image-carousel.php:348
+#: includes/widgets/image-carousel.php:591
+#: includes/widgets/image-gallery.php:305 includes/widgets/image.php:143
+#: includes/widgets/image.php:456 includes/widgets/social-icons.php:217
+#: includes/widgets/testimonial.php:189 includes/widgets/text-editor.php:154
+msgid "Right"
+msgstr "ימין"
+
+#: includes/controls/dimensions.php:88 includes/elements/column.php:161
+#: includes/elements/section.php:437 includes/elements/section.php:456
+#: includes/elements/section.php:882 includes/widgets/icon-box.php:189
+#: includes/widgets/icon-box.php:479 includes/widgets/image-box.php:167
+#: includes/widgets/image-box.php:415 includes/widgets/testimonial.php:163
+#: includes/widgets/video.php:697
+msgid "Top"
+msgstr "עליון"
+
+#: includes/base/widget-base.php:253 includes/controls/font.php:67
+#: includes/controls/groups/typography.php:119
+#: includes/controls/groups/typography.php:138
+#: includes/controls/groups/typography.php:151
+#: includes/controls/groups/typography.php:163
+#: includes/editor-templates/panel.php:212 includes/elements/column.php:160
+#: includes/elements/column.php:199 includes/elements/section.php:335
+#: includes/elements/section.php:352 includes/elements/section.php:397
+#: includes/elements/section.php:455 includes/elements/section.php:476
+#: includes/widgets/button.php:120 includes/widgets/heading.php:141
+#: includes/widgets/icon-box.php:104 includes/widgets/icon-list.php:97
+#: includes/widgets/icon.php:120 includes/widgets/image-carousel.php:134
+#: includes/widgets/image-carousel.php:218
+#: includes/widgets/image-carousel.php:507
+#: includes/widgets/image-gallery.php:160
+#: includes/widgets/image-gallery.php:176
+#: includes/widgets/image-gallery.php:208 includes/widgets/image.php:200
+#: includes/widgets/progress.php:110 includes/widgets/text-editor.php:211
+#: modules/page-templates/module.php:259
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: includes/controls/gallery.php:83
+msgid "Clear"
+msgstr "ניקוי"
+
+#: includes/admin.php:141 includes/admin.php:149 includes/admin.php:209
+#: includes/frontend.php:869 modules/gutenberg/module.php:74
+#: modules/gutenberg/module.php:84
+msgid "Edit with Elementor"
+msgstr "עריכה באמצעות אלמנטור"
+
+#: modules/gutenberg/module.php:71
+msgid "&#8592; Back to WordPress Editor"
+msgstr "&#8594; בחזרה אל עורך הטקסט"
+
+#. translators: %s: PHP version
+#: elementor.php:81
+msgid "Elementor requires PHP version %s+, plugin is currently NOT RUNNING."
+msgstr "אלמנטור דורש PHP גרסה %s ומעלה, התוסף אינו פעיל כרגע."

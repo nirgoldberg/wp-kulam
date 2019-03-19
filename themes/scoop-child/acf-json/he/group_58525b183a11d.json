@@ -1,0 +1,46 @@
+{
+    "key": "group_58525b183a11d",
+    "title": "וידאו ראשי",
+    "fields": [
+        {
+            "key": "field_58525b184a4aa",
+            "label": "Featured Video",
+            "name": "featured_video",
+            "type": "oembed",
+            "value": null,
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": 1170,
+            "height": 658
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "current_user",
+                "operator": "==",
+                "value": "viewing_back"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1515178191
+}

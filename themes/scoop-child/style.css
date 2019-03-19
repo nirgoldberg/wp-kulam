@@ -1,0 +1,25 @@
+/*
+Theme Name: Scoop Child
+Theme URI: http://kulam.org/
+Description: Basic theme for kulam.org networl sites
+Version: 1.0.1
+Author: Itay Banner
+Author URI: http://ibanner.co.il/
+Template: scoop
+*/
+
+/**
+* YOUR CSS CODE, PUT IN assets/css/style.css
+* FOR RTL, PUT IN assets/css/rtl.css
+*/
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.breadcrumb a {
+    color: #428bca;
+    text-decoration: none;
+}
