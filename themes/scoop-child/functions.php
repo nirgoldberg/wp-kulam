@@ -1,5 +1,15 @@
 <?php
+/**
+ * Functions
+ *
+ * @author      Nir Goldberg
+ * @package     scoop-child
+ * @version     1.0.0
+ */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+// live uploads
+require_once( 'functions/live-uploads.php' );
 
 /**
  *     SETUP FUNCTIONS
