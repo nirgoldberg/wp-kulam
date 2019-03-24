@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.0
+ * @version     1.0.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -43,7 +43,7 @@ $children = get_terms(
 			if ( $category_description ) {
 
 				$cat_desc_content	= '<div class="desc"><div class="desc-content">' . $category_description . '</div></div>';
-				$cat_desc_btn		= '<div class="more">' . __( 'Read more', 'kulam-scoop' ) . '</div>';
+				$cat_desc_btn		= '<div class="more"></div>';
 
 			}
 

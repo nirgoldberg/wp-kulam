@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-21 19:49+0200\n"
-"PO-Revision-Date: 2019-03-21 19:49+0200\n"
+"POT-Creation-Date: 2019-03-24 13:43+0200\n"
+"PO-Revision-Date: 2019-03-24 13:44+0200\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: functions.php:180 includes/cpt-config.php:55 loop/archive.php:32
+#: functions.php:180 includes/cpt-config.php:55 loop/archive.php:44
 #: partials/functions.php:125
 msgid "My Siddur"
 msgstr "הסידור שלי"
@@ -114,39 +114,39 @@ msgstr "שם סוג המאמר החדש"
 msgid "Siddurim"
 msgstr "סידורים"
 
-#: loop/archive.php:18 loop/archive.php:20 loop/archive.php:22
+#: loop/archive.php:30 loop/archive.php:32 loop/archive.php:34
 #, php-format
 msgid "Archive for %s"
 msgstr "ארכיון של %s"
 
-#: loop/archive.php:20
+#: loop/archive.php:32
 msgid "F Y"
 msgstr "F Y"
 
-#: loop/archive.php:22
+#: loop/archive.php:34
 msgid "Y"
 msgstr "Y"
 
-#: loop/archive.php:28 loop/archive.php:30
+#: loop/archive.php:40 loop/archive.php:42
 #, php-format
 msgid "Archive %s"
 msgstr "ארכיון %s"
 
-#: loop/archive.php:41
+#: loop/archive.php:53
 #, php-format
 msgid "All posts by %s"
 msgstr "כל סוגי המאמרים של %s"
 
-#: loop/archive.php:43
+#: loop/archive.php:55
 msgid "Archive"
 msgstr "ארכיון"
 
-#: loop/archive.php:84
+#: loop/archive.php:104
 #, php-format
 msgid "Click For More %s"
 msgstr "הקלק לעוד %s"
 
-#: loop/archive.php:111
+#: loop/archive.php:131
 msgid "Back to category"
 msgstr "חזרה"
 
@@ -214,10 +214,6 @@ msgstr "האלבום שלי"
 msgid "Save your favorite customs"
 msgstr "שמור את המנהגים המועדפים שלך"
 
-#: shortcodes.php:48
-msgid "Read more"
-msgstr "קרא עוד"
-
 #: vendors/acf.php:23 vendors/acf.php:26
 msgid "Site Setup"
 msgstr "הגדרות אתר"
@@ -243,6 +239,9 @@ msgstr "עדכון חשבון"
 #: vendors/acf.php:231
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
+
+#~ msgid "Read more"
+#~ msgstr "קרא עוד"
 
 #~ msgid "Send Email"
 #~ msgstr "שלח דוא\"ל"
