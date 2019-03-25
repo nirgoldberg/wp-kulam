@@ -3,48 +3,27 @@
 /* Your CSS code goes here
 -------------------------------------- */
 
+/**********/
+/* header */
+/**********/
+
 #header .container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center; 
 }
 
-body.rtl #header.logo-left .logo, body.rtl .sticky-header.logo-left .logo {
-	float: none;
-	width: 150px;
-}
-body.rtl #header.logo-right .logo, body.rtl .sticky-header.logo-right .logo, 
-body.rtl #header.logo-left .logo, body.rtl .sticky-header.logo-left .logo{
-	margin-left: auto;
-	padding-right: 15px;
-	margin-right: unset;
+img.logo-img-primary {
+	width: 100px;
 }
 
-body.rtl #header.logo-left .nav-main, body.rtl .sticky-header.logo-left .nav-main,
-#header.logo-right .nav-main, .sticky-header.logo-right .nav-main{
-
-	padding-left: 15px;
-}
-#header.logo-left .logo, .sticky-header.logo-left .logo,
-#header.logo-right .logo, .sticky-header.logo-right .logo {
-	margin-right: auto;
-	margin-left: unset;
-	padding-left: 10px;
+.sticky-header .logo {
+	max-height: unset;
 }
 
-#header.logo-left .nav-main, .sticky-header.logo-left .nav-main,
-#header.logo-right .nav-main, .sticky-header.logo-right .nav-main{
-
-	padding-right: 10px;
-}
-
-#main p a.post-type-sub-title{
-	font-family: 'Assistant', Arial, sans-serif;
-	color: #428bca;
-	font-size: 20px;
-}
-
-/* Subcategory Menu */
+/********************/
+/* categories tiles */
+/********************/
 
 .subcat-menu-items {
 	padding-left: 0;
@@ -55,10 +34,7 @@ body.rtl #header.logo-left .nav-main, body.rtl .sticky-header.logo-left .nav-mai
 h2.post-type-title {
 	clear: both;
 	font-weight: bold;
-	}
-
-/* Homepage Tiles */
-
+}
 
 .tile-box-wrapper {
 	padding-top: 15px;
@@ -176,12 +152,17 @@ h2.post-type-title {
 	display: none;
 }
 
+/**************/
+/* page title */
+/**************/
+
 .breadcrumb {
 	padding: 8px 15px;
 	margin-bottom: 20px;
 	list-style: none;
 	border-radius: 4px;
 }
+
 .breadcrumb a {
 	text-decoration: none;
 }
@@ -205,6 +186,16 @@ h2.post-type-title {
 
 .category-desc.open {
 	display: block;
+}
+
+/***********/
+/* general */
+/***********/
+
+#main p a.post-type-sub-title{
+	font-family: 'Assistant', Arial, sans-serif;
+	color: #428bca;
+	font-size: 20px;
 }
 
 @media print {
@@ -239,17 +230,6 @@ h2.post-type-title {
 	/* font-size: 20px; */
 	/* margin-bottom: 50px; */
 	font-weight: bold;
-}
-.logo-img{
-	width:150px !important;
-	margin-top:8%;
-}
-
-img.logo-img-primary {
-	/* position: relative;
-	right: 100%; */
-	width: 100px;
-	margin-top: -16%;
 }
 
 .submit_reg ,.submit_log{
@@ -872,7 +852,8 @@ div#title-bar {
 }
 .search-header .menu-search-submit:lang(en-US){
 	position: absolute;
-	left: 145px;
+	left: auto;
+	right: 10px;
 	top: 10px;
 	width: 15px;  
 }
@@ -888,32 +869,11 @@ div#title-bar {
 	padding: 0;
 }
 
-.search-header.mobile { 
-	display:none; 
-}
 #whatsapp-share{
 	display:none;
 }
 #telegram-share{
 	display:none;
-}
-@media screen and (max-width: 500px) {
-	body.rtl #header.logo-left .logo, 
-	body.rtl .sticky-header.logo-left .logo {
-		width: 100%;
-	}
-	.search-header.mobile { 
-		display: inline-block;
-		line-height: normal;
-		margin-right: 12px; 
-	}
-	.logo-img {
-		margin-top:0;
-		width: auto !important;
-	}
-	body.admin-bar .sticky-header {
-		top:0 !important;
-	}
 }
 
 .entry-meta span:before{
@@ -1042,7 +1002,182 @@ output:lang(he-IL) {
 	position: relative;
 	left: -1%;
 }
+
+/**************/
+/* responsive */
+/**************/
+
+@media screen and (max-width: 991px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header .container {
+		display: block;
+	}
+
+	#header .logo,
+	.sticky-header .logo {
+		padding: 0;
+	}
+
+	#header .logo .logo-img,
+	.sticky-header .logo .logo-img {
+		margin: 0;
+	}
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header .logo,
+	.sticky-header .logo {
+		width: 15%;
+	}
+
+	#header .logo .logo-img,
+	.sticky-header .logo .logo-img {
+		width: 100% !important;
+	}
+
+	#header .logo .logo-img img,
+	.sticky-header .logo .logo-img img {
+		margin: 10px 0;
+	}
+
+	#header .nav-main,
+	.sticky-header .nav-main {
+		margin: 10px 0;
+		width: 85%;
+	}
+
+	#header .nav-main .nav-main-inner,
+	.sticky-header .nav-main .nav-main-inner {
+		display: block;
+	}
+
+	.sf-menu {
+		float: left;
+		width: 80%;
+	}
+
+	.sf-menu a,
+	.menu-no-found,
+	.sf-menu li.pojo-menu-search,
+	.search-header {
+		line-height: 45px !important;
+	}
+
+	.search-header {
+		float: right;
+		width: 20%;
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header .logo, 
+	.sticky-header .logo {
+		width: 100%;
+		max-height: unset;
+	}
+
+	#header .logo .logo-img,
+	.sticky-header .logo .logo-img {
+		margin-bottom: 15px;
+		width: 45% !important;
+	}
+
+	#header .logo .logo-img img,
+	.sticky-header .logo .logo-img img {
+		margin: 0;
+	}
+
+	#header .logo .search-header,
+	.sticky-header .logo .search-header {
+		float: left;
+		width: 45% !important;
+		clear: both;
+	}
+
+	#header .logo .login,
+	.sticky-header .logo .login {
+		float: right;
+	}
+
+	#header .logo .login a,
+	.sticky-header .logo .login a {
+		line-height: 40px;
+		font-family: 'Assistant', Arial, sans-serif;
+		font-size: 18px;
+		font-weight: 600;
+		color: #000;
+		text-transform: none;
+	}
+
+	#header .nav-main,
+	.sticky-header .nav-main {
+		padding: 0;
+	}
+
+	/********************/
+	/* categories tiles */
+	/********************/
+
+	.homepage-bg {
+		background-size: auto 100%;
+		background-attachment: fixed;
+		background-position: 50% 0px;
+	}
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+
+	/********************/
+	/* categories tiles */
+	/********************/
+
+	.tile-box-wrapper {
+		float: left !important;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+
+	/********************/
+	/* categories tiles */
+	/********************/
+
+	.tile-box-wrapper {
+		width: 100%;
+	}
+
+	.tile-box-link {
+		margin: 0 auto;
+		padding-top: 280px;
+		width: 280px;
+	}
+
+}
+
 @media screen and (max-width: 500px) {
+
+	body.admin-bar .sticky-header {
+		top:0 !important;
+	}
+
 	#wp-admin-bar-root-default 
 	{
 		overflow-x: hidden;
@@ -1131,4 +1266,5 @@ output:lang(he-IL) {
    .wrap-sharing-public>a{
 		padding: 10px;
    }
+
 }

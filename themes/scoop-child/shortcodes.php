@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.2
+ * @version     1.0.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -37,7 +37,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 		$category_title = $homepage_tile->title;
 		$category_description = category_description($homepage_tile->object_id);
 
-		$classes = 'tile-box-wrapper col-md-3' . ( $category_description ? ' cat-desc' : '' );
+		$classes = 'tile-box-wrapper col-sm-3 col-xs-6' . ( $category_description ? ' cat-desc' : '' );
 
 		$cat_desc_content	= '';
 		$cat_desc_btn		= '';
@@ -66,7 +66,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 
 	// Add Fixed Tile for "Upload"
 
-	$markup .= '<div class="tile-box-wrapper tile-box-upload col-md-3">' .
+	$markup .= '<div class="tile-box-wrapper tile-box-upload col-sm-3 col-xs-6">' .
 		'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link">' .
 		'<div class="tile-box">' .
 			'<div class="tile-box-content">' .
@@ -83,7 +83,7 @@ function kulam_generate_homepage_tiles( $atts ) {
  
    // $siddur_id = kulam_get_current_user_siddur_id();
 
-	$markup .= '<div class="tile-box-wrapper tile-box-album col-md-3">' .
+	$markup .= '<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
 		'<a href="' . home_url( '/' ) . '/my-siddur" role="link" class="tile-box-link">' .
 		'<div class="tile-box albumsiddur">' .
 			'<div class="tile-box-content">' .

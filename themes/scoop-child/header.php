@@ -20,7 +20,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 <html class="no-js lt-ie9" <?php language_attributes(); ?>> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <?php 
 // $site = get_bloginfo();
 // switch ($site) {
@@ -95,28 +95,28 @@ switch ($current_site){
 }
 ?>
 <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            
-            ga('create', '<?php echo $userAgent ?>' , 'auto');
+			(function (i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date(); a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			
+			ga('create', '<?php echo $userAgent ?>' , 'auto');
 			ga('send', 'pageview');
 			ga('require', 'urlChangeTracker');
-       
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-            
-            ga('create','UA-130681933-1'  , 'auto');
+	   
+			(function (i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date(); a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			
+			ga('create','UA-130681933-1'  , 'auto');
 			ga('send', 'pageview');
 			ga('require', 'urlChangeTracker');
-        </script>
+		</script>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -147,40 +147,61 @@ switch ($current_site){
 		<header id="header" class="logo-<?php echo ( 'logo_left' === get_theme_mod( 'header_layout' ) ) ? 'left' : 'right'; ?>" role="banner">
 			<div class="<?php echo WRAP_CLASSES; ?>">
 				<div class="logo">
+
 					<?php if ( ! empty( $logo_img ) ) : ?>
-					<div class="search-header mobile">
-						<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-						<?php $lang=get_locale();
-						if($lang=="en_US"):?>
-						<span class="menu-search-input">
-								<input type="search" name="s" placeholder="search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" /></span>
-                        <?php endif; ?>
-						<?php if($lang=="he_IL"): ?>
+
+						<div class="logo-img">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_attr( $logo_img ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="logo-img-primary" /></a>
+						</div>
+
+						<?php if ( pojo_has_nav_menu( 'primary' ) ) { ?>
+						
+							<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+						<?php } ?>
+
+						<div class="search-header mobile visible-xs">
+							<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
+							<?php $lang=get_locale();
+							if($lang=="en_US"):?>
 							<span class="menu-search-input">
-								<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-							</span>
-                         <?php endif; ?>
-							<span class="menu-search-submit fa fa-search">
-								<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-							</span>
-						</form>
-					</div>
-					<div class="logo-img">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_attr( $logo_img ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="logo-img-primary" /></a>
-					</div>
+									<input type="search" name="s" placeholder="search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" /></span>
+							<?php endif; ?>
+							<?php if($lang=="he_IL"): ?>
+								<span class="menu-search-input">
+									<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
+								</span>
+							 <?php endif; ?>
+								<span class="menu-search-submit fa fa-search">
+									<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
+								</span>
+							</form>
+						</div>
+
+						<div class="login visible-xs">
+							<?php
+								if ( is_user_logged_in() ) {
+									echo '<a href="' . wp_logout_url( home_url() ) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a>';
+								}
+								else {
+									echo '<a href="' . home_url( '/login' ) . '"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
+								}
+							?>
+						</div>
+
 					<?php else : ?>
-					<div class="logo-text">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-					</div>
+
+						<div class="logo-text">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+						</div>
+					
 					<?php endif; ?>
-					<?php if ( pojo_has_nav_menu( 'primary' ) ) : ?>
-					<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<?php endif; ?>
+					
 				</div><!--.logo -->
 				<nav class="nav-main" role="navigation">
 					<div class="navbar-collapse collapse">
@@ -201,7 +222,7 @@ switch ($current_site){
 											<span class="menu-search-input">
 												<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 											</span>
-                                         <?php endif;?>
+										 <?php endif;?>
 											<span class="menu-search-submit fa fa-search">
 												<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
 											</span>
@@ -231,7 +252,7 @@ switch ($current_site){
 						<span class="menu-search-input">
 							<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 						</span>
-                        <?php endif;?>
+						<?php endif;?>
 						<span class="menu-search-submit fa fa-search">
 							<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
 						</span>
@@ -257,23 +278,61 @@ switch ($current_site){
 			<div class="sticky-header logo-<?php echo ( 'logo_left' === get_theme_mod( 'header_layout' ) ) ? 'left' : 'right'; ?>">
 				<div class="<?php echo WRAP_CLASSES; ?>">
 					<div class="logo">
+
 						<?php if ( ! empty( $sticky_logo_img ) ) : ?>
+
 							<div class="logo-img">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_attr( $sticky_logo_img ); ?>" alt="<?php bloginfo( 'name' ); ?>" class="logo-img-secondary" /></a>
 							</div>
+
+							<?php if ( pojo_has_nav_menu( 'sticky_menu' ) ) : ?>
+
+								<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
+									<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+
+							<?php endif; ?>
+
+							<div class="search-header mobile visible-xs">
+								<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
+								<?php $lang=get_locale();
+								if($lang=="en_US"):?>
+								<span class="menu-search-input">
+										<input type="search" name="s" placeholder="search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" /></span>
+								<?php endif; ?>
+								<?php if($lang=="he_IL"): ?>
+									<span class="menu-search-input">
+										<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
+									</span>
+								 <?php endif; ?>
+									<span class="menu-search-submit fa fa-search">
+										<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
+									</span>
+								</form>
+							</div>
+
+							<div class="login visible-xs">
+								<?php
+									if ( is_user_logged_in() ) {
+										echo '<a href="' . wp_logout_url( home_url() ) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a>';
+									}
+									else {
+										echo '<a href="' . home_url( '/login' ) . '"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
+									}
+								?>
+							</div>
+
 						<?php else : ?>
+
 							<div class="logo-text">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 							</div>
+
 						<?php endif; ?>
-						<?php if ( pojo_has_nav_menu( 'sticky_menu' ) ) : ?>
-						<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-							<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<?php endif; ?>
+
 					</div><!--.logo -->
 					
 					<nav class="nav-main" role="navigation">
@@ -286,9 +345,9 @@ switch ($current_site){
 									<div class="search-header hidden-xs ">
 										<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
 										<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-						            <?php $lang=get_locale();
-						                if($lang=="en_US"):?>
-						                     <span class="menu-search-input">
+									<?php $lang=get_locale();
+										if($lang=="en_US"):?>
+											 <span class="menu-search-input">
 												<input type="search" name="s" placeholder="Search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 											</span>
 										<?php endif;?>
@@ -296,7 +355,7 @@ switch ($current_site){
 											<span class="menu-search-input">
 												<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 											</span>
-                                         <?php endif;?>
+										 <?php endif;?>
 											<span class="menu-search-submit fa fa-search">
 												<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
 											</span>
@@ -315,17 +374,17 @@ switch ($current_site){
 						<div id="search-section-sticky" class="search-section" style="display: none;">
 							<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
 							<?php $lang=get_locale();
-						        if($lang=="en"):?>
+								if($lang=="en"):?>
 								<span class="menu-search-input">
 									<input type="search" name="s" placeholder="Search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 								</span>
-		                        <?php endif;?>
+								<?php endif;?>
 								<?php $lang=get_locale();
-						        if($lang=="he_IL"):?>
+								if($lang=="he_IL"):?>
 								<span class="menu-search-input">
 									<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 								</span>
-		                        <?php endif;?>
+								<?php endif;?>
 								<span class="menu-search-submit fa fa-search">
 									<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
 								</span>

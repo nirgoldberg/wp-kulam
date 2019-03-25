@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-24 13:43+0200\n"
-"PO-Revision-Date: 2019-03-24 13:44+0200\n"
+"POT-Creation-Date: 2019-03-25 14:55+0200\n"
+"PO-Revision-Date: 2019-03-25 14:56+0200\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -56,15 +56,24 @@ msgstr ""
 msgid "My Siddur"
 msgstr "הסידור שלי"
 
-#: header.php:164 header.php:206 header.php:236 header.php:301 header.php:330
-msgid "Search"
-msgstr ""
-
-#: header.php:178 header.php:271
+#: header.php:160 header.php:291
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:212 header.php:307
+#: header.php:181 header.php:227 header.php:257 header.php:312 header.php:360
+#: header.php:389
+msgid "Search"
+msgstr ""
+
+#: header.php:189 header.php:320
+msgid "Logout"
+msgstr "התנתק"
+
+#: header.php:192 header.php:323
+msgid "Login"
+msgstr "התחבר"
+
+#: header.php:233 header.php:366
 #, php-format
 msgid "<a href=\"%s\">Choose Menu</a>"
 msgstr ""
