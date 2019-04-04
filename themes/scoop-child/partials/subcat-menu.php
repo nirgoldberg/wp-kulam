@@ -4,9 +4,21 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.2
+ * @version     1.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! function_exists( 'get_field' ) )
+	return;
+
+/**
+ * Variables
+ */
+$bg_color	= get_field( 'acf-option_subcategory_background_color', 'option' );
+$font_color	= get_field( 'acf-option_subcategory_font_color', 'option' );
+
+$bg_color	= $bg_color ? $bg_color : '#8F95CE';
+$font_color	= $font_color ? $font_color : '#FFFFFF';
 
 $children = get_terms(
 	'category',
@@ -50,10 +62,10 @@ $children = get_terms(
 			?>
 
 			<div class="tile-box-wrapper-child-cat col-md-3">
-				<a href="<?php echo $link; ?>" class="tile-box-link" role="button" style="background: rgba(7,21,147,0.45);padding-top: 71%;height: 280px;">
+				<a href="<?php echo $link; ?>" class="tile-box-link" role="button" style="background: <?php echo $bg_color; ?>; padding-top: 71%; height: 280px;">
 					<div class="tile-box">
 						<div class="tile-box-content">
-							<h2 style="text-align:center; position:relative; top:-80px"><?php echo $child_obj->name; ?></h2>
+							<h2 style="text-align:center; position:relative; top:-80px; color: <?php echo $font_color; ?>;"><?php echo $child_obj->name; ?></h2>
 							<?php echo $cat_desc_content; ?>
 						</div>
 

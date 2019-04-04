@@ -3,11 +3,72 @@
     "title": "General Settings",
     "fields": [
         {
+            "key": "field_5ca5f481de29b",
+            "label": "Subcategories Grid",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ca5f4c7de29c",
+            "label": "Background color",
+            "name": "acf-option_subcategory_background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#8F95CE"
+        },
+        {
+            "key": "field_5ca5f6cdde29d",
+            "label": "Font Color",
+            "name": "acf-option_subcategory_font_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FFFFFF"
+        },
+        {
+            "key": "field_5ca5febcbad83",
+            "label": "Misc",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
             "key": "field_5a40e3e02d04f",
             "label": "Placeholder Thumbnail",
             "name": "placeholder_thumbnail",
             "type": "image",
-            "value": null,
             "instructions": "This image will be shown whenever the post has neither \"featured video\" nor \"featured image\"",
             "required": 0,
             "conditional_logic": 0,
@@ -32,7 +93,6 @@
             "label": "Category Page Sections",
             "name": "category_page_sections",
             "type": "taxonomy",
-            "value": null,
             "instructions": "Select which post type sections should appear in category pages. They will appear in the order you select them here.",
             "required": 0,
             "conditional_logic": 0,
@@ -55,7 +115,6 @@
             "label": "\"My Album\" Custom Label",
             "name": "album_label",
             "type": "text",
-            "value": null,
             "instructions": "By default, a user's collection of saved posts is called \"My Album\". You can change this label here. Leave blank to keep the default value.",
             "required": 0,
             "conditional_logic": 0,
@@ -88,5 +147,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1518321736
+    "modified": 1554382549
 }
