@@ -277,7 +277,11 @@ h2.post-type-title {
 .page-title .more {
 	width: 24px;
 	height: 24px;
-	background: url(../images/info-green.png) 50% 50% no-repeat;
+	background: url(../images/info-blue.png) 50% 50% no-repeat;
+}
+
+.page-title .more.open {
+	background: url(../images/minus-blue.png) 50% 50% no-repeat;
 }
 
 .category-desc {
