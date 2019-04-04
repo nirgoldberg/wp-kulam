@@ -1,5 +1,20 @@
 jQuery(document).ready(function ($) {
 
+	/*******************/
+	/* advanced search */
+	/*******************/
+
+	$('.advanced-search-btn').click(function() {
+		// variables
+		var searchForm = $('.search-header');
+
+		searchForm.toggleClass('advanced');
+	});
+
+	/**************/
+	/* page title */
+	/**************/
+
 	$('.page-title .more').click(function() {
 		$(this).toggleClass('open');
 		$('.category-desc').toggleClass('open');

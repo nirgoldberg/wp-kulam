@@ -3,6 +3,14 @@
 /* Your CSS code goes here
 -------------------------------------- */
 
+/*******************/
+/* advanced search */
+/*******************/
+
+.search-header {
+	float: left;
+}
+
 /* Subcategory Menu */
 
 nav {
@@ -25,41 +33,44 @@ form.wpcf7-form {
 /* responsive */
 /**************/
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
+@media (max-width: 1199px) {}
 
-	/**********/
-	/* header */
-	/**********/
+@media (max-width: 991px) {}
 
-	.sf-menu {
+@media (max-width: 767px) {
+
+	/*******************/
+	/* advanced search */
+	/*******************/
+
+	.search-header {
 		float: right;
 	}
 
-	.search-header {
+	/*********/
+	/* login */
+	/*********/
+
+	header .logo .login,
+	.sticky-header .logo .login {
 		float: left;
 	}
 
 }
 
-@media screen and (max-width: 767px) {
+@media (max-width: 480px) {}
 
-	/**********/
-	/* header */
-	/**********/
+@media (min-width: 1200px) {}
+	
+@media (min-width: 992px) {}
+	
+@media (min-width: 992px) and (max-width: 1199px) {}
 
-	#header .logo .search-header,
-	.sticky-header .logo .search-header {
-		float: right;
-	}
+@media (min-width: 768px) and (max-width: 991px) {}
 
-	#header .logo .login,
-	.sticky-header .logo .login {
-		float: left
-	}
+@media (min-width: 481px) and (max-width: 991px) {}
 
-}
-
-@media screen and (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 767px) {
 
 	/********************/
 	/* categories tiles */

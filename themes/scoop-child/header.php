@@ -146,6 +146,7 @@ switch ($current_site){
 		</section>
 		<header id="header" class="logo-<?php echo ( 'logo_left' === get_theme_mod( 'header_layout' ) ) ? 'left' : 'right'; ?>" role="banner">
 			<div class="<?php echo WRAP_CLASSES; ?>">
+
 				<div class="logo">
 
 					<?php if ( ! empty( $logo_img ) ) : ?>
@@ -166,21 +167,14 @@ switch ($current_site){
 						<?php } ?>
 
 						<div class="search-header mobile visible-xs">
-							<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-							<?php $lang=get_locale();
-							if($lang=="en_US"):?>
-							<span class="menu-search-input">
-									<input type="search" name="s" placeholder="search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" /></span>
-							<?php endif; ?>
-							<?php if($lang=="he_IL"): ?>
-								<span class="menu-search-input">
-									<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-								</span>
-							 <?php endif; ?>
-								<span class="menu-search-submit fa fa-search">
-									<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-								</span>
-							</form>
+
+							<?php
+								/**
+								 * Search
+								 */
+								get_template_part( 'partials/search' );
+							?>
+
 						</div>
 
 						<div class="login visible-xs">
@@ -203,60 +197,47 @@ switch ($current_site){
 					<?php endif; ?>
 					
 				</div><!--.logo -->
+
+				<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
+					<div class="search-header hidden-xs ">
+
+						<?php
+							/**
+							 * Search
+							 */
+							get_template_part( 'partials/search' );
+						?>
+
+					</div>
+				<?php endif; ?>
+
 				<nav class="nav-main" role="navigation">
 					<div class="navbar-collapse collapse">
 						<div class="nav-main-inner">
 							<?php if ( has_nav_menu( 'primary' ) ) : ?>
 								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'sf-menu hidden-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) );
 								wp_nav_menu( array( 'theme_location' => has_nav_menu( 'primary_mobile' ) ? 'primary_mobile' : 'primary', 'container' => false, 'menu_class' => 'mobile-menu visible-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) ); ?>
-								<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
-									<div class="search-header hidden-xs ">
-										<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-										<?php $lang=get_locale();
-										if($lang=="en_US"):?>
-											<span class="menu-search-input">
-												<input type="search" name="s" placeholder="Search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-											</span>
-										<?php endif;?>
-										<?php if($lang=="he_IL"): ?>
-											<span class="menu-search-input">
-												<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-											</span>
-										 <?php endif;?>
-											<span class="menu-search-submit fa fa-search">
-												<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-											</span>
-										</form>
-									</div>
-								<?php endif; ?>
 							<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
 								<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'pojo' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
 							<?php endif; ?>
 						</div>
 					</div>
 				</nav><!--/#nav-menu -->
+
 			</div><!-- /.container -->
 		</header>
 
 		<?php if ( get_theme_mod( 'chk_enable_menu_search' ) ) : ?>
 			<div class="">
 				<div id="search-section-primary" class="search-section" style="display: none;">
-					<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-					<?php $lang=get_locale();
-						if($lang=="en_US"):?>
-						<span class="menu-search-input">
-							<input type="search" name="s" placeholder="=Search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-						</span>
-					   <?php endif;?>
-					   <?php if($lang=="he_IL"): ?>
-						<span class="menu-search-input">
-							<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-						</span>
-						<?php endif;?>
-						<span class="menu-search-submit fa fa-search">
-							<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-						</span>
-					</form>
+
+					<?php
+						/**
+						 * Search
+						 */
+						get_template_part( 'partials/search' );
+					?>
+
 				</div>
 			</div>
 		<?php endif; ?>
@@ -277,6 +258,7 @@ switch ($current_site){
 		<?php if ( get_theme_mod( 'chk_enable_sticky_header' ) ) :?>
 			<div class="sticky-header logo-<?php echo ( 'logo_left' === get_theme_mod( 'header_layout' ) ) ? 'left' : 'right'; ?>">
 				<div class="<?php echo WRAP_CLASSES; ?>">
+
 					<div class="logo">
 
 						<?php if ( ! empty( $sticky_logo_img ) ) : ?>
@@ -297,21 +279,14 @@ switch ($current_site){
 							<?php endif; ?>
 
 							<div class="search-header mobile visible-xs">
-								<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-								<?php $lang=get_locale();
-								if($lang=="en_US"):?>
-								<span class="menu-search-input">
-										<input type="search" name="s" placeholder="search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" /></span>
-								<?php endif; ?>
-								<?php if($lang=="he_IL"): ?>
-									<span class="menu-search-input">
-										<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-									</span>
-								 <?php endif; ?>
-									<span class="menu-search-submit fa fa-search">
-										<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-									</span>
-								</form>
+
+								<?php
+									/**
+									 * Search
+									 */
+									get_template_part( 'partials/search' );
+								?>
+
 							</div>
 
 							<div class="login visible-xs">
@@ -335,60 +310,44 @@ switch ($current_site){
 
 					</div><!--.logo -->
 					
-					<nav class="nav-main" role="navigation">
-					<div class="navbar-collapse collapse">
-						<div class="nav-main-inner">
-							<?php if ( has_nav_menu( 'primary' ) ) : ?>
-								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'sf-menu hidden-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) );
-								wp_nav_menu( array( 'theme_location' => has_nav_menu( 'primary_mobile' ) ? 'primary_mobile' : 'primary', 'container' => false, 'menu_class' => 'mobile-menu visible-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) ); ?>
-								<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
-									<div class="search-header hidden-xs ">
-										<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-										<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-									<?php $lang=get_locale();
-										if($lang=="en_US"):?>
-											 <span class="menu-search-input">
-												<input type="search" name="s" placeholder="Search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-											</span>
-										<?php endif;?>
-										<?php if($lang=="he_IL"):?>
-											<span class="menu-search-input">
-												<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-											</span>
-										 <?php endif;?>
-											<span class="menu-search-submit fa fa-search">
-												<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-											</span>
-										</form>
-									</div>
-								<?php endif; ?>
-							<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
-								<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'pojo' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
-							<?php endif; ?>
+					<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
+						<div class="search-header hidden-xs ">
+
+							<?php
+								/**
+								 * Search
+								 */
+								get_template_part( 'partials/search' );
+							?>
+
 						</div>
-					</div>
-				</nav><!--/#nav-menu -->				
-			</div><!-- /.container -->
+					<?php endif; ?>
+
+					<nav class="nav-main" role="navigation">
+						<div class="navbar-collapse collapse">
+							<div class="nav-main-inner">
+								<?php if ( has_nav_menu( 'primary' ) ) : ?>
+									<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'sf-menu hidden-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) );
+									wp_nav_menu( array( 'theme_location' => has_nav_menu( 'primary_mobile' ) ? 'primary_mobile' : 'primary', 'container' => false, 'menu_class' => 'mobile-menu visible-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) ); ?>
+								<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
+									<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'pojo' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
+								<?php endif; ?>
+							</div>
+						</div>
+					</nav><!--/#nav-menu -->				
+
+				</div><!-- /.container -->
 				<?php if ( get_theme_mod( 'chk_enable_menu_search' ) ) : ?>
 					<div class="hidden-xs">
 						<div id="search-section-sticky" class="search-section" style="display: none;">
-							<form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
-							<?php $lang=get_locale();
-								if($lang=="en"):?>
-								<span class="menu-search-input">
-									<input type="search" name="s" placeholder="Search..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-								</span>
-								<?php endif;?>
-								<?php $lang=get_locale();
-								if($lang=="he_IL"):?>
-								<span class="menu-search-input">
-									<input type="search" name="s" placeholder="חיפוש באתר..." value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-								</span>
-								<?php endif;?>
-								<span class="menu-search-submit fa fa-search">
-									<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-								</span>
-							</form>
+
+							<?php
+								/**
+								 * Search
+								 */
+								get_template_part( 'partials/search' );
+							?>
+
 						</div>
 					</div>
 				<?php endif; // Search Menu ?>
