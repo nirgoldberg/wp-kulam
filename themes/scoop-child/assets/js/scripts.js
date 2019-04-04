@@ -30,8 +30,11 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			var path = window.location.origin;
-			if (document.documentElement.lang === "en-US") {
-				$('#add_to_sidur').text("Remove from my siddur").attr("id", 'remove_from_sidur');
+			if ( path === 'https://onward.kulam.org' ) {
+				$('#add_to_sidur').text("Remove from My Shelf").attr("id", 'remove_from_sidur');
+			} 
+			else if (document.documentElement.lang === "en-US") {
+				$('#add_to_sidur').text("Remove from My Siddur").attr("id", 'remove_from_sidur');
 			}
 			else if( path === 'https://masaisraeli.kulam.org'){
 				$('#add_to_sidur').text("להסיר ממועדפים שלי").attr("id", 'remove_from_sidur');
@@ -53,10 +56,13 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			var path = window.location.origin;
-			if (document.documentElement.lang === "en-US") {
-				$('#remove_from_sidur').text("Add to my siddur").attr("id", 'add_to_sidur');
+			if ( path === 'https://onward.kulam.org' )
+			{
+				$('#remove_from_sidur').text("Add to My Shelf").attr("id", 'add_to_sidur');
+			} 
+			else if (document.documentElement.lang === "en-US") {
+				$('#remove_from_sidur').text("Add to My Siddur").attr("id", 'add_to_sidur');
 			}
-
 			else if( path === 'https://masaisraeli.kulam.org')
 			{
 				$('#remove_from_sidur').text(" הוסף למועדפים שלי").attr("id", 'add_to_sidur');

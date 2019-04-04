@@ -98,8 +98,10 @@ if ( have_posts() ) :
 						$path = get_home_url();
 
 						if($path === 'https://masaisraeli.kulam.org')
-
 							$btn_text = ('הוסף למועדפים שלי');
+						else if($path === 'https://onward.kulam.org')
+							$btn_text = ('Add to My Shelf');
+
                         $btn_id = 'add_to_sidur';
                         $uid = get_current_user_id();
                         $tax_name = 'siddur_'.$uid.'_1';
