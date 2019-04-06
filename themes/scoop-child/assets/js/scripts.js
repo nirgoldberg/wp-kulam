@@ -20,6 +20,23 @@ jQuery(document).ready(function ($) {
 		$('.category-desc').toggleClass('open');
 	});
 
+	/*******************/
+	/* bootstrap modal */
+	/*******************/
+
+	// triggered when modal is about to be shown
+	$('#modal-login').on('show.bs.modal', function(e) {
+
+		// get data-redirect attribute of the clicked element
+		var redirect = $(e.relatedTarget).data('redirect');
+
+		// populate the textbox
+		$('#modal-login').find('input[name="redirectlog"]').val(redirect);
+		$('#modal-registration').find('input[name="redirect"]').val(redirect);
+		$('#modal-login, #modal-registration').find('button').data('redirect', redirect);
+
+	});
+
 	$('.entry-sharing').on('click', '#add_to_sidur', function (event) {
 		event.preventDefault();
 		var data = {
@@ -94,12 +111,15 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			if (response === "Success0") {
-				if ($('#lang').val()) {
+				if ($('#redirectlog').val() == '#') {
+					window.location.reload(false);
+				}
+				else if ($('#langlog').val()) {
 					var home_url = document.location.origin;
-					var loc = home_url.concat("/en/");
+					var loc = home_url.concat("/en").concat($('#redirectlog').val());
 					window.location.href = loc;
 				}
-				else window.location.href = "/";
+				else window.location.href = $('#redirectlog').val();
 			}
 			else {
 				response = response.substring(0, response.length - 1);
@@ -125,12 +145,15 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			if (response === "Success0") {
-				if ($('#lang').val()) {
+				if ($('#redirectlog').val() == '#') {
+					window.location.reload(false);
+				}
+				else if ($('#langlog').val()) {
 					var home_url = document.location.origin;
-					var loc = home_url.concat("/en/");
+					var loc = home_url.concat("/en").concat($('#redirectlog').val());
 					window.location.href = loc;
 				}
-				else window.location.href = "/";
+				else window.location.href = $('#redirectlog').val();
 			}
 			else {
 				response = response.substring(0, response.length - 1);

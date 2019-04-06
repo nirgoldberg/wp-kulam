@@ -1,6 +1,10 @@
 <?php
 /**
  * Content: Grid - Three Columns
+ *
+ * @author      Nir Goldberg
+ * @package     scoop-child
+ * @version     1.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -45,7 +49,7 @@ endif;
 					<?php 
 					if (!(is_user_logged_in())){
 						?>
-						<span class="wrap-heart"><a class="sidur_button" href='<?php echo home_url('/login')?>' ><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
+						<span class="wrap-heart"><a class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
 				
 					<?php }
 					?>

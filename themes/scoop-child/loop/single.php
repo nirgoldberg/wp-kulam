@@ -1,7 +1,13 @@
 <?php
 /**
  * Default Single
+ *
+ * @author      Nir Goldberg
+ * @package     scoop-child
+ * @version     1.0.5
  */
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 $lang=get_locale();
 ?>
   <?php if ($lang=="en_US"):?>
@@ -90,7 +96,7 @@ if ( have_posts() ) :
 				<?php if (!(is_user_logged_in())){
 						$btn_text = __('Add to My Siddur', 'kulam-scoop');
 						?>
-						<span><a class="sidur_button" href='<?php echo home_url('/login')?>' ><?php echo $btn_text;?></a></span>
+						<span><a href="#" class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#"><?php echo $btn_text;?></a></span>
 				<?php }?>
                     <?php if (is_user_logged_in()) {
                         $site = get_current_blog_id();
@@ -113,8 +119,10 @@ if ( have_posts() ) :
 								$path = get_home_url();
 
 						        if($path === 'https://masaisraeli.kulam.org')
+									$btn_text = ('הסר ממועדפים שלי');
+								else if($path === 'https://onward.kulam.org')
+									$btn_text = ('Remove from My Shelf');
 
-							      $btn_text = ('הסר ממועדפים שלי');
                                 $btn_id = 'remove_from_sidur';
                             }
                         }

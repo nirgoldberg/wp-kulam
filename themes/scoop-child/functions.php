@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.0
+ * @version     1.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -12,6 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( defined( 'WP_SITEURL' ) && defined( 'LIVE_SITEURL' ) ) {
 	require_once( 'functions/live-uploads.php' );
 }
+
+// login modal
+require_once ( 'functions/modal-login.php' );
+
+// registration modal
+require_once ( 'functions/modal-registration.php' );
 
 /**
  *     SETUP FUNCTIONS
@@ -186,30 +192,30 @@ function kulam_add_siddur_menu_item ( $items, $args ) {
 	$uid = wp_get_current_user()->ID;
 	$lang = get_locale();
 	if ( $args->theme_location == 'primary' ) {
-		if ($lang == 'he_IL') {
-		$items .= '<li class="menu-item my-siddur"><a href="/my-siddur" role="link"><span>' . $label . '</span></a></li>';
+
+		if ( is_user_logged_in() ) {
+			if ($lang == 'he_IL') {
+				$items .= '<li class="menu-item my-siddur"><a href="/my-siddur" role="link"><span>' . $label . '</span></a></li>';
+			}
+			else{
+				$items .= '<li class="menu-item my-siddur"><a href="/en/my-siddur" role="link"><span>' . $label . '</span></a></li>';
+			}
 		}
-		else{
-			$items .= '<li class="menu-item my-siddur"><a href="/en/my-siddur" role="link"><span>' . $label . '</span></a></li>';
+		else {
+			$items .= '<li class="menu-item my-siddur"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur"><span>' . $label . '</span></a></li>';
 		}
 	}
 	if (is_user_logged_in()) {
 		$lang = get_locale();
 		if ($lang == 'he_IL') {
-			$items .= '<li class="menu-item logout"><a  href="' . wp_logout_url(home_url()) . '"><span>התנתק</span></a></li>';
+			$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>התנתק</span></a></li>';
 		}
 		else{
-			$items .= '<li class="menu-item logout"><a  href="' . wp_logout_url( home_url()) . '"><span>Logout</span></a></li>';
+			$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>Logout</span></a></li>';
 		}
 	}
 	else{
-		$lang = get_locale();
-		if ($lang == 'he_IL') {
-			$items .= '<li class="menu-item logout"><a  href="' . home_url('/login') . '"><span>התחבר</span></a></li>';
-		}
-		else{
-			$items .= '<li class="menu-item logout"><a  href="' . home_url('/login') . '"><span>Login</span></a></li>';
-		}
+		$items .= '<li class="menu-item logout"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a></li>';
 	}
 
 	return $items;

@@ -293,6 +293,71 @@ h2.post-type-title {
 	display: block;
 }
 
+/*******************/
+/* bootstrap modal */
+/*******************/
+
+.modal .modal-dialog-centered {
+	max-width: 500px;
+	min-height: calc(100% - (1.75rem * 2));
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.modal .modal-dialog-centered .modal-content {
+	width: 100%;
+}
+
+.modal .modal-header .modal-title {
+	display: inline-block;
+}
+
+.modal .modal-header button {
+	margin: 0;
+	font-size: 28px;
+}
+
+.modal .modal-footer .btn-primary,
+.modal .modal-footer .btn-secondary {
+	margin: 0;
+	padding: 6px 12px;
+	width: auto;
+	line-height: 26px;
+	font-family: 'Oswald', Arial, sans-serif;
+	font-weight: normal;
+	color: #FFF;
+	text-transform: uppercase;
+	border: 0;
+	border-radius: 4px;
+	display: inline-block !important;
+}
+
+.modal .btn-primary {
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.modal .btn-primary:hover,
+.modal .btn-primary:focus {
+	background-color: #0069d9;
+	border-color: #0062cc;
+}
+
+.modal .btn-secondary {
+	background-color: #6c757d;
+	border-color: #6c757d;
+}
+
+.modal .btn-secondary:hover,
+.modal .btn-secondary:focus {
+	background-color: #5a6268;
+	border-color: #545b62;
+}
+
 /***********/
 /* general */
 /***********/
