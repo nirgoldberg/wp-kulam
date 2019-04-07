@@ -29,6 +29,15 @@ form.wpcf7-form {
     display: none;
 }
 
+/*********/
+/* login */
+/*********/
+
+header .logo .login,
+.sticky-header .logo .login {
+	float: left;
+}
+
 /**************/
 /* responsive */
 /**************/
@@ -37,26 +46,7 @@ form.wpcf7-form {
 
 @media (max-width: 991px) {}
 
-@media (max-width: 767px) {
-
-	/*******************/
-	/* advanced search */
-	/*******************/
-
-	.search-header {
-		float: right;
-	}
-
-	/*********/
-	/* login */
-	/*********/
-
-	header .logo .login,
-	.sticky-header .logo .login {
-		float: left;
-	}
-
-}
+@media (max-width: 767px) {}
 
 @media (max-width: 480px) {}
 

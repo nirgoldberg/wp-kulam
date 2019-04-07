@@ -37,6 +37,23 @@ jQuery(document).ready(function ($) {
 
 	});
 
+	$('#modal-login').on('shown.bs.modal', function(e) {
+
+		$(this).data('bs.modal').$backdrop.css('background-color', '#000');
+
+	});
+
+	// modify search modal background
+	$('#modal-search').on('shown.bs.modal', function(e) {
+
+		$(this).data('bs.modal').$backdrop.css('background-color', '#FFF');
+
+	});
+
+	/***********/
+	/* general */
+	/***********/
+
 	$('.entry-sharing').on('click', '#add_to_sidur', function (event) {
 		event.preventDefault();
 		var data = {

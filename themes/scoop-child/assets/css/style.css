@@ -99,6 +99,46 @@ header .logo img,
 	display: block;
 }
 
+#modal-search .search-header {
+	float: none;
+	margin: 0;
+	width: 100%;
+}
+
+/************************/
+/* search header mobile */
+/************************/
+
+header .search-header.mobile,
+.sticky-header .search-header.mobile {
+	margin: 2px 15px;
+	width: 20px;
+	height: 20px;
+}
+
+header .search-header.mobile span,
+.sticky-header .search-header.mobile span {
+	font-size: 20px;
+}
+
+/*********/
+/* login */
+/*********/
+
+header .logo .login,
+.sticky-header .logo .login {
+	float: right;
+}
+
+header .logo .login a,
+.sticky-header .logo .login a {
+	font-family: 'Assistant', Arial, sans-serif;
+	font-size: 18px;
+	font-weight: 600;
+	color: #000;
+	text-transform: none;
+}
+
 /*******************/
 /* navigation menu */
 /*******************/
@@ -308,7 +348,35 @@ h2.post-type-title {
 	align-items: center;
 }
 
-.modal .modal-dialog-centered .modal-content {
+.modal .modal-dialog-fullscreen {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.modal .modal-dialog-fullscreen .modal-content {
+	height: 100%;
+	border: 0;
+	border-radius: 0;
+	opacity: 0.9;
+}
+
+.modal .modal-dialog-fullscreen .modal-header {
+	height: 60px;
+	border: 0;
+}
+
+.modal .modal-dialog-fullscreen .modal-header button {
+	font-size: 40px;
+	opacity: 1;
+}
+
+.modal .modal-dialog-fullscreen .modal-body {
+	top: 20%;
+}
+
+.modal .modal-content {
 	width: 100%;
 }
 
@@ -356,6 +424,12 @@ h2.post-type-title {
 .modal .btn-secondary:focus {
 	background-color: #5a6268;
 	border-color: #545b62;
+}
+
+.modal-backdrop {
+	background-color: transparent;
+	-webkit-transition: all .15s linear;
+    transition: all .15s linear;
 }
 
 /***********/
@@ -1157,37 +1231,6 @@ output:lang(he-IL) {
 	header .logo .logo-img,
 	.sticky-header .logo .logo-img {
 		width: 45% !important;
-	}
-
-	/*******************/
-	/* advanced search */
-	/*******************/
-
-	.search-header {
-		float: left;
-		width: 45% !important;
-		clear: both;
-	}
-
-	/*********/
-	/* login */
-	/*********/
-
-	header .logo .login,
-	.sticky-header .logo .login {
-		float: right;
-	}
-
-	header .logo .login a,
-	.sticky-header .logo .login a {
-		margin-top: 20px;
-		line-height: 40px;
-		font-family: 'Assistant', Arial, sans-serif;
-		font-size: 18px;
-		font-weight: 600;
-		color: #000;
-		text-transform: none;
-		display: block;
 	}
 
 	/*******************/

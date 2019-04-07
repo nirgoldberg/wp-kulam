@@ -1,4 +1,11 @@
 <?php
+/**
+ * Header
+ *
+ * @author      Nir Goldberg
+ * @package     scoop-child
+ * @version     1.0.6
+ */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 $logo_img = get_theme_mod( 'image_logo' ); // Getting from option your choice.
@@ -166,16 +173,7 @@ switch ($current_site){
 
 						<?php } ?>
 
-						<div class="search-header mobile visible-xs">
-
-							<?php
-								/**
-								 * Search
-								 */
-								get_template_part( 'partials/search' );
-							?>
-
-						</div>
+						<div class="search-header mobile visible-xs" data-toggle="modal" data-target="#modal-search"><span class="fa fa-search"></span></div>
 
 						<div class="login visible-xs">
 							<?php
@@ -183,7 +181,7 @@ switch ($current_site){
 									echo '<a href="' . wp_logout_url( home_url() ) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a>';
 								}
 								else {
-									echo '<a href="' . home_url( '/login' ) . '"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
+									echo '<a href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
 								}
 							?>
 						</div>
@@ -278,16 +276,7 @@ switch ($current_site){
 
 							<?php endif; ?>
 
-							<div class="search-header mobile visible-xs">
-
-								<?php
-									/**
-									 * Search
-									 */
-									get_template_part( 'partials/search' );
-								?>
-
-							</div>
+							<div class="search-header mobile visible-xs" data-toggle="modal" data-target="#modal-search"><span class="fa fa-search"></span></div>
 
 							<div class="login visible-xs">
 								<?php
@@ -295,7 +284,7 @@ switch ($current_site){
 										echo '<a href="' . wp_logout_url( home_url() ) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a>';
 									}
 									else {
-										echo '<a href="' . home_url( '/login' ) . '"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
+										echo '<a href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
 									}
 								?>
 							</div>

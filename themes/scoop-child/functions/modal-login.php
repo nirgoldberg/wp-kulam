@@ -54,7 +54,7 @@ function Kulam_modal_login() {
 			</div>
 		</div>
 
-	</div><!-- .modal.login -->
+	</div><!-- #modal-login -->
 
 	<?php
 

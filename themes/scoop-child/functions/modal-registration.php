@@ -61,7 +61,7 @@ function Kulam_modal_registration() {
 			</div>
 		</div>
 
-	</div><!-- .modal.registration -->
+	</div><!-- #modal-registration -->
 
 	<?php
 

@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.5
+ * @version     1.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -18,6 +18,9 @@ require_once ( 'functions/modal-login.php' );
 
 // registration modal
 require_once ( 'functions/modal-registration.php' );
+
+// search modal
+require_once ( 'functions/modal-search.php' );
 
 /**
  *     SETUP FUNCTIONS
