@@ -15,8 +15,8 @@ jQuery(document).ready(function ($) {
 	/* page title */
 	/**************/
 
-	$('.page-title .more').click(function() {
-		$(this).toggleClass('open');
+	$('.page-title .more, .page-title .less').click(function() {
+		$('.page-title .more, .page-title .less').toggleClass('open');
 		$('.category-desc').toggleClass('open');
 	});
 

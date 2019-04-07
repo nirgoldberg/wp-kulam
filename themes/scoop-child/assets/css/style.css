@@ -284,7 +284,11 @@ h2.post-type-title {
 	margin-left: -12px;
 	width: 24px;
 	height: 24px;
-	background: url(../images/info-white.png) 50% 50% no-repeat;
+}
+
+.tile-box-wrapper .tile-box-link .more svg,
+.tile-box-wrapper-child-cat .tile-box-link .more svg {
+	fill: #FFF;
 }
 
 .tile-box-wrapper .tile-box-link:hover .desc,
@@ -312,21 +316,31 @@ h2.post-type-title {
 	text-decoration: none;
 }
 
-.page-title .more {
+.page-title .more,
+.page-title .less {
 	position: relative;
 	margin: 0px 15px;
+	width: 24px;
+	height: 24px;
 	display: inline-block;
 	cursor: pointer;
 }
 
-.page-title .more {
-	width: 24px;
-	height: 24px;
-	background: url(../images/info-blue.png) 50% 50% no-repeat;
+.page-title .less {
+	display: none;
+}
+
+.page-title .more svg,
+.page-title .less svg {
+	fill: #2093c8;
 }
 
 .page-title .more.open {
-	background: url(../images/minus-blue.png) 50% 50% no-repeat;
+	display: none;
+}
+
+.page-title .less.open {
+	display: inline-block;
 }
 
 .category-desc {
