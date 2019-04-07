@@ -44,9 +44,9 @@ function kulam_generate_homepage_tiles( $atts ) {
 
 		if ( $category_description ) {
 
-			$cat_desc_content	= '<div class="desc"><div class="desc-content">' . $category_description . '</div></div>';
+			$cat_desc_content	= '<div class="desc hidden-xs"><div class="desc-content">' . $category_description . '</div></div>';
 			$cat_desc_btn		=
-				'<div class="more">' .
+				'<div class="more hidden-xs">' .
 
 					Kulam_get_svg( 'info' ) .
 

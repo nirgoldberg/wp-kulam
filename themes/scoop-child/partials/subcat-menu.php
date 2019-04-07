@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.7
+ * @version     1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -54,9 +54,9 @@ $children = get_terms(
 
 			if ( $category_description ) {
 
-				$cat_desc_content	= '<div class="desc"><div class="desc-content">' . $category_description . '</div></div>';
+				$cat_desc_content	= '<div class="desc hidden-xs"><div class="desc-content">' . $category_description . '</div></div>';
 				$cat_desc_btn		=
-					'<div class="more">' .
+					'<div class="more hidden-xs">' .
 
 						Kulam_get_svg( 'info' ) .
 
@@ -67,10 +67,10 @@ $children = get_terms(
 			?>
 
 			<div class="tile-box-wrapper-child-cat col-md-3">
-				<a href="<?php echo $link; ?>" class="tile-box-link" role="button" style="background: <?php echo $bg_color; ?>; padding-top: 71%; height: 280px;">
+				<a href="<?php echo $link; ?>" class="tile-box-link" role="button" style="background: <?php echo $bg_color; ?>">
 					<div class="tile-box">
 						<div class="tile-box-content">
-							<h2 style="text-align:center; position:relative; top:-80px; color: <?php echo $font_color; ?>;"><?php echo $child_obj->name; ?></h2>
+							<h2 style="color: <?php echo $font_color; ?>;"><?php echo $child_obj->name; ?></h2>
 							<?php echo $cat_desc_content; ?>
 						</div>
 

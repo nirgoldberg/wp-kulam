@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.7
+ * @version     1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,9 +14,9 @@ $is_filtered = ( isset($_GET['pt']) ? true : false );
 ?>
 <?php if (!is_home() && ! is_front_page()) : ?>
 	<header class="entry-header">
-		<?php if (!is_tax('siddurim') && po_breadcrumbs_need_to_show()) {
-			pojo_breadcrumbs();
-		}
+		<?php if (!is_tax('siddurim') && po_breadcrumbs_need_to_show()) { ?>
+			<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
+		<?php }
 
 		if ( is_category() ) {
 
