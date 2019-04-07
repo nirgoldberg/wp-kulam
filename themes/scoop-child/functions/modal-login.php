@@ -37,6 +37,8 @@ function Kulam_modal_login() {
 					</button>
 				</div>
 
+				<div class="pre-text"><?php _e( 'In order to save posts or view saved content, you must register / log-in to your account', 'kulam-scoop' ); ?></div>
+
 				<form>
 					<div class="modal-body">
 						<?php _e( 'User', 'kulam-scoop' ); ?> <input type="text" id="unamelog" name="unamelog" />

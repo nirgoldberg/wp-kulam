@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.3
+ * @version     1.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -84,15 +84,17 @@ function kulam_generate_homepage_tiles( $atts ) {
    // $siddur_id = kulam_get_current_user_siddur_id();
 
 	$markup .= '<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
-		'<a href="' . home_url( '/' ) . '/my-siddur" role="link" class="tile-box-link">' .
-		'<div class="tile-box albumsiddur">' .
-			'<div class="tile-box-content">' .
-			'<i class="fa fa-book"></i>' .
-			'<h2>' . $a['album_label'] . '</h2>' .
-			'<p>' . $a['album_sub'] . '</p>' .
-			'</div>' .
-		'</div>' .
-		'</a>' .
+		( ( is_user_logged_in() ) ?
+			'<a href="/my-siddur" role="link" class="tile-box-link">' :
+			'<a href="#" role="link" class="tile-box-link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true">' ) .
+				'<div class="tile-box albumsiddur">' .
+					'<div class="tile-box-content">' .
+					'<i class="fa fa-book"></i>' .
+					'<h2>' . $a['album_label'] . '</h2>' .
+					'<p>' . $a['album_sub'] . '</p>' .
+					'</div>' .
+				'</div>' .
+			'</a>' .
 		'</div>';
 
 	$markup .= '</div></div>';

@@ -205,7 +205,7 @@ function kulam_add_siddur_menu_item ( $items, $args ) {
 			}
 		}
 		else {
-			$items .= '<li class="menu-item my-siddur"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur"><span>' . $label . '</span></a></li>';
+			$items .= '<li class="menu-item my-siddur"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true"><span>' . $label . '</span></a></li>';
 		}
 	}
 	if (is_user_logged_in()) {
@@ -218,7 +218,7 @@ function kulam_add_siddur_menu_item ( $items, $args ) {
 		}
 	}
 	else{
-		$items .= '<li class="menu-item logout"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a></li>';
+		$items .= '<li class="menu-item logout"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a></li>';
 	}
 
 	return $items;

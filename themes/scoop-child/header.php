@@ -181,7 +181,7 @@ switch ($current_site){
 									echo '<a href="' . wp_logout_url( home_url() ) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a>';
 								}
 								else {
-									echo '<a href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
+									echo '<a href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
 								}
 							?>
 						</div>
@@ -284,7 +284,7 @@ switch ($current_site){
 										echo '<a href="' . wp_logout_url( home_url() ) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a>';
 									}
 									else {
-										echo '<a href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
+										echo '<a href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a>';
 									}
 								?>
 							</div>

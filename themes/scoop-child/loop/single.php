@@ -96,7 +96,7 @@ if ( have_posts() ) :
 				<?php if (!(is_user_logged_in())){
 						$btn_text = __('Add to My Siddur', 'kulam-scoop');
 						?>
-						<span><a href="#" class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#"><?php echo $btn_text;?></a></span>
+						<span><a href="#" class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><?php echo $btn_text;?></a></span>
 				<?php }?>
                     <?php if (is_user_logged_in()) {
                         $site = get_current_blog_id();

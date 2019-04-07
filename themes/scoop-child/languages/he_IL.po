@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-07 01:58+0300\n"
-"PO-Revision-Date: 2019-04-07 02:00+0300\n"
+"POT-Creation-Date: 2019-04-07 13:10+0300\n"
+"PO-Revision-Date: 2019-04-07 13:11+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -51,25 +51,31 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: functions.php:186 includes/cpt-config.php:55 loop/archive.php:44
+#: functions.php:189 includes/cpt-config.php:55 loop/archive.php:44
 #: partials/functions.php:125
 msgid "My Siddur"
 msgstr "הסידור שלי"
 
-#: functions.php:218 functions/modal-login.php:34 functions/modal-login.php:50
-#: functions/modal-registration.php:56 header.php:186 header.php:298
+#: functions.php:221 functions/modal-login.php:34 functions/modal-login.php:52
+#: functions/modal-registration.php:56 header.php:184 header.php:287
 msgid "Login"
 msgstr "התחבר"
 
-#: functions/modal-login.php:42 functions/modal-registration.php:44
+#: functions/modal-login.php:40
+msgid ""
+"In order to save posts or view saved content, you must register / log-in to "
+"your account"
+msgstr "על מנת לשמור או לצפות בתכנים ששמרת, יש להירשם / להתחבר לחשבונך באתר"
+
+#: functions/modal-login.php:44 functions/modal-registration.php:44
 msgid "User"
 msgstr "שם משתמש"
 
-#: functions/modal-login.php:43 functions/modal-registration.php:46
+#: functions/modal-login.php:45 functions/modal-registration.php:46
 msgid "Password"
 msgstr "סיסמא"
 
-#: functions/modal-login.php:49
+#: functions/modal-login.php:51
 msgid "Register Now"
 msgstr "עוד לא מחובר? להרשמה לחץ כאן"
 
@@ -91,15 +97,15 @@ msgstr "אנא הזן את הטקסט בתיבה מתחת"
 msgid "Register"
 msgstr "הירשם"
 
-#: header.php:161 header.php:273
+#: header.php:168 header.php:271
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:183 header.php:295
+#: header.php:181 header.php:284
 msgid "Logout"
 msgstr "התנתק"
 
-#: header.php:221 header.php:333
+#: header.php:219 header.php:322
 #, php-format
 msgid "<a href=\"%s\">Choose Menu</a>"
 msgstr ""

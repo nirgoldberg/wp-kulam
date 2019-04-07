@@ -49,7 +49,7 @@ endif;
 					<?php 
 					if (!(is_user_logged_in())){
 						?>
-						<span class="wrap-heart"><a class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
+						<span class="wrap-heart"><a class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
 				
 					<?php }
 					?>

@@ -53,7 +53,7 @@ function Kulam_modal_registration() {
 					</div>
 
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modal-login" data-redirect=""><?php _e( 'Login', 'kulam-scoop' ); ?></button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modal-login" data-redirect="" data-show-pre-text=""><?php _e( 'Login', 'kulam-scoop' ); ?></button>
 						<input type="submit" class="btn btn-primary submit_reg" value="<?php _e( 'Register', 'kulam-scoop' ); ?>" />
 					</div>
 				</form>

@@ -27,17 +27,27 @@ jQuery(document).ready(function ($) {
 	// triggered when modal is about to be shown
 	$('#modal-login').on('show.bs.modal', function(e) {
 
-		// get data-redirect attribute of the clicked element
-		var redirect = $(e.relatedTarget).data('redirect');
+		// get data attributes of the clicked element
+		var redirect = $(e.relatedTarget).data('redirect'),
+			showPreText = $(e.relatedTarget).data('show-pre-text');
 
 		// populate the textbox
 		$('#modal-login').find('input[name="redirectlog"]').val(redirect);
 		$('#modal-registration').find('input[name="redirect"]').val(redirect);
 		$('#modal-login, #modal-registration').find('button').data('redirect', redirect);
+		$('#modal-login, #modal-registration').find('button').data('show-pre-text', showPreText);
+
+		// expose pre-text if redirect to my siddur
+		if (showPreText) {
+			$('#modal-login').find('.pre-text').show();
+		}
+		else {
+			$('#modal-login').find('.pre-text').hide();
+		}
 
 	});
 
-	$('#modal-login').on('shown.bs.modal', function(e) {
+	$('#modal-login, #modal-registration').on('shown.bs.modal', function(e) {
 
 		$(this).data('bs.modal').$backdrop.css('background-color', '#000');
 
