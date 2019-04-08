@@ -14,9 +14,9 @@ $is_filtered = ( isset($_GET['pt']) ? true : false );
 ?>
 <?php if (!is_home() && ! is_front_page()) : ?>
 	<header class="entry-header">
-		<?php if (!is_tax('siddurim') && po_breadcrumbs_need_to_show()) { ?>
-			<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
-		<?php }
+		<?php if (!is_tax('siddurim') && po_breadcrumbs_need_to_show()) {
+			pojo_breadcrumbs();
+		}
 
 		if ( is_category() ) {
 

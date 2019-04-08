@@ -323,6 +323,10 @@ header .logo .login a,
 	display: block;
 }
 
+h2.post-type-title {
+	font-weight: bold;
+}
+
 /*******************/
 /* bootstrap modal */
 /*******************/
