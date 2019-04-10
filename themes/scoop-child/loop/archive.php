@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.1
+ * @version     1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -33,7 +33,7 @@ $is_filtered = ( isset($_GET['pt']) ? true : false );
 			elseif (is_year()) :
 				printf(__('Archive for %s', 'pojo'), '<span>' . get_the_date(_x('Y', 'yearly archives date format', 'pojo')) . '</span>');
 			elseif (is_category()) :
-				echo '<span>'.single_cat_title('', false) . '</span>' . ( $category_description ? '<span class="more">' . Kulam_get_svg( 'info' ) . '</span><span class="less">' . Kulam_get_svg( 'minus' ) . '</span>' : '' );
+				echo '<span>'.single_cat_title('', false) . '</span>' . ( $category_description ? '<span class="more">' . kulam_get_svg( 'info' ) . '</span><span class="less">' . kulam_get_svg( 'minus' ) . '</span>' : '' );
 			elseif (is_tag()) :
 				echo '<span>'.single_tag_title('', false) . '</span>';
 			elseif (is_tax('post_format')) :

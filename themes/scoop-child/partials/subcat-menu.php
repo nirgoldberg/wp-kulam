@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.1
+ * @version     1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -58,7 +58,7 @@ $children = get_terms(
 				$cat_desc_btn		=
 					'<div class="more hidden-xs">' .
 
-						Kulam_get_svg( 'info' ) .
+						kulam_get_svg( 'info' ) .
 
 					'</div>';
 

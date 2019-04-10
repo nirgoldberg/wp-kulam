@@ -3,20 +3,20 @@
  * Login Modal
  *
  * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.0.5
+ * @package     scoop-child/functions
+ * @version     1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Kulam_modal_login
+ * kulam_modal_login
  *
  * This function includes a login modal within the footer
  *
  * @param	N/A
  * @return	N/A
  */
-function Kulam_modal_login() {
+function kulam_modal_login() {
 
 	/**
 	 * Variables
@@ -61,4 +61,4 @@ function Kulam_modal_login() {
 	<?php
 
 }
-add_action( 'wp_footer', 'Kulam_modal_login' );
+add_action( 'wp_footer', 'kulam_modal_login' );

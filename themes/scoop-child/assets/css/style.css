@@ -1050,21 +1050,6 @@ p.txtsl:lang(en-US) {
 div#title-bar {
 	display: none;
 } 
-.tile-box.albumsiddur .tile-box-content h2 {
-	visibility: hidden;
-	line-height: 0;
-}
-.tile-box.albumsiddur .tile-box-content h2:lang(he-IL):after {
-	content: "הסידור שלי";
-	visibility: visible;
-	display: block;
-}
-
-.tile-box.albumsiddur .tile-box-content h2:lang(en):after {
-	content: "My Siddur";
-	visibility: visible;
-	display: block;
-}
 
 .row.subcat-menu{
 

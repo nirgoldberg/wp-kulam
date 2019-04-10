@@ -16,6 +16,12 @@ if ( defined( 'WP_SITEURL' ) && defined( 'LIVE_SITEURL' ) ) {
 // theme functions
 require_once ( 'functions/theme.php' );
 
+// menus functions
+require_once ( 'functions/menus.php' );
+
+// shortcodes functions
+require_once ( 'functions/shortcodes.php' );
+
 // login modal
 require_once ( 'functions/modal-login.php' );
 
@@ -33,7 +39,6 @@ require_once ( 'functions/svgs.php' );
  */
 require_once ('includes/cpt-config.php');           // Register Custom Post Types & Taxonomies locally
 require_once ('vendors/acf.php');                   // ACF Functions
-require_once ('shortcodes.php');
 
 use Mailgun\HttpClientConfigurator;
 use Mailgun\Mailgun;
@@ -186,50 +191,6 @@ function kulam_get_joint_query_args( $category, $post_type_slug, $is_filtered = 
 
 	return $joint_query_args;
 }
-
-/**
- *     Dynamically Add "My Siddur" to Navbar
- */
-
-function kulam_add_siddur_menu_item ( $items, $args ) {
-	$label = __("My Siddur", "kulam-scoop");
-	$custom_label = get_field('album_label', 'options');
-	if ($custom_label) :
-		$label = $custom_label;
-	endif;
-
-	$uid = wp_get_current_user()->ID;
-	$lang = get_locale();
-	if ( $args->theme_location == 'primary' ) {
-
-		if ( is_user_logged_in() ) {
-			if ($lang == 'he_IL') {
-				$items .= '<li class="menu-item my-siddur"><a href="/my-siddur" role="link"><span>' . $label . '</span></a></li>';
-			}
-			else{
-				$items .= '<li class="menu-item my-siddur"><a href="/en/my-siddur" role="link"><span>' . $label . '</span></a></li>';
-			}
-		}
-		else {
-			$items .= '<li class="menu-item my-siddur"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true"><span>' . $label . '</span></a></li>';
-		}
-	}
-	if (is_user_logged_in()) {
-		$lang = get_locale();
-		if ($lang == 'he_IL') {
-			$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>התנתק</span></a></li>';
-		}
-		else{
-			$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>Logout</span></a></li>';
-		}
-	}
-	else{
-		$items .= '<li class="menu-item logout"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a></li>';
-	}
-
-	return $items;
-}
-add_filter( 'wp_nav_menu_items', 'kulam_add_siddur_menu_item', 10, 2 );
 
 //change number of post to show on search
 function change_wp_search_size($query) {

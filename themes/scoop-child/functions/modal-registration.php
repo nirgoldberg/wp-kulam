@@ -3,20 +3,20 @@
  * Registration Modal
  *
  * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.0.5
+ * @package     scoop-child/functions
+ * @version     1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Kulam_modal_registration
+ * kulam_modal_registration
  *
  * This function includes a registration modal within the footer
  *
  * @param	N/A
  * @return	N/A
  */
-function Kulam_modal_registration() {
+function kulam_modal_registration() {
 
 	/**
 	 * Variables
@@ -66,4 +66,4 @@ function Kulam_modal_registration() {
 	<?php
 
 }
-add_action( 'wp_footer', 'Kulam_modal_registration' );
+add_action( 'wp_footer', 'kulam_modal_registration' );

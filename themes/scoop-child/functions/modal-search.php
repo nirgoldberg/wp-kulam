@@ -3,20 +3,20 @@
  * Search Modal
  *
  * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.0.6
+ * @package     scoop-child/functions
+ * @version     1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Kulam_modal_search
+ * kulam_modal_search
  *
  * This function includes a search modal within the footer
  *
  * @param	N/A
  * @return	N/A
  */
-function Kulam_modal_search() {
+function kulam_modal_search() {
 
 	?>
 
@@ -54,4 +54,4 @@ function Kulam_modal_search() {
 	<?php
 
 }
-add_action( 'wp_footer', 'Kulam_modal_search' );
+add_action( 'wp_footer', 'kulam_modal_search' );

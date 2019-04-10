@@ -3,20 +3,20 @@
  * SVGs
  *
  * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.0.7
+ * @package     scoop-child/functions
+ * @version     1.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
- * Kulam_get_svg
+ * kulam_get_svg
  *
  * This function gets an SVG image
  *
  * @param	$svg_file (string) SVG file name
  * @return	N/A
  */
-function Kulam_get_svg( $svg_file ) {
+function kulam_get_svg( $svg_file ) {
 
 	/**
 	 * Variables
