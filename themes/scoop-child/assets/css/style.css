@@ -285,6 +285,7 @@ header .logo .login a,
 }
 
 .page-title h1 {
+	font-size: 36px;
 	font-weight: bold;
 }
 
@@ -324,6 +325,7 @@ header .logo .login a,
 }
 
 h2.post-type-title {
+	font-size: 32px;
 	font-weight: bold;
 }
 
