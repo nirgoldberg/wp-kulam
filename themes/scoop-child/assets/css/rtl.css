@@ -11,6 +11,11 @@
 	float: left;
 }
 
+.search-header .menu-search-submit {
+	left: 10px;
+	right: auto;
+}
+
 /* Subcategory Menu */
 
 nav {

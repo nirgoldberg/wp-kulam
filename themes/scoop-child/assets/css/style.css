@@ -12,13 +12,17 @@ body:before {
 	display: none;
 }
 
+.entry-header {
+	margin: 0;
+}
+
 /**********/
 /* header */
 /**********/
 
 header .logo,
 .sticky-header .logo {
-	margin: 20px 0 0 !important;
+	margin: 0;
 	padding: 0;
 	width: 15%;
 	max-height: unset;
@@ -31,7 +35,8 @@ header .logo img,
 	max-width: 100%;
 }
 
-#primary #content {
+#primary #content,
+#primary #content #main {
 	margin-top: 0;
 }
 
@@ -42,7 +47,6 @@ header .logo img,
 .search-header {
 	position: relative;
 	float: right;
-	margin-top: 20px;
 	width: 20%;
 	line-height: normal !important;
 }
@@ -57,17 +61,11 @@ header .logo img,
 
 .search-header .menu-search-submit {
 	position: absolute;
-	left: 10px;
-	top: 10px;
-	width: 15px;
-}
-.search-header .menu-search-submit:lang(en-US){
-	position: absolute;
-	left: auto;
 	right: 10px;
 	top: 10px;
 	width: 15px;  
 }
+
 .search-header .menu-search-submit input {
 	border: 0;
 	font-size: 0;
@@ -157,7 +155,6 @@ header .logo .login a,
 /*******************/
 
 .nav-main {
-	margin-top: 20px;
 	width: 62%;
 }
 
@@ -483,8 +480,6 @@ body.modal-open,
 
 .page-template-template-siddur #content p{
 	text-align: center;
-	/* font-size: 20px; */
-	/* margin-bottom: 50px; */
 	font-weight: bold;
 }
 
@@ -1298,6 +1293,15 @@ output:lang(he-IL) {
 @media (min-width: 992px) {}
 
 @media (min-width: 768px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header,
+	.sticky-header {
+		padding: 20px 0;
+	}
 
 	/********************/
 	/* categories tiles */

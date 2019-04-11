@@ -13,16 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * This function removes the admin bar for non administrators logged in users
  *
- * @param   N/A
- * @return  N/A
+ * @param   $show (bool)
+ * @return  (bool)
  */
-function kulam_remove_admin_bar() {
+function kulam_remove_admin_bar( $show ) {
 
 	if ( ! current_user_can( 'administrator' ) && ! is_admin() ) {
 
-		show_admin_bar(false);
+		$show = false;
 
 	}
 
+	// return
+	return $show;
+
 }
-add_action( 'after_setup_theme', 'kulam_remove_admin_bar' );
+add_filter( 'show_admin_bar', 'kulam_remove_admin_bar', 20, 1 );
