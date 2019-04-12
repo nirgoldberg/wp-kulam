@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.5
+ * @version     1.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -168,9 +168,10 @@ if ( have_posts() ) :
 				<?php //endif; ?>
 				<div class="entry-content col-sm-11">
 				<div class="print-button" onclick="window.print()"><img src='https://kulam.org/wp-content/uploads/2018/09/send-to-printer.png'/> </div>
-					<?php if ( has_post_format( array( 'image', 'gallery', 'audio', 'video' ) ) ) : ?>
-						<div class="entry-format">
-						<?php if ( has_post_format( 'image' ) ) :
+
+					<div class="entry-format">
+
+						<?php if ( has_post_thumbnail() ) :
 							$image_args = array( 'width' => '1170', 'height' => '660' );
 							$image_url = Pojo_Thumbnails::get_post_thumbnail_url( $image_args );
 							if ( $image_url ) : ?>
@@ -206,10 +207,8 @@ if ( have_posts() ) :
 								endif;
 							endif; ?>
 						<?php endif; ?>
-						</div>
-					<?php endif; ?>
-					
 
+					</div>
 
 					<?php if ( ! Pojo_Core::instance()->builder->display_builder() ) : ?>
 
