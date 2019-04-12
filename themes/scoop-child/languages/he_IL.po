@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-10 14:52+0300\n"
-"PO-Revision-Date: 2019-04-10 14:54+0300\n"
+"POT-Creation-Date: 2019-04-12 16:34+0300\n"
+"PO-Revision-Date: 2019-04-12 16:37+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -109,6 +109,10 @@ msgstr "שתף את העולם במנהגים שלך"
 #: functions/shortcodes.php:41
 msgid "Save your favorite contents"
 msgstr "שמור את התכנים המועדפים שלך"
+
+#: functions/theme.php:125
+msgid "Article"
+msgstr "מאמר"
 
 #: header.php:168 header.php:271
 msgid "Toggle navigation"

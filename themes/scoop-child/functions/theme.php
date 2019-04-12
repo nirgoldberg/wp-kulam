@@ -107,3 +107,32 @@ function kulam_remove_admin_bar( $show ) {
 
 }
 add_filter( 'show_admin_bar', 'kulam_remove_admin_bar', 20, 1 );
+
+/**
+ * kulam_rename_post_formats
+ *
+ * This function renames specific post formats
+ *
+ * @param   $translated (string)
+ * @param   $text (string)
+ * @param   $context (string)
+ * @param   $domain (string)
+ * @return  (string)
+ */
+function kulam_rename_post_formats( $translated, $text, $context, $domain ) {
+
+	$names = array(
+		'Standard' => __( 'Article', 'kulam-scoop' )
+	);
+
+	if ( 'Post format' == $context && array_key_exists( $text, $names ) ) {
+
+		$translated = str_replace( array_keys( $names ), array_values( $names ), $text );
+
+	}
+
+	// return
+	return $translated;
+
+}
+add_filter( 'gettext_with_context', 'kulam_rename_post_formats', 10, 4 );
