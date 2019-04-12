@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.1.1
+ * @version     1.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -72,39 +72,15 @@ add_action( 'after_setup_theme', 'kol_setup' );
  *     SCRIPTS & STYLES
  */
 
-function kol_add_scripts()
-{
-  
-	wp_register_script('kol-js', get_stylesheet_directory_uri().'/assets/js/scripts.js', array('jquery'), null, true);
-	wp_register_script('kol-js-favorite', get_stylesheet_directory_uri().'/assets/js/scriptsForThumbnail.js', array('jquery'), null, true);
-
-	$params = array (
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'ajax_nonce' => wp_create_nonce('my-special-string'),
-		'post_id' => get_queried_object_id(),
-		'user_id' => get_current_user_id()
-	);
-	$paramsForThumbnail = array (
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'ajax_nonce' => wp_create_nonce('my-special-string'),
-		'user_id' => get_current_user_id()
-	);
-	wp_localize_script('kol-js-favorite', 'ajaxdata', $paramsForThumbnail);
-	wp_enqueue_script('kol-js-favorite');
-	wp_localize_script('kol-js', 'ajaxdata', $params);
-	wp_enqueue_script('kol-js');
-}
-add_action('wp_enqueue_scripts', 'kol_add_scripts');
-
 //autocomplete search
-add_action( 'wp_enqueue_scripts', 'my_theme_autocomplete' );
-function my_theme_autocomplete() {	
+//add_action( 'wp_enqueue_scripts', 'my_theme_autocomplete' );
+//function my_theme_autocomplete() {	
 
-	wp_enqueue_script('autocopmlete', get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js','',true);
-	wp_enqueue_style('autocomplete_css', get_stylesheet_directory_uri() . '/assets/css/auto-complete.css');
+	//wp_enqueue_script('autocopmlete', get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js','',true);
+	//wp_enqueue_style('autocomplete_css', get_stylesheet_directory_uri() . '/assets/css/auto-complete.css');
 	//wp_enqueue_script("streets",plugin_dir_url( __FILE__ ) . 'js/streets.js',array('jquery'),true);
 	//wp_localize_script('streets', 'street', $street);
-}
+//}
 
 // Create table to save public folders details
 function create_public_folder_table_db() {

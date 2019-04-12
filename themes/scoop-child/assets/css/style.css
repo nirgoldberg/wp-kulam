@@ -473,7 +473,7 @@ body.modal-open,
 	.entry-format{display:none;}
 	#pojo-a11y-toolbar{display:none;}
 }
-.item-inner{height:450px;}
+
 .print-button {
 	width: 39px;
 }
@@ -1033,11 +1033,7 @@ p.txtsl:lang(en-US) {
 	margin-right: 0 !important;
 	margin-left: 0 !important;
 }
-.grid-item .caption .entry-excerpt p {
-	margin: 0;
-	height: 9vh;
-	overflow: hidden;
-}
+
 .siddur-wrap .entry-thumbnail {
 	margin-top: 2%;
 }
