@@ -51,12 +51,48 @@ header .logo img,
 	line-height: normal !important;
 }
 
-.search-header input[type="search"] {
-	margin-bottom: 5px;
+.search-header .menu-search-input {
+	margin: 10px 0;
+	display: block;
+}
+
+.search-header .menu-search-input-text .menu-search-input {
+	margin: 0 0 5px;
+}
+
+.search-header .menu-search-input input,
+.search-header .menu-search-input select {
+	padding: 0 10px;
+	width: 100%;
 	height: 40px;
 	line-height: 40px;
 	border: 1px solid gray;
 	border-radius: 0;
+}
+
+.search-header .menu-search-input input {
+	padding: 0 14px;
+	color: #000;
+}
+
+.search-header .menu-search-input input::-webkit-input-placeholder {
+	color: #000;
+}
+
+.search-header .menu-search-input input::-moz-placeholder {
+	color: #000;
+}
+
+.search-header .menu-search-input input:-ms-input-placeholder {
+	color: #000;
+}
+
+.search-header .menu-search-input input:-moz-placeholder {
+	color: #000;
+}
+
+.search-header .menu-search-input input::placeholder {
+	color: #000;
 }
 
 .search-header .menu-search-submit {
@@ -78,35 +114,37 @@ header .logo img,
 	padding: 0;
 }
 
-.advanced-search .advanced-search-btn {
-	margin-bottom: 10px;
-}
-
 .advanced-search .advanced-search-btn a {
 	color: #0000ff;
 	text-decoration: underline;
 	cursor: pointer;
 }
 
-.advanced-search .advanced-search-fields {
+.advanced-search .advanced-search-fields-wrapper {
 	display: none;
 }
 
-.advanced-search .advanced-search-fields .menu-search-input {
-	margin: 10px 0;
-	display: block;
+.advanced-search .advanced-search-fields-wrapper .instructions {
+	position: relative;
+	margin-bottom: 10px;
+	padding-right: 20px;
 }
 
-.advanced-search .advanced-search-fields .menu-search-input select,
-.advanced-search .advanced-search-fields .menu-search-input input {
-	width: 100%;
+.advanced-search .advanced-search-fields-wrapper .instructions span {
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 18px;
+	font-size: 30px;
+	cursor: pointer;
 }
 
-.search-header.advanced .menu-search-submit {
+.search-header.advanced .menu-search-submit,
+.search-header.advanced .advanced-search .advanced-search-btn {
 	display: none;
 }
 
-.search-header.advanced .advanced-search-fields {
+.search-header.advanced .advanced-search-fields-wrapper {
 	display: block;
 }
 
@@ -439,6 +477,14 @@ body.modal-open,
 	background-color: transparent;
 	-webkit-transition: all .15s linear;
     transition: all .15s linear;
+}
+
+/*****************/
+/* auto complete */
+/*****************/
+
+.autocomplete-suggestions {
+	z-index: 10000;
 }
 
 /***********/

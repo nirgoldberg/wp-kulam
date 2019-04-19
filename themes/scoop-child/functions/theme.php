@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.1.3
+ * @version     1.1.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -42,7 +42,9 @@ function kulam_enqueue_styles() {
 	wp_deregister_style( 'pojo-style' );
 	wp_deregister_style( 'pojo-style-rtl' );
 
-	wp_enqueue_style( 'pojo-style', get_stylesheet_directory_uri() . '/assets/css/style.css', array( 'pojo-css-framework' ), KULAM_VERSION );
+	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
+	wp_enqueue_style( 'auto-complete',	get_stylesheet_directory_uri() . '/assets/css/auto-complete.css',	array(),						KULAM_VERSION );
+	wp_enqueue_style( 'pojo-style',		get_stylesheet_directory_uri() . '/assets/css/style.css',			array( 'pojo-css-framework' ),	KULAM_VERSION );
 
 	if ( is_rtl() ) {
 		wp_enqueue_style( 'pojo-style-rtl', get_stylesheet_directory_uri() . '/assets/css/rtl.css', array( 'pojo-css-framework', 'pojo-style' ), KULAM_VERSION );
@@ -61,8 +63,10 @@ add_action( 'wp_enqueue_scripts', 'kulam_enqueue_styles', 700 );
  */
 function kulam_enqueue_scripts() {
 
-	wp_register_script( 'kulam-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array('jquery'), KULAM_VERSION, true );
-	wp_register_script( 'kulam-js-favorite', get_stylesheet_directory_uri() . '/assets/js/scriptsForThumbnail.js', array('jquery'), KULAM_VERSION, true );
+	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
+	wp_register_script( 'auto-complete',		get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',		array( 'jquery' ),					KULAM_VERSION,	true );
+	wp_register_script( 'kulam-js',				get_stylesheet_directory_uri() . '/assets/js/scripts.js',				array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
+	wp_register_script( 'kulam-js-favorite',	get_stylesheet_directory_uri() . '/assets/js/scriptsForThumbnail.js',	array( 'jquery' ),					KULAM_VERSION,	true );
 
 	$params = array (
 		'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
@@ -122,7 +126,7 @@ add_filter( 'show_admin_bar', 'kulam_remove_admin_bar', 20, 1 );
 function kulam_rename_post_formats( $translated, $text, $context, $domain ) {
 
 	$names = array(
-		'Standard' => __( 'Article', 'kulam-scoop' )
+		'Standard' => __( 'Text', 'kulam-scoop' )
 	);
 
 	if ( 'Post format' == $context && array_key_exists( $text, $names ) ) {

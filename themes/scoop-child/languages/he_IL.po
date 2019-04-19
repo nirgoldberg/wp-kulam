@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-12 16:34+0300\n"
-"PO-Revision-Date: 2019-04-12 16:37+0300\n"
+"POT-Creation-Date: 2019-04-16 22:00+0300\n"
+"PO-Revision-Date: 2019-04-16 22:04+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -88,7 +88,7 @@ msgstr "שלח דוא\"ל"
 
 #: functions/modal-registration.php:49
 msgid "Please enter the following text in the box below:"
-msgstr "אנא הזן את הטקסט בתיבה מתחת"
+msgstr "אנא הזן את הטקסט בתיבה מתחת:"
 
 #: functions/modal-registration.php:57
 msgid "Register"
@@ -110,9 +110,9 @@ msgstr "שתף את העולם במנהגים שלך"
 msgid "Save your favorite contents"
 msgstr "שמור את התכנים המועדפים שלך"
 
-#: functions/theme.php:125
-msgid "Article"
-msgstr "מאמר"
+#: functions/theme.php:125 partials/search.php:107
+msgid "Text"
+msgstr "טקסט"
 
 #: header.php:168 header.php:271
 msgid "Toggle navigation"
@@ -236,43 +236,47 @@ msgstr "Twitter"
 msgid "Print"
 msgstr "הדפסה"
 
-#: loop/single.php:420
+#: loop/single.php:419
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: loop/single.php:427
+#: loop/single.php:426
 msgid "View all posts by"
 msgstr "צפה בסוג מאמר"
 
-#: loop/single.php:440
+#: loop/single.php:439
 msgid "&laquo; Previous Post"
 msgstr "&laquo; המאמר הקודם"
 
-#: loop/single.php:441
+#: loop/single.php:440
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
-#: partials/search.php:60
-msgid "search..."
+#: partials/search.php:83
+msgid "Search..."
 msgstr "חיפוש באתר..."
 
-#: partials/search.php:64 partials/search.php:122
+#: partials/search.php:87 partials/search.php:153
 msgid "Search"
-msgstr ""
+msgstr "חיפוש"
 
-#: partials/search.php:69
+#: partials/search.php:93
 msgid "Advanced Search"
 msgstr "חיפוש מתקדם"
 
-#: partials/search.php:78
+#: partials/search.php:97
+msgid "Please select at least one field and click Search"
+msgstr "יש לבחור שדה אחד או יותר ולהקליק על חיפוש"
+
+#: partials/search.php:106
 msgid "Choose a post format"
 msgstr "בחר פורמט פוסט"
 
-#: partials/search.php:94
+#: partials/search.php:123
 msgid "Choose a post type"
 msgstr "בחר סוג מאמר"
 
-#: partials/search.php:110
+#: partials/search.php:139
 msgid "Choose a category"
 msgstr "בחר קטגוריה"
 
@@ -301,6 +305,9 @@ msgstr "עדכון חשבון"
 #: vendors/acf.php:231
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
+
+#~ msgid "Article"
+#~ msgstr "מאמר"
 
 #~ msgid "My Album"
 #~ msgstr "האלבום שלי"

@@ -4,14 +4,14 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.4
+ * @version     1.1.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Variables
  */
-$formts			= array();
+$formats		= array();
 $types			= array();
 $categories		= array();
 
@@ -35,6 +35,14 @@ $types_args = array(
 );
 $types = get_terms( $types_args );
 
+if ( $types ) {
+	foreach ( $types as $key => $type ) {
+		if ( $type->count <= 1 ) {
+			unset( $types[ $key ] );
+		}
+	}
+}
+
 // categories
 
 $categories	= array();
@@ -42,12 +50,39 @@ $locations	= get_nav_menu_locations();
 $menu		= wp_get_nav_menu_object( $locations[ 'primary' ] );
 $menu_items	= wp_get_nav_menu_items( $menu->name );
 
-//var_dump($menu_items);
-
 if ( $menu_items ) {
 	foreach ( $menu_items as $item ) {
 		if ( $item->object == 'category' ) {
-			$categories[ $item->object_id ] = $item->title;
+
+			$cat	= get_category( $item->object_id );
+			$id		= $cat->term_id;
+			$title	= str_replace( array( '"', "'" ), array( '', '' ), $item->title );
+
+			if ( $cat->count > 3 ) {
+				$categories[] = array(
+					'id'	=> $id,
+					'title'	=> $title
+				);
+				continue;
+			}
+
+			$args = array(
+				'posts_per_page'	=> 3,
+				'cat'				=> $id
+			);
+			$query = new WP_Query( $args );
+
+			$count = $query->found_posts;
+
+			if ( $count > 3 ) {
+				$categories[] = array(
+					'id'	=> $id,
+					'title'	=> $title
+				);
+			}
+
+			wp_reset_postdata();
+
 		}
 	}
 }
@@ -56,73 +91,77 @@ if ( $menu_items ) {
 
 <form role="search" action="<?php echo home_url( '/' ); ?>" method="get">
 
-	<span class="menu-search-input">
-		<input type="search" name="s" placeholder="<?php _e( 'search...', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
-	</span>
+	<div class="menu-search-input-text">
 
-	<span class="menu-search-submit fa fa-search">
-		<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-	</span>
+		<span class="menu-search-input">
+			<input type="search" name="s" placeholder="<?php _e( 'Search...', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
+		</span>
+
+		<span class="menu-search-submit fa fa-search">
+			<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
+		</span>
+
+	</div>
 
 	<div class="advanced-search">
 
 		<div class="advanced-search-btn"><a><?php _e( 'Advanced Search', 'kulam-scoop' ); ?></a></div>
 
-		<div class="advanced-search-fields">
+		<div class="advanced-search-fields-wrapper">
 
-			<?php if ( $formats ) { ?>
+			<div class="instructions"><?php _e( 'Please select at least one field and click Search', 'kulam-scoop' ); ?><span>&times;</span></div>
 
-				<span class="menu-search-input">
-					<select name="post_format" id="post_format">
+			<div class="advanced-search-fields">
 
-						<option value="0"><?php _e( 'Choose a post format', 'kulam-scoop' ); ?></option>
+				<?php if ( $formats ) { ?>
 
-						<?php foreach ( $formats as $f ) {
-							echo '<option value="' . $f . '" ' . ( ( isset( $_GET[ 'post_format' ] ) && $f == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ) . '>' . esc_html( get_post_format_string( $f ) ) . '</option>';
-						} ?>
+					<span id="menu-search-input-post-format" class="menu-search-input">
+						<select name="post_format">
 
-					</select>
-				</span>
+							<option value=""><?php _e( 'Choose a post format', 'kulam-scoop' ); ?></option>
+							<option value="0" <?php echo ( ( isset( $_GET[ 'post_format' ] ) && '0' == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ); ?>><?php _e( 'Text', 'kulam-scoop' ); ?></option>
 
-			<?php }
+							<?php foreach ( $formats as $f ) {
+								echo '<option value="' . $f . '" ' . ( ( isset( $_GET[ 'post_format' ] ) && $f == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ) . '>' . esc_html( get_post_format_string( $f ) ) . '</option>';
+							} ?>
 
-			if ( $types ) { ?>
+						</select>
+					</span>
 
-				<span class="menu-search-input">
-					<select name="pt" id="pt">
+				<?php }
 
-						<option value="0"><?php _e( 'Choose a post type', 'kulam-scoop' ); ?></option>
+				if ( $types ) { ?>
 
-						<?php foreach ( $types as $t ) {
-							echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'pt' ] ) && $t->slug == $_GET[ 'pt' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
-						} ?>
+					<span id="menu-search-input-post-type" class="menu-search-input">
+						<select name="pt">
 
-					</select>
-				</span>
+							<option value=""><?php _e( 'Choose a post type', 'kulam-scoop' ); ?></option>
 
-			<?php }
+							<?php foreach ( $types as $t ) {
+								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'pt' ] ) && $t->slug == $_GET[ 'pt' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
+							} ?>
 
-			if ( $categories ) { ?>
+						</select>
+					</span>
 
-				<span class="menu-search-input">
-					<select name="cat" id="cat">
+				<?php }
 
-						<option value="0"><?php _e( 'Choose a category', 'kulam-scoop' ); ?></option>
+				if ( $categories ) { ?>
 
-						<?php foreach ( $categories as $id => $name ) {
-							echo '<option value="' . $id . '" ' . ( ( isset( $_GET[ 'cat' ] ) && $id == $_GET[ 'cat' ] ) ? 'selected="selected"' : '' ) . '>' . $name . '</option>';
-						} ?>
+					<span id="menu-search-input-category" class="menu-search-input">
+						<input type="text" name="cat_name" class="auto-complete-input" placeholder="<?php _e( 'Choose a category', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET[ 'cat_name' ] ) ? $_GET[ 'cat_name' ] : '' ); ?>" data-options="<?php echo esc_js( json_encode( $categories, JSON_UNESCAPED_UNICODE ) ); ?>" data-auto-complete-output="auto-complete-cat_name" />
+						<input type="hidden" name="cat" class="auto-complete-cat_name" value="<?php echo esc_attr( isset( $_GET[ 'cat' ] ) ? $_GET[ 'cat' ] : '' ); ?>" />
+					</span>
 
-					</select>
-				</span>
+				<?php } ?>
 
-			<?php } ?>
+			</div><!-- .advanced-search-fields -->
 
 			<span class="menu-search-input">
 				<input type="submit" class="advanced-search-submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-			<span>
+			</span>
 
-		</div><!-- .advanced-search-fields -->
+		</div><!-- .advanced-search-fields-wrapper -->
 
 	</div><!-- .advanced-search -->
 

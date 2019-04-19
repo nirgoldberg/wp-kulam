@@ -16,6 +16,16 @@
 	right: auto;
 }
 
+.advanced-search .advanced-search-fields-wrapper .instructions {
+	padding-left: 20px;
+	padding-right: 0;
+}
+
+.advanced-search .advanced-search-fields-wrapper .instructions span {
+	left: 0;
+	right: auto;
+}
+
 /* Subcategory Menu */
 
 nav {
@@ -41,6 +51,14 @@ form.wpcf7-form {
 header .logo .login,
 .sticky-header .logo .login {
 	float: left;
+}
+
+/*****************/
+/* auto complete */
+/*****************/
+
+.autocomplete-suggestions {
+	text-align: right;
 }
 
 /**************/

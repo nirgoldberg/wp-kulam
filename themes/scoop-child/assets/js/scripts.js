@@ -1,68 +1,408 @@
+var $ = jQuery,
+	KULAM_general = {
+
+		/**
+		 * params
+		 */
+		params : {
+
+			window_width			: 0,		// client window width - used to maintain window resize events (int)
+			breakpoint				: '',		// CSS media query breakpoint (int)
+			prev_breakpoint			: '',		// previous media query breakpoint (int)
+			timeout					: 400		// general timeout (int)
+
+		},
+
+		/**
+		 * init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		init : function() {
+
+			// jQuery extentions
+			$.fn.setAllToMaxHeight = function() {
+				return this.height( Math.max.apply(this, $.map(this, function(e) { return $(e).height() })) );
+			}
+
+			// page title
+			KULAM_general.page_title();
+
+			// advanced search
+			KULAM_general.advanced_search();
+
+			// bootstrap modal
+			KULAM_general.bootstrap_modal();
+
+		},
+
+		/**
+		 * page_title
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		page_title : function() {
+
+			// toggle category description
+			$('.page-title .more, .page-title .less').click(function() {
+				$('.page-title .more, .page-title .less').toggleClass('open');
+				$('.category-desc').toggleClass('open');
+			});
+
+		},
+
+		/**
+		 * advanced_search
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		advanced_search : function() {
+
+			// open advanced search in case of advanced search field is set
+			KULAM_general.maybe_open_advanced_search();
+
+			// open advanced search
+			$('.advanced-search-btn').click(function() {
+				KULAM_general.advance_search_open($(this));
+			});
+
+			// close advanced search
+			$('.advanced-search .instructions span').click(function() {
+				KULAM_general.advance_search_close($(this));
+			});
+
+			// auto complete
+			KULAM_general.advanced_search_auto_complete();
+
+		},
+
+		/**
+		 * maybe_open_advanced_search
+		 *
+		 * Called from advanced_search
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		maybe_open_advanced_search : function() {
+
+			// variables
+			var post_format = KULAM_general.get_url_param('post_format'),
+				pt = KULAM_general.get_url_param('pt'),
+				cat = KULAM_general.get_url_param('cat');
+
+			if (post_format && post_format != 'N/A' || pt && pt != 'N/A' || cat && cat != 'N/A') {
+				KULAM_general.advance_search_open_all();
+			}
+
+		},
+
+		/**
+		 * advance_search_open_all
+		 *
+		 * Called from maybe_open_advanced_search
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		advance_search_open_all : function() {
+
+			// variables
+			var obj = $('.advanced-search-btn');
+
+			obj.each(function() {
+				KULAM_general.advance_search_open($(this));
+			});
+
+		},
+
+		/**
+		 * advance_search_open
+		 *
+		 * Called from advanced_search and advance_search_open_all
+		 *
+		 * @param	obj (object)
+		 * @return	N/A
+		 */
+		advance_search_open : function(obj) {
+
+			// variables
+			var searchForm = obj.closest('.search-header'),
+				inputText = searchForm.find('.menu-search-input-text'),
+				advancedFields = searchForm.find('.advanced-search-fields');
+
+			searchForm.toggleClass('advanced');
+
+			advancedFields.after(inputText);
+
+		},
+
+		/**
+		 * advance_search_close
+		 *
+		 * Called from advanced_search
+		 *
+		 * @param	obj (object)
+		 * @return	N/A
+		 */
+		advance_search_close : function(obj) {
+
+			// variables
+			var searchForm = obj.closest('.search-header'),
+				inputText = searchForm.find('.menu-search-input-text'),
+				advancedFields = searchForm.find('.advanced-search-fields'),
+				advancedInputFields = advancedFields.find('input, select');
+
+			searchForm.toggleClass('advanced');
+
+			advancedInputFields.val('');
+			searchForm.find('form').prepend(inputText);
+
+		},
+
+		/**
+		 * advanced_search_auto_complete
+		 *
+		 * Called from advanced_search
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		advanced_search_auto_complete : function() {
+
+			// variables
+			var searchForm = $('.search-header'),
+				inputText = searchForm.find('.auto-complete-input');
+
+			inputText.each(function() {
+				// variables
+				field = $(this);
+				options = field.data('options');
+
+				field.autoComplete({
+					minChars: 1,
+					cache: false,
+					source: function(term, suggest) {
+
+						term = term.toLowerCase();
+						var choices = options;
+						var matches = [];
+
+						for (i=0; i<choices.length; i++) {
+							if (~choices[i]['title'].toLowerCase().indexOf(term))
+								matches.push(JSON.stringify(choices[i]));
+						}
+
+						suggest(matches);
+
+					},
+					renderItem: function (item, search) {
+						item = JSON.parse(item);
+
+						search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+						var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+
+						return '<div class="autocomplete-suggestion" data-val="' + item['title'] + '" data-id="' + item['id'] + '">' + item['title'].replace(re, "<b>$1</b>") + '</div>';
+					}
+				});
+
+				// check auto complete field on value change event
+				field.on('change paste keyup', function() {
+					var id = KULAM_general.auto_complete_get_id_by_title($(this));
+					KULAM_general.after_auto_complete($(this).data('auto-complete-output'), id);
+				});
+
+			});
+
+		},
+
+		/**
+		 * auto_complete_get_id_by_title
+		 *
+		 * Called from advanced_search_auto_complete
+		 *
+		 * @param	input (string) input field to be verified
+		 * @return	(int)
+		 */
+		auto_complete_get_id_by_title : function(input) {
+
+			// variables
+			value = input.val().toLowerCase();
+			options = input.data('options');
+			option_id = 0;
+
+			$.each(options, function(index, option) {
+				// variables
+				var title = option['title'].toLowerCase();
+
+				if (value == title) {
+					option_id = option['id'];
+
+					return false;
+				}
+			});
+
+			// return
+			return option_id;
+
+		},
+
+		/**
+		 * after_auto_complete
+		 *
+		 * Called from advanced_search_auto_complete
+		 *
+		 * @param	input (string) input field to be updated
+		 * @param	value (string) value to be updated
+		 * @return	N/A
+		 */
+		after_auto_complete : function(input, value) {
+
+			// variables
+			var inputText = $('.' + input);
+
+			inputText.val(value);
+
+		},
+
+		/**
+		 * get_url_param
+		 *
+		 * Called from maybe_open_advanced_search
+		 *
+		 * @param	name (string)
+		 * @return	(string)
+		 */
+		get_url_param : function(name) {
+
+			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+
+			if (results == null) {
+				return null;
+			}
+
+			// return
+			return decodeURI(results[1]) || 'N/A';
+
+		},
+
+		/**
+		 * bootstrap_modal
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		bootstrap_modal : function() {
+
+			// triggered when modal is about to be shown
+			$('#modal-login').on('show.bs.modal', function(e) {
+				// get data attributes of the clicked element
+				var redirect = $(e.relatedTarget).data('redirect'),
+					showPreText = $(e.relatedTarget).data('show-pre-text');
+
+				// populate the textbox
+				$('#modal-login').find('input[name="redirectlog"]').val(redirect);
+				$('#modal-registration').find('input[name="redirect"]').val(redirect);
+				$('#modal-login, #modal-registration').find('button').data('redirect', redirect);
+				$('#modal-login, #modal-registration').find('button').data('show-pre-text', showPreText);
+
+				// expose pre-text if redirect to my siddur
+				if (showPreText) {
+					$('#modal-login').find('.pre-text').show();
+				}
+				else {
+					$('#modal-login').find('.pre-text').hide();
+				}
+			});
+
+			$('#modal-login, #modal-registration').on('shown.bs.modal', function(e) {
+				$(this).data('bs.modal').$backdrop.css('background-color', '#000');
+			});
+
+			// modify search modal background
+			$('#modal-search').on('shown.bs.modal', function(e) {
+				$(this).data('bs.modal').$backdrop.css('background-color', '#FFF');
+			});
+
+		},
+
+		/**
+		 * breakpoint_refreshValue
+		 *
+		 * Set window breakpoint values
+		 * Called from loaded/alignments
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		breakpoint_refreshValue : function () {
+
+			var new_breakpoint = window.getComputedStyle(
+				document.querySelector('body'), ':before'
+			).getPropertyValue('content').replace(/\"/g, '').replace(/\'/g, '');
+
+			KULAM_general.params.prev_breakpoint = KULAM_general.params.breakpoint;
+			KULAM_general.params.breakpoint = new_breakpoint;
+
+		},
+
+		/**
+		 * loaded
+		 *
+		 * Called by $(window).load event
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		loaded : function() {
+
+			KULAM_general.params.window_width = $(window).width();
+			$(window).resize(function() {
+				if ( KULAM_general.params.window_width != $(window).width() ) {
+					KULAM_general.alignments();
+					KULAM_general.params.window_width = $(window).width();
+				}
+			});
+
+			KULAM_general.alignments();
+
+		},
+
+		/**
+		 * alignments
+		 *
+		 * Align components after window resize event
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		alignments : function() {
+			
+			// set window breakpoint values
+			KULAM_general.breakpoint_refreshValue();
+
+		}
+
+	};
+
+// make it safe to use console.log always
+(function(a){function b(){}for(var c="assert,count,debug,dir,dirxml,error,exception,group,groupCollapsed,groupEnd,info,log,markTimeline,profile,profileEnd,time,timeEnd,trace,warn".split(","),d;!!(d=c.pop());){a[d]=a[d]||b;}})
+(function(){try{console.log();return window.console;}catch(a){return (window.console={});}}());
+
+$(KULAM_general.init);
+$(window).load(KULAM_general.loaded);
+
+
 jQuery(document).ready(function ($) {
-
-	/*******************/
-	/* advanced search */
-	/*******************/
-
-	$('.advanced-search-btn').click(function() {
-		// variables
-		var searchForm = $('.search-header');
-
-		searchForm.toggleClass('advanced');
-	});
-
-	/**************/
-	/* page title */
-	/**************/
-
-	$('.page-title .more, .page-title .less').click(function() {
-		$('.page-title .more, .page-title .less').toggleClass('open');
-		$('.category-desc').toggleClass('open');
-	});
-
-	/*******************/
-	/* bootstrap modal */
-	/*******************/
-
-	// triggered when modal is about to be shown
-	$('#modal-login').on('show.bs.modal', function(e) {
-
-		// get data attributes of the clicked element
-		var redirect = $(e.relatedTarget).data('redirect'),
-			showPreText = $(e.relatedTarget).data('show-pre-text');
-
-		// populate the textbox
-		$('#modal-login').find('input[name="redirectlog"]').val(redirect);
-		$('#modal-registration').find('input[name="redirect"]').val(redirect);
-		$('#modal-login, #modal-registration').find('button').data('redirect', redirect);
-		$('#modal-login, #modal-registration').find('button').data('show-pre-text', showPreText);
-
-		// expose pre-text if redirect to my siddur
-		if (showPreText) {
-			$('#modal-login').find('.pre-text').show();
-		}
-		else {
-			$('#modal-login').find('.pre-text').hide();
-		}
-
-	});
-
-	$('#modal-login, #modal-registration').on('shown.bs.modal', function(e) {
-
-		$(this).data('bs.modal').$backdrop.css('background-color', '#000');
-
-	});
-
-	// modify search modal background
-	$('#modal-search').on('shown.bs.modal', function(e) {
-
-		$(this).data('bs.modal').$backdrop.css('background-color', '#FFF');
-
-	});
-
-	/***********/
-	/* general */
-	/***********/
 
 	$('.entry-sharing').on('click', '#add_to_sidur', function (event) {
 		event.preventDefault();
