@@ -181,6 +181,10 @@ var $ = jQuery,
 			var searchForm = $('.search-header'),
 				inputText = searchForm.find('.auto-complete-input');
 
+			if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+				inputText.off('menufocus hover mouseover');
+			}
+
 			inputText.each(function() {
 				// variables
 				field = $(this);
@@ -210,6 +214,9 @@ var $ = jQuery,
 						var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
 
 						return '<div class="autocomplete-suggestion" data-val="' + item['title'] + '" data-id="' + item['id'] + '">' + item['title'].replace(re, "<b>$1</b>") + '</div>';
+					},
+					onSelect: function(e, term, item) {
+						KULAM_general.after_auto_complete(field.data('auto-complete-output'), item.data('id'));
 					}
 				});
 
