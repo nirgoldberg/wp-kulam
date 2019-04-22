@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-16 22:00+0300\n"
-"PO-Revision-Date: 2019-04-16 22:04+0300\n"
+"POT-Creation-Date: 2019-04-22 15:20+0300\n"
+"PO-Revision-Date: 2019-04-22 15:20+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -50,7 +50,7 @@ msgid "Hide"
 msgstr ""
 
 #: functions/menus.php:28 functions/shortcodes.php:27
-#: includes/cpt-config.php:55 loop/archive.php:44 partials/functions.php:125
+#: includes/cpt-config.php:55 loop/archive.php:44
 msgid "My Siddur"
 msgstr "הסידור שלי"
 
@@ -110,7 +110,7 @@ msgstr "שתף את העולם במנהגים שלך"
 msgid "Save your favorite contents"
 msgstr "שמור את התכנים המועדפים שלך"
 
-#: functions/theme.php:125 partials/search.php:107
+#: functions/theme.php:129 partials/search.php:122
 msgid "Text"
 msgstr "טקסט"
 
@@ -216,11 +216,11 @@ msgstr "&laquo; הקודם"
 msgid "Next &raquo;"
 msgstr "הבא &raquo;"
 
-#: loop/single.php:97 loop/single.php:103 partials/functions.php:44
+#: loop/single.php:97 loop/single.php:103
 msgid "Add to My Siddur"
 msgstr "הוסף לסידור שלי"
 
-#: loop/single.php:118 partials/functions.php:45
+#: loop/single.php:118
 msgid "Remove from My Siddur"
 msgstr "להסיר מהסידור שלי"
 
@@ -252,31 +252,35 @@ msgstr "&laquo; המאמר הקודם"
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
-#: partials/search.php:83
+#: partials/search.php:97
 msgid "Search..."
 msgstr "חיפוש באתר..."
 
-#: partials/search.php:87 partials/search.php:153
+#: partials/search.php:97
+msgid "Free text..."
+msgstr "טקסט חופשי..."
+
+#: partials/search.php:101 partials/search.php:161
 msgid "Search"
 msgstr "חיפוש"
 
-#: partials/search.php:93
+#: partials/search.php:108
 msgid "Advanced Search"
 msgstr "חיפוש מתקדם"
 
-#: partials/search.php:97
+#: partials/search.php:112
 msgid "Please select at least one field and click Search"
 msgstr "יש לבחור שדה אחד או יותר ולהקליק על חיפוש"
 
-#: partials/search.php:106
+#: partials/search.php:121
 msgid "Choose a post format"
 msgstr "בחר פורמט פוסט"
 
-#: partials/search.php:123
+#: partials/search.php:138
 msgid "Choose a post type"
 msgstr "בחר סוג מאמר"
 
-#: partials/search.php:139
+#: partials/search.php:152
 msgid "Choose a category"
 msgstr "בחר קטגוריה"
 

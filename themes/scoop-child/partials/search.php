@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.1.5
+ * @version     1.1.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -94,7 +94,7 @@ if ( $menu_items ) {
 	<div class="menu-search-input-text">
 
 		<span class="menu-search-input">
-			<input type="text" name="s" placeholder="<?php _e( 'Search...', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
+			<input type="text" name="s" placeholder="<?php _e( 'Search...', 'kulam-scoop' ); ?>" data-alternate-placeholder="<?php _e( 'Free text...', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 		</span>
 
 		<span class="menu-search-submit fa fa-search">

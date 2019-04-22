@@ -136,7 +136,12 @@ var $ = jQuery,
 			// variables
 			var searchForm = obj.closest('.search-header'),
 				inputText = searchForm.find('.menu-search-input-text'),
+				inputTextInput = inputText.find('input[type="text"]'),
+				inputTextInputTmpPlaceholder = inputTextInput.data('alternate-placeholder'),
 				advancedFields = searchForm.find('.advanced-search-fields');
+
+			inputTextInput.data('alternate-placeholder', inputTextInput.attr('placeholder'));
+			inputTextInput.attr('placeholder', inputTextInputTmpPlaceholder);
 
 			searchForm.toggleClass('advanced');
 
@@ -157,8 +162,13 @@ var $ = jQuery,
 			// variables
 			var searchForm = obj.closest('.search-header'),
 				inputText = searchForm.find('.menu-search-input-text'),
+				inputTextInput = inputText.find('input[type="text"]'),
+				inputTextInputTmpPlaceholder = inputTextInput.data('alternate-placeholder'),
 				advancedFields = searchForm.find('.advanced-search-fields'),
 				advancedInputFields = advancedFields.find('input, select');
+
+			inputTextInput.data('alternate-placeholder', inputTextInput.attr('placeholder'));
+			inputTextInput.attr('placeholder', inputTextInputTmpPlaceholder);
 
 			searchForm.toggleClass('advanced');
 
