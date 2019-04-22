@@ -26,6 +26,9 @@ var $ = jQuery,
 				return this.height( Math.max.apply(this, $.map(this, function(e) { return $(e).height() })) );
 			}
 
+			// accessibility icon direction
+			KULAM_general.a11y_icon_direction();
+
 			// page title
 			KULAM_general.page_title();
 
@@ -34,6 +37,28 @@ var $ = jQuery,
 
 			// bootstrap modal
 			KULAM_general.bootstrap_modal();
+
+		},
+
+		/**
+		 * a11y_icon_direction
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		a11y_icon_direction : function() {
+
+			// variables
+			var icon = $('#pojo-a11y-toolbar');
+
+			if ($('body').hasClass('rtl')) {
+				icon.removeClass('pojo-a11y-toolbar-right').addClass('pojo-a11y-toolbar-left');
+			}
+			else {
+				icon.removeClass('pojo-a11y-toolbar-left').addClass('pojo-a11y-toolbar-right');
+			}
 
 		},
 
@@ -353,6 +378,27 @@ var $ = jQuery,
 		},
 
 		/**
+		 * a11y_icon_top
+		 *
+		 * Called from loaded
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		a11y_icon_top : function() {
+
+			// variables
+			var header = $('header#header'),
+				icon = $('#pojo-a11y-toolbar');
+
+			icon.attr('style',
+				'top:' + header.outerHeight(true) + 'px !important;' +
+				'visibility: visible;'
+			);
+
+		},
+
+		/**
 		 * breakpoint_refreshValue
 		 *
 		 * Set window breakpoint values
@@ -406,6 +452,9 @@ var $ = jQuery,
 			
 			// set window breakpoint values
 			KULAM_general.breakpoint_refreshValue();
+
+			// accessibility icon auto position
+			KULAM_general.a11y_icon_top();
 
 		}
 

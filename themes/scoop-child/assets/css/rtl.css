@@ -26,6 +26,23 @@
 	right: auto;
 }
 
+/*********/
+/* login */
+/*********/
+
+header .logo .login,
+.sticky-header .logo .login {
+	float: left;
+}
+
+/*****************/
+/* auto complete */
+/*****************/
+
+.autocomplete-suggestions {
+	text-align: right;
+}
+
 /* Subcategory Menu */
 
 nav {
@@ -42,23 +59,6 @@ form.wpcf7-form {
 
 #sidebar{
     display: none;
-}
-
-/*********/
-/* login */
-/*********/
-
-header .logo .login,
-.sticky-header .logo .login {
-	float: left;
-}
-
-/*****************/
-/* auto complete */
-/*****************/
-
-.autocomplete-suggestions {
-	text-align: right;
 }
 
 /**************/

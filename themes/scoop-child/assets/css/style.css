@@ -487,6 +487,14 @@ body.modal-open,
 	z-index: 10000;
 }
 
+/**********************/
+/* accessibility icon */
+/**********************/
+
+#pojo-a11y-toolbar {
+	visibility: hidden;
+}
+
 /***********/
 /* general */
 /***********/
