@@ -930,13 +930,6 @@ label.add-post-to-folder:hover{
 	color: red;
 	font-size: 55px;
 }
-i.fa.fa-arrow-circle-o-left.my-siddur {
-	margin-right: 25px;        
-	font-size: 32px;
-	font-size: 33px;
-	cursor: pointer;
-	color: black;
-}
 i.fa.fa-arrow-circle-o-right.my-siddur {
 	margin-right: 25px; 
 	margin-left: 9px;       
@@ -1451,18 +1444,6 @@ output:lang(he-IL) {
 	.single-folder-wrap {
 		margin: 10px;
 		width: 44%;
-	}
-
-	.single-folder-wrap.right_folder {
-		float: right;
-		margin-right: 15px;
-		margin-left: 5px;
-	}
-
-	.single-folder-wrap.left_folder {
-		float: left;
-		margin-right: 5px;
-		margin-left: 15px;
 	}
 
 	.add-new-folder {

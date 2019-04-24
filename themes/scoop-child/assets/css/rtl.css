@@ -61,6 +61,14 @@ form.wpcf7-form {
     display: none;
 }
 
+i.fa.fa-arrow-circle-o-right.my-siddur {
+	margin-left: 25px; 
+	margin-right: 9px;       
+	left: auto;
+	right: 8px;
+	transform: rotate(180deg);
+}
+
 /**************/
 /* responsive */
 /**************/
