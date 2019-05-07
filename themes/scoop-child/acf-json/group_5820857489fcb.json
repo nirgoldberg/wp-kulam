@@ -1,28 +1,6 @@
 {
     "key": "group_5820857489fcb",
     "title": "User Information",
-    "location": [
-        [
-            {
-                "param": "user_form",
-                "operator": "==",
-                "value": "edit"
-            },
-            {
-                "param": "current_user",
-                "operator": "==",
-                "value": "logged_in"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
     "fields": [
         {
             "key": "field_5820857820158",
@@ -85,5 +63,27 @@
             "first_day": 1
         }
     ],
-    "modified": 1516834630
+    "location": [
+        [
+            {
+                "param": "user_form",
+                "operator": "==",
+                "value": "edit"
+            },
+            {
+                "param": "current_user",
+                "operator": "==",
+                "value": "logged_in"
+            }
+        ]
+    ],
+    "menu_order": 4,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1557231573
 }

@@ -49,6 +49,41 @@
             "default_value": "#FFFFFF"
         },
         {
+            "key": "field_5cd11da3dcb13",
+            "label": "Social",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5cd11dcadcb14",
+            "label": "Google Analytics Code",
+            "name": "acf-option_google_analytics_code",
+            "type": "text",
+            "instructions": "Code format: UA-XXXXXXXXX-X",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5ca5febcbad83",
             "label": "Misc",
             "name": "",
@@ -139,7 +174,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 100,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -147,5 +182,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554385191
+    "modified": 1557208899
 }

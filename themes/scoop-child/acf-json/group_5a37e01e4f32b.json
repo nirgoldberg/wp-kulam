@@ -1,28 +1,34 @@
 {
     "key": "group_5a37e01e4f32b",
     "title": "Category Top Posts",
-    "location": [
-        [
-            {
-                "param": "taxonomy",
-                "operator": "==",
-                "value": "category"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "",
-    "modified": 1516834630,
     "fields": [
         {
+            "key": "field_5a37e46c817d7",
+            "label": "Customs \/ גרסאות שונות",
+            "name": "customs_-_top_posts",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": [
+                "post_types_tax:customs"
+            ],
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
             "key": "field_5a37e0b65ee7d",
-            "label": "Learn How - Top Posts",
+            "label": "Learn How \/ מדריכים",
             "name": "learn_how_-_top_posts",
             "type": "post_object",
             "instructions": "",
@@ -46,7 +52,7 @@
         },
         {
             "key": "field_5a37e339817d5",
-            "label": "Music - Top Posts",
+            "label": "Music \/ מוזיקה",
             "name": "music_-_top_posts",
             "type": "post_object",
             "instructions": "",
@@ -69,32 +75,8 @@
             "ui": 1
         },
         {
-            "key": "field_5a37e46c817d7",
-            "label": "Customs - Top Posts",
-            "name": "customs_-_top_posts",
-            "type": "post_object",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "post"
-            ],
-            "taxonomy": [
-                "post_types_tax:customs"
-            ],
-            "allow_null": 0,
-            "multiple": 1,
-            "return_format": "id",
-            "ui": 1
-        },
-        {
             "key": "field_5a37e49b817d9",
-            "label": "Ideas - Top Posts",
+            "label": "Ideas \/ מחשבה",
             "name": "ideas_-_top_posts",
             "type": "post_object",
             "instructions": "",
@@ -115,6 +97,48 @@
             "multiple": 1,
             "return_format": "id",
             "ui": 1
+        },
+        {
+            "key": "field_5a71d0c0f301c",
+            "label": "Misc \/ שונות",
+            "name": "misc_-_top_posts",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": [
+                "post_types_tax:misc"
+            ],
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "id",
+            "ui": 1
         }
-    ]
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1557231159
 }

@@ -2,9 +2,9 @@
 /**
  * Functions
  *
- * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.1.4
+ * @author		Nir Goldberg
+ * @package		scoop-child
+ * @version		1.2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -42,6 +42,11 @@ require_once ( 'functions/search.php' );
  */
 require_once ('includes/cpt-config.php');           // Register Custom Post Types & Taxonomies locally
 require_once ('vendors/acf.php');                   // ACF Functions
+
+// ACF field groups
+if ( ! defined( 'USE_LOCAL_ACF_CONFIGURATION' ) || ! USE_LOCAL_ACF_CONFIGURATION ) {
+	require_once( 'functions/acf/acf-field-groups.php' );
+}
 
 use Mailgun\HttpClientConfigurator;
 use Mailgun\Mailgun;
