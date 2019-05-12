@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.1.4
+ * @version     1.2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,6 +25,21 @@ else {
 
 }
 define( 'KULAM_VERSION', $theme_version );
+
+/**
+ * kulam_enqueue_admin_styles
+ *
+ * This function enqueues admin styles
+ *
+ * @param   N/A
+ * @return  N/A
+ */
+function kulam_enqueue_admin_styles() {
+
+	wp_register_style( 'admin-style-rtl',	get_stylesheet_directory_uri() . '/assets/css/admin/rtl.css',	array(),	KULAM_VERSION );
+
+}
+add_action( 'admin_enqueue_scripts', 'kulam_enqueue_admin_styles' );
 
 /**
  * kulam_enqueue_styles

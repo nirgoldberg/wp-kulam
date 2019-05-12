@@ -1,0 +1,62 @@
+# Translation of Development (trunk) in Russian
+# This file is distributed under the same license as the Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2010-11-05 00:32:55+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Development (trunk)\n"
+
+msgid "http://wordpress.org/extend/plugins/rss-importer/"
+msgstr "http://wordpress.org/extend/plugins/rss-importer/"
+
+msgid "http://wordpress.org/"
+msgstr "http://wordpress.org/"
+
+msgid "wordpressdotorg"
+msgstr "wordpressdotorg"
+
+msgid "Import posts from an RSS feed. This plugin depends on the WP_Importer base class."
+msgstr "Импорт записей из RSS-ленты. Этот плагин использует базовый класс WP_Importer."
+
+msgid "RSS Importer"
+msgstr "Импорт из RSS"
+
+#: rss-importer.php:219
+msgid "Import posts from an RSS feed."
+msgstr "Импорт записей из RSS-ленты."
+
+#: rss-importer.php:219
+msgid "RSS"
+msgstr "RSS"
+
+#: rss-importer.php:185
+msgid "All done. <a href=\"%s\">Have fun!</a>"
+msgstr "Готово. <a href=\"%s\">Наслаждайтесь!</a>"
+
+#: rss-importer.php:160
+msgid "Done!"
+msgstr "Готово!"
+
+#: rss-importer.php:154
+msgid "Couldn&#8217;t get post ID"
+msgstr "Не удалось получить ID записи"
+
+#: rss-importer.php:148
+msgid "Post already imported"
+msgstr "Запись уже импортирована"
+
+#: rss-importer.php:143
+msgid "Importing post..."
+msgstr "Импорт записи..."
+
+#: rss-importer.php:59
+msgid "Howdy! This importer allows you to extract posts from an RSS 2.0 file into your WordPress site. This is useful if you want to import your posts from a system that is not handled by a custom import tool. Pick an RSS file to upload and click Import."
+msgstr "Привет! Этот скрипт позволит извлечь записи из любой ленты RSS 2.0 в ваш блог. Это полезно, если вы хотите импортировать записи из системы, для которой нет специального скрипта. Выберите файл RSS для загрузки и нажмите &laquo;Импорт&raquo;."
+
+#: rss-importer.php:50
+msgid "Import RSS"
+msgstr "Импорт RSS"

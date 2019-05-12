@@ -16,6 +16,9 @@ if ( defined( 'WP_SITEURL' ) && defined( 'LIVE_SITEURL' ) ) {
 // theme functions
 require_once ( 'functions/theme.php' );
 
+// admin header section
+require_once( 'functions/admin/header.php' );
+
 // menus functions
 require_once ( 'functions/menus.php' );
 

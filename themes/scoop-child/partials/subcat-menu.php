@@ -2,9 +2,9 @@
 /**
  * Sub categories menu
  *
- * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.1.1
+ * @author		Nir Goldberg
+ * @package		scoop-child
+ * @version		1.2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,11 +21,11 @@ $bg_color	= $bg_color ? $bg_color : '#8F95CE';
 $font_color	= $font_color ? $font_color : '#FFFFFF';
 
 $children = get_terms(
-	'category',
 	array(
-		'parent' => get_queried_object_id(),
-		'hide_empty' => false,
-		'include' => 'all'
+		'taxonomy'		=> 'category',
+		'parent'		=> get_queried_object_id(),
+		'hide_empty'	=> false,
+		'orderby'		=> 'term_order'
 	)
 );
 
