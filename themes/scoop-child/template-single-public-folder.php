@@ -34,8 +34,10 @@ if ( $folder && $user && $site ) :
 		if( $data_value ) {
 
 			$args = array(
-				'post_type'	=> 'post',
-				'post__in'	=> (array)$data_value
+				'post_type'			=> 'post',
+				'post__in'			=> (array)$data_value,
+				'posts_per_page'	=> -1,
+				'orderby'			=> 'post__in'
 			);
 			$data_value_query = new WP_Query( $args ); ?>
 
