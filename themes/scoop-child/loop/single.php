@@ -105,7 +105,7 @@ if ( have_posts() ) :
 
 						if($path === 'https://masaisraeli.kulam.org')
 							$btn_text = ('הוסף למועדפים שלי');
-						else if($path === 'https://onward.kulam.org')
+						else if($path === 'https://onward.kulam.org' || $path === 'https://ramah.kulam.org')
 							$btn_text = ('Add to My Shelf');
 
                         $btn_id = 'add_to_sidur';
@@ -120,7 +120,7 @@ if ( have_posts() ) :
 
 						        if($path === 'https://masaisraeli.kulam.org')
 									$btn_text = ('הסר ממועדפים שלי');
-								else if($path === 'https://onward.kulam.org')
+								else if($path === 'https://onward.kulam.org' || $path === 'https://ramah.kulam.org')
 									$btn_text = ('Remove from My Shelf');
 
                                 $btn_id = 'remove_from_sidur';

@@ -480,7 +480,7 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			var path = window.location.origin;
-			if ( path === 'https://onward.kulam.org' ) {
+			if ( path === 'https://onward.kulam.org' || path === 'https://ramah.kulam.org' ) {
 				$('#add_to_sidur').text("Remove from My Shelf").attr("id", 'remove_from_sidur');
 			} 
 			else if (document.documentElement.lang === "en-US") {
@@ -506,7 +506,7 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			var path = window.location.origin;
-			if ( path === 'https://onward.kulam.org' )
+			if ( path === 'https://onward.kulam.org' || path === 'https://ramah.kulam.org' )
 			{
 				$('#remove_from_sidur').text("Add to My Shelf").attr("id", 'add_to_sidur');
 			} 
