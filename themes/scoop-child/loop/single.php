@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.1.3
+ * @version     1.2.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -171,7 +171,7 @@ if ( have_posts() ) :
 
 					<div class="entry-format">
 
-						<?php if ( has_post_thumbnail() ) :
+						<?php if ( ! has_post_format( 'video' ) && has_post_thumbnail() ) :
 							$image_args = array( 'width' => '1170', 'height' => '660' );
 							$image_url = Pojo_Thumbnails::get_post_thumbnail_url( $image_args );
 							if ( $image_url ) : ?>
