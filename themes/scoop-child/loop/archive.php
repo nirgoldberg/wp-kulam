@@ -3,8 +3,8 @@
  * Archive
  *
  * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.1.1
+ * @package     scoop-child/loop
+ * @version     1.2.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -102,7 +102,7 @@ $is_filtered = ( isset($_GET['pt']) ? true : false );
 
 			if ($joint_query->have_posts()  && 0 < $joint_query_args['query_count'] ) :
 				$link = sprintf( esc_html__( 'Click For More %s', 'kulam-scoop' ), $kol_post_type->name );
-				$url = '?pt=' . $kol_post_type->slug;
+				$url = '?pt=' . $kol_post_type->slug . '&hide_as=1';
 				echo "<h2 class='post-type-title'>" . $kol_post_type->name . "</h2>";
 				echo "<p><a class='post-type-sub-title' href='" . $url . " '>" . $link . "</a></p>";
 				do_action('pojo_before_content_loop', $display_type);

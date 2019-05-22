@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.1
+ * @version		1.2.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -41,7 +41,7 @@ $children = get_terms(
 
 			if ( isset( $_GET['pt'] ) ) {
 
-				$link .= '?pt=' . $_GET['pt'];
+				$link .= '?pt=' . $_GET['pt'] . ( ( isset( $_GET['hide_as'] ) ) ? '&hide_as=' . $_GET['hide_as'] : '' );
 
 			}
 
