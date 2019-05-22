@@ -78,7 +78,9 @@ if ( is_user_logged_in() ) :
 
 			$args = array(
 				'post_type'	=> 'post',
-				'post__in'	=> (array)$sidur
+				'post__in'	=> (array)$sidur,
+				'posts_per_page'	=> -1,
+				'orderby'			=> 'post__in'
 			);
 			$siddur_query = new WP_Query( $args ); ?>
 
