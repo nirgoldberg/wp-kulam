@@ -38,6 +38,9 @@ var $ = jQuery,
 			// bootstrap modal
 			KULAM_general.bootstrap_modal();
 
+			// my siddur
+			KULAM_general.my_siddur();
+
 		},
 
 		/**
@@ -243,7 +246,7 @@ var $ = jQuery,
 						suggest(matches);
 
 					},
-					renderItem: function (item, search) {
+					renderItem: function(item, search) {
 						item = JSON.parse(item);
 
 						search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -379,6 +382,58 @@ var $ = jQuery,
 		},
 
 		/**
+		 * my_siddur
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		my_siddur : function() {
+
+			$('.siddur_toggle_button').on('click', function(event) {
+
+				event.preventDefault();
+
+				KULAM_general.my_siddur_toggle_btn($(this));
+
+			});
+
+		},
+
+		/**
+		 * my_siddur_toggle_btn
+		 *
+		 * Called from my_siddur
+		 *
+		 * @param	btn (object)
+		 * @return	N/A
+		 */
+		my_siddur_toggle_btn : function(btn) {
+
+			// variables
+			text = btn.text();
+			toggleText = btn.data('toggle-text');
+			action = btn.data('action');
+			toggleAction = btn.data('toggle-action');
+
+			var data = {
+				action: action,
+				user: ajaxdata.user_id,
+				post: ajaxdata.post_id,
+				security: ajaxdata.ajax_nonce
+			};
+
+			$.post(ajaxdata.ajaxurl, data, function(response) {
+				btn.text(toggleText).data('toggle-text', text).data('action', toggleAction).data('toggle-action', action);
+			});
+
+			// return
+			return false;
+
+		},
+
+		/**
 		 * a11y_icon_top
 		 *
 		 * Called from loaded
@@ -408,7 +463,7 @@ var $ = jQuery,
 		 * @param	N/A
 		 * @return	N/A
 		 */
-		breakpoint_refreshValue : function () {
+		breakpoint_refreshValue : function() {
 
 			var new_breakpoint = window.getComputedStyle(
 				document.querySelector('body'), ':before'
@@ -470,60 +525,6 @@ $(window).load(KULAM_general.loaded);
 
 
 jQuery(document).ready(function ($) {
-
-	$('.entry-sharing').on('click', '#add_to_sidur', function (event) {
-		event.preventDefault();
-		var data = {
-			action: 'change_sidur',
-			user: ajaxdata.user_id,
-			post: ajaxdata.post_id,
-			security: ajaxdata.ajax_nonce
-		};
-		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
-			var path = window.location.origin;
-			if ( path === 'https://onward.kulam.org' || path === 'https://ramah.kulam.org' ) {
-				$('#add_to_sidur').text("Remove from My Shelf").attr("id", 'remove_from_sidur');
-			} 
-			else if (document.documentElement.lang === "en-US") {
-				$('#add_to_sidur').text("Remove from My Siddur").attr("id", 'remove_from_sidur');
-			}
-			else if( path === 'https://masaisraeli.kulam.org'){
-				$('#add_to_sidur').text("להסיר ממועדפים שלי").attr("id", 'remove_from_sidur');
-			} 
-			else
-			   $('#add_to_sidur').text("להסיר מהסידור שלי").attr("id", 'remove_from_sidur');
-
-		});
-		return false;
-	});
-
-	$('.entry-sharing').on('click', '#remove_from_sidur', function (event) {
-		event.preventDefault();
-		var data = {
-			action: 'remove_sidur',
-			user: ajaxdata.user_id,
-			post: ajaxdata.post_id,
-			security: ajaxdata.ajax_nonce
-		};
-		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
-			var path = window.location.origin;
-			if ( path === 'https://onward.kulam.org' || path === 'https://ramah.kulam.org' )
-			{
-				$('#remove_from_sidur').text("Add to My Shelf").attr("id", 'add_to_sidur');
-			} 
-			else if (document.documentElement.lang === "en-US") {
-				$('#remove_from_sidur').text("Add to My Siddur").attr("id", 'add_to_sidur');
-			}
-			else if( path === 'https://masaisraeli.kulam.org')
-			{
-				$('#remove_from_sidur').text(" הוסף למועדפים שלי").attr("id", 'add_to_sidur');
-			} 
-			else
-			   $('#remove_from_sidur').text("הוסף לסידור שלי").attr("id", 'add_to_sidur');
-
-		});
-		return false;
-	});
 
 	$('.submit_reg').click(function () {
 		$('.loader').show();

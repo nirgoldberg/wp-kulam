@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-24 21:45+0300\n"
-"PO-Revision-Date: 2019-04-24 21:54+0300\n"
+"POT-Creation-Date: 2019-05-27 17:06+0300\n"
+"PO-Revision-Date: 2019-05-27 17:08+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -11,21 +11,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e;"
 "esc_attr__;esc_attr_e;_x;_nx\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: content/content-grid_three.php:43 loop/single.php:84
+#: content/content-grid_three.php:43 loop/single.php:93
 msgid "No Comments"
 msgstr "אין תגובות"
 
-#: content/content-grid_three.php:43 loop/single.php:84
+#: content/content-grid_three.php:43 loop/single.php:93
 msgid "One Comment"
 msgstr "תגובה אחת"
 
-#: content/content-grid_three.php:43 loop/single.php:84
+#: content/content-grid_three.php:43 loop/single.php:93
 msgid "% Comments"
 msgstr "% תגובות"
 
@@ -49,14 +49,184 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: functions/menus.php:28 functions/shortcodes.php:27
-#: includes/cpt-config.php:55 loop/archive.php:44
+#: functions/acf/acf-configuration.php:25
+#: functions/acf/acf-configuration.php:26
+msgid "Site Setup"
+msgstr "הגדרות האתר"
+
+#: functions/acf/acf-configuration.php:32
+#: functions/acf/acf-field-groups.php:440
+msgid "My Siddur Settings"
+msgstr "הגדרות הסידור שלי"
+
+#: functions/acf/acf-configuration.php:33 functions/menus.php:29
+#: functions/shortcodes.php:28 includes/cpt-config.php:55
+#: loop/archive-new.php:18 loop/archive.php:44 loop/single.php:18
 msgid "My Siddur"
 msgstr "הסידור שלי"
 
-#: functions/menus.php:60 functions/modal-login.php:34
+#: functions/acf/acf-configuration.php:39
+#: functions/acf/acf-field-groups.php:483
+msgid "General Settings"
+msgstr "הגדרות כלליות"
+
+#: functions/acf/acf-configuration.php:40
+msgid "General"
+msgstr "כללי"
+
+#: functions/acf/acf-field-groups.php:26
+msgid "ACF Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:30 functions/acf/acf-field-groups.php:41
+msgid "Display Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:49
+msgid "ACF Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:69
+#, fuzzy
+#| msgid "Upload"
+msgid "upload"
+msgstr "משהו משלך"
+
+#: functions/acf/acf-field-groups.php:70
+msgid "user_profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:103
+msgid "Category Top Posts"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:107
+msgid "Customs / גרסאות שונות"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:131
+msgid "Learn How / מדריכים"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:155
+msgid "Music / מוזיקה"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:179
+msgid "Ideas / מחשבה"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:203
+msgid "Misc / שונות"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:247
+#, fuzzy
+#| msgid "Save settings"
+msgid "Ratings"
+msgstr "שמור הגדרות"
+
+#: functions/acf/acf-field-groups.php:251
+msgid "דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:270
+msgid "שם דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:291
+#, fuzzy
+#| msgid "Save settings"
+msgid "ratings"
+msgstr "שמור הגדרות"
+
+#: functions/acf/acf-field-groups.php:310
+msgid "rating name"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:351
+msgid "User Information"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:355
+msgid "Profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:358
+msgid "Tell us something about yourself!"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:374
+msgid "Gender"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:386
+msgid "Female"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:387
+msgid "Male"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:398
+msgid "Date of Birth"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:444
+msgid "Custom Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:487
+msgid "Subcategories Grid"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:503
+msgid "Background color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:518
+msgid "Font Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:533
+msgid "Social"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:549
+msgid "Google Analytics Code"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:552
+msgid "Code format: UA-XXXXXXXXX-X"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:568
+msgid "Misc"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:584
+msgid "Placeholder Thumbnail"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:587
+msgid ""
+"This image will be shown whenever the post has neither \"featured video\" "
+"nor \"featured image\""
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:608
+msgid "Category Page Sections"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:611
+msgid ""
+"Select which post type sections should appear in category pages. They will "
+"appear in the order you select them here."
+msgstr ""
+
+#: functions/menus.php:54 functions/modal-login.php:34
 #: functions/modal-login.php:52 functions/modal-registration.php:56
-#: header.php:184 header.php:287
+#: header.php:96 header.php:199
 msgid "Login"
 msgstr "התחבר"
 
@@ -94,35 +264,35 @@ msgstr "אנא הזן את הטקסט בתיבה מתחת:"
 msgid "Register"
 msgstr "הירשם"
 
-#: functions/shortcodes.php:37
+#: functions/shortcodes.php:31
 msgid "Posts"
 msgstr "סוגי מאמרים"
 
-#: functions/shortcodes.php:38
+#: functions/shortcodes.php:32
 msgid "Upload"
 msgstr "משהו משלך"
 
-#: functions/shortcodes.php:39
+#: functions/shortcodes.php:33
 msgid "Upload somthing of your own"
 msgstr "שתף את העולם במנהגים שלך"
 
-#: functions/shortcodes.php:41
+#: functions/shortcodes.php:35
 msgid "Save your favorite contents"
 msgstr "שמור את התכנים המועדפים שלך"
 
-#: functions/theme.php:129 partials/search.php:122
+#: functions/theme.php:144 partials/search.php:122
 msgid "Text"
 msgstr "טקסט"
 
-#: header.php:168 header.php:271
+#: header.php:80 header.php:183
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:181 header.php:284
+#: header.php:93 header.php:196
 msgid "Logout"
 msgstr "התנתק"
 
-#: header.php:219 header.php:322
+#: header.php:131 header.php:234
 #, php-format
 msgid "<a href=\"%s\">Choose Menu</a>"
 msgstr ""
@@ -172,39 +342,41 @@ msgstr "שם סוג המאמר החדש"
 msgid "Siddurim"
 msgstr "סידורים"
 
+#: loop/archive-new.php:36 loop/archive-new.php:38 loop/archive-new.php:40
 #: loop/archive.php:30 loop/archive.php:32 loop/archive.php:34
 #, php-format
 msgid "Archive for %s"
 msgstr "ארכיון של %s"
 
-#: loop/archive.php:32
+#: loop/archive-new.php:38 loop/archive.php:32
 msgid "F Y"
 msgstr "F Y"
 
-#: loop/archive.php:34
+#: loop/archive-new.php:40 loop/archive.php:34
 msgid "Y"
 msgstr "Y"
 
-#: loop/archive.php:40 loop/archive.php:42
+#: loop/archive-new.php:46 loop/archive-new.php:48 loop/archive.php:40
+#: loop/archive.php:42
 #, php-format
 msgid "Archive %s"
 msgstr "ארכיון %s"
 
-#: loop/archive.php:53
+#: loop/archive-new.php:54 loop/archive.php:53
 #, php-format
 msgid "All posts by %s"
 msgstr "כל סוגי המאמרים של %s"
 
-#: loop/archive.php:55
+#: loop/archive-new.php:56 loop/archive.php:55
 msgid "Archive"
 msgstr "ארכיון"
 
-#: loop/archive.php:104
+#: loop/archive-new.php:104 loop/archive.php:104
 #, php-format
 msgid "Click For More %s"
 msgstr "הקלק לעוד %s"
 
-#: loop/archive.php:131
+#: loop/archive-new.php:131 loop/archive.php:131
 msgid "Back to category"
 msgstr "חזרה"
 
@@ -216,39 +388,39 @@ msgstr "&laquo; הקודם"
 msgid "Next &raquo;"
 msgstr "הבא &raquo;"
 
-#: loop/single.php:97 loop/single.php:103
-msgid "Add to My Siddur"
-msgstr "הוסף לסידור שלי"
+#: loop/single.php:108
+msgid "Add to "
+msgstr "הוסף אל "
 
-#: loop/single.php:118
-msgid "Remove from My Siddur"
-msgstr "להסיר מהסידור שלי"
+#: loop/single.php:109
+msgid "Remove from "
+msgstr "הסר מ"
 
-#: loop/single.php:134
+#: loop/single.php:144
 msgid "Facebook"
 msgstr "Facebook"
 
-#: loop/single.php:137
+#: loop/single.php:147
 msgid "Twitter"
 msgstr "Twitter"
 
-#: loop/single.php:163
+#: loop/single.php:173
 msgid "Print"
 msgstr "הדפסה"
 
-#: loop/single.php:419
+#: loop/single.php:429
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: loop/single.php:426
+#: loop/single.php:436
 msgid "View all posts by"
 msgstr "צפה בסוג מאמר"
 
-#: loop/single.php:439
+#: loop/single.php:449
 msgid "&laquo; Previous Post"
 msgstr "&laquo; המאמר הקודם"
 
-#: loop/single.php:440
+#: loop/single.php:450
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
@@ -316,7 +488,7 @@ msgstr "לא"
 msgid "Done"
 msgstr "בצע"
 
-#: template-siddur-folder.php:54 template-siddur.php:45
+#: template-siddur-folder.php:54 template-siddur.php:47
 msgid "Folder Name"
 msgstr "שם התיקייה"
 
@@ -340,33 +512,29 @@ msgstr "שמור הגדרות"
 msgid "Link to share"
 msgstr "קישור לשיתוף"
 
-#: template-siddur.php:47
+#: template-siddur.php:49
 msgid "Add"
 msgstr "הוסף"
 
-#: vendors/acf.php:23 vendors/acf.php:26
-msgid "Site Setup"
-msgstr "הגדרות אתר"
-
-#: vendors/acf.php:179
+#: vendors/acf.php:139
 msgid "Video Unavailable"
 msgstr "וידאו לא זמן"
 
-#: vendors/acf.php:219
+#: vendors/acf.php:179
 msgid "Submit for review"
 msgstr "שלח לאישור"
 
-#: vendors/acf.php:220
+#: vendors/acf.php:180
 msgid ""
 "<b>Success!</b> Your article was submitted successfully and will be reviewed "
 "shortly."
 msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
 
-#: vendors/acf.php:230
+#: vendors/acf.php:190
 msgid "Update Account"
 msgstr "עדכון חשבון"
 
-#: vendors/acf.php:231
+#: vendors/acf.php:191
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
 
@@ -378,9 +546,6 @@ msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החד�
 
 #~ msgid "Read more"
 #~ msgstr "קרא עוד"
-
-#~ msgid "My Siddur: %s"
-#~ msgstr "השבת שלי: %s"
 
 #~ msgid "Itay Banner"
 #~ msgstr "איתי בנר"

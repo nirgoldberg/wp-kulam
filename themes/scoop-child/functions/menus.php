@@ -2,9 +2,9 @@
 /**
  * Menus functions
  *
- * @author      Nir Goldberg
- * @package     scoop-child/functions
- * @version     1.1.1
+ * @author		Nir Goldberg
+ * @package		scoop-child/functions
+ * @version		1.2.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,16 +25,10 @@ function kulam_add_custom_menu_items( $items, $args ) {
 	/**
 	 * Variables
 	 */
-	$my_siddur_label		= __( 'My Siddur', 'kulam-scoop' );
-	$my_siddur_custom_label	= get_field( 'album_label', 'options' );
+	$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+	$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 	$lang					= get_locale();
 	$locations				= array( 'primary', 'primary_mobile', 'sticky_menu' );
-
-	if ( $my_siddur_custom_label ) {
-
-		$my_siddur_label = $my_siddur_custom_label;
-
-	}
 
 	if ( in_array( $args->theme_location, $locations ) ) {
 

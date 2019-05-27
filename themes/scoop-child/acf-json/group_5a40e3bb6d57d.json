@@ -144,25 +144,6 @@
             "load_terms": 0,
             "return_format": "object",
             "multiple": 0
-        },
-        {
-            "key": "field_5a7fbe646768d",
-            "label": "\"My Album\" Custom Label",
-            "name": "album_label",
-            "type": "text",
-            "instructions": "By default, a user's collection of saved posts is called \"My Album\". You can change this label here. Leave blank to keep the default value.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -170,11 +151,11 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "site-options"
+                "value": "acf-options-general"
             }
         ]
     ],
-    "menu_order": 100,
+    "menu_order": 102,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -182,5 +163,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1557208899
+    "modified": 1558883369
 }

@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/loop
- * @version     1.2.2
+ * @version     1.2.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -42,7 +42,7 @@ $is_filtered = ( isset($_GET['pt']) ? true : false );
 				printf(__('Archive %s', 'pojo'), '<span>' . get_queried_object()->name . '</span>');
 			elseif (is_tax('siddurim')) :
 				$label = __("My Siddur", "kulam-scoop");
-				$custom_label = get_field('album_label', 'options');
+				$custom_label = get_field('acf-option_my_siddur_custom_label', 'option');
 				if ($custom_label) :
 					$label = $custom_label;
 				endif;

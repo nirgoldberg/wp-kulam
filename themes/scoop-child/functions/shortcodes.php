@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.1.1
+ * @version     1.2.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -24,14 +24,8 @@ function kulam_generate_homepage_tiles( $atts ) {
 	/**
 	 * Variables
 	 */
-	$my_siddur_label		= __( 'My Siddur', 'kulam-scoop' );
-	$my_siddur_custom_label	= get_field( 'album_label', 'options' );
-
-	if ( $my_siddur_custom_label ) {
-
-		$my_siddur_label = $my_siddur_custom_label;
-
-	}
+	$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+	$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 
 	$a = shortcode_atts( array(
 		'view-all_label'	=> __( 'Posts', 'kulam-scoop' ),
@@ -106,7 +100,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 		'</a>' .
 		'</div>';
 
-	// add custom tile for "My Album"
+	// add custom tile for "My Siddur"
 	$markup .= '<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
 		( ( is_user_logged_in() ) ?
 			'<a href="/my-siddur" role="link" class="tile-box-link">' :

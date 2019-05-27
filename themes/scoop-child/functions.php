@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.1
+ * @version		1.2.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -47,6 +47,8 @@ require_once ('includes/cpt-config.php');           // Register Custom Post Type
 require_once ('vendors/acf.php');                   // ACF Functions
 
 // ACF field groups
+require_once( 'functions/acf/acf-configuration.php' );
+
 if ( ! defined( 'USE_LOCAL_ACF_CONFIGURATION' ) || ! USE_LOCAL_ACF_CONFIGURATION ) {
 	require_once( 'functions/acf/acf-field-groups.php' );
 }

@@ -2,11 +2,20 @@
 /**
  * Default Single
  *
- * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.2.2
+ * @author		Nir Goldberg
+ * @package		scoop-child/loop
+ * @version		1.2.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! function_exists( 'get_field' ) )
+	return;
+
+/**
+ * Variables
+ */
+$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 
 $lang=get_locale();
 ?>
@@ -93,43 +102,44 @@ if ( have_posts() ) :
 				</header>
 				<?php //if ( po_single_metadata_show( 'sharing' ) ) : ?>
 				<div class="entry-sharing col-sm-1">
-				<?php if (!(is_user_logged_in())){
-						$btn_text = __('Add to My Siddur', 'kulam-scoop');
+
+					<?php
+
+						$add_to_siddur_label		= __('Add to ', 'kulam-scoop') . $my_siddur_label;
+						$remove_from_siddur_label	= __('Remove from ', 'kulam-scoop') . $my_siddur_label;
+
+						if ( ! ( is_user_logged_in() ) ) { ?>
+
+							<span><a href="#" class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><?php echo $add_to_siddur_label; ?></a></span>
+
+						<?php } else {
+
+							$site				= get_current_blog_id();
+							$uid				= get_current_user_id();
+							$btn_text			= $add_to_siddur_label;
+							$btn_toggle_text	= $remove_from_siddur_label;
+							$btn_action			= 'change_sidur';
+							$btn_toggle_action	= 'remove_sidur';
+							$tax_name			= 'siddur_'.$uid.'_1';
+							$favorite			= json_decode( get_user_meta( $uid, 'favorite' . $site , true ), true );
+
+							if( $favorite ) {
+								if ( in_array( get_the_ID(), $favorite ) ) {
+
+									$btn_text			= $remove_from_siddur_label;
+									$btn_toggle_text	= $add_to_siddur_label;
+									$btn_action			= 'remove_sidur';
+									$btn_toggle_action	= 'change_sidur';
+
+								}
+							}
+
 						?>
-						<span><a href="#" class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><?php echo $btn_text;?></a></span>
-				<?php }?>
-                    <?php if (is_user_logged_in()) {
-                        $site = get_current_blog_id();
-						$btn_text = __('Add to My Siddur', 'kulam-scoop');
-						$path = get_home_url();
 
-						if($path === 'https://masaisraeli.kulam.org')
-							$btn_text = ('הוסף למועדפים שלי');
-						else if($path === 'https://onward.kulam.org' || $path === 'https://ramah.kulam.org')
-							$btn_text = ('Add to My Shelf');
-
-                        $btn_id = 'add_to_sidur';
-                        $uid = get_current_user_id();
-                        $tax_name = 'siddur_'.$uid.'_1';
-						$favorite = get_user_meta($uid,"favorite" . $site ,true);
-						$favorite = json_decode($favorite,true);
-						if($favorite) {
-                            if (in_array(get_the_ID(), $favorite)) {
-								$btn_text = __('Remove from My Siddur', 'kulam-scoop');
-								$path = get_home_url();
-
-						        if($path === 'https://masaisraeli.kulam.org')
-									$btn_text = ('הסר ממועדפים שלי');
-								else if($path === 'https://onward.kulam.org' || $path === 'https://ramah.kulam.org')
-									$btn_text = ('Remove from My Shelf');
-
-                                $btn_id = 'remove_from_sidur';
-                            }
-                        }
-                        ?>
-                       <span><a class="sidur_button" href='#' id='<?php echo $btn_id;?>'><?php echo $btn_text;?></a></span>
+						<span><a href="#" class="sidur_button siddur_toggle_button" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><?php echo $btn_text; ?></a></span>
 
 					<?php } ?>
+
 					<div class="wrap-sharing-public">
 					<a class="entry-facebook pojo-tooltip" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="<?php _e( 'Facebook', 'pojo' ); ?>" target="_blank">
 						<span class="fa fa-facebook"></span>

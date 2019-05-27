@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.1
+ * @version		1.2.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	Category Top Posts
  * @fieldgroup	Ratings
  * @fieldgroup	User Information
+ * @fieldgroup	My Siddur Settings
  * @fieldgroup	General Settings
  */
 if( function_exists('acf_add_local_field_group') ):
@@ -435,6 +436,49 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_5ceaa42a7cfb6',
+	'title' => __('My Siddur Settings', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5a7fbe646768d',
+			'label' => __('Custom Label', 'kulam-scoop'),
+			'name' => 'acf-option_my_siddur_custom_label',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-my-siddur',
+			),
+		),
+	),
+	'menu_order' => 101,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5a40e3bb6d57d',
 	'title' => __('General Settings', 'kulam-scoop'),
 	'fields' => array(
@@ -581,36 +625,17 @@ acf_add_local_field_group(array(
 			'return_format' => 'object',
 			'multiple' => 0,
 		),
-		array(
-			'key' => 'field_5a7fbe646768d',
-			'label' => __('"My Album" Custom Label', 'kulam-scoop'),
-			'name' => 'album_label',
-			'type' => 'text',
-			'instructions' => __('By default, a user\'s collection of saved posts is called "My Album". You can change this label here. Leave blank to keep the default value.', 'kulam-scoop'),
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
 	),
 	'location' => array(
 		array(
 			array(
 				'param' => 'options_page',
 				'operator' => '==',
-				'value' => 'site-options',
+				'value' => 'acf-options-general',
 			),
 		),
 	),
-	'menu_order' => 100,
+	'menu_order' => 102,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
