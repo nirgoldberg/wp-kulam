@@ -4,10 +4,13 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.4
+ * @version		1.2.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! function_exists( 'get_field' ) )
+	return;
 
 /**
  * kulam_acf_init
@@ -46,6 +49,39 @@ function kulam_acf_init() {
 
 }
 add_action( 'acf/init', 'kulam_acf_init' );
+
+/**
+ * kulam_acf_default_post_types
+ *
+ * This function modifies category post types selection according to options default
+ *
+ * @param	$value (mix)
+ * @param	$post_id (int)
+ * @param	$field (array)
+ * @return	(mix)
+ */
+function kulam_acf_default_post_types( $value, $post_id, $field ) {
+
+	/**
+	 * Variables
+	 */
+	$post_types = get_field( 'acf-option_category_page_post_types', 'option' );
+
+	if ( ! $value && $post_types ) {
+
+		foreach ( $post_types as $post_type ) {
+
+			$value[] = $post_type->term_id;
+
+		}
+
+	}
+
+	// return
+	return $value;
+
+}
+add_filter( 'acf/load_value/name=acf-category_post_types', 'kulam_acf_default_post_types', 10, 3 );
 
 /**
  * kulam_acf_add_local_field_group_top_posts
