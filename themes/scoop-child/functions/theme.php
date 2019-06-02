@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.2.1
+ * @version     1.2.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -36,10 +36,38 @@ define( 'KULAM_VERSION', $theme_version );
  */
 function kulam_enqueue_admin_styles() {
 
+	wp_register_style( 'admin-style',		get_stylesheet_directory_uri() . '/assets/css/admin/style.css',	array(),	KULAM_VERSION );
 	wp_register_style( 'admin-style-rtl',	get_stylesheet_directory_uri() . '/assets/css/admin/rtl.css',	array(),	KULAM_VERSION );
 
 }
 add_action( 'admin_enqueue_scripts', 'kulam_enqueue_admin_styles' );
+
+/**
+ * kulam_enqueue_admin_scripts
+ *
+ * This function enqueues admin scripts
+ *
+ * @param   N/A
+ * @return  N/A
+ */
+function kulam_enqueue_admin_scripts() {
+
+	/**
+	 * Variables
+	 */
+	$screen = get_current_screen();
+
+	if ( $screen && 'category' == $screen->taxonomy ) {
+
+		wp_enqueue_script( 'acf-autopopulates', get_stylesheet_directory_uri() . '/assets/js/admin/acf-autopopulates.js',	array(),	KULAM_VERSION );
+		wp_localize_script( 'acf-autopopulates', 'acf_ap_vars', array(
+			'acf_ap_nonce' => wp_create_nonce( 'acf_ap_nonce' )
+		));
+
+	}
+
+}
+add_action( 'admin_enqueue_scripts', 'kulam_enqueue_admin_scripts' );
 
 /**
  * kulam_enqueue_styles

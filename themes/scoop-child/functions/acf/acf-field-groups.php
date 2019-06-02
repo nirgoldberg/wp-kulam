@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.3
+ * @version		1.2.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * ACF register field groups
  * 
  * @fieldgroup	ACF Front-End Form
- * @fieldgroup	Category Top Posts
  * @fieldgroup	Ratings
+ * @fieldgroup	Category Post Types
  * @fieldgroup	User Information
  * @fieldgroup	My Siddur Settings
  * @fieldgroup	General Settings
@@ -99,9 +99,135 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
-	'key' => 'group_5a37e01e4f32b',
-	'title' => __('Category Top Posts', 'kulam-scoop'),
+	'key' => 'group_5c4f03398b667',
+	'title' => __('Ratings', 'kulam-scoop'),
 	'fields' => array(
+		array(
+			'key' => 'field_5c4f027d245b5',
+			'label' => __('דירוג', 'kulam-scoop'),
+			'name' => 'range',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'table',
+			'button_label' => '',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5c4f0299245b6',
+					'label' => __('שם דירוג', 'kulam-scoop'),
+					'name' => 'range_name',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+			),
+		),
+		array(
+			'key' => 'field_5c4f030cb353a',
+			'label' => __('ratings', 'kulam-scoop'),
+			'name' => 'range_en',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'table',
+			'button_label' => '',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5c4f0329b353b',
+					'label' => __('rating name', 'kulam-scoop'),
+					'name' => 'range_name_en',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'taxonomy',
+				'operator' => '==',
+				'value' => 'category',
+			),
+		),
+	),
+	'menu_order' => 2,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_5a37e01e4f32b',
+	'title' => __('Category Post Types', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5cf314117dac4',
+			'label' => __('Post Types', 'kulam-scoop'),
+			'name' => 'acf-category_post_types',
+			'type' => 'taxonomy',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'post_types_tax',
+			'field_type' => 'multi_select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
+		),
 		array(
 			'key' => 'field_5a37e46c817d7',
 			'label' => __('Customs / גרסאות שונות', 'kulam-scoop'),
@@ -200,7 +326,7 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5a71d0c0f301c',
-			'label' => __('Misc / שונות', 'kulam-scoop'),
+			'label' => __('Miscellaneous / שונות', 'kulam-scoop'),
 			'name' => 'misc_-_top_posts',
 			'type' => 'post_object',
 			'instructions' => '',
@@ -221,110 +347,6 @@ acf_add_local_field_group(array(
 			'multiple' => 1,
 			'return_format' => 'id',
 			'ui' => 1,
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'taxonomy',
-				'operator' => '==',
-				'value' => 'category',
-			),
-		),
-	),
-	'menu_order' => 2,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => 1,
-	'description' => '',
-));
-
-acf_add_local_field_group(array(
-	'key' => 'group_5c4f03398b667',
-	'title' => __('Ratings', 'kulam-scoop'),
-	'fields' => array(
-		array(
-			'key' => 'field_5c4f027d245b5',
-			'label' => __('דירוג', 'kulam-scoop'),
-			'name' => 'range',
-			'type' => 'repeater',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'collapsed' => '',
-			'min' => 0,
-			'max' => 0,
-			'layout' => 'table',
-			'button_label' => '',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_5c4f0299245b6',
-					'label' => __('שם דירוג', 'kulam-scoop'),
-					'name' => 'range_name',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-			),
-		),
-		array(
-			'key' => 'field_5c4f030cb353a',
-			'label' => __('ratings', 'kulam-scoop'),
-			'name' => 'range_en',
-			'type' => 'repeater',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'collapsed' => '',
-			'min' => 0,
-			'max' => 0,
-			'layout' => 'table',
-			'button_label' => '',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_5c4f0329b353b',
-					'label' => __('rating name', 'kulam-scoop'),
-					'name' => 'range_name_en',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-			),
 		),
 	),
 	'location' => array(
@@ -580,6 +602,28 @@ acf_add_local_field_group(array(
 			'endpoint' => 0,
 		),
 		array(
+			'key' => 'field_5a71c0fb1a7c2',
+			'label' => __('Category Page Post Types', 'kulam-scoop'),
+			'name' => 'acf-option_category_page_post_types',
+			'type' => 'taxonomy',
+			'instructions' => __('Select which post type sections should appear in category pages', 'kulam-scoop'),
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'post_types_tax',
+			'field_type' => 'multi_select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
+		),
+		array(
 			'key' => 'field_5a40e3e02d04f',
 			'label' => __('Placeholder Thumbnail', 'kulam-scoop'),
 			'name' => 'placeholder_thumbnail',
@@ -602,28 +646,6 @@ acf_add_local_field_group(array(
 			'max_height' => '',
 			'max_size' => '',
 			'mime_types' => '',
-		),
-		array(
-			'key' => 'field_5a71c0fb1a7c2',
-			'label' => __('Category Page Sections', 'kulam-scoop'),
-			'name' => 'category_page_sections',
-			'type' => 'taxonomy',
-			'instructions' => __('Select which post type sections should appear in category pages. They will appear in the order you select them here.', 'kulam-scoop'),
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'taxonomy' => 'post_types_tax',
-			'field_type' => 'multi_select',
-			'allow_null' => 0,
-			'add_term' => 0,
-			'save_terms' => 0,
-			'load_terms' => 0,
-			'return_format' => 'object',
-			'multiple' => 0,
 		),
 	),
 	'location' => array(

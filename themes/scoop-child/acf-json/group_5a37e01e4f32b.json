@@ -1,7 +1,29 @@
 {
     "key": "group_5a37e01e4f32b",
-    "title": "Category Top Posts",
+    "title": "Category Post Types",
     "fields": [
+        {
+            "key": "field_5cf314117dac4",
+            "label": "Post Types",
+            "name": "acf-category_post_types",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "post_types_tax",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0
+        },
         {
             "key": "field_5a37e46c817d7",
             "label": "Customs \/ גרסאות שונות",
@@ -100,7 +122,7 @@
         },
         {
             "key": "field_5a71d0c0f301c",
-            "label": "Misc \/ שונות",
+            "label": "Miscellaneous \/ שונות",
             "name": "misc_-_top_posts",
             "type": "post_object",
             "instructions": "",
@@ -132,7 +154,7 @@
             }
         ]
     ],
-    "menu_order": 2,
+    "menu_order": 3,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -140,5 +162,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1557231159
+    "modified": 1559497594
 }

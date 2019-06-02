@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions/admin
- * @version     1.2.1
+ * @version     1.2.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @return  N/A
  */
 function kulam_admin_head() {
+
+	wp_enqueue_style( 'admin-style' );
 
 	if ( is_rtl() ) {
 		wp_enqueue_style( 'admin-style-rtl' );
