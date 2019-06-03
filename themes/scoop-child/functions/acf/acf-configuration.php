@@ -176,7 +176,7 @@ function kulam_acf_add_local_field_relationship( $term ) {
 			'elements'			=> '',
 			'min'				=> '',
 			'max'				=> '',
-			'return_format'		=> 'object',
+			'return_format'		=> 'id',
 			'parent'			=> 'kulam_top_posts',
 		));
 

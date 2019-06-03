@@ -495,6 +495,52 @@ body.modal-open,
 	visibility: hidden;
 }
 
+/*************************/
+/* post types posts grid */
+/*************************/
+
+.post-type-posts-grid .post-type-sub-title {
+	font-size: 20px;
+	color: #428bca;
+	cursor: pointer;
+	-webkit-transition:	none;
+	-moz-transition:	none;
+	-o-transition:		none;
+	transition:			none;
+
+}
+
+.post-type-posts-grid .post-type-sub-title.more,
+.post-type-posts-grid.open .post-type-sub-title.less {
+	visibility: visible;
+}
+
+.post-type-posts-grid .post-type-sub-title.less,
+.post-type-posts-grid.single-post-type .post-type-sub-title.more,
+.post-type-posts-grid.single-post-type .post-type-sub-title.less {
+	visibility: hidden;
+}
+
+.post-type-posts-grid > .row {
+	height: auto !important;
+}
+
+.post-type-posts-grid > .row .grid-item {
+	margin-bottom: 0;
+	position: static !important;
+	display: none;
+}
+
+.post-type-posts-grid > .row .grid-item:nth-child(3n+1) {
+	clear: both;
+}
+
+.post-type-posts-grid > .row .grid-item:nth-child(-n+3),
+.post-type-posts-grid.open > .row .grid-item {
+	margin-bottom: 30px;
+	display: block;
+}
+
 /*************/
 /* my siddur */
 /*************/
@@ -508,12 +554,6 @@ body.modal-open,
 /***********/
 /* general */
 /***********/
-
-#main p a.post-type-sub-title{
-	font-family: 'Assistant', Arial, sans-serif;
-	color: #428bca;
-	font-size: 20px;
-}
 
 @media print {
 	footer

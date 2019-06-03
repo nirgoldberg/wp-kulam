@@ -104,7 +104,7 @@
             "label": "Category Page Post Types",
             "name": "acf-option_category_page_post_types",
             "type": "taxonomy",
-            "instructions": "Select which post type sections should appear in category pages",
+            "instructions": "Default selected Post Types to be displayed in a category page.\r\nAdditional Post Types may be added and re-sorted per each category",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -163,5 +163,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1559497635
+    "modified": 1559546322
 }

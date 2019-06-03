@@ -41,6 +41,9 @@ var $ = jQuery,
 			// my siddur
 			KULAM_general.my_siddur();
 
+			// post types posts grid
+			KULAM_general.post_types_posts_grid();
+
 		},
 
 		/**
@@ -430,6 +433,34 @@ var $ = jQuery,
 
 			// return
 			return false;
+
+		},
+
+		/**
+		 * post_types_posts_grid
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		post_types_posts_grid : function() {
+
+			$('.post-type-posts-grid .post-type-sub-title').on('click', function(event) {
+
+				// variables
+				var grid = $(this).closest('.post-type-posts-grid'),
+					more_txt = grid.find('.post-type-sub-title.more');
+
+				// toggle grid class
+				grid.toggleClass('open');
+
+				// toggle "Click for more" text
+				tmp_txt = more_txt.data('toggle');
+				more_txt.data('toggle', more_txt.html());
+				more_txt.html(tmp_txt);
+
+			});
 
 		},
 

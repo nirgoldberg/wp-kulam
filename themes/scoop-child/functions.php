@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.3
+ * @version		1.2.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -123,63 +123,6 @@ function create_public_folder_table_db() {
 //     $siddur = 'siddur_' . get_current_user_id() . '_1';
 //     return $siddur;
 // }
-
-/**
- *     Prepare a new query for category pages - posts filtered by post types
- */
-
-function kulam_get_joint_query_args( $category, $post_type_slug, $is_filtered = false) {
-
-	$tops = array(
-		'how-to' => 'learn_how_-_top_posts',
-		'music' => 'music_-_top_posts',
-		'customs' =>'customs_-_top_posts',
-		'thought' => 'ideas_-_top_posts',
-		'misc' => 'misc_-_top_posts',
-		'hack-he' => 'hack-he_-_top_posts',
-		'1posts' => '1posts_-_top_posts',
-	);
-
-	$top = $tops[$post_type_slug];
-	$joint_query_array = array();
-	$top_posts = get_field($top, 'category_' . $category);
-
-	if ($top_posts && 0 < count($top_posts)) :
-		foreach ($top_posts as $p) {
-			$joint_query_array[] = $p;
-		}
-	endif;
-
-	$args = array(
-		'category' => $category,
-		'posts_per_page' => '-1',
-		'exclude' => $top_posts,
-		'ignore_sticky_posts' => true,
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'post_types_tax',
-				'field'    => 'slug',
-				'terms'    => $post_type_slug,
-			),
-		),
-	);
-
-	$rest_of_posts = get_posts($args);
-
-	foreach ($rest_of_posts as $p) {
-		$joint_query_array[] = $p->ID;
-	}
-
-	$joint_query_args = array(
-		'post__in' => $joint_query_array,
-		'posts_per_page' => (true == $is_filtered ? '-1' : '3' ),
-		'ignore_sticky_posts' => true,
-		'orderby' => 'post__in',
-		'query_count' => count($joint_query_array),
-	);
-
-	return $joint_query_args;
-}
 
 //change number of post to show on search
 function change_wp_search_size($query) {

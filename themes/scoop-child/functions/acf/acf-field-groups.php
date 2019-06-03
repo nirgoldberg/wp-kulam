@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.4
+ * @version		1.2.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -606,7 +606,8 @@ acf_add_local_field_group(array(
 			'label' => __('Category Page Post Types', 'kulam-scoop'),
 			'name' => 'acf-option_category_page_post_types',
 			'type' => 'taxonomy',
-			'instructions' => __('Select which post type sections should appear in category pages', 'kulam-scoop'),
+			'instructions' => __('Default selected Post Types to be displayed in a category page.
+Additional Post Types may be added and re-sorted per each category', 'kulam-scoop'),
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
