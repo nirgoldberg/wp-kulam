@@ -219,3 +219,95 @@ function kulam_acf_relationship_query( $args, $field, $post_id ) {
 
 }
 add_filter( 'acf/fields/relationship/query', 'kulam_acf_relationship_query', 10, 3 );
+
+/**
+ * kulam_acf_top_posts_migration_step1
+ *
+ * This function migrates all top posts to the new structure implementation
+ * Step 1 - copy top posts to new structure
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_acf_top_posts_migration_step1() {
+
+	/**
+	 * Variables
+	 */
+	$post_types = array(
+		'customs'		=> 'customs_-_top_posts',
+		'how-to'		=> 'learn_how_-_top_posts',
+		'music'			=> 'music_-_top_posts',
+		'thought'		=> 'ideas_-_top_posts',
+		'misc'			=> 'misc_-_top_posts',
+	);
+
+	$categories = get_terms( array(
+		'taxonomy'		=> 'category',
+		'hide_empty'	=> false,
+	));
+
+	if ( $categories ) {
+		foreach ( $categories as $cat ) {
+
+			$active_post_types = array();
+
+			foreach ( $post_types as $pt_slug => $pt ) {
+				$top_posts = get_field( $pt, 'category_' . $cat->term_id );
+
+				if ( $top_posts ) {
+					// save active post type
+					$post_type = get_term_by( 'slug', $pt_slug, 'post_types_tax' );
+					$active_post_types[] = $post_type->term_id;
+
+					// update new post type top posts structure
+					update_field( 'kulam_top_posts_relationship_' . $pt_slug, $top_posts, 'category_' . $cat->term_id );
+				}
+			}
+
+			// update active post types
+			update_field( 'acf-category_post_types', $active_post_types, 'category_' . $cat->term_id );
+
+		}
+	}
+
+}
+//add_action( 'init', 'kulam_acf_top_posts_migration_step1', 20 );
+
+/**
+ * kulam_acf_top_posts_migration_step2
+ *
+ * This function migrates all top posts to the new structure implementation
+ * Step 2 - delete top posts from old structure
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_acf_top_posts_migration_step2() {
+
+	/**
+	 * Variables
+	 */
+	$post_types = array(
+		'customs'		=> 'customs_-_top_posts',
+		'how-to'		=> 'learn_how_-_top_posts',
+		'music'			=> 'music_-_top_posts',
+		'thought'		=> 'ideas_-_top_posts',
+		'misc'			=> 'misc_-_top_posts',
+	);
+
+	$categories = get_terms( array(
+		'taxonomy'		=> 'category',
+		'hide_empty'	=> false,
+	));
+
+	if ( $categories ) {
+		foreach ( $categories as $cat ) {
+			foreach ( $post_types as $pt_slug => $pt ) {
+				update_field( $pt, array(), 'category_' . $cat->term_id );
+			}
+		}
+	}
+
+}
+//add_action( 'init', 'kulam_acf_top_posts_migration_step2', 20 );
