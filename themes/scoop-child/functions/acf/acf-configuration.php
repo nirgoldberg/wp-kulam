@@ -253,6 +253,7 @@ function kulam_acf_top_posts_migration_step1() {
 			$active_post_types = array();
 
 			foreach ( $post_types as $pt_slug => $pt ) {
+
 				$top_posts = get_field( $pt, 'category_' . $cat->term_id );
 
 				if ( $top_posts ) {
@@ -272,7 +273,7 @@ function kulam_acf_top_posts_migration_step1() {
 	}
 
 }
-//add_action( 'init', 'kulam_acf_top_posts_migration_step1', 20 );
+//add_action( 'init', 'kulam_acf_top_posts_migration_step1', 100 );
 
 /**
  * kulam_acf_top_posts_migration_step2
@@ -310,4 +311,4 @@ function kulam_acf_top_posts_migration_step2() {
 	}
 
 }
-//add_action( 'init', 'kulam_acf_top_posts_migration_step2', 20 );
+//add_action( 'init', 'kulam_acf_top_posts_migration_step2', 100 );

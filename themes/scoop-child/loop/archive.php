@@ -104,6 +104,7 @@ if ( have_posts() ) {
 
 				// get all posts associated with current category and post type, excluding top posts
 				$posts_query_args = array(
+					'post_type'			=> 'post',
 					'posts_per_page'	=> '-1',
 					'post__not_in'		=> $top_posts,
 					'cat'				=> $category->term_id,
@@ -130,8 +131,12 @@ if ( have_posts() ) {
 
 							foreach ( $top_posts as $post_id ) {
 
-								$post = get_post( $post_id );
-								pojo_get_content_template_part( 'content', $display_type );
+								if ( 'publish' == get_post_status( $post_id ) && 'post' == get_post_type( $post_id ) ) {
+
+									$post = get_post( $post_id );
+									pojo_get_content_template_part( 'content', $display_type );
+
+								}
 
 							}
 
