@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-03 20:37+0300\n"
-"PO-Revision-Date: 2019-06-03 20:42+0300\n"
+"POT-Creation-Date: 2019-06-13 20:51+0300\n"
+"PO-Revision-Date: 2019-06-13 20:51+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -55,9 +55,9 @@ msgid "Site Setup"
 msgstr "הגדרות האתר"
 
 #: functions/acf/acf-configuration.php:35
-#: functions/acf/acf-field-groups.php:462
+#: functions/acf/acf-field-groups.php:486
 msgid "My Siddur Settings"
-msgstr "הגדרות הסידור שלי"
+msgstr ""
 
 #: functions/acf/acf-configuration.php:36 functions/menus.php:29
 #: functions/shortcodes.php:28 includes/cpt-config.php:55 loop/archive.php:18
@@ -66,9 +66,9 @@ msgid "My Siddur"
 msgstr "הסידור שלי"
 
 #: functions/acf/acf-configuration.php:42
-#: functions/acf/acf-field-groups.php:505
+#: functions/acf/acf-field-groups.php:529
 msgid "General Settings"
-msgstr "הגדרות כלליות"
+msgstr ""
 
 #: functions/acf/acf-configuration.php:43
 msgid "General"
@@ -124,109 +124,113 @@ msgid "rating name"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:207
-msgid "Category Post Types"
+msgid "Category Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:211 includes/cpt-config.php:11
+#: functions/acf/acf-field-groups.php:211
+msgid "Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:235 includes/cpt-config.php:11
 #: includes/cpt-config.php:13 includes/cpt-config.php:23
 msgid "Post Types"
-msgstr "סוגי מאמרים"
-
-#: functions/acf/acf-field-groups.php:233
-msgid "Customs / גרסאות שונות"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:257
-msgid "Learn How / מדריכים"
+msgid "Customs / גרסאות שונות"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:281
-msgid "Music / מוזיקה"
+msgid "Learn How / מדריכים"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:305
-msgid "Ideas / מחשבה"
+msgid "Music / מוזיקה"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:329
+msgid "Ideas / מחשבה"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:353
 msgid "Miscellaneous / שונות"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:373
+#: functions/acf/acf-field-groups.php:397
 msgid "User Information"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:377
+#: functions/acf/acf-field-groups.php:401
 msgid "Profile"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:380
+#: functions/acf/acf-field-groups.php:404
 msgid "Tell us something about yourself!"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:396
+#: functions/acf/acf-field-groups.php:420
 msgid "Gender"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:408
+#: functions/acf/acf-field-groups.php:432
 msgid "Female"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:409
+#: functions/acf/acf-field-groups.php:433
 msgid "Male"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:420
+#: functions/acf/acf-field-groups.php:444
 msgid "Date of Birth"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:466
+#: functions/acf/acf-field-groups.php:490
 msgid "Custom Label"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:509
+#: functions/acf/acf-field-groups.php:533
 msgid "Subcategories Grid"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:525
+#: functions/acf/acf-field-groups.php:549
 msgid "Background color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:540
+#: functions/acf/acf-field-groups.php:564
 msgid "Font Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:555
+#: functions/acf/acf-field-groups.php:579
 msgid "Social"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:571
+#: functions/acf/acf-field-groups.php:595
 msgid "Google Analytics Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:574
+#: functions/acf/acf-field-groups.php:598
 msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:590
+#: functions/acf/acf-field-groups.php:614
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:606
+#: functions/acf/acf-field-groups.php:630
 msgid "Category Page Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:609
+#: functions/acf/acf-field-groups.php:633
 msgid ""
 "Default selected Post Types to be displayed in a category page.\n"
 "Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:629
+#: functions/acf/acf-field-groups.php:653
 msgid "Placeholder Thumbnail"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:632
+#: functions/acf/acf-field-groups.php:656
 msgid ""
 "This image will be shown whenever the post has neither \"featured video\" "
 "nor \"featured image\""
@@ -281,7 +285,7 @@ msgid "Upload"
 msgstr "משהו משלך"
 
 #: functions/shortcodes.php:33
-msgid "Upload somthing of your own"
+msgid "Upload something of your own"
 msgstr "שתף את העולם במנהגים שלך"
 
 #: functions/shortcodes.php:35
@@ -372,12 +376,12 @@ msgstr "כל סוגי המאמרים של %s"
 msgid "Archive"
 msgstr "ארכיון"
 
-#: loop/archive.php:125 loop/archive.php:149
+#: loop/archive.php:126 loop/archive.php:154
 #, php-format
 msgid "Click for less %s"
 msgstr "הקלק לפחות %s"
 
-#: loop/archive.php:125
+#: loop/archive.php:126
 #, php-format
 msgid "Click for more %s"
 msgstr "הקלק לעוד %s"

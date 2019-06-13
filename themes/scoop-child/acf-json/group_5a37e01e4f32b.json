@@ -1,7 +1,31 @@
 {
     "key": "group_5a37e01e4f32b",
-    "title": "Category Post Types",
+    "title": "Category Attributes",
     "fields": [
+        {
+            "key": "field_5d024ba641baa",
+            "label": "Background Image",
+            "name": "acf-category_background_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
         {
             "key": "field_5cf314117dac4",
             "label": "Post Types",
@@ -162,5 +186,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1559509269
+    "modified": 1560445910
 }

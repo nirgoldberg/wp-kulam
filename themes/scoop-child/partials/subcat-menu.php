@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.2
+ * @version		1.2.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -34,52 +34,57 @@ $children = get_terms(
 <nav class="subcat-menu" style="float:none">
 	<div class="row">
 
-		<?php foreach ( $children as $child ) {
+		<?php if ( $children ) {
 
-			$child_obj = get_category($child);
-			$link = get_category_link($child_obj->term_id);
+			foreach ( $children as $child ) {
 
-			if ( isset( $_GET['pt'] ) ) {
+				$child_obj				= get_category( $child );
+				$category_link			= get_category_link( $child_obj->term_id );
+				$category_title			= $child_obj->name;
+				$category_description	= category_description( $child_obj->term_id );
+				$category_bg			= get_field( 'acf-category_background_image', 'category_' . $child_obj->term_id );
+				$category_bg_markup		= 'style="' . ( $category_bg ? 'background-image: url(\'' . $category_bg[ 'url' ] . '\');' : 'background: ' . $bg_color . ';' ) . '"';
+				$cat_desc_content		= '';
+				$cat_desc_btn			= '';
 
-				$link .= '?pt=' . $_GET['pt'] . ( ( isset( $_GET['hide_as'] ) ) ? '&hide_as=' . $_GET['hide_as'] : '' );
+				if ( isset( $_GET['pt'] ) ) {
 
-			}
+					$link .= '?pt=' . $_GET['pt'] . ( ( isset( $_GET['hide_as'] ) ) ? '&hide_as=' . $_GET['hide_as'] : '' );
 
-			$category_description = category_description( $child_obj->term_id );
+				}
 
-			$classes = 'tile-box-wrapper-child-cat col-md-3' . ( $category_description ? ' cat-desc' : '' );
+				$classes = 'tile-box-wrapper-child-cat col-md-3' . ( $category_description ? ' cat-desc' : '' );
 
-			$cat_desc_content	= '';
-			$cat_desc_btn		= '';
+				if ( $category_description ) {
 
-			if ( $category_description ) {
+					$cat_desc_content	= '<div class="desc hidden-xs"><div class="desc-content">' . $category_description . '</div></div>';
+					$cat_desc_btn		=
+						'<div class="more hidden-xs">' .
 
-				$cat_desc_content	= '<div class="desc hidden-xs"><div class="desc-content">' . $category_description . '</div></div>';
-				$cat_desc_btn		=
-					'<div class="more hidden-xs">' .
+							kulam_get_svg( 'info' ) .
 
-						kulam_get_svg( 'info' ) .
+						'</div>';
 
-					'</div>';
+				}
 
-			}
+				?>
 
-			?>
+				<div class="tile-box-wrapper-child-cat col-md-3">
+					<a href="<?php echo $category_link; ?>" class="tile-box-link" role="button" <?php echo $category_bg_markup; ?>>
+						<div class="tile-box">
+							<div class="tile-box-content">
+								<h2 style="color: <?php echo $font_color; ?>;"><?php echo $category_title; ?></h2>
+								<?php echo $cat_desc_content; ?>
+							</div>
 
-			<div class="tile-box-wrapper-child-cat col-md-3">
-				<a href="<?php echo $link; ?>" class="tile-box-link" role="button" style="background: <?php echo $bg_color; ?>">
-					<div class="tile-box">
-						<div class="tile-box-content">
-							<h2 style="color: <?php echo $font_color; ?>;"><?php echo $child_obj->name; ?></h2>
-							<?php echo $cat_desc_content; ?>
+							<?php echo $cat_desc_btn; ?>
 						</div>
+					</a>
+				</div>
 
-						<?php echo $cat_desc_btn; ?>
-					</div>
-				</a>
-			</div>
+			<?php }
 
-		<?php } ?>
+		} ?>
 
 	</div>
-</nav> 
+</nav><!-- .subcat-menu -->
