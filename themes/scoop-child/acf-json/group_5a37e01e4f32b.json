@@ -31,7 +31,7 @@
             "label": "Post Types",
             "name": "acf-category_post_types",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "Leave this field empty to display default Post Types",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -186,5 +186,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560445910
+    "modified": 1560459344
 }

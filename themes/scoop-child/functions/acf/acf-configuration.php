@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.5
+ * @version		1.2.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -51,39 +51,6 @@ function kulam_acf_init() {
 add_action( 'acf/init', 'kulam_acf_init' );
 
 /**
- * kulam_acf_default_post_types
- *
- * This function modifies category post types selection according to options default
- *
- * @param	$value (mix)
- * @param	$post_id (int)
- * @param	$field (array)
- * @return	(mix)
- */
-function kulam_acf_default_post_types( $value, $post_id, $field ) {
-
-	/**
-	 * Variables
-	 */
-	$post_types = get_field( 'acf-option_category_page_post_types', 'option' );
-
-	if ( ! $value && $post_types ) {
-
-		foreach ( $post_types as $post_type ) {
-
-			$value[] = $post_type->term_id;
-
-		}
-
-	}
-
-	// return
-	return $value;
-
-}
-add_filter( 'acf/load_value/name=acf-category_post_types', 'kulam_acf_default_post_types', 10, 3 );
-
-/**
  * kulam_acf_add_local_field_group_top_posts
  *
  * This function registers ACF field group handling top posts Relationship fields
@@ -96,12 +63,25 @@ function kulam_acf_add_local_field_group_top_posts() {
 	/**
 	 * Variables
 	 */
+	$default_post_types		= get_field( 'acf-option_category_page_post_types', 'option' );
+	$default_post_types_ids	= [];
+
+	if ( ! $default_post_types ) {
+		$default_post_types = [];
+	}
+	else {
+		foreach ( $default_post_types as $p ) {
+			$default_post_types_ids[] = $p->term_id;
+		}
+	}
+
 	$post_types = get_terms( array(
 		'taxonomy'		=> 'post_types_tax',
 		'hide_empty'	=> false,
+		'exclude'		=> $default_post_types_ids,
 	));
 
-	if ( ! empty( $post_types ) && ! is_wp_error( $post_types ) && function_exists( 'acf_add_local_field_group' ) ) {
+	if ( ( ( ! empty( $default_post_types ) ) || ( ! empty( $post_types ) && ! is_wp_error( $post_types ) ) ) && function_exists( 'acf_add_local_field_group' ) ) {
 
 		// register ACF field group
 		acf_add_local_field_group( array(
@@ -127,11 +107,22 @@ function kulam_acf_add_local_field_group_top_posts() {
 			'description'			=> '',
 		));
 
-		// register ACF Relationship fields
-		foreach ( $post_types as $post_type ) {
+		// register ACF Relationship fields (default post types)
+		if ( ! empty( $default_post_types ) ) {
+			foreach ( $default_post_types as $post_type ) {
 
-			kulam_acf_add_local_field_relationship( $post_type );
+				kulam_acf_add_local_field_relationship( $post_type, true );
 
+			}
+		}
+
+		// register ACF Relationship fields (rest of post types)
+		if ( ! empty( $post_types ) && ! is_wp_error( $post_types ) ) {
+			foreach ( $post_types as $post_type ) {
+
+				kulam_acf_add_local_field_relationship( $post_type );
+
+			}
 		}
 
 	}
@@ -145,9 +136,10 @@ add_action( 'init', 'kulam_acf_add_local_field_group_top_posts' );
  * This function registers ACF Relationship field
  *
  * @param	$term (object) Taxonomy term
+ * @param	$is_default (bool) Indication for default taxonomy term
  * @return	N/A
  */
-function kulam_acf_add_local_field_relationship( $term ) {
+function kulam_acf_add_local_field_relationship( $term, $is_default = false ) {
 
 	if ( function_exists( 'acf_add_local_field' ) && $term ) {
 
@@ -161,7 +153,7 @@ function kulam_acf_add_local_field_relationship( $term ) {
 			'conditional_logic'	=> 0,
 			'wrapper'			=> array(
 				'width'	=> '',
-				'class'	=> 'acf-hidden kulam_top_posts_relationship_' . $term->term_id,
+				'class'	=> ( $is_default ? 'default_top_posts_relationship ' : '' ) . 'kulam_top_posts_relationship_' . $term->term_id,
 				'id'	=> '',
 			),
 			'post_type'			=> array(

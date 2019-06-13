@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.2.5
+ * @version		1.2.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -92,6 +92,10 @@ if ( have_posts() ) {
 
 		// get category post types
 		$post_types = get_field( 'acf-category_post_types', 'category_' . $category->term_id );
+
+		if ( ! $post_types ) {
+			$post_types = get_field( 'acf-option_category_page_post_types', 'option' );
+		}
 
 		if ( $post_types ) {
 

@@ -7,6 +7,7 @@ jQuery(document).ready(function($) {
 	// top posts relationship fields
 	top_posts_fields_prefix		= 'kulam_top_posts_relationship_';
 	top_posts_fields			= $('[data-name^="' + top_posts_fields_prefix + '"]');
+	default_top_posts_fields	= $('.default_top_posts_relationship');
 
 	// get top posts field wrapper
 	top_posts_fields_wrapper	= top_posts_fields.parent('tbody');
@@ -31,9 +32,6 @@ jQuery(document).ready(function($) {
 		// get selected post types
 		selected_post_types		= post_types_select.find('option:selected');
 
-		// hide top posts relationship fields
-		top_posts_fields.addClass('acf-hidden');
-
 		// expose top posts relationship fields for selected post types
 		expose_top_posts();
 
@@ -45,12 +43,22 @@ jQuery(document).ready(function($) {
 		// variables;
 		var index = 1;
 
-		selected_post_types.each(function() {
-			// variables
-			var post_type_id = $(this).val();
+		// hide top posts relationship fields
+		top_posts_fields.addClass('acf-hidden');
 
-			$('.' + top_posts_fields_prefix + post_type_id).removeClass('acf-hidden').css('order', index++);
-		});
+		if (selected_post_types.length) {
+			// expose top posts relationship fields for selected post types
+			selected_post_types.each(function() {
+				// variables
+				var post_type_id = $(this).val();
+
+				$('.' + top_posts_fields_prefix + post_type_id).removeClass('acf-hidden').css('order', index++);
+			});
+		}
+		else {
+			// expose default top posts relationship fields
+			default_top_posts_fields.removeClass('acf-hidden').css('order', '');
+		}
 
 	}
 

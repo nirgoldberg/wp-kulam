@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.6
+ * @version		1.2.7
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -235,7 +235,7 @@ acf_add_local_field_group(array(
 			'label' => __('Post Types', 'kulam-scoop'),
 			'name' => 'acf-category_post_types',
 			'type' => 'taxonomy',
-			'instructions' => '',
+			'instructions' => __('Leave this field empty to display default Post Types', 'kulam-scoop'),
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -529,8 +529,47 @@ acf_add_local_field_group(array(
 	'title' => __('General Settings', 'kulam-scoop'),
 	'fields' => array(
 		array(
+			'key' => 'field_5d028ffc43370',
+			'label' => __('Category Attributes', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5a71c0fb1a7c2',
+			'label' => __('Category Page Post Types', 'kulam-scoop'),
+			'name' => 'acf-option_category_page_post_types',
+			'type' => 'taxonomy',
+			'instructions' => __('Default selected Post Types to be displayed in a category page.
+Additional Post Types may be added and re-sorted per each category', 'kulam-scoop'),
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'post_types_tax',
+			'field_type' => 'multi_select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
+		),
+		array(
 			'key' => 'field_5ca5f481de29b',
-			'label' => __('Subcategories Grid', 'kulam-scoop'),
+			'label' => __('Subcategory Attributes', 'kulam-scoop'),
 			'name' => '',
 			'type' => 'tab',
 			'instructions' => '',
@@ -624,29 +663,6 @@ acf_add_local_field_group(array(
 			),
 			'placement' => 'left',
 			'endpoint' => 0,
-		),
-		array(
-			'key' => 'field_5a71c0fb1a7c2',
-			'label' => __('Category Page Post Types', 'kulam-scoop'),
-			'name' => 'acf-option_category_page_post_types',
-			'type' => 'taxonomy',
-			'instructions' => __('Default selected Post Types to be displayed in a category page.
-Additional Post Types may be added and re-sorted per each category', 'kulam-scoop'),
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'taxonomy' => 'post_types_tax',
-			'field_type' => 'multi_select',
-			'allow_null' => 0,
-			'add_term' => 0,
-			'save_terms' => 0,
-			'load_terms' => 0,
-			'return_format' => 'object',
-			'multiple' => 0,
 		),
 		array(
 			'key' => 'field_5a40e3e02d04f',
