@@ -97,7 +97,14 @@ if ( have_posts() ) {
 			$post_types = get_field( 'acf-option_category_page_post_types', 'option' );
 		}
 
-		if ( $post_types ) {
+		if ( ! $post_types ) {
+			$post_types = get_terms( array(
+				'taxonomy'	=> 'post_types_tax',
+				'orderby'	=> 'term_order',
+			));
+		}
+
+		if ( ! empty( $post_types ) && ! is_wp_error( $post_types ) ) {
 
 			$single_post_type = ( count( $post_types ) == 1 );
 

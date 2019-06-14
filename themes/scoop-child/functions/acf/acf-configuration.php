@@ -76,9 +76,9 @@ function kulam_acf_add_local_field_group_top_posts() {
 	}
 
 	$post_types = get_terms( array(
-		'taxonomy'		=> 'post_types_tax',
-		'hide_empty'	=> false,
-		'exclude'		=> $default_post_types_ids,
+		'taxonomy'	=> 'post_types_tax',
+		'exclude'	=> $default_post_types_ids,
+		'orderby'	=> 'term_order',
 	));
 
 	if ( ( ( ! empty( $default_post_types ) ) || ( ! empty( $post_types ) && ! is_wp_error( $post_types ) ) ) && function_exists( 'acf_add_local_field_group' ) ) {
@@ -116,11 +116,13 @@ function kulam_acf_add_local_field_group_top_posts() {
 			}
 		}
 
+		$is_default = empty( $default_post_types ) ? true : false;
+
 		// register ACF Relationship fields (rest of post types)
 		if ( ! empty( $post_types ) && ! is_wp_error( $post_types ) ) {
 			foreach ( $post_types as $post_type ) {
 
-				kulam_acf_add_local_field_relationship( $post_type );
+				kulam_acf_add_local_field_relationship( $post_type, $is_default );
 
 			}
 		}
