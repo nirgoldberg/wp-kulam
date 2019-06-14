@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.7
+ * @version		1.2.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -306,3 +306,32 @@ function kulam_acf_top_posts_migration_step2() {
 
 }
 //add_action( 'init', 'kulam_acf_top_posts_migration_step2', 100 );
+
+/**
+ * kulam_acf_top_posts_migration_step3
+ *
+ * This function migrates all top posts to the new structure implementation
+ * Step 3 - delete selected post types from all categories in order to display default post types
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_acf_top_posts_migration_step3() {
+
+	/**
+	 * Variables
+	 */
+	$categories = get_terms( array(
+		'taxonomy'		=> 'category',
+		'hide_empty'	=> false,
+		'include'		=> array( 1004 ),
+	));
+
+	if ( $categories ) {
+		foreach ( $categories as $cat ) {
+			update_field( 'acf-category_post_types', array(), 'category_' . $cat->term_id );
+		}
+	}
+
+}
+//add_action( 'init', 'kulam_acf_top_posts_migration_step3', 100 );
