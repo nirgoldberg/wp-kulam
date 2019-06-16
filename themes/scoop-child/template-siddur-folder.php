@@ -53,6 +53,7 @@ if ( is_user_logged_in() ) :
 			<div class="form-body">
 				<h3><?php _e( 'Folder Name', 'kulam-scoop' ); ?></h3>
 				<span>*<?php _e( 'Here you can rename the folder', 'kulam-scoop' ); ?></span>
+				<div class="notice"><?php _e( 'Allowed characters: digits, letters, spaces and dashes', 'kulam-scoop' ); ?></div>
 				<input type="text" value="<?php echo $folder; ?>" id="name-new-folder" />
 				<div id="wrap-checkbox">
 					<input type="checkbox" id="del" />

@@ -423,7 +423,7 @@ add_action("wp_ajax_add-folder","addFolder",10,1);
 function addFolder()
 {
 	if(isset($_POST['nameFolder']))
-	   $name_folder=$_POST['nameFolder'];
+	   $name_folder = preg_replace( '/[^\\w- ]+/u', '', $_POST[ 'nameFolder' ] );
   $user=wp_get_current_user();
   $site=get_current_blog_id();
 
@@ -559,7 +559,7 @@ function settingFolder(){
 	if(isset($_POST['name_old_folder']))
 	   $old_folder=$_POST['name_old_folder'];
 	if(isset($_POST['name_new_folder'])) 
-	   $new_folder=$_POST['name_new_folder'];
+	   $new_folder = preg_replace( '/[^\\w- ]+/u', '', $_POST[ 'name_new_folder' ] );
 	if(isset($_POST['delete_folder']))
 	   $delete_folder=$_POST['delete_folder'];
 	if(isset($_POST['public_folder']))

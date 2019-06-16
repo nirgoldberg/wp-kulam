@@ -45,6 +45,7 @@ if ( is_user_logged_in() ) :
 		<div class="popup-form">
 			<div class="close-popup">+</div>
 			<label class="name"><?php _e( 'Folder Name', 'kulam-scoop' ); ?></label>
+			<div class="notice"><?php _e( 'Allowed characters: digits, letters, spaces and dashes', 'kulam-scoop' ); ?></div>
 			<input type="text" id="name-folder" >
 			<input type="submit" class="add-save-folder" value="<?php _e( 'Add', 'kulam-scoop' ); ?>" />
 		</div>
