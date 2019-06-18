@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.2.7
+ * @version		1.3.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -113,6 +113,27 @@ if ( have_posts() ) {
 				// get post type top posts
 				$top_posts = get_field( 'kulam_top_posts_relationship_' . $post_type->slug, 'category_' . $category->term_id );
 
+				// get all top posts associated with current category and post type
+				if ( $top_posts ) {
+
+					$top_posts_query_args = array(
+						'post_type'			=> 'post',
+						'posts_per_page'	=> '-1',
+						'post__in'			=> $top_posts,
+						'orderby'			=> 'post__in',
+						'cat'				=> $category->term_id,
+						'tax_query'			=> array(
+							array(
+								'taxonomy'	=> 'post_types_tax',
+								'field'		=> 'slug',
+								'terms'		=> $post_type->slug,
+							),
+						),
+					);
+					$top_posts_query = new WP_Query( $top_posts_query_args );
+
+				}
+
 				// get all posts associated with current category and post type, excluding top posts
 				$posts_query_args = array(
 					'post_type'			=> 'post',
@@ -129,7 +150,7 @@ if ( have_posts() ) {
 				);
 				$posts_query = new WP_Query( $posts_query_args );
 
-				if ( $top_posts || $posts_query->have_posts() ) : ?>
+				if ( $top_posts && $top_posts_query->have_posts() || $posts_query->have_posts() ) : ?>
 
 					<div class="post-type-posts-grid <?php echo $single_post_type ? 'single-post-type open' : ''; ?>">
 
@@ -138,21 +159,15 @@ if ( have_posts() ) {
 
 						<?php do_action( 'pojo_before_content_loop', $display_type );
 
-						if ( $top_posts ) {
+						// display top posts
+						if ( $top_posts && $top_posts_query->have_posts() ) : while ( $top_posts_query->have_posts() ) :
 
-							foreach ( $top_posts as $post_id ) {
+							$top_posts_query->the_post();
+							pojo_get_content_template_part( 'content', $display_type );
 
-								if ( 'publish' == get_post_status( $post_id ) && 'post' == get_post_type( $post_id ) ) {
+						endwhile; endif;
 
-									$post = get_post( $post_id );
-									pojo_get_content_template_part( 'content', $display_type );
-
-								}
-
-							}
-
-						}
-
+						// display all other posts
 						while ( $posts_query->have_posts() ) :
 
 							$posts_query->the_post();
