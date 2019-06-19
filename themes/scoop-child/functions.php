@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.5
+ * @version		1.3.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,37 +14,37 @@ if ( defined( 'WP_SITEURL' ) && defined( 'LIVE_SITEURL' ) ) {
 }
 
 // theme functions
-require_once ( 'functions/theme.php' );
+require_once( 'functions/theme.php' );
 
 // admin header section
 require_once( 'functions/admin/header.php' );
 
 // menus functions
-require_once ( 'functions/menus.php' );
+require_once( 'functions/menus.php' );
 
 // shortcodes functions
-require_once ( 'functions/shortcodes.php' );
+require_once( 'functions/shortcodes.php' );
 
 // login modal
-require_once ( 'functions/modal-login.php' );
+require_once( 'functions/modal-login.php' );
 
 // registration modal
-require_once ( 'functions/modal-registration.php' );
+require_once( 'functions/modal-registration.php' );
 
 // search modal
-require_once ( 'functions/modal-search.php' );
+require_once( 'functions/modal-search.php' );
 
 // svgs
-require_once ( 'functions/svgs.php' );
+require_once( 'functions/svgs.php' );
 
 // search functions
-require_once ( 'functions/search.php' );
+require_once( 'functions/search.php' );
 
 /**
  *     SETUP FUNCTIONS
  */
-require_once ('includes/cpt-config.php');           // Register Custom Post Types & Taxonomies locally
-require_once ('vendors/acf.php');                   // ACF Functions
+require_once('includes/cpt-config.php');           // Register Custom Post Types & Taxonomies locally
+require_once('vendors/acf.php');                   // ACF Functions
 
 // ACF field groups
 require_once( 'functions/acf/acf-configuration.php' );
@@ -52,6 +52,9 @@ require_once( 'functions/acf/acf-configuration.php' );
 if ( ! defined( 'USE_LOCAL_ACF_CONFIGURATION' ) || ! USE_LOCAL_ACF_CONFIGURATION ) {
 	require_once( 'functions/acf/acf-field-groups.php' );
 }
+
+// my siddur
+require_once( 'functions/siddur.php' );
 
 use Mailgun\HttpClientConfigurator;
 use Mailgun\Mailgun;
@@ -152,100 +155,6 @@ function get_breadcrumb() {
 		echo '</em>"';
 	}
 }
-//save post to sidur
-add_action("wp_ajax_change_sidur","saveToSiddur",10,1);
-function saveToSiddur(){
-	$site = get_current_blog_id();
-	if( isset( $_POST[ 'user' ] ) ) 
-	{
-	  $user_id=$_POST['user'];
-	}
-	if( isset( $_POST[ 'post' ] ) ) 
-	{
-	  $postid =$_POST[ 'post' ];
-	}
-	$data_value = get_user_meta($user_id,"sidur" . $site, true);
-	if($data_value){
-		$data_value = json_decode($data_value,true);
-		if(!in_array($postid,$data_value)) {
-			$data_value[] = $postid;
-		}
-	}
-	else{
-		$data_value =  array(
-			0 => $postid
-		);
-	}
-	$data_value = json_encode($data_value);
-	update_user_meta( $user_id, "sidur" . $site, $data_value);
-//add to favorite
-$data_value = get_user_meta($user_id,"favorite" . $site, true);
-if($data_value){
-	$data_value = json_decode($data_value,true);
-	if(!in_array($postid,$data_value)) {
-		$data_value[] = $postid;
-	}
-}
-else{
-	$data_value =  array(
-		0 => $postid
-	);
-}
-$data_value = json_encode($data_value);
-update_user_meta( $user_id, "favorite" . $site, $data_value);
-}
-add_action("wp_ajax_remove_sidur","removeSiddur",10,1);
-function removeSiddur(){
-	$site =get_current_blog_id();
-	if( isset( $_POST[ 'user' ] ) )
-	{
-		$user_id = $_POST['user'];
-	}
-	if( isset( $_POST[ 'post' ] ) )
-	{
-		$postid = $_POST[ 'post' ];
-	}
-	$data_value = get_user_meta($user_id,"sidur" . $site, true);
-	$data_value = json_decode($data_value,true);
-	if($data_value){
-		foreach ($data_value as $key => $post){
-			if($post == $postid){
-				unset($data_value[$key]);
-				break;
-			}
-		}
-	}
-	$data_value = json_encode($data_value);
-	update_user_meta( $user_id, "sidur" . $site , $data_value);
-	//remove from favorite
-	$data_value = get_user_meta($user_id,"favorite" . $site, true);
-	$data_value = json_decode($data_value,true);
-	if($data_value){
-		foreach ($data_value as $key => $post){
-			if($post == $postid){
-				unset($data_value[$key]);
-				break;
-			}
-		}
-	}
-	$data_value = json_encode($data_value);
-	update_user_meta( $user_id, "favorite" . $site , $data_value);
-	//remove from folder
-	if(isset($_POST['fromFolder']))
-	  $folder=$_POST['fromFolder'];
-	  $data_value = get_user_meta($user_id,$folder . $site, true);
-	  $data_value = json_decode($data_value,true);
-	  if($data_value){
-		  foreach ($data_value as $key => $post){
-			  if($post == $postid){
-				  unset($data_value[$key]);
-				  break;
-			  }
-		  }
-	  }
-	  $data_value = json_encode($data_value);
-	  update_user_meta( $user_id, $folder . $site , $data_value);
-}
 
 add_action("wp_ajax_nopriv_create_account", "create_account",10,1);
 function create_account(){
@@ -316,15 +225,6 @@ function custom_login(){
 
 }
 add_action("wp_ajax_nopriv_custom_login", "custom_login",10,1);
-
-
-function remove_admin_bar() {
-	if (!current_user_can('administrator') && !is_admin()) {
-		show_admin_bar(false);
-	}
-}
-add_action('after_setup_theme', 'remove_admin_bar');
-
 
 add_action("wp_ajax_nopriv_save_rating_post","saveRatingPost",10,1);
 add_action("wp_ajax_save_rating_post","saveRatingPost",10,1);

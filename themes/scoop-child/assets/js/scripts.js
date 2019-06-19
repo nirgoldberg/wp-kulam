@@ -414,22 +414,50 @@ var $ = jQuery,
 		 */
 		my_siddur_toggle_btn : function(btn) {
 
+			// expose loader
+			$('.loader').show();
+
 			// variables
-			text = btn.text();
-			toggleText = btn.data('toggle-text');
+			contentGrid = btn.parent().hasClass('wrap-heart');
+
+			if (!contentGrid) {
+				text = btn.text();
+				toggleText = btn.data('toggle-text');
+			}
+
 			action = btn.data('action');
 			toggleAction = btn.data('toggle-action');
 
 			var data = {
 				action: action,
-				user: ajaxdata.user_id,
-				post: ajaxdata.post_id,
+				user_id: ajaxdata.user_id,
+				post_id: contentGrid ? btn.data('post-id') : ajaxdata.post_id,
 				security: ajaxdata.ajax_nonce
 			};
 
 			$.post(ajaxdata.ajaxurl, data, function(response) {
-				btn.text(toggleText).data('toggle-text', text).data('action', toggleAction).data('toggle-action', action);
+
+				if (response == 1) {
+					if (!contentGrid) {
+						btn.text(toggleText).data('toggle-text', text);
+					}
+					else {
+						btn.find('i').toggleClass('fa-heart').toggleClass('fa-heart-o');
+					}
+
+					btn.data('action', toggleAction).data('toggle-action', action);
+
+					if ($('body').hasClass('page-template-template-siddur') || $('body').hasClass('page-template-template-siddur-folder')) {
+						// in a siddur folder - action must be 'remove_from_sidur'
+						// remove post from grid
+						btn.closest('.grid-item').remove();
+					}
+				}
+
 			});
+
+			// hide loader
+			$('.loader').hide();
 
 			// return
 			return false;

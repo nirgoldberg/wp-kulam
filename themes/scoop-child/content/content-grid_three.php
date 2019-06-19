@@ -4,14 +4,20 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.0.5
+ * @version     1.3.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/**
+ * Variables
+ */
 global $_pojo_parent_id;
 
-$categories       = '';
-$categories_terms = get_the_category();
+$site_id			= get_current_blog_id();
+$post_id			= get_the_ID();
+$categories			= '';
+$categories_terms	= get_the_category();
+
 if ( ! empty( $categories_terms ) && ! is_wp_error( $categories_terms ) ) :
 	$categories = wp_list_pluck( $categories_terms, 'name' );
 	$categories = $categories[0];
@@ -45,38 +51,34 @@ endif;
 					<?php if ( po_archive_metadata_show( 'author', $_pojo_parent_id ) ) : ?>
 						<span class="entry-user vcard author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></span>
 					<?php endif; ?>
-					<!-- add-remove-favorite -->
-					<?php 
-					if (!(is_user_logged_in())){
-						?>
-						<span class="wrap-heart"><a class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
-				
-					<?php }
-					?>
+
 					<span class="favorite">
 						<?php
-					if(is_user_logged_in()):
-						$site = get_current_blog_id();
-                        $btn_text = "add";
-                        $btn_id = 'add_to_sidur';
-                        $uid = get_current_user_id();
-                        $tax_name = 'siddur_'.$uid.'_1';
-						$favorite = get_user_meta($uid,"favorite" . $site ,true);
-						$favorite = json_decode($favorite,true);
-						if($favorite) {
-                            if (in_array(get_the_ID(), $favorite)) {
-                                $btn_text = "remove";
-								$btn_id = 'remove_from_sidur';
-                            }
-                        }
-					
-					  if($btn_text=="remove"){?>	
-					     <span class="wrap-heart"><a class="sidur_button" href='#' id='<?php echo $btn_id;?>'><i class="fa fa-heart" aria-hidden="true"></i></a></span>
-					  <?php }
-					  else if($btn_text=="add"){?>
-					   <span class="wrap-heart"><a class="sidur_button" href='#' id='<?php echo $btn_id;?>'><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
-					  </span>
-                    <?php } endif;?>
+
+							if ( ! ( is_user_logged_in() ) ) { ?>
+
+								<span class="wrap-heart"><a class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
+
+							<?php } else {
+
+								$user_id	= get_current_user_id();
+								$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
+
+								if ( $favorite ) {
+
+									$favorite			= json_decode( $favorite, true );
+									$in_favorite		= $favorite && in_array( $post_id, $favorite );
+									$btn_action			= $in_favorite ? 'remove_from_sidur' : 'add_to_sidur';
+									$btn_toggle_action	= $in_favorite ? 'add_to_sidur' : 'remove_from_sidur'; ?>
+
+									<span class="wrap-heart"><a href='#' class="sidur_button siddur_toggle_button" data-post-id="<?php echo $post_id; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><i class="fa <?php echo $in_favorite ? 'fa-heart' : 'fa-heart-o'; ?>" aria-hidden="true"></i></a></span>
+
+								<?php }
+
+							}
+
+						?>
+					</span>
 				</div>
 			</div>
 		<?php endif; ?>
@@ -85,46 +87,36 @@ endif;
 			<?php po_print_archive_excerpt( $_pojo_parent_id ); ?>
 			
 			<?php
-		    //avg of rating
-			$post_id=get_the_ID();
-			$site=get_current_blog_id();
-			//general
-			 $generalrate=get_post_meta($post_id,'sumGeneral'.$site);
-			 $countgeneral=get_post_meta($post_id,"countratingGeneral".$site);
-			 if($generalrate[0]&&$countgeneral[0])
-			    $val1=$generalrate[0]/$countgeneral[0];
-			else
-				$val1=0;
-			//religiosity
-			 $religiosityrate=get_post_meta($post_id,'sumReligiosity'.$site);
-			 $countreligiosity=get_post_meta($post_id,"countratingReligiosity".$site);
-			 if($religiosityrate[0]&&$countreligiosity[0])
-			   $val2=$religiosityrate[0]/$countreligiosity[0];
-			 else
-				   $val2=0;
-			//authentic
-				   $authenticrate=get_post_meta($post_id,'sumAuthentic'.$site);
-				   $countratingAuthentic=get_post_meta($post_id,"countratingAuthentic".$site);
-				   if($authenticrate[0]&& $countratingAuthentic[0])
-				      $val3=$authenticrate[0]/$countratingAuthentic[0];
-				   else
-					  $val3=0;
-	       $lang=get_locale();
-		    if($lang=="he_IL"):
-			 ?>
-			 <!-- <div class="bars-t">
-		 <p class="txtsl">כללי</p><div class="authenticIconV "></div>	<input disabled="disabled" class="slidert" id="optionID1"  type="range" min="0" max="10"  value="<?php //echo $val1?>"/><div class="authenticIcon-"></div>
-		 <p class="txtsl">דתיות</p> <div class="religiosityIconV"></div>	<input disabled="disabled" class="slidert" id="optionID2"  type="range" min="0" max="10"  value="<?php //echo $val2?>"/><div class="religiosityIcon-"></div>
-		 <p class="txtsl">רענן </p> <div class="generalIconV"></div> <input disabled="disabled" class="slidert" id="optionID3"  type="range" min="0" max="10"  value="<?php //echo $val3?>"/><div class="generalIconX"></div>
-			</div>  -->
-			 <?php endif;
-		 if($lang=="en_US"):?>
-		 <!-- <div  class="bars-t">
-		 <p class="txtsl">General</p> <div class="authenticIcon-"></div>	<input disabled="disabled" class="slidert" id="optionID1"  type="range" min="0" max="10"  value="<?php //echo $val1?>"/><div class="authenticIconV"></div>
-		 <p class="txtsl"> Traditional </p>	<div class="religiosityIcon-"></div> <input disabled="disabled" class="slidert" id="optionID2"  type="range" min="0" max="10"  value="<?php //echo $val2?>"/><div class="religiosityIconV"></div>
-		 <p class="txtsl">Innovative </p> <div class=" generalIconX"></div>  <input disabled="disabled" class="slidert" id="optionID3"  type="range" min="0" max="10"  value="<?php //echo $val3?>"/><div class="generalIconV "></div>
-			</div> -->
-		 <?php endif;?>
+
+				//avg of rating
+				//general
+				$generalrate			= get_post_meta( $post_id, 'sumGeneral' . $site_id );
+				$countgeneral			= get_post_meta( $post_id, 'countratingGeneral' . $site_id );
+
+				if ( $generalrate[0] && $countgeneral[0] )
+					$val1 = $generalrate[0]/$countgeneral[0];
+				else
+					$val1 = 0;
+
+				//religiosity
+				$religiosityrate		= get_post_meta( $post_id, 'sumReligiosity' . $site_id );
+				$countreligiosity		= get_post_meta( $post_id, 'countratingReligiosity' . $site_id );
+
+				if ( $religiosityrate[0] && $countreligiosity[0] )
+					$val2 = $religiosityrate[0]/$countreligiosity[0];
+				else
+					$val2 = 0;
+
+				//authentic
+				$authenticrate			= get_post_meta( $post_id, 'sumAuthentic' . $site_id );
+				$countratingAuthentic	= get_post_meta( $post_id, 'countratingAuthentic' . $site_id );
+
+				if ( $authenticrate[0] && $countratingAuthentic[0] )
+					$val3 = $authenticrate[0]/$countratingAuthentic[0];
+				else
+					$val3 = 0;
+
+			?>
 		</div>
 	</div>
 </div>

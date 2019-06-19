@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-16 17:02+0300\n"
-"PO-Revision-Date: 2019-06-16 17:03+0300\n"
+"POT-Creation-Date: 2019-06-18 18:02+0300\n"
+"PO-Revision-Date: 2019-06-18 18:04+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -17,15 +17,15 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: content/content-grid_three.php:43 loop/single.php:93
+#: content/content-grid_three.php:43 loop/single.php:76
 msgid "No Comments"
 msgstr "אין תגובות"
 
-#: content/content-grid_three.php:43 loop/single.php:93
+#: content/content-grid_three.php:43 loop/single.php:76
 msgid "One Comment"
 msgstr "תגובה אחת"
 
-#: content/content-grid_three.php:43 loop/single.php:93
+#: content/content-grid_three.php:43 loop/single.php:76
 msgid "% Comments"
 msgstr "% תגובות"
 
@@ -361,12 +361,12 @@ msgstr "כל סוגי המאמרים של %s"
 msgid "Archive"
 msgstr "ארכיון"
 
-#: loop/archive.php:137 loop/archive.php:165
+#: loop/archive.php:158 loop/archive.php:180
 #, php-format
 msgid "Click for less %s"
 msgstr "הקלק לפחות %s"
 
-#: loop/archive.php:137
+#: loop/archive.php:158
 #, php-format
 msgid "Click for more %s"
 msgstr "הקלק לעוד %s"
@@ -379,39 +379,67 @@ msgstr "&laquo; הקודם"
 msgid "Next &raquo;"
 msgstr "הבא &raquo;"
 
-#: loop/single.php:108
+#: loop/single.php:28 template-siddur-folder.php:28
+msgid "Please type or paste email addresses with a space between each one:"
+msgstr "הקלד או הדבק את כתובות המייל לשיתוף עם רווח בין כתובת אחת לשניה:"
+
+#: loop/single.php:30 template-siddur-folder.php:30
+msgid "Send"
+msgstr "שלח"
+
+#: loop/single.php:38 template-siddur-folder.php:74
+msgid "Link to share"
+msgstr "קישור לשיתוף"
+
+#: loop/single.php:95
 msgid "Add to "
 msgstr "הוסף אל "
 
-#: loop/single.php:109
+#: loop/single.php:96
 msgid "Remove from "
 msgstr "הסר מ"
 
-#: loop/single.php:144
+#: loop/single.php:119
 msgid "Facebook"
 msgstr "Facebook"
 
-#: loop/single.php:147
+#: loop/single.php:124
 msgid "Twitter"
 msgstr "Twitter"
 
-#: loop/single.php:173
+#: loop/single.php:144
+msgid "Mail"
+msgstr "אימייל"
+
+#: loop/single.php:149
 msgid "Print"
 msgstr "הדפסה"
 
-#: loop/single.php:429
+#: loop/single.php:271
+msgid "Please rate this post:"
+msgstr "בבקשה, דרג פוסט זה:"
+
+#: loop/single.php:311
+msgid "Submit Rating"
+msgstr "שמור דירוג"
+
+#: loop/single.php:324
+msgid "Thank you for rating!"
+msgstr "הדירוג התקבל. תודה!"
+
+#: loop/single.php:337
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: loop/single.php:436
+#: loop/single.php:344
 msgid "View all posts by"
 msgstr "צפה בסוג מאמר"
 
-#: loop/single.php:449
+#: loop/single.php:357
 msgid "&laquo; Previous Post"
 msgstr "&laquo; המאמר הקודם"
 
-#: loop/single.php:450
+#: loop/single.php:358
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
@@ -446,14 +474,6 @@ msgstr "בחר סוג מאמר"
 #: partials/search.php:152
 msgid "Choose a category"
 msgstr "בחר קטגוריה"
-
-#: template-siddur-folder.php:28
-msgid "Please type or paste email addresses with a space between each one:"
-msgstr "הקלד או הדבק את כתובות המייל לשיתוף עם רווח בין כתובת אחת לשניה:"
-
-#: template-siddur-folder.php:30
-msgid "Send"
-msgstr "שלח"
 
 #: template-siddur-folder.php:37
 msgid "In order to share this folder you must set it public"
@@ -502,10 +522,6 @@ msgstr "תיקייה ציבורית?"
 #: template-siddur-folder.php:65
 msgid "Save settings"
 msgstr "שמור הגדרות"
-
-#: template-siddur-folder.php:74
-msgid "Link to share"
-msgstr "קישור לשיתוף"
 
 #: template-siddur.php:50
 msgid "Add"

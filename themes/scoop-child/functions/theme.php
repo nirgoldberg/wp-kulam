@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.2.4
+ * @version     1.3.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -109,7 +109,6 @@ function kulam_enqueue_scripts() {
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
 	wp_register_script( 'auto-complete',		get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',		array( 'jquery' ),					KULAM_VERSION,	true );
 	wp_register_script( 'kulam-js',				get_stylesheet_directory_uri() . '/assets/js/scripts.js',				array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
-	wp_register_script( 'kulam-js-favorite',	get_stylesheet_directory_uri() . '/assets/js/scriptsForThumbnail.js',	array( 'jquery' ),					KULAM_VERSION,	true );
 
 	$params = array (
 		'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
@@ -117,15 +116,6 @@ function kulam_enqueue_scripts() {
 		'post_id'		=> get_queried_object_id(),
 		'user_id'		=> get_current_user_id()
 	);
-
-	$paramsForThumbnail = array (
-		'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
-		'ajax_nonce'	=> wp_create_nonce( 'my-special-string' ),
-		'user_id'		=> get_current_user_id()
-	);
-
-	wp_localize_script( 'kulam-js-favorite', 'ajaxdata', $paramsForThumbnail );
-	wp_enqueue_script( 'kulam-js-favorite' );
 
 	wp_localize_script( 'kulam-js', 'ajaxdata', $params );
 	wp_enqueue_script( 'kulam-js' );
