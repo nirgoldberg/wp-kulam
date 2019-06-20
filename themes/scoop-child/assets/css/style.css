@@ -631,7 +631,7 @@ body.modal-open,
 .favorite {
 	display: inline;
 }
-.sidur_button {
+.siddur-button {
 	position: relative;
 	display: inline-block;
 }
@@ -903,7 +903,7 @@ labal.add-post-to-folder {
 	border-radius: 15px;
 	text-align: center;
 }
-.save-in-folder{
+.add-to-folder{
 	margin-top:6%;
 }
 .remove-post-from-folder{   

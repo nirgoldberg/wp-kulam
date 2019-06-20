@@ -4,9 +4,9 @@
  *
  * Template name: My Siddur Folder
  *
- * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.2.0
+ * @author		Nir Goldberg
+ * @package		scoop-child
+ * @version		1.3.3
  */
 get_header();
 
@@ -15,10 +15,11 @@ if ( is_user_logged_in() ) :
 	/**
 	 * Variables
 	 */
-	$site		= get_current_blog_id();
-	$user		= wp_get_current_user();
-	$folder		= $_GET[ 'folder' ];
-	$data_value	= json_decode( get_user_meta( $user->ID, $folder . $site, true ), true );
+	$site_id		= get_current_blog_id();
+	$user_id		= get_current_user_id();
+	$folder			= $_GET[ 'folder' ];
+	$folder_data	= get_user_meta( $user_id, $folder . $site_id, true );
+	$folder_data	= json_decode( $folder_data, true );
 
 	?>
 
@@ -90,7 +91,7 @@ if ( is_user_logged_in() ) :
 		<div class="settings"><i class="fa fa-cog" aria-hidden="true"></i></div>
 		<i class="fa fa-arrow-circle-o-right my-siddur" aria-hidden="true"></i>
 
-		<?php if ( $data_value ) { ?>
+		<?php if ( $folder_data ) { ?>
 
 			<div class="shere-section">
 				<a class="entry-mail pojo-tooltip" id="send">
@@ -115,16 +116,16 @@ if ( is_user_logged_in() ) :
 
 			<?php $args = array(
 				'post_type'			=> 'post',
-				'post__in'			=> (array)$data_value,
+				'post__in'			=> $folder_data,
 				'posts_per_page'	=> -1,
-				'orderby'			=> 'post__in'
+				'orderby'			=> 'post__in',
 			);
-			$data_value_query = new WP_Query( $args ); ?>
+			$folder_data_query = new WP_Query( $args ); ?>
 
 			<div id="primary">
 				<div id="content" role="main">
 
-					<?php while ( $data_value_query->have_posts() ) : $data_value_query->the_post();
+					<?php while ( $folder_data_query->have_posts() ) : $folder_data_query->the_post();
 
 						get_template_part( 'content/content', 'grid_three' );
 

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.2
+ * @version		1.3.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -346,98 +346,6 @@ function addFolder()
 	echo "Success";
  }
 
-add_action("wp_ajax_save-in-folder","saveInFolder",10,1);
-function saveInFolder(){
-	if(isset($_POST['idPost'])&& isset($_POST['selectedOption']))
-	$idPost=$_POST['idPost'];
-	$folder=$_POST['selectedOption'];
-	$user=wp_get_current_user();
-	$site=get_current_blog_id();
-
-$data_value = get_user_meta($user->ID,$folder . $site, true);
-if($data_value){
-	$data_value = json_decode($data_value,true);
-	if(!in_array($idPost,$data_value)) {
-		$data_value[] = $idPost;
-	}
-}
-else{
-	$data_value =  array(
-		0 => $idPost
-	);
-}
-$data_value = json_encode($data_value);
-update_user_meta( $user->ID, $folder . $site, $data_value);
-//remove from siddur
-$data_value_siddur = get_user_meta($user->ID,"sidur" . $site, true);
-$data_value_siddur = json_decode($data_value_siddur,true);
-if($data_value_siddur){
-	foreach ($data_value_siddur as $key => $post){
-		if($post == $idPost){
-			unset($data_value_siddur[$key]);
-			break;
-		}
-	}
-}
-$data_value_siddur = json_encode($data_value_siddur);
-update_user_meta( $user->ID, "sidur" . $site , $data_value_siddur);
-
-//add to favorite
-$data_value = get_user_meta($user->ID,"favorite" . $site, true);
-if($data_value){
-	$data_value = json_decode($data_value,true);
-	if(!in_array($idPost,$data_value)) {
-		$data_value[] = $idPost;
-	}
-}
-else{
-	$data_value =  array(
-		0 => $idPost
-	);
-}
-$data_value = json_encode($data_value);
-update_user_meta( $user->ID, "favorite" . $site, $data_value);
-echo "Success";
-}
-add_action("wp_ajax_remove-post-from-folder","removeFromFolder",10,1);
-function removeFromFolder(){
-	if(isset($_POST['postRemove'])&& isset($_POST['from_name_folder']))
-	{
-	  $post=$_POST['postRemove'];
-	  $folder=$_POST['from_name_folder'];
-	  $user=wp_get_current_user();
-	  $site=get_current_blog_id();
-	  $postsInFolders=get_user_meta($user->ID,$folder.$site,true);
-	  $postsInFolders=json_decode($postsInFolders,true);
-	   if($postsInFolders){
-		foreach ($postsInFolders as $key => $postf){
-			if($postf == $post){
-				unset($postsInFolders[$key]);
-				break;
-			}
-		}
-	}
-	$postsInFolders = json_encode($postsInFolders);
-	update_user_meta( $user->ID, $folder . $site , $postsInFolders);
-
-	//added to sidur
-	$data_value = get_user_meta($user->ID,"sidur" . $site, true);
-if($data_value){
-	$data_value = json_decode($data_value,true);
-	if(!in_array($post,$data_value)) {
-		$data_value[] = $post;
-	}
-}
-else{
-	$data_value =  array(
-		0 => $post
-	);
-}
-$data_value = json_encode($data_value);
-update_user_meta( $user->ID, "sidur" . $site, $data_value);
-echo "Success";
-   }
-}
 //save data to table public_folders
 function public_folder($name_folder){
 	global $wpdb;

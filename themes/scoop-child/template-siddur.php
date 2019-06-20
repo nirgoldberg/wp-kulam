@@ -4,9 +4,9 @@
  *
  * Template name: My Siddur
  *
- * @author      Nir Goldberg
- * @package     scoop-child
- * @version     1.2.0
+ * @author		Nir Goldberg
+ * @package		scoop-child
+ * @version		1.3.3
  */
 get_header();
 
@@ -15,15 +15,17 @@ if ( is_user_logged_in() ) :
 	/**
 	 * Variables
 	 */
-	$site		= get_current_blog_id();
-	$user		= wp_get_current_user();
-	$folders	= json_decode( get_user_meta( $user->ID, "nameFolder" . $site, true ), true );
-	$sidur		= json_decode( get_user_meta( $user->ID, "sidur" . $site, true ) );
+	$site_id	= get_current_blog_id();
+	$user_id	= get_current_user_id();
+	$folders	= get_user_meta( $user_id, 'nameFolder' . $site_id, true );
+	$folders	= $folders ? json_decode( $folders, true ) : array();
+	$siddur		= get_user_meta( $user_id, 'sidur' . $site_id, true );
+	$siddur		= $siddur ? json_decode( $siddur, true ) : array();
 
 	if ( $folders ) { ?>
 
 		<div class="popup-new-folder" id="all-folders" hidden>
-			<form class="popup-form-div">
+			<form class="add-to-folder-form popup-form-div">
 				<div class="close-popup-folders">+</div>
 				<div class="all-input">
 
@@ -35,7 +37,8 @@ if ( is_user_logged_in() ) :
 					<?php } ?>
 
 				</div>
-				<input type="submit" class="save-in-folder" />
+				<input type="hidden" class="post-ids" data-post-ids="" />
+				<input type="submit" class="add-to-folder" />
 			</form>
 		</div><!-- .popup-new-folder#all-folders -->
 
@@ -75,13 +78,13 @@ if ( is_user_logged_in() ) :
 
 		<?php }
 
-		if ( $sidur ) {
+		if ( $siddur ) {
 
 			$args = array(
-				'post_type'	=> 'post',
-				'post__in'	=> (array)$sidur,
+				'post_type'			=> 'post',
+				'post__in'			=> $siddur,
 				'posts_per_page'	=> -1,
-				'orderby'			=> 'post__in'
+				'orderby'			=> 'post__in',
 			);
 			$siddur_query = new WP_Query( $args ); ?>
 

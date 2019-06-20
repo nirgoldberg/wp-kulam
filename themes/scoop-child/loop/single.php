@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.3.2
+ * @version		1.3.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -92,12 +92,12 @@ $lang					= get_locale();
 
 					<?php
 
-						$add_to_siddur_label		= __('Add to ', 'kulam-scoop') . $my_siddur_label;
-						$remove_from_siddur_label	= __('Remove from ', 'kulam-scoop') . $my_siddur_label;
+						$add_to_siddur_label		= __( 'Add to ', 'kulam-scoop' ) . $my_siddur_label;
+						$remove_from_siddur_label	= __( 'Remove from ', 'kulam-scoop' ) . $my_siddur_label;
 
 						if ( ! ( is_user_logged_in() ) ) { ?>
 
-							<span><a href="#" class="sidur_button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><?php echo $add_to_siddur_label; ?></a></span>
+							<span><a href="#" class="siddur-button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><?php echo $add_to_siddur_label; ?></a></span>
 
 						<?php } else {
 
@@ -110,10 +110,10 @@ $lang					= get_locale();
 								$in_favorite		= $favorite && in_array( $post_id, $favorite );
 								$btn_text			= $in_favorite ? $remove_from_siddur_label : $add_to_siddur_label;
 								$btn_toggle_text	= $in_favorite ? $add_to_siddur_label : $remove_from_siddur_label;
-								$btn_action			= $in_favorite ? 'remove_from_sidur' : 'add_to_sidur';
-								$btn_toggle_action	= $in_favorite ? 'add_to_sidur' : 'remove_from_sidur'; ?>
+								$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
+								$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur'; ?>
 
-								<span><a href="#" class="sidur_button siddur_toggle_button" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><?php echo $btn_text; ?></a></span>
+								<span><a href="#" class="siddur-button siddur-toggle-button" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><?php echo $btn_text; ?></a></span>
 
 							<?php }
 

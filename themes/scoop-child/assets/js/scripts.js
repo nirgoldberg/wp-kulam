@@ -394,39 +394,97 @@ var $ = jQuery,
 		 */
 		my_siddur : function() {
 
-			$('.siddur_toggle_button').on('click', function(event) {
+			// initialize siddur
+			KULAM_general.my_siddur_init();
+
+			// add to / remove from siddur
+			$('.siddur-toggle-button').on('click', function(event) {
 
 				event.preventDefault();
 
-				KULAM_general.my_siddur_toggle_btn($(this));
+				KULAM_general.my_siddur_siddur_toggle($(this));
+
+			});
+
+			// prepare posts to add to siddur folders
+			KULAM_general.my_siddur_prepare_posts_to_add_to_folders();
+
+			// prevent default on form submit
+			$('.add-to-folder-form').submit(function(e) {
+				e.preventDefault();
+			});
+
+			// add to siddur folders
+			$('.add-to-folder').on('click', function() {
+
+				KULAM_general.my_siddur_add_to_folders($(this));
+
+			});
+
+			// remove from siddur folder
+			$('.remove-post-from-folder').on('click', function() {
+
+				KULAM_general.my_siddur_remove_from_folder($(this));
 
 			});
 
 		},
 
 		/**
-		 * my_siddur_toggle_btn
+		 * my_siddur_init
+		 *
+		 * Called from my_siddur
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		my_siddur_init : function() {
+
+			// variables
+			var folders = $('.link-folder').get();
+
+			if (folders.length > 0) {
+				$('.siddur-wrap .grid-item').each(function() {
+					// variables
+					var post_id = $(this).attr('id').slice(5);
+
+					$(this).append('<label class="add-post-to-folder" id="add-post-' + post_id + '">+</label>');
+				});
+			}
+
+			$('.folder-wrap .grid-item').each(function() {
+				// variables
+				var post_id = $(this).attr('id').slice(5);
+
+				$(this).append('<label class="remove-post-from-folder" id="remove-post-' + post_id + '">-</label>');
+			});
+
+		},
+
+		/**
+		 * my_siddur_siddur_toggle
 		 *
 		 * Called from my_siddur
 		 *
 		 * @param	btn (object)
 		 * @return	N/A
 		 */
-		my_siddur_toggle_btn : function(btn) {
+		my_siddur_siddur_toggle : function(btn) {
 
 			// expose loader
 			$('.loader').show();
 
 			// variables
-			contentGrid = btn.parent().hasClass('wrap-heart');
+			var contentGrid = btn.parent().hasClass('wrap-heart');
 
 			if (!contentGrid) {
+				// single post
 				text = btn.text();
 				toggleText = btn.data('toggle-text');
 			}
 
-			action = btn.data('action');
-			toggleAction = btn.data('toggle-action');
+			var action = btn.data('action'),
+				toggleAction = btn.data('toggle-action');
 
 			var data = {
 				action: action,
@@ -439,19 +497,170 @@ var $ = jQuery,
 
 				if (response == 1) {
 					if (!contentGrid) {
+						// single post
 						btn.text(toggleText).data('toggle-text', text);
 					}
 					else {
+						// grid
 						btn.find('i').toggleClass('fa-heart').toggleClass('fa-heart-o');
 					}
 
 					btn.data('action', toggleAction).data('toggle-action', action);
 
 					if ($('body').hasClass('page-template-template-siddur') || $('body').hasClass('page-template-template-siddur-folder')) {
-						// in a siddur folder - action must be 'remove_from_sidur'
+						// in the siddur or in a folder - action must be 'remove_from_siddur'
 						// remove post from grid
 						btn.closest('.grid-item').remove();
 					}
+				}
+
+			});
+
+			// hide loader
+			$('.loader').hide();
+
+			// return
+			return false;
+
+		},
+
+		/**
+		 * my_siddur_prepare_posts_to_add_to_folders
+		 *
+		 * Called from my_siddur
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 *
+		 * @todo	This function prepare array of post IDS to add, rather than a single post ID.
+		 * 			In order to activate this option, closing popup form should not clear post_ids_field's post-ids data attribute 	
+		 */
+		my_siddur_prepare_posts_to_add_to_folders : function() {
+
+			// variables
+			var form = $('.add-to-folder-form'),
+				post_ids_field = form.find('input.post-ids');
+
+			// prepare a single post to add and open the popup form
+			$('.add-post-to-folder').click(function() {
+				// variables
+				var post_ids = post_ids_field.data('post-ids'),
+					post_ids_arr = post_ids ? JSON.parse(post_ids) : [],
+					post_id = parseInt($(this).attr('id').slice(9));
+
+				if ($.inArray(post_id, post_ids_arr) == -1) {
+					post_ids_arr.push(post_id);
+					post_ids_field.data('post-ids', JSON.stringify(post_ids_arr));
+				}
+
+				// expose form
+				form.parent().toggleClass('show');
+			});
+
+			// close the popup form
+			$('.close-popup-folders').click(function() {
+				// clear post_ids
+				post_ids_field.data('post-ids', '');
+
+				// hide form
+				form.parent().toggleClass('show');
+			});
+
+		},
+
+		/**
+		 * my_siddur_add_to_folders
+		 *
+		 * Called from my_siddur
+		 *
+		 * @param	btn (object)
+		 * @return	N/A
+		 */
+		my_siddur_add_to_folders : function(btn) {
+
+			// expose loader
+			$('.loader').show();
+
+			// variables
+			var form = $('.add-to-folder-form'),
+				post_ids_field = form.find('input.post-ids'),
+				post_ids = post_ids_field.data('post-ids'),
+				post_ids_arr = post_ids ? JSON.parse(post_ids) : [],
+				folders = form.find('input:radio[name=option]:checked').val(),
+				folders_arr = folders ? [form.find('input:radio[name=option]:checked').val()] : [];
+
+			if (!post_ids || !folders) {
+				// hide loader
+				$('.loader').hide();
+
+				// return
+				return false;
+			}
+
+			var data = {
+				action: 'add_to_folders',
+				user_id: ajaxdata.user_id,
+				post_ids: post_ids,
+				folders: JSON.stringify(folders_arr),
+				security: ajaxdata.ajax_nonce
+			};
+
+			$.post(ajaxdata.ajaxurl, data, function(response) {
+
+				if (response == 1) {
+					// clear post_ids
+					post_ids_field.data('post-ids', '');
+
+					// remove posts from grid
+					$('.grid-item').each(function() {
+						// variables
+						var post_id = parseInt($(this).attr('id').slice(5));
+
+						if ($.inArray(post_id, post_ids_arr) > -1) {
+							$(this).remove();
+						}
+					});
+
+					// hide form
+					form.parent().toggleClass('show');
+				}
+
+			});
+
+			// hide loader
+			$('.loader').hide();
+
+			// return
+			return false;
+
+		},
+
+		/**
+		 * my_siddur_remove_from_folder
+		 *
+		 * Called from my_siddur
+		 *
+		 * @param	btn (object)
+		 * @return	N/A
+		 */
+		my_siddur_remove_from_folder : function(btn) {
+
+			// expose loader
+			$('.loader').show();
+
+			var data = {
+				action: 'remove_from_folder',
+				user_id: ajaxdata.user_id,
+				post_id: parseInt(btn.attr('id').slice(12)),
+				folder: $('.folder-wrap > .entry-title').text(),
+				security: ajaxdata.ajax_nonce
+			};
+
+			$.post(ajaxdata.ajaxurl, data, function(response) {
+
+				if (response == 1) {
+					// remove post from grid
+					btn.closest('.grid-item').remove();
 				}
 
 			});
@@ -684,60 +893,6 @@ jQuery(document).ready(function ($) {
 			else {
 				response = response.substring(0, response.length - 1);
 				$('loader').hide();
-			}
-		});
-	});
-	var id;
-	var x = $('.link-folder').get();
-	if (x.length > 0) {
-		$(".siddur-wrap .grid-item").append('<label class="add-post-to-folder" id="a" >+</label>');
-	}
-	$('.add-post-to-folder').click(function () {
-		id = event.target.offsetParent.id;
-		id = id.slice(5);
-		var popup = document.getElementById("all-folders");
-		popup.classList.toggle("show");
-	});
-	$('.close-popup-folders').click(function () {
-		var popup = document.getElementById("all-folders");
-		popup.classList.toggle("show");
-	});
-	$('.save-in-folder').click(function () {
-		$('.loader').show();
-		var data = {
-			action: "save-in-folder",
-			idPost: id,
-			selectedOption: $("input:radio[name=option]:checked").val(),
-			security: ajaxdata.ajax_nonce
-		}
-		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
-			if (response === "Success0") {
-				location.reload();
-			}
-			else {
-				location.reload();
-				$('loader').hide();
-				alert(response);
-			}
-		});
-	});
-
-	$(".folder-wrap .grid-item").append('<label class="remove-post-from-folder" id="r">-</label>');
-	$('.remove-post-from-folder').click(function () {
-		$('.loader').show();
-		var data = {
-			action: "remove-post-from-folder",
-			postRemove: (event.target.offsetParent.id).slice(5),
-			from_name_folder: $('#name-new-folder').val(),
-			security: ajaxdata.ajax_nonce
-		};
-		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
-			if (response === "Success0") {
-				location.reload();
-			}
-			else {
-				$('.loader').hide();
-
 			}
 		});
 	});
