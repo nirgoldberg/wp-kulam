@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.3
+ * @version		1.3.5
  */
 get_header();
 
@@ -24,7 +24,7 @@ if ( is_user_logged_in() ) :
 
 	if ( $folders ) { ?>
 
-		<div class="popup-new-folder" id="all-folders" hidden>
+		<div class="popup popup-new-folder" id="all-folders" hidden>
 			<form class="add-to-folder-form popup-form-div">
 				<div class="close-popup-folders">+</div>
 				<div class="all-input">
@@ -44,7 +44,7 @@ if ( is_user_logged_in() ) :
 
 	<?php } ?>
 
-	<div class="popup-new-folder" id="new-fold" hidden>
+	<div class="popup popup-new-folder" id="new-fold" hidden>
 		<div class="popup-form">
 			<div class="close-popup">+</div>
 			<label class="name"><?php _e( 'Folder Name', 'kulam-scoop' ); ?></label>

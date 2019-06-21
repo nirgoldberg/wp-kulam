@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.3.3
+ * @version		1.3.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,18 +22,18 @@ $lang					= get_locale();
 
 ?>
 
-<div id="popup-to" hidden>
+<div class="popup" id="popup-to" hidden>
 	<form class="sendEmailpopup"> 
-		<div class="close-popup-to">+</div> 
+		<div class="close-popup close-popup-to">+</div> 
 		<?php _e( 'Please type or paste email addresses with a space between each one:', 'kulam-scoop' ); ?>
 		<input type="email"  size="35" pattern="[^ @]*@[^ @]*" required class="to" id="idto" />
 		<input type="button" value="<?php _e( 'Send', 'kulam-scoop' ); ?>" id="send-single-post" />
 	</form>
 </div>
 
-<div class="popup-new-folder" id="popup-link-copy">
+<div class="popup popup-new-folder" id="popup-link-copy" hidden>
 	<form class="popup-form-setting">
-		<div class="close-popup-link">+</div>
+		<div class="close-popup close-popup-link">+</div>
 		<div class="form-body">
 			<h4><?php _e( 'Link to share', 'kulam-scoop' ); ?></h4>
 			<input type="text" id="link_to_copy" />

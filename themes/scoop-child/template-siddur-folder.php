@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.3
+ * @version		1.3.5
  */
 get_header();
 
@@ -23,34 +23,34 @@ if ( is_user_logged_in() ) :
 
 	?>
 
-	<div id="popup-to" hidden>
+	<div class="popup" id="popup-to" hidden>
 		<form class="sendEmailpopup">
-			<div class="close-popup-to">+</div>
+			<div class="close-popup close-popup-to">+</div>
 			<?php _e( 'Please type or paste email addresses with a space between each one:', 'kulam-scoop' ); ?>
 			<input type="email" pattern="[^ @]*@[^ @]*" required class="to" id="idto" />
 			<input type="button" value="<?php _e( 'Send', 'kulam-scoop' ); ?>" id="sendTo" />
 		</form>
 	</div><!-- #popup-to -->
 
-	<div class="share-popup">
+	<div class="popup share-popup" hidden>
 		<div class="share-popup-inner">
-			<div class="close-share-popup">+</div>
+			<div class="close-popup close-share-popup">+</div>
 			<h3><?php _e( 'In order to share this folder you must set it public', 'kulam-scoop' ); ?></h3>
 			<form>
 				<p><?php _e( 'Note! When you share this folder, all content in it becomes public and anyone can see it on the Web. Do you confirm?', 'kulam-scoop' ); ?></p>
-				<div class="choosing-items">
-					<label><?php _e( 'Yes', 'kulam-scoop' ); ?></label><input type="radio" name="public-folder" class="conf" value="public-folder" /><br>
-					<label><?php _e( 'No', 'kulam-scoop' ); ?></label><input type="radio" name="public-folder" class="conf" value="cancel" /><br>
+				<div class="choosing-items" id="public-folder">
+					<label><?php _e( 'Yes', 'kulam-scoop' ); ?></label><input type="radio" id="public-folder" name="public-folder" class="conf" value="public-folder" /><br>
+					<label><?php _e( 'No', 'kulam-scoop' ); ?></label><input type="radio" id="cancel" name="public-folder" class="conf" value="cancel" /><br>
 				</div>
 				<input type="button" value="<?php _e( 'Done', 'kulam-scoop' ); ?>" class="save-sharing-choosing" />
 			</form>
 		</div>
 	</div><!-- .share-popup -->
 
-	<div class="popup-new-folder" id="popup-settings">
+	<div class="popup popup-new-folder" id="popup-settings" hidden>
 		<form class="popup-form-setting">
 			<input type="text" value="<?php echo $folder; ?>" id="name-folder-hide" />
-			<div class="close-popup-settings">+</div>
+			<div class="close-popup close-popup-settings">+</div>
 			<div class="form-body">
 				<h3><?php _e( 'Folder Name', 'kulam-scoop' ); ?></h3>
 				<span>*<?php _e( 'Here you can rename the folder', 'kulam-scoop' ); ?></span>
@@ -68,9 +68,9 @@ if ( is_user_logged_in() ) :
 		</form>
 	</div><!-- .popup-new-folder#popup-settings -->
 
-	<div class="popup-new-folder" id="popup-link-copy">
+	<div class="popup popup-new-folder" id="popup-link-copy" hidden>
 		<form class="popup-form-setting">
-			<div class="close-popup-link">+</div>
+			<div class="close-popup close-popup-link">+</div>
 			<div class="form-body">
 				<h4><?php _e( 'Link to share', 'kulam-scoop' ); ?></h4>
 				<input type="text" id="link_to_copy">

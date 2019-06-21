@@ -761,11 +761,9 @@ div#new-fold
 	height: 100vh;
 	position: fixed;
 	top: 0;
-	right: 110vw;
+	right: 0;
 	z-index: 9999;
 	background-color: rgba(0,0,0,.7);
-	opacity: 0;
-	transition: opacity 1s;
 }
 
 #popup-settings.open,#popup-link-copy.open,

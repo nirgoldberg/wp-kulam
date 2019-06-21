@@ -32,6 +32,9 @@ var $ = jQuery,
 			// page title
 			KULAM_general.page_title();
 
+			// popups
+			KULAM_general.popups();
+
 			// advanced search
 			KULAM_general.advanced_search();
 
@@ -82,6 +85,22 @@ var $ = jQuery,
 			$('.page-title .more, .page-title .less').click(function() {
 				$('.page-title .more, .page-title .less').toggleClass('open');
 				$('.category-desc').toggleClass('open');
+			});
+
+		},
+
+		/**
+		 * popups
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		popups : function() {
+
+			$('.close-popup').click(function() {
+				$(this).closest('.popup').removeClass('show');
 			});
 
 		},
@@ -557,7 +576,7 @@ var $ = jQuery,
 				}
 
 				// expose form
-				form.parent().toggleClass('show');
+				form.parent().addClass('show');
 			});
 
 			// close the popup form
@@ -566,7 +585,7 @@ var $ = jQuery,
 				post_ids_field.data('post-ids', '');
 
 				// hide form
-				form.parent().toggleClass('show');
+				form.parent().removeClass('show');
 			});
 
 		},
@@ -625,7 +644,7 @@ var $ = jQuery,
 					});
 
 					// hide form
-					form.parent().toggleClass('show');
+					form.parent().removeClass('show');
 				}
 
 			});
@@ -696,6 +715,9 @@ var $ = jQuery,
 
 			});
 
+			// make folder public before share
+			KULAM_general.my_siddur_make_folder_public_before_share();
+
 		},
 
 		/**
@@ -733,15 +755,9 @@ var $ = jQuery,
 					}
 
 					// expose form
-					popup.toggleClass('open');
+					popup.addClass('show');
 
 				});
-			});
-
-			// close the popup form
-			$('.close-popup-settings').click(function() {
-				// hide form
-				popup.toggleClass('open');
 			});
 
 		},
@@ -798,12 +814,69 @@ var $ = jQuery,
 				}
 
 				// hide form
-				popup.toggleClass('open');
+				popup.removeClass('show');
 
 			});
 
 			// hide loader
 			$('.loader').hide();
+
+			// return
+			return false;
+
+		},
+
+		/**
+		 * my_siddur_make_folder_public_before_share
+		 *
+		 * Called from my_siddur_folder_settings
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		my_siddur_make_folder_public_before_share : function() {
+
+			$('.save-sharing-choosing').click(function() {
+
+				// variables
+				var popup = $('.share-popup'),
+					folder = $('#name-folder-hide').val(),
+					choice = popup.find('.choosing-items #public-folder').prop('checked');
+
+				if (choice) {
+
+					// expose loader
+					$('.loader').show();
+
+					var data = {
+						action: 'save_folder_settings',
+						user_id: ajaxdata.user_id,
+						folder: folder,
+						folder_new: folder,
+						delete_folder: false,
+						public_folder: true,
+						security: ajaxdata.ajax_nonce
+					};
+
+					$.post(ajaxdata.ajaxurl, data, function(response) {
+
+						response = JSON.parse(response);
+
+						if (response[3]) {
+							alert('Your folder is public');
+						}
+
+					});
+
+				}
+
+				// hide form
+				popup.removeClass('show');
+
+				// hide loader
+				$('.loader').hide();
+
+			});
 
 			// return
 			return false;
@@ -1039,10 +1112,6 @@ jQuery(document).ready(function ($) {
 		var popup = document.getElementById("new-fold");
 		popup.classList.toggle("show");
 	});
-	$('.close-popup').click(function () {
-		var popup = document.getElementById("new-fold");
-		popup.classList.toggle("show");
-	});
 	$('.add-save-folder').click(function () {
 		$('.loader').show();
 		var data = {
@@ -1079,7 +1148,7 @@ jQuery(document).ready(function ($) {
 		  if(response=="-1")
 		  {
 			$('input[name=public-folder]').attr('checked',false);
-			$('.share-popup').addClass('open');
+			$('.share-popup').addClass('show');
 		  }
 		  else
 		  {
@@ -1103,7 +1172,7 @@ jQuery(document).ready(function ($) {
 		  if(response=="-1")
 		  {
 			$('input[name=public-folder]').attr('checked',false);
-			$('.share-popup').addClass('open');
+			$('.share-popup').addClass('show');
 		  }
 		  else
 		  {
@@ -1127,7 +1196,7 @@ jQuery(document).ready(function ($) {
 	  if(response=="-1")
 	  {
 		$('input[name=public-folder]').attr('checked',false);
-		$('.share-popup').addClass('open');
+		$('.share-popup').addClass('show');
 	  }
 	  else
 	  {
@@ -1151,7 +1220,7 @@ $('#telegram-share').click(function(){
 	  if(response=="-1")
 	  {
 		$('input[name=public-folder]').attr('checked',false);
-		$('.share-popup').addClass('open');
+		$('.share-popup').addClass('show');
 	  }
 	  else
 	  {
@@ -1165,14 +1234,14 @@ $('#telegram-share').click(function(){
 });
 $('#clipboard-share-single').click(function(){
 	document.getElementById("link_to_copy").value = window.location.href;
-	$('#popup-link-copy').addClass('open');
+	$('#popup-link-copy').addClass('show');
 })
 $('#clipboard-share').click(function(){
 	var data={
 		action: 'check_public_folder',
 		user_id: ajaxdata.user_id,
 		folder: $('#name-folder-hide').val(),
-		clipboard: 'cliboard',
+		clipboard: 'clipboard',
 		security: ajaxdata.ajax_nonce
 	};
 
@@ -1180,48 +1249,17 @@ $('#clipboard-share').click(function(){
 	  if(response=="-1")
 	  {
 		$('input[name=public-folder]').attr('checked',false);
-		$('.share-popup').addClass('open');
+		$('.share-popup').addClass('show');
 	  }
 	  else
 	  {
 		var home_url = document.location.origin;
 		response = home_url.concat(response);
 		document.getElementById("link_to_copy").value = response;
-		$('#popup-link-copy').addClass('open');
+		$('#popup-link-copy').addClass('show');
 	  }
 });
 });
-$('.close-popup-link').click(function(){
-	$('#popup-link-copy').removeClass('open');
-});
-	$('.close-share-popup').click(function() {
-		$('.share-popup').removeClass('open');
-	});
-	$('.save-sharing-choosing').click(function(){
-		var choose=$('.conf').val();
-		if(choose=='public-folder')
-		{
-			$('.loader').show();
-			var data = {
-				action: 'setting-folder',
-				public_folder:true,
-				name_old_folder:$('#name-folder-hide').val(),
-				security: ajaxdata.ajax_nonce
-			};
-			jQuery.post(ajaxdata.ajaxurl, data, function (response){
-				if(response=="Success0"){
-					$('.loader').hide();
-				var lang = document.documentElement.lang;
-				if(lang=="he-IL") 
-					alert("התקיה שלך  ציבורית");
-				else
-					alert("your folder is public");
-				 console.log(response);
-				}
-			});
-		}
-		$('.share-popup').removeClass('open');
-	});
 
 	$('.save-rating').click(function (event) {
 		$('.loader').show();
@@ -1257,10 +1295,6 @@ $('.close-popup-link').click(function(){
 		var popup = document.getElementById("popup-to");
 		popup.classList.toggle("show");
 	});
-	$('.close-popup-to').click(function () {
-		var popup = document.getElementById("popup-to");
-		popup.classList.toggle("show");
-	})
 	$('#sendTo').click(function () {
 	   var Semail= $('.to').val();
 	   var emails=Semail.split(' ');
