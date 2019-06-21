@@ -428,6 +428,9 @@ var $ = jQuery,
 
 			});
 
+			// siddur folder settings
+			KULAM_general.my_siddur_folder_settings();
+
 		},
 
 		/**
@@ -674,6 +677,172 @@ var $ = jQuery,
 		},
 
 		/**
+		 * my_siddur_folder_settings
+		 *
+		 * Called from my_siddur
+		 *
+		 * @param	btn (object)
+		 * @return	N/A
+		 */
+		my_siddur_folder_settings : function() {
+
+			// initialize siddur folder settings
+			KULAM_general.my_siddur_folder_settings_init();
+
+			// save folder settings
+			$('.save-settings').on('click', function() {
+
+				KULAM_general.my_siddur_save_folder_settings($(this));
+
+			});
+
+		},
+
+		/**
+		 * my_siddur_folder_settings_init
+		 *
+		 * Called from my_siddur_folder_settings
+		 *
+		 * @param	btn (object)
+		 * @return	N/A
+		 */
+		my_siddur_folder_settings_init : function() {
+
+			// variables
+			var popup = $('#popup-settings');
+
+			// check public value and open the popup form
+			$('.settings').click(function () {
+				// variables
+				var folder = popup.find('#name-folder-hide').val();
+
+				var data = {
+					action: 'check_public_folder',
+					user_id: ajaxdata.user_id,
+					folder: folder,
+					security: ajaxdata.ajax_nonce
+				};
+
+				$.post(ajaxdata.ajaxurl, data, function(response) {
+
+					if (response == 'on') {
+						$('#is-public').attr('checked', true);
+					}
+					else if (response == 'off') {
+						$('#is-public').attr('checked', false);
+					}
+
+					// expose form
+					popup.toggleClass('open');
+
+				});
+			});
+
+			// close the popup form
+			$('.close-popup-settings').click(function() {
+				// hide form
+				popup.toggleClass('open');
+			});
+
+		},
+
+		/**
+		 * my_siddur_save_folder_settings
+		 *
+		 * Called from my_siddur_folder_settings
+		 *
+		 * @param	btn (object)
+		 * @return	N/A
+		 */
+		my_siddur_save_folder_settings : function(btn) {
+
+			// expose loader
+			$('.loader').show();
+
+			// variables
+			var popup = $('#popup-settings'),
+				folder = popup.find('#name-folder-hide').val(),
+				folder_new = popup.find('#name-new-folder').val(),
+				delete_folder = popup.find('#del').is(':checked'),
+				public_folder = popup.find('#is-public').is(':checked');
+
+			var data = {
+				action: 'save_folder_settings',
+				user_id: ajaxdata.user_id,
+				folder: folder,
+				folder_new: folder_new,
+				delete_folder: delete_folder,
+				public_folder: public_folder,
+				security: ajaxdata.ajax_nonce
+			};
+
+			$.post(ajaxdata.ajaxurl, data, function(response) {
+
+				response = JSON.parse(response);
+
+				if (response[1]) {
+					// folder name updated
+					folder_new = response[1];
+
+					// update folder name in url
+					window.history.replaceState('', '', KULAM_general.update_url_parameter(window.location.href, 'folder', folder_new));
+
+					// update folder name in page elements
+					popup.find('#name-folder-hide').val(folder_new);
+					popup.find('#name-new-folder').val(folder_new);
+					$('.folder-wrap > .entry-title').text(folder_new);
+				}
+				else if (response[2]) {
+					// folder deleted
+					window.location = window.location.href.split("-folder?")[0];
+				}
+
+				// hide form
+				popup.toggleClass('open');
+
+			});
+
+			// hide loader
+			$('.loader').hide();
+
+			// return
+			return false;
+
+		},
+
+		/**
+		 * update_url_parameter
+		 *
+		 * Add / Update a key-value pair in the URL query parameters
+		 *
+		 * @param	uri (string)
+		 * @param	key (string)
+		 * @param	value (string)
+		 * @return	(string)
+		 */
+		update_url_parameter : function(uri, key, value) {
+
+			// remove the hash part before operating on the uri
+			var i = uri.indexOf('#'),
+				hash = i === -1 ? ''  : uri.substr(i),
+				uri = i === -1 ? uri : uri.substr(0, i);
+
+			var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i"),
+				separator = uri.indexOf('?') !== -1 ? "&" : "?";
+
+			if (uri.match(re)) {
+				uri = uri.replace(re, '$1' + key + "=" + value + '$2');
+			}
+			else {
+				uri = uri + separator + key + "=" + value;
+			}
+
+			// return
+			return uri + hash;
+
+		},
+
+		/**
 		 * post_types_posts_grid
 		 *
 		 * Called from init
@@ -897,65 +1066,23 @@ jQuery(document).ready(function ($) {
 		});
 	});
 
-	$('.settings').click(function () {
-		var data={
-			action:'check-share-public',
-			namefolder:$('#name-folder-hide').val(),
-			security:ajaxdata.ajax_nonce
-		};
-		jQuery.post(ajaxdata.ajaxurl,data,function(response){
-		  if(response !="no0")
-		  {
-			 $('#is-public').attr("checked", true);
-		  }
-		  var popup = document.getElementById("popup-settings");
-		  popup.classList.toggle("open");
-		});
-		
-	});
-	$('.close-popup-settings').click(function () {
-		var popup = document.getElementById("popup-settings");
-		popup.classList.toggle("open");
-	});
-	$('.save-settings').click(function () {
-
-			$('.loader').show();
-			var data = {
-				action: 'setting-folder',
-				name_old_folder: $('#name-folder-hide').val(),
-				name_new_folder: $('#name-new-folder').val(),
-				delete_folder: $('#del').is(':checked'),
-				public_folder:$('#is-public').is(':checked'),
-				security: ajaxdata.ajax_nonce
-			};
-			jQuery.post(ajaxdata.ajaxurl, data, function (response) {
-				if (response === "Success0" || response == "Success" ||response=="0") {
-					var home_url = document.location.origin;
-					var loc = home_url.concat("/my-siddur");
-					window.location.href = loc;
-					$('#popup-settings').hide();
-
-				}
-			});
-		
-	});
-
 	//sharing section
 	$('#facebook-share').click(function(){
 		var data={
-			action:'check-share-public',
-			namefolder:$('#name-folder-hide').val(),
-			security:ajaxdata.ajax_nonce
+			action: 'check_public_folder',
+			user_id: ajaxdata.user_id,
+			folder: $('#name-folder-hide').val(),
+			social: 'social',
+			security: ajaxdata.ajax_nonce
 		};
 		jQuery.post(ajaxdata.ajaxurl,data,function(response){
-		  if(response=="no0")
+		  if(response=="-1")
 		  {
 			$('input[name=public-folder]').attr('checked',false);
 			$('.share-popup').addClass('open');
 		  }
 		  else
 		  {
-			response= response.substring(0, response.length-1);
 			var home_url = document.location.origin;
 			response = home_url.concat(response);
 			var refFacbook="https://www.facebook.com/sharer.php?u=";
@@ -966,19 +1093,20 @@ jQuery(document).ready(function ($) {
 	});
 	$('#twitter-share').click(function(){
 		var data={
-			action:'check-share-public',
-			namefolder:$('#name-folder-hide').val(),
-			security:ajaxdata.ajax_nonce
+			action: 'check_public_folder',
+			user_id: ajaxdata.user_id,
+			folder: $('#name-folder-hide').val(),
+			social: 'social',
+			security: ajaxdata.ajax_nonce
 		};
 		jQuery.post(ajaxdata.ajaxurl,data,function(response){
-		  if(response=="no0")
+		  if(response=="-1")
 		  {
 			$('input[name=public-folder]').attr('checked',false);
 			$('.share-popup').addClass('open');
 		  }
 		  else
 		  {
-			response= response.substring(0, response.length-1);
 			var home_url = document.location.origin;
 			response = home_url.concat(response);
 		   var refTwitter="https://twitter.com/intent/tweet?text= "
@@ -989,19 +1117,20 @@ jQuery(document).ready(function ($) {
   });
   $('#whatsapp-share').click(function(){
 	var data={
-		action:'check-share-public',
-		namefolder:$('#name-folder-hide').val(),
-		security:ajaxdata.ajax_nonce
+		action: 'check_public_folder',
+		user_id: ajaxdata.user_id,
+		folder: $('#name-folder-hide').val(),
+		social: 'social',
+		security: ajaxdata.ajax_nonce
 	};
 	jQuery.post(ajaxdata.ajaxurl,data,function(response){
-	  if(response=="no0")
+	  if(response=="-1")
 	  {
 		$('input[name=public-folder]').attr('checked',false);
 		$('.share-popup').addClass('open');
 	  }
 	  else
 	  {
-		response= response.substring(0, response.length-1);
 		var home_url = document.location.origin;
 		response = home_url.concat(response);
 		var refTwatsApp="whatsapp://send?text=";
@@ -1012,19 +1141,20 @@ jQuery(document).ready(function ($) {
 });
 $('#telegram-share').click(function(){
 	var data={
-		action:'check-share-public',
-		namefolder:$('#name-folder-hide').val(),
-		security:ajaxdata.ajax_nonce
+		action: 'check_public_folder',
+		user_id: ajaxdata.user_id,
+		folder: $('#name-folder-hide').val(),
+		social: 'social',
+		security: ajaxdata.ajax_nonce
 	};
 	jQuery.post(ajaxdata.ajaxurl,data,function(response){
-	  if(response=="no0")
+	  if(response=="-1")
 	  {
 		$('input[name=public-folder]').attr('checked',false);
 		$('.share-popup').addClass('open');
 	  }
 	  else
 	  {
-		response= response.substring(0, response.length-1);
 		var home_url = document.location.origin;
 		response = home_url.concat(response);
 		var refTelegram="tg://msg?text=";
@@ -1039,21 +1169,21 @@ $('#clipboard-share-single').click(function(){
 })
 $('#clipboard-share').click(function(){
 	var data={
-		action:'check-share-public',
-		namefolder:$('#name-folder-hide').val(),
-		clipboard:'cliboard',
-		security:ajaxdata.ajax_nonce
+		action: 'check_public_folder',
+		user_id: ajaxdata.user_id,
+		folder: $('#name-folder-hide').val(),
+		clipboard: 'cliboard',
+		security: ajaxdata.ajax_nonce
 	};
 
 	jQuery.post(ajaxdata.ajaxurl,data,function(response){
-	  if(response=="no0")
+	  if(response=="-1")
 	  {
 		$('input[name=public-folder]').attr('checked',false);
 		$('.share-popup').addClass('open');
 	  }
 	  else
 	  {
-		response= response.substring(0, response.length-1);
 		var home_url = document.location.origin;
 		response = home_url.concat(response);
 		document.getElementById("link_to_copy").value = response;
