@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.6
+ * @version		1.3.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -53,7 +53,7 @@ $children = get_terms(
 
 				}
 
-				$classes = 'tile-box-wrapper-child-cat col-md-3' . ( $category_description ? ' cat-desc' : '' );
+				$classes = 'tile-box-wrapper-child-cat col-md-3' . ( $category_description ? ' cat-desc' : '' ) . ( $category_bg ? ' tile-bg' : '' );
 
 				if ( $category_description ) {
 
@@ -69,7 +69,7 @@ $children = get_terms(
 
 				?>
 
-				<div class="tile-box-wrapper-child-cat col-md-3">
+				<div class="<?php echo $classes; ?>">
 					<a href="<?php echo $category_link; ?>" class="tile-box-link" role="button" <?php echo $category_bg_markup; ?>>
 						<div class="tile-box">
 							<div class="tile-box-content">

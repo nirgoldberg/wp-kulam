@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.2.6
+ * @version     1.3.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -56,7 +56,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 			$cat_desc_content			= '';
 			$cat_desc_btn				= '';
 
-			$classes = 'tile-box-wrapper col-sm-3 col-xs-6' . ( $category_description ? ' cat-desc' : '' );
+			$classes = 'tile-box-wrapper col-sm-3 col-xs-6' . ( $category_description ? ' cat-desc' : '' ) . ( $homepage_tile_bg ? ' tile-bg' : '' );
 
 			if ( $category_description ) {
 

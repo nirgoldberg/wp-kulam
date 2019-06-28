@@ -265,6 +265,11 @@ header .logo .login a,
 	text-align: center;
 }
 
+.tile-box-wrapper.tile-bg .tile-box-link h2,
+.tile-box-wrapper-child-cat.tile-bg .tile-box-link h2 {
+	background: rgba(0,0,0,.5);
+}
+
 .tile-box-album .tile-box-link,
 .tile-box-upload .tile-box-link {
 	background: rgba(255,255,255,0.2);
