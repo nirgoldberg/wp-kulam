@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.5
+ * @version		1.3.6
  */
 get_header();
 
@@ -20,6 +20,7 @@ if ( is_user_logged_in() ) :
 	$folder			= $_GET[ 'folder' ];
 	$folder_data	= get_user_meta( $user_id, $folder . $site_id, true );
 	$folder_data	= json_decode( $folder_data, true );
+	$page_template	= basename( get_page_template() );
 
 	?>
 
@@ -127,7 +128,7 @@ if ( is_user_logged_in() ) :
 
 					<?php while ( $folder_data_query->have_posts() ) : $folder_data_query->the_post();
 
-						get_template_part( 'content/content', 'grid_three' );
+						include( locate_template( 'content/content-grid_three.php' ) );
 
 					endwhile;
 

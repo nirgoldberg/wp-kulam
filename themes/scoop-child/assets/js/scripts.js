@@ -413,9 +413,6 @@ var $ = jQuery,
 		 */
 		my_siddur : function() {
 
-			// initialize siddur
-			KULAM_general.my_siddur_init();
-
 			// add to / remove from siddur
 			$('.siddur-toggle-button').on('click', function(event) {
 
@@ -441,7 +438,7 @@ var $ = jQuery,
 			});
 
 			// remove from siddur folder
-			$('.remove-post-from-folder').on('click', function() {
+			$('.folders-assignment.template-siddur-folder a').on('click', function() {
 
 				KULAM_general.my_siddur_remove_from_folder($(this));
 
@@ -449,37 +446,6 @@ var $ = jQuery,
 
 			// siddur folder settings
 			KULAM_general.my_siddur_folder_settings();
-
-		},
-
-		/**
-		 * my_siddur_init
-		 *
-		 * Called from my_siddur
-		 *
-		 * @param	N/A
-		 * @return	N/A
-		 */
-		my_siddur_init : function() {
-
-			// variables
-			var folders = $('.link-folder').get();
-
-			if (folders.length > 0) {
-				$('.siddur-wrap .grid-item').each(function() {
-					// variables
-					var post_id = $(this).attr('id').slice(5);
-
-					$(this).append('<label class="add-post-to-folder" id="add-post-' + post_id + '">+</label>');
-				});
-			}
-
-			$('.folder-wrap .grid-item').each(function() {
-				// variables
-				var post_id = $(this).attr('id').slice(5);
-
-				$(this).append('<label class="remove-post-from-folder" id="remove-post-' + post_id + '">-</label>');
-			});
 
 		},
 
@@ -564,11 +530,11 @@ var $ = jQuery,
 				post_ids_field = form.find('input.post-ids');
 
 			// prepare a single post to add and open the popup form
-			$('.add-post-to-folder').click(function() {
+			$('.folders-assignment.template-siddur a').click(function() {
 				// variables
 				var post_ids = post_ids_field.data('post-ids'),
 					post_ids_arr = post_ids ? JSON.parse(post_ids) : [],
-					post_id = parseInt($(this).attr('id').slice(9));
+					post_id = parseInt($(this).attr('id').slice(24));
 
 				if ($.inArray(post_id, post_ids_arr) == -1) {
 					post_ids_arr.push(post_id);
@@ -673,7 +639,7 @@ var $ = jQuery,
 			var data = {
 				action: 'remove_from_folder',
 				user_id: ajaxdata.user_id,
-				post_id: parseInt(btn.attr('id').slice(12)),
+				post_id: parseInt(btn.attr('id').slice(24)),
 				folder: $('.folder-wrap > .entry-title').text(),
 				security: ajaxdata.ajax_nonce
 			};

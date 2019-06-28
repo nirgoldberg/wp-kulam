@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kulam-Scoop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-20 15:35+0300\n"
-"PO-Revision-Date: 2019-06-20 15:37+0300\n"
+"POT-Creation-Date: 2019-06-28 15:43+0300\n"
+"PO-Revision-Date: 2019-06-28 15:48+0300\n"
 "Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -28,6 +28,14 @@ msgstr "תגובה אחת"
 #: content/content-grid_three.php:49 loop/single.php:76
 msgid "% Comments"
 msgstr "% תגובות"
+
+#: content/content-grid_three.php:87
+msgid "Add to folder"
+msgstr "הוסף לתיקייה"
+
+#: content/content-grid_three.php:91
+msgid "Remove from folder"
+msgstr "הסר מתיקייה"
 
 #: core/api.php:203
 msgid "Read More"
@@ -379,15 +387,15 @@ msgstr "&laquo; הקודם"
 msgid "Next &raquo;"
 msgstr "הבא &raquo;"
 
-#: loop/single.php:28 template-siddur-folder.php:29
+#: loop/single.php:28 template-siddur-folder.php:30
 msgid "Please type or paste email addresses with a space between each one:"
 msgstr "הקלד או הדבק את כתובות המייל לשיתוף עם רווח בין כתובת אחת לשניה:"
 
-#: loop/single.php:30 template-siddur-folder.php:31
+#: loop/single.php:30 template-siddur-folder.php:32
 msgid "Send"
 msgstr "שלח"
 
-#: loop/single.php:38 template-siddur-folder.php:75
+#: loop/single.php:38 template-siddur-folder.php:76
 msgid "Link to share"
 msgstr "קישור לשיתוף"
 
@@ -475,11 +483,11 @@ msgstr "בחר סוג מאמר"
 msgid "Choose a category"
 msgstr "בחר קטגוריה"
 
-#: template-siddur-folder.php:38
+#: template-siddur-folder.php:39
 msgid "In order to share this folder you must set it public"
-msgstr "על מנת לשתף תיקייה הזו עליך להגדיר אותה ציבורית"
+msgstr "על מנת לשתף תיקייה זו עליך להגדיר אותה ציבורית"
 
-#: template-siddur-folder.php:40
+#: template-siddur-folder.php:41
 msgid ""
 "Note! When you share this folder, all content in it becomes public and "
 "anyone can see it on the Web. Do you confirm?"
@@ -487,43 +495,43 @@ msgstr ""
 "שים לב! כאשר תשתף תיקייה זו , כל התכנים בה יהפכו לציבוריים וכל אחד יוכל "
 "לראותם ברשת. האם אתה מאשר?"
 
-#: template-siddur-folder.php:42
+#: template-siddur-folder.php:43
 msgid "Yes"
 msgstr "כן"
 
-#: template-siddur-folder.php:43
+#: template-siddur-folder.php:44
 msgid "No"
 msgstr "לא"
 
-#: template-siddur-folder.php:45
+#: template-siddur-folder.php:46
 msgid "Done"
 msgstr "בצע"
 
-#: template-siddur-folder.php:55 template-siddur.php:50
+#: template-siddur-folder.php:56 template-siddur.php:51
 msgid "Folder Name"
 msgstr "שם התיקייה"
 
-#: template-siddur-folder.php:56
+#: template-siddur-folder.php:57
 msgid "Here you can rename the folder"
 msgstr "כאן ניתן לשנות את שם התיקייה"
 
-#: template-siddur-folder.php:57 template-siddur.php:51
+#: template-siddur-folder.php:58 template-siddur.php:52
 msgid "Allowed characters: digits, letters, spaces and dashes"
 msgstr "תווים מורשים: ספרות, אותיות, רווחים ומקפים"
 
-#: template-siddur-folder.php:61
+#: template-siddur-folder.php:62
 msgid "Delete this folder?"
-msgstr "למחוק את התקיה הזו?"
+msgstr "למחוק את התיקייה הזו?"
 
-#: template-siddur-folder.php:65
+#: template-siddur-folder.php:66
 msgid "Public folder?"
 msgstr "תיקייה ציבורית?"
 
-#: template-siddur-folder.php:66
+#: template-siddur-folder.php:67
 msgid "Save settings"
 msgstr "שמור הגדרות"
 
-#: template-siddur.php:53
+#: template-siddur.php:54
 msgid "Add"
 msgstr "הוסף"
 

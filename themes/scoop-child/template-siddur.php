@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.5
+ * @version		1.3.6
  */
 get_header();
 
@@ -15,12 +15,13 @@ if ( is_user_logged_in() ) :
 	/**
 	 * Variables
 	 */
-	$site_id	= get_current_blog_id();
-	$user_id	= get_current_user_id();
-	$folders	= get_user_meta( $user_id, 'nameFolder' . $site_id, true );
-	$folders	= $folders ? json_decode( $folders, true ) : array();
-	$siddur		= get_user_meta( $user_id, 'sidur' . $site_id, true );
-	$siddur		= $siddur ? json_decode( $siddur, true ) : array();
+	$site_id		= get_current_blog_id();
+	$user_id		= get_current_user_id();
+	$folders		= get_user_meta( $user_id, 'nameFolder' . $site_id, true );
+	$folders		= $folders ? json_decode( $folders, true ) : array();
+	$siddur			= get_user_meta( $user_id, 'sidur' . $site_id, true );
+	$siddur			= $siddur ? json_decode( $siddur, true ) : array();
+	$page_template	= basename( get_page_template() );
 
 	if ( $folders ) { ?>
 
@@ -93,7 +94,7 @@ if ( is_user_logged_in() ) :
 
 					<?php if ( $siddur_query->have_posts() ) : while ( $siddur_query->have_posts() ) : $siddur_query->the_post();
 
-						get_template_part( 'content/content', 'grid_three' );
+						include( locate_template( 'content/content-grid_three.php' ) );
 
 					endwhile; endif;
 

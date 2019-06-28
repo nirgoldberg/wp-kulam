@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.3.3
+ * @version     1.3.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -78,7 +78,30 @@ endif;
 							}
 
 						?>
-					</span>
+					</span><!-- .favorite -->
+
+					<?php if ( $page_template && in_array( $page_template, array( 'template-siddur.php', 'template-siddur-folder.php' ) ) ) {
+
+						if ( 'template-siddur.php' == $page_template && $folders ) {
+							$icon_class	= 'fa-plus';
+							$tooltip	= __( 'Add to folder', 'kulam-scoop' );
+						}
+						elseif ( 'template-siddur-folder.php' == $page_template ) {
+							$icon_class	= 'fa-minus';
+							$tooltip	= __( 'Remove from folder', 'kulam-scoop' );
+						}
+
+						if ( $icon_class ) { ?>
+
+							<span class="folders-assignment <?php echo substr( $page_template, 0, -4 ); ?>">
+								<a class="pojo-tooltip" id="folders-assignment-post-<?php echo $post_id; ?>" title="<?php echo $tooltip; ?>">
+									<i class="fa <?php echo $icon_class; ?>"></i>
+								</a>
+							</span><!-- .folders-assignment -->
+
+						<?php }
+
+					} ?>
 				</div>
 			</div>
 		<?php endif; ?>
