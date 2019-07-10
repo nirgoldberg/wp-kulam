@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.3.5
+ * @version		1.3.9
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -222,7 +222,6 @@ function kulam_check_public_folder() {
 	$clipboard			= isset( $_POST[ 'clipboard' ] )	? $_POST[ 'clipboard' ]					: '';
 	$social				= isset( $_POST[ 'social' ] )		? $_POST[ 'social' ]					: '';
 	$lang_code			= defined( 'ICL_LANGUAGE_CODE' )	? ICL_LANGUAGE_CODE						: '';
-	$default_lang_code	= $lang_code						? $sitepress->get_default_language()	: '';
 	$lang				= get_locale();
 	$sqlQuery			= "
 		SELECT *
@@ -250,7 +249,7 @@ function kulam_check_public_folder() {
 		$folder = str_replace( ' ', '_', $folder );
 
 		// build url
-		$url = ( $lang_code && $lang_code != $default_lang_code ? '/' . ICL_LANGUAGE_CODE : '' ) . '/single-public-folder?folder=' . $folder . '&u=' . $user_id . '&si=' . $site_id;
+		$url = ( $lang_code ? '/' . ICL_LANGUAGE_CODE : '' ) . '/single-public-folder?folder=' . $folder . '&u=' . $user_id . '&si=' . $site_id;
 
 		if ( $clipboard ) {
 
