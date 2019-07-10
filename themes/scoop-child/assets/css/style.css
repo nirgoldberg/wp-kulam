@@ -1196,6 +1196,10 @@ div#title-bar {
 	background-color: rgba(0,0,0,.7);
 	transition: opacity 1s;
 }
+#all-folders .all-input {
+	max-height: 200px;
+	overflow: auto;
+}
 .close-popup-folders {
 	transform: rotate(45deg);
 	width: fit-content;
