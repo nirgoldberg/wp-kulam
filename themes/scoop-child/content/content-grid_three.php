@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.3.6
+ * @version     1.3.11
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -64,18 +64,14 @@ endif;
 								$user_id	= get_current_user_id();
 								$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
 
-								if ( $favorite ) {
+								$favorite			= $favorite ? json_decode( $favorite, true ) : '';
+								$in_favorite		= $favorite && in_array( $post_id, $favorite );
+								$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
+								$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur'; ?>
 
-									$favorite			= json_decode( $favorite, true );
-									$in_favorite		= $favorite && in_array( $post_id, $favorite );
-									$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
-									$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur'; ?>
+								<span class="wrap-heart"><a href='#' class="siddur-button siddur-toggle-button" data-post-id="<?php echo $post_id; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><i class="fa <?php echo $in_favorite ? 'fa-heart' : 'fa-heart-o'; ?>" aria-hidden="true"></i></a></span>
 
-									<span class="wrap-heart"><a href='#' class="siddur-button siddur-toggle-button" data-post-id="<?php echo $post_id; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><i class="fa <?php echo $in_favorite ? 'fa-heart' : 'fa-heart-o'; ?>" aria-hidden="true"></i></a></span>
-
-								<?php }
-
-							}
+							<?php }
 
 						?>
 					</span><!-- .favorite -->
