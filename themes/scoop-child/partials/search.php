@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.1.6
+ * @version     1.3.12
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -149,7 +149,7 @@ if ( $menu_items ) {
 				if ( $categories ) { ?>
 
 					<span id="menu-search-input-category" class="menu-search-input">
-						<input type="text" name="cat_name" class="auto-complete-input" placeholder="<?php _e( 'Choose a category', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET[ 'cat_name' ] ) ? $_GET[ 'cat_name' ] : '' ); ?>" data-options="<?php echo esc_js( json_encode( $categories, JSON_UNESCAPED_UNICODE ) ); ?>" data-auto-complete-output="auto-complete-cat_name" />
+						<input type="text" name="cat_name" class="auto-complete-input" placeholder="<?php _e( 'Type category name', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET[ 'cat_name' ] ) ? $_GET[ 'cat_name' ] : '' ); ?>" data-options="<?php echo esc_js( json_encode( $categories, JSON_UNESCAPED_UNICODE ) ); ?>" data-auto-complete-output="auto-complete-cat_name" />
 						<input type="hidden" name="cat" class="auto-complete-cat_name" value="<?php echo esc_attr( isset( $_GET[ 'cat' ] ) ? $_GET[ 'cat' ] : '' ); ?>" />
 					</span>
 

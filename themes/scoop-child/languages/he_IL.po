@@ -1,20 +1,20 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Kulam-Scoop\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-28 15:43+0300\n"
-"PO-Revision-Date: 2019-06-28 15:48+0300\n"
-"Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
-"Language-Team: Hebrew\n"
-"Language: he_IL\n"
+"Project-Id-Version: kulam-scoop 1.0.0\n"
+"POT-Creation-Date: 2019-08-23 15:55+0300\n"
+"PO-Revision-Date: 2019-08-23 15:57+0300\n"
+"Last-Translator: Nir Goldberg <nir@htmline.com>\n"
+"Language-Team: Nir Goldberg <nir@htmline.com>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 2.2.3\n"
-"X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e;"
-"esc_attr__;esc_attr_e;_x;_nx\n"
 "X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: content/content-grid_three.php:49 loop/single.php:76
@@ -29,11 +29,11 @@ msgstr "תגובה אחת"
 msgid "% Comments"
 msgstr "% תגובות"
 
-#: content/content-grid_three.php:87
+#: content/content-grid_three.php:83
 msgid "Add to folder"
 msgstr "הוסף לתיקייה"
 
-#: content/content-grid_three.php:91
+#: content/content-grid_three.php:87
 msgid "Remove from folder"
 msgstr "הסר מתיקייה"
 
@@ -348,10 +348,16 @@ msgid "Archive for %s"
 msgstr "ארכיון של %s"
 
 #: loop/archive.php:48
+#, fuzzy
+#| msgid "F Y"
+msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
 
 #: loop/archive.php:50
+#, fuzzy
+#| msgid "Y"
+msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
@@ -407,47 +413,47 @@ msgstr "הוסף אל "
 msgid "Remove from "
 msgstr "הסר מ"
 
-#: loop/single.php:127
+#: loop/single.php:123
 msgid "Facebook"
 msgstr "Facebook"
 
-#: loop/single.php:132
+#: loop/single.php:128
 msgid "Twitter"
 msgstr "Twitter"
 
-#: loop/single.php:152
+#: loop/single.php:148
 msgid "Mail"
 msgstr "אימייל"
 
-#: loop/single.php:157
+#: loop/single.php:153
 msgid "Print"
 msgstr "הדפסה"
 
-#: loop/single.php:279
+#: loop/single.php:275
 msgid "Please rate this post:"
 msgstr "בבקשה, דרג פוסט זה:"
 
-#: loop/single.php:319
+#: loop/single.php:315
 msgid "Submit Rating"
 msgstr "שמור דירוג"
 
-#: loop/single.php:332
+#: loop/single.php:328
 msgid "Thank you for rating!"
 msgstr "הדירוג התקבל. תודה!"
 
-#: loop/single.php:345
+#: loop/single.php:341
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: loop/single.php:352
+#: loop/single.php:348
 msgid "View all posts by"
 msgstr "צפה בסוג מאמר"
 
-#: loop/single.php:365
+#: loop/single.php:361
 msgid "&laquo; Previous Post"
 msgstr "&laquo; המאמר הקודם"
 
-#: loop/single.php:366
+#: loop/single.php:362
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
@@ -480,8 +486,8 @@ msgid "Choose a post type"
 msgstr "בחר סוג מאמר"
 
 #: partials/search.php:152
-msgid "Choose a category"
-msgstr "בחר קטגוריה"
+msgid "Type category name"
+msgstr "הקלד שם קטגוריה"
 
 #: template-siddur-folder.php:39
 msgid "In order to share this folder you must set it public"
@@ -535,10 +541,6 @@ msgstr "שמור הגדרות"
 msgid "Add"
 msgstr "הוסף"
 
-#: vendors/acf.php:139
-msgid "Video Unavailable"
-msgstr "וידאו לא זמן"
-
 #: vendors/acf.php:179
 msgid "Submit for review"
 msgstr "שלח לאישור"
@@ -556,6 +558,12 @@ msgstr "עדכון חשבון"
 #: vendors/acf.php:191
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
+
+#~ msgid "Choose a category"
+#~ msgstr "בחר קטגוריה"
+
+#~ msgid "Video Unavailable"
+#~ msgstr "וידאו לא זמן"
 
 #~ msgid "Back to category"
 #~ msgstr "חזרה"

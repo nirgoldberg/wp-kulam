@@ -1,413 +1,555 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 21:10+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"Project-Id-Version: kulam-scoop 1.0.0\n"
+"POT-Creation-Date: 2019-08-23 15:51+0300\n"
+"PO-Revision-Date: 2019-08-21 17:56+0300\n"
+"Last-Translator: Nir Goldberg <nir@htmline.com>\n"
+"Language-Team: Nir Goldberg <nir@htmline.com>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: 404.php:14
-msgid "Page not found."
+#: content/content-grid_three.php:49 loop/single.php:76
+msgid "No Comments"
 msgstr ""
 
-#: 404.php:15
-msgid "It's not you, it's us."
+#: content/content-grid_three.php:49 loop/single.php:76
+msgid "One Comment"
 msgstr ""
 
-#: 404.php:15
-msgid "Here, grab a link to the homepage"
+#: content/content-grid_three.php:49 loop/single.php:76
+msgid "% Comments"
 msgstr ""
 
-#: archive.php:11 category.php:46 category_bk.php:46 index.php:14
-#: index_bk.php:11 search.php:15
-msgid "Article Filters"
+#: content/content-grid_three.php:83
+msgid "Add to folder"
 msgstr ""
 
-#: archive.php:29 category_bk.php:64
-msgid "There's Nothing Here yet"
+#: content/content-grid_three.php:87
+msgid "Remove from folder"
 msgstr ""
 
-#: category.php:34 category_bk.php:34
-msgid "View Subcategories"
+#: core/api.php:203
+msgid "Read More"
 msgstr ""
 
-#: comments.php:5
-msgid "Discuss this"
+#: core/api.php:364
+msgid "Read More &raquo;"
 msgstr ""
 
-#: comments.php:31
+#: core/api.php:427
+msgid "Numbers"
+msgstr ""
+
+#: core/api.php:431
+msgid "Infinite Scroll"
+msgstr ""
+
+#: core/api.php:434
+msgid "Hide"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:28
+#: functions/acf/acf-configuration.php:29
+msgid "Site Setup"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:35
+#: functions/acf/acf-field-groups.php:366
+msgid "My Siddur Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:36 functions/menus.php:29
+#: functions/shortcodes.php:28 includes/cpt-config.php:55 loop/archive.php:18
+#: loop/single.php:18
+msgid "My Siddur"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:42
+#: functions/acf/acf-field-groups.php:409
+msgid "General Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:43
+msgid "General"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:89
+msgid "Post Types Top Posts"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:150
 #, php-format
+msgid "%s Top Posts"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:26
+msgid "ACF Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:30 functions/acf/acf-field-groups.php:41
+msgid "Display Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:49
+msgid "ACF Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:69
+msgid "upload"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:70
+msgid "user_profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:103
+msgid "Ratings"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:107
+msgid "דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:126
+msgid "שם דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:147
+msgid "ratings"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:166
+msgid "rating name"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:207
+#: functions/acf/acf-field-groups.php:413
+msgid "Category Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:211
+msgid "Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:235 includes/cpt-config.php:11
+#: includes/cpt-config.php:13 includes/cpt-config.php:23
+msgid "Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:238
+msgid "Leave this field empty to display default Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:277
+msgid "User Information"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:281
+msgid "Profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:284
+msgid "Tell us something about yourself!"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:300
+msgid "Gender"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:312
+msgid "Female"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:313
+msgid "Male"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:324
+msgid "Date of Birth"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:370
+msgid "Custom Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:429
+msgid "Category Page Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:432
 msgid ""
-"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
-"this account\" class=\"log-out\">Not You?</a>"
+"Default selected Post Types to be displayed in a category page.\n"
+"Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: footer.php:7
-msgid "Site by"
+#: functions/acf/acf-field-groups.php:452
+msgid "Subcategory Attributes"
 msgstr ""
 
-#: footer.php:7
-msgid "The Contechnician"
+#: functions/acf/acf-field-groups.php:468
+msgid "Background color"
 msgstr ""
 
-#: footer.php:9
-msgid "Back to top"
+#: functions/acf/acf-field-groups.php:483
+msgid "Font Color"
 msgstr ""
 
-#: functions.php:52
-msgid "Primary Menu"
+#: functions/acf/acf-field-groups.php:498
+msgid "Social"
 msgstr ""
 
-#: functions.php:53
-msgid "Secondary Menu"
+#: functions/acf/acf-field-groups.php:514
+msgid "Google Analytics Code"
 msgstr ""
 
-#: functions.php:54
-msgid "Account Menu"
+#: functions/acf/acf-field-groups.php:517
+msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions.php:146
-msgid "expand child menu"
+#: functions/acf/acf-field-groups.php:533
+msgid "Misc"
 msgstr ""
 
-#: functions.php:147
-msgid "collapse child menu"
+#: functions/acf/acf-field-groups.php:549
+msgid "Placeholder Thumbnail"
 msgstr ""
 
-#: functions.php:211
-msgid "Articles Sidebar"
+#: functions/acf/acf-field-groups.php:552
+msgid ""
+"This image will be shown whenever the post has neither \"featured video\" "
+"nor \"featured image\""
 msgstr ""
 
-#: functions.php:213
-msgid "These widgets will appear in article pages."
+#: functions/menus.php:54 functions/modal-login.php:34
+#: functions/modal-login.php:52 functions/modal-registration.php:56
+#: header.php:96 header.php:199
+msgid "Login"
 msgstr ""
 
-#: header.php:28
-msgid "Skip to content"
+#: functions/modal-login.php:40
+msgid ""
+"In order to save posts or view saved content, you must register / log-in to "
+"your account"
 msgstr ""
 
-#: header.php:36
+#: functions/modal-login.php:44 functions/modal-registration.php:44
+msgid "User"
+msgstr ""
+
+#: functions/modal-login.php:45 functions/modal-registration.php:46
+msgid "Password"
+msgstr ""
+
+#: functions/modal-login.php:51
+msgid "Register Now"
+msgstr ""
+
+#: functions/modal-registration.php:36
+msgid "Registration"
+msgstr ""
+
+#: functions/modal-registration.php:45
+msgid "Email"
+msgstr ""
+
+#: functions/modal-registration.php:49
+msgid "Please enter the following text in the box below:"
+msgstr ""
+
+#: functions/modal-registration.php:57
+msgid "Register"
+msgstr ""
+
+#: functions/shortcodes.php:31
+msgid "Posts"
+msgstr ""
+
+#: functions/shortcodes.php:32
+msgid "Upload"
+msgstr ""
+
+#: functions/shortcodes.php:33
+msgid "Upload something of your own"
+msgstr ""
+
+#: functions/shortcodes.php:35
+msgid "Save your favorite contents"
+msgstr ""
+
+#: functions/theme.php:162 partials/search.php:122
+msgid "Text"
+msgstr ""
+
+#: header.php:80 header.php:183
+msgid "Toggle navigation"
+msgstr ""
+
+#: header.php:93 header.php:196
+msgid "Logout"
+msgstr ""
+
+#: header.php:131 header.php:234
+#, php-format
+msgid "<a href=\"%s\">Choose Menu</a>"
+msgstr ""
+
+#: includes/class-pojo-child-customize-register-fields.php:11
+msgid "Logo Width"
+msgstr ""
+
+#: includes/class-pojo-child-customize-register-fields.php:19
+msgid "Logo"
+msgstr ""
+
+#: includes/cpt-config.php:12
+msgid "Post Type"
+msgstr ""
+
+#: includes/cpt-config.php:14
+msgid "All Post Types"
+msgstr ""
+
+#: includes/cpt-config.php:15
+msgid "Edit Post Type"
+msgstr ""
+
+#: includes/cpt-config.php:16
+msgid "View Post Type"
+msgstr ""
+
+#: includes/cpt-config.php:17
+msgid "Update Post Type"
+msgstr ""
+
+#: includes/cpt-config.php:18
+msgid "Add New Post Type"
+msgstr ""
+
+#: includes/cpt-config.php:19
+msgid "New Post Type Name"
+msgstr ""
+
+#: includes/cpt-config.php:54 includes/cpt-config.php:59
+msgid "Siddurim"
+msgstr ""
+
+#: loop/archive.php:46 loop/archive.php:48 loop/archive.php:50
+#, php-format
+msgid "Archive for %s"
+msgstr ""
+
+#: loop/archive.php:48
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: loop/archive.php:50
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: loop/archive.php:56 loop/archive.php:58
+#, php-format
+msgid "Archive %s"
+msgstr ""
+
+#: loop/archive.php:64
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: loop/archive.php:66
+msgid "Archive"
+msgstr ""
+
+#: loop/archive.php:158 loop/archive.php:180
+#, php-format
+msgid "Click for less %s"
+msgstr ""
+
+#: loop/archive.php:158
+#, php-format
+msgid "Click for more %s"
+msgstr ""
+
+#: loop/page.php:50
+msgid "&laquo; Previous"
+msgstr ""
+
+#: loop/page.php:51
+msgid "Next &raquo;"
+msgstr ""
+
+#: loop/single.php:28 template-siddur-folder.php:30
+msgid "Please type or paste email addresses with a space between each one:"
+msgstr ""
+
+#: loop/single.php:30 template-siddur-folder.php:32
+msgid "Send"
+msgstr ""
+
+#: loop/single.php:38 template-siddur-folder.php:76
+msgid "Link to share"
+msgstr ""
+
+#: loop/single.php:95
+msgid "Add to "
+msgstr ""
+
+#: loop/single.php:96
+msgid "Remove from "
+msgstr ""
+
+#: loop/single.php:123
+msgid "Facebook"
+msgstr ""
+
+#: loop/single.php:128
+msgid "Twitter"
+msgstr ""
+
+#: loop/single.php:148
+msgid "Mail"
+msgstr ""
+
+#: loop/single.php:153
+msgid "Print"
+msgstr ""
+
+#: loop/single.php:275
+msgid "Please rate this post:"
+msgstr ""
+
+#: loop/single.php:315
+msgid "Submit Rating"
+msgstr ""
+
+#: loop/single.php:328
+msgid "Thank you for rating!"
+msgstr ""
+
+#: loop/single.php:341
+msgid "About the Author"
+msgstr ""
+
+#: loop/single.php:348
+msgid "View all posts by"
+msgstr ""
+
+#: loop/single.php:361
+msgid "&laquo; Previous Post"
+msgstr ""
+
+#: loop/single.php:362
+msgid "Next Post &raquo;"
+msgstr ""
+
+#: partials/search.php:97
+msgid "Search..."
+msgstr ""
+
+#: partials/search.php:97
+msgid "Free text..."
+msgstr ""
+
+#: partials/search.php:101 partials/search.php:161
 msgid "Search"
 msgstr ""
 
-#: header.php:60
-#, php-format
-msgid "Go to the home page of %1$s"
+#: partials/search.php:108
+msgid "Advanced Search"
 msgstr ""
 
-#: header.php:70
-msgid "My Account"
+#: partials/search.php:112
+msgid "Please select at least one field and click Search"
 msgstr ""
 
-#: header.php:89
-msgid "Menu"
+#: partials/search.php:121
+msgid "Choose a post format"
 msgstr ""
 
-#: page-my-account.php:16 page-my-siddur.php:31
-msgid "Are you lost, dear friend?"
+#: partials/search.php:138
+msgid "Choose a post type"
 msgstr ""
 
-#: page-my-account.php:17 page-my-siddur.php:32
-msgid "You need to log in"
+#: partials/search.php:152
+msgid "Type category name"
 msgstr ""
 
-#: page-my-account.php:17 page-my-siddur.php:32
-msgid "or"
+#: template-siddur-folder.php:39
+msgid "In order to share this folder you must set it public"
 msgstr ""
 
-#: page-my-account.php:17 page-my-siddur.php:32
-msgid "sign up"
+#: template-siddur-folder.php:41
+msgid ""
+"Note! When you share this folder, all content in it becomes public and "
+"anyone can see it on the Web. Do you confirm?"
 msgstr ""
 
-#: page-my-account.php:17 page-my-siddur.php:32
-msgid " to see this page."
+#: template-siddur-folder.php:43
+msgid "Yes"
 msgstr ""
 
-#: page-my-account.php:27
-msgid "Update Account"
+#: template-siddur-folder.php:44
+msgid "No"
 msgstr ""
 
-#: page-my-account.php:28
-msgid "<b>Success!</b> Your account is now up-to-date with the new info."
+#: template-siddur-folder.php:46
+msgid "Done"
 msgstr ""
 
-#: page-my-siddur.php:39
-msgid "Your Siddur is still empty!"
+#: template-siddur-folder.php:56 template-siddur.php:51
+msgid "Folder Name"
 msgstr ""
 
-#: page-my-siddur.php:40
-msgid "Add your favorite items to your Siddur, for quick access."
+#: template-siddur-folder.php:57
+msgid "Here you can rename the folder"
 msgstr ""
 
-#: page-my-siddur.php:72
-msgid "Categories"
+#: template-siddur-folder.php:58 template-siddur.php:52
+msgid "Allowed characters: digits, letters, spaces and dashes"
 msgstr ""
 
-#: page-share.php:28
+#: template-siddur-folder.php:62
+msgid "Delete this folder?"
+msgstr ""
+
+#: template-siddur-folder.php:66
+msgid "Public folder?"
+msgstr ""
+
+#: template-siddur-folder.php:67
+msgid "Save settings"
+msgstr ""
+
+#: template-siddur.php:54
+msgid "Add"
+msgstr ""
+
+#: vendors/acf.php:179
 msgid "Submit for review"
 msgstr ""
 
-#: page-share.php:29
+#: vendors/acf.php:180
 msgid ""
 "<b>Success!</b> Your article was submitted successfully and will be reviewed "
 "shortly."
 msgstr ""
 
-#: inc/cpt-config.php:11 inc/cpt-config.php:13 inc/cpt-config.php:23
-msgid "Post Types"
+#: vendors/acf.php:190
+msgid "Update Account"
 msgstr ""
 
-#: inc/cpt-config.php:12
-msgid "Post Type"
-msgstr ""
-
-#: inc/cpt-config.php:14
-msgid "All Post Types"
-msgstr ""
-
-#: inc/cpt-config.php:15
-msgid "Edit Post Type"
-msgstr ""
-
-#: inc/cpt-config.php:16
-msgid "View Post Type"
-msgstr ""
-
-#: inc/cpt-config.php:17
-msgid "Update Post Type"
-msgstr ""
-
-#: inc/cpt-config.php:18
-msgid "Add New Post Type"
-msgstr ""
-
-#: inc/cpt-config.php:19
-msgid "New Post Type Name"
-msgstr ""
-
-#: inc/cpt-config.php:54 inc/cpt-config.php:59
-msgid "Siddurim"
-msgstr ""
-
-#: inc/cpt-config.php:55
-msgid "My Siddur"
-msgstr ""
-
-#: inc/options.php:7 inc/options.php:7 inc/options.php:21
-msgid "Exodus Settings"
-msgstr ""
-
-#: inc/options.php:49
-msgid "Social Sharing Shortcodes"
-msgstr ""
-
-#: inc/options.php:50
-msgid "In Single Pages"
-msgstr ""
-
-#: inc/options.php:52
-msgid "Google Analytics"
-msgstr ""
-
-#: inc/options.php:53
-msgid "Tracking Code"
-msgstr ""
-
-#: inc/siddur.php:37
-msgid "Add to <b>My Siddur</b>"
-msgstr ""
-
-#: inc/siddur.php:40
-msgid "Add to <b>My Siddur</b> <small>(Login)</small>"
-msgstr ""
-
-#: inc/siddur.php:44
-msgid "Remove from <b>My Siddur</b>"
-msgstr ""
-
-#: inc/siddur.php:85
-msgid "Add to My Siddur"
-msgstr ""
-
-#: inc/siddur.php:88
-msgid "Add to My Siddur (Login First)"
-msgstr ""
-
-#: inc/siddur.php:92
-msgid "Remove from My Siddur"
-msgstr ""
-
-#: inc/template-tags.php:18
-msgid "About the Author"
-msgstr ""
-
-#: inc/template-tags.php:37
-msgid "Video"
-msgstr ""
-
-#: inc/template-tags.php:52
-msgid "Type N/A"
-msgstr ""
-
-#: inc/template-tags.php:64 inc/template-tags.php:84 inc/template-tags.php:84
-msgid "All Types"
-msgstr ""
-
-#: inc/template-tags.php:108 inc/template-tags.php:118
-#: inc/template-tags.php:118
-msgid "All Formats"
-msgstr ""
-
-#: inc/template-tags.php:224
-#, php-format
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr ""
-
-#: inc/template-tags.php:229
-#, php-format
-msgctxt "post author"
-msgid "by %s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:250 inc/template-tags.php:256
-msgid ", "
-msgstr ""
-
-#: inc/template-tags.php:252
-#, php-format
-msgid "Posted in %1$s"
-msgstr ""
-
-#: inc/template-tags.php:258
-#, php-format
-msgid "Tagged %1$s"
-msgstr ""
-
-#. translators: %s: post title
-#: inc/template-tags.php:265
-#, php-format
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: Name of current post
-#: inc/template-tags.php:272
-#, php-format
-msgid "Edit %s"
-msgstr ""
-
-#: inc/template-tags.php:336
-msgid "Older"
-msgstr ""
-
-#: inc/template-tags.php:337
-msgid "Newer"
-msgstr ""
-
-#: inc/template-tags.php:338
-msgid "Posts navigation"
-msgstr ""
-
-#: inc/template-tags.php:441 templates/content-single.php:12
-msgid "Not Set"
-msgstr ""
-
-#: templates/content-single-ritual.php:16 templates/content-single-text.php:14
-#: templates/content-single.php:46
-msgid "Categories:"
-msgstr ""
-
-#: templates/content-single-ritual.php:26
-msgid "Scenario"
-msgstr ""
-
-#: templates/content-single-ritual.php:29
-msgid "The Participants"
-msgstr ""
-
-#: templates/content-single-ritual.php:31
-msgid "Location"
-msgstr ""
-
-#: templates/content-single-ritual.php:33
-msgid "Timing"
-msgstr ""
-
-#: templates/content-single-ritual.php:39 templates/content-single-text.php:40
-msgid "Text Background"
-msgstr ""
-
-#: templates/content-single-text.php:24
-msgid "The Text"
-msgstr ""
-
-#: templates/content-single-text.php:29
-msgid "Text Source"
-msgstr ""
-
-#: templates/content-single-text.php:35
-msgid "Commentary"
-msgstr ""
-
-#: templates/content-single.php:41
-msgid "More about this..."
-msgstr ""
-
-#: templates/content-single.php:46
-#, php-format
-msgid "This %1$s article was posted on "
-msgstr ""
-
-#: templates/content.php:6
-#, php-format
-msgctxt "comments title"
-msgid "One Comment"
-msgid_plural "%1$s Comments"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/list-category.php:15 templates/list-category.php:25
-msgid "Communities"
-msgstr ""
-
-#: templates/related-content.php:2
-msgid "More About This"
-msgstr ""
-
-#: templates/related-content.php:6
-msgid "Related Texts"
-msgstr ""
-
-#: templates/related-content.php:28
-msgid "More Texts..."
-msgstr ""
-
-#: templates/related-content.php:33
-msgid "Related Rituals"
-msgstr ""
-
-#: templates/related-content.php:57
-msgid "More Rituals..."
-msgstr ""
-
-#. Name of the theme
-msgid "Exodus"
-msgstr ""
-
-#. Description of the theme
-msgid "Bootstrap Blog template converted to WordPress. Thanks Tania Rascia!"
-msgstr ""
-
-#. Author of the theme
-msgid "Itay Banner"
+#: vendors/acf.php:191
+msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr ""
