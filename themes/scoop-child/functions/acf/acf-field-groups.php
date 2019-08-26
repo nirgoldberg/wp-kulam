@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.7
+ * @version		1.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -200,6 +200,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
+	'modified' => 1560431236,
 ));
 
 acf_add_local_field_group(array(
@@ -270,6 +271,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
+	'modified' => 1560518021,
 ));
 
 acf_add_local_field_group(array(
@@ -359,6 +361,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
+	'modified' => 1560431260,
 ));
 
 acf_add_local_field_group(array(
@@ -402,6 +405,7 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
+	'modified' => 1560431267,
 ));
 
 acf_add_local_field_group(array(
@@ -567,6 +571,25 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'max_height' => '',
 			'max_size' => '',
 			'mime_types' => '',
+		),
+		array(
+			'key' => 'field_5d63767651bc8',
+			'label' => __('Enable Activity Types custom taxonomy', 'kulam-scoop'),
+			'name' => 'acf-option_enable_activity_types_custom_taxonomy',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
 		),
 	),
 	'location' => array(

@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.3.12
+ * @version     1.4.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 $formats		= array();
 $types			= array();
+$activities		= array();
 $categories		= array();
 
 // post formats
@@ -43,9 +44,30 @@ if ( $types ) {
 	}
 }
 
+// activity types
+
+$enable_activity_types = get_field( 'acf-option_enable_activity_types_custom_taxonomy', 'option' );
+
+if ( $enable_activity_types && true === $enable_activity_types ) {
+
+	$activity_types_args = array(
+		'taxonomy'		=> 'activity_types',
+		'hide_empty'	=> 0
+	);
+	$activity_types = get_terms( $activity_types_args );
+
+	if ( $activity_types ) {
+		foreach ( $activity_types as $key => $type ) {
+			if ( $type->count <= 5 ) {
+				unset( $activity_types[ $key ] );
+			}
+		}
+	}
+
+}
+
 // categories
 
-$categories	= array();
 $locations	= get_nav_menu_locations();
 $menu		= wp_get_nav_menu_object( $locations[ 'primary' ] );
 $menu_items	= wp_get_nav_menu_items( $menu->name );
@@ -139,6 +161,22 @@ if ( $menu_items ) {
 
 							<?php foreach ( $types as $t ) {
 								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'pt' ] ) && $t->slug == $_GET[ 'pt' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
+							} ?>
+
+						</select>
+					</span>
+
+				<?php }
+
+				if ( $activity_types ) { ?>
+
+					<span id="menu-search-input-activity-type" class="menu-search-input">
+						<select name="activity_type">
+
+							<option value=""><?php _e( 'Choose an activity type', 'kulam-scoop' ); ?></option>
+
+							<?php foreach ( $activity_types as $t ) {
+								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'activity_type' ] ) && $t->slug == $_GET[ 'activity_type' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
 							} ?>
 
 						</select>

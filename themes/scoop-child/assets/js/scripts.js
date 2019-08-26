@@ -146,10 +146,11 @@ var $ = jQuery,
 			// variables
 			var post_format = KULAM_general.get_url_param('post_format'),
 				pt = KULAM_general.get_url_param('pt'),
+				activity_type = KULAM_general.get_url_param('activity_type'),
 				cat = KULAM_general.get_url_param('cat'),
 				hide_as = KULAM_general.get_url_param('hide_as');
 
-			if (!(hide_as && hide_as == 1) && (post_format && post_format != 'N/A' || pt && pt != 'N/A' || cat && cat != 'N/A')) {
+			if (!(hide_as && hide_as == 1) && (post_format && post_format != 'N/A' || pt && pt != 'N/A' || activity_type && activity_type != 'N/A' || cat && cat != 'N/A')) {
 				KULAM_general.advance_search_open_all();
 			}
 

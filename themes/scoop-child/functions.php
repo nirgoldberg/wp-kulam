@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.4
+ * @version		1.4.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -43,7 +43,6 @@ require_once( 'functions/search.php' );
 /**
  *     SETUP FUNCTIONS
  */
-require_once('includes/cpt-config.php');           // Register Custom Post Types & Taxonomies locally
 require_once('vendors/acf.php');                   // ACF Functions
 
 // ACF field groups
@@ -52,6 +51,9 @@ require_once( 'functions/acf/acf-configuration.php' );
 if ( ! defined( 'USE_LOCAL_ACF_CONFIGURATION' ) || ! USE_LOCAL_ACF_CONFIGURATION ) {
 	require_once( 'functions/acf/acf-field-groups.php' );
 }
+
+// custom post types
+require_once( 'functions/post-types.php' );
 
 // my siddur
 require_once( 'functions/siddur.php' );

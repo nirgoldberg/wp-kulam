@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2019-08-23 15:51+0300\n"
+"POT-Creation-Date: 2019-08-26 10:42+0300\n"
 "PO-Revision-Date: 2019-08-21 17:56+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
@@ -64,18 +64,18 @@ msgid "Site Setup"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:35
-#: functions/acf/acf-field-groups.php:366
+#: functions/acf/acf-field-groups.php:369
 msgid "My Siddur Settings"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:36 functions/menus.php:29
-#: functions/shortcodes.php:28 includes/cpt-config.php:55 loop/archive.php:18
+#: functions/post-types.php:114 functions/shortcodes.php:28 loop/archive.php:18
 #: loop/single.php:18
 msgid "My Siddur"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:42
-#: functions/acf/acf-field-groups.php:409
+#: functions/acf/acf-field-groups.php:413
 msgid "General Settings"
 msgstr ""
 
@@ -132,102 +132,106 @@ msgstr ""
 msgid "rating name"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:207
-#: functions/acf/acf-field-groups.php:413
+#: functions/acf/acf-field-groups.php:208
+#: functions/acf/acf-field-groups.php:417
 msgid "Category Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:211
+#: functions/acf/acf-field-groups.php:212
 msgid "Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:235 includes/cpt-config.php:11
-#: includes/cpt-config.php:13 includes/cpt-config.php:23
+#: functions/acf/acf-field-groups.php:236 functions/post-types.php:50
+#: functions/post-types.php:52 functions/post-types.php:73
 msgid "Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:238
+#: functions/acf/acf-field-groups.php:239
 msgid "Leave this field empty to display default Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:277
+#: functions/acf/acf-field-groups.php:279
 msgid "User Information"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:281
+#: functions/acf/acf-field-groups.php:283
 msgid "Profile"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:284
+#: functions/acf/acf-field-groups.php:286
 msgid "Tell us something about yourself!"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:300
+#: functions/acf/acf-field-groups.php:302
 msgid "Gender"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:312
+#: functions/acf/acf-field-groups.php:314
 msgid "Female"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:313
+#: functions/acf/acf-field-groups.php:315
 msgid "Male"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:324
+#: functions/acf/acf-field-groups.php:326
 msgid "Date of Birth"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:370
+#: functions/acf/acf-field-groups.php:373
 msgid "Custom Label"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:429
+#: functions/acf/acf-field-groups.php:433
 msgid "Category Page Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:432
+#: functions/acf/acf-field-groups.php:436
 msgid ""
 "Default selected Post Types to be displayed in a category page.\n"
 "Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:452
+#: functions/acf/acf-field-groups.php:456
 msgid "Subcategory Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:468
+#: functions/acf/acf-field-groups.php:472
 msgid "Background color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:483
+#: functions/acf/acf-field-groups.php:487
 msgid "Font Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:498
+#: functions/acf/acf-field-groups.php:502
 msgid "Social"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:514
+#: functions/acf/acf-field-groups.php:518
 msgid "Google Analytics Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:517
+#: functions/acf/acf-field-groups.php:521
 msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:533
+#: functions/acf/acf-field-groups.php:537
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:549
+#: functions/acf/acf-field-groups.php:553
 msgid "Placeholder Thumbnail"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:552
+#: functions/acf/acf-field-groups.php:556
 msgid ""
 "This image will be shown whenever the post has neither \"featured video\" "
 "nor \"featured image\""
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:577
+msgid "Enable Activity Types custom taxonomy"
 msgstr ""
 
 #: functions/menus.php:54 functions/modal-login.php:34
@@ -270,6 +274,143 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
+#: functions/post-types.php:51
+msgid "Post Type"
+msgstr ""
+
+#: functions/post-types.php:53
+msgid "All Post Types"
+msgstr ""
+
+#: functions/post-types.php:54
+msgid "Edit Post Type"
+msgstr ""
+
+#: functions/post-types.php:55
+msgid "View Post Type"
+msgstr ""
+
+#: functions/post-types.php:56
+msgid "Update Post Type"
+msgstr ""
+
+#: functions/post-types.php:57
+msgid "Add New Post Type"
+msgstr ""
+
+#: functions/post-types.php:58
+msgid "New Post Type Name"
+msgstr ""
+
+#: functions/post-types.php:59
+msgid "Parent Post Type"
+msgstr ""
+
+#: functions/post-types.php:60
+msgid "Parent Post Type:"
+msgstr ""
+
+#: functions/post-types.php:61
+msgid "Search Post Types"
+msgstr ""
+
+#: functions/post-types.php:62
+msgid "Popular Post Types"
+msgstr ""
+
+#: functions/post-types.php:63
+msgid "Separate Post Types with commas"
+msgstr ""
+
+#: functions/post-types.php:64
+msgid "Add or remove Post Types"
+msgstr ""
+
+#: functions/post-types.php:65
+msgid "Choose from the most used Post Types"
+msgstr ""
+
+#: functions/post-types.php:66
+msgid "No Post Types found"
+msgstr ""
+
+#: functions/post-types.php:67
+msgid "← Back to Post Types"
+msgstr ""
+
+#: functions/post-types.php:113 functions/post-types.php:120
+msgid "Siddurim"
+msgstr ""
+
+#: functions/post-types.php:157 functions/post-types.php:159
+#: functions/post-types.php:180
+msgid "Activity Types"
+msgstr ""
+
+#: functions/post-types.php:158
+msgid "Activity Type"
+msgstr ""
+
+#: functions/post-types.php:160
+msgid "All Activity Types"
+msgstr ""
+
+#: functions/post-types.php:161
+msgid "Edit Activity Type"
+msgstr ""
+
+#: functions/post-types.php:162
+msgid "View Activity Type"
+msgstr ""
+
+#: functions/post-types.php:163
+msgid "Update Activity Type"
+msgstr ""
+
+#: functions/post-types.php:164
+msgid "Add New Activity Type"
+msgstr ""
+
+#: functions/post-types.php:165
+msgid "New Activity Type Name"
+msgstr ""
+
+#: functions/post-types.php:166
+msgid "Parent Activity Type"
+msgstr ""
+
+#: functions/post-types.php:167
+msgid "Parent Activity Type:"
+msgstr ""
+
+#: functions/post-types.php:168
+msgid "Search Activity Types"
+msgstr ""
+
+#: functions/post-types.php:169
+msgid "Popular Activity Types"
+msgstr ""
+
+#: functions/post-types.php:170
+msgid "Separate Activity Types with commas"
+msgstr ""
+
+#: functions/post-types.php:171
+msgid "Add or remove Activity Types"
+msgstr ""
+
+#: functions/post-types.php:172
+msgid "Choose from the most used Activity Types"
+msgstr ""
+
+#: functions/post-types.php:173
+msgid "No Activity Types found"
+msgstr ""
+
+#: functions/post-types.php:174
+msgid "← Back to Activity Types"
+msgstr ""
+
 #: functions/shortcodes.php:31
 msgid "Posts"
 msgstr ""
@@ -286,7 +427,7 @@ msgstr ""
 msgid "Save your favorite contents"
 msgstr ""
 
-#: functions/theme.php:162 partials/search.php:122
+#: functions/theme.php:162 partials/search.php:144
 msgid "Text"
 msgstr ""
 
@@ -309,38 +450,6 @@ msgstr ""
 
 #: includes/class-pojo-child-customize-register-fields.php:19
 msgid "Logo"
-msgstr ""
-
-#: includes/cpt-config.php:12
-msgid "Post Type"
-msgstr ""
-
-#: includes/cpt-config.php:14
-msgid "All Post Types"
-msgstr ""
-
-#: includes/cpt-config.php:15
-msgid "Edit Post Type"
-msgstr ""
-
-#: includes/cpt-config.php:16
-msgid "View Post Type"
-msgstr ""
-
-#: includes/cpt-config.php:17
-msgid "Update Post Type"
-msgstr ""
-
-#: includes/cpt-config.php:18
-msgid "Add New Post Type"
-msgstr ""
-
-#: includes/cpt-config.php:19
-msgid "New Post Type Name"
-msgstr ""
-
-#: includes/cpt-config.php:54 includes/cpt-config.php:59
-msgid "Siddurim"
 msgstr ""
 
 #: loop/archive.php:46 loop/archive.php:48 loop/archive.php:50
@@ -454,35 +563,39 @@ msgstr ""
 msgid "Next Post &raquo;"
 msgstr ""
 
-#: partials/search.php:97
+#: partials/search.php:119
 msgid "Search..."
 msgstr ""
 
-#: partials/search.php:97
+#: partials/search.php:119
 msgid "Free text..."
 msgstr ""
 
-#: partials/search.php:101 partials/search.php:161
+#: partials/search.php:123 partials/search.php:199
 msgid "Search"
 msgstr ""
 
-#: partials/search.php:108
+#: partials/search.php:130
 msgid "Advanced Search"
 msgstr ""
 
-#: partials/search.php:112
+#: partials/search.php:134
 msgid "Please select at least one field and click Search"
 msgstr ""
 
-#: partials/search.php:121
+#: partials/search.php:143
 msgid "Choose a post format"
 msgstr ""
 
-#: partials/search.php:138
+#: partials/search.php:160
 msgid "Choose a post type"
 msgstr ""
 
-#: partials/search.php:152
+#: partials/search.php:176
+msgid "Choose an activity type"
+msgstr ""
+
+#: partials/search.php:190
 msgid "Type category name"
 msgstr ""
 
