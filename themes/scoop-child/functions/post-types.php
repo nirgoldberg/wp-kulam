@@ -142,7 +142,8 @@ function kulam_register_siddurim() {
  */
 function kulam_register_activity_types() {
 
-	$enable_activity_types = get_field( 'acf-option_enable_activity_types_custom_taxonomy', 'option' );
+	$enable_activity_types	= get_field( 'acf-option_enable_activity_types_custom_taxonomy', 'option' );
+	$is_visible				= $enable_activity_types && true === $enable_activity_types;
 
 	$labels = array(
 
@@ -172,15 +173,15 @@ function kulam_register_activity_types() {
 		'label'					=> __( 'Activity Types', 'kulam-scoop' ),
 		'labels'				=> $labels,
 		'public'				=> true,
-		'publicly_queryable'	=> $enable_activity_types,
-		'show_ui'				=> $enable_activity_types,
-		'show_in_menu'			=> $enable_activity_types,
-		'show_in_nav_menus'		=> $enable_activity_types,
+		'publicly_queryable'	=> $is_visible,
+		'show_ui'				=> $is_visible,
+		'show_in_menu'			=> $is_visible,
+		'show_in_nav_menus'		=> $is_visible,
 		'show_in_rest'			=> false,
 		'rest_base'				=> 'activity_types',
-		'show_tagcloud'			=> $enable_activity_types,
-		'show_in_quick_edit'	=> $enable_activity_types,
-		'show_admin_column'		=> $enable_activity_types,
+		'show_tagcloud'			=> $is_visible,
+		'show_in_quick_edit'	=> $is_visible,
+		'show_admin_column'		=> $is_visible,
 		'description'			=> '',
 		'hierarchical'			=> true,
 		'query_var'				=> 'activity_type',
