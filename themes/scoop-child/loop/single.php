@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.4.0
+ * @version		1.4.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -346,6 +346,8 @@ if ( $enable_activity_types && true === $enable_activity_types ) {
 
 						<?php
 							if ( $activity_types ) {
+
+								$types_arr = array();
 
 								foreach ( $activity_types as $t ) {
 									$types_arr[] = '<a href="' . get_term_link( $t->term_id ) . '" rel="tag">' . $t->name . '</a>';
