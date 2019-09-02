@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.4.2
+ * @version     1.4.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -40,7 +40,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 	$menu_obj				= get_term( $theme_locations[ 'homepage_tiles' ], 'nav_menu' );
 	$homepage_tiles			= wp_get_nav_menu_items( $menu_obj->term_id );
 
-	$markup = '<div id="homepage-tiles"><div class="row">';
+	$markup = '<div id="homepage-tiles" class="container"' . ( $categories_in_row ? ' data-cat-in-row="' . $categories_in_row . '"' : '' ) . '><div class="row">';
 
 	if ( $homepage_tiles ) {
 
@@ -57,7 +57,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 			$cat_desc_content			= '';
 			$cat_desc_btn				= '';
 
-			$classes = 'tile-box-wrapper col-sm-3 col-xs-6' . ( $category_description ? ' cat-desc' : '' ) . ( $homepage_tile_bg ? ' tile-bg' : '' ) . ( $categories_in_row ? ' cat-in-row-' . $categories_in_row : '' );
+			$classes = 'tile-box-wrapper col-sm-3 col-xs-6' . ( $category_description ? ' cat-desc' : '' ) . ( $homepage_tile_bg ? ' tile-bg' : '' );
 
 			if ( $category_description ) {
 
@@ -88,39 +88,35 @@ function kulam_generate_homepage_tiles( $atts ) {
 
 	}
 
-	if ( 5 != $categories_in_row ) {
-
-		// custom tile for "Upload"
-		$markup .=
-			'<div class="tile-box-wrapper tile-box-upload col-sm-3 col-xs-6">' .
-				'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link">' .
-					'<div class="tile-box">' .
-						'<div class="tile-box-content">' .
-							'<i class="fa fa-cloud-upload"></i>' .
-							'<h2>' . $a[ 'upload_label' ] . '</h2>' .
-							'<p>' . $a[ 'upload_sub' ] . '</p>' .
-						'</div>' .
+	// custom tile for "Upload"
+	$markup .=
+		'<div class="tile-box-wrapper tile-box-upload col-sm-3 col-xs-6">' .
+			'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link">' .
+				'<div class="tile-box">' .
+					'<div class="tile-box-content">' .
+						'<i class="fa fa-cloud-upload"></i>' .
+						'<h2>' . $a[ 'upload_label' ] . '</h2>' .
+						'<p>' . $a[ 'upload_sub' ] . '</p>' .
 					'</div>' .
-				'</a>' .
-			'</div>';
+				'</div>' .
+			'</a>' .
+		'</div>';
 
-		// custom tile for "My Siddur"
-		$markup .=
-			'<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
-				( ( is_user_logged_in() ) ?
-				'<a href="/my-siddur" role="link" class="tile-box-link">' :
-				'<a href="#" role="link" class="tile-box-link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true">' ) .
-					'<div class="tile-box albumsiddur">' .
-						'<div class="tile-box-content">' .
-							'<i class="fa fa-book"></i>' .
-							'<h2>' . $a[ 'my_siddur_label' ] . '</h2>' .
-							'<p>' . $a[ 'my_siddur_sub' ] . '</p>' .
-						'</div>' .
+	// custom tile for "My Siddur"
+	$markup .=
+		'<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
+			( ( is_user_logged_in() ) ?
+			'<a href="/my-siddur" role="link" class="tile-box-link">' :
+			'<a href="#" role="link" class="tile-box-link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true">' ) .
+				'<div class="tile-box albumsiddur">' .
+					'<div class="tile-box-content">' .
+						'<i class="fa fa-book"></i>' .
+						'<h2>' . $a[ 'my_siddur_label' ] . '</h2>' .
+						'<p>' . $a[ 'my_siddur_sub' ] . '</p>' .
 					'</div>' .
-				'</a>' .
-			'</div>';
-
-	}
+				'</div>' .
+			'</a>' .
+		'</div>';
 
 	$markup .= '</div></div>';
 

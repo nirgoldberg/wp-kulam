@@ -29,6 +29,9 @@ var $ = jQuery,
 			// accessibility icon direction
 			KULAM_general.a11y_icon_direction();
 
+			// homepage grid
+			KULAM_general.homepage_grid();
+
 			// page title
 			KULAM_general.page_title();
 
@@ -67,6 +70,31 @@ var $ = jQuery,
 			}
 			else {
 				icon.removeClass('pojo-a11y-toolbar-left').addClass('pojo-a11y-toolbar-right');
+			}
+
+		},
+
+		/**
+		 * homepage_grid
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		homepage_grid : function() {
+
+			// variables
+			var grid = $('#homepage-tiles');
+
+			if (grid.length) {
+				var cat_in_row = grid.data('cat-in-row'),
+					grid_wrap = grid.closest('.elementor-container');
+
+				// set grid layout according to number of categories in row
+				if (cat_in_row && cat_in_row > 4) {
+					grid_wrap.css('max-width', 'none');
+				}
 			}
 
 		},
@@ -932,6 +960,37 @@ var $ = jQuery,
 		},
 
 		/**
+		 * homepage_grid_columns
+		 *
+		 * Called from loaded
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		homepage_grid_columns : function() {
+
+			// variables
+			var grid = $('#homepage-tiles');
+
+			if (grid.length) {
+				var cat_in_row = grid.data('cat-in-row'),
+					grid_columns = grid.find('.tile-box-wrapper');
+
+				// set grid columns layout according to number of categories in row
+				if (cat_in_row && cat_in_row > 4 && KULAM_general.params.breakpoint >= 992) {
+					grid.css('max-width', '100%');
+					grid_columns.css('width', 100/cat_in_row + '%');
+				}
+				else {
+					grid.css('max-width', '');
+					grid_columns.css('width', '');
+				}
+
+			}
+
+		},
+
+		/**
 		 * breakpoint_refreshValue
 		 *
 		 * Set window breakpoint values
@@ -988,6 +1047,9 @@ var $ = jQuery,
 
 			// accessibility icon auto position
 			KULAM_general.a11y_icon_top();
+
+			// homepage grid columns
+			KULAM_general.homepage_grid_columns();
 
 		}
 

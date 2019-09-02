@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.4.2
+ * @version		1.4.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -433,8 +433,7 @@ acf_add_local_field_group(array(
 			'label' => __('Categories in Row', 'kulam-scoop'),
 			'name' => 'acf-option_homepage_categories_in_row',
 			'type' => 'range',
-			'instructions' => __('Default is 4 categories in a row (Desktop resolution).
-Setting a bigger number will also remove "My Siddur" and "Uploads" tiles from homepage grid', 'kulam-scoop'),
+			'instructions' => '',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -444,7 +443,7 @@ Setting a bigger number will also remove "My Siddur" and "Uploads" tiles from ho
 			),
 			'default_value' => 4,
 			'min' => 4,
-			'max' => 5,
+			'max' => 6,
 			'step' => 1,
 			'prepend' => '',
 			'append' => '',

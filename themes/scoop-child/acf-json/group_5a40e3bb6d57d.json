@@ -23,7 +23,7 @@
             "label": "Categories in Row",
             "name": "acf-option_homepage_categories_in_row",
             "type": "range",
-            "instructions": "Default is 4 categories in a row (Desktop resolution).\r\nSetting a bigger number will also remove \"My Siddur\" and \"Uploads\" tiles from homepage grid",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -33,7 +33,7 @@
             },
             "default_value": 4,
             "min": 4,
-            "max": 5,
+            "max": 6,
             "step": 1,
             "prepend": "",
             "append": ""
@@ -234,5 +234,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1567409740
+    "modified": 1567420601
 }
