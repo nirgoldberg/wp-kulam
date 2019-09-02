@@ -947,18 +947,21 @@ var $ = jQuery,
 			if (grid.length) {
 				var cat_in_row = grid.data('cat-in-row'),
 					header_container = $('header#header > .container'),
+					sticky_header_container = $('.sticky-header > .container'),
 					grid_wrap = grid.closest('.elementor-container'),
 					grid_columns = grid.find('.tile-box-wrapper');
 
 				// set grid columns layout according to number of categories in row
 				if (cat_in_row && cat_in_row > 4 && KULAM_general.params.breakpoint >= 992) {
 					header_container.css('max-width', '100%');
+					sticky_header_container.css('max-width', '100%');
 					grid_wrap.css('max-width', 'none');
 					grid.css('max-width', '100%');
 					grid_columns.css('width', 100/cat_in_row + '%');
 				}
 				else {
 					header_container.css('max-width', '');
+					sticky_header_container.css('max-width', '');
 					grid.css('max-width', '');
 					grid_columns.css('width', '');
 				}

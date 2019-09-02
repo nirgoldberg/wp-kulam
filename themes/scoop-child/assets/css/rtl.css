@@ -35,6 +35,14 @@ header .logo .login,
 	float: left;
 }
 
+/*******************/
+/* navigation menu */
+/*******************/
+
+.nav-main {
+	float: right !important;
+}
+
 /*****************/
 /* auto complete */
 /*****************/

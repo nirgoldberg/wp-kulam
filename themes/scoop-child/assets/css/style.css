@@ -195,7 +195,7 @@ header .logo .login a,
 /*******************/
 
 .nav-main {
-	width: 62%;
+	float: left !important;
 }
 
 .nav-main .nav-main-inner {
