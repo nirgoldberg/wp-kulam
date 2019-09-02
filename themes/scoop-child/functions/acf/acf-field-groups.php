@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.4.4
+ * @version		1.4.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -660,6 +660,25 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'key' => 'field_5d63767651bc8',
 			'label' => __('Enable Activity Types custom taxonomy', 'kulam-scoop'),
 			'name' => 'acf-option_enable_activity_types_custom_taxonomy',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+		),
+		array(
+			'key' => 'field_5d6d6e5390f33',
+			'label' => __('Enable Audiences custom taxonomy', 'kulam-scoop'),
+			'name' => 'acf-option_enable_audiences_custom_taxonomy',
 			'type' => 'true_false',
 			'instructions' => '',
 			'required' => 0,

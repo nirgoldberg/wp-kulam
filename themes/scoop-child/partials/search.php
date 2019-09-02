@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.4.0
+ * @version     1.4.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -58,8 +58,30 @@ if ( $enable_activity_types && true === $enable_activity_types ) {
 
 	if ( $activity_types ) {
 		foreach ( $activity_types as $key => $type ) {
-			if ( $type->count <= 5 ) {
+			if ( $type->count <= 1 ) {
 				unset( $activity_types[ $key ] );
+			}
+		}
+	}
+
+}
+
+// audiences
+
+$enable_audiences = get_field( 'acf-option_enable_audiences_custom_taxonomy', 'option' );
+
+if ( $enable_audiences && true === $enable_audiences ) {
+
+	$audiences_args = array(
+		'taxonomy'		=> 'audiences',
+		'hide_empty'	=> 0
+	);
+	$audiences = get_terms( $audiences_args );
+
+	if ( $audiences ) {
+		foreach ( $audiences as $key => $audience ) {
+			if ( $audience->count <= 1 ) {
+				unset( $audiences[ $key ] );
 			}
 		}
 	}
@@ -177,6 +199,22 @@ if ( $menu_items ) {
 
 							<?php foreach ( $activity_types as $t ) {
 								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'activity_type' ] ) && $t->slug == $_GET[ 'activity_type' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
+							} ?>
+
+						</select>
+					</span>
+
+				<?php }
+
+				if ( $audiences ) { ?>
+
+					<span id="menu-search-input-audience" class="menu-search-input">
+						<select name="audience">
+
+							<option value=""><?php _e( 'Choose an audience', 'kulam-scoop' ); ?></option>
+
+							<?php foreach ( $audiences as $t ) {
+								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'audience' ] ) && $t->slug == $_GET[ 'audience' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
 							} ?>
 
 						</select>

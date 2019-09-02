@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.4.1
+ * @version		1.4.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,6 +25,14 @@ $enable_activity_types	= get_field( 'acf-option_enable_activity_types_custom_tax
 if ( $enable_activity_types && true === $enable_activity_types ) {
 
 	$activity_types = wp_get_post_terms( $post_id, 'activity_types' );
+
+}
+
+$enable_audiences		= get_field( 'acf-option_enable_audiences_custom_taxonomy', 'option' );
+
+if ( $enable_audiences && true === $enable_audiences ) {
+
+	$audiences = wp_get_post_terms( $post_id, 'audiences' );
 
 }
 
@@ -341,7 +349,7 @@ if ( $enable_activity_types && true === $enable_activity_types ) {
 							<?php pojo_button_post_edit(); ?>
 						</div>
 						<?php $tags = get_the_tags(); if ( $tags ) : ?>
-							<div class="entry-tags"><?php the_tags( '', ' ' ); ?></div>
+							<div class="entry-tags"><small><?php _e( 'Tags: ', 'kulam-scoop' ); ?></small><?php the_tags( '', ' ' ); ?></div>
 						<?php endif; ?>
 
 						<?php
@@ -353,7 +361,19 @@ if ( $enable_activity_types && true === $enable_activity_types ) {
 									$types_arr[] = '<a href="' . get_term_link( $t->term_id ) . '" rel="tag">' . $t->name . '</a>';
 								}
 
-								echo '<div class="entry-tags">' . implode( ' ', $types_arr ) . '</div>';
+								echo '<div class="entry-tags"><small>' . __( 'Activity Types: ', 'kulam-scoop' ) . '</small>' . implode( ' ', $types_arr ) . '</div>';
+
+							}
+
+							if ( $audiences ) {
+
+								$audiences_arr = array();
+
+								foreach ( $audiences as $t ) {
+									$audiences_arr[] = '<a href="' . get_term_link( $t->term_id ) . '" rel="tag">' . $t->name . '</a>';
+								}
+
+								echo '<div class="entry-tags"><small>' . __( 'Audiences: ', 'kulam-scoop' ) . '</small>' . implode( ' ', $audiences_arr ) . '</div>';
 
 							}
 						?>
