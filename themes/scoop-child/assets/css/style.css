@@ -280,6 +280,8 @@ header .logo .login a,
 			180deg,
 			rgba(255,255,255,0.3) 36%,
 			rgba(145,7,48,0.45) 100%);
+	background-position: 50% 50%;
+	background-size: cover;
 	text-align: center;
 }
 

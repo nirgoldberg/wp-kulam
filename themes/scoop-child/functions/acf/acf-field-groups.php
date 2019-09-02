@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.4.3
+ * @version		1.4.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -447,6 +447,54 @@ acf_add_local_field_group(array(
 			'step' => 1,
 			'prepend' => '',
 			'append' => '',
+		),
+		array(
+			'key' => 'field_5d6d5b6e9011b',
+			'label' => __('My Siddur Tile Background Image', 'kulam-scoop'),
+			'name' => 'acf-option_my_siddur_tile_background_image',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
+		),
+		array(
+			'key' => 'field_5d6d5bca9011c',
+			'label' => __('Upload Tile Background Image', 'kulam-scoop'),
+			'name' => 'acf-option_upload_tile_background_image',
+			'type' => 'image',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+			'preview_size' => 'thumbnail',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => '',
 		),
 		array(
 			'key' => 'field_5d028ffc43370',

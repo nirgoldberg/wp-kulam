@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.4.3
+ * @version     1.4.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -24,9 +24,13 @@ function kulam_generate_homepage_tiles( $atts ) {
 	/**
 	 * Variables
 	 */
-	$categories_in_row		= get_field( 'acf-option_homepage_categories_in_row', 'option' );
-	$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
-	$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
+	$categories_in_row			= get_field( 'acf-option_homepage_categories_in_row', 'option' );
+	$my_siddur_custom_label		= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+	$my_siddur_label			= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
+	$my_siddur_tile_bg			= get_field( 'acf-option_my_siddur_tile_background_image', 'option' );
+	$my_siddur_tile_bg_markup	= $my_siddur_tile_bg ? 'style="background-image: url(\'' . $my_siddur_tile_bg[ 'url' ] . '\');"' : '';
+	$upload_tile_bg				= get_field( 'acf-option_upload_tile_background_image', 'option' );
+	$upload_tile_bg_markup		= $upload_tile_bg ? 'style="background-image: url(\'' . $upload_tile_bg[ 'url' ] . '\');"' : '';
 
 	$a = shortcode_atts( array(
 		'view-all_label'	=> __( 'Posts', 'kulam-scoop' ),
@@ -91,7 +95,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 	// custom tile for "Upload"
 	$markup .=
 		'<div class="tile-box-wrapper tile-box-upload col-sm-3 col-xs-6">' .
-			'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link">' .
+			'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link" ' . $upload_tile_bg_markup . '>' .
 				'<div class="tile-box">' .
 					'<div class="tile-box-content">' .
 						'<i class="fa fa-cloud-upload"></i>' .
@@ -106,8 +110,8 @@ function kulam_generate_homepage_tiles( $atts ) {
 	$markup .=
 		'<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
 			( ( is_user_logged_in() ) ?
-			'<a href="/my-siddur" role="link" class="tile-box-link">' :
-			'<a href="#" role="link" class="tile-box-link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true">' ) .
+			'<a href="/my-siddur" role="link" class="tile-box-link"' . $my_siddur_tile_bg_markup . '>' :
+			'<a href="#" role="link" class="tile-box-link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true"' . $my_siddur_tile_bg_markup . '>' ) .
 				'<div class="tile-box albumsiddur">' .
 					'<div class="tile-box-content">' .
 						'<i class="fa fa-book"></i>' .
