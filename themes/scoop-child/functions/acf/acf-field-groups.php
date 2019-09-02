@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.4.0
+ * @version		1.4.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -412,6 +412,43 @@ acf_add_local_field_group(array(
 	'key' => 'group_5a40e3bb6d57d',
 	'title' => __('General Settings', 'kulam-scoop'),
 	'fields' => array(
+		array(
+			'key' => 'field_5d6cbdbcddbb1',
+			'label' => __('Homepage', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5d6cbdd6ddbb2',
+			'label' => __('Categories in Row', 'kulam-scoop'),
+			'name' => 'acf-option_homepage_categories_in_row',
+			'type' => 'range',
+			'instructions' => __('Default is 4 categories in a row (Desktop resolution).
+Setting a bigger number will also remove "My Siddur" and "Uploads" tiles from homepage grid', 'kulam-scoop'),
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 4,
+			'min' => 4,
+			'max' => 5,
+			'step' => 1,
+			'prepend' => '',
+			'append' => '',
+		),
 		array(
 			'key' => 'field_5d028ffc43370',
 			'label' => __('Category Attributes', 'kulam-scoop'),

@@ -238,6 +238,10 @@ header .logo .login a,
 	display: block;
 }
 
+.tile-box-wrapper.cat-in-row-5 .tile-box-link {
+	height: 200px;
+}
+
 .tile-box-link,
 .tile-box-link:hover {
 	color: #FFF;
@@ -1451,7 +1455,16 @@ output:lang(he-IL) {
 
 }
 
-@media (min-width: 481px) {}
+@media (min-width: 481px) {
+
+	/********************/
+	/* categories tiles */
+	/********************/
+
+	.tile-box-wrapper.cat-in-row-5 {
+		max-width: 230px;
+	}
+}
 
 @media (min-width: 992px) and (max-width: 1199px) {}
 
