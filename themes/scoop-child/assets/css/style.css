@@ -25,6 +25,7 @@ header .logo,
 	margin: 0;
 	padding: 0;
 	width: 15%;
+	max-width: 171px;
 	max-height: unset;
 }
 
@@ -48,6 +49,7 @@ header .logo img,
 	position: relative;
 	float: right;
 	width: 20%;
+	max-width: 230px;
 	line-height: normal !important;
 }
 
