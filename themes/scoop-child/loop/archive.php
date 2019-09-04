@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.3.1
+ * @version		1.4.7
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -155,7 +155,7 @@ if ( have_posts() ) {
 					<div class="post-type-posts-grid <?php echo $single_post_type ? 'single-post-type open' : ''; ?>">
 
 						<h2 class="post-type-title"><?php echo $post_type->name; ?></h2>
-						<p><a class="post-type-sub-title more" data-toggle="<?php printf( __( 'Click for less %s', 'kulam-scoop' ), $post_type->name ); ?>"><?php printf( __( 'Click for more %s', 'kulam-scoop' ), $post_type->name ); ?></a></p>
+						<p><a class="post-type-sub-title more" data-toggle="<?php printf( __( 'Show less <i>%s</i> content', 'kulam-scoop' ), $post_type->name ); ?> <span>&uarr;</span>"><?php printf( __( 'Show more <i>%s</i> content', 'kulam-scoop' ), $post_type->name ); ?> <span>&darr;</span></a></p>
 
 						<?php do_action( 'pojo_before_content_loop', $display_type );
 
@@ -177,7 +177,7 @@ if ( have_posts() ) {
 
 						do_action( 'pojo_after_content_loop', $display_type ); ?>
 
-						<p><a class="post-type-sub-title less"><?php printf( __( 'Click for less %s', 'kulam-scoop' ), $post_type->name ); ?></a></p>
+						<p><a class="post-type-sub-title less"><?php printf( __( 'Show less <i>%s</i> content', 'kulam-scoop' ), $post_type->name ); ?> <span>&uarr;</span></a></p>
 
 					</div><!-- .post-type-posts-grid -->
 

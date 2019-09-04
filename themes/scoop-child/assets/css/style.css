@@ -512,7 +512,12 @@ body.modal-open,
 	-moz-transition:	none;
 	-o-transition:		none;
 	transition:			none;
+}
 
+.post-type-posts-grid .post-type-sub-title span {
+	margin: 0 5px;
+	font-size: 31px;
+	vertical-align: top;
 }
 
 .post-type-posts-grid .post-type-sub-title.more,

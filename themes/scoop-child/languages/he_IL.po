@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2019-09-03 00:56+0300\n"
-"PO-Revision-Date: 2019-09-03 00:57+0300\n"
+"POT-Creation-Date: 2019-09-04 17:00+0300\n"
+"PO-Revision-Date: 2019-09-04 17:05+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -575,13 +575,13 @@ msgstr "ארכיון"
 
 #: loop/archive.php:158 loop/archive.php:180
 #, php-format
-msgid "Click for less %s"
-msgstr "הקלק לפחות %s"
+msgid "Show less <i>%s</i> content"
+msgstr "הצג פחות תכני <i>%s</i>"
 
 #: loop/archive.php:158
 #, php-format
-msgid "Click for more %s"
-msgstr "הקלק לעוד %s"
+msgid "Show more <i>%s</i> content"
+msgstr "הצג תכני <i>%s</i> נוספים"
 
 #: loop/page.php:50
 msgid "&laquo; Previous"
@@ -776,24 +776,3 @@ msgstr "עדכון חשבון"
 #: vendors/acf.php:191
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
-
-#~ msgid "Choose a category"
-#~ msgstr "בחר קטגוריה"
-
-#~ msgid "Video Unavailable"
-#~ msgstr "וידאו לא זמן"
-
-#~ msgid "Back to category"
-#~ msgstr "חזרה"
-
-#~ msgid "Article"
-#~ msgstr "מאמר"
-
-#~ msgid "My Album"
-#~ msgstr "האלבום שלי"
-
-#~ msgid "Read more"
-#~ msgstr "קרא עוד"
-
-#~ msgid "Itay Banner"
-#~ msgstr "איתי בנר"
