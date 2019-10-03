@@ -95,9 +95,11 @@ if ( is_user_logged_in() ) :
 		<?php if ( $folder_data ) { ?>
 
 			<div class="shere-section">
+				<?php /* nir goldberg - temporarily removed
 				<a class="entry-mail pojo-tooltip" id="send">
 					<span class="fa fa-envelope-o"></span>
 				</a>
+				*/ ?>
 				<a class="entry-facebook pojo-tooltip" id="facebook-share" target="_blank">
 					<span class="fa fa-facebook"></span>
 				</a>
