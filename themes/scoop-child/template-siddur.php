@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.6
+ * @version		1.4.8
  */
 get_header();
 
@@ -30,10 +30,14 @@ if ( is_user_logged_in() ) :
 				<div class="close-popup-folders">+</div>
 				<div class="all-input">
 
-					<?php foreach ( $folders as $folder ) { ?>
+					<?php foreach ( $folders as $folder ) {
 
-						<input type="radio" value="<?php echo $folder; ?>" id="<?php echo $folder; ?>" name="option" />
-						<span><?php echo $folder; ?></span></br>
+						$folder_name = ( is_array( $folder ) ) ? $folder[ 'name' ] : $folder;
+
+						?>
+
+						<input type="radio" value="<?php echo $folder_name; ?>" id="<?php echo $folder_name; ?>" name="option" />
+						<span><?php echo $folder_name; ?></span></br>
 
 					<?php } ?>
 
@@ -51,6 +55,7 @@ if ( is_user_logged_in() ) :
 			<label class="name"><?php _e( 'Folder Name', 'kulam-scoop' ); ?></label>
 			<div class="notice"><?php _e( 'Allowed characters: digits, letters, spaces and dashes', 'kulam-scoop' ); ?></div>
 			<input type="text" id="name-folder" >
+			<textarea rows="4" id="folder-description" placeholder="<?php _e( 'Folder description', 'kulam-scoop' ); ?>"></textarea>
 			<input type="submit" class="add-save-folder" value="<?php _e( 'Add', 'kulam-scoop' ); ?>" />
 		</div>
 	</div><!-- .popup-new-folder#new-fold -->
@@ -63,12 +68,16 @@ if ( is_user_logged_in() ) :
 
 			<div class="wrap-all-folders">
 
-				<?php foreach ( $folders as $folder ) { ?>
+				<?php foreach ( $folders as $folder ) {
+
+					$folder_name = ( is_array( $folder ) ) ? $folder[ 'name' ] : $folder;
+
+					?>
 
 					<div class="single-folder-wrap">
-						<a href="<?php echo home_url( '/my-siddur-folder' ); ?>?folder=<?php echo urlencode( $folder ); ?>">
+						<a href="<?php echo home_url( '/my-siddur-folder' ); ?>?folder=<?php echo urlencode( $folder_name ); ?>">
 							<div class="link-folder">
-								<div class="folder"><?php echo esc_html( $folder ); ?></div>
+								<div class="folder"><?php echo esc_html( $folder_name ); ?></div>
 							</div>
 						</a>
 					</div>

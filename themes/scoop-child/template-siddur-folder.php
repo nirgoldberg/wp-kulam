@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.3.6
+ * @version		1.4.8
  */
 get_header();
 
@@ -21,6 +21,20 @@ if ( is_user_logged_in() ) :
 	$folder_data	= get_user_meta( $user_id, $folder . $site_id, true );
 	$folder_data	= json_decode( $folder_data, true );
 	$page_template	= basename( get_page_template() );
+
+	// get folder description
+	$folders		= get_user_meta( $user_id, 'nameFolder' . $site_id, true );
+	$folders		= $folders ? json_decode( $folders, true ) : array();
+	$folder_desc	= '';
+
+	if ( is_array( $folders ) ) {
+		foreach ( $folders as $folder_arr ) {
+			if ( is_array( $folder_arr ) && $folder == $folder_arr[ 'name' ] ) {
+				$folder_desc = $folder_arr[ 'description' ];
+				break;
+			}
+		}
+	}
 
 	?>
 
@@ -57,6 +71,7 @@ if ( is_user_logged_in() ) :
 				<span>*<?php _e( 'Here you can rename the folder', 'kulam-scoop' ); ?></span>
 				<div class="notice"><?php _e( 'Allowed characters: digits, letters, spaces and dashes', 'kulam-scoop' ); ?></div>
 				<input type="text" value="<?php echo $folder; ?>" id="name-new-folder" />
+				<textarea rows="4" id="folder-description" placeholder="<?php _e( 'Folder description', 'kulam-scoop' ); ?>"></textarea>
 				<div id="wrap-checkbox">
 					<input type="checkbox" id="del" />
 					<label class="labal-del" for="del"><?php _e( 'Delete this folder?', 'kulam-scoop' ); ?></label>
@@ -116,6 +131,14 @@ if ( is_user_logged_in() ) :
 					<span class="fa fa-clipboard"></span>
 				</a>
 			</div>
+
+			<?php if ( $folder_desc ) { ?>
+
+				<div class="folder-description">
+					<?php echo $folder_desc; ?>
+				</div><!-- .folder-description -->
+
+			<?php } ?>
 
 			<?php $args = array(
 				'post_type'			=> 'post',

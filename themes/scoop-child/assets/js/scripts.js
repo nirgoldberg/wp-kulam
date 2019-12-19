@@ -1127,13 +1127,14 @@ jQuery(document).ready(function ($) {
 		var data = {
 			action: "add-folder",
 			nameFolder: $('#name-folder').val(),
+			folderDesc: $('#folder-description').val(),
 			security: ajaxdata.ajax_nonce
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
-			if (response === "Success0") {
+			if (response === "Success") {
 				location.reload();
 			}
-			else if (response === "no0") {
+			else if (response === "no") {
 				alert("Please select a different name for the folder, this folder exists");
 				$('loader').hide();
 				location.reload();

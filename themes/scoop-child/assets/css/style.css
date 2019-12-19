@@ -561,6 +561,10 @@ body.modal-open,
 	clear: both;
 }
 
+.folder-description {
+	margin: 15px 0;
+}
+
 /***********/
 /* general */
 /***********/
@@ -781,9 +785,14 @@ div#new-fold
 }
 
 input#name-folder,
-input#name-new-folder {
+input#name-new-folder,
+textarea#folder-description {
 	margin: 10px 0;
 	max-width: 400px;
+}
+
+textarea#folder-description {
+	resize: none;
 }
 
 .popup-form,

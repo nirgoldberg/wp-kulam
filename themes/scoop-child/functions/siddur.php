@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.3.9
+ * @version		1.4.8
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -517,35 +517,70 @@ function kulam_update_folder_name( $folder, $folder_new ) {
 
 /********************************************************************/
 
+function addFolder() {
 
+	/**
+	 * Variables
+	 */
+	$folder_name		= isset( $_POST[ 'nameFolder' ] )	? $_POST[ 'nameFolder' ]	: '';
+	$folder_description	= isset( $_POST[ 'folderDesc' ] )	? $_POST[ 'folderDesc' ]	: '';
 
-add_action("wp_ajax_add-folder","addFolder",10,1);
-function addFolder()
-{
-	if(isset($_POST['nameFolder']))
-	   $name_folder = preg_replace( '/[^\\w- ]+/u', '', $_POST[ 'nameFolder' ] );
-  $user=wp_get_current_user();
-  $site=get_current_blog_id();
+	if ( ! $folder_name )
+		die();
 
-  $allFolders=get_user_meta($user->ID,"nameFolder".$site,true);
-  if($allFolders){ 
-	  $allFolders=json_decode($allFolders,true);
-	  if(!in_array($name_folder,$allFolders))
-	{
-		$allFolders[]=$name_folder;
+	$folder_name	= preg_replace( '/[^\w\s]/', '', $folder_name );
+	$user			= wp_get_current_user();
+	$site_id		= get_current_blog_id();
+	$allFolders		= get_user_meta( $user->ID, 'nameFolder' . $site_id, true );
+	$folder_arr		= array( 'name' => $folder_name, 'description' => $folder_description );
+
+	if ( $allFolders ) {
+
+		// meta exists - add to or update array
+		$allFolders = json_decode( $allFolders, true );
+
+		if ( ! in_array( $folder_name, array_column( $allFolders, 'name' ) ) ) {
+
+			// add a new item
+			$allFolders[] = $folder_arr;
+
+		}
+		else {
+
+			// update existing item
+			foreach ( $allFolders as $key => $folder ) {
+				if ( $folder && $folder_name == $folder[ 'name' ] ) {
+
+					$allFolders[ $key ][ 'description' ] = $folder_description;
+					break;
+
+				}
+			}
+
+		}
+
 	}
-	 
-   } 
-   else{
-	   $allFolders =  array(
-		0 => $name_folder
-	); 
-}
-	$allFolders=json_encode($allFolders,JSON_UNESCAPED_UNICODE);
-	update_user_meta($user->ID,"nameFolder".$site,$allFolders);
-	echo "Success";
- }
+	else {
 
+		/// meta not exist - create array
+		$allFolders =  array(
+			0 => $folder_arr
+		);
+
+	}
+
+	$allFolders = json_encode( $allFolders, JSON_UNESCAPED_UNICODE );
+
+	update_user_meta( $user->ID, 'nameFolder' . $site_id, $allFolders );
+
+	// success
+	echo "Success";
+
+	// die
+	die();
+
+}
+add_action( 'wp_ajax_add-folder', 'addFolder', 10, 1 );
 
 /********************************************************************/
 
