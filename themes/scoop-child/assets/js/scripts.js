@@ -523,7 +523,7 @@ var $ = jQuery,
 		 * @return	N/A
 		 *
 		 * @todo	This function prepare array of post IDS to add, rather than a single post ID.
-		 * 			In order to activate this option, closing popup form should not clear post_ids_field's post-ids data attribute 	
+		 * 			In order to activate this option, closing popup form should not clear post_ids_field's post-ids data attribute
 		 */
 		my_siddur_prepare_posts_to_add_to_folders : function() {
 
@@ -747,6 +747,7 @@ var $ = jQuery,
 			var popup = $('#popup-settings'),
 				folder = popup.find('#name-folder-hide').val(),
 				folder_new = popup.find('#name-new-folder').val(),
+				folder_desc = popup.find('#folder-description').val(),
 				delete_folder = popup.find('#del').is(':checked'),
 				public_folder = popup.find('#is-public').is(':checked');
 
@@ -755,6 +756,7 @@ var $ = jQuery,
 				user_id: ajaxdata.user_id,
 				folder: folder,
 				folder_new: folder_new,
+				folder_desc: folder_desc,
 				delete_folder: delete_folder,
 				public_folder: public_folder,
 				security: ajaxdata.ajax_nonce
@@ -765,8 +767,9 @@ var $ = jQuery,
 				response = JSON.parse(response);
 
 				if (response[1]) {
-					// folder name updated
-					folder_new = response[1];
+					// folder name and description updated
+					folder_new = response[1]['name'];
+					folder_desc = response[1]['description'];
 
 					// update folder name in url
 					window.history.replaceState('', '', KULAM_general.update_url_parameter(window.location.href, 'folder', folder_new));
@@ -775,6 +778,10 @@ var $ = jQuery,
 					popup.find('#name-folder-hide').val(folder_new);
 					popup.find('#name-new-folder').val(folder_new);
 					$('.folder-wrap > .entry-title').text(folder_new);
+
+					// update folder description in page elements
+					$('.folder-wrap > .folder-description').html(folder_desc);
+					popup.find('#folder-description').val(folder_desc.replace(/<br \/>/g, '\n'));
 				}
 				else if (response[2]) {
 					// folder deleted
@@ -809,6 +816,7 @@ var $ = jQuery,
 				// variables
 				var popup = $('.share-popup'),
 					folder = $('#name-folder-hide').val(),
+					folder_desc = $('.folder-description').html(),
 					choice = popup.find('.choosing-items #public-folder').prop('checked');
 
 				if (choice) {
@@ -821,6 +829,7 @@ var $ = jQuery,
 						user_id: ajaxdata.user_id,
 						folder: folder,
 						folder_new: folder,
+						folder_desc: folder_desc,
 						delete_folder: false,
 						public_folder: true,
 						security: ajaxdata.ajax_nonce
@@ -1022,7 +1031,7 @@ var $ = jQuery,
 		 * @return	N/A
 		 */
 		alignments : function() {
-			
+
 			// set window breakpoint values
 			KULAM_general.breakpoint_refreshValue();
 
@@ -1125,7 +1134,7 @@ jQuery(document).ready(function ($) {
 	$('.add-save-folder').click(function () {
 		$('.loader').show();
 		var data = {
-			action: "add-folder",
+			action: 'add_folder',
 			nameFolder: $('#name-folder').val(),
 			folderDesc: $('#folder-description').val(),
 			security: ajaxdata.ajax_nonce
@@ -1318,7 +1327,7 @@ $('#clipboard-share').click(function(){
 				to: emails,
 				security: ajaxdata.ajax_nonce
 			};
-		
+
 			jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 				var lang = document.documentElement.lang;
 				if (response === "Success0") {
@@ -1360,17 +1369,17 @@ $('#clipboard-share').click(function(){
 				 to: emails,
 				 security: ajaxdata.ajax_nonce
 			 };
-		 
+
 			 jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 				 var lang = document.documentElement.lang;
 				 if (response === "Success0") {
 					 $('.loader').hide();
- 
+
 					 if (lang == "he-IL")
 						 alert("האימייל שלך נשלח בהצלחה");
 					 else
 						 alert("your mail has been sent");
- 
+
 				 }
 				 else {
 					 $('.loader').hide();

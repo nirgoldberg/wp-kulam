@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2019-08-26 10:42+0300\n"
+"POT-Creation-Date: 2019-12-19 13:45+0200\n"
 "PO-Revision-Date: 2019-08-21 17:56+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
@@ -18,15 +18,15 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: content/content-grid_three.php:49 loop/single.php:76
+#: content/content-grid_three.php:49 loop/single.php:92
 msgid "No Comments"
 msgstr ""
 
-#: content/content-grid_three.php:49 loop/single.php:76
+#: content/content-grid_three.php:49 loop/single.php:92
 msgid "One Comment"
 msgstr ""
 
-#: content/content-grid_three.php:49 loop/single.php:76
+#: content/content-grid_three.php:49 loop/single.php:92
 msgid "% Comments"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgid "My Siddur Settings"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:36 functions/menus.php:29
-#: functions/post-types.php:114 functions/shortcodes.php:28 loop/archive.php:18
+#: functions/post-types.php:105 functions/shortcodes.php:29 loop/archive.php:18
 #: loop/single.php:18
 msgid "My Siddur"
 msgstr ""
@@ -133,7 +133,7 @@ msgid "rating name"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:208
-#: functions/acf/acf-field-groups.php:417
+#: functions/acf/acf-field-groups.php:501
 msgid "Category Attributes"
 msgstr ""
 
@@ -141,8 +141,8 @@ msgstr ""
 msgid "Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:236 functions/post-types.php:50
-#: functions/post-types.php:52 functions/post-types.php:73
+#: functions/acf/acf-field-groups.php:236 functions/post-types.php:41
+#: functions/post-types.php:43 functions/post-types.php:64
 msgid "Post Types"
 msgstr ""
 
@@ -182,56 +182,76 @@ msgstr ""
 msgid "Custom Label"
 msgstr ""
 
+#: functions/acf/acf-field-groups.php:417
+msgid "Homepage"
+msgstr ""
+
 #: functions/acf/acf-field-groups.php:433
+msgid "Categories in Row"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:453
+msgid "My Siddur Tile Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:477
+msgid "Upload Tile Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:517
 msgid "Category Page Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:436
+#: functions/acf/acf-field-groups.php:520
 msgid ""
 "Default selected Post Types to be displayed in a category page.\n"
 "Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:456
+#: functions/acf/acf-field-groups.php:540
 msgid "Subcategory Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:472
+#: functions/acf/acf-field-groups.php:556
 msgid "Background color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:487
+#: functions/acf/acf-field-groups.php:571
 msgid "Font Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:502
+#: functions/acf/acf-field-groups.php:586
 msgid "Social"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:518
+#: functions/acf/acf-field-groups.php:602
 msgid "Google Analytics Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:521
+#: functions/acf/acf-field-groups.php:605
 msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:537
+#: functions/acf/acf-field-groups.php:621
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:553
+#: functions/acf/acf-field-groups.php:637
 msgid "Placeholder Thumbnail"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:556
+#: functions/acf/acf-field-groups.php:640
 msgid ""
 "This image will be shown whenever the post has neither \"featured video\" "
 "nor \"featured image\""
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:577
+#: functions/acf/acf-field-groups.php:661
 msgid "Enable Activity Types custom taxonomy"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:680
+msgid "Enable Audiences custom taxonomy"
 msgstr ""
 
 #: functions/menus.php:54 functions/modal-login.php:34
@@ -274,160 +294,229 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: functions/post-types.php:51
+#: functions/post-types.php:42
 msgid "Post Type"
 msgstr ""
 
-#: functions/post-types.php:53
+#: functions/post-types.php:44
 msgid "All Post Types"
 msgstr ""
 
-#: functions/post-types.php:54
+#: functions/post-types.php:45
 msgid "Edit Post Type"
 msgstr ""
 
-#: functions/post-types.php:55
+#: functions/post-types.php:46
 msgid "View Post Type"
 msgstr ""
 
-#: functions/post-types.php:56
+#: functions/post-types.php:47
 msgid "Update Post Type"
 msgstr ""
 
-#: functions/post-types.php:57
+#: functions/post-types.php:48
 msgid "Add New Post Type"
 msgstr ""
 
-#: functions/post-types.php:58
+#: functions/post-types.php:49
 msgid "New Post Type Name"
 msgstr ""
 
-#: functions/post-types.php:59
+#: functions/post-types.php:50
 msgid "Parent Post Type"
 msgstr ""
 
-#: functions/post-types.php:60
+#: functions/post-types.php:51
 msgid "Parent Post Type:"
 msgstr ""
 
-#: functions/post-types.php:61
+#: functions/post-types.php:52
 msgid "Search Post Types"
 msgstr ""
 
-#: functions/post-types.php:62
+#: functions/post-types.php:53
 msgid "Popular Post Types"
 msgstr ""
 
-#: functions/post-types.php:63
+#: functions/post-types.php:54
 msgid "Separate Post Types with commas"
 msgstr ""
 
-#: functions/post-types.php:64
+#: functions/post-types.php:55
 msgid "Add or remove Post Types"
 msgstr ""
 
-#: functions/post-types.php:65
+#: functions/post-types.php:56
 msgid "Choose from the most used Post Types"
 msgstr ""
 
-#: functions/post-types.php:66
+#: functions/post-types.php:57
 msgid "No Post Types found"
 msgstr ""
 
-#: functions/post-types.php:67
+#: functions/post-types.php:58
 msgid "← Back to Post Types"
 msgstr ""
 
-#: functions/post-types.php:113 functions/post-types.php:120
+#: functions/post-types.php:104 functions/post-types.php:111
 msgid "Siddurim"
 msgstr ""
 
-#: functions/post-types.php:157 functions/post-types.php:159
-#: functions/post-types.php:180
+#: functions/post-types.php:151 functions/post-types.php:153
+#: functions/post-types.php:174
 msgid "Activity Types"
 msgstr ""
 
-#: functions/post-types.php:158
+#: functions/post-types.php:152
 msgid "Activity Type"
 msgstr ""
 
-#: functions/post-types.php:160
+#: functions/post-types.php:154
 msgid "All Activity Types"
 msgstr ""
 
-#: functions/post-types.php:161
+#: functions/post-types.php:155
 msgid "Edit Activity Type"
 msgstr ""
 
-#: functions/post-types.php:162
+#: functions/post-types.php:156
 msgid "View Activity Type"
 msgstr ""
 
-#: functions/post-types.php:163
+#: functions/post-types.php:157
 msgid "Update Activity Type"
 msgstr ""
 
-#: functions/post-types.php:164
+#: functions/post-types.php:158
 msgid "Add New Activity Type"
 msgstr ""
 
-#: functions/post-types.php:165
+#: functions/post-types.php:159
 msgid "New Activity Type Name"
 msgstr ""
 
-#: functions/post-types.php:166
+#: functions/post-types.php:160
 msgid "Parent Activity Type"
 msgstr ""
 
-#: functions/post-types.php:167
+#: functions/post-types.php:161
 msgid "Parent Activity Type:"
 msgstr ""
 
-#: functions/post-types.php:168
+#: functions/post-types.php:162
 msgid "Search Activity Types"
 msgstr ""
 
-#: functions/post-types.php:169
+#: functions/post-types.php:163
 msgid "Popular Activity Types"
 msgstr ""
 
-#: functions/post-types.php:170
+#: functions/post-types.php:164
 msgid "Separate Activity Types with commas"
 msgstr ""
 
-#: functions/post-types.php:171
+#: functions/post-types.php:165
 msgid "Add or remove Activity Types"
 msgstr ""
 
-#: functions/post-types.php:172
+#: functions/post-types.php:166
 msgid "Choose from the most used Activity Types"
 msgstr ""
 
-#: functions/post-types.php:173
+#: functions/post-types.php:167
 msgid "No Activity Types found"
 msgstr ""
 
-#: functions/post-types.php:174
+#: functions/post-types.php:168
 msgid "← Back to Activity Types"
 msgstr ""
 
-#: functions/shortcodes.php:31
+#: functions/post-types.php:212 functions/post-types.php:214
+#: functions/post-types.php:235
+msgid "Audiences"
+msgstr ""
+
+#: functions/post-types.php:213
+msgid "Audience"
+msgstr ""
+
+#: functions/post-types.php:215
+msgid "All Audiences"
+msgstr ""
+
+#: functions/post-types.php:216
+msgid "Edit Audience"
+msgstr ""
+
+#: functions/post-types.php:217
+msgid "View Audience"
+msgstr ""
+
+#: functions/post-types.php:218
+msgid "Update Audience"
+msgstr ""
+
+#: functions/post-types.php:219
+msgid "Add New Audience"
+msgstr ""
+
+#: functions/post-types.php:220
+msgid "New Audience Name"
+msgstr ""
+
+#: functions/post-types.php:221
+msgid "Parent Audience"
+msgstr ""
+
+#: functions/post-types.php:222
+msgid "Parent Audience:"
+msgstr ""
+
+#: functions/post-types.php:223
+msgid "Search Audiences"
+msgstr ""
+
+#: functions/post-types.php:224
+msgid "Popular Audiences"
+msgstr ""
+
+#: functions/post-types.php:225
+msgid "Separate Audiences with commas"
+msgstr ""
+
+#: functions/post-types.php:226
+msgid "Add or remove Audiences"
+msgstr ""
+
+#: functions/post-types.php:227
+msgid "Choose from the most used Audiences"
+msgstr ""
+
+#: functions/post-types.php:228
+msgid "No Audiences found"
+msgstr ""
+
+#: functions/post-types.php:229
+msgid "← Back to Audiences"
+msgstr ""
+
+#: functions/shortcodes.php:36
 msgid "Posts"
 msgstr ""
 
-#: functions/shortcodes.php:32
+#: functions/shortcodes.php:37
 msgid "Upload"
 msgstr ""
 
-#: functions/shortcodes.php:33
+#: functions/shortcodes.php:38
 msgid "Upload something of your own"
 msgstr ""
 
-#: functions/shortcodes.php:35
+#: functions/shortcodes.php:40
 msgid "Save your favorite contents"
 msgstr ""
 
-#: functions/theme.php:162 partials/search.php:144
+#: functions/theme.php:162 partials/search.php:166
 msgid "Text"
 msgstr ""
 
@@ -483,12 +572,12 @@ msgstr ""
 
 #: loop/archive.php:158 loop/archive.php:180
 #, php-format
-msgid "Click for less %s"
+msgid "Show less <i>%s</i> content"
 msgstr ""
 
 #: loop/archive.php:158
 #, php-format
-msgid "Click for more %s"
+msgid "Show more <i>%s</i> content"
 msgstr ""
 
 #: loop/page.php:50
@@ -499,153 +588,173 @@ msgstr ""
 msgid "Next &raquo;"
 msgstr ""
 
-#: loop/single.php:28 template-siddur-folder.php:30
+#: loop/single.php:44 template-siddur-folder.php:44
 msgid "Please type or paste email addresses with a space between each one:"
 msgstr ""
 
-#: loop/single.php:30 template-siddur-folder.php:32
+#: loop/single.php:46 template-siddur-folder.php:46
 msgid "Send"
 msgstr ""
 
-#: loop/single.php:38 template-siddur-folder.php:76
+#: loop/single.php:54 template-siddur-folder.php:91
 msgid "Link to share"
 msgstr ""
 
-#: loop/single.php:95
+#: loop/single.php:111
 msgid "Add to "
 msgstr ""
 
-#: loop/single.php:96
+#: loop/single.php:112
 msgid "Remove from "
 msgstr ""
 
-#: loop/single.php:123
+#: loop/single.php:139
 msgid "Facebook"
 msgstr ""
 
-#: loop/single.php:128
+#: loop/single.php:144
 msgid "Twitter"
 msgstr ""
 
-#: loop/single.php:148
+#: loop/single.php:164
 msgid "Mail"
 msgstr ""
 
-#: loop/single.php:153
+#: loop/single.php:169
 msgid "Print"
 msgstr ""
 
-#: loop/single.php:275
+#: loop/single.php:291
 msgid "Please rate this post:"
 msgstr ""
 
-#: loop/single.php:315
+#: loop/single.php:331
 msgid "Submit Rating"
 msgstr ""
 
-#: loop/single.php:328
+#: loop/single.php:344
 msgid "Thank you for rating!"
 msgstr ""
 
-#: loop/single.php:341
+#: loop/single.php:352
+msgid "Tags: "
+msgstr ""
+
+#: loop/single.php:364
+msgid "Activity Types: "
+msgstr ""
+
+#: loop/single.php:376
+msgid "Audiences: "
+msgstr ""
+
+#: loop/single.php:384
 msgid "About the Author"
 msgstr ""
 
-#: loop/single.php:348
+#: loop/single.php:391
 msgid "View all posts by"
 msgstr ""
 
-#: loop/single.php:361
+#: loop/single.php:404
 msgid "&laquo; Previous Post"
 msgstr ""
 
-#: loop/single.php:362
+#: loop/single.php:405
 msgid "Next Post &raquo;"
 msgstr ""
 
-#: partials/search.php:119
+#: partials/search.php:141
 msgid "Search..."
 msgstr ""
 
-#: partials/search.php:119
+#: partials/search.php:141
 msgid "Free text..."
 msgstr ""
 
-#: partials/search.php:123 partials/search.php:199
+#: partials/search.php:145 partials/search.php:237
 msgid "Search"
 msgstr ""
 
-#: partials/search.php:130
+#: partials/search.php:152
 msgid "Advanced Search"
 msgstr ""
 
-#: partials/search.php:134
+#: partials/search.php:156
 msgid "Please select at least one field and click Search"
 msgstr ""
 
-#: partials/search.php:143
+#: partials/search.php:165
 msgid "Choose a post format"
 msgstr ""
 
-#: partials/search.php:160
+#: partials/search.php:182
 msgid "Choose a post type"
 msgstr ""
 
-#: partials/search.php:176
+#: partials/search.php:198
 msgid "Choose an activity type"
 msgstr ""
 
-#: partials/search.php:190
+#: partials/search.php:214
+msgid "Choose an audience"
+msgstr ""
+
+#: partials/search.php:228
 msgid "Type category name"
 msgstr ""
 
-#: template-siddur-folder.php:39
+#: template-siddur-folder.php:53
 msgid "In order to share this folder you must set it public"
 msgstr ""
 
-#: template-siddur-folder.php:41
+#: template-siddur-folder.php:55
 msgid ""
 "Note! When you share this folder, all content in it becomes public and "
 "anyone can see it on the Web. Do you confirm?"
 msgstr ""
 
-#: template-siddur-folder.php:43
+#: template-siddur-folder.php:57
 msgid "Yes"
 msgstr ""
 
-#: template-siddur-folder.php:44
+#: template-siddur-folder.php:58
 msgid "No"
 msgstr ""
 
-#: template-siddur-folder.php:46
+#: template-siddur-folder.php:60
 msgid "Done"
 msgstr ""
 
-#: template-siddur-folder.php:56 template-siddur.php:51
+#: template-siddur-folder.php:70 template-siddur.php:55
 msgid "Folder Name"
 msgstr ""
 
-#: template-siddur-folder.php:57
+#: template-siddur-folder.php:71
 msgid "Here you can rename the folder"
 msgstr ""
 
-#: template-siddur-folder.php:58 template-siddur.php:52
+#: template-siddur-folder.php:72 template-siddur.php:56
 msgid "Allowed characters: digits, letters, spaces and dashes"
 msgstr ""
 
-#: template-siddur-folder.php:62
+#: template-siddur-folder.php:74 template-siddur.php:58
+msgid "Folder description"
+msgstr ""
+
+#: template-siddur-folder.php:77
 msgid "Delete this folder?"
 msgstr ""
 
-#: template-siddur-folder.php:66
+#: template-siddur-folder.php:81
 msgid "Public folder?"
 msgstr ""
 
-#: template-siddur-folder.php:67
+#: template-siddur-folder.php:82
 msgid "Save settings"
 msgstr ""
 
-#: template-siddur.php:54
+#: template-siddur.php:59
 msgid "Add"
 msgstr ""
 

@@ -18,6 +18,20 @@ $user	= isset( $_GET[ 'u' ] )			? $_GET[ 'u' ]									: '';
 $site	= isset( $_GET[ 'si' ] )		? $_GET[ 'si' ]									: '';
 $lang	= get_locale();
 
+// get folder description
+$folders		= get_user_meta( $user, 'nameFolder' . $site, true );
+$folders		= $folders ? json_decode( $folders, true ) : array();
+$folder_desc	= '';
+
+if ( is_array( $folders ) ) {
+	foreach ( $folders as $folder_arr ) {
+		if ( is_array( $folder_arr ) && $folder == $folder_arr[ 'name' ] ) {
+			$folder_desc = $folder_arr[ 'description' ];
+			break;
+		}
+	}
+}
+
 if ( $folder && $user && $site ) :
 
 	global $wpdb;
@@ -28,6 +42,10 @@ if ( $folder && $user && $site ) :
 	if ( $result ) { ?>
 
 		<h1><?php echo $folder; ?></h1>
+
+		<div class="folder-description">
+			<?php echo $folder_desc; ?>
+		</div><!-- .folder-description -->
 
 		<?php $data_value = json_decode( get_user_meta( $user, $folder . $site, true ), true );
 

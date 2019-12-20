@@ -297,6 +297,7 @@ function kulam_save_folder_settings() {
 	$user_id		= isset( $_POST[ 'user_id' ] )			? $_POST[ 'user_id' ]			: '';
 	$folder			= isset( $_POST[ 'folder' ] )			? $_POST[ 'folder' ]			: '';
 	$folder_new		= isset( $_POST[ 'folder_new' ] )		? $_POST[ 'folder_new' ]		: '';
+	$folder_desc	= isset( $_POST[ 'folder_desc' ] )		? $_POST[ 'folder_desc' ]		: '';
 	$delete_folder	= isset( $_POST[ 'delete_folder' ] )	? $_POST[ 'delete_folder' ]		: '';
 	$public_folder	= isset( $_POST[ 'public_folder' ] )	? $_POST[ 'public_folder' ]		: '';
 	$result			= [];
@@ -315,10 +316,18 @@ function kulam_save_folder_settings() {
 		// update folder public status
 		$result[3] = kulam_public_folder( $folder, $public_folder );
 
+		$result[1] = array();
+
 		// update folder name
 		if ( $folder_new && $folder != $folder_new ) {
-			$result[1] = kulam_update_folder_name( $folder, $folder_new );
+			$result[1][ 'name' ] = kulam_update_folder_name( $folder, $folder_new );
 		}
+		else {
+			$result[1][ 'name' ] = $folder;
+		}
+
+		// update folder description
+		$result[1][ 'description' ] = kulam_update_folder_description( $result[1][ 'name' ], $folder_desc );
 
 	}
 
@@ -388,8 +397,27 @@ function kulam_delete_folder( $folder ) {
 	// delete folder
 	delete_user_meta( $user_id, $folder . $site_id );
 	$folders = get_user_meta( $user_id, 'nameFolder' . $site_id, true );
-	if ( kulam_siddur_pull( $folder, $folders ) )
-		update_user_meta( $user_id, 'nameFolder' . $site_id , $folders );
+
+	if ( $folders ) {
+
+		$folders = json_decode( $folders, true );
+
+		if ( is_array( $folders ) ) {
+			foreach ( $folders as $key => $folder_arr ) {
+				if ( ( is_array( $folder_arr ) && $folder == $folder_arr[ 'name' ] ) || ( ! is_array( $folder_arr ) && $folder == $folder_arr ) ) {
+
+					unset( $folders[ $key ] );
+					break;
+
+				}
+			}
+		}
+
+		$folders = json_encode( $folders, JSON_UNESCAPED_UNICODE );
+
+	}
+
+	update_user_meta( $user_id, 'nameFolder' . $site_id , $folders );
 
 	// return
 	return true;
@@ -475,7 +503,7 @@ function kulam_update_folder_name( $folder, $folder_new ) {
 	$table		= $wpdb->prefix . 'public_folders';
 	$site_id	= get_current_blog_id();
 	$user_id	= get_current_user_id();
-	$folder_new	= preg_replace( '/[^\\w- ]+/u', '', $folder_new );
+	$folder_new	= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_new );
 	$lang		= get_locale();
 	$sqlQuery	= "
 		SELECT *
@@ -498,9 +526,28 @@ function kulam_update_folder_name( $folder, $folder_new ) {
 
 	// update user nameFolder array
 	$folders = get_user_meta( $user_id, 'nameFolder' . $site_id, true );
-	kulam_siddur_pull( $folder, $folders );
-	kulam_siddur_push( $folder_new, $folders );
-	update_user_meta( $user_id, 'nameFolder' . $site_id , $folders );
+
+	if ( $folders ) {
+
+		$folders = json_decode( $folders, true );
+
+		// update existing item
+		if ( is_array( $folders ) ) {
+			foreach ( $folders as $key => $folder_arr ) {
+				if ( is_array( $folder_arr ) && $folder == $folder_arr[ 'name' ] ) {
+
+					$folders[ $key ][ 'name' ] = $folder_new;
+					break;
+
+				}
+			}
+		}
+
+		$folders = json_encode( $folders, JSON_UNESCAPED_UNICODE );
+
+		update_user_meta( $user_id, 'nameFolder' . $site_id , $folders );
+
+	}
 
 	// update folder name and preserve content
 	$post_ids = get_user_meta( $user_id, $folder . $site_id, true );
@@ -512,12 +559,64 @@ function kulam_update_folder_name( $folder, $folder_new ) {
 
 }
 
+/**
+ * kulam_update_folder_description
+ *
+ * This function updates a folder description
+ *
+ * @param	$folder (string)
+ * @param	$folder_description (string)
+ * @return	(string)
+ */
+function kulam_update_folder_description( $folder, $folder_description ) {
 
+	/**
+	 * Variables
+	 */
+	$site_id			= get_current_blog_id();
+	$user_id			= get_current_user_id();
+	$folder_description	= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_description );
+	$folder_description	= str_replace( chr(10), '<br />', $folder_description );
 
+	// update user nameFolder array
+	$folders = get_user_meta( $user_id, 'nameFolder' . $site_id, true );
 
-/********************************************************************/
+	if ( $folders ) {
 
-function addFolder() {
+		$folders = json_decode( $folders, true );
+
+		// update existing item
+		if ( is_array( $folders ) ) {
+			foreach ( $folders as $key => $folder_arr ) {
+				if ( is_array( $folder_arr ) && $folder == $folder_arr[ 'name' ] ) {
+
+					$folders[ $key ][ 'description' ] = $folder_description;
+					break;
+
+				}
+			}
+		}
+
+		$folders = json_encode( $folders, JSON_UNESCAPED_UNICODE );
+
+		update_user_meta( $user_id, 'nameFolder' . $site_id , $folders );
+
+	}
+
+	// return
+	return $folder_description;
+
+}
+
+/**
+ * kulam_add_folder
+ *
+ * This function adds a single post to current user siddur
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_add_folder() {
 
 	/**
 	 * Variables
@@ -526,13 +625,15 @@ function addFolder() {
 	$folder_description	= isset( $_POST[ 'folderDesc' ] )	? $_POST[ 'folderDesc' ]	: '';
 
 	if ( ! $folder_name )
-		die();
+		wp_die();
 
-	$folder_name	= preg_replace( '/[^\w\s]/', '', $folder_name );
-	$user			= wp_get_current_user();
-	$site_id		= get_current_blog_id();
-	$allFolders		= get_user_meta( $user->ID, 'nameFolder' . $site_id, true );
-	$folder_arr		= array( 'name' => $folder_name, 'description' => $folder_description );
+	$folder_name		= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_name );
+	$folder_description	= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_description );
+	$folder_description	= str_replace( chr(10), '<br />', $folder_description );
+	$user				= wp_get_current_user();
+	$site_id			= get_current_blog_id();
+	$allFolders			= get_user_meta( $user->ID, 'nameFolder' . $site_id, true );
+	$folder_arr			= array( 'name' => $folder_name, 'description' => $folder_description );
 
 	if ( $allFolders ) {
 
@@ -577,16 +678,10 @@ function addFolder() {
 	echo "Success";
 
 	// die
-	die();
+	wp_die();
 
 }
-add_action( 'wp_ajax_add-folder', 'addFolder', 10, 1 );
-
-/********************************************************************/
-
-
-
-
+add_action( 'wp_ajax_add_folder', 'kulam_add_folder', 10, 1 );
 
 /**
  * kulam_siddur_push

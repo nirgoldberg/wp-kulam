@@ -71,7 +71,7 @@ if ( is_user_logged_in() ) :
 				<span>*<?php _e( 'Here you can rename the folder', 'kulam-scoop' ); ?></span>
 				<div class="notice"><?php _e( 'Allowed characters: digits, letters, spaces and dashes', 'kulam-scoop' ); ?></div>
 				<input type="text" value="<?php echo $folder; ?>" id="name-new-folder" />
-				<textarea rows="4" id="folder-description" placeholder="<?php _e( 'Folder description', 'kulam-scoop' ); ?>"></textarea>
+				<textarea rows="4" id="folder-description" placeholder="<?php _e( 'Folder description', 'kulam-scoop' ); ?>"><?php echo str_replace( array( '<br />', '<br>' ), chr(10), $folder_desc ); ?></textarea>
 				<div id="wrap-checkbox">
 					<input type="checkbox" id="del" />
 					<label class="labal-del" for="del"><?php _e( 'Delete this folder?', 'kulam-scoop' ); ?></label>
@@ -132,13 +132,7 @@ if ( is_user_logged_in() ) :
 				</a>
 			</div>
 
-			<?php if ( $folder_desc ) { ?>
-
-				<div class="folder-description">
-					<?php echo $folder_desc; ?>
-				</div><!-- .folder-description -->
-
-			<?php } ?>
+			<div class="folder-description"><?php echo $folder_desc; ?></div>
 
 			<?php $args = array(
 				'post_type'			=> 'post',
