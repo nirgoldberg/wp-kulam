@@ -766,10 +766,9 @@ var $ = jQuery,
 
 				response = JSON.parse(response);
 
-				if (response[1]) {
-					// folder name and description updated
+				if (response[1] && response[1]['name']) {
+					// folder name
 					folder_new = response[1]['name'];
-					folder_desc = response[1]['description'];
 
 					// update folder name in url
 					window.history.replaceState('', '', KULAM_general.update_url_parameter(window.location.href, 'folder', folder_new));
@@ -780,7 +779,7 @@ var $ = jQuery,
 					$('.folder-wrap > .entry-title').text(folder_new);
 
 					// update folder description in page elements
-					$('.folder-wrap > .folder-description').html(folder_desc);
+					$('.folder-wrap > .folder-description').html(folder_desc.replace(/\n/g, '<br />'));
 					popup.find('#folder-description').val(folder_desc.replace(/<br \/>/g, '\n'));
 				}
 				else if (response[2]) {

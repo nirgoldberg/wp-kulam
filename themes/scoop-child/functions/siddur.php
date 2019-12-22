@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.4.8
+ * @version		1.4.10
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -503,7 +503,7 @@ function kulam_update_folder_name( $folder, $folder_new ) {
 	$table		= $wpdb->prefix . 'public_folders';
 	$site_id	= get_current_blog_id();
 	$user_id	= get_current_user_id();
-	$folder_new	= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_new );
+	$folder_new	= str_replace( array( "\'", '\"', '\\' ), '', $folder_new );
 	$lang		= get_locale();
 	$sqlQuery	= "
 		SELECT *
@@ -575,8 +575,7 @@ function kulam_update_folder_description( $folder, $folder_description ) {
 	 */
 	$site_id			= get_current_blog_id();
 	$user_id			= get_current_user_id();
-	$folder_description	= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_description );
-	$folder_description	= str_replace( chr(10), '<br />', $folder_description );
+	$folder_description	= str_replace( array( "\n", "\'", '\"', '\\', '&#092;&#092;' ), array( '<br />', '&#039;', '&#034;', '&#092;', '&#092;' ), $folder_description );
 
 	// update user nameFolder array
 	$folders = get_user_meta( $user_id, 'nameFolder' . $site_id, true );
@@ -588,10 +587,31 @@ function kulam_update_folder_description( $folder, $folder_description ) {
 		// update existing item
 		if ( is_array( $folders ) ) {
 			foreach ( $folders as $key => $folder_arr ) {
-				if ( is_array( $folder_arr ) && $folder == $folder_arr[ 'name' ] ) {
+				if ( is_array( $folder_arr ) ) {
 
-					$folders[ $key ][ 'description' ] = $folder_description;
-					break;
+					if ( $folder == $folder_arr[ 'name' ] ) {
+
+						$folders[ $key ][ 'description' ] = $folder_description;
+						break;
+
+					}
+
+				}
+				else {
+
+					// backward compatibility
+					if ( $folder == $folder_arr ) {
+
+						// unser folder row
+						unset( $folders[ $key ] );
+
+						// create folder row as an array
+						$folders[] = array(
+							'name'			=> $folder,
+							'description'	=> $folder_description,
+						);
+
+					}
 
 				}
 			}
@@ -627,9 +647,8 @@ function kulam_add_folder() {
 	if ( ! $folder_name )
 		wp_die();
 
-	$folder_name		= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_name );
-	$folder_description	= str_replace( array( "\'", "\\" ), array( "-", "" ), $folder_description );
-	$folder_description	= str_replace( chr(10), '<br />', $folder_description );
+	$folder_name		= str_replace( array( "\'", '\"', '\\' ), '', $folder_name );
+	$folder_description	= str_replace( array( "\n", "\'", '\"', '\\', '&#092;&#092;' ), array( '<br />', '&#039;', '&#034;', '&#092;', '&#092;' ), $folder_description );
 	$user				= wp_get_current_user();
 	$site_id			= get_current_blog_id();
 	$allFolders			= get_user_meta( $user->ID, 'nameFolder' . $site_id, true );
