@@ -24,15 +24,12 @@ header .logo,
 .sticky-header .logo {
 	margin: 0;
 	padding: 0;
-	width: 15%;
-	max-width: 171px;
 	max-height: unset;
 }
 
 header .logo img,
 .sticky-header .logo img {
 	margin: 0;
-	width: auto !important;
 	max-width: 100%;
 }
 
@@ -117,7 +114,6 @@ header .logo img,
 }
 
 .advanced-search .advanced-search-btn a {
-	color: #0000ff;
 	text-decoration: underline;
 	cursor: pointer;
 }
@@ -200,15 +196,6 @@ header .logo .login a,
 
 .nav-main .nav-main-inner {
 	display: block;
-}
-
-.nav-main .nav-main-inner ul.sf-menu li a {
-	line-height: 40px;
-}
-
-.nav-main .nav-main-inner > ul.sf-menu > li:hover > ul,
-.nav-main .nav-main-inner > ul.sf-menu > li.sfHover > ul {
-	top: 40px;
 }
 
 /********************/
