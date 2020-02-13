@@ -641,16 +641,9 @@ body.modal-open,
 label.description {
 	margin-right: 10px;
 	margin-bottom: 0;
-	display: inline-block;
 	font-weight: bold;
-	width: 6%;
-}
-label.description:lang(en-US) {
-	margin-right: 10px;
-	margin-bottom: 0;
-	display: inline-block;
-	font-weight: bold;
-	width: 10%;
+	width: auto;
+	display: block;
 }
 output:lang(he-IL) {
 	position: relative;
@@ -668,7 +661,7 @@ input[name=range-option] {
 	  overflow: hidden;
 	  -webkit-appearance: none;
 	  -webkit-appearance: none;
-	  width: 20%;
+	  width: 225px;
 	  height: 15px;
 	  border-radius: 10px;
 	  background: #d3d3d3;
@@ -723,7 +716,7 @@ input[type="range"]::-ms-fill-upper {
 }
 .range-rating{
 	position: relative;
-	margin-top: 1.2%;
+	margin-top: 20px;
 }
 input.save-rating {
 	margin-top: 2%;

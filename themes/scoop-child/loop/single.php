@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.4.6
+ * @version		1.5.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -283,15 +283,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 								$acf_range_subfield	= $lang == 'he_IL' ? 'range_name' : 'range_name_en';
 
 								global $post;
-								$cats	= get_the_category( $post->ID );
-								$parent	= get_category( $cats[1]->category_parent );
-
-								if ( is_wp_error( $parent ) ) {
-									$cat = get_category( $cats[0] );
-								}
-								else {
-									$cat = $parent;
-								}
+								$cat = kulam_get_primary_taxonomy_term( $post->ID );
 
 								if ( have_rows( $acf_range_field, $cat ) ) : ?>
 

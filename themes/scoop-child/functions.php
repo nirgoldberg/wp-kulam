@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.4.1
+ * @version		1.5.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -42,6 +42,9 @@ require_once( 'functions/svgs.php' );
 
 // search functions
 require_once( 'functions/search.php' );
+
+// yoast functions
+require_once( 'functions/yoast.php' );
 
 /**
  *     SETUP FUNCTIONS
