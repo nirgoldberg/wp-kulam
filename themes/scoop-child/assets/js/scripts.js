@@ -469,7 +469,7 @@ var $ = jQuery,
 
 			if (!contentGrid) {
 				// single post
-				text = btn.text();
+				text = btn.prop('title');
 				toggleText = btn.data('toggle-text');
 			}
 
@@ -488,7 +488,9 @@ var $ = jQuery,
 				if (response == 1) {
 					if (!contentGrid) {
 						// single post
-						btn.text(toggleText).data('toggle-text', text);
+						btn.data('toggle-text', text);
+						btn.prop('title', toggleText);
+						btn.find('.fa').toggleClass('fa-trash').toggleClass('fa-bookmark');
 					}
 					else {
 						// grid

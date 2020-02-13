@@ -106,35 +106,42 @@ if ( $enable_audiences && true === $enable_audiences ) {
 
 				<div class="entry-sharing col-sm-1">
 
-					<?php
-
-						$add_to_siddur_label		= __( 'Add to ', 'kulam-scoop' ) . $my_siddur_label;
-						$remove_from_siddur_label	= __( 'Remove from ', 'kulam-scoop' ) . $my_siddur_label;
-
-						if ( ! ( is_user_logged_in() ) ) { ?>
-
-							<span><a href="#" class="siddur-button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><?php echo $add_to_siddur_label; ?></a></span>
-
-						<?php } else {
-
-							$user_id	= get_current_user_id();
-							$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
-
-							$favorite			= $favorite ? json_decode( $favorite, true ) : '';
-							$in_favorite		= $favorite && in_array( $post_id, $favorite );
-							$btn_text			= $in_favorite ? $remove_from_siddur_label : $add_to_siddur_label;
-							$btn_toggle_text	= $in_favorite ? $add_to_siddur_label : $remove_from_siddur_label;
-							$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
-							$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur'; ?>
-
-							<span><a href="#" class="siddur-button siddur-toggle-button" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><?php echo $btn_text; ?></a></span>
-
-						<?php }
-		
-					?>
-
 					<div class="wrap-sharing-public">
 
+						<!-- my siddur -->
+						<?php
+
+							$add_to_siddur_label		= __( 'Add to ', 'kulam-scoop' ) . $my_siddur_label;
+							$remove_from_siddur_label	= __( 'Remove from ', 'kulam-scoop' ) . $my_siddur_label;
+							$add_to_siddur_icon			= 'fa-bookmark';
+							$remove_from_siddur_icon	= 'fa-trash';
+
+							if ( ! ( is_user_logged_in() ) ) { ?>
+
+								<a class="entry-siddur siddur-button" href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true" title="<?php echo $add_to_siddur_label; ?>">
+									<span class="fa <?php echo $add_to_siddur_icon; ?>"></span>
+								</a>
+
+							<?php } else {
+
+								$user_id	= get_current_user_id();
+								$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
+
+								$favorite			= $favorite ? json_decode( $favorite, true ) : '';
+								$in_favorite		= $favorite && in_array( $post_id, $favorite );
+								$btn_text			= $in_favorite ? $remove_from_siddur_label : $add_to_siddur_label;
+								$btn_toggle_text	= $in_favorite ? $add_to_siddur_label : $remove_from_siddur_label;
+								$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
+								$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur';
+								$btn_icon			= $in_favorite ? $remove_from_siddur_icon : $add_to_siddur_icon; ?>
+
+								<a class="entry-siddur siddur-button siddur-toggle-button" href="#" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>" title="<?php echo $btn_text; ?>">
+									<span class="fa <?php echo $btn_icon; ?>"></span>
+								</a>
+
+							<?php }
+
+						?>
 						<!-- facebook -->
 						<a class="entry-facebook pojo-tooltip" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="<?php _e( 'Facebook', 'pojo' ); ?>" target="_blank">
 							<span class="fa fa-facebook"></span>
@@ -156,7 +163,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 						</a>
 
 						<!-- clipboard -->
-						<a class="entry-clipboard pojo-tooltip " id="clipboard-share-single">
+						<a class="entry-clipboard pojo-tooltip " id="clipboard-share-single" title="<?php _e( 'Share', 'kulam-scoop' ); ?>">
 							<span class="fa fa-clipboard"></span>
 						</a>
 

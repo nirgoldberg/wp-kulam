@@ -1252,8 +1252,16 @@ input.wpcf7-form-control.wpcf7-submit {
 }
 
 /* sharing */
+.entry-sharing {
+	padding-top: 15px;
+}
+
 .fa {
 	cursor: pointer;
+}
+span.fa.fa-bookmark,
+span.fa.fa-trash {
+	color: #1b5d9d;
 }
 span.fa.fa-facebook {
 	color: #1b5d9d;

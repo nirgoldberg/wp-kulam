@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2019-12-19 13:46+0200\n"
-"PO-Revision-Date: 2019-12-19 13:47+0200\n"
+"POT-Creation-Date: 2020-02-13 11:25+0200\n"
+"PO-Revision-Date: 2020-02-13 11:26+0200\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -603,67 +603,71 @@ msgstr "שלח"
 msgid "Link to share"
 msgstr "קישור לשיתוף"
 
-#: loop/single.php:111
+#: loop/single.php:114
 msgid "Add to "
 msgstr "הוסף אל "
 
-#: loop/single.php:112
+#: loop/single.php:115
 msgid "Remove from "
 msgstr "הסר מ"
 
-#: loop/single.php:139
+#: loop/single.php:141
 msgid "Facebook"
 msgstr "Facebook"
 
-#: loop/single.php:144
+#: loop/single.php:146
 msgid "Twitter"
 msgstr "Twitter"
 
-#: loop/single.php:164
+#: loop/single.php:161
+msgid "Share"
+msgstr "שיתוף"
+
+#: loop/single.php:166
 msgid "Mail"
 msgstr "אימייל"
 
-#: loop/single.php:169
+#: loop/single.php:171
 msgid "Print"
 msgstr "הדפסה"
 
-#: loop/single.php:291
+#: loop/single.php:293
 msgid "Please rate this post:"
 msgstr "בבקשה, דרג פוסט זה:"
 
-#: loop/single.php:331
+#: loop/single.php:333
 msgid "Submit Rating"
 msgstr "שמור דירוג"
 
-#: loop/single.php:344
+#: loop/single.php:346
 msgid "Thank you for rating!"
 msgstr "הדירוג התקבל. תודה!"
 
-#: loop/single.php:352
+#: loop/single.php:354
 msgid "Tags: "
 msgstr "תגיות: "
 
-#: loop/single.php:364
+#: loop/single.php:366
 msgid "Activity Types: "
 msgstr "סוגי פעילות: "
 
-#: loop/single.php:376
+#: loop/single.php:378
 msgid "Audiences: "
 msgstr "קהלים: "
 
-#: loop/single.php:384
+#: loop/single.php:386
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: loop/single.php:391
+#: loop/single.php:393
 msgid "View all posts by"
 msgstr "צפה בסוג מאמר"
 
-#: loop/single.php:404
+#: loop/single.php:406
 msgid "&laquo; Previous Post"
 msgstr "&laquo; המאמר הקודם"
 
-#: loop/single.php:405
+#: loop/single.php:407
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
