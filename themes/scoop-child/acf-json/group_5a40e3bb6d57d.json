@@ -225,6 +225,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5e4ba10303d95",
+            "label": "Google Tag Manager Code",
+            "name": "acf-option_google_tag_manager_code",
+            "type": "text",
+            "instructions": "Code format: GTM-XXXXXX",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5ca5febcbad83",
             "label": "Misc",
             "name": "",
@@ -320,5 +339,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1582012202
+    "modified": 1582020211
 }

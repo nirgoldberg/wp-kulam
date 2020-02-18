@@ -22,6 +22,12 @@ require_once( 'functions/theme.php' );
 // admin header section
 require_once( 'functions/admin/header.php' );
 
+// google tag manager
+require_once( 'functions/gtag.php' );
+
+// google analytics
+require_once( 'functions/google-analytics.php' );
+
 // menus functions
 require_once( 'functions/menus.php' );
 

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.2.1
+ * @version		1.5.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -28,13 +28,6 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 <!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 
-	<?php
-		/**
-		 * Google Analytics
-		 */
-		get_template_part( 'partials/google-analytics' );
-	?>
-
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<meta charset="utf-8" />
@@ -49,9 +42,18 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 	<a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.
 </p><![endif]-->
 
+<?php
+	if ( function_exists( 'wp_body_open' ) ) {
+		wp_body_open();
+	}
+	else {
+		do_action( 'wp_body_open' );
+	}
+?>
+
 <div id="container" class="<?php echo esc_attr( str_replace( '_', '-', $layout_site ) ); ?> ">
 	<?php po_change_loop_to_parent( 'change' ); ?>
-	
+
 	<?php if ( ! pojo_is_blank_page() ) : ?>
 		<section id="top-bar">
 			<div class="<?php echo WRAP_CLASSES; ?>">
@@ -75,7 +77,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 						</div>
 
 						<?php if ( pojo_has_nav_menu( 'primary' ) ) { ?>
-						
+
 							<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
 								<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
 								<span class="icon-bar"></span>
@@ -103,9 +105,9 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 						<div class="logo-text">
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 						</div>
-					
+
 					<?php endif; ?>
-					
+
 				</div><!--.logo -->
 
 				<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
@@ -210,7 +212,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 						<?php endif; ?>
 
 					</div><!--.logo -->
-					
+
 					<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
 						<div class="search-header hidden-xs ">
 
@@ -235,7 +237,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 								<?php endif; ?>
 							</div>
 						</div>
-					</nav><!--/#nav-menu -->				
+					</nav><!--/#nav-menu -->
 
 				</div><!-- /.container -->
 				<?php if ( get_theme_mod( 'chk_enable_menu_search' ) ) : ?>
