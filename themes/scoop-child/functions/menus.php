@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * kulam_add_custom_menu_items
  *
- * This function adds My Siddur and Login/logout items to menu locations
+ * This function adds My Siddur, Login/logout and search items to menu locations
  *
  * @param	$items (array)
  * @param	$args (array)
@@ -26,6 +26,7 @@ function kulam_add_custom_menu_items( $items, $args ) {
 	 * Variables
 	 */
 	$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+	$search_form_type		= get_field( 'acf-option_search_form_type', 'option' );
 	$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 	$lang					= get_locale();
 	$locations				= array( 'primary', 'primary_mobile', 'sticky_menu' );
@@ -54,6 +55,12 @@ function kulam_add_custom_menu_items( $items, $args ) {
 			$items .= '<li class="menu-item logout"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a></li>';
 
 		}
+
+	}
+
+	if ( 'primary_mobile' != $args->theme_location && 'exposed' != $search_form_type ) {
+
+		$items .= '<li class="menu-item search"><a href="#" role="link" data-toggle="modal" data-target="#modal-search"><span class="fa fa-search"></span></a></li>';
 
 	}
 

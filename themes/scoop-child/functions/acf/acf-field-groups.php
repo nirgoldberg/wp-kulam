@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	Ratings
  * @fieldgroup	Category Attributes
  * @fieldgroup	User Information
+ * @fieldgroup	Header/Footer Settings
  * @fieldgroup	My Siddur Settings
  * @fieldgroup	General Settings
  */
@@ -365,6 +366,73 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_5e4beda225c07',
+	'title' => __('Header/Footer Settings', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5e4beda230301',
+			'label' => __('Header', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5e4bf3a29323d',
+			'label' => __('Search Form Type', 'kulam-scoop'),
+			'name' => 'acf-option_search_form_type',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'minimalist' => __('Minimalist', 'kulam-scoop'),
+				'exposed' => __('Exposed', 'kulam-scoop'),
+			),
+			'default_value' => array(
+				0 => 'minimalist',
+			),
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-header-footer',
+			),
+		),
+	),
+	'menu_order' => 101,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5ceaa42a7cfb6',
 	'title' => __('My Siddur Settings', 'kulam-scoop'),
 	'fields' => array(
@@ -397,7 +465,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 101,
+	'menu_order' => 102,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -405,7 +473,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
-	'modified' => 1560431267,
 ));
 
 acf_add_local_field_group(array(
@@ -742,7 +809,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			),
 		),
 	),
-	'menu_order' => 102,
+	'menu_order' => 103,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',

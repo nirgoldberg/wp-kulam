@@ -8,6 +8,15 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+/**
+ * Variables
+ */
+if ( function_exists( 'get_field' ) ) {
+
+	$search_form_type = get_field( 'acf-option_search_form_type', 'option' );
+
+}
+
 $logo_img = get_theme_mod( 'image_logo' ); // Getting from option your choice.
 $sticky_logo_img = get_theme_mod( 'image_sticky_header_logo' ); // Getting from option your choice.
 if ( ! $sticky_logo_img )
@@ -110,7 +119,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 
 				</div><!--.logo -->
 
-				<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
+				<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) && 'exposed' == $search_form_type ) : ?>
 					<div class="search-header hidden-xs ">
 
 						<?php
@@ -123,7 +132,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 					</div>
 				<?php endif; ?>
 
-				<nav class="nav-main" role="navigation">
+				<nav class="nav-main <?php echo 'exposed' == $search_form_type ? 'search-form-exposed' : ''; ?>" role="navigation">
 					<div class="navbar-collapse collapse">
 						<div class="nav-main-inner">
 							<?php if ( has_nav_menu( 'primary' ) ) : ?>
@@ -213,7 +222,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 
 					</div><!--.logo -->
 
-					<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) ) : ?>
+					<?php if ( get_theme_mod( 'chk_enable_menu_search' ) && pojo_has_nav_menu( 'primary' ) && 'exposed' == $search_form_type ) : ?>
 						<div class="search-header hidden-xs ">
 
 							<?php
@@ -226,7 +235,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 						</div>
 					<?php endif; ?>
 
-					<nav class="nav-main" role="navigation">
+					<nav class="nav-main <?php echo 'exposed' == $search_form_type ? 'search-form-exposed' : ''; ?>" role="navigation">
 						<div class="navbar-collapse collapse">
 							<div class="nav-main-inner">
 								<?php if ( has_nav_menu( 'primary' ) ) : ?>

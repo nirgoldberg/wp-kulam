@@ -146,6 +146,10 @@ header .logo img,
 	display: block;
 }
 
+#modal-search .modal-body {
+	text-align: center;
+}
+
 #modal-search .search-header {
 	float: none;
 	margin: 0;
@@ -190,7 +194,7 @@ header .logo .login a,
 /* navigation menu */
 /*******************/
 
-.nav-main {
+.nav-main.search-form-exposed {
 	float: left !important;
 }
 

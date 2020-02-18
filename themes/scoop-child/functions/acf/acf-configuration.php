@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.2.8
+ * @version		1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -29,6 +29,13 @@ function kulam_acf_init() {
 			'menu_title'	=> __( 'Site Setup', 'kulam-scoop' ),
 			'menu_slug'		=> 'site-options',
 			'icon_url'		=> 'dashicons-admin-tools',
+		));
+
+		acf_add_options_sub_page( array(
+			'page_title' 	=> __( 'Header/Footer Settings', 'kulam-scoop' ),
+			'menu_title' 	=> __( 'Header/Footer', 'kulam-scoop' ),
+			'menu_slug' 	=> 'acf-options-header-footer',
+			'parent_slug' 	=> 'site-options',
 		));
 
 		acf_add_options_sub_page( array(

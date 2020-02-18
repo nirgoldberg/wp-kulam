@@ -39,7 +39,7 @@ header .logo .login,
 /* navigation menu */
 /*******************/
 
-.nav-main {
+.nav-main.search-form-exposed {
 	float: right !important;
 }
 
