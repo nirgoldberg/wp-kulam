@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.4.7
+ * @version		1.5.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -36,7 +36,8 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 		if ( is_category() ) {
 
-			$category_description = category_description( $category->term_id );
+			$category_description			= category_description( $category->term_id );
+			$category_description_toggling	= get_field( 'acf-option_category_description_toggling', 'option' );
 
 		} ?>
 
@@ -49,7 +50,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 				elseif ( is_year() ) :
 					printf( __( 'Archive for %s', 'pojo' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'pojo' ) ) . '</span>' );
 				elseif ( is_category() ) :
-					echo '<span>' . single_cat_title( '', false ) . '</span>' . ( $category_description ? '<span class="more">' . kulam_get_svg( 'info' ) . '</span><span class="less">' . kulam_get_svg( 'minus' ) . '</span>' : '' );
+					echo '<span>' . single_cat_title( '', false ) . '</span>' . ( $category_description && $category_description_toggling ? '<span class="more">' . kulam_get_svg( 'info' ) . '</span><span class="less">' . kulam_get_svg( 'minus' ) . '</span>' : '' );
 				elseif ( is_tag() ) :
 					echo '<span>' . single_tag_title( '', false ) . '</span>';
 				elseif ( is_tax( 'post_format' ) ) :
@@ -70,7 +71,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 		<?php if ( is_category() && $category_description ) { ?>
 
-			<div class="category-desc">
+			<div class="category-desc <?php echo ! $category_description_toggling ? 'open' : ''; ?>">
 				<div class="desc"><?php echo $category_description; ?></div>
 			</div>
 

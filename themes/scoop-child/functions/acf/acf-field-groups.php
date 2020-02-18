@@ -4,14 +4,14 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.4.6
+ * @version		1.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * ACF register field groups
- * 
+ *
  * @fieldgroup	ACF Front-End Form
  * @fieldgroup	Ratings
  * @fieldgroup	Category Attributes
@@ -534,6 +534,25 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'load_terms' => 0,
 			'return_format' => 'object',
 			'multiple' => 0,
+		),
+		array(
+			'key' => 'field_5e4b96e5aa1b6',
+			'label' => __('Category Description Toggling', 'kulam-scoop'),
+			'name' => 'acf-option_category_description_toggling',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
 		),
 		array(
 			'key' => 'field_5ca5f481de29b',
