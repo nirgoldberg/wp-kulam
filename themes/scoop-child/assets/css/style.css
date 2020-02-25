@@ -348,6 +348,7 @@ header .logo .login a,
 }
 
 .category-desc {
+	margin-bottom: 40px;
 	display: none;
 }
 

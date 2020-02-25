@@ -490,7 +490,7 @@ var $ = jQuery,
 						// single post
 						btn.data('toggle-text', text);
 						btn.prop('title', toggleText);
-						btn.find('.fa').toggleClass('fa-trash').toggleClass('fa-bookmark');
+						btn.find('.fa').toggleClass('fa-heart').toggleClass('fa-heart-o');
 					}
 					else {
 						// grid

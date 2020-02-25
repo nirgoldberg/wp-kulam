@@ -113,8 +113,8 @@ if ( $enable_audiences && true === $enable_audiences ) {
 
 							$add_to_siddur_label		= __( 'Add to ', 'kulam-scoop' ) . $my_siddur_label;
 							$remove_from_siddur_label	= __( 'Remove from ', 'kulam-scoop' ) . $my_siddur_label;
-							$add_to_siddur_icon			= 'fa-bookmark';
-							$remove_from_siddur_icon	= 'fa-trash';
+							$add_to_siddur_icon			= 'fa-heart-o';
+							$remove_from_siddur_icon	= 'fa-heart';
 
 							if ( ! ( is_user_logged_in() ) ) { ?>
 
