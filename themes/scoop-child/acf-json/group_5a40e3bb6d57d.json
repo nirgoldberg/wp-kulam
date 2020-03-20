@@ -260,30 +260,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5a40e3e02d04f",
-            "label": "Placeholder Thumbnail",
-            "name": "placeholder_thumbnail",
-            "type": "image",
-            "instructions": "This image will be shown whenever the post has neither \"featured video\" nor \"featured image\"",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5d63767651bc8",
             "label": "Enable Activity Types custom taxonomy",
             "name": "acf-option_enable_activity_types_custom_taxonomy",
@@ -320,6 +296,30 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5e74a985c5ba1",
+            "label": "Strip Image",
+            "name": "acf-option_strip_image",
+            "type": "image",
+            "instructions": "Default strip which will be displayed in single post, page and category.\r\nImage dimensions: 1140x268 (px)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -339,5 +339,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1582034490
+    "modified": 1584706934
 }

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.5.0
+ * @version		1.5.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,6 +14,7 @@ if ( ! function_exists( 'get_field' ) )
 /**
  * Variables
  */
+$strip_image			= get_field( 'acf-option_strip_image', 'option' );
 $my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
 $my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 $display_type			= po_get_display_type();
@@ -75,9 +76,15 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 				<div class="desc"><?php echo $category_description; ?></div>
 			</div>
 
-		<?php }
+		<?php } ?>
 
-		if ( is_category() && get_term_children( $category->term_id, 'category' ) ) {
+		<?php if ( $strip_image ) : ?>
+			<div class="strip-image">
+				<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
+			</div>
+		<?php endif; ?>
+
+		<?php if ( is_category() && get_term_children( $category->term_id, 'category' ) ) {
 
 			get_template_part( 'partials/subcat-menu' );
 

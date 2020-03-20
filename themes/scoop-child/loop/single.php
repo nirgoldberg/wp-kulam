@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.5.0
+ * @version		1.5.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,6 +14,7 @@ if ( ! function_exists( 'get_field' ) )
 /**
  * Variables
  */
+$strip_image			= get_field( 'acf-option_strip_image', 'option' );
 $my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
 $my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 $site_id				= get_current_blog_id();
@@ -39,8 +40,8 @@ if ( $enable_audiences && true === $enable_audiences ) {
 ?>
 
 <div class="popup" id="popup-to" hidden>
-	<form class="sendEmailpopup"> 
-		<div class="close-popup close-popup-to">+</div> 
+	<form class="sendEmailpopup">
+		<div class="close-popup close-popup-to">+</div>
 		<?php _e( 'Please type or paste email addresses with a space between each one:', 'kulam-scoop' ); ?>
 		<input type="email"  size="35" pattern="[^ @]*@[^ @]*" required class="to" id="idto" />
 		<input type="button" value="<?php _e( 'Send', 'kulam-scoop' ); ?>" id="send-single-post" />
@@ -74,6 +75,12 @@ if ( $enable_audiences && true === $enable_audiences ) {
 							<h1 class="entry-title">
 								<?php the_title(); ?>
 							</h1>
+						</div>
+					<?php endif; ?>
+
+					<?php if ( $strip_image ) : ?>
+						<div class="strip-image">
+							<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
 						</div>
 					<?php endif; ?>
 
@@ -275,7 +282,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 
 					<div class="rating-form after_content mr-filter" id="rate-<?php the_ID(); ?>">
 
-						<?php 
+						<?php
 
 							if ( $site_id != 17 ) :
 
@@ -316,7 +323,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 													if ( ! $val )
 														$val = 0; ?>
 
-													<span class="rating-item-mr"> 
+													<span class="rating-item-mr">
 														<form class="range-rating">
 															<label class="description" for="rating-item"> <?php the_sub_field( $acf_range_subfield );?></label>
 															<input class="slider" id="optionID<?php echo $i; ?>" name="range-option" type="range" min="0" max="10" oninput="outputID<?php echo $i; ?>.value = optionID<?php echo $i; ?>.value" value="<?php echo $val; ?>"/>
@@ -409,7 +416,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 
 				</div><!-- .entry-content -->
 			</div><!-- .entry-post -->
-		
+
 			<div class="clearfix"></div>
 
 			<?php comments_template( '', true ); ?>

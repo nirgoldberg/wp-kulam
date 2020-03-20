@@ -4,7 +4,7 @@
 -------------------------------------- */
 
 /******************/
-/* geberal layout */
+/* general layout */
 /******************/
 
 body:before {
@@ -359,6 +359,14 @@ header .logo .login a,
 h2.post-type-title {
 	font-size: 32px;
 	font-weight: bold;
+}
+
+/***************/
+/* strip image */
+/***************/
+
+.strip-image {
+	margin-bottom: 15px;
 }
 
 /*******************/

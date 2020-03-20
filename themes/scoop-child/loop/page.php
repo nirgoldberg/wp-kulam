@@ -1,8 +1,20 @@
 <?php
 /**
  * Default Page
+ *
+ * @author		Nir Goldberg
+ * @package		scoop-child/loop
+ * @version		1.5.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! function_exists( 'get_field' ) )
+	return;
+
+/**
+ * Variables
+ */
+$strip_image = get_field( 'acf-option_strip_image', 'option' );
 
 if ( have_posts() ) :
 	while ( have_posts() ) : the_post(); ?>
@@ -16,6 +28,12 @@ if ( have_posts() ) :
 						<?php if ( pojo_is_show_page_title() ) : ?>
 							<div class="page-title">
 								<h1 class="entry-title"><?php the_title(); ?></h1>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( $strip_image && ! is_front_page() && ! is_home() ) : ?>
+							<div class="strip-image">
+								<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
 							</div>
 						<?php endif; ?>
 					</header>
