@@ -29,6 +29,12 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 	<header class="entry-header">
 
+		<?php if ( $strip_image ) : ?>
+			<div class="strip-image">
+				<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
+			</div>
+		<?php endif; ?>
+
 		<?php if ( ! is_tax( 'siddurim' ) && po_breadcrumbs_need_to_show() ) {
 
 			pojo_breadcrumbs();
@@ -77,12 +83,6 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			</div>
 
 		<?php } ?>
-
-		<?php if ( $strip_image ) : ?>
-			<div class="strip-image">
-				<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
-			</div>
-		<?php endif; ?>
 
 		<?php if ( is_category() && get_term_children( $category->term_id, 'category' ) ) {
 

@@ -22,20 +22,23 @@ if ( have_posts() ) :
 			<div class="entry-page">
 				<?php if ( po_breadcrumbs_need_to_show() || pojo_is_show_page_title() ) : ?>
 					<header class="entry-header">
-						<?php if ( po_breadcrumbs_need_to_show() ) : ?>
-							<?php pojo_breadcrumbs(); ?>
-						<?php endif; ?>
-						<?php if ( pojo_is_show_page_title() ) : ?>
-							<div class="page-title">
-								<h1 class="entry-title"><?php the_title(); ?></h1>
-							</div>
-						<?php endif; ?>
 
 						<?php if ( $strip_image && ! is_front_page() && ! is_home() ) : ?>
 							<div class="strip-image">
 								<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
 							</div>
 						<?php endif; ?>
+
+						<?php if ( po_breadcrumbs_need_to_show() ) : ?>
+							<?php pojo_breadcrumbs(); ?>
+						<?php endif; ?>
+
+						<?php if ( pojo_is_show_page_title() ) : ?>
+							<div class="page-title">
+								<h1 class="entry-title"><?php the_title(); ?></h1>
+							</div>
+						<?php endif; ?>
+
 					</header>
 				<?php endif; ?>
 				<div class="entry-content">

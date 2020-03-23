@@ -68,6 +68,13 @@ if ( $enable_audiences && true === $enable_audiences ) {
 
 			<div class="entry-post">
 				<header class="entry-header">
+
+					<?php if ( $strip_image ) : ?>
+						<div class="strip-image">
+							<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
+						</div>
+					<?php endif; ?>
+
 					<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
 
 					<?php if ( pojo_is_show_page_title() ) : ?>
@@ -75,12 +82,6 @@ if ( $enable_audiences && true === $enable_audiences ) {
 							<h1 class="entry-title">
 								<?php the_title(); ?>
 							</h1>
-						</div>
-					<?php endif; ?>
-
-					<?php if ( $strip_image ) : ?>
-						<div class="strip-image">
-							<img src="<?php echo $strip_image[ 'url' ]; ?>" alt="<?php echo $strip_image[ 'alt' ]; ?>" />
 						</div>
 					<?php endif; ?>
 
