@@ -98,7 +98,7 @@ header .logo img,
 	position: absolute;
 	right: 10px;
 	top: 10px;
-	width: 15px;  
+	width: 15px;
 }
 
 .search-header .menu-search-submit input {
@@ -367,6 +367,14 @@ h2.post-type-title {
 
 .strip-image {
 	margin-bottom: 15px;
+}
+
+/***************/
+/* single post */
+/***************/
+
+.single .entry-post .entry-content .entry-format {
+	margin: 20px 0;
 }
 
 /*******************/
@@ -684,16 +692,16 @@ input[name=range-option] {
 	  transition: opacity .2s;
 	  direction: ltr;
 	  cursor: pointer;
-	 
+
 	}
-	
+
 	input[type='range']::-webkit-slider-runnable-track {
 	  height: 10px;
 	  -webkit-appearance: none;
 	  color: #1e73be;
 	  margin-top: -1px;
 	}
-	
+
 	input[type='range']::-webkit-slider-thumb {
 	  width: 12px;
 	  -webkit-appearance: none;
@@ -702,22 +710,22 @@ input[name=range-option] {
 	  cursor: pointer;
 	  background: #022a4d;
 	  box-shadow: -1000px 0 0 1000px #1e73be;
-  
+
 	}
 
 }
 /** FF*/
 input[type="range"]::-moz-range-progress {
-  background-color: #1e73be; 
+  background-color: #1e73be;
 }
-input[type="range"]::-moz-range-track {  
+input[type="range"]::-moz-range-track {
   background-color: #d3d3d3;
 }
 /* IE*/
 input[type="range"]::-ms-fill-lower {
-  background-color: #1e73be; 
+  background-color: #1e73be;
 }
-input[type="range"]::-ms-fill-upper {  
+input[type="range"]::-ms-fill-upper {
   background-color: #d3d3d3;
 }
 .slider::-moz-range-thumb {
@@ -772,8 +780,8 @@ div#new-fold
 }
 
 #popup-settings.open,#popup-link-copy.open,
-.share-popup.open { 
-	right: 0; 
+.share-popup.open {
+	right: 0;
 	opacity: 1;
 }
 
@@ -806,7 +814,7 @@ textarea#folder-description {
 
 /* .popup-form-setting.for-public { width: 800px; } */
 
-.public-info { 
+.public-info {
 	display: flex;
 	justify-content: space-around;
 	max-height: 0px;
@@ -914,7 +922,7 @@ labal.add-post-to-folder {
 .add-to-folder{
 	margin-top:6%;
 }
-.remove-post-from-folder{   
+.remove-post-from-folder{
 	right: 50px;
 	color: #433f3f;
 	z-index: 2;
@@ -940,9 +948,9 @@ labal.add-post-to-folder {
 	font-size: 50px;
 	border-radius: 50%;
 	border: thin solid #000;
-	text-align: center; 
+	text-align: center;
 }
-.settings, 
+.settings,
 .shere-section { display: inline-block; }
 
 .settings .fa {
@@ -952,7 +960,7 @@ labal.add-post-to-folder {
 }
 span.fa.fa-clipboard{
 	color: #1b5d9d;
-} 
+}
 input#clipboard-input{
 	display: none;
 }
@@ -991,8 +999,8 @@ label.add-post-to-folder:hover{
 	font-size: 55px;
 }
 i.fa.fa-arrow-circle-o-right.my-siddur {
-	margin-right: 25px; 
-	margin-left: 9px;       
+	margin-right: 25px;
+	margin-left: 9px;
 	font-size: 33px;
 	cursor: pointer;
 	color: black;
@@ -1051,12 +1059,12 @@ p.txtsl {
 	font-size: 65%;
 	font-weight: bold;
 	margin-right: 2.5%;
-   
+
 }
 p.txtsl:lang(en-US) {
   margin-right: 0%;
   margin-left: 2%;
- 
+
 }
 .generalIconX{
 	background-image: url(../images/icon_X.png);
@@ -1136,7 +1144,7 @@ p.txtsl:lang(en-US) {
 	padding-top: 2%;
 	padding-bottom: 2%;
 }
-.favorite span{  
+.favorite span{
 	margin-right: 0 !important;
 	margin-left: 0 !important;
 }
@@ -1149,13 +1157,13 @@ p.txtsl:lang(en-US) {
 /* remove title bar in hompage */
 div#title-bar {
 	display: none;
-} 
+}
 
 .row.subcat-menu{
 
    display:flex;
    justify-content:space-between;
-} 
+}
  .tile-box-wrapper.col-md-3.subcat{
 	background:#dbd1d1;
 }
@@ -1310,7 +1318,7 @@ output:lang(he-IL) {
 /**************/
 
 /**
- * These values will not show up in content, but can be 
+ * These values will not show up in content, but can be
  * queried by JavaScript to know which breakpoint is active
  */
 
@@ -1383,6 +1391,23 @@ output:lang(he-IL) {
 		padding-right: 0;
 	}
 
+	/***************/
+	/* single post */
+	/***************/
+
+	.entry-sharing{
+		padding: 0;
+		display: -webkit-box !important;
+	}
+
+	.wrap-sharing-public {
+		display: inline-flex;
+	}
+
+	.wrap-sharing-public > a {
+		padding: 10px;
+	}
+
 }
 
 @media (max-width: 480px) {
@@ -1404,7 +1429,7 @@ output:lang(he-IL) {
 }
 
 @media (min-width: 1200px) {}
-	
+
 @media (min-width: 992px) {}
 
 @media (min-width: 768px) {
@@ -1494,7 +1519,7 @@ output:lang(he-IL) {
 		top:0 !important;
 	}
 
-	#wp-admin-bar-root-default 
+	#wp-admin-bar-root-default
 	{
 		overflow-x: hidden;
 		width: 100%;
@@ -1549,9 +1574,6 @@ output:lang(he-IL) {
 	.close-popup-to{
 		font-size: 50px;
 	}
-	.entry-sharing{
-		display: -webkit-box !important;
-	}
 	.print-button{
 		display: none;
 	}
@@ -1563,12 +1585,5 @@ output:lang(he-IL) {
 	{
 		display: inline-block;
 	}
-   .wrap-sharing-public
-   {
-	   display: inline-flex;
-   }
-   .wrap-sharing-public>a{
-		padding: 10px;
-   }
 
 }

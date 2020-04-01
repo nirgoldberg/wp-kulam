@@ -176,9 +176,11 @@ if ( $enable_audiences && true === $enable_audiences ) {
 						</a>
 
 						<!-- mail -->
+						<?php /* temporarily hide this option
 						<a class="entry-mail" data-toggle="tooltip-mail" title="<?php _e( 'Mail', 'kulam-scoop' ); ?>" id="send">
 							<span class="fa fa-envelope-o "></span>
 						</a>
+						*/ ?>
 
 						<!-- print -->
 						<a class="entry-print pojo-tooltip" href="javascript:window.print()" title="<?php _e( 'Print', 'pojo' ); ?>">
@@ -190,10 +192,6 @@ if ( $enable_audiences && true === $enable_audiences ) {
 				</div><!-- .entry-sharing -->
 
 				<div class="entry-content col-sm-11">
-
-					<div class="print-button" onclick="window.print()">
-						<img src='https://kulam.org/wp-content/uploads/2018/09/send-to-printer.png'/>
-					</div>
 
 					<div class="entry-format">
 
