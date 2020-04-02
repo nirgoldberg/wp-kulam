@@ -434,6 +434,10 @@ body.modal-open,
 	width: 100%;
 }
 
+.modal .modal-body label h6 {
+	margin: 5px 0 0;
+}
+
 .modal .modal-header .modal-title {
 	display: inline-block;
 }

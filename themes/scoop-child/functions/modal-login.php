@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.1.1
+ * @version     1.6.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -41,8 +41,8 @@ function kulam_modal_login() {
 
 				<form>
 					<div class="modal-body">
-						<?php _e( 'User', 'kulam-scoop' ); ?> <input type="text" id="unamelog" name="unamelog" />
-						<?php _e( 'Password', 'kulam-scoop' ); ?> <input type="password" id="upasslog" name="upasslog" />
+						<label for="unamelog"><h6><?php _e( 'User', 'kulam-scoop' ); ?></h6></label> <input type="text" id="unamelog" name="unamelog" />
+						<label for="upasslog"><h6><?php _e( 'Password', 'kulam-scoop' ); ?></h6></label> <input type="password" id="upasslog" name="upasslog" />
 						<?php echo ( $lang != 'he_IL' ) ? '<input hidden id="langlog" value="' . $lang . '" />' : ''; ?>
 						<input type="hidden" id="redirectlog" name="redirectlog" />
 					</div>

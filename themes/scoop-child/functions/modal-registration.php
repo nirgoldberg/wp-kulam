@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.1.1
+ * @version     1.6.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -41,12 +41,12 @@ function kulam_modal_registration() {
 
 				<form>
 					<div class="modal-body">
-						<?php _e( 'User', 'kulam-scoop' ); ?> <input type="text" id="uname" name="uname" />
-						<?php _e( 'Email', 'kulam-scoop' ); ?> <input id="uemail" type="text" name="uemail" />
-						<?php _e( 'Password', 'kulam-scoop' ); ?> <input type="password" id="upass" name="upass" />
+						<label for="uname"><h6><?php _e( 'User', 'kulam-scoop' ); ?></h6></label> <input type="text" id="uname" name="uname" />
+						<label for="uemail"><h6><?php _e( 'Email', 'kulam-scoop' ); ?></h6></label> <input id="uemail" type="text" name="uemail" />
+						<label for="upass"><h6><?php _e( 'Password', 'kulam-scoop' ); ?></h6></label> <input type="password" id="upass" name="upass" />
 						<img src="/wp-content/plugins/really-simple-captcha/tmp/<?php echo $captcha_instance->generate_image( $prefix, $word ); ?>" />
 						<br />
-						<?php _e( 'Please enter the following text in the box below:', 'kulam-scoop' ); ?> <input id="captcha" type="text" name="captcha" />
+						<label for="captcha"><h6><?php _e( 'Please enter the following text in the box below:', 'kulam-scoop' ); ?></h6></label> <input id="captcha" type="text" name="captcha" />
 						<input hidden id="prefix" name="prefix" value="<?php echo $prefix ?>" />
 						<?php echo ( $lang != 'he_IL' ) ? '<input hidden id="lang" value="' . $lang . '" />' : ''; ?>
 						<input type="hidden" id="redirect" name="redirect" />
