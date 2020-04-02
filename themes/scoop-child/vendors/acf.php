@@ -196,3 +196,57 @@ function kol_get_acf_form_args($form) {
     }
     return $args;
 }
+
+/**
+ * kulam_acf_prepare_acf_form_post_title_field
+ *
+ * This function filters acf form title
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_prepare_acf_form_post_title_field( $field ) {
+
+	/**
+	 * Variables
+	 */
+	$field_label = get_field( 'acf-form_form_title' );
+
+	if ( $field_label ) {
+
+		$field[ 'label' ] = $field_label;
+
+	}
+
+	// return
+	return $field;
+
+}
+add_filter( 'acf/prepare_field/name=_post_title', 'kulam_acf_prepare_acf_form_post_title_field' );
+
+/**
+ * kulam_acf_prepare_acf_form_post_content_field
+ *
+ * This function filters acf form content title
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_prepare_acf_form_post_content_field( $field ) {
+
+	/**
+	 * Variables
+	 */
+	$field_label = get_field( 'acf-form_form_content_title' );
+
+	if ( $field_label ) {
+
+		$field[ 'label' ] = $field_label;
+
+	}
+
+	// return
+	return $field;
+
+}
+add_filter( 'acf/prepare_field/name=_post_content', 'kulam_acf_prepare_acf_form_post_content_field' );

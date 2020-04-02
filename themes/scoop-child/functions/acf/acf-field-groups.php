@@ -79,6 +79,60 @@ acf_add_local_field_group(array(
 			'return_format' => 'value',
 			'placeholder' => '',
 		),
+		array(
+			'key' => 'field_5e86337963c2a',
+			'label' => __('Form Title', 'kulam-scoop'),
+			'name' => 'acf-form_form_title',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5a4fdd3871d9b',
+						'operator' => '==',
+						'value' => 'upload',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5e8633af63c2b',
+			'label' => __('Form Content Title', 'kulam-scoop'),
+			'name' => 'acf-form_form_content_title',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5a4fdd3871d9b',
+						'operator' => '==',
+						'value' => 'upload',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
 	),
 	'location' => array(
 		array(

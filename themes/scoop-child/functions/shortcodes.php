@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.4.4
+ * @version     1.6.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -95,7 +95,9 @@ function kulam_generate_homepage_tiles( $atts ) {
 	// custom tile for "Upload"
 	$markup .=
 		'<div class="tile-box-wrapper tile-box-upload col-sm-3 col-xs-6">' .
-			'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link" ' . $upload_tile_bg_markup . '>' .
+			( ( is_user_logged_in() ) ?
+			'<a href="' . home_url( '/' ) . 'share"  role="link" class="tile-box-link" ' . $upload_tile_bg_markup . '>' :
+			'<a href="#" role="link" class="tile-box-link" data-toggle="modal" data-target="#modal-login" data-redirect="/share" data-show-pre-text="false"' . $upload_tile_bg_markup . '>' ) .
 				'<div class="tile-box">' .
 					'<div class="tile-box-content">' .
 						'<i class="fa fa-cloud-upload"></i>' .

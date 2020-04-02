@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.5.0
+ * @version		1.6.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -48,6 +48,9 @@ require_once( 'functions/svgs.php' );
 
 // search functions
 require_once( 'functions/search.php' );
+
+// users functions
+require_once( 'functions/users.php' );
 
 // yoast functions
 require_once( 'functions/yoast.php' );
@@ -160,7 +163,7 @@ function create_account(){
 			if (!is_wp_error($user_id)) {
 				//user has been created
 				$user = new WP_User($user_id);
-				$user->set_role('Subscriber');
+				$user->set_role('subscriber');
 				wp_set_current_user($user_id);
 				wp_set_auth_cookie($user_id);
 				$captcha_instance->remove( $prefix );
