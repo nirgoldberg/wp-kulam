@@ -176,6 +176,7 @@ function kol_get_acf_form_args($form) {
                 ),
                 'post_title' => true,
                 'post_content' => true,
+                'field_groups' => array( 'group_5e865fad1f3c4' ),
                 'submit_value' => __("Submit for review", 'kulam-scoop'),
                 'updated_message' => __("<b>Success!</b> Your article was submitted successfully and will be reviewed shortly.", 'kulam-scoop'),
                 // 'honeypot' => true
@@ -250,3 +251,30 @@ function kulam_acf_prepare_acf_form_post_content_field( $field ) {
 
 }
 add_filter( 'acf/prepare_field/name=_post_content', 'kulam_acf_prepare_acf_form_post_content_field' );
+
+/**
+ * kulam_acf_prepare_acf_form_post_category_field
+ *
+ * This function filters acf form category title
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_prepare_acf_form_post_category_field( $field ) {
+
+	/**
+	 * Variables
+	 */
+	$field_label = get_field( 'acf-form_form_category_title' );
+
+	if ( $field_label ) {
+
+		$field[ 'label' ] = $field_label;
+
+	}
+
+	// return
+	return $field;
+
+}
+add_filter( 'acf/prepare_field/name=acf-form_category', 'kulam_acf_prepare_acf_form_post_category_field' );

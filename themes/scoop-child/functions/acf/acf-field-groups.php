@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.5.0
+ * @version		1.6.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	Header/Footer Settings
  * @fieldgroup	My Siddur Settings
  * @fieldgroup	General Settings
+ * @fieldgroup	ACF Form Fields
  */
 if( function_exists('acf_add_local_field_group') ):
 
@@ -110,6 +111,33 @@ acf_add_local_field_group(array(
 			'key' => 'field_5e8633af63c2b',
 			'label' => __('Form Content Title', 'kulam-scoop'),
 			'name' => 'acf-form_form_content_title',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5a4fdd3871d9b',
+						'operator' => '==',
+						'value' => 'upload',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5e8668eea69b5',
+			'label' => __('Form Category Title', 'kulam-scoop'),
+			'name' => 'acf-form_form_category_title',
 			'type' => 'text',
 			'instructions' => '',
 			'required' => 0,
@@ -871,6 +899,52 @@ Image dimensions: 1140x268 (px)', 'kulam-scoop'),
 	'instruction_placement' => 'label',
 	'hide_on_screen' => '',
 	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_5e865fad1f3c4',
+	'title' => __('ACF Form Fields', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5e86605e1140b',
+			'label' => __('Category', 'kulam-scoop'),
+			'name' => 'acf-form_category',
+			'type' => 'taxonomy',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'category',
+			'field_type' => 'select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 1,
+			'load_terms' => 0,
+			'return_format' => 'id',
+			'multiple' => 0,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-general',
+			),
+		),
+	),
+	'menu_order' => 104,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 0,
 	'description' => '',
 ));
 
