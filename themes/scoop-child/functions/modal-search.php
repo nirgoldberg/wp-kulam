@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.1.1
+ * @version     1.6.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -33,16 +33,14 @@ function kulam_modal_search() {
 
 				<div class="modal-body">
 					<div class="search-header">
-						<form>
 
-							<?php
-								/**
-								 * Search
-								 */
-								get_template_part( 'partials/search' );
-							?>
+						<?php
+							/**
+							 * Search
+							 */
+							get_template_part( 'partials/search' );
+						?>
 
-						</form>
 					</div>
 				</div>
 
