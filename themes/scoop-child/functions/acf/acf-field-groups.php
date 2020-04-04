@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.6.2
+ * @version		1.6.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -452,8 +452,8 @@ acf_add_local_field_group(array(
 	'title' => __('Header/Footer Settings', 'kulam-scoop'),
 	'fields' => array(
 		array(
-			'key' => 'field_5e4beda230301',
-			'label' => __('Header', 'kulam-scoop'),
+			'key' => 'field_5e890348f6c87',
+			'label' => __('Search Form', 'kulam-scoop'),
 			'name' => '',
 			'type' => 'tab',
 			'instructions' => '',
@@ -493,6 +493,44 @@ acf_add_local_field_group(array(
 			'return_format' => 'value',
 			'ajax' => 0,
 			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_5e8902e5f6c86',
+			'label' => __('Search Input Placeholder', 'kulam-scoop'),
+			'name' => 'acf-option_search_input_placeholder',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5e890285f6c85',
+			'label' => __('Advanced Search', 'kulam-scoop'),
+			'name' => 'acf-option_advanced_search',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 1,
+			'ui' => 0,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
 		),
 	),
 	'location' => array(

@@ -3,8 +3,8 @@
     "title": "Header\/Footer Settings",
     "fields": [
         {
-            "key": "field_5e4beda230301",
-            "label": "Header",
+            "key": "field_5e890348f6c87",
+            "label": "Search Form",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -44,6 +44,44 @@
             "return_format": "value",
             "ajax": 0,
             "placeholder": ""
+        },
+        {
+            "key": "field_5e8902e5f6c86",
+            "label": "Search Input Placeholder",
+            "name": "acf-option_search_input_placeholder",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e890285f6c85",
+            "label": "Advanced Search",
+            "name": "acf-option_advanced_search",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -63,5 +101,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1582036084
+    "modified": 1586037676
 }

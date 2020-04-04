@@ -4,9 +4,12 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.4.6
+ * @version     1.6.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! function_exists( 'get_field' ) )
+	return;
 
 /**
  * Variables
@@ -15,6 +18,12 @@ $formats		= array();
 $types			= array();
 $activities		= array();
 $categories		= array();
+
+$search_input_placeholder	= get_field( 'acf-option_search_input_placeholder', 'option' );
+$advanced_search			= get_field( 'acf-option_advanced_search', 'option' );
+
+$search_input_placeholder	= $search_input_placeholder ?: __( 'Search...', 'kulam-scoop' );
+$advanced_search			= $advanced_search !== false ? true : false;
 
 // post formats
 
@@ -138,7 +147,7 @@ if ( $menu_items ) {
 	<div class="menu-search-input-text">
 
 		<span class="menu-search-input">
-			<input type="text" name="s" placeholder="<?php _e( 'Search...', 'kulam-scoop' ); ?>" data-alternate-placeholder="<?php _e( 'Free text...', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
+			<input type="text" name="s" placeholder="<?php echo $search_input_placeholder; ?>" data-alternate-placeholder="<?php _e( 'Free text...', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET['s'] ) ? $_GET['s'] : '' ); ?>" autocomplete="on" />
 		</span>
 
 		<span class="menu-search-submit fa fa-search">
@@ -147,98 +156,102 @@ if ( $menu_items ) {
 
 	</div>
 
-	<div class="advanced-search">
+	<?php if ( $advanced_search ) : ?>
 
-		<div class="advanced-search-btn"><a><?php _e( 'Advanced Search', 'kulam-scoop' ); ?></a></div>
+		<div class="advanced-search">
 
-		<div class="advanced-search-fields-wrapper">
+			<div class="advanced-search-btn"><a><?php _e( 'Advanced Search', 'kulam-scoop' ); ?></a></div>
 
-			<div class="instructions"><?php _e( 'Please select at least one field and click Search', 'kulam-scoop' ); ?><span>&times;</span></div>
+			<div class="advanced-search-fields-wrapper">
 
-			<div class="advanced-search-fields">
+				<div class="instructions"><?php _e( 'Please select at least one field and click Search', 'kulam-scoop' ); ?><span>&times;</span></div>
 
-				<?php if ( $formats ) { ?>
+				<div class="advanced-search-fields">
 
-					<span id="menu-search-input-post-format" class="menu-search-input">
-						<select name="post_format">
+					<?php if ( $formats ) { ?>
 
-							<option value=""><?php _e( 'Choose a post format', 'kulam-scoop' ); ?></option>
-							<option value="0" <?php echo ( ( isset( $_GET[ 'post_format' ] ) && '0' == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ); ?>><?php _e( 'Text', 'kulam-scoop' ); ?></option>
+						<span id="menu-search-input-post-format" class="menu-search-input">
+							<select name="post_format">
 
-							<?php foreach ( $formats as $f ) {
-								echo '<option value="' . $f . '" ' . ( ( isset( $_GET[ 'post_format' ] ) && $f == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ) . '>' . esc_html( get_post_format_string( $f ) ) . '</option>';
-							} ?>
+								<option value=""><?php _e( 'Choose a post format', 'kulam-scoop' ); ?></option>
+								<option value="0" <?php echo ( ( isset( $_GET[ 'post_format' ] ) && '0' == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ); ?>><?php _e( 'Text', 'kulam-scoop' ); ?></option>
 
-						</select>
-					</span>
+								<?php foreach ( $formats as $f ) {
+									echo '<option value="' . $f . '" ' . ( ( isset( $_GET[ 'post_format' ] ) && $f == $_GET[ 'post_format' ] ) ? 'selected="selected"' : '' ) . '>' . esc_html( get_post_format_string( $f ) ) . '</option>';
+								} ?>
 
-				<?php }
+							</select>
+						</span>
 
-				if ( $types ) { ?>
+					<?php }
 
-					<span id="menu-search-input-post-type" class="menu-search-input">
-						<select name="pt">
+					if ( $types ) { ?>
 
-							<option value=""><?php _e( 'Choose a post type', 'kulam-scoop' ); ?></option>
+						<span id="menu-search-input-post-type" class="menu-search-input">
+							<select name="pt">
 
-							<?php foreach ( $types as $t ) {
-								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'pt' ] ) && $t->slug == $_GET[ 'pt' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
-							} ?>
+								<option value=""><?php _e( 'Choose a post type', 'kulam-scoop' ); ?></option>
 
-						</select>
-					</span>
+								<?php foreach ( $types as $t ) {
+									echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'pt' ] ) && $t->slug == $_GET[ 'pt' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
+								} ?>
 
-				<?php }
+							</select>
+						</span>
 
-				if ( $activity_types ) { ?>
+					<?php }
 
-					<span id="menu-search-input-activity-type" class="menu-search-input">
-						<select name="activity_type">
+					if ( $activity_types ) { ?>
 
-							<option value=""><?php _e( 'Choose an activity type', 'kulam-scoop' ); ?></option>
+						<span id="menu-search-input-activity-type" class="menu-search-input">
+							<select name="activity_type">
 
-							<?php foreach ( $activity_types as $t ) {
-								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'activity_type' ] ) && $t->slug == $_GET[ 'activity_type' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
-							} ?>
+								<option value=""><?php _e( 'Choose an activity type', 'kulam-scoop' ); ?></option>
 
-						</select>
-					</span>
+								<?php foreach ( $activity_types as $t ) {
+									echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'activity_type' ] ) && $t->slug == $_GET[ 'activity_type' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
+								} ?>
 
-				<?php }
+							</select>
+						</span>
 
-				if ( $audiences ) { ?>
+					<?php }
 
-					<span id="menu-search-input-audience" class="menu-search-input">
-						<select name="audience">
+					if ( $audiences ) { ?>
 
-							<option value=""><?php _e( 'Choose an audience', 'kulam-scoop' ); ?></option>
+						<span id="menu-search-input-audience" class="menu-search-input">
+							<select name="audience">
 
-							<?php foreach ( $audiences as $t ) {
-								echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'audience' ] ) && $t->slug == $_GET[ 'audience' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
-							} ?>
+								<option value=""><?php _e( 'Choose an audience', 'kulam-scoop' ); ?></option>
 
-						</select>
-					</span>
+								<?php foreach ( $audiences as $t ) {
+									echo '<option value="' . $t->slug . '" ' . ( ( isset( $_GET[ 'audience' ] ) && $t->slug == $_GET[ 'audience' ] ) ? 'selected="selected"' : '' ) . '>' . $t->name . '</option>';
+								} ?>
 
-				<?php }
+							</select>
+						</span>
 
-				if ( $categories ) { ?>
+					<?php }
 
-					<span id="menu-search-input-category" class="menu-search-input">
-						<input type="text" name="cat_name" class="auto-complete-input" placeholder="<?php _e( 'Type category name', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET[ 'cat_name' ] ) ? $_GET[ 'cat_name' ] : '' ); ?>" data-options="<?php echo esc_js( json_encode( $categories, JSON_UNESCAPED_UNICODE ) ); ?>" data-auto-complete-output="auto-complete-cat_name" />
-						<input type="hidden" name="cat" class="auto-complete-cat_name" value="<?php echo esc_attr( isset( $_GET[ 'cat' ] ) ? $_GET[ 'cat' ] : '' ); ?>" />
-					</span>
+					if ( $categories ) { ?>
 
-				<?php } ?>
+						<span id="menu-search-input-category" class="menu-search-input">
+							<input type="text" name="cat_name" class="auto-complete-input" placeholder="<?php _e( 'Type category name', 'kulam-scoop' ); ?>" value="<?php echo esc_attr( isset( $_GET[ 'cat_name' ] ) ? $_GET[ 'cat_name' ] : '' ); ?>" data-options="<?php echo esc_js( json_encode( $categories, JSON_UNESCAPED_UNICODE ) ); ?>" data-auto-complete-output="auto-complete-cat_name" />
+							<input type="hidden" name="cat" class="auto-complete-cat_name" value="<?php echo esc_attr( isset( $_GET[ 'cat' ] ) ? $_GET[ 'cat' ] : '' ); ?>" />
+						</span>
 
-			</div><!-- .advanced-search-fields -->
+					<?php } ?>
 
-			<span class="menu-search-input">
-				<input type="submit" class="advanced-search-submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
-			</span>
+				</div><!-- .advanced-search-fields -->
 
-		</div><!-- .advanced-search-fields-wrapper -->
+				<span class="menu-search-input">
+					<input type="submit" class="advanced-search-submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
+				</span>
 
-	</div><!-- .advanced-search -->
+			</div><!-- .advanced-search-fields-wrapper -->
+
+		</div><!-- .advanced-search -->
+
+	<?php endif; ?>
 
 </form>
