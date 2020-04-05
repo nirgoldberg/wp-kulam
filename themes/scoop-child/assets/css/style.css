@@ -584,6 +584,10 @@ body.modal-open,
 /* general */
 /***********/
 
+.select2-results__option {
+	color: #333;
+}
+
 @media print {
 	footer
 	{
