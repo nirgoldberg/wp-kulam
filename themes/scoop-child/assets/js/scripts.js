@@ -41,6 +41,9 @@ var $ = jQuery,
 			// bootstrap modal
 			KULAM_general.bootstrap_modal();
 
+			// Q&A
+			KULAM_general.qna();
+
 			// my siddur
 			KULAM_general.my_siddur();
 
@@ -402,6 +405,57 @@ var $ = jQuery,
 			$('#modal-search').on('shown.bs.modal', function(e) {
 				$(this).data('bs.modal').$backdrop.css('background-color', '#FFF');
 			});
+
+		},
+
+		/**
+		 * qna
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		qna : function() {
+
+			// toggle question
+			$('.kulam-qna li .qna-title').on('click', function(event) {
+
+				event.preventDefault();
+
+				KULAM_general.qna_toggle($(this));
+
+			});
+
+		},
+
+		/**
+		 * qna_toggle
+		 *
+		 * Called from qna
+		 *
+		 * @param	question (object)
+		 * @return	N/A
+		 */
+		qna_toggle : function(question) {
+
+			// variables
+			var qnaBlock = question.closest('.kulam-qna'),
+				questions = qnaBlock.children('li'),
+				current = question.parent('li'),
+				isActive = current.hasClass('active');
+
+			if (isActive) {
+				// close current question
+				current.toggleClass('active');
+			}
+			else {
+				// close all questions
+				questions.removeClass('active');
+
+				// open current question
+				current.addClass('active');
+			}
 
 		},
 

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.6.3
+ * @version		1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * ACF register field groups
  *
  * @fieldgroup	ACF Front-End Form
+ * @fieldgroup	Questions & Answers
  * @fieldgroup	Ratings
  * @fieldgroup	Category Attributes
  * @fieldgroup	User Information
@@ -182,6 +183,158 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_5e89d267bf10c',
+	'title' => __('Questions & Answers', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5e89d71b14535',
+			'label' => __('Q&A Blocks', 'kulam-scoop'),
+			'name' => 'acf-qna_blocks',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_5e89dcc4363e7',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'row',
+			'button_label' => __('Add Q&A Block', 'kulam-scoop'),
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5e89d2e914534',
+					'label' => __('ID', 'kulam-scoop'),
+					'name' => 'acf-qna_block_id',
+					'type' => 'text',
+					'instructions' => __('Use this field as a slug for your shortcode, e.g. [kulam_qna id=ID]', 'kulam-scoop'),
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_5e89dcc4363e7',
+					'label' => __('Shortcode', 'kulam-scoop'),
+					'name' => 'acf-qna_block_shortcode',
+					'type' => 'text',
+					'instructions' => __('Auto generated after post save/update.
+Copy and paste this code into your post editor', 'kulam-scoop'),
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 1,
+					'disabled' => 0,
+				),
+				array(
+					'key' => 'field_5e89d8d8911bd',
+					'label' => __('Questions', 'kulam-scoop'),
+					'name' => 'acf-qna_block_questions',
+					'type' => 'repeater',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'collapsed' => 'field_5e89d75914536',
+					'min' => 0,
+					'max' => 0,
+					'layout' => 'block',
+					'button_label' => __('Add Question', 'kulam-scoop'),
+					'sub_fields' => array(
+						array(
+							'key' => 'field_5e89d75914536',
+							'label' => __('Question', 'kulam-scoop'),
+							'name' => 'question',
+							'type' => 'text',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+							'prepend' => '',
+							'append' => '',
+							'maxlength' => '',
+						),
+						array(
+							'key' => 'field_5e89d77214537',
+							'label' => __('Answer', 'kulam-scoop'),
+							'name' => 'answer',
+							'type' => 'wysiwyg',
+							'instructions' => '',
+							'required' => 1,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'tabs' => 'all',
+							'toolbar' => 'full',
+							'media_upload' => 1,
+							'delay' => 1,
+						),
+					),
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+	),
+	'menu_order' => 2,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5c4f03398b667',
 	'title' => __('Ratings', 'kulam-scoop'),
 	'fields' => array(
@@ -275,7 +428,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 2,
+	'menu_order' => 3,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -283,7 +436,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
-	'modified' => 1560431236,
 ));
 
 acf_add_local_field_group(array(
@@ -346,7 +498,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 3,
+	'menu_order' => 4,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -354,7 +506,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
-	'modified' => 1560518021,
 ));
 
 acf_add_local_field_group(array(
@@ -436,7 +587,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 4,
+	'menu_order' => 5,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -444,7 +595,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => 1,
 	'description' => '',
-	'modified' => 1560431260,
 ));
 
 acf_add_local_field_group(array(
@@ -786,6 +936,37 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 				'id' => '',
 			),
 			'default_value' => '#FFFFFF',
+		),
+		array(
+			'key' => 'field_5e8c4b80e2ff2',
+			'label' => __('Questions & Answers', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5e8c4baae2ff3',
+			'label' => __('Q&A color', 'kulam-scoop'),
+			'name' => 'acf-option_qna_color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
 		),
 		array(
 			'key' => 'field_5cd11da3dcb13',

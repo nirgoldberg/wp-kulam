@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.6.0
+ * @version     1.7.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -131,3 +131,116 @@ function kulam_generate_homepage_tiles( $atts ) {
 
 }
 add_shortcode( 'kulam_hp', 'kulam_generate_homepage_tiles' );
+
+/**
+ * kulam_qna
+ *
+ * This function adds the "kulam_qna" Shortcode
+ *
+ * @param	$atts (array)
+ * @return	(string)
+ */
+function kulam_qna( $atts ) {
+
+	extract( shortcode_atts( array(
+		'id'		=> '',
+	), $atts ) );
+
+	if ( ! $id )
+		return;
+
+	// return
+	return kulam_qna_html( $id );
+
+}
+add_shortcode( 'kulam_qna', 'kulam_qna' );
+
+/**
+ * kulam_qna_html
+ *
+ * This function returns a Questions & Answers module HTML markup
+ *
+ * @param	$id (int) qna ID
+ * @return	(string)
+ */
+function kulam_qna_html( $id ) {
+
+	if ( ! function_exists( 'get_field' ) )
+		return '';
+
+	/**
+	 * variables
+	 */
+	$qna_blocks	= get_field( 'acf-qna_blocks' );
+	$output		= '';
+
+	if ( ! $qna_blocks || ! is_array( $qna_blocks ) )
+		return $output;
+
+	foreach ( $qna_blocks as $qna ) {
+
+		if ( ! isset( $qna[ 'acf-qna_block_id' ] ) || $id != $qna[ 'acf-qna_block_id' ] )
+			continue;
+
+		$output = kulam_qna_block_html( $qna );
+
+	}
+
+	// return
+	return $output;
+
+}
+
+/**
+ * kulam_qna_block_html
+ *
+ * This function returns a Questions & Answers module HTML markup
+ *
+ * @param	$qna (array) questions and answers block
+ * @return	(string)
+ */
+function kulam_qna_block_html( $qna ) {
+
+	/**
+	 * Variables
+	 */
+	$output = '';
+
+	if ( function_exists( 'get_field' ) ) {
+		$color = get_field( 'acf-option_qna_color', 'option' );
+	}
+
+	$li_style = $color ? 'style="color: ' . $color . ';"' : '';
+
+	if ( ! is_array( $qna ) || ! isset( $qna[ 'acf-qna_block_id' ] ) || ! isset( $qna[ 'acf-qna_block_questions' ] ) || ! is_array( $qna[ 'acf-qna_block_questions' ] ) )
+		return $output;
+
+	$id			= urlencode( $qna[ 'acf-qna_block_id' ] );
+	$questions	= $qna[ 'acf-qna_block_questions' ];
+
+	$output .= '<!-- QnA #' . $id . ' --><ul id="kulam-qna-' . $id . '" class="kulam-qna">';
+
+	foreach ( $questions as $qna_pair ) {
+
+		/**
+		 * Variables
+		 */
+		$q = $qna_pair[ 'question' ];
+		$a = $qna_pair[ 'answer' ];
+
+		if ( ! $q || ! $a )
+			continue;
+
+		$output .= '<li>';
+		$output .= '<h3 class="qna-title" ' . $li_style . '>' . $q . '</h3>';
+		$output .= '<div class="qna-content">' . $a . '</div>';
+		$output .= '</li>';
+
+	}
+
+	$output .= '</ul><!-- End of QnA #' . $id . ' -->';
+
+	// return
+	return $output;
+
+}

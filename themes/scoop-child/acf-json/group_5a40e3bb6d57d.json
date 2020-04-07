@@ -190,6 +190,37 @@
             "default_value": "#FFFFFF"
         },
         {
+            "key": "field_5e8c4b80e2ff2",
+            "label": "Questions & Answers",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5e8c4baae2ff3",
+            "label": "Q&A color",
+            "name": "acf-option_qna_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
             "key": "field_5cd11da3dcb13",
             "label": "Social",
             "name": "",
@@ -339,5 +370,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1584706934
+    "modified": 1586252779
 }

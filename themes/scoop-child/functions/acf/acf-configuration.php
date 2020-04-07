@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.5.0
+ * @version		1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -220,3 +220,154 @@ function kulam_acf_relationship_query( $args, $field, $post_id ) {
 
 }
 add_filter( 'acf/fields/relationship/query', 'kulam_acf_relationship_query', 10, 3 );
+
+/**
+ * kulam_acf_prepare_acf_form_post_title_field
+ *
+ * This function filters acf form title
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_prepare_acf_form_post_title_field( $field ) {
+
+	/**
+	 * Variables
+	 */
+	$field_label = get_field( 'acf-form_form_title' );
+
+	if ( $field_label ) {
+
+		$field[ 'label' ] = $field_label;
+
+	}
+
+	// return
+	return $field;
+
+}
+add_filter( 'acf/prepare_field/name=_post_title', 'kulam_acf_prepare_acf_form_post_title_field' );
+
+/**
+ * kulam_acf_prepare_acf_form_post_content_field
+ *
+ * This function filters acf form content title
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_prepare_acf_form_post_content_field( $field ) {
+
+	/**
+	 * Variables
+	 */
+	$field_label = get_field( 'acf-form_form_content_title' );
+
+	if ( $field_label ) {
+
+		$field[ 'label' ] = $field_label;
+
+	}
+
+	// return
+	return $field;
+
+}
+add_filter( 'acf/prepare_field/name=_post_content', 'kulam_acf_prepare_acf_form_post_content_field' );
+
+/**
+ * kulam_acf_prepare_acf_form_post_category_field
+ *
+ * This function filters acf form category title
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_prepare_acf_form_post_category_field( $field ) {
+
+	/**
+	 * Variables
+	 */
+	$field_label = get_field( 'acf-form_form_category_title' );
+
+	if ( $field_label ) {
+
+		$field[ 'label' ] = $field_label;
+
+	}
+
+	// return
+	return $field;
+
+}
+add_filter( 'acf/prepare_field/name=acf-form_category', 'kulam_acf_prepare_acf_form_post_category_field' );
+
+/**
+ * kulam_acf_add_readonly_and_disabled_to_text_field
+ *
+ * This function adds readonly and disabled attributes to text field
+ *
+ * @param	$field (array)
+ * @return	(array)
+ */
+function kulam_acf_add_readonly_and_disabled_to_text_field( $field ) {
+
+	acf_render_field_setting( $field, array(
+		'label'         => __( 'Read Only?', 'acf' ),
+		'instructions'  => '',
+		'type'          => 'radio',
+		'name'          => 'readonly',
+		'choices'       => array(
+			0           => __( 'No', 'acf' ),
+			1           => __( 'Yes', 'acf' ),
+		),
+		'layout'        => 'horizontal',
+	));
+
+	acf_render_field_setting( $field, array(
+		'label'         => __( 'Disabled?', 'acf' ),
+		'instructions'  => '',
+		'type'          => 'radio',
+		'name'          => 'disabled',
+		'choices'       => array(
+			0           => __( 'No', 'acf' ),
+			1           => __( 'Yes', 'acf' ),
+		),
+		'layout'        => 'horizontal',
+	));
+
+}
+add_action( 'acf/render_field_settings/type=text', 'kulam_acf_add_readonly_and_disabled_to_text_field' );
+
+/**
+ * kulam_acf_qna_generate_shortcodes
+ *
+ * This function generates Question & Answers module shortcodes
+ *
+ * @param	$post_id (int) Post ID
+ * @return	N/A
+ */
+function kulam_acf_qna_generate_shortcodes( $post_id ) {
+
+	/**
+	 * Variables
+	 */
+	$qna_blocks			= 'field_5e89d71b14535';
+	$block_id			= 'field_5e89d2e914534';
+	$block_shortcode	= 'field_5e89dcc4363e7';
+
+	if ( ! isset( $_POST[ 'acf' ][ $qna_blocks ] ) || ! is_array( $_POST[ 'acf' ][ $qna_blocks ] ) )
+		return;
+
+	foreach ( $_POST[ 'acf' ][ $qna_blocks ] as $key => $qna ) {
+
+		// vars
+		$id = $qna[ $block_id ];
+
+		// set shortcode
+		$_POST[ 'acf' ][ $qna_blocks ][ $key ][ $block_shortcode ] = '[kulam_qna id="' . sanitize_text_field( $id ) . '"]';
+
+	}
+
+}
+add_action( 'acf/save_post', 'kulam_acf_qna_generate_shortcodes', 5 );
