@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.1
+ * @version     1.7.2
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -213,7 +213,7 @@ function kulam_qna_block_html( $qna ) {
 		$color			= get_field( 'acf-option_qna_color', 'option' );
 	}
 
-	$li_style .= $font_family ? 'font-family: ' . $font_family . ';' : '';
+	$li_style .= $font_family ? 'font-family: \'' . $font_family . '\';' : '';
 	$li_style .= $font_size ? 'font-size: ' . $font_size . 'px; line-height: ' . $font_size . 'px;' : '';
 	$li_style .= $color ? 'color: ' . $color . ';' : '';
 

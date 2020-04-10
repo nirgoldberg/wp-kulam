@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.0
+ * @version		1.7.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -371,3 +371,83 @@ function kulam_acf_qna_generate_shortcodes( $post_id ) {
 
 }
 add_action( 'acf/save_post', 'kulam_acf_qna_generate_shortcodes', 5 );
+
+/**
+ * kulam_embed_google_fonts
+ *
+ * This function embeds google fonts chosen by ACF Font Family type fields associated with current post and options
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_embed_google_fonts() {
+
+	/**
+	 * Variables
+	 */
+	$fonts = array();
+	$post_fields = (array) get_field_objects();
+	$options_fields = (array) get_field_objects( 'option' );
+	$fields = array_merge( $post_fields, $options_fields );
+
+	if ( $fields ) {
+
+		foreach ( $fields as $key => $field ) {
+
+			if ( 'font_family' == $field[ 'type' ] ) {
+
+				$fonts[] = array(
+					'family'	=> $field[ 'value' ],
+					'type'		=> htmline_acf_web_fonts::get_font_type( $field[ 'value' ] ),
+				);
+
+			}
+
+		}
+
+	}
+
+	if ( $fonts ) {
+
+		$google_fonts = array();
+		$fonts_url = '';
+		$google_early_access_fonts = array();
+
+		foreach ( $fonts as $font ) {
+
+			if ( 'googlefonts' == $font[ 'type' ] ) {
+
+				$google_fonts[] = $font[ 'family' ] . ':100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic';
+
+			}
+
+			elseif ( 'earlyaccess' == $font[ 'type' ] ) {
+
+				$google_early_access_fonts[] = strtolower( str_replace( ' ', '', $font[ 'family' ] ) );
+
+			}
+
+		}
+
+		if ( $google_fonts ) {
+
+			$fonts_url = sprintf( 'https://fonts.googleapis.com/css?family=%s', implode( '|', $google_fonts ) );
+
+			if ( 'he-IL' === get_bloginfo( 'language' ) ) {
+				$fonts_url .= '&subset=hebrew';
+			}
+
+			printf( '<link rel="stylesheet" type="text/css" href="' . $fonts_url . '">' );
+
+		}
+
+		if ( $google_early_access_fonts ) {
+			foreach ( $google_early_access_fonts as $font ) {
+				printf( '<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/%s.css">', $font );
+			}
+		}
+
+	}
+
+}
+add_action( 'wp_head', 'kulam_embed_google_fonts' );
