@@ -206,8 +206,44 @@
             "endpoint": 0
         },
         {
+            "key": "field_5e8d7f3b4ad72",
+            "label": "Font Family",
+            "name": "acf-option_qna_font_family",
+            "type": "font_family",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "font_family": 0
+        },
+        {
+            "key": "field_5e8dcb0641bb6",
+            "label": "Font Size",
+            "name": "acf-option_qna_font_size",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 20,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": 8,
+            "max": 72,
+            "step": 1
+        },
+        {
             "key": "field_5e8c4baae2ff3",
-            "label": "Q&A color",
+            "label": "Color",
             "name": "acf-option_qna_color",
             "type": "color_picker",
             "instructions": "",
@@ -370,5 +406,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586252779
+    "modified": 1586513779
 }

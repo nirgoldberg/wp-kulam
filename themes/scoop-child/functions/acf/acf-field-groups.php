@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.0
+ * @version		1.7.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -954,8 +954,44 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'endpoint' => 0,
 		),
 		array(
+			'key' => 'field_5e8d7f3b4ad72',
+			'label' => __('Font Family', 'kulam-scoop'),
+			'name' => 'acf-option_qna_font_family',
+			'type' => 'font_family',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'font_family' => 0,
+		),
+		array(
+			'key' => 'field_5e8dcb0641bb6',
+			'label' => __('Font Size', 'kulam-scoop'),
+			'name' => 'acf-option_qna_font_size',
+			'type' => 'number',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 20,
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => 'px',
+			'min' => 8,
+			'max' => 72,
+			'step' => 1,
+		),
+		array(
 			'key' => 'field_5e8c4baae2ff3',
-			'label' => __('Q&A color', 'kulam-scoop'),
+			'label' => __('Color', 'kulam-scoop'),
 			'name' => 'acf-option_qna_color',
 			'type' => 'color_picker',
 			'instructions' => '',

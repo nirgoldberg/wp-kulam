@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.0
+ * @version     1.7.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -205,12 +205,17 @@ function kulam_qna_block_html( $qna ) {
 	 * Variables
 	 */
 	$output = '';
+	$li_style = '';
 
 	if ( function_exists( 'get_field' ) ) {
-		$color = get_field( 'acf-option_qna_color', 'option' );
+		$font_family	= get_field( 'acf-option_qna_font_family', 'option' );
+		$font_size		= get_field( 'acf-option_qna_font_size', 'option' );
+		$color			= get_field( 'acf-option_qna_color', 'option' );
 	}
 
-	$li_style = $color ? 'style="color: ' . $color . ';"' : '';
+	$li_style .= $font_family ? 'font-family: ' . $font_family . ';' : '';
+	$li_style .= $font_size ? 'font-size: ' . $font_size . 'px; line-height: ' . $font_size . 'px;' : '';
+	$li_style .= $color ? 'color: ' . $color . ';' : '';
 
 	if ( ! is_array( $qna ) || ! isset( $qna[ 'acf-qna_block_id' ] ) || ! isset( $qna[ 'acf-qna_block_questions' ] ) || ! is_array( $qna[ 'acf-qna_block_questions' ] ) )
 		return $output;
@@ -232,7 +237,7 @@ function kulam_qna_block_html( $qna ) {
 			continue;
 
 		$output .= '<li>';
-		$output .= '<h3 class="qna-title" ' . $li_style . '>' . $q . '</h3>';
+		$output .= '<h3 class="qna-title" ' . ( $li_style ? 'style="' . $li_style . '"' : '') . '>' . $q . '</h3>';
 		$output .= '<div class="qna-content">' . $a . '</div>';
 		$output .= '</li>';
 
