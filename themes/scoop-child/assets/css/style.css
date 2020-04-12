@@ -576,13 +576,13 @@ body.modal-open,
 	list-style: none;
 }
 
-.kulam-qna li {
+.kulam-qna > li {
 	margin: 0;
 	padding: 0;
 	border-top: 1px solid #979797;
 }
 
-.kulam-qna li .qna-title {
+.kulam-qna > li .qna-title {
 	position: relative;
 	margin: 0;
 	padding: 17px 0;
@@ -593,7 +593,7 @@ body.modal-open,
 	cursor: pointer;
 }
 
-.kulam-qna li .qna-title:after {
+.kulam-qna > li .qna-title:after {
 	position: absolute;
 	content: '\f067';
 	top: 17px;
@@ -613,11 +613,11 @@ body.modal-open,
 	transition:         .2s;
 }
 
-.kulam-qna li .qna-content {
+.kulam-qna > li .qna-content {
 	display: none;
 }
 
-.kulam-qna li.active .qna-title:after {
+.kulam-qna > li.active .qna-title:after {
 	-webkit-transform: rotate(45deg);
 	-moz-transform:    rotate(45deg);
 	-ms-transform:     rotate(45deg);
@@ -625,7 +625,7 @@ body.modal-open,
 	transform:         rotate(45deg);
 }
 
-.kulam-qna li.active .qna-content {
+.kulam-qna > li.active .qna-content {
 	display: block;
 }
 

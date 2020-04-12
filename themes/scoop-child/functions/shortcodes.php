@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.2
+ * @version     1.7.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -238,7 +238,7 @@ function kulam_qna_block_html( $qna ) {
 
 		$output .= '<li>';
 		$output .= '<h3 class="qna-title" ' . ( $li_style ? 'style="' . $li_style . '"' : '') . '>' . $q . '</h3>';
-		$output .= '<div class="qna-content">' . $a . '</div>';
+		$output .= '<div class="qna-content">' . apply_filters( 'the_content', $a ) . '</div>';
 		$output .= '</li>';
 
 	}

@@ -55,7 +55,7 @@ header .logo .login,
 /* Q&A */
 /*******/
 
-.kulam-qna li .qna-title:after {
+.kulam-qna > li .qna-title:after {
 	left: 0;
 	right: auto;
 }
