@@ -44,6 +44,9 @@ var $ = jQuery,
 			// Q&A
 			KULAM_general.qna();
 
+			// google map
+			KULAM_general.google_map();
+
 			// my siddur
 			KULAM_general.my_siddur();
 
@@ -455,6 +458,135 @@ var $ = jQuery,
 
 				// open current question
 				current.addClass('active');
+			}
+
+		},
+
+		/**
+		 * google_map
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		google_map : function() {
+
+			if ( typeof googleMapsData !== 'undefined' && typeof googleMapsData._googleMapsApi !== 'undefined' ) {
+				$('.acf-map').each(function() {
+
+					// variables
+					var map = KULAM_general.initMap($(this));
+
+				});
+			}
+
+		},
+
+		/**
+		* initMap
+		*
+		* Renders a Google Map onto the selected jQuery element
+		*
+		* @param	$el (object) The jQuery element
+		* @return	(object) The map instance
+		*/
+		initMap : function($el) {
+
+			// find marker elements within map
+			var $markers = $el.find('.marker');
+
+			// create gerenic map
+			var mapArgs = {
+				zoom: $el.data('zoom') || 16,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var map = new google.maps.Map($el[0], mapArgs);
+
+			// add markers
+			map.markers = [];
+			$markers.each(function() {
+				KULAM_general.initMarker($(this), map);
+			});
+
+			// center map based on markers
+			KULAM_general.centerMap(map);
+
+			// return
+			return map;
+
+		},
+
+		/**
+		* initMarker
+		*
+		* Creates a marker for the given jQuery element and map
+		*
+		* @param	$el (object) The jQuery element
+		* @param	map (object) The map instance
+		* @return	N/A
+		*/
+		initMarker : function($marker, map) {
+
+			// get position from marker
+			var lat = $marker.data('lat');
+			var lng = $marker.data('lng');
+			var latLng = {
+				lat: parseFloat( lat ),
+				lng: parseFloat( lng )
+			};
+
+			// create marker instance
+			var marker = new google.maps.Marker({
+				position: latLng,
+				map: map
+			});
+
+			// append to reference for later use
+			map.markers.push(marker);
+
+			// if marker contains HTML, add it to an infoWindow
+			if ($marker.html()) {
+				// create info window
+				var infowindow = new google.maps.InfoWindow({
+					content: $marker.html()
+				});
+
+				// show info window when marker is clicked
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.open(map, marker);
+				});
+			}
+
+		},
+
+		/**
+		* centerMap
+		*
+		* Centers the map showing all markers in view
+		*
+		* @param	map (object) The map instance
+		* @return	N/A
+		*/
+		centerMap : function(map) {
+
+			// create map boundaries from all map markers
+			var bounds = new google.maps.LatLngBounds();
+
+			map.markers.forEach(function( marker ){
+				bounds.extend({
+					lat: marker.position.lat(),
+					lng: marker.position.lng()
+				});
+			});
+
+			// single marker
+			if (map.markers.length == 1) {
+				map.setCenter( bounds.getCenter() );
+
+			// multiple markers
+			} else {
+				map.fitBounds(bounds);
 			}
 
 		},

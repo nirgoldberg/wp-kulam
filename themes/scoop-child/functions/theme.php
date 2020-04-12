@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.3.2
+ * @version     1.7.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -106,9 +106,28 @@ add_action( 'wp_enqueue_scripts', 'kulam_enqueue_styles', 700 );
  */
 function kulam_enqueue_scripts() {
 
+	if ( function_exists( 'get_field' ) ) {
+
+		$google_maps_api = get_field( 'acf-option_google_maps_api', 'option' );
+
+		if ( $google_maps_api ) {
+
+			wp_register_script( 'kulam-google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $google_maps_api . '&language=' . substr( get_bloginfo( 'language' ), 0, 2 ), array( 'jquery' ), KULAM_VERSION, true );
+
+			$google_maps_api_params = array (
+				'_googleMapsApi'	=> true
+			);
+
+			wp_localize_script( 'kulam-google-maps', 'googleMapsData', $google_maps_api_params );
+			wp_enqueue_script( 'kulam-google-maps' );
+
+		}
+
+	}
+
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
-	wp_register_script( 'auto-complete',		get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',		array( 'jquery' ),					KULAM_VERSION,	true );
-	wp_register_script( 'kulam-js',				get_stylesheet_directory_uri() . '/assets/js/scripts.js',				array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
+	wp_register_script( 'auto-complete',	get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',	array( 'jquery' ),					KULAM_VERSION,	true );
+	wp_register_script( 'kulam-js',			get_stylesheet_directory_uri() . '/assets/js/scripts.js',			array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
 
 	$params = array (
 		'ajaxurl'		=> admin_url( 'admin-ajax.php' ),

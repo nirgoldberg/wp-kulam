@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.2
+ * @version		1.7.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -451,3 +451,22 @@ function kulam_embed_google_fonts() {
 
 }
 add_action( 'wp_head', 'kulam_embed_google_fonts' );
+
+/**
+ * kulam_acf_init_google_maps_api
+ *
+ * This function initiates Google API key for use by Google Maps custom field
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_acf_init_google_maps_api() {
+
+	$google_maps_api = get_field( 'acf-option_google_maps_api', 'option' );
+
+	if ( $google_maps_api ) {
+		acf_update_setting( 'google_api_key', $google_maps_api );
+	}
+
+}
+add_action('acf/init', 'kulam_acf_init_google_maps_api');

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.5.2
+ * @version		1.7.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -45,6 +45,8 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 			$category_description			= category_description( $category->term_id );
 			$category_description_toggling	= get_field( 'acf-option_category_description_toggling', 'option' );
+			$google_map						= get_field( 'acf-category_google_map', 'category_' . $category->term_id );
+			$google_maps_api				= get_field( 'acf-option_google_maps_api', 'option' );
 
 		} ?>
 
@@ -76,17 +78,29 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			?></h1>
 		</div>
 
-		<?php if ( is_category() && $category_description ) { ?>
+		<?php if ( is_category() ) {
 
-			<div class="category-desc <?php echo ! $category_description_toggling ? 'open' : ''; ?>">
-				<div class="desc"><?php echo $category_description; ?></div>
-			</div>
+			if ( $category_description ) { ?>
 
-		<?php } ?>
+				<div class="category-desc <?php echo ! $category_description_toggling ? 'open' : ''; ?>">
+					<div class="desc"><?php echo $category_description; ?></div>
+				</div>
 
-		<?php if ( is_category() && get_term_children( $category->term_id, 'category' ) ) {
+			<?php }
 
-			get_template_part( 'partials/subcat-menu' );
+			if ( $google_map && $google_maps_api ) { ?>
+
+				<div class="acf-map" data-zoom="16">
+					<div class="marker" data-lat="<?php echo esc_attr( $google_map[ 'lat' ] ); ?>" data-lng="<?php echo esc_attr( $google_map[ 'lng' ] ); ?>"></div>
+				</div>
+
+			<?php }
+
+			if ( get_term_children( $category->term_id, 'category' ) ) {
+
+				get_template_part( 'partials/subcat-menu' );
+
+			}
 
 		} ?>
 

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.1
+ * @version		1.7.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -488,6 +488,24 @@ acf_add_local_field_group(array(
 			'return_format' => 'object',
 			'multiple' => 0,
 		),
+		array(
+			'key' => 'field_5e931b1afeed3',
+			'label' => __('Google Map', 'kulam-scoop'),
+			'name' => 'acf-category_google_map',
+			'type' => 'google_map',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'center_lat' => '',
+			'center_lng' => '',
+			'zoom' => '',
+			'height' => '',
+		),
 	),
 	'location' => array(
 		array(
@@ -890,6 +908,27 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'ui' => 0,
 			'ui_on_text' => '',
 			'ui_off_text' => '',
+		),
+		array(
+			'key' => 'field_5e9393cd97e12',
+			'label' => __('Google Maps API', 'kulam-scoop'),
+			'name' => 'acf-option_google_maps_api',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
 		),
 		array(
 			'key' => 'field_5ca5f481de29b',
