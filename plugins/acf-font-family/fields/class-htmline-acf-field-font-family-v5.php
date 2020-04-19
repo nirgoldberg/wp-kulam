@@ -114,10 +114,8 @@ class htmline_acf_field_font_family extends acf_field {
 
 		<select id="<?php echo esc_attr( $field['id'] ); ?>" class="<?php echo esc_attr( $field['class'] ); ?>" name="<?php echo esc_attr( $field['name'] ); ?>" data-ui="0" data-ajax="0" data-multiple="0" data-placeholder="Select" data-allow_null="0">
 			<?php
-				foreach ( htmline_acf_web_fonts::get_web_fonts() as $k_family => $v_family ) :
-					$selected = get_field( $field['_name'], 'option' ); ?>
-
-					<option data-font_type="<?php echo $v_family; ?>" value="<?php echo $k_family; ?>" <?php selected( $selected, $k_family ); ?> <?php echo $selected == $k_family ? 'data-i="0"' : ''; ?>><?php echo $k_family; ?></option>
+				foreach ( htmline_acf_web_fonts::get_web_fonts() as $k_family => $v_family ) : ?>
+					<option data-font_type="<?php echo $v_family; ?>" value="<?php echo $k_family; ?>" <?php selected( $field[ 'value' ], $k_family ); ?> <?php echo $field[ 'value' ] == $k_family ? 'data-i="0"' : ''; ?>><?php echo $k_family; ?></option>
 				<?php endforeach;
 			?>
 		</select>

@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.4
+ * @version     1.7.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -133,7 +133,10 @@ function kulam_enqueue_scripts() {
 		'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
 		'ajax_nonce'	=> wp_create_nonce( 'my-special-string' ),
 		'post_id'		=> get_queried_object_id(),
-		'user_id'		=> get_current_user_id()
+		'user_id'		=> get_current_user_id(),
+		'strings'		=> array(
+			'read_more'		=> __( 'READ MORE', 'kulam-scoop' ),
+		),
 	);
 
 	wp_localize_script( 'kulam-js', 'ajaxdata', $params );

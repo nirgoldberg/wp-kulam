@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.4
+ * @version		1.7.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -391,9 +391,7 @@ function kulam_embed_google_fonts() {
 	$fields = array_merge( $post_fields, $options_fields );
 
 	if ( $fields ) {
-
 		foreach ( $fields as $key => $field ) {
-
 			if ( 'font_family' == $field[ 'type' ] ) {
 
 				$fonts[] = array(
@@ -402,10 +400,10 @@ function kulam_embed_google_fonts() {
 				);
 
 			}
-
 		}
-
 	}
+
+	$fonts = apply_filters( 'kulam_embed_google_fonts', $fonts );
 
 	if ( $fonts ) {
 
@@ -450,7 +448,7 @@ function kulam_embed_google_fonts() {
 	}
 
 }
-add_action( 'wp_head', 'kulam_embed_google_fonts' );
+add_action( 'wp_footer', 'kulam_embed_google_fonts' );
 
 /**
  * kulam_acf_init_google_maps_api
@@ -469,4 +467,28 @@ function kulam_acf_init_google_maps_api() {
 	}
 
 }
-add_action('acf/init', 'kulam_acf_init_google_maps_api');
+add_action( 'acf/init', 'kulam_acf_init_google_maps_api' );
+
+/**
+ * kulam_acf_slideshow_generate_shortcode
+ *
+ * This function generates slideshow shortcode
+ *
+ * @param	$post_id (int) Post ID
+ * @return	N/A
+ */
+function kulam_acf_slideshow_generate_shortcode( $post_id ) {
+
+	if ( 'pojo_slideshow' != get_post_type() )
+		return;
+
+	/**
+	 * Variables
+	 */
+	$shortcode	= 'field_5e982fa13ae7d';
+
+	// set shortcode
+	$_POST[ 'acf' ][ $shortcode ] = '[kulam_slideshow id="' . $post_id . '"]';
+
+}
+add_action( 'acf/save_post', 'kulam_acf_slideshow_generate_shortcode', 5 );

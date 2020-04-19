@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.3
+ * @version     1.7.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -214,7 +214,7 @@ function kulam_qna_block_html( $qna ) {
 	}
 
 	$li_style .= $font_family ? 'font-family: \'' . $font_family . '\';' : '';
-	$li_style .= $font_size ? 'font-size: ' . $font_size . 'px; line-height: ' . $font_size . 'px;' : '';
+	$li_style .= $font_size ? 'font-size: ' . $font_size . 'px;line-height: ' . $font_size . 'px;' : '';
 	$li_style .= $color ? 'color: ' . $color . ';' : '';
 
 	if ( ! is_array( $qna ) || ! isset( $qna[ 'acf-qna_block_id' ] ) || ! isset( $qna[ 'acf-qna_block_questions' ] ) || ! is_array( $qna[ 'acf-qna_block_questions' ] ) )
@@ -244,6 +244,111 @@ function kulam_qna_block_html( $qna ) {
 	}
 
 	$output .= '</ul><!-- End of QnA #' . $id . ' -->';
+
+	// return
+	return $output;
+
+}
+
+/**
+ * kulam_slideshow
+ *
+ * This function adds the "kulam_slideshow" Shortcode
+ *
+ * @param	$atts (array)
+ * @return	(string)
+ */
+function kulam_slideshow( $atts ) {
+
+	extract( shortcode_atts( array(
+		'id'		=> '',
+	), $atts ) );
+
+	if ( ! $id )
+		return;
+
+	// return
+	return kulam_slideshow_html( $id );
+
+}
+add_shortcode( 'kulam_slideshow', 'kulam_slideshow' );
+
+/**
+ * kulam_slideshow_html
+ *
+ * This function returns a Slideshow HTML markup
+ *
+ * @param	$id (int) post ID
+ * @return	(string)
+ */
+function kulam_slideshow_html( $id ) {
+
+	if ( ! function_exists( 'get_field' ) || 'pojo_slideshow' != get_post_type( $id ) )
+		return '';
+
+	/**
+	 * variables
+	 */
+	$title				= get_field( 'acf-slideshow_title',							$id );
+	$font_family		= get_field( 'acf-slideshow_title_font_family',				$id );
+	$font_size			= get_field( 'acf-slideshow_title_font_size',				$id );
+	$color				= get_field( 'acf-slideshow_title_color',					$id );
+	$title_bg_image		= get_field( 'acf-slideshow_title_background_image',		$id );
+	$scheme_color		= get_field( 'acf-slideshow_scheme_color',					$id );
+	$slider_bg_image	= get_field( 'acf-slideshow_slider_title_background_image',	$id );
+
+	$slide_height = absint( atmb_get_field( 'slide_slide_height', $id ) );
+	if ( empty( $slide_height ) || 0 === $slide_height ) {
+		$slide_height = '260';
+	}
+
+	$output				= '';
+
+	if ( $font_family ) {
+
+		add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $font_family ) {
+
+			$font = array(
+				array(
+					'family'	=> $font_family,
+					'type'		=> htmline_acf_web_fonts::get_font_type( $font_family ),
+				),
+			);
+
+			// return
+			return array_merge( $fonts, $font );
+
+		});
+
+	}
+
+	$style =
+		'<style type="text/css">' .
+			'#kulam-slideshow-' . $id . ' .pojo-slideshow {height: ' . ($slide_height+35) . 'px !important;}' .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide {padding: 6px; height: ' . $slide_height . 'px; background-color: ' . $scheme_color . ';}' : '' ) .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-color: ' . $scheme_color . ';}' : '' ) .
+			( $slider_bg_image ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-image: url(\'' . $slider_bg_image . '\');}' : '' ) .
+		'</style>';
+
+	$output .= $style;
+
+	$output .= '<!-- Slideshow #' . $id . ' --><div id="kulam-slideshow-' . $id . '" class="kulam-slideshow" data-scheme-color="' . $scheme_color . '">';
+
+	// slideshow title
+	if ( $title ) {
+
+		$style = '';
+		$style .= $font_family ? 'font-family: \'' . $font_family . '\';' : '';
+		$style .= $font_size ? 'font-size: ' . $font_size . 'px;line-height: ' . $font_size . 'px;' : '';
+		$style .= $color ? 'color: ' . $color . ';' : '';
+		$style .= $title_bg_image ? 'background-image: url(\'' . $title_bg_image . '\');' : '';
+
+		$output .= '<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' . $title . '</div>';
+	}
+
+	$output .= do_shortcode('[pojo-slideshow id="' . $id . '"]');
+
+	$output .= '</div><!-- End of Slideshow #' . $id . ' -->';
 
 	// return
 	return $output;

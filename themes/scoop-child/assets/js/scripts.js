@@ -14,6 +14,33 @@ var $ = jQuery,
 		},
 
 		/**
+		 * hexToRgbA
+		 *
+		 * @param	hex (string)
+		 * @return	(string)
+		 */
+		hexToRgbA : function(hex, opacity) {
+
+			// variables
+			var c;
+
+			if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+				c = hex.substring(1).split('');
+				if(c.length== 3){
+					c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+				}
+
+				c= '0x'+c.join('');
+
+				// return
+				return 'rgba('+[(c>>16)&255, (c>>8)&255, c&255].join(',')+','+opacity+')';
+			}
+
+			throw new Error('Bad Hex');
+
+		},
+
+		/**
 		 * init
 		 *
 		 * @param	N/A
@@ -46,6 +73,9 @@ var $ = jQuery,
 
 			// google map
 			KULAM_general.google_map();
+
+			// slideshow
+			KULAM_general.slideshow();
 
 			// my siddur
 			KULAM_general.my_siddur();
@@ -588,6 +618,49 @@ var $ = jQuery,
 			} else {
 				map.fitBounds(bounds);
 			}
+
+		},
+
+		/**
+		 * slideshow
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		slideshow : function() {
+
+			// variables
+			var slideshows = $('.kulam-slideshow');
+
+			if (slideshows.length) {
+				slideshows.find('.slide').each(function() {
+					KULAM_general.slide_read_more_wrap($(this));
+				});
+			}
+
+		},
+
+		/**
+		 * slide_read_more_wrap
+		 *
+		 * Called from slideshow
+		 *
+		 * @param	slide (object)
+		 * @return	N/A
+		 */
+		slide_read_more_wrap : function(slide) {
+
+			// variables
+			var read_more_wrap = '<div class="read-more"><span>' + ajaxdata.strings.read_more + '</span></div>',
+				bg_image = slide.find('img').attr('src'),
+				color_scheme = slide.closest('.kulam-slideshow').data('scheme-color'),
+				rgba_color_scheme = KULAM_general.hexToRgbA(color_scheme, '.5');
+
+			slide.children('a').append(read_more_wrap);
+
+			slide.find('.read-more').css({'background-image': 'url(\'' + bg_image + '\')', 'background-color': rgba_color_scheme});
 
 		},
 
