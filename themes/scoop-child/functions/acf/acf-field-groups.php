@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.5
+ * @version		1.7.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * ACF register field groups
  *
+ * @fieldgroup	Homepage
  * @fieldgroup	ACF Front-End Form
  * @fieldgroup	Questions & Answers
  * @fieldgroup	Ratings
@@ -24,6 +25,224 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	ACF Form Fields
  */
 if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_5ea00e8495c1a',
+	'title' => __('Homepage', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5ea0186a73ce8',
+			'label' => __('Main Template Layouts', 'kulam-scoop'),
+			'name' => 'acf-main_template_layouts',
+			'type' => 'flexible_content',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layouts' => array(
+				'5ea018948eb7f' => array(
+					'key' => '5ea018948eb7f',
+					'name' => 'banner',
+					'label' => __('Banner', 'kulam-scoop'),
+					'display' => 'block',
+					'sub_fields' => array(
+						array(
+							'key' => 'field_5ea01d6a3c22a',
+							'label' => __('Slides', 'kulam-scoop'),
+							'name' => 'slides',
+							'type' => 'repeater',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'collapsed' => 'field_5ea01e253c22c',
+							'min' => 1,
+							'max' => 0,
+							'layout' => 'row',
+							'button_label' => __('Add Slide', 'kulam-scoop'),
+							'sub_fields' => array(
+								array(
+									'key' => 'field_5ea01e253c22c',
+									'label' => __('Title', 'kulam-scoop'),
+									'name' => 'title',
+									'type' => 'text',
+									'instructions' => '',
+									'required' => 1,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '',
+									'placeholder' => '',
+									'prepend' => '',
+									'append' => '',
+									'maxlength' => '',
+									'readonly' => 0,
+									'disabled' => 0,
+								),
+								array(
+									'key' => 'field_5ea01e4f3c22d',
+									'label' => __('Short Description', 'kulam-scoop'),
+									'name' => 'short_description',
+									'type' => 'text',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '',
+									'placeholder' => '',
+									'prepend' => '',
+									'append' => '',
+									'maxlength' => '',
+									'readonly' => 0,
+									'disabled' => 0,
+								),
+								array(
+									'key' => 'field_5ea01e6c3c22e',
+									'label' => __('Description', 'kulam-scoop'),
+									'name' => 'description',
+									'type' => 'textarea',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '',
+									'placeholder' => '',
+									'maxlength' => '',
+									'rows' => '',
+									'new_lines' => '',
+								),
+								array(
+									'key' => 'field_5ea01fc73c230',
+									'label' => __('Text Color', 'kulam-scoop'),
+									'name' => 'text_color',
+									'type' => 'color_picker',
+									'instructions' => '',
+									'required' => 1,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '#FFFFFF',
+								),
+								array(
+									'key' => 'field_5ea01f973c22f',
+									'label' => __('Background Image', 'kulam-scoop'),
+									'name' => 'background_image',
+									'type' => 'image',
+									'instructions' => __('Image dimensions: 767x577 (px)', 'kulam-scoop'),
+									'required' => 1,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'return_format' => 'array',
+									'preview_size' => 'thumbnail',
+									'library' => 'all',
+									'min_width' => '',
+									'min_height' => '',
+									'min_size' => '',
+									'max_width' => '',
+									'max_height' => '',
+									'max_size' => '',
+									'mime_types' => '',
+								),
+								array(
+									'key' => 'field_5ea01dee3c22b',
+									'label' => __('Image', 'kulam-scoop'),
+									'name' => 'image',
+									'type' => 'image',
+									'instructions' => __('Image dimensions: 767x577 (px)', 'kulam-scoop'),
+									'required' => 1,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'return_format' => 'array',
+									'preview_size' => 'thumbnail',
+									'library' => 'all',
+									'min_width' => '',
+									'min_height' => '',
+									'min_size' => '',
+									'max_width' => '',
+									'max_height' => '',
+									'max_size' => '',
+									'mime_types' => 'jpg,jpeg',
+								),
+							),
+						),
+					),
+					'min' => '0',
+					'max' => '1',
+				),
+				'layout_5ea018bb73ce9' => array(
+					'key' => 'layout_5ea018bb73ce9',
+					'name' => 'links_strip',
+					'label' => __('Links Strip', 'kulam-scoop'),
+					'display' => 'block',
+					'sub_fields' => array(
+					),
+					'min' => '0',
+					'max' => '1',
+				),
+				'layout_5ea018d573cea' => array(
+					'key' => 'layout_5ea018d573cea',
+					'name' => 'links_boxes',
+					'label' => __('Links Boxes', 'kulam-scoop'),
+					'display' => 'block',
+					'sub_fields' => array(
+					),
+					'min' => '0',
+					'max' => '1',
+				),
+			),
+			'button_label' => __('Add Layout', 'kulam-scoop'),
+			'min' => '',
+			'max' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'page-templates/main.php',
+			),
+		),
+	),
+	'menu_order' => 1,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
 
 acf_add_local_field_group(array(
 	'key' => 'group_5a4fc58481113',
@@ -173,7 +392,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 1,
+	'menu_order' => 2,
 	'position' => 'side',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -325,7 +544,7 @@ Copy and paste this code into your post editor', 'kulam-scoop'),
 			),
 		),
 	),
-	'menu_order' => 2,
+	'menu_order' => 3,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -429,7 +648,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 3,
+	'menu_order' => 4,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -517,7 +736,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 4,
+	'menu_order' => 5,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -606,7 +825,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 5,
+	'menu_order' => 6,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -834,7 +1053,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 6,
+	'menu_order' => 7,
 	'position' => 'side',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -1435,7 +1654,7 @@ acf_add_local_field_group(array(
 			'name' => 'acf-form_category',
 			'type' => 'taxonomy',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
