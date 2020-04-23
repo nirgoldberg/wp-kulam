@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.6.1
+ * @version     1.7.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -37,7 +37,7 @@ function kulam_modal_login() {
 					</button>
 				</div>
 
-				<div class="pre-text"><?php _e( 'In order to save posts or view saved content, you must register / log-in to your account', 'kulam-scoop' ); ?></div>
+				<div class="pre-text"><?php _e( 'In order to save / upload posts or view saved content, you must register / log-in to your account', 'kulam-scoop' ); ?></div>
 
 				<form>
 					<div class="modal-body">

@@ -163,6 +163,7 @@ function exodus_acf_json_save_point( $path ) {
 /**************************/
 
 function kol_get_acf_form_args($form) {
+    global $wp;
     $args = array();
     switch ($form) {
         case 'upload':
@@ -179,6 +180,7 @@ function kol_get_acf_form_args($form) {
                 'field_groups' => array( 'group_5e865fad1f3c4' ),
                 'submit_value' => __("Submit for review", 'kulam-scoop'),
                 'updated_message' => __("<b>Success!</b> Your article was submitted successfully and will be reviewed shortly.", 'kulam-scoop'),
+                'return' => add_query_arg( 'updated', 'true', home_url( $wp->request ) ),
                 // 'honeypot' => true
 
             );

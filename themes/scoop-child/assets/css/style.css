@@ -798,6 +798,19 @@ body.modal-open,
 	margin: 15px 0;
 }
 
+/**********************/
+/* embed any document */
+/**********************/
+
+#embed-popup .advanced-options {
+	visibility: hidden;
+}
+
+#embed-popup .advanced-options:before {
+	content: "File uploaded successfullly, press Insert to continue";
+	visibility: visible;
+}
+
 /***********/
 /* general */
 /***********/

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-04-19 19:25+0300\n"
-"PO-Revision-Date: 2020-04-19 19:38+0300\n"
+"POT-Creation-Date: 2020-04-23 13:31+0300\n"
+"PO-Revision-Date: 2020-04-23 13:32+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -63,7 +63,7 @@ msgid "Site Setup"
 msgstr "הגדרות האתר"
 
 #: functions/acf/acf-configuration.php:35
-#: functions/acf/acf-field-groups.php:849
+#: functions/acf/acf-field-groups.php:1068
 msgid "Header/Footer Settings"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgid "Header/Footer"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:42
-#: functions/acf/acf-field-groups.php:954
+#: functions/acf/acf-field-groups.php:1173
 msgid "My Siddur Settings"
 msgstr ""
 
@@ -83,12 +83,12 @@ msgid "My Siddur"
 msgstr "הסידור שלי"
 
 #: functions/acf/acf-configuration.php:49
-#: functions/acf/acf-field-groups.php:997
+#: functions/acf/acf-field-groups.php:1216
 msgid "General Settings"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:50
-#: functions/acf/acf-field-groups.php:774
+#: functions/acf/acf-field-groups.php:993
 msgid "General"
 msgstr "כללי"
 
@@ -119,319 +119,377 @@ msgstr "כן"
 msgid "Disabled?"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:30
+#: functions/acf/acf-field-groups.php:31
+#: functions/acf/acf-field-groups.php:1220
+msgid "Homepage"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:35
+msgid "Main Template Layouts"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:50
+msgid "Banner"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:55
+msgid "Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:70
+#, fuzzy
+#| msgid "Add to folder"
+msgid "Add Slide"
+msgstr "הוסף לתיקייה"
+
+#: functions/acf/acf-field-groups.php:74 functions/acf/acf-field-groups.php:881
+#: functions/acf/acf-field-groups.php:897
+msgid "Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:95
+#, fuzzy
+#| msgid "Folder description"
+msgid "Short Description"
+msgstr "תיאור התיקייה"
+
+#: functions/acf/acf-field-groups.php:116
+#, fuzzy
+#| msgid "Folder description"
+msgid "Description"
+msgstr "תיאור התיקייה"
+
+#: functions/acf/acf-field-groups.php:135
+msgid "Text Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:150
+#: functions/acf/acf-field-groups.php:667
+#: functions/acf/acf-field-groups.php:969
+msgid "Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:153
+#: functions/acf/acf-field-groups.php:177
+msgid "Image dimensions: 767x577 (px)"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:174
+msgid "Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:205
+msgid "Links Strip"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:215
+msgid "Links Boxes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:223
+msgid "Add Layout"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:249
 msgid "ACF Front-End Form"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:34 functions/acf/acf-field-groups.php:45
+#: functions/acf/acf-field-groups.php:253
+#: functions/acf/acf-field-groups.php:264
 msgid "Display Front-End Form"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:53
+#: functions/acf/acf-field-groups.php:272
 msgid "ACF Form"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:73
+#: functions/acf/acf-field-groups.php:292
 msgid "upload"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:74
+#: functions/acf/acf-field-groups.php:293
 msgid "user_profile"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:87
+#: functions/acf/acf-field-groups.php:306
 msgid "Form Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:114
+#: functions/acf/acf-field-groups.php:333
 msgid "Form Content Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:141
+#: functions/acf/acf-field-groups.php:360
 msgid "Form Category Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:188
-#: functions/acf/acf-field-groups.php:1210
+#: functions/acf/acf-field-groups.php:407
+#: functions/acf/acf-field-groups.php:1429
 msgid "Questions & Answers"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:192
+#: functions/acf/acf-field-groups.php:411
 msgid "Q&A Blocks"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:207
+#: functions/acf/acf-field-groups.php:426
 msgid "Add Q&A Block"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:211
+#: functions/acf/acf-field-groups.php:430
 msgid "ID"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:214
+#: functions/acf/acf-field-groups.php:433
 msgid "Use this field as a slug for your shortcode, e.g. [kulam_qna id=ID]"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:230
-#: functions/acf/acf-field-groups.php:625
-#: functions/acf/acf-field-groups.php:641
+#: functions/acf/acf-field-groups.php:449
+#: functions/acf/acf-field-groups.php:844
+#: functions/acf/acf-field-groups.php:860
 msgid "Shortcode"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:233
+#: functions/acf/acf-field-groups.php:452
 msgid ""
 "Auto generated after post save/update.\n"
 "Copy and paste this code into your post editor"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:252
+#: functions/acf/acf-field-groups.php:471
 msgid "Questions"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:267
+#: functions/acf/acf-field-groups.php:486
 #, fuzzy
 #| msgid "Add to "
 msgid "Add Question"
 msgstr "הוסף אל "
 
-#: functions/acf/acf-field-groups.php:271
+#: functions/acf/acf-field-groups.php:490
 #, fuzzy
 #| msgid "Registration"
 msgid "Question"
 msgstr "הרשמה"
 
-#: functions/acf/acf-field-groups.php:290
+#: functions/acf/acf-field-groups.php:509
 msgid "Answer"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:340
+#: functions/acf/acf-field-groups.php:559
 msgid "Ratings"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:344
+#: functions/acf/acf-field-groups.php:563
 msgid "דירוג"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:363
+#: functions/acf/acf-field-groups.php:582
 msgid "שם דירוג"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:384
+#: functions/acf/acf-field-groups.php:603
 msgid "ratings"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:403
+#: functions/acf/acf-field-groups.php:622
 msgid "rating name"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:444
-#: functions/acf/acf-field-groups.php:1085
+#: functions/acf/acf-field-groups.php:663
+#: functions/acf/acf-field-groups.php:1304
 msgid "Category Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:448
-#: functions/acf/acf-field-groups.php:750
-msgid "Background Image"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:472 functions/post-types.php:41
+#: functions/acf/acf-field-groups.php:691 functions/post-types.php:41
 #: functions/post-types.php:43 functions/post-types.php:64
 msgid "Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:475
+#: functions/acf/acf-field-groups.php:694
 msgid "Leave this field empty to display default Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:494
+#: functions/acf/acf-field-groups.php:713
 msgid "Google Map"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:532
+#: functions/acf/acf-field-groups.php:751
 msgid "User Information"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:536
+#: functions/acf/acf-field-groups.php:755
 msgid "Profile"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:539
+#: functions/acf/acf-field-groups.php:758
 msgid "Tell us something about yourself!"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:555
+#: functions/acf/acf-field-groups.php:774
 msgid "Gender"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:567
+#: functions/acf/acf-field-groups.php:786
 msgid "Female"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:568
+#: functions/acf/acf-field-groups.php:787
 msgid "Male"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:579
+#: functions/acf/acf-field-groups.php:798
 msgid "Date of Birth"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:621
+#: functions/acf/acf-field-groups.php:840
 msgid "Slideshow Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:662
-#: functions/acf/acf-field-groups.php:678
-msgid "Title"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:699
-#: functions/acf/acf-field-groups.php:1226
+#: functions/acf/acf-field-groups.php:918
+#: functions/acf/acf-field-groups.php:1445
 msgid "Font Family"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:714
-#: functions/acf/acf-field-groups.php:1241
+#: functions/acf/acf-field-groups.php:933
+#: functions/acf/acf-field-groups.php:1460
 msgid "Font Size"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:735
-#: functions/acf/acf-field-groups.php:1262
+#: functions/acf/acf-field-groups.php:954
+#: functions/acf/acf-field-groups.php:1481
 msgid "Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:790
+#: functions/acf/acf-field-groups.php:1009
 msgid "Scheme Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:805
+#: functions/acf/acf-field-groups.php:1024
 msgid "Slider Title Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:853
+#: functions/acf/acf-field-groups.php:1072
 #, fuzzy
 #| msgid "Search"
 msgid "Search Form"
 msgstr "חיפוש"
 
-#: functions/acf/acf-field-groups.php:869
+#: functions/acf/acf-field-groups.php:1088
 #, fuzzy
 #| msgid "Search Post Types"
 msgid "Search Form Type"
 msgstr "חפש סוגי מאמר"
 
-#: functions/acf/acf-field-groups.php:881
+#: functions/acf/acf-field-groups.php:1100
 msgid "Minimalist"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:882
+#: functions/acf/acf-field-groups.php:1101
 msgid "Exposed"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:896
+#: functions/acf/acf-field-groups.php:1115
 msgid "Search Input Placeholder"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:915 partials/search.php:163
+#: functions/acf/acf-field-groups.php:1134 partials/search.php:163
 msgid "Advanced Search"
 msgstr "חיפוש מתקדם"
 
-#: functions/acf/acf-field-groups.php:958
+#: functions/acf/acf-field-groups.php:1177
 msgid "Custom Label"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1001
-msgid "Homepage"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1017
+#: functions/acf/acf-field-groups.php:1236
 msgid "Categories in Row"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1037
+#: functions/acf/acf-field-groups.php:1256
 msgid "My Siddur Tile Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1061
+#: functions/acf/acf-field-groups.php:1280
 msgid "Upload Tile Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1101
+#: functions/acf/acf-field-groups.php:1320
 msgid "Category Page Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1104
+#: functions/acf/acf-field-groups.php:1323
 msgid ""
 "Default selected Post Types to be displayed in a category page.\n"
 "Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1124
+#: functions/acf/acf-field-groups.php:1343
 msgid "Category Description Toggling"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1143
+#: functions/acf/acf-field-groups.php:1362
 msgid "Google Maps API"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1164
+#: functions/acf/acf-field-groups.php:1383
 msgid "Subcategory Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1180
+#: functions/acf/acf-field-groups.php:1399
 msgid "Background color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1195
+#: functions/acf/acf-field-groups.php:1414
 msgid "Font Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1277
+#: functions/acf/acf-field-groups.php:1496
 msgid "Social"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1293
+#: functions/acf/acf-field-groups.php:1512
 msgid "Google Analytics Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1296
+#: functions/acf/acf-field-groups.php:1515
 msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1312
+#: functions/acf/acf-field-groups.php:1531
 msgid "Google Tag Manager Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1315
+#: functions/acf/acf-field-groups.php:1534
 msgid "Code format: GTM-XXXXXX"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1331
+#: functions/acf/acf-field-groups.php:1550
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1347
+#: functions/acf/acf-field-groups.php:1566
 msgid "Enable Activity Types custom taxonomy"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1366
+#: functions/acf/acf-field-groups.php:1585
 msgid "Enable Audiences custom taxonomy"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1385
+#: functions/acf/acf-field-groups.php:1604
 msgid "Strip Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1388
+#: functions/acf/acf-field-groups.php:1607
 msgid ""
 "Default strip which will be displayed in single post, page and category.\n"
 "Image dimensions: 1140x268 (px)"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1430
+#: functions/acf/acf-field-groups.php:1649
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1434
+#: functions/acf/acf-field-groups.php:1653
 msgid "Category"
 msgstr ""
 
@@ -443,9 +501,11 @@ msgstr "התחבר"
 
 #: functions/modal-login.php:40
 msgid ""
-"In order to save posts or view saved content, you must register / log-in to "
-"your account"
-msgstr "על מנת לשמור או לצפות בתכנים ששמרת, יש להירשם / להתחבר לחשבונך באתר"
+"In order to save / upload posts or view saved content, you must register / "
+"log-in to your account"
+msgstr ""
+"יש להירשם/ להתחבר לחשבונך על מנת לשמור תכנים באזור האישי, להעלות תכנים שלך "
+"לאתר או לצפות בתכנים המועדפים ששמרת בחשבונך"
 
 #: functions/modal-login.php:44 functions/modal-registration.php:44
 msgid "User"
@@ -937,23 +997,20 @@ msgstr "שמור הגדרות"
 msgid "Add"
 msgstr "הוסף"
 
-#: vendors/acf.php:180
+#: vendors/acf.php:181
 msgid "Submit for review"
 msgstr "שלח לאישור"
 
-#: vendors/acf.php:181
+#: vendors/acf.php:182
 msgid ""
 "<b>Success!</b> Your article was submitted successfully and will be reviewed "
 "shortly."
 msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
 
-#: vendors/acf.php:191
+#: vendors/acf.php:193
 msgid "Update Account"
 msgstr "עדכון חשבון"
 
-#: vendors/acf.php:192
+#: vendors/acf.php:194
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
-
-#~ msgid "Mail"
-#~ msgstr "אימייל"

@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials
- * @version     1.6.2
+ * @version     1.7.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,7 +25,7 @@ if ( get_field( 'display_acf_form' ) ) {
 
 		$args = kol_get_acf_form_args( $form ); ?>
 
-		<div class="acf-form acf-form--"<?php echo $form; ?>>
+		<div class="acf-form acf-form-<?php echo $form; ?>">
 
 			<?php
 				/**
@@ -38,7 +38,7 @@ if ( get_field( 'display_acf_form' ) ) {
 
 	<?php } else { ?>
 
-		<button data-toggle="modal" data-target="#modal-login" data-redirect="/share" data-show-pre-text="false"><?php _e( 'Login', 'kulam-scoop' ); ?></button>
+		<button data-toggle="modal" data-target="#modal-login" data-redirect="/share" data-show-pre-text="true"><?php _e( 'Login', 'kulam-scoop' ); ?></button>
 
 	<?php }
 
