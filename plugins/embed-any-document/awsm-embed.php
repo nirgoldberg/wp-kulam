@@ -88,7 +88,7 @@ class Awsm_embed {
 
         // Check user previlage
         if ( ! current_user_can( 'edit_posts' ) ) {
-            return;
+//            return;
         }
         // Prepares button target
         $target = is_string( $args ) ? $args : 'content';
