@@ -43,3 +43,10 @@ if ( get_field( 'display_acf_form' ) ) {
 	<?php }
 
 }
+
+?>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		wp.media.controller.Library.prototype.defaults.contentUserSetting=false;
+	});
+</script>
