@@ -27,13 +27,15 @@ $text_wrap_style .= $bg_image ? 'background-image: url(\'' . $bg_image[ 'url' ] 
 
 ?>
 
-<li>
+<div class="slide">
 
 	<div class="text-wrap" <?php echo $text_wrap_style ? 'style="' . $text_wrap_style . '"' : ''; ?>>
 
 		<div class="title"><?php echo $title; ?></div>
 		<div class="short-desc"><?php echo $short_desc; ?></div>
 		<div class="desc"><?php echo $desc; ?></div>
+		<div class="control cycle-prev visible-xs"></div>
+		<div class="control cycle-next visible-xs"></div>
 
 	</div>
 
@@ -45,4 +47,4 @@ $text_wrap_style .= $bg_image ? 'background-image: url(\'' . $bg_image[ 'url' ] 
 
 	</div>
 
-</li>
+</div>

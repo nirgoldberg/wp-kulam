@@ -22,7 +22,15 @@ if ( ! $slides )
 ?>
 
 <div class="main-banner">
-	<ul>
+	<div class="cycle-slideshow"
+		data-cycle-auto-height="calc"
+		data-cycle-fx="scrollHorz"
+		data-cycle-loader=true
+		data-cycle-log=false
+		data-cycle-slides="> .slide"
+		data-cycle-swipe=true
+		data-cycle-timeout="0"
+	>
 
 		<?php foreach ( $slides as $slide ) {
 
@@ -33,5 +41,8 @@ if ( ! $slides )
 
 		} ?>
 
-	</ul>
+		<div class="control cycle-prev hidden-xs"></div>
+		<div class="control cycle-next hidden-xs"></div>
+
+	</div>
 </div><!-- .main-banner -->

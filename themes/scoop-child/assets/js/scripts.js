@@ -68,6 +68,9 @@ var $ = jQuery,
 			// bootstrap modal
 			KULAM_general.bootstrap_modal();
 
+			// banner
+			KULAM_general.banner();
+
 			// Q&A
 			KULAM_general.qna();
 
@@ -438,6 +441,34 @@ var $ = jQuery,
 			$('#modal-search').on('shown.bs.modal', function(e) {
 				$(this).data('bs.modal').$backdrop.css('background-color', '#FFF');
 			});
+
+		},
+
+		/**
+		 * banner
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		banner : function() {
+
+			// variables
+			var banners = $('.main-banner');
+
+			if (banners.length) {
+				banners.find('.slide .text-wrap').children('.control').on('click', function(event) {
+					var banner = $(this).closest('.cycle-slideshow');
+
+					if ($(this).hasClass('cycle-prev')) {
+						banner.cycle('prev');
+					}
+					else {
+						banner.cycle('next');
+					}
+				});
+			}
 
 		},
 

@@ -208,10 +208,12 @@ header .logo .login a,
 /* homepage banner */
 /*******************/
 
-.main-banner > ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+.main-banner {
+	position: relative;
+}
+
+.main-banner .slide {
+	width: 100%;
 }
 
 .main-banner .text-wrap {
@@ -220,6 +222,36 @@ header .logo .login a,
 
 .main-banner .text-wrap .title {
 	font-weight: bold;
+}
+
+.main-banner .control {
+	position: relative;
+	width: 31px;
+	height: 31px;
+	background-color: #FFF;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.main-banner .control:before {
+	position: absolute;
+	content: "";
+	top: 11px;
+	left: 11px;
+	border: solid #9A6B36;
+	border-width: 0 2px 2px 0;
+	display: inline-block;
+	padding: 3.5px;
+}
+
+.main-banner .control.cycle-prev:before {
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+
+.main-banner .control.cycle-next:before {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
 }
 
 /********************/
@@ -1652,6 +1684,7 @@ output:lang(he-IL) {
 
 	.main-banner .text-wrap {
 		padding: 20px 15px;
+		overflow: hidden;
 	}
 
 	.main-banner .text-wrap .title {
@@ -1668,6 +1701,11 @@ output:lang(he-IL) {
 	.main-banner .text-wrap .desc {
 		line-height: 20px;
 		font-size: 14px;
+	}
+
+	.main-banner .control {
+		float: left;
+		margin: 15px 10px 0 0;
 	}
 
 	/********************/
@@ -1742,7 +1780,14 @@ output:lang(he-IL) {
 
 	.main-banner .text-wrap .desc {
 		padding: 0 30px;
-		bottom: 60px;
+	}
+
+	.main-banner .control.cycle-prev {
+		left: 30px;
+	}
+
+	.main-banner .control.cycle-next {
+		left: 71px;
 	}
 
 	/*************/
@@ -1789,7 +1834,7 @@ output:lang(he-IL) {
 	/* homepage banner */
 	/*******************/
 
-	.main-banner > ul > li {
+	.main-banner .slide {
 		position: relative;
 		padding-top: 50.614035088%;
 	}
@@ -1822,8 +1867,15 @@ output:lang(he-IL) {
 
 	.main-banner .text-wrap .desc {
 		position: absolute;
+		bottom: 61px;
 		left: 0;
 		width: 100%;
+	}
+
+	.main-banner .control {
+		position: absolute;
+		bottom: 20px;
+		z-index: 1000;
 	}
 
 	/********************/
@@ -1885,10 +1937,6 @@ output:lang(he-IL) {
 		line-height: 60px;
 		font-size: 60px;
 	}
-
-	.main-banner .text-wrap .desc {
-		bottom: 50px;
-	}
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -1903,6 +1951,14 @@ output:lang(he-IL) {
 
 	.main-banner .text-wrap .desc {
 		padding: 0 15px;
+	}
+
+	.main-banner .control.cycle-prev {
+		left: 15px;
+	}
+
+	.main-banner .control.cycle-next {
+		left: 56px;
 	}
 }
 
@@ -1924,7 +1980,6 @@ output:lang(he-IL) {
 	}
 
 	.main-banner .text-wrap .desc {
-		bottom: 40px;
 		line-height: 18px;
 		font-size: 13px;
 	}

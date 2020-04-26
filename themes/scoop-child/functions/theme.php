@@ -126,8 +126,15 @@ function kulam_enqueue_scripts() {
 	}
 
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
-	wp_register_script( 'auto-complete',	get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',	array( 'jquery' ),					KULAM_VERSION,	true );
-	wp_register_script( 'kulam-js',			get_stylesheet_directory_uri() . '/assets/js/scripts.js',			array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
+	wp_register_script( 'auto-complete',	get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',			array( 'jquery' ),					KULAM_VERSION,	true );
+	wp_register_script( 'cycle2',			'https://malsup.github.io/jquery.cycle2.js',								array( 'jquery' ),					KULAM_VERSION,	true );
+	wp_register_script( 'cycle2-swipe',		get_stylesheet_directory_uri() . '/assets/js/jquery.cycle2.swipe.min.js',	array( 'jquery' ),					KULAM_VERSION,	true );
+	wp_register_script( 'kulam-js',			get_stylesheet_directory_uri() . '/assets/js/scripts.js',					array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
+
+	if ( 'main.php' == basename( get_page_template() ) ) {
+		wp_enqueue_script( 'cycle2' );
+		wp_enqueue_script( 'cycle2-swipe' );
+	}
 
 	$params = array (
 		'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
