@@ -297,6 +297,59 @@ header .logo .login a,
 	color: #009AFF;
 }
 
+/************************/
+/* homepage links boxes */
+/************************/
+
+.main-links-boxes .link-wrap a {
+	height: 100%;
+	display: block;
+}
+
+.main-links-boxes .link-wrap a .img-wrap {
+	position: absolute;
+	top: 0;
+	height: auto;
+}
+
+.main-links-boxes .link-wrap a .img-wrap img {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+}
+
+.main-links-boxes .link-wrap a .title-wrap {
+	position: relative;
+	top: 50%;
+	text-align: center;
+	-webkit-transform:	translateY(-50%);
+	-ms-transform:		translateY(-50%);
+	transform:			translateY(-50%);
+}
+
+.main-links-boxes .link-wrap a .title-wrap .title {
+	font-family: Arial, sans-serif;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.main-links-boxes .link-wrap a .title-wrap .more {
+	font-weight: bold;
+	color: #FFF;
+	border: 1px solid #FFF;
+	border-radius: 2px;
+	-webkit-transition:	all .4s;
+	-moz-transition:	all .4s;
+	-o-transition:		all .4s;
+	transition:			all .4s;
+	display: inline-block;
+}
+
+.main-links-boxes .link-wrap a:hover .title-wrap .more {
+	color: #009AFF;
+	background-color: #FFF;
+}
+
 /********************/
 /* categories tiles */
 /********************/
@@ -1777,6 +1830,36 @@ output:lang(he-IL) {
 		font-size: 12px;
 	}
 
+	/************************/
+	/* homepage links boxes */
+	/************************/
+
+	.main-links-boxes {
+		overflow: hidden;
+	}
+
+	.main-links-boxes .link-wrap {
+		position: relative;
+		padding-top: 69.180327869%;
+	}
+
+	.main-links-boxes .link-wrap-1 {
+		margin-bottom: 15px;
+	}
+
+	.main-links-boxes .link-wrap a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+
+	.main-links-boxes .link-wrap a .img-wrap {
+		width: 100%;
+	}
+
 	/********************/
 	/* categories tiles */
 	/********************/
@@ -1814,6 +1897,22 @@ output:lang(he-IL) {
 }
 
 @media (max-width: 480px) {
+
+	/************************/
+	/* homepage links boxes */
+	/************************/
+
+	.main-links-boxes .link-wrap a .title-wrap .title {
+		line-height: 26px;
+		font-size: 20px;
+	}
+
+	.main-links-boxes .link-wrap a .title-wrap .more {
+		margin: 10px 0;
+		padding: 0 10px;
+		line-height: 36px;
+		font-size: 14px;
+	}
 
 	/********************/
 	/* categories tiles */
@@ -1885,6 +1984,22 @@ output:lang(he-IL) {
 	.main-banner .text-wrap .desc {
 		line-height: 20px;
 		font-size: 14px;
+	}
+
+	/************************/
+	/* homepage links boxes */
+	/************************/
+
+	.main-links-boxes .link-wrap a .title-wrap .title {
+		line-height: 34px;
+		font-size: 26px;
+	}
+
+	.main-links-boxes .link-wrap a .title-wrap .more {
+		margin: 20px 0;
+		padding: 0 20px;
+		line-height: 44px;
+		font-size: 16px;
 	}
 }
 
@@ -1987,6 +2102,36 @@ output:lang(he-IL) {
 	.links-strip-wrap .link-wrap a .link-title .main-title {
 		line-height: 15px;
 		font-size: 14px;
+	}
+
+	/************************/
+	/* homepage links boxes */
+	/************************/
+
+	.main-links-boxes {
+		position: relative;
+		padding-top: 37.01754386%;
+	}
+
+	.main-links-boxes .links-boxes-wrap {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.main-links-boxes .links-boxes-wrap .row,
+	.main-links-boxes .links-boxes-wrap .row .link-wrap {
+		height: 100%;
+	}
+
+	.main-links-boxes .link-wrap a {
+		position: relative;
+	}
+
+	.main-links-boxes .link-wrap a .img-wrap {
+		width: 112.962962963%;
 	}
 
 	/********************/
@@ -2094,6 +2239,22 @@ output:lang(he-IL) {
 		line-height: 18px;
 		font-size: 13px;
 	}
+
+	/************************/
+	/* homepage links boxes */
+	/************************/
+
+	.main-links-boxes .link-wrap a .title-wrap .title {
+		line-height: 26px;
+		font-size: 20px;
+	}
+
+	.main-links-boxes .link-wrap a .title-wrap .more {
+		margin: 10px 0;
+		padding: 0 10px;
+		line-height: 36px;
+		font-size: 14px;
+	}
 }
 
 @media (min-width: 481px) and (max-width: 1199px) {}
@@ -2102,6 +2263,22 @@ output:lang(he-IL) {
 
 @media (min-width: 481px) and (max-width: 767px) {
 
+	/************************/
+	/* homepage links boxes */
+	/************************/
+
+	.main-links-boxes .link-wrap a .title-wrap .title {
+		line-height: 34px;
+		font-size: 26px;
+	}
+
+	.main-links-boxes .link-wrap a .title-wrap .more {
+		margin: 20px 0;
+		padding: 0 20px;
+		line-height: 44px;
+		font-size: 16px;
+	}
+
 	/********************/
 	/* categories tiles */
 	/********************/
@@ -2109,7 +2286,6 @@ output:lang(he-IL) {
 	.tile-box-wrapper {
 		float: left !important;
 	}
-
 }
 
 @media screen and (max-width: 500px) {
