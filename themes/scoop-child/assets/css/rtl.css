@@ -60,6 +60,14 @@ header .logo .login,
 	right: auto;
 }
 
+/*************/
+/* slideshow */
+/*************/
+
+.kulam-slideshow .pojo-slideshow .slide .bx-caption > span {
+	direction: rtl;
+}
+
 /* Subcategory Menu */
 
 nav {
@@ -79,8 +87,8 @@ form.wpcf7-form {
 }
 
 i.fa.fa-arrow-circle-o-right.my-siddur {
-	margin-left: 25px; 
-	margin-right: 9px;       
+	margin-left: 25px;
+	margin-right: 9px;
 	left: auto;
 	right: 8px;
 	transform: rotate(180deg);
@@ -94,21 +102,98 @@ i.fa.fa-arrow-circle-o-right.my-siddur {
 
 @media (max-width: 991px) {}
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+
+	/*******************/
+	/* homepage banner */
+	/*******************/
+
+	.main-banner .text-wrap {
+		padding-bottom: 66px;
+	}
+
+	.main-banner .control {
+		position: absolute;
+		float: none;
+		margin: 15px 0 0 0;
+	}
+
+	.main-banner .control.cycle-prev {
+		right: 56px;
+	}
+
+}
 
 @media (max-width: 480px) {}
 
-@media (min-width: 1200px) {}
-	
+@media (min-width: 1200px) {
+
+	/*******************/
+	/* homepage banner */
+	/*******************/
+
+	.main-banner .control.cycle-prev {
+		right: 71px;
+	}
+
+	.main-banner .control.cycle-next {
+		right: 30px;
+	}
+}
+
 @media (min-width: 992px) {}
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+
+	/*******************/
+	/* homepage banner */
+	/*******************/
+
+	.main-banner .image-wrap {
+		left: 0;
+	}
+
+	.main-banner .image-wrap .image {
+		text-align: left;
+	}
+
+	.main-banner .text-wrap {
+		right: 0;
+	}
+
+	/************************/
+	/* homepage links strip */
+	/************************/
+
+	.links-strip-wrap .link-wrap a .img-wrap {
+		margin-left: 10px;
+		margin-right: 0;
+	}
+
+	.links-strip-wrap .link-wrap a .link-title .main-title,
+	.links-strip-wrap .link-wrap a .link-title .sub-title {
+		text-align: right;
+	}
+}
 
 @media (min-width: 481px) {}
 
 @media (min-width: 992px) and (max-width: 1199px) {}
 
-@media (min-width: 768px) and (max-width: 1199px) {}
+@media (min-width: 768px) and (max-width: 1199px) {
+
+	/*******************/
+	/* homepage banner */
+	/*******************/
+
+	.main-banner .control.cycle-prev {
+		right: 56px;
+	}
+
+	.main-banner .control.cycle-next {
+		right: 15px;
+	}
+}
 
 @media (min-width: 768px) and (max-width: 991px) {}
 
