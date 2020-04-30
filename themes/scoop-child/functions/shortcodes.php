@@ -179,10 +179,15 @@ function kulam_qna_html( $id ) {
 
 	foreach ( $qna_blocks as $qna ) {
 
-		if ( ! isset( $qna[ 'acf-qna_block_id' ] ) || $id != $qna[ 'acf-qna_block_id' ] )
+		if ( ! isset( $qna[ 'acf-qna_block_id' ] ) )
 			continue;
 
-		$output = kulam_qna_block_html( $qna );
+		$qna_id = sanitize_title_with_dashes( $qna[ 'acf-qna_block_id' ] );
+
+		if ( $id != $qna_id )
+			continue;
+
+		$output = kulam_qna_block_html( $qna, $qna_id );
 
 	}
 
@@ -197,15 +202,16 @@ function kulam_qna_html( $id ) {
  * This function returns a Questions & Answers module HTML markup
  *
  * @param	$qna (array) questions and answers block
+ * @param	$id (string) questions and answers block ID
  * @return	(string)
  */
-function kulam_qna_block_html( $qna ) {
+function kulam_qna_block_html( $qna, $id ) {
 
 	/**
 	 * Variables
 	 */
-	$output = '';
-	$li_style = '';
+	$output		= '';
+	$li_style	= '';
 
 	if ( function_exists( 'get_field' ) ) {
 		$font_family	= get_field( 'acf-option_qna_font_family', 'option' );
@@ -217,10 +223,9 @@ function kulam_qna_block_html( $qna ) {
 	$li_style .= $font_size ? 'font-size: ' . $font_size . 'px;line-height: ' . $font_size . 'px;' : '';
 	$li_style .= $color ? 'color: ' . $color . ';' : '';
 
-	if ( ! is_array( $qna ) || ! isset( $qna[ 'acf-qna_block_id' ] ) || ! isset( $qna[ 'acf-qna_block_questions' ] ) || ! is_array( $qna[ 'acf-qna_block_questions' ] ) )
+	if ( ! is_array( $qna ) || ! $id || ! isset( $qna[ 'acf-qna_block_questions' ] ) || ! is_array( $qna[ 'acf-qna_block_questions' ] ) )
 		return $output;
 
-	$id			= urlencode( $qna[ 'acf-qna_block_id' ] );
 	$questions	= $qna[ 'acf-qna_block_questions' ];
 
 	$output .= '<!-- QnA #' . $id . ' --><ul id="kulam-qna-' . $id . '" class="kulam-qna">';
@@ -349,6 +354,291 @@ function kulam_slideshow_html( $id ) {
 	$output .= do_shortcode('[pojo-slideshow id="' . $id . '"]');
 
 	$output .= '</div><!-- End of Slideshow #' . $id . ' -->';
+
+	// return
+	return $output;
+
+}
+
+/**
+ * kulam_pc
+ *
+ * This function adds the "kulam_pc" Shortcode (Posts Carousel)
+ *
+ * @param	$atts (array)
+ * @return	(string)
+ */
+function kulam_pc( $atts ) {
+
+	extract( shortcode_atts( array(
+		'id'		=> '',
+	), $atts ) );
+
+	if ( ! $id )
+		return;
+
+	// return
+	return kulam_pc_html( $id );
+
+}
+add_shortcode( 'kulam_pc', 'kulam_pc' );
+
+/**
+ * kulam_pc_html
+ *
+ * This function returns a Posts Carousel module HTML markup
+ *
+ * @param	$id (int) Posts Carousel ID
+ * @return	(string)
+ */
+function kulam_pc_html( $id ) {
+
+	if ( ! function_exists( 'get_field' ) )
+		return '';
+
+	/**
+	 * variables
+	 */
+	$pc_carousels	= get_field( 'acf-pc_carousels' );
+	$output			= '';
+
+	if ( ! $pc_carousels || ! is_array( $pc_carousels ) )
+		return $output;
+
+	foreach ( $pc_carousels as $pc ) {
+
+		if ( ! isset( $pc[ 'id' ] ) )
+			continue;
+
+		$pc_id = sanitize_title_with_dashes( $pc[ 'id' ] );
+
+		if ( $id != $pc_id )
+			continue;
+
+		$output = kulam_pc_carousel( $pc, $pc_id );
+
+	}
+
+	// return
+	return $output;
+}
+
+/**
+ * kulam_pc_carousel
+ *
+ * This function returns a Posts Carousel HTML markup
+ *
+ * @param	$pc (int) Posts Carousel
+ * @param	$id (string) Posts Carousel ID
+ * @return	(string)
+ */
+function kulam_pc_carousel( $pc, $id ) {
+
+	if ( ! is_array( $pc ) || ! $id )
+		return '';
+
+	/**
+	 * variables
+	 */
+	$categories			= $pc[ 'posts_categories' ];
+	$title				= $pc[ 'title' ][ 'title' ];
+	$font_family		= $pc[ 'title' ][ 'font_family' ];
+	$font_size			= $pc[ 'title' ][ 'font_size' ];
+	$color				= $pc[ 'title' ][ 'color' ];
+	$title_bg_image		= $pc[ 'title' ][ 'background_image' ];
+	$slide_height		= $pc[ 'carousel_options' ][ 'slide_height' ];
+	$scheme_color		= $pc[ 'general' ][ 'scheme_color' ];
+	$slider_bg_image	= $pc[ 'general' ][ 'slider_title_background_image' ];
+	$output				= '';
+
+	if ( ! $categories )
+		return $output;
+
+	if ( empty( $slide_height ) || 0 === $slide_height ) {
+		$slide_height = '200';
+	}
+
+	if ( $font_family ) {
+
+		add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $font_family ) {
+
+			$font = array(
+				array(
+					'family'	=> $font_family,
+					'type'		=> htmline_acf_web_fonts::get_font_type( $font_family ),
+				),
+			);
+
+			// return
+			return array_merge( $fonts, $font );
+
+		});
+
+	}
+
+	$style =
+		'<style type="text/css">' .
+			'#kulam-slideshow-' . $id . ' .pojo-slideshow {height: ' . ($slide_height+50) . 'px !important;}' .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide {padding: 6px; height: ' . $slide_height . 'px; background-color: ' . $scheme_color . ';}' : '' ) .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-color: ' . $scheme_color . ';}' : '' ) .
+			( $slider_bg_image ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-image: url(\'' . $slider_bg_image . '\');}' : '' ) .
+		'</style>';
+
+	$output .= $style;
+
+	$output .= '<!-- Kulam Post Carousel #' . $id . ' --><div id="kulam-slideshow-' . $id . '" class="kulam-slideshow" data-scheme-color="' . $scheme_color . '">';
+
+	// slideshow title
+	if ( $title ) {
+
+		$style = '';
+		$style .= $font_family ? 'font-family: \'' . $font_family . '\';' : '';
+		$style .= $font_size ? 'font-size: ' . $font_size . 'px;line-height: ' . $font_size . 'px;' : '';
+		$style .= $color ? 'color: ' . $color . ';' : '';
+		$style .= $title_bg_image ? 'background-image: url(\'' . $title_bg_image . '\');' : '';
+
+		$output .= '<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' . $title . '</div>';
+	}
+
+	$output .= kulam_pc_carousel_html( $pc, $id );
+
+	$output .= '</div><!-- End of Kulam Post Carousel #' . $id . ' -->';
+
+	// return
+	return $output;
+
+}
+
+/**
+ * kulam_pc_carousel_html
+ *
+ * This function returns a Posts Carousel HTML markup
+ *
+ * @param	$pc (int) Posts Carousel
+ * @param	$id (string) Posts Carousel ID
+ * @return	(string)
+ */
+function kulam_pc_carousel_html( $pc, $id ) {
+
+	/**
+	 * variables
+	 */
+	$categories			= $pc[ 'posts_categories' ];
+	$number_of_posts	= $pc[ 'number_of_posts' ];
+	$slide_width		= $pc[ 'carousel_options' ][ 'slide_width' ];
+	$slide_height		= $pc[ 'carousel_options' ][ 'slide_height' ];
+	$slide_margin		= $pc[ 'carousel_options' ][ 'slide_margin' ];
+	$minimum_slides		= $pc[ 'carousel_options' ][ 'minimum_slides' ];
+	$maximum_slides		= $pc[ 'carousel_options' ][ 'maximum_slides' ];
+	$move_slides		= $pc[ 'carousel_options' ][ 'move_slides' ];
+	$navigation			= $pc[ 'carousel_options' ][ 'navigation' ];
+	$transition_speed	= $pc[ 'carousel_options' ][ 'transition_speed' ];
+	$slide_duration		= $pc[ 'carousel_options' ][ 'slide_duration' ];
+	$auto_play			= $pc[ 'carousel_options' ][ 'auto_play' ];
+	$auto_pause_hover	= $pc[ 'carousel_options' ][ 'auto_pause_hover' ];
+	$panels				= array();
+	$output				= '';
+
+	$wrapper_width = '100%';
+
+	if ( empty( $slide_width ) || 0 === $slide_width )
+		$slide_width = '200';
+
+	if ( empty( $slide_height ) || 0 === $slide_height )
+		$slide_height = '200';
+
+	// get posts
+	$args = array(
+		'category__in'		=> $categories,
+		'posts_per_page'	=> $number_of_posts > 0 ? $number_of_posts : -1,
+	);
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
+
+		// get post thumbnail ID
+		$thumbnail_id = get_post_thumbnail_id( $post->ID );
+
+		$image_html = '';
+		if ( ! empty( $thumbnail_id ) ) {
+			$attachment_url = Pojo_Thumbnails::get_attachment_image_src(
+				$thumbnail_id,
+				apply_filters(
+					'pojo_slideshow_carousel_thumbnail_args',
+					array(
+						'width' => $slide_width,
+						'height' => $slide_height,
+						'crop' => true,
+						'placeholder' => true,
+					)
+				)
+			);
+
+			if ( $attachment_url ) {
+				$image_title = get_the_title();
+
+				$img_classes = array( 'carousel-image' );
+
+				$image_html = sprintf( '<div style="width: %3$s; height: %4$s;"><img src="%1$s" alt="%2$s" title="%2$s" class="%5$s" /></div>', $attachment_url, esc_attr( $image_title ), esc_attr( $wrapper_width ), esc_attr( $slide_height . 'px' ), esc_attr( implode( ' ', $img_classes ) ) );
+			}
+		}
+
+		if ( ! empty( $image_html ) ) {
+
+			$panel_html = sprintf( '<a href="%s"%s>%s</a>', get_permalink( $post->ID ), '_self', $image_html );
+
+			$panels[] = sprintf( '<div class="slide">%s</div>', $panel_html );
+
+		}
+
+	endwhile; endif; wp_reset_postdata();
+
+	if ( empty( $panels ) )
+		return '';
+
+	$js_array = array();
+
+	$js_array['slideWidth'] = $slide_width;
+	$js_array['minSlides'] = absint( $minimum_slides );
+	$js_array['maxSlides'] = absint( $maximum_slides );
+	$js_array['moveSlides'] = absint( $move_slides );
+
+	if ( ! $slide_margin && '0' !== $slide_margin )
+		$slide_margin = 10;
+	$js_array['slideMargin'] = absint( $slide_margin );
+
+	$meta = absint( $slide_duration );
+	if ( empty( $meta ) || 0 === $meta )
+		$meta = 10000;
+	$js_array['pause'] = $meta;
+
+	$meta = absint( $transition_speed );
+	if ( empty( $meta ) || 0 === $meta )
+		$meta = 100;
+
+	$js_array['speed']     = $meta;
+	$js_array['captions']  = true;
+	$js_array['autoStart'] = 'off' !== $auto_play;
+	$js_array['autoHover'] = 'off' !== $auto_pause_hover;
+
+	$js_array['auto'] = true;
+
+	$js_array['pager']    = 'bullets' === $navigation || 'both' === $navigation;
+	$js_array['controls'] = empty( $navigation ) || 'both' === $navigation;
+
+	$js_json = ! empty( $js_array ) ? json_encode( $js_array ) : '';
+	$print_js = '<script>jQuery(function($){$("div.pojo-slideshow-' . $id . '").bxSlider(' . $js_json . ');});</script>';
+
+	return sprintf(
+		'%s<div style="width: %s; height: %s; direction: ltr;" class="pojo-slideshow%s"><div class="pojo-slideshow-%s pojo-slideshow-wrapper">%s</div>%s</div>',
+		$print_js,
+		esc_attr( $wrapper_width ),
+		esc_attr( $slide_height . 'px' ),
+		$js_array['pager'] ? ' slideshow-bullets' : '',
+		$id,
+		implode( '', $panels ),
+		''
+	);
 
 	// return
 	return $output;

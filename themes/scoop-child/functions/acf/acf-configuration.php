@@ -4,9 +4,8 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.5
+ * @version		1.7.6
  */
-
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if ( ! function_exists( 'get_field' ) )
@@ -365,7 +364,7 @@ function kulam_acf_qna_generate_shortcodes( $post_id ) {
 		$id = $qna[ $block_id ];
 
 		// set shortcode
-		$_POST[ 'acf' ][ $qna_blocks ][ $key ][ $block_shortcode ] = '[kulam_qna id="' . sanitize_text_field( $id ) . '"]';
+		$_POST[ 'acf' ][ $qna_blocks ][ $key ][ $block_shortcode ] = '[kulam_qna id="' . sanitize_title_with_dashes( $id ) . '"]';
 
 	}
 
@@ -492,3 +491,36 @@ function kulam_acf_slideshow_generate_shortcode( $post_id ) {
 
 }
 add_action( 'acf/save_post', 'kulam_acf_slideshow_generate_shortcode', 5 );
+
+/**
+ * kulam_acf_pc_generate_shortcodes
+ *
+ * This function generates Posts Carousels module shortcodes
+ *
+ * @param	$post_id (int) Post ID
+ * @return	N/A
+ */
+function kulam_acf_pc_generate_shortcodes( $post_id ) {
+
+	/**
+	 * Variables
+	 */
+	$pcs			= 'field_5ea9a4a182caa';
+	$pc_id			= 'field_5ea9a52782cab';
+	$pc_shortcode	= 'field_5ea9a59882cac';
+
+	if ( ! isset( $_POST[ 'acf' ][ $pcs ] ) || ! is_array( $_POST[ 'acf' ][ $pcs ] ) )
+		return;
+
+	foreach ( $_POST[ 'acf' ][ $pcs ] as $key => $pc ) {
+
+		// vars
+		$id = $pc[ $pc_id ];
+
+		// set shortcode
+		$_POST[ 'acf' ][ $pcs ][ $key ][ $pc_shortcode ] = '[kulam_pc id="' . sanitize_title_with_dashes( $id ) . '"]';
+
+	}
+
+}
+add_action( 'acf/save_post', 'kulam_acf_pc_generate_shortcodes', 5 );

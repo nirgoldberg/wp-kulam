@@ -71,4 +71,15 @@ get_header();
 
 </div><!-- .main-wrapper -->
 
+<div class="container">
+
+	<?php
+		/**
+		 * the_content()
+		 */
+		the_content();
+	?>
+
+</div>
+
 <?php get_footer(); ?>
