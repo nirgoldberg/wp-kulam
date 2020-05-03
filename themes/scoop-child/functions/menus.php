@@ -4,9 +4,30 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.2.3
+ * @version		1.7.8
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+/**
+ * kulam_register_menus
+ *
+ * This function registers theme menus
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_register_menus() {
+
+	$locations = array(
+		'homepage_tiles'	=> __( 'Homepage Tiles' ),
+		'footer_menu1'		=> __( 'Footer Menu #01' ),
+		'footer_menu2'		=> __( 'Footer Menu #02' ),
+	);
+
+	register_nav_menus( $locations );
+
+}
+add_action( 'init', 'kulam_register_menus' );
 
 /**
  * kulam_add_custom_menu_items

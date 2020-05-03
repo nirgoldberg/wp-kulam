@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.6.0
+ * @version		1.7.8
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -86,10 +86,6 @@ if ( ! function_exists( 'kol_setup' ) ) :
 
 		load_theme_textdomain( 'kulam-scoop', get_stylesheet_directory() . '/languages' );
 		// set_post_thumbnail_size( 1170, 658, true );
-
-		register_nav_menus( array(
-			'homepage_tiles' => 'Homepage Tiles',
-		) );
 
 		// Set up the default content width
 		$GLOBALS['content_width'] = apply_filters( 'kol_content_width', 1170 );

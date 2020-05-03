@@ -204,6 +204,10 @@ header .logo .login a,
 	display: block;
 }
 
+.nav-main .sf-menu .sub-menu {
+	z-index: 1000;
+}
+
 /*******************/
 /* homepage banner */
 /*******************/
@@ -666,7 +670,7 @@ body.modal-open,
 /*************************/
 
 .post-type-posts-grid .post-type-sub-title {
-	font-size: 20px;
+	font-size: 24px;
 	color: #428bca;
 	cursor: pointer;
 	-webkit-transition:	none;
