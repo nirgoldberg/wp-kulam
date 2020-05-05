@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.7.8
+ * @version		1.7.9
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -79,7 +79,7 @@ function kulam_add_custom_menu_items( $items, $args ) {
 
 	}
 
-	if ( 'primary_mobile' != $args->theme_location && 'exposed' != $search_form_type ) {
+	if ( ('primary' == $args->theme_location || 'sticky_menu' == $args->theme_location ) && 'exposed' != $search_form_type ) {
 
 		$items .= '<li class="menu-item search"><a href="#" role="link" data-toggle="modal" data-target="#modal-search"><span class="fa fa-search"></span></a></li>';
 

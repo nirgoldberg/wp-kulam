@@ -943,6 +943,44 @@ body.modal-open,
 	visibility: visible;
 }
 
+/**********/
+/* footer */
+/**********/
+
+#footer-widgets .widget ul {
+	padding: 0;
+	list-style: none;
+}
+
+#footer-widgets .widget.Contact_Details li.contact-details-social {
+	margin-top: 10px;
+}
+
+#footer-widgets .widget.Contact_Details li.contact-details-social ul li {
+	float: left;
+	margin-right: 20px;
+}
+
+#footer-widgets .widget.Contact_Details li.contact-details-social ul li a {
+	font-size: 26px;
+}
+
+#footer-copyright {
+	padding: 10px 0;
+	border-top: 1px solid #DFDFDF;
+}
+
+.content-copyright {
+	font-family: 'Raleway Regular';
+	font-size: 13px;
+	border-top: 0 !important;
+}
+
+.content-copyright img {
+	width: auto;
+	height: 55px;
+}
+
 /***********/
 /* general */
 /***********/
@@ -1898,6 +1936,17 @@ output:lang(he-IL) {
 		padding: 10px;
 	}
 
+	/**********/
+	/* footer */
+	/**********/
+
+	#footer-copyright {
+		padding: 20px 0;
+	}
+
+	.content-copyright .pull-left-copyright {
+		margin-bottom: 15px;
+	}
 }
 
 @media (max-width: 480px) {

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.7.8
+ * @version		1.7.9
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -30,6 +30,9 @@ require_once( 'functions/google-analytics.php' );
 
 // menus functions
 require_once( 'functions/menus.php' );
+
+// widgets functions
+require_once( 'functions/widgets.php' );
 
 // shortcodes functions
 require_once( 'functions/shortcodes.php' );
