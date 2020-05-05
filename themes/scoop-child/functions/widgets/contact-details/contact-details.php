@@ -109,9 +109,9 @@ class Contact_Details extends WP_Widget {
 			<ul>
 				<?php
 
-					echo $email ? '<li class="contact-details-email">Email: <a href="mailto:' . $email . '">' . $email . '</a></li>' : '';
-					echo $address ? '<li class="contact-details-address">Address: ' . $address . '</li>' : '';
-					echo $phone ? '<li class="contact-details-phone">Phone: <a href="tel:' . $phone . '">' . $phone . '</a></li>' : '';
+					echo $email ? '<li class="contact-details-email">' . __( 'Email', 'kulam-scoop' ) . ': <a href="mailto:' . $email . '">' . $email . '</a></li>' : '';
+					echo $address ? '<li class="contact-details-address">' . __( 'Address', 'kulam-scoop' ) . ': ' . $address . '</li>' : '';
+					echo $phone ? '<li class="contact-details-phone">' . __( 'Phone', 'kulam-scoop' ) . ': <a href="tel:' . $phone . '">' . $phone . '</a></li>' : '';
 
 					if ( ! empty( $social_networks ) ) {
 						echo '<li class="contact-details-social"><ul>';

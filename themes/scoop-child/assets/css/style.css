@@ -971,7 +971,7 @@ body.modal-open,
 }
 
 .content-copyright {
-	font-family: 'Raleway Regular';
+	font-family: 'Raleway Regular', sans-serif;
 	font-size: 13px;
 	border-top: 0 !important;
 }

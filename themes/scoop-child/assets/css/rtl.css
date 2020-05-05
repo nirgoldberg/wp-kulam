@@ -68,6 +68,16 @@ header .logo .login,
 	direction: rtl;
 }
 
+/**********/
+/* footer */
+/**********/
+
+#footer-widgets .widget.Contact_Details li.contact-details-social ul li {
+	float: right;
+	margin-left: 20px;
+	margin-right: auto;
+}
+
 /* Subcategory Menu */
 
 nav {
@@ -121,7 +131,6 @@ i.fa.fa-arrow-circle-o-right.my-siddur {
 	.main-banner .control.cycle-prev {
 		right: 56px;
 	}
-
 }
 
 @media (max-width: 480px) {}
@@ -173,6 +182,19 @@ i.fa.fa-arrow-circle-o-right.my-siddur {
 	.links-strip-wrap .link-wrap a .link-title .main-title,
 	.links-strip-wrap .link-wrap a .link-title .sub-title {
 		text-align: right;
+	}
+
+	/**********/
+	/* footer */
+	/**********/
+
+	.pull-left-copyright {
+		float: right;
+		text-align: right;
+	}
+
+	.pull-right-copyright {
+		float: left;
 	}
 }
 
