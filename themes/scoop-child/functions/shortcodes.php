@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.6
+ * @version     1.7.10
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -421,6 +421,7 @@ function kulam_pc_html( $id ) {
 
 	// return
 	return $output;
+
 }
 
 /**
@@ -585,7 +586,7 @@ function kulam_pc_carousel_html( $pc, $id ) {
 
 		if ( ! empty( $image_html ) ) {
 
-			$panel_html = sprintf( '<a href="%s"%s>%s</a>', get_permalink( $post->ID ), '_self', $image_html );
+			$panel_html = sprintf( '<a href="%s" target="%s">%s</a>', get_permalink( $post->ID ), '_self', $image_html );
 
 			$panels[] = sprintf( '<div class="slide">%s</div>', $panel_html );
 
@@ -639,6 +640,118 @@ function kulam_pc_carousel_html( $pc, $id ) {
 		implode( '', $panels ),
 		''
 	);
+
+	// return
+	return $output;
+
+}
+
+/**
+ * kulam_gallery
+ *
+ * This function adds the "kulam_gallery" Shortcode
+ *
+ * @param	$atts (array)
+ * @return	(string)
+ */
+function kulam_gallery( $atts ) {
+
+	extract( shortcode_atts( array(
+		'id'		=> '',
+	), $atts ) );
+
+	if ( ! $id )
+		return;
+
+	// return
+	return kulam_gallery_html( $id );
+
+}
+add_shortcode( 'kulam-gallery', 'kulam_gallery' );
+
+/**
+ * kulam_gallery_html
+ *
+ * This function returns a Gallery module HTML markup
+ *
+ * @param	$id (int) Gallery ID
+ * @return	(string)
+ */
+function kulam_gallery_html( $id ) {
+
+	if ( ! function_exists( 'get_field' ) )
+		// return
+		return '';
+
+	/**
+	 * variables
+	 */
+	$title			= get_field( 'acf-gallery_title', $id );
+	$date			= get_field( 'acf-gallery_date', $id );
+	$description	= get_field( 'acf-gallery_description', $id );
+	$scheme_color	= get_field( 'acf-gallery_scheme_color', $id );
+	$images			= get_field( 'acf-gallery_images', $id );
+	$output	= '';
+
+	if ( ! $images )
+		// return
+		return $output;
+
+	// Globals
+	global $globals;
+
+	$output .= '<!-- Gallery #' . $id . ' --><div class="kulam-gallery-layout-content">';
+	$output .= $title ? '<h3 class="title" ' . ( $scheme_color ? 'style="color:' . $scheme_color . ';"' : '' ) . '>' . $title . '</h3>' : '';
+	$output .= $date ? '<small class="date">' . $date . '</small>' : '';
+	$output .= $description ? '<div class="description">' . $description . '</div>' : '';
+	$output .= '<div class="kulam-gallery gallery-' . $id . ' row" itemscope itemtype="http://schema.org/ImageGallery">';
+
+	$gallery = array(
+		'images'		=> array(),
+		'scheme_color'	=> $scheme_color,
+	);
+
+	foreach ( $images as $i ) {
+
+		$image = array(
+			'title'			=> esc_attr( kulam_trim_str( $i[ 'title' ] ) ),
+			'caption'		=> esc_attr( kulam_trim_str( $i[ 'caption' ] ) ),
+			'alt'			=> esc_attr( kulam_trim_str( $i[ 'alt' ] ) ),
+			'description'	=> esc_attr( kulam_trim_str( $i[ 'description' ] ) ),
+			'url'			=> esc_attr( kulam_trim_str( $i[ 'url' ] ) ),
+			'date'			=> esc_attr( kulam_trim_str( get_field( 'acf-attachment_date', $i['ID'] ) ) ),
+		);
+
+		$gallery[ 'images' ][] = $image;
+
+	}
+
+	if ( $gallery[ 'images' ] ) {
+
+		$i = 0;
+		while ( $i <= 3 ) {
+			$output .= '<div class="gallery-col col' . $i++ . ' col-sm-3"></div>';
+		}
+
+	}
+
+	$output .= '</div>';
+
+	if ( $gallery[ 'images' ] ) {
+
+		$more_style = $scheme_color ? 'background-color:' . $scheme_color . ';border-color:' . $scheme_color . ';color:#FFF;' : '';
+		$less_style = $scheme_color ? 'background-color:#FFF;border-color:' . $scheme_color . ';color:' . $scheme_color . ';' : '';
+
+		$output .= '<div class="controls">';
+		$output .= '<button class="btn load-more inline-btn cyan-btn big" style="' . ( $more_style ?: '' ) . '">' . __('Load more', 'BH') . '</button>';
+		$output .= '<button class="btn show-less inline-btn cyan-btn big" style="' . ( $less_style ?: '' ) . '">' . __('Show less', 'BH') . '</button>';
+		$output .= '</div>';
+
+		$globals[ '_galleries' ][ 'gallery-'.$id ] = $gallery;
+
+	}
+
+	$output .= '</div><!-- End of Gallery #' . $id . ' -->';
 
 	// return
 	return $output;

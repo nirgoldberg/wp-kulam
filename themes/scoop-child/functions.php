@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.7.9
+ * @version		1.7.10
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -12,6 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( defined( 'WP_SITEURL' ) && defined( 'LIVE_SITEURL' ) ) {
 	require_once( 'functions/live-uploads.php' );
 }
+
+// utils functions
+require_once( 'functions/utils.php' );
 
 // custom post types
 require_once( 'functions/post-types.php' );

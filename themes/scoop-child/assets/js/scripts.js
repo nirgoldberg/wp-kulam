@@ -6,6 +6,11 @@ var $ = jQuery,
 		 */
 		params : {
 
+			// gallery params
+			galleries				: {},
+			images_columns			: 4,
+			images_more_interval	: 8,
+
 			window_width			: 0,		// client window width - used to maintain window resize events (int)
 			breakpoint				: '',		// CSS media query breakpoint (int)
 			prev_breakpoint			: '',		// previous media query breakpoint (int)
@@ -79,6 +84,9 @@ var $ = jQuery,
 
 			// slideshow
 			KULAM_general.slideshow();
+
+			// galleries
+			KULAM_general.galleries();
 
 			// my siddur
 			KULAM_general.my_siddur();
@@ -692,6 +700,263 @@ var $ = jQuery,
 			slide.children('a').append(read_more_wrap);
 
 			slide.find('.read-more').css({'background-image': 'url(\'' + bg_image + '\')', 'background-color': rgba_color_scheme});
+
+		},
+
+		/**
+		 * galleries
+		 *
+		 * Called from init
+		 *
+		 * @param	N/A
+		 * @return	N/A
+		 */
+		galleries : function() {
+
+			if (js_globals.galleries.length > 0) {
+				var galleries = $.parseJSON(js_globals.galleries);
+
+				$.each(galleries, function(id, gallery) {
+					// variables
+					var controls = $('.'+id).next('.controls'),
+						more = controls.find('.load-more'),
+						less = controls.find('.show-less');
+
+					// init gallery
+					KULAM_general.initGallery(id, gallery);
+
+					KULAM_general.lazyLoad(id, KULAM_general.params.galleries[id]);
+
+					// bind click event to gallery 'load more' btn
+					more.bind('click', function() {
+						KULAM_general.lazyLoad(id, KULAM_general.params.galleries[id]);
+					});
+
+					// bind click event to gallery 'show less' btn
+					less.bind('click', function() {
+						KULAM_general.initGallery(id, gallery);
+						KULAM_general.lazyLoad(id, KULAM_general.params.galleries[id]);
+					});
+
+					// PhotoSwipe
+					KULAM_general.initPhotoSwipeFromDOM('.'+id);
+				});
+			}
+
+		},
+
+		/**
+		 * initGallery
+		 *
+		 * Init gallery images
+		 *
+		 * @param	id (int) Gallery ID
+		 * @param	gallery (array)
+		 * @return	N/A
+		 */
+		initGallery : function (id, gallery) {
+
+			// clear gallery grid
+			$('.'+id).find('.gallery-col').html('');
+
+			// init gallery
+			KULAM_general.params.galleries[id] = {
+				images			: gallery['images'],
+				scheme_color	: gallery['scheme_color'] ? KULAM_general.hexToRgbA(gallery['scheme_color'], '1') : 'transparent',
+				active_images	: 0,
+				active_column	: 0
+			};
+
+		},
+
+		/**
+		 * lazyLoad
+		 *
+		 * Load gallery images
+		 *
+		 * @param	id (int) Gallery ID
+		 * @param	gallery (obj) Gallery object
+		 * @return	N/A
+		 */
+		lazyLoad : function (id, gallery) {
+
+			// variables
+			var controls = $('.'+id).next('.controls'),
+				more = controls.find('.load-more'),
+				less = controls.find('.show-less'),
+				index, j;
+
+			for (index=gallery['active_images'], j=0 ; j<KULAM_general.params.images_more_interval && gallery['images'].length>index ; index++, j++) {
+				// expose image
+				var imageItem =
+					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
+						'<a href="' + gallery['images'][index]['url'] + '" itemprop="contentUrl">' +
+							'<img class="no-border" src="' + gallery['images'][index]['url'] + '" itemprop="thumbnail" alt="' + gallery['images'][index]['alt'] + '" />' +
+						'</a>' +
+						'<figcaption itemprop="caption description" style="background-image:url(\'' + gallery['images'][index]['url'] + '\');background-color:' + gallery['scheme_color'] + ';">' +
+							'<div class="caption">' +
+								'<div class="title">' + gallery['images'][index]['title'] + '</div>' +
+								'<div class="date">' + gallery['images'][index]['date'] +  '</div>' +
+								(gallery['images'][index]['caption'] ? '<div class="caption-content">' + gallery['images'][index]['caption'] +  '</div>' : '') +
+								'<div class="description hidden">' + gallery['images'][index]['description'] + '</div>' +
+							'</div>'
+						'</figcaption>' +
+					'</figure>'
+					;
+
+				$(imageItem).appendTo( $('.'+id+' .col' + gallery['active_column']%KULAM_general.params.images_columns) );
+
+				// Update active column
+				gallery['active_column'] = gallery['active_column']%KULAM_general.params.images_columns + 1;
+			}
+
+			if (index == gallery['images'].length) {
+				// hide more btn
+				more.css('display', 'none');
+			} else {
+				// expose less btn
+				more.css('display', 'block');
+			}
+
+			if (index > KULAM_general.params.images_more_interval) {
+				// expose less btn
+				less.css('display', 'block');
+			} else {
+				// hide less btn
+				less.css('display', 'none');
+			}
+
+			// Update active images
+			gallery['active_images'] += j;
+
+		},
+
+		/**
+		 * initPhotoSwipeFromDOM
+		 *
+		 * PhotoSwipe init
+		 *
+		 * @param	gallerySelector (string)
+		 * @return	N/A
+		 */
+		initPhotoSwipeFromDOM : function(gallerySelector) {
+
+			// parse slide data (url, title, size ...) from DOM elements
+			// (children of gallerySelector)
+			var parseThumbnailElements = function(el) {
+				var galleryCols = el.children('.gallery-col'),
+					items = [];
+
+				$(galleryCols).each(function() {
+					var galleryColItems = $(this).children('.gallery-item');
+
+					$(galleryColItems).each(function() {
+						var index = $(this).attr('data-index'),
+							link = $(this).children('a'),
+							caption = $(this).children('figcaption'),
+							date = $(this).children('figcaption').find('.date'),
+							description = $(this).children('figcaption').find('.description'),
+							img = link.children('img');
+
+						// create slide object
+						var item = {
+							src: link.attr('href'),
+							w: img[0].naturalWidth,
+							h: img[0].naturalHeight,
+							msrc: img.attr('src')
+						};
+
+						if (caption) {
+							item.title = caption.html();
+						}
+
+						if (date) {
+							item.date = date.html();
+						}
+
+						if (description) {
+							item.video_src = description.html();
+						}
+
+						item.el = $(this)[0]; // save link to element for getThumbBoundsFn
+
+						items[index] = item;
+					});
+				});
+
+				return items;
+			};
+
+			// triggers when user clicks on thumbnail
+			var onThumbnailsClick = function(e) {
+				e = e || window.event;
+				e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+				var eTarget = e.target || e.srcElement;
+
+				// find root element of slide
+				var clickedListItem = $(eTarget).parent().parent();
+
+				if(!clickedListItem) {
+					return;
+				}
+
+				// find index of clicked item
+				var clickedGallery = clickedListItem.parent().parent(),
+					index = clickedListItem.attr('data-index');
+
+				if(clickedGallery && index >= 0) {
+					// open PhotoSwipe if valid index found
+					openPhotoSwipe( index, clickedGallery );
+				}
+
+				return false;
+			};
+
+			var openPhotoSwipe = function(index, galleryElement) {
+				var pswpElement = document.querySelectorAll('.pswp')[0],
+					gallery,
+					options,
+					items;
+
+				items = parseThumbnailElements(galleryElement);
+
+				// define options (if needed)
+				options = {
+
+					// define gallery index (for URL)
+					galleryUID: galleryElement.attr('data-pswp-uid'),
+
+					getThumbBoundsFn: function(index) {
+						// See Options -> getThumbBoundsFn section of documentation for more info
+						var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+						pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+						rect = thumbnail.getBoundingClientRect(); 
+
+						return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+					},
+
+					index: parseInt(index, 10)
+
+				};
+
+				// exit if index not found
+				if( isNaN(options.index) ) {
+					return;
+				}
+
+				// Pass data to PhotoSwipe and initialize it
+				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+				gallery.init();
+			};
+
+			// loop through all gallery elements and bind events
+			var galleryElements = document.querySelectorAll( gallerySelector );
+
+			for(var i = 0, l = galleryElements.length; i < l; i++) {
+				galleryElements[i].setAttribute('data-pswp-uid', i+1);
+				galleryElements[i].onclick = onThumbnailsClick;
+			}
 
 		},
 

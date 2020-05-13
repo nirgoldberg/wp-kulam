@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.9
+ * @version		1.7.10
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -19,6 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	Category Attributes
  * @fieldgroup	User Information
  * @fieldgroup	Slideshow Attributes
+ * @fieldgroup	Gallery Attributes
+ * @fieldgroup	Attachment Attributes
  * @fieldgroup	Header/Footer Settings
  * @fieldgroup	My Siddur Settings
  * @fieldgroup	General Settings
@@ -2109,6 +2111,168 @@ acf_add_local_field_group(array(
 	),
 	'menu_order' => 8,
 	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_5eb90fcf9398a',
+	'title' => __('Gallery Attributes', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5eb9395cb6329',
+			'label' => __('Title', 'kulam-scoop'),
+			'name' => 'acf-gallery_title',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array(
+			'key' => 'field_5eb910214bcd6',
+			'label' => __('Date', 'kulam-scoop'),
+			'name' => 'acf-gallery_date',
+			'type' => 'date_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'display_format' => 'd.m.Y',
+			'return_format' => 'd.m.Y',
+			'first_day' => 0,
+		),
+		array(
+			'key' => 'field_5eb910b43985b',
+			'label' => __('Description', 'kulam-scoop'),
+			'name' => 'acf-gallery_description',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => '',
+			'new_lines' => 'wpautop',
+		),
+		array(
+			'key' => 'field_5eb94bc5ac415',
+			'label' => __('Scheme Color', 'kulam-scoop'),
+			'name' => 'acf-gallery_scheme_color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5eb910f03985c',
+			'label' => __('Images', 'kulam-scoop'),
+			'name' => 'acf-gallery_images',
+			'type' => 'gallery',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'min' => '',
+			'max' => '',
+			'insert' => 'append',
+			'library' => 'all',
+			'min_width' => '',
+			'min_height' => '',
+			'min_size' => '',
+			'max_width' => '',
+			'max_height' => '',
+			'max_size' => '',
+			'mime_types' => 'jpg,jpeg',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'gallery',
+			),
+		),
+	),
+	'menu_order' => 9,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
+	'key' => 'group_5eb961ab57a1c',
+	'title' => __('Attachment Attributes', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5eb9638fc2c0c',
+			'label' => __('Date', 'kulam-scoop'),
+			'name' => 'acf-attachment_date',
+			'type' => 'date_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'display_format' => 'd.m.Y',
+			'return_format' => 'd.m.Y',
+			'first_day' => 0,
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'attachment',
+				'operator' => '==',
+				'value' => 'image',
+			),
+		),
+	),
+	'menu_order' => 10,
+	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
