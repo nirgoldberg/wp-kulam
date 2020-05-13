@@ -7,22 +7,22 @@ var $ = jQuery,
 		params : {
 
 			// gallery params
-			galleries				: {},
-			images_columns			: 4,
-			images_more_interval	: 8,
+			galleries               : {},
+			images_columns          : 4,
+			images_more_interval    : 8,
 
-			window_width			: 0,		// client window width - used to maintain window resize events (int)
-			breakpoint				: '',		// CSS media query breakpoint (int)
-			prev_breakpoint			: '',		// previous media query breakpoint (int)
-			timeout					: 400		// general timeout (int)
+			window_width            : 0,        // client window width - used to maintain window resize events (int)
+			breakpoint              : '',       // CSS media query breakpoint (int)
+			prev_breakpoint         : '',       // previous media query breakpoint (int)
+			timeout                 : 400       // general timeout (int)
 
 		},
 
 		/**
 		 * hexToRgbA
 		 *
-		 * @param	hex (string)
-		 * @return	(string)
+		 * @param   hex (string)
+		 * @return  (string)
 		 */
 		hexToRgbA : function(hex, opacity) {
 
@@ -48,8 +48,8 @@ var $ = jQuery,
 		/**
 		 * init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		init : function() {
 
@@ -101,8 +101,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		a11y_icon_direction : function() {
 
@@ -123,8 +123,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		page_title : function() {
 
@@ -141,8 +141,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		popups : function() {
 
@@ -157,8 +157,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		advanced_search : function() {
 
@@ -185,8 +185,8 @@ var $ = jQuery,
 		 *
 		 * Called from advanced_search
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		maybe_open_advanced_search : function() {
 
@@ -209,8 +209,8 @@ var $ = jQuery,
 		 *
 		 * Called from maybe_open_advanced_search
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		advance_search_open_all : function() {
 
@@ -228,8 +228,8 @@ var $ = jQuery,
 		 *
 		 * Called from advanced_search and advance_search_open_all
 		 *
-		 * @param	obj (object)
-		 * @return	N/A
+		 * @param   obj (object)
+		 * @return  N/A
 		 */
 		advance_search_open : function(obj) {
 
@@ -254,8 +254,8 @@ var $ = jQuery,
 		 *
 		 * Called from advanced_search
 		 *
-		 * @param	obj (object)
-		 * @return	N/A
+		 * @param   obj (object)
+		 * @return  N/A
 		 */
 		advance_search_close : function(obj) {
 
@@ -282,8 +282,8 @@ var $ = jQuery,
 		 *
 		 * Called from advanced_search
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		advanced_search_auto_complete : function() {
 
@@ -345,8 +345,8 @@ var $ = jQuery,
 		 *
 		 * Called from advanced_search_auto_complete
 		 *
-		 * @param	input (string) input field to be verified
-		 * @return	(int)
+		 * @param   input (string) input field to be verified
+		 * @return  (int)
 		 */
 		auto_complete_get_id_by_title : function(input) {
 
@@ -376,9 +376,9 @@ var $ = jQuery,
 		 *
 		 * Called from advanced_search_auto_complete
 		 *
-		 * @param	input (string) input field to be updated
-		 * @param	value (string) value to be updated
-		 * @return	N/A
+		 * @param   input (string) input field to be updated
+		 * @param   value (string) value to be updated
+		 * @return  N/A
 		 */
 		after_auto_complete : function(input, value) {
 
@@ -394,8 +394,8 @@ var $ = jQuery,
 		 *
 		 * Called from maybe_open_advanced_search
 		 *
-		 * @param	name (string)
-		 * @return	(string)
+		 * @param   name (string)
+		 * @return  (string)
 		 */
 		get_url_param : function(name) {
 
@@ -415,8 +415,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		bootstrap_modal : function() {
 
@@ -457,8 +457,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		banner : function() {
 
@@ -485,8 +485,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		qna : function() {
 
@@ -506,8 +506,8 @@ var $ = jQuery,
 		 *
 		 * Called from qna
 		 *
-		 * @param	question (object)
-		 * @return	N/A
+		 * @param   question (object)
+		 * @return  N/A
 		 */
 		qna_toggle : function(question) {
 
@@ -536,8 +536,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		google_map : function() {
 
@@ -557,8 +557,8 @@ var $ = jQuery,
 		*
 		* Renders a Google Map onto the selected jQuery element
 		*
-		* @param	$el (object) The jQuery element
-		* @return	(object) The map instance
+		* @param    $el (object) The jQuery element
+		* @return   (object) The map instance
 		*/
 		initMap : function($el) {
 
@@ -591,9 +591,9 @@ var $ = jQuery,
 		*
 		* Creates a marker for the given jQuery element and map
 		*
-		* @param	$el (object) The jQuery element
-		* @param	map (object) The map instance
-		* @return	N/A
+		* @param    $el (object) The jQuery element
+		* @param    map (object) The map instance
+		* @return   N/A
 		*/
 		initMarker : function($marker, map) {
 
@@ -634,8 +634,8 @@ var $ = jQuery,
 		*
 		* Centers the map showing all markers in view
 		*
-		* @param	map (object) The map instance
-		* @return	N/A
+		* @param    map (object) The map instance
+		* @return   N/A
 		*/
 		centerMap : function(map) {
 
@@ -665,8 +665,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		slideshow : function() {
 
@@ -686,8 +686,8 @@ var $ = jQuery,
 		 *
 		 * Called from slideshow
 		 *
-		 * @param	slide (object)
-		 * @return	N/A
+		 * @param   slide (object)
+		 * @return  N/A
 		 */
 		slide_read_more_wrap : function(slide) {
 
@@ -708,8 +708,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		galleries : function() {
 
@@ -750,9 +750,9 @@ var $ = jQuery,
 		 *
 		 * Init gallery images
 		 *
-		 * @param	id (int) Gallery ID
-		 * @param	gallery (array)
-		 * @return	N/A
+		 * @param   id (int) Gallery ID
+		 * @param   gallery (array)
+		 * @return  N/A
 		 */
 		initGallery : function (id, gallery) {
 
@@ -761,10 +761,10 @@ var $ = jQuery,
 
 			// init gallery
 			KULAM_general.params.galleries[id] = {
-				images			: gallery['images'],
-				scheme_color	: gallery['scheme_color'] ? KULAM_general.hexToRgbA(gallery['scheme_color'], '1') : 'transparent',
-				active_images	: 0,
-				active_column	: 0
+				images          : gallery['images'],
+				scheme_color    : gallery['scheme_color'] ? KULAM_general.hexToRgbA(gallery['scheme_color'], '1') : 'transparent',
+				active_images   : 0,
+				active_column   : 0
 			};
 
 		},
@@ -774,9 +774,9 @@ var $ = jQuery,
 		 *
 		 * Load gallery images
 		 *
-		 * @param	id (int) Gallery ID
-		 * @param	gallery (obj) Gallery object
-		 * @return	N/A
+		 * @param   id (int) Gallery ID
+		 * @param   gallery (obj) Gallery object
+		 * @return  N/A
 		 */
 		lazyLoad : function (id, gallery) {
 
@@ -799,10 +799,10 @@ var $ = jQuery,
 								'<div class="date">' + gallery['images'][index]['date'] +  '</div>' +
 								(gallery['images'][index]['caption'] ? '<div class="caption-content">' + gallery['images'][index]['caption'] +  '</div>' : '') +
 								'<div class="description hidden">' + gallery['images'][index]['description'] + '</div>' +
-							'</div>'
+							'</div>' +
 						'</figcaption>' +
-					'</figure>'
-					;
+						(gallery['images'][index]['description'] ? '<div class="play"><svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="m .66,37.62 c 0,0 .66,4.70 2.70,6.77 2.58,2.71 5.98,2.63 7.49,2.91 5.43,.52 23.10,.68 23.12,.68 .00,-1.3e-5 14.29,-0.02 23.81,-0.71 1.32,-0.15 4.22,-0.17 6.81,-2.89 2.03,-2.07 2.70,-6.77 2.70,-6.77 0,0 .67,-5.52 .67,-11.04 l 0,-5.17 c 0,-5.52 -0.67,-11.04 -0.67,-11.04 0,0 -0.66,-4.70 -2.70,-6.77 C 62.03,.86 59.13,.84 57.80,.69 48.28,0 34.00,0 34.00,0 33.97,0 19.69,0 10.18,.69 8.85,.84 5.95,.86 3.36,3.58 1.32,5.65 .66,10.35 .66,10.35 c 0,0 -0.55,4.50 -0.66,9.45 l 0,8.36 c .10,4.94 .66,9.45 .66,9.45 z" fill="#1f1f1e" fill-opacity="0.81"></path><path d="m 26.96,13.67 18.37,9.62 -18.37,9.55 -0.00,-19.17 z" fill="#fff"></path><path d="M 45.02,23.46 45.32,23.28 26.96,13.67 43.32,24.34 45.02,23.46 z" fill="#ccc"></path></svg></div>' : '') +
+					'</figure>';
 
 				$(imageItem).appendTo( $('.'+id+' .col' + gallery['active_column']%KULAM_general.params.images_columns) );
 
@@ -836,14 +836,15 @@ var $ = jQuery,
 		 *
 		 * PhotoSwipe init
 		 *
-		 * @param	gallerySelector (string)
-		 * @return	N/A
+		 * @param   gallerySelector (string)
+		 * @return  N/A
 		 */
 		initPhotoSwipeFromDOM : function(gallerySelector) {
 
 			// parse slide data (url, title, size ...) from DOM elements
 			// (children of gallerySelector)
 			var parseThumbnailElements = function(el) {
+
 				var galleryCols = el.children('.gallery-col'),
 					items = [];
 
@@ -874,8 +875,8 @@ var $ = jQuery,
 							item.date = date.html();
 						}
 
-						if (description) {
-							item.video_src = description.html();
+						if (description.html()) {
+							item.videoSrc = description.html();
 						}
 
 						item.el = $(this)[0]; // save link to element for getThumbBoundsFn
@@ -885,17 +886,19 @@ var $ = jQuery,
 				});
 
 				return items;
+
 			};
 
 			// triggers when user clicks on thumbnail
 			var onThumbnailsClick = function(e) {
+
 				e = e || window.event;
 				e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
 				var eTarget = e.target || e.srcElement;
 
 				// find root element of slide
-				var clickedListItem = $(eTarget).parent().parent();
+				var clickedListItem = $(eTarget).closest('figure');
 
 				if(!clickedListItem) {
 					return;
@@ -907,13 +910,15 @@ var $ = jQuery,
 
 				if(clickedGallery && index >= 0) {
 					// open PhotoSwipe if valid index found
-					openPhotoSwipe( index, clickedGallery );
+					openPhotoSwipe(index, clickedGallery);
 				}
 
 				return false;
+
 			};
 
 			var openPhotoSwipe = function(index, galleryElement) {
+
 				var pswpElement = document.querySelectorAll('.pswp')[0],
 					gallery,
 					options,
@@ -923,21 +928,21 @@ var $ = jQuery,
 
 				// define options (if needed)
 				options = {
-
 					// define gallery index (for URL)
 					galleryUID: galleryElement.attr('data-pswp-uid'),
 
 					getThumbBoundsFn: function(index) {
+
 						// See Options -> getThumbBoundsFn section of documentation for more info
 						var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
 						pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
-						rect = thumbnail.getBoundingClientRect(); 
+						rect = thumbnail.getBoundingClientRect();
 
 						return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+
 					},
 
 					index: parseInt(index, 10)
-
 				};
 
 				// exit if index not found
@@ -948,7 +953,97 @@ var $ = jQuery,
 				// Pass data to PhotoSwipe and initialize it
 				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
 				gallery.init();
+
+				detectVideo(gallery.currItem);
+
+				gallery.listen('beforeChange', function() {
+					removeVideo(gallery);
+				});
+
+				gallery.listen('afterChange', function() {
+					detectVideo(gallery.currItem);
+				});
+
+				$(document).off('pswpTap').on('pswpTap', function(e){
+
+					var container = $(gallery.currItem.container),
+						img = container.find('img.youtubeClass');
+						targetClass = $(e.target).attr('class');
+
+					if (typeof targetClass !== 'undefined' && targetClass.substring(0, 6) == 'pswp__')
+						return;
+
+					if (img.length) {
+						img.YouTubePopUp();
+					}
+
+				});
+
 			};
+
+			var detectVideo = function(item) {
+
+				if (typeof(item.videoSrc) != 'undefined') {
+					setTimeout(function(){addVideoIframe(item)},600);
+				}
+
+			};
+
+			var addVideoIframe = function(item) {
+
+				var container = $(item.container),
+					img = container.find('img:not(.youtubeClass):not(.pswp__img--placeholder)');
+
+				if (img.length) {
+					var buttonContainer = container.find('.gallery-viewer-play-video-btn-container');
+
+					if (buttonContainer.length == 0) {
+						buttonContainer = $('<div class="gallery-viewer-play-video-btn-container"><div class="play"><svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="m .66,37.62 c 0,0 .66,4.70 2.70,6.77 2.58,2.71 5.98,2.63 7.49,2.91 5.43,.52 23.10,.68 23.12,.68 .00,-1.3e-5 14.29,-0.02 23.81,-0.71 1.32,-0.15 4.22,-0.17 6.81,-2.89 2.03,-2.07 2.70,-6.77 2.70,-6.77 0,0 .67,-5.52 .67,-11.04 l 0,-5.17 c 0,-5.52 -0.67,-11.04 -0.67,-11.04 0,0 -0.66,-4.70 -2.70,-6.77 C 62.03,.86 59.13,.84 57.80,.69 48.28,0 34.00,0 34.00,0 33.97,0 19.69,0 10.18,.69 8.85,.84 5.95,.86 3.36,3.58 1.32,5.65 .66,10.35 .66,10.35 c 0,0 -0.55,4.50 -0.66,9.45 l 0,8.36 c .10,4.94 .66,9.45 .66,9.45 z" fill="#1f1f1e" fill-opacity="0.81"></path><path d="m 26.96,13.67 18.37,9.62 -18.37,9.55 -0.00,-19.17 z" fill="#fff"></path><path d="M 45.02,23.46 45.32,23.28 26.96,13.67 43.32,24.34 45.02,23.46 z" fill="#ccc"></path></svg></div></div>');
+
+						var clonedImg = img.clone();
+						clonedImg.attr('href', item.videoSrc)
+							.addClass('youtubeClass')
+							.removeClass('pswp__img')
+							.css({
+								'width'  : '100%',
+								'height' : '100%'
+							});
+
+						buttonContainer.prepend( clonedImg );
+					}
+
+					buttonContainer.css({
+							'width'  : img.outerWidth() +'px',
+							'height' : img.outerHeight() +'px'
+						})
+						.appendTo(container);
+
+					img.hide();
+				}
+
+			};
+
+			function removeVideo(gallery) {
+
+				var container = $(gallery.container),
+					buttonContainers = container.find('.gallery-viewer-play-video-btn-container');
+
+				$.each(buttonContainers, function(){
+					var $thisButtonContainer = $(this),
+						container = $thisButtonContainer.closest('.pswp__item');
+
+					if (container.length) {
+						var img = container.find('img:not(.youtubeClass):not(.pswp__img--placeholder)');
+
+						$thisButtonContainer.remove();
+
+						if (img.length) {
+							img.show();
+						}
+					}
+				});
+
+			}
 
 			// loop through all gallery elements and bind events
 			var galleryElements = document.querySelectorAll( gallerySelector );
@@ -965,8 +1060,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		my_siddur : function() {
 
@@ -1011,8 +1106,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur
 		 *
-		 * @param	btn (object)
-		 * @return	N/A
+		 * @param   btn (object)
+		 * @return  N/A
 		 */
 		my_siddur_siddur_toggle : function(btn) {
 
@@ -1076,11 +1171,11 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 *
-		 * @todo	This function prepare array of post IDS to add, rather than a single post ID.
-		 * 			In order to activate this option, closing popup form should not clear post_ids_field's post-ids data attribute
+		 * @todo    This function prepare array of post IDS to add, rather than a single post ID.
+		 *          In order to activate this option, closing popup form should not clear post_ids_field's post-ids data attribute
 		 */
 		my_siddur_prepare_posts_to_add_to_folders : function() {
 
@@ -1120,8 +1215,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur
 		 *
-		 * @param	btn (object)
-		 * @return	N/A
+		 * @param   btn (object)
+		 * @return  N/A
 		 */
 		my_siddur_add_to_folders : function(btn) {
 
@@ -1187,8 +1282,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur
 		 *
-		 * @param	btn (object)
-		 * @return	N/A
+		 * @param   btn (object)
+		 * @return  N/A
 		 */
 		my_siddur_remove_from_folder : function(btn) {
 
@@ -1225,8 +1320,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur
 		 *
-		 * @param	btn (object)
-		 * @return	N/A
+		 * @param   btn (object)
+		 * @return  N/A
 		 */
 		my_siddur_folder_settings : function() {
 
@@ -1250,8 +1345,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur_folder_settings
 		 *
-		 * @param	btn (object)
-		 * @return	N/A
+		 * @param   btn (object)
+		 * @return  N/A
 		 */
 		my_siddur_folder_settings_init : function() {
 
@@ -1292,8 +1387,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur_folder_settings
 		 *
-		 * @param	btn (object)
-		 * @return	N/A
+		 * @param   btn (object)
+		 * @return  N/A
 		 */
 		my_siddur_save_folder_settings : function(btn) {
 
@@ -1362,8 +1457,8 @@ var $ = jQuery,
 		 *
 		 * Called from my_siddur_folder_settings
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		my_siddur_make_folder_public_before_share : function() {
 
@@ -1421,10 +1516,10 @@ var $ = jQuery,
 		 *
 		 * Add / Update a key-value pair in the URL query parameters
 		 *
-		 * @param	uri (string)
-		 * @param	key (string)
-		 * @param	value (string)
-		 * @return	(string)
+		 * @param   uri (string)
+		 * @param   key (string)
+		 * @param   value (string)
+		 * @return  (string)
 		 */
 		update_url_parameter : function(uri, key, value) {
 
@@ -1453,8 +1548,8 @@ var $ = jQuery,
 		 *
 		 * Called from init
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		post_types_posts_grid : function() {
 
@@ -1481,8 +1576,8 @@ var $ = jQuery,
 		 *
 		 * Called from loaded
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		a11y_icon_top : function() {
 
@@ -1502,8 +1597,8 @@ var $ = jQuery,
 		 *
 		 * Called from loaded
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		homepage_grid : function() {
 
@@ -1542,8 +1637,8 @@ var $ = jQuery,
 		 * Set window breakpoint values
 		 * Called from loaded/alignments
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		breakpoint_refreshValue : function() {
 
@@ -1561,8 +1656,8 @@ var $ = jQuery,
 		 *
 		 * Called by $(window).load event
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		loaded : function() {
 
@@ -1583,8 +1678,8 @@ var $ = jQuery,
 		 *
 		 * Align components after window resize event
 		 *
-		 * @param	N/A
-		 * @return	N/A
+		 * @param   N/A
+		 * @return  N/A
 		 */
 		alignments : function() {
 

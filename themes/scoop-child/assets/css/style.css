@@ -1016,6 +1016,22 @@ body.modal-open,
 	opacity: 1;
 }
 
+.kulam-gallery-layout-content figure .play {
+	position: absolute;
+	bottom: 6px;
+	right: 6px;
+	width: 50px;
+	height: 38px;
+}
+
+.kulam-gallery-layout-content figure .play .ytp-large-play-button-bg {
+	-moz-transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+	-webkit-transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+	transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+	fill: #cc181e;
+	fill-opacity: 1;
+}
+
 .kulam-gallery-layout-content .controls {
 	overflow: hidden;
 }
@@ -1052,6 +1068,47 @@ body.modal-open,
 		backdrop-filter: blur(5px);
 		background-color: rgba(255, 255, 255, 0.5);
 	}
+}
+
+/*****************/
+/* gallery video */
+/*****************/
+
+.gallery-viewer-play-video-btn-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.gallery-viewer-play-video-btn-container .play {
+	position: absolute;
+	margin-left: -50px;
+	top: 50%;
+	left: 50%;
+	width: 100px;
+	height: 76px;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.gallery-viewer-play-video-btn-container .ytp-large-play-button-bg {
+	-moz-transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+	-webkit-transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+	transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+	fill: #cc181e;
+	fill-opacity: 1;
+}
+
+.YouTubePopUp-Wrap .loading {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -13px;
+	margin-left: -36px;
+	color: #fff;
 }
 
 /*************/

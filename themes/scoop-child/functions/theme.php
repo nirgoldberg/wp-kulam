@@ -87,6 +87,7 @@ function kulam_enqueue_styles() {
 
 	wp_register_style( 'photoswipe',				get_stylesheet_directory_uri() . '/assets/css/libs/PhotoSwipe/photoswipe.css',					array(),						KULAM_VERSION );
 	wp_register_style( 'photoswipe-default-skin',	get_stylesheet_directory_uri() . '/assets/css/libs/PhotoSwipe/default-skin/default-skin.css',	array(),						KULAM_VERSION );
+	wp_register_style( 'youtube-popup',				get_stylesheet_directory_uri() . '/assets/css/libs/YouTubePopUp.css',							array(),						KULAM_VERSION );
 
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
 	wp_enqueue_style( 'auto-complete',				get_stylesheet_directory_uri() . '/assets/css/auto-complete.css',								array(),						KULAM_VERSION );
@@ -128,14 +129,15 @@ function kulam_enqueue_scripts() {
 
 	}
 
-	wp_register_script( 'photoswipe',				get_stylesheet_directory_uri() . '/assets/js/libs/PhotoSwipe/photoswipe.js',				array( 'jquery' ),					KULAM_VERSION,	true );
-	wp_register_script( 'photoswipe-ui-default',	get_stylesheet_directory_uri() . '/assets/js/libs/PhotoSwipe/photoswipe-ui-default.js',		array( 'jquery', 'photoswipe' ),	KULAM_VERSION,	true );
+	wp_register_script( 'photoswipe',				get_stylesheet_directory_uri() . '/assets/js/libs/PhotoSwipe/photoswipe.js',				array( 'jquery' ),									KULAM_VERSION,	true );
+	wp_register_script( 'photoswipe-ui-default',	get_stylesheet_directory_uri() . '/assets/js/libs/PhotoSwipe/photoswipe-ui-default.js',		array( 'jquery', 'photoswipe' ),					KULAM_VERSION,	true );
+	wp_register_script( 'youtube-popup',			get_stylesheet_directory_uri() . '/assets/js/libs/YouTubePopUp.jquery.js',					array( 'jquery' ),									KULAM_VERSION,	true );
 
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
-	wp_register_script( 'auto-complete',			get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',							array( 'jquery' ),					KULAM_VERSION,	true );
-	wp_register_script( 'cycle2',					'https://malsup.github.io/jquery.cycle2.js',												array( 'jquery' ),					KULAM_VERSION,	true );
-	wp_register_script( 'cycle2-swipe',				get_stylesheet_directory_uri() . '/assets/js/jquery.cycle2.swipe.min.js',					array( 'jquery' ),					KULAM_VERSION,	true );
-	wp_register_script( 'kulam-js',					get_stylesheet_directory_uri() . '/assets/js/scripts.js',									array( 'jquery', 'auto-complete' ),	KULAM_VERSION,	true );
+	wp_register_script( 'auto-complete',			get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',							array( 'jquery' ),									KULAM_VERSION,	true );
+	wp_register_script( 'cycle2',					'https://malsup.github.io/jquery.cycle2.js',												array( 'jquery' ),									KULAM_VERSION,	true );
+	wp_register_script( 'cycle2-swipe',				get_stylesheet_directory_uri() . '/assets/js/jquery.cycle2.swipe.min.js',					array( 'jquery' ),									KULAM_VERSION,	true );
+	wp_register_script( 'kulam-js',					get_stylesheet_directory_uri() . '/assets/js/scripts.js',									array( 'jquery', 'auto-complete' ),					KULAM_VERSION,	true );
 
 	if ( 'main.php' == basename( get_page_template() ) ) {
 		wp_enqueue_script( 'cycle2' );
