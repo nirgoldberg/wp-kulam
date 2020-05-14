@@ -1,4 +1,7 @@
 <wpml-config>
+	<custom-types>
+		<custom-type translate="1">gallery</custom-type>
+	</custom-types>
 	<taxonomies>
 		<taxonomy translate="1">post_types_tax</taxonomy>
 		<taxonomy translate="1">activity_types</taxonomy>

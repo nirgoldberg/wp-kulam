@@ -68,6 +68,20 @@ header .logo .login,
 	direction: rtl;
 }
 
+/***********/
+/* gallery */
+/***********/
+
+.kulam-gallery-layout-content figure .play {
+	left: 6px;
+	right: auto;
+}
+
+.kulam-gallery-layout-content .btn {
+	float: right;
+	margin: 0 0 30px 15px;
+}
+
 /**********/
 /* footer */
 /**********/

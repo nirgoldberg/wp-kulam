@@ -720,6 +720,7 @@ var $ = jQuery,
 					// variables
 					var controls = $('.'+id).next('.controls'),
 						more = controls.find('.load-more'),
+						all = controls.find('.show-all'),
 						less = controls.find('.show-less');
 
 					// init gallery
@@ -730,6 +731,11 @@ var $ = jQuery,
 					// bind click event to gallery 'load more' btn
 					more.bind('click', function() {
 						KULAM_general.lazyLoad(id, KULAM_general.params.galleries[id]);
+					});
+
+					// bind click event to gallery 'view all' btn
+					all.bind('click', function() {
+						KULAM_general.lazyLoad(id, KULAM_general.params.galleries[id], true);
 					});
 
 					// bind click event to gallery 'show less' btn
@@ -776,17 +782,20 @@ var $ = jQuery,
 		 *
 		 * @param   id (int) Gallery ID
 		 * @param   gallery (obj) Gallery object
+		 * @param   showAll (bool) Whether to load all images
 		 * @return  N/A
 		 */
-		lazyLoad : function (id, gallery) {
+		lazyLoad : function (id, gallery, showAll = false) {
 
 			// variables
 			var controls = $('.'+id).next('.controls'),
 				more = controls.find('.load-more'),
+				all = controls.find('.show-all'),
 				less = controls.find('.show-less'),
-				index, j;
+				index, j,
+				maxLoad = showAll ? gallery['images'].length : KULAM_general.params.images_more_interval;
 
-			for (index=gallery['active_images'], j=0 ; j<KULAM_general.params.images_more_interval && gallery['images'].length>index ; index++, j++) {
+			for (index=gallery['active_images'], j=0 ; j<maxLoad && gallery['images'].length>index ; index++, j++) {
 				// expose image
 				var imageItem =
 					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
@@ -813,9 +822,15 @@ var $ = jQuery,
 			if (index == gallery['images'].length) {
 				// hide more btn
 				more.css('display', 'none');
+
+				// hide all btn
+				all.css('display', 'none');
 			} else {
-				// expose less btn
+				// expose more btn
 				more.css('display', 'block');
+
+				// expose all btn
+				all.css('display', 'block');
 			}
 
 			if (index > KULAM_general.params.images_more_interval) {

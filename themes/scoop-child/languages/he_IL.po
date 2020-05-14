@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-05-05 14:04+0300\n"
-"PO-Revision-Date: 2020-05-05 14:05+0300\n"
+"POT-Creation-Date: 2020-05-14 18:53+0300\n"
+"PO-Revision-Date: 2020-05-14 18:53+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
@@ -67,7 +67,7 @@ msgid "Site Setup"
 msgstr "הגדרות האתר"
 
 #: functions/acf/acf-configuration.php:34
-#: functions/acf/acf-field-groups.php:2124
+#: functions/acf/acf-field-groups.php:2286
 msgid "Header/Footer Settings"
 msgstr ""
 
@@ -76,18 +76,18 @@ msgid "Header/Footer"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:41
-#: functions/acf/acf-field-groups.php:2370
+#: functions/acf/acf-field-groups.php:2532
 msgid "My Siddur Settings"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:42 functions/menus.php:51
-#: functions/post-types.php:105 functions/shortcodes.php:29 loop/archive.php:19
+#: functions/post-types.php:210 functions/shortcodes.php:29 loop/archive.php:19
 #: loop/single.php:19
 msgid "My Siddur"
 msgstr "הסידור שלי"
 
 #: functions/acf/acf-configuration.php:48
-#: functions/acf/acf-field-groups.php:2413
+#: functions/acf/acf-field-groups.php:2575
 msgid "General Settings"
 msgstr ""
 
@@ -124,44 +124,46 @@ msgstr "כן"
 msgid "Disabled?"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:31
-#: functions/acf/acf-field-groups.php:2417
+#: functions/acf/acf-field-groups.php:33
+#: functions/acf/acf-field-groups.php:2579
 msgid "Homepage"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:35
+#: functions/acf/acf-field-groups.php:37
 msgid "Main Template Layouts"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:50
+#: functions/acf/acf-field-groups.php:52
 msgid "Banner"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:55
+#: functions/acf/acf-field-groups.php:57
 msgid "Slides"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:70
+#: functions/acf/acf-field-groups.php:72
 #, fuzzy
 #| msgid "Add to folder"
 msgid "Add Slide"
 msgstr "הוסף לתיקייה"
 
-#: functions/acf/acf-field-groups.php:74 functions/acf/acf-field-groups.php:453
+#: functions/acf/acf-field-groups.php:76 functions/acf/acf-field-groups.php:453
 #: functions/acf/acf-field-groups.php:1149
 #: functions/acf/acf-field-groups.php:1164
 #: functions/acf/acf-field-groups.php:1937
 #: functions/acf/acf-field-groups.php:1953
+#: functions/acf/acf-field-groups.php:2128
 msgid "Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:95
+#: functions/acf/acf-field-groups.php:97
 #, fuzzy
 #| msgid "Folder description"
 msgid "Short Description"
 msgstr "תיאור התיקייה"
 
 #: functions/acf/acf-field-groups.php:116
+#: functions/acf/acf-field-groups.php:2166
 #, fuzzy
 #| msgid "Folder description"
 msgid "Description"
@@ -309,7 +311,7 @@ msgid "Form Category Title"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:888
-#: functions/acf/acf-field-groups.php:2626
+#: functions/acf/acf-field-groups.php:2788
 msgid "Questions & Answers"
 msgstr ""
 
@@ -394,19 +396,19 @@ msgstr ""
 
 #: functions/acf/acf-field-groups.php:1185
 #: functions/acf/acf-field-groups.php:1974
-#: functions/acf/acf-field-groups.php:2642
+#: functions/acf/acf-field-groups.php:2804
 msgid "Font Family"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:1200
 #: functions/acf/acf-field-groups.php:1989
-#: functions/acf/acf-field-groups.php:2657
+#: functions/acf/acf-field-groups.php:2819
 msgid "Font Size"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:1221
 #: functions/acf/acf-field-groups.php:2010
-#: functions/acf/acf-field-groups.php:2678
+#: functions/acf/acf-field-groups.php:2840
 msgid "Color"
 msgstr ""
 
@@ -488,6 +490,7 @@ msgstr ""
 
 #: functions/acf/acf-field-groups.php:1545
 #: functions/acf/acf-field-groups.php:2065
+#: functions/acf/acf-field-groups.php:2185
 msgid "Scheme Color"
 msgstr ""
 
@@ -517,12 +520,12 @@ msgid "rating name"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:1719
-#: functions/acf/acf-field-groups.php:2501
+#: functions/acf/acf-field-groups.php:2663
 msgid "Category Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1747 functions/post-types.php:41
-#: functions/post-types.php:43 functions/post-types.php:64
+#: functions/acf/acf-field-groups.php:1747 functions/post-types.php:146
+#: functions/post-types.php:148 functions/post-types.php:169
 msgid "Post Types"
 msgstr ""
 
@@ -566,162 +569,179 @@ msgstr ""
 msgid "Slideshow Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2128
+#: functions/acf/acf-field-groups.php:2124 functions/post-types.php:95
+msgid "Gallery Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2149
+#: functions/acf/acf-field-groups.php:2249
+msgid "Date"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2200
+msgid "Images"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2245
+msgid "Attachment Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2290
 #, fuzzy
 #| msgid "Search"
 msgid "Search Form"
 msgstr "חיפוש"
 
-#: functions/acf/acf-field-groups.php:2144
+#: functions/acf/acf-field-groups.php:2306
 #, fuzzy
 #| msgid "Search Post Types"
 msgid "Search Form Type"
 msgstr "חפש סוגי מאמר"
 
-#: functions/acf/acf-field-groups.php:2156
+#: functions/acf/acf-field-groups.php:2318
 msgid "Minimalist"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2157
+#: functions/acf/acf-field-groups.php:2319
 msgid "Exposed"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2171
+#: functions/acf/acf-field-groups.php:2333
 msgid "Search Input Placeholder"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2190 partials/search.php:163
+#: functions/acf/acf-field-groups.php:2352 partials/search.php:163
 msgid "Advanced Search"
 msgstr "חיפוש מתקדם"
 
-#: functions/acf/acf-field-groups.php:2209
+#: functions/acf/acf-field-groups.php:2371
 msgid "Contact Details"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2225 functions/modal-registration.php:45
+#: functions/acf/acf-field-groups.php:2387 functions/modal-registration.php:45
 #: functions/widgets/contact-details/contact-details.php:112
 msgid "Email"
 msgstr "שלח דוא\"ל"
 
-#: functions/acf/acf-field-groups.php:2243
+#: functions/acf/acf-field-groups.php:2405
 #: functions/widgets/contact-details/contact-details.php:113
 msgid "Address"
 msgstr "כתובת"
 
-#: functions/acf/acf-field-groups.php:2264
+#: functions/acf/acf-field-groups.php:2426
 #: functions/widgets/contact-details/contact-details.php:114
 msgid "Phone"
 msgstr "טלפון"
 
-#: functions/acf/acf-field-groups.php:2285
+#: functions/acf/acf-field-groups.php:2447
 msgid "Social Networks"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2300
+#: functions/acf/acf-field-groups.php:2462
 msgid "Youtube"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2316 loop/single.php:154
+#: functions/acf/acf-field-groups.php:2478 loop/single.php:154
 msgid "Facebook"
 msgstr "Facebook"
 
-#: functions/acf/acf-field-groups.php:2332
+#: functions/acf/acf-field-groups.php:2494
 msgid "Instagram"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2374
+#: functions/acf/acf-field-groups.php:2536
 msgid "Custom Label"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2433
+#: functions/acf/acf-field-groups.php:2595
 msgid "Categories in Row"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2453
+#: functions/acf/acf-field-groups.php:2615
 msgid "My Siddur Tile Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2477
+#: functions/acf/acf-field-groups.php:2639
 msgid "Upload Tile Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2517
+#: functions/acf/acf-field-groups.php:2679
 msgid "Category Page Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2520
+#: functions/acf/acf-field-groups.php:2682
 msgid ""
 "Default selected Post Types to be displayed in a category page.\n"
 "Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2540
+#: functions/acf/acf-field-groups.php:2702
 msgid "Category Description Toggling"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2559
+#: functions/acf/acf-field-groups.php:2721
 msgid "Google Maps API"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2580
+#: functions/acf/acf-field-groups.php:2742
 msgid "Subcategory Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2596
+#: functions/acf/acf-field-groups.php:2758
 msgid "Background color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2611
+#: functions/acf/acf-field-groups.php:2773
 msgid "Font Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2693
+#: functions/acf/acf-field-groups.php:2855
 msgid "Social"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2709
+#: functions/acf/acf-field-groups.php:2871
 msgid "Google Analytics Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2712
+#: functions/acf/acf-field-groups.php:2874
 msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2728
+#: functions/acf/acf-field-groups.php:2890
 msgid "Google Tag Manager Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2731
+#: functions/acf/acf-field-groups.php:2893
 msgid "Code format: GTM-XXXXXX"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2747
+#: functions/acf/acf-field-groups.php:2909
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2763
+#: functions/acf/acf-field-groups.php:2925
 msgid "Enable Activity Types custom taxonomy"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2782
+#: functions/acf/acf-field-groups.php:2944
 msgid "Enable Audiences custom taxonomy"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2801
+#: functions/acf/acf-field-groups.php:2963
 msgid "Strip Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2804
+#: functions/acf/acf-field-groups.php:2966
 msgid ""
 "Default strip which will be displayed in single post, page and category.\n"
 "Image dimensions: 1140x268 (px)"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2846
+#: functions/acf/acf-field-groups.php:3008
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2850
+#: functions/acf/acf-field-groups.php:3012
 msgid "Category"
 msgstr ""
 
@@ -775,209 +795,315 @@ msgstr "אנא הזן את הטקסט בתיבה מתחת:"
 msgid "Register"
 msgstr "הירשם"
 
-#: functions/post-types.php:42
+#: functions/post-types.php:81 functions/post-types.php:98
+msgid "Galleries"
+msgstr ""
+
+#: functions/post-types.php:82
+msgid "Gallery"
+msgstr ""
+
+#: functions/post-types.php:83
+#, fuzzy
+#| msgid "Add to folder"
+msgid "Add New"
+msgstr "הוסף לתיקייה"
+
+#: functions/post-types.php:84
+msgid "Add New Gallery"
+msgstr ""
+
+#: functions/post-types.php:85
+msgid "Edit Gallery"
+msgstr ""
+
+#: functions/post-types.php:86
+msgid "New Gallery"
+msgstr ""
+
+#: functions/post-types.php:87
+#, fuzzy
+#| msgid "View all posts by"
+msgid "View Gallery"
+msgstr "צפה בסוג מאמר"
+
+#: functions/post-types.php:88
+msgid "View Galleries"
+msgstr ""
+
+#: functions/post-types.php:89
+#, fuzzy
+#| msgid "Search Audiences"
+msgid "Search Galleries"
+msgstr "חפש קהלים"
+
+#: functions/post-types.php:90
+#, fuzzy
+#| msgid "No Audiences found"
+msgid "No galleries found"
+msgstr "לא נמצאו קהלים"
+
+#: functions/post-types.php:91
+msgid "No galleries found in Trash"
+msgstr ""
+
+#: functions/post-types.php:92
+msgid "Parent Gallery:"
+msgstr ""
+
+#: functions/post-types.php:93
+msgid "All Galleries"
+msgstr ""
+
+#: functions/post-types.php:94
+#, fuzzy
+#| msgid "Archive %s"
+msgid "Gallery Archives"
+msgstr "ארכיון %s"
+
+#: functions/post-types.php:96
+msgid "Insert into gallery"
+msgstr ""
+
+#: functions/post-types.php:97
+msgid "Uploaded to this gallery"
+msgstr ""
+
+#: functions/post-types.php:99
+msgid "Filter galleries list"
+msgstr ""
+
+#: functions/post-types.php:100
+msgid "Galleries list navigation"
+msgstr ""
+
+#: functions/post-types.php:101
+msgid "Galleries list"
+msgstr ""
+
+#: functions/post-types.php:102
+msgid "Gallery published"
+msgstr ""
+
+#: functions/post-types.php:103
+msgid "Gallery published privately"
+msgstr ""
+
+#: functions/post-types.php:104
+msgid "Gallery reverted to draft"
+msgstr ""
+
+#: functions/post-types.php:105
+msgid "Gallery scheduled"
+msgstr ""
+
+#: functions/post-types.php:106
+msgid "Gallery updated"
+msgstr ""
+
+#: functions/post-types.php:147
 msgid "Post Type"
 msgstr "סוג מאמר"
 
-#: functions/post-types.php:44
+#: functions/post-types.php:149
 msgid "All Post Types"
 msgstr "כל סוגי המאמר"
 
-#: functions/post-types.php:45
+#: functions/post-types.php:150
 msgid "Edit Post Type"
 msgstr "ערוך סוג מאמר"
 
-#: functions/post-types.php:46
+#: functions/post-types.php:151
 msgid "View Post Type"
 msgstr "צפה בסוג מאמר"
 
-#: functions/post-types.php:47
+#: functions/post-types.php:152
 msgid "Update Post Type"
 msgstr "עדכן סוג מאמר"
 
-#: functions/post-types.php:48
+#: functions/post-types.php:153
 msgid "Add New Post Type"
 msgstr "הוסף סוג מאמר חדש"
 
-#: functions/post-types.php:49
+#: functions/post-types.php:154
 msgid "New Post Type Name"
 msgstr "שם סוג מאמר חדש"
 
-#: functions/post-types.php:50
+#: functions/post-types.php:155
 msgid "Parent Post Type"
 msgstr "סוג מאמר הורה"
 
-#: functions/post-types.php:51
+#: functions/post-types.php:156
 msgid "Parent Post Type:"
 msgstr "סוג מאמר הורה:"
 
-#: functions/post-types.php:52
+#: functions/post-types.php:157
 msgid "Search Post Types"
 msgstr "חפש סוגי מאמר"
 
-#: functions/post-types.php:53
+#: functions/post-types.php:158
 msgid "Popular Post Types"
 msgstr "סוגי מאמר נפוצים"
 
-#: functions/post-types.php:54
+#: functions/post-types.php:159
 msgid "Separate Post Types with commas"
 msgstr "סוגי מאמר מופרדים בפסיק"
 
-#: functions/post-types.php:55
+#: functions/post-types.php:160
 msgid "Add or remove Post Types"
 msgstr "הוסף או הסר סוגי מאמר"
 
-#: functions/post-types.php:56
+#: functions/post-types.php:161
 msgid "Choose from the most used Post Types"
 msgstr "בחר מתוך סוגי המאמר הנפוצים ביותר"
 
-#: functions/post-types.php:57
+#: functions/post-types.php:162
 msgid "No Post Types found"
 msgstr "לא נמצאו סוגי מאמר"
 
-#: functions/post-types.php:58
+#: functions/post-types.php:163
 msgid "← Back to Post Types"
 msgstr "← חזרה לסוגי מאמר"
 
-#: functions/post-types.php:104 functions/post-types.php:111
+#: functions/post-types.php:209 functions/post-types.php:216
 msgid "Siddurim"
 msgstr "סידורים"
 
-#: functions/post-types.php:151 functions/post-types.php:153
-#: functions/post-types.php:174
+#: functions/post-types.php:256 functions/post-types.php:258
+#: functions/post-types.php:279
 msgid "Activity Types"
 msgstr "סוגי פעילות"
 
-#: functions/post-types.php:152
+#: functions/post-types.php:257
 msgid "Activity Type"
 msgstr "סוג פעילות"
 
-#: functions/post-types.php:154
+#: functions/post-types.php:259
 msgid "All Activity Types"
 msgstr "כל סוגי הפעילות"
 
-#: functions/post-types.php:155
+#: functions/post-types.php:260
 msgid "Edit Activity Type"
 msgstr "ערוך סוג פעילות"
 
-#: functions/post-types.php:156
+#: functions/post-types.php:261
 msgid "View Activity Type"
 msgstr "צפה בסוג פעילות"
 
-#: functions/post-types.php:157
+#: functions/post-types.php:262
 msgid "Update Activity Type"
 msgstr "עדכן סוג פעילות"
 
-#: functions/post-types.php:158
+#: functions/post-types.php:263
 msgid "Add New Activity Type"
 msgstr "הוסף סוג פעילות חדש"
 
-#: functions/post-types.php:159
+#: functions/post-types.php:264
 msgid "New Activity Type Name"
 msgstr "שם סוג פעילות חדש"
 
-#: functions/post-types.php:160
+#: functions/post-types.php:265
 msgid "Parent Activity Type"
 msgstr "סוג פעילות הורה"
 
-#: functions/post-types.php:161
+#: functions/post-types.php:266
 msgid "Parent Activity Type:"
 msgstr "סוג פעילות הורה:"
 
-#: functions/post-types.php:162
+#: functions/post-types.php:267
 msgid "Search Activity Types"
 msgstr "חפש סוגי פעילות"
 
-#: functions/post-types.php:163
+#: functions/post-types.php:268
 msgid "Popular Activity Types"
 msgstr "סוגי פעילות נפוצים"
 
-#: functions/post-types.php:164
+#: functions/post-types.php:269
 msgid "Separate Activity Types with commas"
 msgstr "סוגי פעילות מופרדים בפסיק"
 
-#: functions/post-types.php:165
+#: functions/post-types.php:270
 msgid "Add or remove Activity Types"
 msgstr "הוסף או הסר סוגי פעילות"
 
-#: functions/post-types.php:166
+#: functions/post-types.php:271
 msgid "Choose from the most used Activity Types"
 msgstr "בחר מתוך סוגי הפעילות הנפוצים ביותר"
 
-#: functions/post-types.php:167
+#: functions/post-types.php:272
 msgid "No Activity Types found"
 msgstr "לא נמצאו סוגי פעילות"
 
-#: functions/post-types.php:168
+#: functions/post-types.php:273
 msgid "← Back to Activity Types"
 msgstr "← חזרה לסוגי פעילות"
 
-#: functions/post-types.php:212 functions/post-types.php:214
-#: functions/post-types.php:235
+#: functions/post-types.php:317 functions/post-types.php:319
+#: functions/post-types.php:340
 msgid "Audiences"
 msgstr "קהלים"
 
-#: functions/post-types.php:213
+#: functions/post-types.php:318
 msgid "Audience"
 msgstr "קהל"
 
-#: functions/post-types.php:215
+#: functions/post-types.php:320
 msgid "All Audiences"
 msgstr "כל הקהלים"
 
-#: functions/post-types.php:216
+#: functions/post-types.php:321
 msgid "Edit Audience"
 msgstr "ערוך קהל"
 
-#: functions/post-types.php:217
+#: functions/post-types.php:322
 msgid "View Audience"
 msgstr "הצג קהל"
 
-#: functions/post-types.php:218
+#: functions/post-types.php:323
 msgid "Update Audience"
 msgstr "עדכן קהל"
 
-#: functions/post-types.php:219
+#: functions/post-types.php:324
 msgid "Add New Audience"
 msgstr "הוסף קהל חדש"
 
-#: functions/post-types.php:220
+#: functions/post-types.php:325
 msgid "New Audience Name"
 msgstr "שם קהל חדש"
 
-#: functions/post-types.php:221
+#: functions/post-types.php:326
 msgid "Parent Audience"
 msgstr "קהל הורה"
 
-#: functions/post-types.php:222
+#: functions/post-types.php:327
 msgid "Parent Audience:"
 msgstr "קהל הורה:"
 
-#: functions/post-types.php:223
+#: functions/post-types.php:328
 msgid "Search Audiences"
 msgstr "חפש קהלים"
 
-#: functions/post-types.php:224
+#: functions/post-types.php:329
 msgid "Popular Audiences"
 msgstr "קהלים נפוצים"
 
-#: functions/post-types.php:225
+#: functions/post-types.php:330
 msgid "Separate Audiences with commas"
 msgstr "קהלים מופרדים בפסיק"
 
-#: functions/post-types.php:226
+#: functions/post-types.php:331
 msgid "Add or remove Audiences"
 msgstr "הוסף או הסר קהלים"
 
-#: functions/post-types.php:227
+#: functions/post-types.php:332
 msgid "Choose from the most used Audiences"
 msgstr "בחר מתוך הקהלים הנפוצים ביותר"
 
-#: functions/post-types.php:228
+#: functions/post-types.php:333
 msgid "No Audiences found"
 msgstr "לא נמצאו קהלים"
 
-#: functions/post-types.php:229
+#: functions/post-types.php:334
 msgid "← Back to Audiences"
 msgstr "← חזרה לקהלים"
 
@@ -997,11 +1123,23 @@ msgstr "שתף את העולם במנהגים שלך"
 msgid "Save your favorite contents"
 msgstr "שמור את התכנים המועדפים שלך"
 
-#: functions/theme.php:145
+#: functions/shortcodes.php:746
+msgid "Load more"
+msgstr "טען עוד"
+
+#: functions/shortcodes.php:747
+msgid "View all"
+msgstr "הצג הכל"
+
+#: functions/shortcodes.php:748
+msgid "Show less"
+msgstr "הצג פחות"
+
+#: functions/theme.php:153
 msgid "READ MORE"
 msgstr "קרא עוד"
 
-#: functions/theme.php:193 partials/search.php:177
+#: functions/theme.php:213 partials/search.php:177
 msgid "Text"
 msgstr "טקסט"
 
