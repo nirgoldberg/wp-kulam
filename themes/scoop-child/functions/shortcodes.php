@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.11
+ * @version     1.7.12
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -743,9 +743,9 @@ function kulam_gallery_html( $id ) {
 		$less_style = $scheme_color ? 'background-color:#FFF;border-color:' . $scheme_color . ';color:' . $scheme_color . ';' : '';
 
 		$output .= '<div class="controls">';
-		$output .= '<button class="btn load-more inline-btn cyan-btn big" style="' . ( $more_style ?: '' ) . '">' . __('Load more', 'kulam-scoop') . '</button>';
-		$output .= '<button class="btn show-all inline-btn cyan-btn big" style="' . ( $more_style ?: '' ) . '">' . __('View all', 'kulam-scoop') . '</button>';
-		$output .= '<button class="btn show-less inline-btn cyan-btn big" style="' . ( $less_style ?: '' ) . '">' . __('Show less', 'kulam-scoop') . '</button>';
+		$output .= '<button class="btn load-more" style="' . ( $more_style ?: '' ) . '">' . __('Load more', 'kulam-scoop') . '</button>';
+		$output .= '<button class="btn show-all" style="' . ( $more_style ?: '' ) . '">' . __('View all', 'kulam-scoop') . '</button>';
+		$output .= '<button class="btn show-less" style="' . ( $less_style ?: '' ) . '">' . __('Show less', 'kulam-scoop') . '</button>';
 		$output .= '</div>';
 
 		$globals[ '_galleries' ][ 'gallery-'.$id ] = $gallery;

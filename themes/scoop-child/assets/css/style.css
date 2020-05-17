@@ -505,7 +505,7 @@ header .logo .login a,
 }
 
 .category-desc {
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 	display: none;
 }
 
@@ -785,6 +785,34 @@ body.modal-open,
 
 .kulam-qna > li.active .qna-content {
 	display: block;
+}
+
+/************************/
+/* category popup image */
+/************************/
+
+.category-popup-button {
+	margin-bottom: 20px;
+	font-size: 16px;
+	outline: none !important;
+}
+
+#modal-category-popup-image .modal-dialog {
+	width: auto;
+	max-width: 750px;
+}
+
+#modal-category-popup-image .modal-dialog .modal-body {
+	padding: 0;
+}
+
+#modal-category-popup-image .modal-dialog .modal-body .close {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	font-size: 70px;
+	background: transparent;
+	opacity: 1;
 }
 
 /**************/

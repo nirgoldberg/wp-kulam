@@ -47,6 +47,13 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			$category_description_toggling	= get_field( 'acf-option_category_description_toggling', 'option' );
 			$google_map						= get_field( 'acf-category_google_map', 'category_' . $category->term_id );
 			$google_maps_api				= get_field( 'acf-option_google_maps_api', 'option' );
+			$popup_image					= get_field( 'acf-category_popup_image', 'category_' . $category->term_id );
+			$popup_button_text				= get_field( 'acf-category_popup_button_text', 'category_' . $category->term_id );
+			$popup_button_text_color		= get_field( 'acf-category_popup_button_text_color', 'category_' . $category->term_id );
+			$popup_button_bg_color			= get_field( 'acf-category_popup_button_bg_color', 'category_' . $category->term_id );
+
+			// add category popup image modal
+			add_action( 'wp_footer', 'kulam_modal_category_popup_image' );
 
 		} ?>
 
@@ -85,6 +92,18 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 				<div class="category-desc <?php echo ! $category_description_toggling ? 'open' : ''; ?>">
 					<div class="desc"><?php echo $category_description; ?></div>
 				</div>
+
+			<?php }
+
+			if ( $popup_image && $popup_button_text ) {
+
+				$style = '';
+				$style .= $popup_button_text_color ? 'color:' . $popup_button_text_color . ';' : '';
+				$style .= $popup_button_bg_color ? 'background-color:' . $popup_button_bg_color . ';' : '';
+
+				?>
+
+				<button class="btn category-popup-button" data-toggle="modal" data-target="#modal-category-popup-image" style="<?php echo $style; ?>"><?php echo $popup_button_text; ?></button>
 
 			<?php }
 
