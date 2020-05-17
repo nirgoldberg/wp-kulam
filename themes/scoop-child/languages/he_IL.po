@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-05-14 18:53+0300\n"
-"PO-Revision-Date: 2020-05-14 18:53+0300\n"
+"POT-Creation-Date: 2020-05-17 08:35+0300\n"
+"PO-Revision-Date: 2020-05-17 08:37+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -1199,12 +1199,12 @@ msgstr "ארכיון"
 
 #: loop/archive.php:180 loop/archive.php:202
 #, php-format
-msgid "Show less <i>%s</i> content"
+msgid "Click here to show less <i>%s</i> content"
 msgstr "הצג פחות תכני <i>%s</i>"
 
 #: loop/archive.php:180
 #, php-format
-msgid "Show more <i>%s</i> content"
+msgid "Click here to show more <i>%s</i> content"
 msgstr "הצג תכני <i>%s</i> נוספים"
 
 #: loop/page.php:71

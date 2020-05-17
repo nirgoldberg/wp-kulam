@@ -674,20 +674,23 @@ body.modal-open,
 /* post types posts grid */
 /*************************/
 
-.post-type-posts-grid .post-type-sub-title {
+.post-type-posts-grid .post-type-sub-title span:first-child {
 	font-size: 24px;
 	color: #428bca;
 	cursor: pointer;
+	text-decoration: underline;
 	-webkit-transition:	none;
 	-moz-transition:	none;
 	-o-transition:		none;
 	transition:			none;
 }
 
-.post-type-posts-grid .post-type-sub-title span {
+.post-type-posts-grid .post-type-sub-title span:nth-child(2) {
 	margin: 0 5px;
 	font-size: 31px;
+	color: #428bca;
 	vertical-align: top;
+	cursor: pointer;
 }
 
 .post-type-posts-grid .post-type-sub-title.more,
