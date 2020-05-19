@@ -225,6 +225,10 @@ header .logo .login a,
 	width: 100%;
 }
 
+.main-banner .slide.linked {
+	cursor: pointer;
+}
+
 .main-banner .text-wrap {
 	font-family: Arial, sans-serif;
 }

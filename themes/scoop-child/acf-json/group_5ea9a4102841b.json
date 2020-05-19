@@ -216,6 +216,22 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_5ec3530d73172",
+                            "label": "Link",
+                            "name": "link",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
                         }
                     ]
                 },
@@ -570,5 +586,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588262536
+    "modified": 1589859122
 }

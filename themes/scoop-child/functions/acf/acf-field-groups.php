@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.12
+ * @version		1.7.13
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -129,6 +129,49 @@ acf_add_local_field_group(array(
 									'maxlength' => '',
 									'rows' => '',
 									'new_lines' => '',
+								),
+								array(
+									'key' => 'field_5ec3524ee8b18',
+									'label' => __('Link', 'kulam-scoop'),
+									'name' => 'link',
+									'type' => 'url',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'default_value' => '',
+									'placeholder' => '',
+								),
+								array(
+									'key' => 'field_5ec35277e8b19',
+									'label' => __('Link Target', 'kulam-scoop'),
+									'name' => 'link_target',
+									'type' => 'select',
+									'instructions' => '',
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'choices' => array(
+										'self' => __('Same window', 'kulam-scoop'),
+										'blank' => __('New window', 'kulam-scoop'),
+									),
+									'default_value' => array(
+										0 => 'self',
+									),
+									'allow_null' => 0,
+									'multiple' => 0,
+									'ui' => 0,
+									'return_format' => 'value',
+									'ajax' => 0,
+									'placeholder' => '',
 								),
 								array(
 									'key' => 'field_5ea01fc73c230',
@@ -1255,6 +1298,22 @@ Copy and paste this code into your post editor', 'kulam-scoop'),
 							'max_size' => '',
 							'mime_types' => '',
 						),
+						array(
+							'key' => 'field_5ec3530d73172',
+							'label' => __('Link', 'kulam-scoop'),
+							'name' => 'link',
+							'type' => 'url',
+							'instructions' => '',
+							'required' => 0,
+							'conditional_logic' => 0,
+							'wrapper' => array(
+								'width' => '',
+								'class' => '',
+								'id' => '',
+							),
+							'default_value' => '',
+							'placeholder' => '',
+						),
 					),
 				),
 				array(
@@ -2182,6 +2241,22 @@ acf_add_local_field_group(array(
 			'max_height' => '',
 			'max_size' => '',
 			'mime_types' => '',
+		),
+		array(
+			'key' => 'field_5ec35348f5029',
+			'label' => __('Link', 'kulam-scoop'),
+			'name' => 'acf-slideshow_title_link',
+			'type' => 'url',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
 		),
 		array(
 			'key' => 'field_5e98259640200',

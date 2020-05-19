@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.12
+ * @version     1.7.13
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -299,6 +299,7 @@ function kulam_slideshow_html( $id ) {
 	$font_size			= get_field( 'acf-slideshow_title_font_size',				$id );
 	$color				= get_field( 'acf-slideshow_title_color',					$id );
 	$title_bg_image		= get_field( 'acf-slideshow_title_background_image',		$id );
+	$title_link			= get_field( 'acf-slideshow_title_link',					$id );
 	$scheme_color		= get_field( 'acf-slideshow_scheme_color',					$id );
 	$slider_bg_image	= get_field( 'acf-slideshow_slider_title_background_image',	$id );
 
@@ -348,7 +349,12 @@ function kulam_slideshow_html( $id ) {
 		$style .= $color ? 'color: ' . $color . ';' : '';
 		$style .= $title_bg_image ? 'background-image: url(\'' . $title_bg_image . '\');' : '';
 
-		$output .= '<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' . $title . '</div>';
+		$output .=
+			'<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' .
+				( $title_link ? '<a href="' . $title_link . '"' . ( $color ? ' style="color:' . $color . ';"' : '' ) . '>' : '' ) .
+				$title .
+				( $title_link ? '</a>' : '' ) .
+			'</div>';
 	}
 
 	$output .= do_shortcode('[pojo-slideshow id="' . $id . '"]');
@@ -447,6 +453,7 @@ function kulam_pc_carousel( $pc, $id ) {
 	$font_size			= $pc[ 'title' ][ 'font_size' ];
 	$color				= $pc[ 'title' ][ 'color' ];
 	$title_bg_image		= $pc[ 'title' ][ 'background_image' ];
+	$title_link			= $pc[ 'title' ][ 'link' ];
 	$slide_height		= $pc[ 'carousel_options' ][ 'slide_height' ];
 	$scheme_color		= $pc[ 'general' ][ 'scheme_color' ];
 	$slider_bg_image	= $pc[ 'general' ][ 'slider_title_background_image' ];
@@ -498,7 +505,12 @@ function kulam_pc_carousel( $pc, $id ) {
 		$style .= $color ? 'color: ' . $color . ';' : '';
 		$style .= $title_bg_image ? 'background-image: url(\'' . $title_bg_image . '\');' : '';
 
-		$output .= '<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' . $title . '</div>';
+		$output .=
+			'<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' .
+				( $title_link ? '<a href="' . $title_link . '"' . ( $color ? ' style="color:' . $color . ';"' : '' ) . '>' : '' ) .
+				$title .
+				( $title_link ? '</a>' : '' ) .
+			'</div>';
 	}
 
 	$output .= kulam_pc_carousel_html( $pc, $id );

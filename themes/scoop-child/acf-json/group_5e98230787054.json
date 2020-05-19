@@ -152,6 +152,22 @@
             "mime_types": ""
         },
         {
+            "key": "field_5ec35348f5029",
+            "label": "Link",
+            "name": "acf-slideshow_title_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_5e98259640200",
             "label": "General",
             "name": "",
@@ -224,5 +240,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588177188
+    "modified": 1589859186
 }

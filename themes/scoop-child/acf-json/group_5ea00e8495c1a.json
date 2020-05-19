@@ -101,6 +101,49 @@
                                     "new_lines": ""
                                 },
                                 {
+                                    "key": "field_5ec3524ee8b18",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "type": "url",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5ec35277e8b19",
+                                    "label": "Link Target",
+                                    "name": "link_target",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "self": "Same window",
+                                        "blank": "New window"
+                                    },
+                                    "default_value": [
+                                        "self"
+                                    ],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
                                     "key": "field_5ea01fc73c230",
                                     "label": "Text Color",
                                     "name": "text_color",
@@ -693,5 +736,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588678338
+    "modified": 1589859021
 }

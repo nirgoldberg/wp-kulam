@@ -467,6 +467,8 @@ var $ = jQuery,
 
 			if (banners.length) {
 				banners.find('.slide .text-wrap').children('.control').on('click', function(event) {
+					event.stopPropagation();
+
 					var banner = $(this).closest('.cycle-slideshow');
 
 					if ($(this).hasClass('cycle-prev')) {
