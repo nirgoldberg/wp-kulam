@@ -61,7 +61,7 @@ body.logged-in .YouTubePopUp-Wrap{ /* For WordPress */
 }
 
 .YouTubePopUp-Content{
-    max-width:680px;
+    max-width:80%;
     display:block;
     margin:0 auto;
     height:100%;
@@ -72,7 +72,7 @@ body.logged-in .YouTubePopUp-Wrap{ /* For WordPress */
     max-width:100% !important;
     width:100% !important;
     display:block !important;
-    height:480px !important;
+    height:80%;
     border:none !important;
     position:absolute;
     top: 0;
@@ -131,13 +131,13 @@ body.logged-in .YouTubePopUp-Wrap{ /* For WordPress */
 
 @media all and (max-width: 768px) and (min-width: 10px){
     .YouTubePopUp-Content{
-        max-width:90%;
+        max-width:100%;
     }
 }
 
 @media all and (max-width: 600px) and (min-width: 10px){
     .YouTubePopUp-Content iframe{
-        height:320px !important;
+        /*height:320px !important;*/
     }
 
     .YouTubePopUp-Close{
@@ -147,7 +147,7 @@ body.logged-in .YouTubePopUp-Wrap{ /* For WordPress */
 
 @media all and (max-width: 480px) and (min-width: 10px){
     .YouTubePopUp-Content iframe{
-        height:220px !important;
+        /*height:220px !important;*/
     }
 
     .YouTubePopUp-Close{

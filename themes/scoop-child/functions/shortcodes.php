@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.13
+ * @version     1.7.14
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -295,13 +295,19 @@ function kulam_slideshow_html( $id ) {
 	 * variables
 	 */
 	$title				= get_field( 'acf-slideshow_title',							$id );
-	$font_family		= get_field( 'acf-slideshow_title_font_family',				$id );
-	$font_size			= get_field( 'acf-slideshow_title_font_size',				$id );
-	$color				= get_field( 'acf-slideshow_title_color',					$id );
+	$title_font_family	= get_field( 'acf-slideshow_title_font_family',				$id );
+	$title_font_size	= get_field( 'acf-slideshow_title_font_size',				$id );
+	$title_font_weight	= get_field( 'acf-slideshow_title_font_weight',				$id );
+	$title_color		= get_field( 'acf-slideshow_title_color',					$id );
+	$title_bg_color		= get_field( 'acf-slideshow_title_background_color',		$id );
 	$title_bg_image		= get_field( 'acf-slideshow_title_background_image',		$id );
 	$title_link			= get_field( 'acf-slideshow_title_link',					$id );
+	$slide_font_family	= get_field( 'acf-slideshow_slider_title_font_family',		$id );
+	$slide_font_size	= get_field( 'acf-slideshow_slider_title_font_size',		$id );
+	$slide_font_weight	= get_field( 'acf-slideshow_slider_title_font_weight',		$id );
+	$slide_color		= get_field( 'acf-slideshow_slider_title_color',			$id );
+	$slide_bg_image		= get_field( 'acf-slideshow_slider_title_background_image',	$id );
 	$scheme_color		= get_field( 'acf-slideshow_scheme_color',					$id );
-	$slider_bg_image	= get_field( 'acf-slideshow_slider_title_background_image',	$id );
 
 	$slide_height = absint( atmb_get_field( 'slide_slide_height', $id ) );
 	if ( empty( $slide_height ) || 0 === $slide_height ) {
@@ -310,19 +316,26 @@ function kulam_slideshow_html( $id ) {
 
 	$output				= '';
 
-	if ( $font_family ) {
+	if ( $title_font_family || $slide_font_family ) {
 
-		add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $font_family ) {
+		add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $title_font_family, $slide_font_family ) {
 
-			$font = array(
-				array(
-					'family'	=> $font_family,
-					'type'		=> htmline_acf_web_fonts::get_font_type( $font_family ),
-				),
-			);
+			$new_fonts		= array( $title_font_family, $slide_font_family );
+			$added_fonts	= array();
+
+			foreach ( $new_fonts as $font ) {
+
+				if ( $font ) {
+					$added_fonts[] = array(
+						'family'	=> $font,
+						'type'		=> htmline_acf_web_fonts::get_font_type( $font ),
+					);
+				}
+
+			}
 
 			// return
-			return array_merge( $fonts, $font );
+			return array_merge( $fonts, $added_fonts );
 
 		});
 
@@ -330,10 +343,14 @@ function kulam_slideshow_html( $id ) {
 
 	$style =
 		'<style type="text/css">' .
-			'#kulam-slideshow-' . $id . ' .pojo-slideshow {height: ' . ($slide_height+35) . 'px !important;}' .
-			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide {padding: 6px; height: ' . $slide_height . 'px; background-color: ' . $scheme_color . ';}' : '' ) .
-			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-color: ' . $scheme_color . ';}' : '' ) .
-			( $slider_bg_image ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-image: url(\'' . $slider_bg_image . '\');}' : '' ) .
+			'#kulam-slideshow-' . $id . ' .pojo-slideshow{height:' . ($slide_height+35) . 'px !important;}' .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide{padding:6px;height:' . $slide_height . 'px;background-color:' . $scheme_color . ';}' : '' ) .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption{background-color:' . $scheme_color . ';}' : '' ) .
+			( $slide_bg_image ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption{background-image:url(\'' . $slide_bg_image . '\');}' : '' ) .
+			( $slide_font_family ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{font-family:\'' . $slide_font_family . '\';}' : '' ) .
+			( $slide_font_size ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{font-size:' . $slide_font_size . 'px;line-height:' . $slide_font_size . 'px;}' : '' ) .
+			( $slide_font_weight ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{font-weight:' . $slide_font_weight . ';}' : '' ) .
+			( $slide_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{color:' . $slide_color . ';}' : '' ) .
 		'</style>';
 
 	$output .= $style;
@@ -344,16 +361,21 @@ function kulam_slideshow_html( $id ) {
 	if ( $title ) {
 
 		$style = '';
-		$style .= $font_family ? 'font-family: \'' . $font_family . '\';' : '';
-		$style .= $font_size ? 'font-size: ' . $font_size . 'px;line-height: ' . $font_size . 'px;' : '';
-		$style .= $color ? 'color: ' . $color . ';' : '';
-		$style .= $title_bg_image ? 'background-image: url(\'' . $title_bg_image . '\');' : '';
+		$style .= $title_font_family ? 'font-family:\'' . $title_font_family . '\';' : '';
+		$style .= $title_font_size ? 'font-size:' . $title_font_size . 'px;line-height:' . $title_font_size . 'px;' : '';
+		$style .= $title_font_weight ? 'font-weight:' . $title_font_weight . ';' : '';
+		$style .= $title_color ? 'color:' . $title_color . ';' : '';
+		$style .= $title_bg_color && ! $title_bg_image ? 'padding:10px;display:inline-block;background-color:' . $title_bg_color . ';' : '';
+		$style .= $title_bg_image ? 'height: ' . $title_bg_image[ 'height' ] . 'px;' : '';
 
 		$output .=
 			'<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' .
-				( $title_link ? '<a href="' . $title_link . '"' . ( $color ? ' style="color:' . $color . ';"' : '' ) . '>' : '' ) .
-				$title .
-				( $title_link ? '</a>' : '' ) .
+				( $title_bg_image ? '<img src="' . $title_bg_image[ 'url' ] . '" style="margin-left: -' . intval( $title_bg_image[ 'width' ] )/2 . 'px;" alt="" />' : '' ) .
+				'<div class="title' . ( $title_bg_image ? ' has-bg-image' : '' ) . '">' .
+					( $title_link ? '<a href="' . $title_link . '"' . ( $title_color ? ' style="color:' . $title_color . ';"' : '' ) . '>' : '' ) .
+					$title .
+					( $title_link ? '</a>' : '' ) .
+				'</div>' .
 			'</div>';
 	}
 
@@ -449,14 +471,20 @@ function kulam_pc_carousel( $pc, $id ) {
 	 */
 	$categories			= $pc[ 'posts_categories' ];
 	$title				= $pc[ 'title' ][ 'title' ];
-	$font_family		= $pc[ 'title' ][ 'font_family' ];
-	$font_size			= $pc[ 'title' ][ 'font_size' ];
-	$color				= $pc[ 'title' ][ 'color' ];
+	$title_font_family	= $pc[ 'title' ][ 'font_family' ];
+	$title_font_size	= $pc[ 'title' ][ 'font_size' ];
+	$title_font_weight	= $pc[ 'title' ][ 'font_weight' ];
+	$title_color		= $pc[ 'title' ][ 'color' ];
+	$title_bg_color		= $pc[ 'title' ][ 'background_color' ];
 	$title_bg_image		= $pc[ 'title' ][ 'background_image' ];
 	$title_link			= $pc[ 'title' ][ 'link' ];
-	$slide_height		= $pc[ 'carousel_options' ][ 'slide_height' ];
+	$slide_font_family	= $pc[ 'slide_title' ][ 'font_family' ];
+	$slide_font_size	= $pc[ 'slide_title' ][ 'font_size' ];
+	$slide_font_weight	= $pc[ 'slide_title' ][ 'font_weight' ];
+	$slide_color		= $pc[ 'slide_title' ][ 'color' ];
+	$slide_bg_image		= $pc[ 'slide_title' ][ 'background_image' ];
 	$scheme_color		= $pc[ 'general' ][ 'scheme_color' ];
-	$slider_bg_image	= $pc[ 'general' ][ 'slider_title_background_image' ];
+	$slide_height		= $pc[ 'carousel_options' ][ 'slide_height' ];
 	$output				= '';
 
 	if ( ! $categories )
@@ -466,19 +494,26 @@ function kulam_pc_carousel( $pc, $id ) {
 		$slide_height = '200';
 	}
 
-	if ( $font_family ) {
+	if ( $title_font_family || $slide_font_family ) {
 
-		add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $font_family ) {
+		add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $title_font_family, $slide_font_family ) {
 
-			$font = array(
-				array(
-					'family'	=> $font_family,
-					'type'		=> htmline_acf_web_fonts::get_font_type( $font_family ),
-				),
-			);
+			$new_fonts		= array( $title_font_family, $slide_font_family );
+			$added_fonts	= array();
+
+			foreach ( $new_fonts as $font ) {
+
+				if ( $font ) {
+					$added_fonts[] = array(
+						'family'	=> $font,
+						'type'		=> htmline_acf_web_fonts::get_font_type( $font ),
+					);
+				}
+
+			}
 
 			// return
-			return array_merge( $fonts, $font );
+			return array_merge( $fonts, $added_fonts );
 
 		});
 
@@ -486,10 +521,14 @@ function kulam_pc_carousel( $pc, $id ) {
 
 	$style =
 		'<style type="text/css">' .
-			'#kulam-slideshow-' . $id . ' .pojo-slideshow {height: ' . ($slide_height+50) . 'px !important;}' .
-			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide {padding: 6px; height: ' . $slide_height . 'px; background-color: ' . $scheme_color . ';}' : '' ) .
-			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-color: ' . $scheme_color . ';}' : '' ) .
-			( $slider_bg_image ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption {background-image: url(\'' . $slider_bg_image . '\');}' : '' ) .
+			'#kulam-slideshow-' . $id . ' .pojo-slideshow{height:' . ($slide_height+50) . 'px !important;}' .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide{padding:6px;height:' . $slide_height . 'px;background-color:' . $scheme_color . ';}' : '' ) .
+			( $scheme_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption{background-color:' . $scheme_color . ';}' : '' ) .
+			( $slide_bg_image ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption{background-image:url(\'' . $slide_bg_image . '\');}' : '' ) .
+			( $slide_font_family ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{font-family:\'' . $slide_font_family . '\';}' : '' ) .
+			( $slide_font_size ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{font-size:' . $slide_font_size . 'px;line-height:' . $slide_font_size . 'px;}' : '' ) .
+			( $slide_font_weight ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{font-weight:' . $slide_font_weight . ';}' : '' ) .
+			( $slide_color ? '#kulam-slideshow-' . $id . ' .pojo-slideshow .slide .bx-caption > span{color:' . $slide_color . ';}' : '' ) .
 		'</style>';
 
 	$output .= $style;
@@ -500,16 +539,21 @@ function kulam_pc_carousel( $pc, $id ) {
 	if ( $title ) {
 
 		$style = '';
-		$style .= $font_family ? 'font-family: \'' . $font_family . '\';' : '';
-		$style .= $font_size ? 'font-size: ' . $font_size . 'px;line-height: ' . $font_size . 'px;' : '';
-		$style .= $color ? 'color: ' . $color . ';' : '';
-		$style .= $title_bg_image ? 'background-image: url(\'' . $title_bg_image . '\');' : '';
+		$style .= $title_font_family ? 'font-family:\'' . $title_font_family . '\';' : '';
+		$style .= $title_font_size ? 'font-size:' . $title_font_size . 'px;line-height:' . $title_font_size . 'px;' : '';
+		$style .= $title_font_weight ? 'font-weight:' . $title_font_weight . ';' : '';
+		$style .= $title_color ? 'color:' . $title_color . ';' : '';
+		$style .= $title_bg_color && ! $title_bg_image ? 'padding:10px;display:inline-block;background-color:' . $title_bg_color . ';' : '';
+		$style .= $title_bg_image ? 'height: ' . $title_bg_image[ 'height' ] . 'px;' : '';
 
 		$output .=
 			'<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' .
-				( $title_link ? '<a href="' . $title_link . '"' . ( $color ? ' style="color:' . $color . ';"' : '' ) . '>' : '' ) .
-				$title .
-				( $title_link ? '</a>' : '' ) .
+				( $title_bg_image ? '<img src="' . $title_bg_image[ 'url' ] . '" style="margin-left: -' . intval( $title_bg_image[ 'width' ] )/2 . 'px;" alt="" />' : '' ) .
+				'<div class="title' . ( $title_bg_image ? ' has-bg-image' : '' ) . '">' .
+					( $title_link ? '<a href="' . $title_link . '"' . ( $title_color ? ' style="color:' . $title_color . ';"' : '' ) . '>' : '' ) .
+					$title .
+					( $title_link ? '</a>' : '' ) .
+				'</div>' .
 			'</div>';
 	}
 

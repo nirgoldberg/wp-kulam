@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/widgets
- * @version		1.7.9
+ * @version		1.7.14
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -88,7 +88,7 @@ class Contact_Details extends WP_Widget {
 		$phone				= get_field( 'acf-option_contact_details_phone', 'option' );
 		$social_networks	= get_field( 'acf-option_contact_details_social_networks', 'option' );
 
-		if ( ! $email || ! $address || ! $phone || ! $social_networks || empty( $social_networks ) )
+		if ( ! $email && ! $address && ! $phone && ! $social_networks[ 'youtube' ] && ! $social_networks[ 'facebook' ] && ! $social_networks[ 'instagram' ] )
 			return;
 
 		extract( $args, EXTR_SKIP );
