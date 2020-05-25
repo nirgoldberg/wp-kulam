@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials/main
- * @version     1.7.6
+ * @version     1.7.15
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,10 +14,12 @@ if ( ! function_exists( 'get_field' ) )
 /**
  * Variables
  */
-$slides			= get_sub_field( 'slides' );
-$top_padding	= get_sub_field( 'top_padding' );
-$bottom_padding	= get_sub_field( 'bottom_padding' );
-$layout_style	= '';
+$slides					= get_sub_field( 'slides' );
+$def_title_font_att		= get_sub_field( 'title_font_attributes' );
+$top_padding			= get_sub_field( 'top_padding' );
+$bottom_padding			= get_sub_field( 'bottom_padding' );
+
+$layout_style			= '';
 
 if ( ! $slides )
 	return;
