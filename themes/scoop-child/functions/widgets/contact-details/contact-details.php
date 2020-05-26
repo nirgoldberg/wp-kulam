@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/widgets
- * @version		1.7.14
+ * @version		1.7.15
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -86,9 +86,10 @@ class Contact_Details extends WP_Widget {
 		$email				= get_field( 'acf-option_contact_details_email', 'option' );
 		$address			= get_field( 'acf-option_contact_details_address', 'option' );
 		$phone				= get_field( 'acf-option_contact_details_phone', 'option' );
+		$links				= get_field( 'acf-option_contact_details_links', 'option' );
 		$social_networks	= get_field( 'acf-option_contact_details_social_networks', 'option' );
 
-		if ( ! $email && ! $address && ! $phone && ! $social_networks[ 'youtube' ] && ! $social_networks[ 'facebook' ] && ! $social_networks[ 'instagram' ] )
+		if ( ! $email && ! $address && ! $phone && ! $links && ! $social_networks[ 'youtube' ] && ! $social_networks[ 'facebook' ] && ! $social_networks[ 'instagram' ] )
 			return;
 
 		extract( $args, EXTR_SKIP );
@@ -112,6 +113,16 @@ class Contact_Details extends WP_Widget {
 					echo $email ? '<li class="contact-details-email">' . __( 'Email', 'kulam-scoop' ) . ': <a href="mailto:' . $email . '">' . $email . '</a></li>' : '';
 					echo $address ? '<li class="contact-details-address">' . __( 'Address', 'kulam-scoop' ) . ': ' . $address . '</li>' : '';
 					echo $phone ? '<li class="contact-details-phone">' . __( 'Phone', 'kulam-scoop' ) . ': <a href="tel:' . $phone . '">' . $phone . '</a></li>' : '';
+
+					if ( $links ) {
+						foreach ( $links as $link ) {
+							if ( $link[ 'link' ] && $link[ 'text' ] && $link[ 'target' ] ) {
+								echo '<li class="contact-details-link">';
+								echo $link[ 'icon' ] ? '<span class="dashicons ' . $link[ 'icon' ] . '"></span>' : '';
+								echo '<a href="' . $link[ 'link' ] . '" target="_' . $link[ 'target' ] . '">' . $link[ 'text' ] . '</a></li>';
+							}
+						}
+					}
 
 					if ( ! empty( $social_networks ) ) {
 						echo '<li class="contact-details-social"><ul>';

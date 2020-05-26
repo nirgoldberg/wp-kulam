@@ -86,6 +86,11 @@ header .logo .login,
 /* footer */
 /**********/
 
+#footer-widgets .widget.Contact_Details .contact-details-link > span {
+	margin-left: 10px;
+	margin-right: auto;
+}
+
 #footer-widgets .widget.Contact_Details li.contact-details-social ul li {
 	float: right;
 	margin-left: 20px;
