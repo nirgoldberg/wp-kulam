@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/widgets
- * @version		1.7.15
+ * @version		1.7.17
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -86,10 +86,10 @@ class Contact_Details extends WP_Widget {
 		$email				= get_field( 'acf-option_contact_details_email', 'option' );
 		$address			= get_field( 'acf-option_contact_details_address', 'option' );
 		$phone				= get_field( 'acf-option_contact_details_phone', 'option' );
-		$links				= get_field( 'acf-option_contact_details_links', 'option' );
 		$social_networks	= get_field( 'acf-option_contact_details_social_networks', 'option' );
+		$links				= get_field( 'acf-option_contact_details_links', 'option' );
 
-		if ( ! $email && ! $address && ! $phone && ! $links && ! $social_networks[ 'youtube' ] && ! $social_networks[ 'facebook' ] && ! $social_networks[ 'instagram' ] )
+		if ( ! $email && ! $address && ! $phone && ! $social_networks[ 'youtube' ] && ! $social_networks[ 'facebook' ] && ! $social_networks[ 'instagram' ] && ! $links )
 			return;
 
 		extract( $args, EXTR_SKIP );
@@ -114,21 +114,20 @@ class Contact_Details extends WP_Widget {
 					echo $address ? '<li class="contact-details-address">' . __( 'Address', 'kulam-scoop' ) . ': ' . $address . '</li>' : '';
 					echo $phone ? '<li class="contact-details-phone">' . __( 'Phone', 'kulam-scoop' ) . ': <a href="tel:' . $phone . '">' . $phone . '</a></li>' : '';
 
-					if ( $links ) {
-						foreach ( $links as $link ) {
-							if ( $link[ 'link' ] && $link[ 'text' ] && $link[ 'target' ] ) {
-								echo '<li class="contact-details-link">';
-								echo $link[ 'icon' ] ? '<span class="dashicons ' . $link[ 'icon' ] . '"></span>' : '';
-								echo '<a href="' . $link[ 'link' ] . '" target="_' . $link[ 'target' ] . '">' . $link[ 'text' ] . '</a></li>';
-							}
-						}
-					}
-
-					if ( ! empty( $social_networks ) ) {
+					if ( ! empty( $social_networks ) || $links ) {
 						echo '<li class="contact-details-social"><ul>';
 						echo $social_networks[ 'youtube' ] ? '<li class="youtube"><a href="' . $social_networks[ 'youtube' ] . '" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>' : '';
 						echo $social_networks[ 'facebook' ] ? '<li class="facebook"><a href="' . $social_networks[ 'facebook' ] . '" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>' : '';
 						echo $social_networks[ 'instagram' ] ? '<li class="instagram"><a href="' . $social_networks[ 'instagram' ] . '" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>' : '';
+
+						if ( $links ) {
+							foreach ( $links as $link ) {
+								if ( $link[ 'icon' ] && $link[ 'link' ] && $link[ 'target' ] ) {
+									echo '<li class="contact-details-link"><a href="' . $link[ 'link' ] . '" target="_' . $link[ 'target' ] . '"><span class="dashicons ' . $link[ 'icon' ] . '"></span></a></li>';
+								}
+							}
+						}
+
 						echo '</ul></li>';
 					}
 

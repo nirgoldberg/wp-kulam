@@ -1199,14 +1199,6 @@ body.modal-open,
 	list-style: none;
 }
 
-#footer-widgets .widget.Contact_Details .contact-details-link > span {
-	margin-right: 10px;
-	width: 28px;
-	height: 28px;
-	font-size: 28px;
-	vertical-align: middle;
-}
-
 #footer-widgets .widget.Contact_Details li.contact-details-social {
 	margin-top: 10px;
 }
@@ -1218,6 +1210,14 @@ body.modal-open,
 
 #footer-widgets .widget.Contact_Details li.contact-details-social ul li a {
 	font-size: 26px;
+}
+
+#footer-widgets .widget.Contact_Details li.contact-details-social ul li a .dashicons {
+	font-size: 26px;
+	width: 26px;
+	height: 26px;
+	vertical-align: middle;
+	transition: none;
 }
 
 #footer-copyright {
