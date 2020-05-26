@@ -6,9 +6,14 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.4.8
+ * @version		1.7.16
  */
 get_header();
+
+/**
+ * page content
+ */
+the_content();
 
 if ( is_user_logged_in() ) :
 

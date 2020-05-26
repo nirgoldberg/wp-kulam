@@ -1271,11 +1271,6 @@ body.modal-open,
 	width: 39px;
 }
 
-.page-template-template-siddur #content p{
-	text-align: center;
-	font-weight: bold;
-}
-
 .submit_reg ,.submit_log{
 	margin-top: 20px;
 	margin-left: auto;
