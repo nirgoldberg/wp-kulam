@@ -62,17 +62,11 @@ class Settings_Controls {
 	 * @param array $field Field data.
 	 */
 	private static function text( array $field ) {
-		$attributes = [];
-
 		if ( empty( $field['attributes']['class'] ) ) {
 			$field['attributes']['class'] = 'regular-text';
 		}
 
-		foreach ( $field['attributes'] as $attribute_key => $attribute_values ) {
-			$attributes[] = sprintf( '%1$s="%2$s"', $attribute_key, esc_attr( $attribute_values ) );
-		}
-
-		$attributes = implode( ' ', $attributes );
+		$attributes = Utils::render_html_attributes( $field['attributes'] );
 		?>
 		<input type="<?php echo esc_attr( $field['type'] ); ?>" id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo esc_attr( get_option( $field['id'], $field['std'] ) ); ?>" <?php echo $attributes; ?>/>
 		<?php
@@ -82,7 +76,7 @@ class Settings_Controls {
 		?>
 		<?php if ( ! empty( $field['desc'] ) ) : ?>
 			<p class="description"><?php echo $field['desc']; ?></p>
-		<?php
+			<?php
 		endif;
 	}
 
@@ -109,7 +103,7 @@ class Settings_Controls {
 		</label>
 		<?php if ( ! empty( $field['desc'] ) ) : ?>
 			<p class="description"><?php echo $field['desc']; ?></p>
-		<?php
+			<?php
 		endif;
 	}
 
@@ -131,15 +125,15 @@ class Settings_Controls {
 		}
 
 		foreach ( $field['options'] as $option_key => $option_value ) :
-		?>
+			?>
 			<label>
-				<input type="checkbox" name="<?php echo $field['id']; ?>[]" value="<?php echo $option_key; ?>"<?php checked( in_array( $option_key, $old_value ), true ); ?> />
+				<input type="checkbox" name="<?php echo esc_attr( $field['id'] ); ?>[]" value="<?php echo esc_attr( $option_key ); ?>"<?php checked( in_array( $option_key, $old_value ), true ); ?> />
 				<?php echo $option_value; ?>
 			</label><br />
 		<?php endforeach; ?>
 		<?php if ( ! empty( $field['desc'] ) ) : ?>
 			<p class="description"><?php echo $field['desc']; ?></p>
-		<?php
+			<?php
 		endif;
 	}
 
@@ -169,7 +163,7 @@ class Settings_Controls {
 
 		<?php if ( ! empty( $field['desc'] ) ) : ?>
 			<p class="description"><?php echo $field['desc']; ?></p>
-		<?php
+			<?php
 		endif;
 	}
 
@@ -195,9 +189,19 @@ class Settings_Controls {
 				'public' => true,
 			], 'objects'
 		);
+
+		/**
+		 * Filters the list of post type objects used by Elementor.
+		 *
+		 * @since 2.8.0
+		 *
+		 * @param array $post_types_objects List of post type objects used by Elementor.
+		 */
+		$post_types_objects = apply_filters( 'elementor/settings/controls/checkbox_list_cpt/post_type_objects', $post_types_objects );
+
 		$field['options'] = [];
 		foreach ( $post_types_objects as $cpt_slug => $post_type ) {
-			if ( in_array( $cpt_slug, $field['exclude'] ) ) {
+			if ( in_array( $cpt_slug, $field['exclude'], true ) ) {
 				continue;
 			}
 
@@ -225,7 +229,17 @@ class Settings_Controls {
 		$field = array_merge( $defaults, $field );
 
 		$field['options'] = [];
-		foreach ( get_editable_roles() as $role_slug => $role_data ) {
+		$roles = get_editable_roles();
+
+		if ( is_multisite() ) {
+			$roles = [
+				'super_admin' => [
+					'name' => __( 'Super Admin', 'elementor' ),
+				],
+			] + $roles;
+		}
+
+		foreach ( $roles as $role_slug => $role_data ) {
 			if ( in_array( $role_slug, $field['exclude'] ) ) {
 				continue;
 			}

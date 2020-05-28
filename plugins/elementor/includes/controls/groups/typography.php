@@ -104,11 +104,16 @@ class Group_Control_Typography extends Group_Control_Base {
 		$fields['font_size'] = [
 			'label' => _x( 'Size', 'Typography Control', 'elementor' ),
 			'type' => Controls_Manager::SLIDER,
-			'size_units' => [ 'px', 'em', 'rem' ],
+			'size_units' => [ 'px', 'em', 'rem', 'vw' ],
 			'range' => [
 				'px' => [
 					'min' => 1,
 					'max' => 200,
+				],
+				'vw' => [
+					'min' => 0.1,
+					'max' => 10,
+					'step' => 0.1,
 				],
 			],
 			'responsive' => true,
@@ -171,7 +176,13 @@ class Group_Control_Typography extends Group_Control_Base {
 		$fields['line_height'] = [
 			'label' => _x( 'Line-Height', 'Typography Control', 'elementor' ),
 			'type' => Controls_Manager::SLIDER,
-			'default' => [
+			'desktop_default' => [
+				'unit' => 'em',
+			],
+			'tablet_default' => [
+				'unit' => 'em',
+			],
+			'mobile_default' => [
 				'unit' => 'em',
 			],
 			'range' => [
@@ -225,10 +236,6 @@ class Group_Control_Typography extends Group_Control_Base {
 				$field['selectors'] = [
 					'{{SELECTOR}}' => $selector_value,
 				];
-
-				$field['condition'] = [
-					'typography' => 'custom',
-				];
 			}
 		);
 
@@ -280,6 +287,9 @@ class Group_Control_Typography extends Group_Control_Base {
 			'popover' => [
 				'starter_name' => 'typography',
 				'starter_title' => _x( 'Typography', 'Typography Control', 'elementor' ),
+				'settings' => [
+					'render_type' => 'ui',
+				],
 			],
 		];
 	}

@@ -11,6 +11,7 @@ use Elementor\Element_Base;
 use Elementor\Plugin;
 use Elementor\Core\Responsive\Responsive;
 use Elementor\Stylesheet;
+use Elementor\Icons_Manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -57,6 +58,8 @@ abstract class Base extends Base_File {
 	 * @var array
 	 */
 	private $fonts = [];
+
+	private $icons_fonts = [];
 
 	/**
 	 * Stylesheet object.
@@ -156,6 +159,10 @@ abstract class Base extends Base_File {
 		$this->update_meta( $meta );
 	}
 
+	/**
+	 * @since 2.1.0
+	 * @access public
+	 */
 	public function write() {
 		if ( $this->use_external_file() ) {
 			parent::write();
@@ -200,16 +207,26 @@ abstract class Base extends Base_File {
 			if ( wp_styles()->query( $dep, 'done' ) ) {
 				printf( '<style id="%1$s">%2$s</style>', $this->get_file_handle_id(), $meta['css'] ); // XSS ok.
 			} else {
-				wp_add_inline_style( $dep , $meta['css'] );
+				wp_add_inline_style( $dep, $meta['css'] );
 			}
 		} elseif ( self::CSS_STATUS_FILE === $meta['status'] ) { // Re-check if it's not empty after CSS update.
-			wp_enqueue_style( $this->get_file_handle_id(), $this->get_url(), $this->get_enqueue_dependencies(), null );
+			wp_enqueue_style( $this->get_file_handle_id(), $this->get_url(), $this->get_enqueue_dependencies(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 		}
 
 		// Handle fonts.
 		if ( ! empty( $meta['fonts'] ) ) {
 			foreach ( $meta['fonts'] as $font ) {
 				Plugin::$instance->frontend->enqueue_font( $font );
+			}
+		}
+
+		if ( ! empty( $meta['icons'] ) ) {
+			$icons_types = Icons_Manager::get_icon_manager_tabs();
+			foreach ( $meta['icons'] as $icon_font ) {
+				if ( ! isset( $icons_types[ $icon_font ] ) ) {
+					continue;
+				}
+				Plugin::$instance->frontend->enqueue_font( $icon_font );
 			}
 		}
 
@@ -224,11 +241,10 @@ abstract class Base extends Base_File {
 		 *
 		 * @since 1.9.0
 		 * @deprecated 2.0.0 Use `elementor/css-file/{$name}/enqueue` action instead.
-		 * @todo Need to be hard deprecated using `do_action_deprecated()`.
 		 *
 		 * @param Base $this The current CSS file.
 		 */
-		do_action( "elementor/{$name}-css-file/enqueue", $this );
+		do_action_deprecated( "elementor/{$name}-css-file/enqueue", [ $this ], '2.0.0', "elementor/css-file/{$name}/enqueue" );
 
 		/**
 		 * Enqueue CSS file.
@@ -283,35 +299,43 @@ abstract class Base extends Base_File {
 
 		foreach ( $control['selectors'] as $selector => $css_property ) {
 			try {
-				$output_css_property = preg_replace_callback(
-					'/\{\{(?:([^.}]+)\.)?([^}]*)}}/', function( $matches ) use ( $control, $value_callback, $controls_stack, $value, $css_property ) {
-						$parser_control = $control;
-						$value_to_insert = $value;
+				$output_css_property = preg_replace_callback( '/\{\{(?:([^.}]+)\.)?([^}| ]*)(?: *\|\| *(?:([^.}]+)\.)?([^}| ]*) *)*}}/', function( $matches ) use ( $control, $value_callback, $controls_stack, $value, $css_property ) {
+					$external_control_missing = $matches[1] && ! isset( $controls_stack[ $matches[1] ] );
 
-						if ( ! empty( $matches[1] ) ) {
-							if ( ! isset( $controls_stack[ $matches[1] ] ) ) {
+					$parsed_value = '';
+
+					if ( ! $external_control_missing ) {
+						$parsed_value = $this->parse_property_placeholder( $control, $value, $controls_stack, $value_callback, $matches[2], $matches[1] );
+					}
+
+					if ( '' === $parsed_value ) {
+						if ( isset( $matches[4] ) ) {
+							$parsed_value = $matches[4];
+
+							$is_string_value = preg_match( '/^([\'"])(.*)\1$/', $parsed_value, $string_matches );
+
+							if ( $is_string_value ) {
+								$parsed_value = $string_matches[2];
+							} elseif ( ! is_numeric( $parsed_value ) ) {
+								if ( $matches[3] && ! isset( $controls_stack[ $matches[3] ] ) ) {
+									return '';
+								}
+
+								$parsed_value = $this->parse_property_placeholder( $control, $value, $controls_stack, $value_callback, $matches[4], $matches[3] );
+							}
+						}
+
+						if ( '' === $parsed_value ) {
+							if ( $external_control_missing ) {
 								return '';
 							}
 
-							$parser_control = $controls_stack[ $matches[1] ];
-							$value_to_insert = call_user_func( $value_callback, $parser_control );
-						}
-
-						if ( Controls_Manager::FONT === $control['type'] ) {
-							$this->fonts[] = $value_to_insert;
-						}
-
-						/** @var Base_Data_Control $control_obj */
-						$control_obj = Plugin::$instance->controls_manager->get_control( $parser_control['type'] );
-						$parsed_value = $control_obj->get_style_value( strtolower( $matches[2] ), $value_to_insert );
-
-						if ( '' === $parsed_value ) {
 							throw new \Exception();
 						}
+					}
 
-						return $parsed_value;
-					}, $css_property
-				);
+					return $parsed_value;
+				}, $css_property );
 			} catch ( \Exception $e ) {
 				return;
 			}
@@ -361,6 +385,33 @@ abstract class Base extends Base_File {
 	}
 
 	/**
+	 * @param array    $control
+	 * @param mixed    $value
+	 * @param array    $controls_stack
+	 * @param callable $value_callback
+	 * @param string   $placeholder
+	 * @param string   $parser_control_name
+	 *
+	 * @return string
+	 */
+	public function parse_property_placeholder( array $control, $value, array $controls_stack, $value_callback, $placeholder, $parser_control_name = null ) {
+		if ( $parser_control_name ) {
+			$control = $controls_stack[ $parser_control_name ];
+
+			$value = call_user_func( $value_callback, $control );
+		}
+
+		if ( Controls_Manager::FONT === $control['type'] ) {
+			$this->fonts[] = $value;
+		}
+
+		/** @var Base_Data_Control $control_obj */
+		$control_obj = Plugin::$instance->controls_manager->get_control( $control['type'] );
+
+		return (string) $control_obj->get_style_value( $placeholder, $value, $control );
+	}
+
+	/**
 	 * Get the fonts.
 	 *
 	 * Retrieve the list of fonts.
@@ -386,6 +437,8 @@ abstract class Base extends Base_File {
 	 * @return string The CSS.
 	 */
 	public function get_css() {
+		_deprecated_function( __METHOD__, '2.1.0', __CLASS__ . '::get_content()' );
+
 		return $this->get_content();
 	}
 
@@ -418,22 +471,32 @@ abstract class Base extends Base_File {
 	 * @param array          $values         Values array.
 	 * @param array          $placeholders   Placeholders.
 	 * @param array          $replacements   Replacements.
+	 * @param array          $all_controls   All controls.
 	 */
-	public function add_controls_stack_style_rules( Controls_Stack $controls_stack, array $controls, array $values, array $placeholders, array $replacements ) {
-		$all_controls = $controls_stack->get_controls();
+	public function add_controls_stack_style_rules( Controls_Stack $controls_stack, array $controls, array $values, array $placeholders, array $replacements, array $all_controls = null ) {
+		if ( ! $all_controls ) {
+			$all_controls = $controls_stack->get_controls();
+		}
 
 		$parsed_dynamic_settings = $controls_stack->parse_dynamic_settings( $values, $controls );
 
 		foreach ( $controls as $control ) {
 			if ( ! empty( $control['style_fields'] ) ) {
-				$this->add_repeater_control_style_rules( $controls_stack, $control['style_fields'], $values[ $control['name'] ], $placeholders, $replacements );
+				$this->add_repeater_control_style_rules( $controls_stack, $control, $values[ $control['name'] ], $placeholders, $replacements );
 			}
 
 			if ( ! empty( $control[ Manager::DYNAMIC_SETTING_KEY ][ $control['name'] ] ) ) {
 				$this->add_dynamic_control_style_rules( $control, $control[ Manager::DYNAMIC_SETTING_KEY ][ $control['name'] ] );
 			}
 
+			if ( Controls_Manager::ICONS === $control['type'] ) {
+				$this->icons_fonts[] = $values[ $control['name'] ]['library'];
+			}
+
 			if ( ! empty( $parsed_dynamic_settings[ Manager::DYNAMIC_SETTING_KEY ][ $control['name'] ] ) ) {
+				// Dynamic CSS should not be added to the CSS files.
+				// Instead it's handled by \Elementor\Core\DynamicTags\Dynamic_CSS
+				// and printed in a style tag.
 				unset( $parsed_dynamic_settings[ $control['name'] ] );
 				continue;
 			}
@@ -471,8 +534,9 @@ abstract class Base extends Base_File {
 	abstract protected function render_css();
 
 	protected function get_default_meta() {
-		return array_merge ( parent::get_default_meta(), [
+		return array_merge( parent::get_default_meta(), [
 			'fonts' => array_unique( $this->fonts ),
+			'icons' => array_unique( $this->icons_fonts ),
 			'status' => '',
 		] );
 	}
@@ -542,11 +606,10 @@ abstract class Base extends Base_File {
 		 *
 		 * @since 1.2.0
 		 * @deprecated 2.0.0 Use `elementor/css-file/{$name}/parse` action instead.
-		 * @todo Need to be hard deprecated using `do_action_deprecated()`.
 		 *
 		 * @param Base $this The current CSS file.
 		 */
-		do_action( "elementor/{$name}-css-file/parse", $this );
+		do_action_deprecated( "elementor/{$name}-css-file/parse", [ $this ], '2.0.0', "elementor/css-file/{$name}/parse" );
 
 		/**
 		 * Parse CSS file.
@@ -643,22 +706,23 @@ abstract class Base extends Base_File {
 	 * @since 2.0.0
 	 * @access private
 	 *
-	 * @param Controls_Stack $controls_stack          The control stack.
-	 * @param array          $repeater_controls_items The repeater controls items.
-	 * @param array          $repeater_values         Repeater values array.
-	 * @param array          $placeholders            Placeholders.
-	 * @param array          $replacements            Replacements.
+	 * @param Controls_Stack $controls_stack   The control stack.
+	 * @param array          $repeater_control The repeater control.
+	 * @param array          $repeater_values  Repeater values array.
+	 * @param array          $placeholders     Placeholders.
+	 * @param array          $replacements     Replacements.
 	 */
-	protected function add_repeater_control_style_rules( Controls_Stack $controls_stack, array $repeater_controls_items, array $repeater_values, array $placeholders, array $replacements ) {
+	protected function add_repeater_control_style_rules( Controls_Stack $controls_stack, array $repeater_control, array $repeater_values, array $placeholders, array $replacements ) {
 		$placeholders = array_merge( $placeholders, [ '{{CURRENT_ITEM}}' ] );
 
-		foreach ( $repeater_controls_items as $index => $item ) {
+		foreach ( $repeater_control['style_fields'] as $index => $item ) {
 			$this->add_controls_stack_style_rules(
 				$controls_stack,
 				$item,
 				$repeater_values[ $index ],
 				$placeholders,
-				array_merge( $replacements, [ '.elementor-repeater-item-' . $repeater_values[ $index ]['_id'] ] )
+				array_merge( $replacements, [ '.elementor-repeater-item-' . $repeater_values[ $index ]['_id'] ] ),
+				$repeater_control['fields']
 			);
 		}
 	}

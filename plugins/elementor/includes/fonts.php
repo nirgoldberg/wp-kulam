@@ -35,18 +35,7 @@ class Fonts {
 	 */
 	const LOCAL = 'local';
 
-	/**
-	 * Additional fonts.
-	 *
-	 * Used to hold additional fonts.
-	 *
-	 * @since 1.9.4
-	 * @access private
-	 * @static
-	 *
-	 * @var null|array
-	 */
-	private static $additional_fonts = null;
+	private static $fonts;
 
 	/**
 	 * Font groups.
@@ -59,7 +48,7 @@ class Fonts {
 	 *
 	 * @var null|array
 	 */
-	private static $font_groups = null;
+	private static $font_groups;
 
 	/**
 	 * Get font Groups.
@@ -109,7 +98,7 @@ class Fonts {
 	 * @return array Supported fonts.
 	 */
 	public static function get_fonts() {
-		if ( null === self::$additional_fonts ) {
+		if ( null === self::$fonts ) {
 			$additional_fonts = [];
 
 			/**
@@ -123,10 +112,10 @@ class Fonts {
 			 */
 			$additional_fonts = apply_filters( 'elementor/fonts/additional_fonts', $additional_fonts );
 
-			self::$additional_fonts = $additional_fonts;
+			self::$fonts = array_merge( self::get_native_fonts(), $additional_fonts );
 		}
 
-		return array_merge( self::get_native_fonts(), self::$additional_fonts );
+		return self::$fonts;
 	}
 
 	/**
@@ -151,7 +140,7 @@ class Fonts {
 			'Trebuchet MS' => self::SYSTEM,
 			'Georgia' => self::SYSTEM,
 
-			// Google Fonts (last update: 08/04/2018).
+			// Google Fonts (last update: 23/10/2018).
 			'ABeeZee' => self::GOOGLE,
 			'Abel' => self::GOOGLE,
 			'Abhaya Libre' => self::GOOGLE,
@@ -237,6 +226,7 @@ class Fonts {
 			'Averia Serif Libre' => self::GOOGLE,
 			'Bad Script' => self::GOOGLE,
 			'Bahiana' => self::GOOGLE,
+			'Bai Jamjuree' => self::GOOGLE,
 			'Baloo' => self::GOOGLE,
 			'Baloo Bhai' => self::GOOGLE,
 			'Baloo Bhaijaan' => self::GOOGLE,
@@ -318,9 +308,11 @@ class Fonts {
 			'Caveat Brush' => self::GOOGLE,
 			'Cedarville Cursive' => self::GOOGLE,
 			'Ceviche One' => self::GOOGLE,
+			'Chakra Petch' => self::GOOGLE,
 			'Changa' => self::GOOGLE,
 			'Changa One' => self::GOOGLE,
 			'Chango' => self::GOOGLE,
+			'Charmonman' => self::GOOGLE,
 			'Chathura' => self::GOOGLE,
 			'Chau Philomene One' => self::GOOGLE,
 			'Chela One' => self::GOOGLE,
@@ -426,6 +418,7 @@ class Fonts {
 			'Exo' => self::GOOGLE,
 			'Exo 2' => self::GOOGLE,
 			'Expletus Sans' => self::GOOGLE,
+			'Fahkwang' => self::GOOGLE,
 			'Fanwood Text' => self::GOOGLE,
 			'Farsan' => self::GOOGLE,
 			'Fascinate' => self::GOOGLE,
@@ -562,6 +555,7 @@ class Fonts {
 			'Jura' => self::GOOGLE,
 			'Just Another Hand' => self::GOOGLE,
 			'Just Me Again Down Here' => self::GOOGLE,
+			'K2D' => self::GOOGLE,
 			'Kadwa' => self::GOOGLE,
 			'Kalam' => self::GOOGLE,
 			'Kameron' => self::GOOGLE,
@@ -583,12 +577,17 @@ class Fonts {
 			'Kirang Haerang' => self::GOOGLE,
 			'Kite One' => self::GOOGLE,
 			'Knewave' => self::GOOGLE,
+			'KoHo' => self::GOOGLE,
+			'Kodchasan' => self::GOOGLE,
+			'Kosugi' => self::GOOGLE,
+			'Kosugi Maru' => self::GOOGLE,
 			'Kotta One' => self::GOOGLE,
 			'Koulen' => self::GOOGLE,
 			'Kranky' => self::GOOGLE,
 			'Kreon' => self::GOOGLE,
 			'Kristi' => self::GOOGLE,
 			'Krona One' => self::GOOGLE,
+			'Krub' => self::GOOGLE,
 			'Kumar One' => self::GOOGLE,
 			'Kumar One Outline' => self::GOOGLE,
 			'Kurale' => self::GOOGLE,
@@ -631,6 +630,8 @@ class Fonts {
 			'Luckiest Guy' => self::GOOGLE,
 			'Lusitana' => self::GOOGLE,
 			'Lustria' => self::GOOGLE,
+			'M PLUS 1p' => self::GOOGLE,
+			'M PLUS Rounded 1c' => self::GOOGLE,
 			'Macondo' => self::GOOGLE,
 			'Macondo Swash Caps' => self::GOOGLE,
 			'Mada' => self::GOOGLE,
@@ -638,6 +639,7 @@ class Fonts {
 			'Maiden Orange' => self::GOOGLE,
 			'Maitree' => self::GOOGLE,
 			'Mako' => self::GOOGLE,
+			'Mali' => self::GOOGLE,
 			'Mallanna' => self::GOOGLE,
 			'Mandali' => self::GOOGLE,
 			'Manuale' => self::GOOGLE,
@@ -645,6 +647,7 @@ class Fonts {
 			'Marcellus SC' => self::GOOGLE,
 			'Marck Script' => self::GOOGLE,
 			'Margarine' => self::GOOGLE,
+			'Markazi Text' => self::GOOGLE,
 			'Marko One' => self::GOOGLE,
 			'Marmelad' => self::GOOGLE,
 			'Martel' => self::GOOGLE,
@@ -718,18 +721,24 @@ class Fonts {
 			'New Rocker' => self::GOOGLE,
 			'News Cycle' => self::GOOGLE,
 			'Niconne' => self::GOOGLE,
+			'Niramit' => self::GOOGLE,
 			'Nixie One' => self::GOOGLE,
 			'Nobile' => self::GOOGLE,
 			'Nokora' => self::GOOGLE,
 			'Norican' => self::GOOGLE,
 			'Nosifer' => self::GOOGLE,
+			'Notable' => self::GOOGLE,
 			'Nothing You Could Do' => self::GOOGLE,
 			'Noticia Text' => self::GOOGLE,
 			'Noto Kufi Arabic' => self::EARLYACCESS, // Hack for Google Early Access.
 			'Noto Naskh Arabic' => self::EARLYACCESS, // Hack for Google Early Access.
 			'Noto Sans' => self::GOOGLE,
 			'Noto Sans Hebrew' => self::EARLYACCESS, // Hack for Google Early Access.
+			'Noto Sans JP' => self::GOOGLE,
+			'Noto Sans KR' => self::GOOGLE,
 			'Noto Serif' => self::GOOGLE,
+			'Noto Serif JP' => self::GOOGLE,
+			'Noto Serif KR' => self::GOOGLE,
 			'Nova Cut' => self::GOOGLE,
 			'Nova Flat' => self::GOOGLE,
 			'Nova Mono' => self::GOOGLE,
@@ -895,6 +904,8 @@ class Fonts {
 			'Sarina' => self::GOOGLE,
 			'Sarpanch' => self::GOOGLE,
 			'Satisfy' => self::GOOGLE,
+			'Sawarabi Gothic' => self::GOOGLE,
+			'Sawarabi Mincho' => self::GOOGLE,
 			'Scada' => self::GOOGLE,
 			'Scheherazade' => self::GOOGLE,
 			'Schoolbell' => self::GOOGLE,
@@ -949,6 +960,7 @@ class Fonts {
 			'Squada One' => self::GOOGLE,
 			'Sree Krushnadevaraya' => self::GOOGLE,
 			'Sriracha' => self::GOOGLE,
+			'Srisakdi' => self::GOOGLE,
 			'Stalemate' => self::GOOGLE,
 			'Stalinist One' => self::GOOGLE,
 			'Stardos Stencil' => self::GOOGLE,

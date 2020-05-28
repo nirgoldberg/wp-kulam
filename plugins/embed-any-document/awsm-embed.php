@@ -3,9 +3,9 @@
   Plugin Name: Embed Any Document
   Plugin URI: http://awsm.in/embed-any-documents
   Description: Embed Any Document WordPress plugin lets you upload and embed your documents easily in your WordPress website without any additional browser plugins like Flash or Acrobat reader. The plugin lets you choose between Google Docs Viewer and Microsoft Office Online to display your documents. 
-  Version: 2.3.2
+  Version: 2.5.0
   Author: Awsm Innovations
-  Author URI: http://awsm.in
+  Author URI: https://awsm.in
   License: GPL V3
   Text Domain: embed-any-document
   Domain Path: /language
@@ -14,6 +14,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 } // Exit if accessed directly
+
+if( ! defined( 'AWSM_EMBED_VERSION' ) ) {
+    define( 'AWSM_EMBED_VERSION', '2.5.0' );
+}
 
 class Awsm_embed {
 
@@ -48,7 +52,7 @@ class Awsm_embed {
         $this->plugin_base    = dirname( plugin_basename( __FILE__ ) );
         $this->plugin_file    = __FILE__;
         $this->settings_slug  = 'ead-settings';
-        $this->plugin_version = '2.3.1';
+        $this->plugin_version = AWSM_EMBED_VERSION;
 
         add_action( 'media_buttons', array( $this, 'embedbutton' ), 1000 );
 
@@ -56,6 +60,11 @@ class Awsm_embed {
 
         //default options
         register_activation_hook( $this->plugin_file, array( $this, 'defaults' ) );
+
+        //Initialize block
+        include_once $this->plugin_path . 'blocks/document.php';
+
+        add_action( 'wp_loaded', array( $this, 'register_scripts' ) );
         //Load plugin textdomain.
         add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 
@@ -88,7 +97,7 @@ class Awsm_embed {
 
         // Check user previlage
         if ( ! current_user_can( 'edit_posts' ) ) {
-//            return;
+            return;
         }
         // Prepares button target
         $target = is_string( $args ) ? $args : 'content';
@@ -143,8 +152,14 @@ class Awsm_embed {
      * Register admin scripts
      */
     function embed_helper() {
-
-        wp_enqueue_script( 'ead_media_button', plugins_url( 'js/embed.js', $this->plugin_file), array('jquery'), $this->plugin_version, true );
+        $script_deps = array('jquery');
+        if(function_exists('get_current_screen')) {
+            $screen = get_current_screen();
+            if(method_exists($screen, 'is_block_editor') && $screen->is_block_editor()) {
+                $script_deps[] = 'wp-blocks';
+            }
+        }
+        wp_enqueue_script( 'ead_media_button', plugins_url( 'js/embed.js', $this->plugin_file), $script_deps, $this->plugin_version, true );
         wp_enqueue_style( 'ead_media_button', plugins_url( 'css/embed.css', $this->plugin_file), false, $this->plugin_version, 'all' );
         wp_localize_script( 'ead_media_button', 'emebeder', array(
             'height'        => get_option( 'ead_height', '100%' ),
@@ -166,6 +181,70 @@ class Awsm_embed {
         ) );
     }
 
+    public static function is_browser_viewable_type( $url ) {
+        $is_viewable = false;
+        $types = array( 'pdf', 'txt' );
+        $splitted = explode( '.', $url );
+        $extension = end( $splitted );
+        if ( ! empty( $extension ) ) {
+            if ( in_array( strtolower( trim( $extension ) ), $types ) ) {
+                $is_viewable = true;
+            }
+        }
+        return $is_viewable;
+    }
+
+    public static function get_iframe_preloader( $shortcode_atts ) {
+        if ( ! isset( $shortcode_atts['viewer'] ) || ! isset( $shortcode_atts['url'] ) ) {
+            return;
+        }
+
+        $document_url = '#';
+        if ( $shortcode_atts['viewer'] === 'google' ) {
+            if ( self::is_browser_viewable_type( $shortcode_atts['url'] ) ) {
+                $document_url = $shortcode_atts['url'];
+            } else {
+                $src = 'https://docs.google.com/viewer?url=%1$s&hl=%2$s';
+                $document_url = sprintf( $src, urlencode( $shortcode_atts['url'] ), esc_attr( $shortcode_atts['language'] ) );
+            } 
+        }
+
+        ob_start();
+        ?>
+            <div class="ead-document-loading" style="width:100%;height:100%;position:absolute;left:0;top:0;z-index:10;">
+                <div class="ead-loading-wrap">
+                    <div class="ead-loading-main">
+                        <div class="ead-loading">
+                            <img src="<?php echo esc_url( plugins_url( 'images/loading.svg', __FILE__ ) ); ?>" width="55" height="55" alt="<?php esc_html_e( 'Loader', 'embed-any-document'); ?>">
+                            <span><?php esc_html_e( 'Loading...', 'embed-any-document'); ?></span>
+                        </div>
+                    </div>
+                    <div class="ead-loading-foot">
+                        <div class="ead-loading-foot-title">
+                            <img src="<?php echo esc_url( plugins_url( 'images/EAD-logo.svg', __FILE__ ) ); ?>" alt="<?php esc_html_e( 'EAD Logo', 'embed-any-document'); ?>" width="36" height="23"/>
+                            <span><?php esc_html_e( 'Taking too long?', 'embed-any-document' ) ?></span>
+                        </div>
+                        <p>
+                            <div class="ead-document-btn ead-reload-btn" role="button">
+                                <img src="<?php echo esc_url( plugins_url( 'images/reload.svg', __FILE__ ) ); ?>" alt="<?php esc_html_e( 'Reload', 'embed-any-document'); ?>" width="12" height="12"/> <?php esc_html_e( 'Reload document', 'embed-any-document' ); ?>
+                            </div>
+                            <span>|</span>
+                            <a href="<?php echo esc_url( $document_url ); ?>" class="ead-document-btn" target="_blank">
+                                <img src="<?php echo esc_url( plugins_url( 'images/open.svg', __FILE__ ) ); ?>" alt="<?php esc_html_e( 'Open', 'embed-any-document'); ?>" width="12" height="12"/> <?php esc_html_e( 'Open in new tab', 'embed-any-document' ); ?>
+                            </a>
+                    </div>
+                </div>
+            </div>
+        <?php
+        return ob_get_clean();
+    }
+
+    public function register_scripts() {
+        wp_register_style( 'awsm-ead-public', plugins_url( 'css/embed-public.css', $this->plugin_file ), array(), $this->plugin_version, 'all' );
+
+        wp_register_script( 'awsm-ead-public', plugins_url( 'js/embed-public.js', $this->plugin_file ), array( 'jquery' ), $this->plugin_version, true );
+    }
+
     /**
      * Shortcode Functionality
      */
@@ -180,15 +259,15 @@ class Awsm_embed {
         $default_text     = get_option( 'ead_text', __( 'Download', 'embed-any-document' ) );
         $show             = false;
         $shortcode_atts   = shortcode_atts( array(
-                                                'url'      => '',
-                                                'drive'    => '',
-                                                'width'    => $default_width,
-                                                'height'   => $default_height,
-                                                'language' => 'en',
-                                                'text'     => __( $default_text, 'embed-any-document' ),
-                                                'viewer'   => $default_provider,
-                                                'download' => $default_download,
-                                            ), $atts );
+            'url'      => '',
+            'drive'    => '',
+            'width'    => $default_width,
+            'height'   => $default_height,
+            'language' => 'en',
+            'text'     => __( $default_text, 'embed-any-document' ),
+            'viewer'   => $default_provider,
+            'download' => $default_download,
+        ), $atts );
 
         if ( isset( $atts['provider'] ) ) {
             $shortcode_atts['viewer'] = $atts['provider'];
@@ -197,10 +276,12 @@ class Awsm_embed {
             $shortcode_atts['viewer'] = 'google';
         }
 
+        wp_enqueue_style( 'awsm-ead-public' );
+        wp_enqueue_script( 'awsm-ead-public' );
+
         if ( $shortcode_atts['url'] ):
             $filedata    = wp_remote_head( $shortcode_atts['url'] );
             $durl        = '';
-            $privatefile = '';
             if ( $this->allowdownload( $shortcode_atts['viewer'] ) ) {
                 if ( $shortcode_atts['download'] === 'alluser' or $shortcode_atts['download'] === 'all' ) {
                     $show = true;
@@ -251,9 +332,12 @@ class Awsm_embed {
                 $doc_style    = 'style="position:relative;"';
             }
            
-            $iframe = sprintf('<iframe src="%s" title="%s" %s></iframe>', esc_attr( $iframe ), esc_html__( 'Embedded Document', 'embed-any-document-plus'), $iframe_style );
+            $iframe = sprintf('<iframe src="%s" title="%s" class="ead-iframe" %s></iframe>', esc_attr( $iframe ), esc_html__( 'Embedded Document', 'embed-any-document'), $iframe_style );
 
-            $embed  = '<div class="ead-preview"><div class="ead-document" ' . $doc_style . '>' . $iframe . $privatefile . '</div>' . $durl . '</div>';
+            if ( $shortcode_atts['viewer'] === 'google' ) {
+                $iframe = '<div class="ead-iframe-wrapper">' . $iframe . '</div>' . self::get_iframe_preloader( $shortcode_atts );
+            }
+            $embed = sprintf( '<div class="ead-preview"><div class="ead-document" %3$s>%1$s</div>%2$s</div>', $iframe, $durl, $doc_style );
         else:
             $embed = esc_html__( 'No Url Found', 'embed-any-document' );
         endif;
@@ -297,15 +381,14 @@ class Awsm_embed {
      */
     function adminfunctions() {
 
-//        if ( is_admin() ) {
+        if ( is_admin() ) {
             add_action( 'wp_enqueue_media', array($this, 'embed_helper') );
             add_action( 'admin_menu', array( $this, 'admin_menu' ) );
             add_action( 'admin_init', array( $this, 'register_eadsettings' ) );
             add_action( 'admin_footer', array( $this, 'embedpopup' ) );
-            add_action( 'wp_footer', array( $this, 'embedpopup' ) );
             add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'settingslink' ) );
             add_filter( 'upload_mimes', array( $this, 'additional_mimes' ) );
-//        }
+        }
     }
 
     /**
@@ -328,6 +411,7 @@ class Awsm_embed {
         $id        = "";
         $configure = '<span class="overlay"><strong>' . esc_html__( 'Buy Pro Version', 'embed-any-document' ) . '</strong><i></i></span>';
         $target    = 'target="_blank"';
+        /* translators: %1$s: Service provider */
         echo '<a href="' . $link . '" id="' . $id . '" ' . $target . '><span><img src="' . esc_url( $this->plugin_url ) . 'images/icon-' . strtolower( $provider ) . '.png" alt="' . sprintf( esc_html__( 'Add From %1$s', 'embed-any-document' ), $provider ) . '" />' . sprintf( esc_html__( 'Add From %1$s', 'embed-any-document' ), $provider ) . $configure . '</span></a>';
     }
 
@@ -365,9 +449,6 @@ class Awsm_embed {
             echo "<select name=\"" . esc_attr( $name ) . "\" id=\"" . esc_attr( $name ) . "\" class=\"" . esc_attr( $class ) . "\">";
             foreach ( $options as $key => $option ) {
                 echo "<option value=\"" . esc_attr( $key ) . "\"";
-                if ( ! empty( $helptext ) ) {
-                    echo " title=\"" . esc_attr( $helptext ) . "\"";
-                }
                 if ( $key == $selected ) {
                     echo ' selected="selected"';
                 }
@@ -461,11 +542,10 @@ class Awsm_embed {
     /**
      * Validate Source mime type
      *
-     * @since   1.0
-     * @return  boolean
+     * @since  1.0
+     * @return array
      */
     function validmime_types() {
-
         $mimetypes = array(
         // Text formats
         'txt|asc|c|cc|h'               => 'text/plain',
@@ -504,7 +584,6 @@ class Awsm_embed {
      * @return  boolean
      */
     function valid_type( $url ) {
-
         $doctypes = $this->validmime_types();
         if ( is_array( $doctypes ) ) {
             $allowed_ext = implode( "|", array_keys( $doctypes ) );
@@ -523,9 +602,7 @@ class Awsm_embed {
      * @return  string Mimetypes
      */
     function validembedtypes() {
-
         $doctypes = $this->validmime_types();
-
         return $allowedtype = implode( ',', $doctypes );
     }
 

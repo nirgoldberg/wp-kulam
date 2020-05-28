@@ -125,7 +125,7 @@ class Widget_Shortcode extends Widget_Base {
 	 * @access protected
 	 */
 	protected function render() {
-		$shortcode = $this->get_settings( 'shortcode' );
+		$shortcode = $this->get_settings_for_display( 'shortcode' );
 
 		$shortcode = do_shortcode( shortcode_unautop( $shortcode ) );
 		?>
@@ -151,8 +151,8 @@ class Widget_Shortcode extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.0.0
+	 * @since 2.9.0
 	 * @access protected
 	 */
-	protected function _content_template() {}
+	protected function content_template() {}
 }

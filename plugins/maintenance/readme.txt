@@ -1,129 +1,130 @@
-=== Plugin Name ===
-Contributors: fruitfulcode
-Donate link: https://maintenance.fruitfulcode.com/
-Tags: maintenance, maintenance mode, coming soon, splash page, under-construction, 503 error, administration, login, customize page, background, fullscreen, blur
-Requires at least: 3.5
-Tested up to: 4.9.4
-Stable tag: 3.6.1
+=== Maintenance ===
+Contributors: WebFactory, UnderConstructionPage, googlemapswidget, wpreset
+Tags: maintenance, maintenance mode, maintenance page, coming soon, coming soon page, under construction, under construction page
+Requires at least: 4.0
+Tested up to: 5.4
+Stable tag: 3.85
+Requires PHP: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Maintenance - easy configure and customize coming soon, under construction page when site have updates, changes or in development process.
+Great looking maintenance, coming soon & under construction pages. Put your site under maintenance in minutes.
 
 == Description ==
 
-The Maintenance plugin allows the WordPress site administrator to close the website for maintenance, enable the “503 Service Temporarily Unavailable” error, and set the temporary authorization page, which can be edited via the plugin settings. It is highly customizable and looks good on all devices due to the responsive layout. You can add your logo, background image, text, and select the desired color to preserve brand identity. The extended version of the plugin includes more settings that become available upon installation of the PRO extension plugin. <a target="_blank" href="https://maintenance.fruitfulcode.com/">Check out the PRO version - a feature-rich maintenance plugin for WordPress</a>
+Maintenance plugin allows the WordPress site administrator to close the website for maintenance, enable "503 Service temporarily unavailable”, set a temporary page with authorization, which can be edited via the plugin settings. Easy customize the good look on all devices. Add your logo, background image, select the desired color, add text.
 
-https://www.youtube.com/watch?v=Z5v9Ju52nmg
+Thanks to our partners at <a href="https://wordpress.org/plugins/weglot/">Weglot</a>, Maintenance is fully multilanguage ready and you can instantly translate your maintenance page to 100+ languages with one click.
+
+WP Maintenance has full support for collecting leads and subscribers via optin boxes in content, and optin popups. We've integrated <a href="https://wordpress.org/plugins/mailoptin/">MailOptin</a> a great, free plugin into Maintenance that connects to MailChimp and numerous other autoresponder services allowing you to easily collect emails.
+
+You can easily add events and bookings calendar to your maintenance page thanks to our integration with <a href="https://wordpress.org/plugins/ameliabooking/">Amelia</a> - a free events & appointments booking calendar. It sets up in minutes and you can immediately start taking appointments. 
 
 <h3>Features</h3>
 <ul>
-<li>HTML/CSS layout without images (retina ready) </li>
-<li>Fullscreen background (<a target="_blank" href="https://github.com/srobbin/jquery-backstretch">Backstretch</a>)</li>
+<li>retina ready HTML/CSS layout</li>
+<li>Full-screen background (<a target="_blank" href="https://github.com/srobbin/jquery-backstretch">Backstretch</a>)</li>
 <li>Blur background effect</li>
-<li>Upload your own logo and retina</li>
+<li>Upload your own logo</li>
 <li>Configurable colors: fonts, icons, background</li>
-<li>Add your title, headline, text</li>
-<li>User login with validation</li>
-<li>Admin bar: show/hide</li>
+<li>Customize title, headline, text</li>
+<li>User login on frontend</li>
+<li>Admin bar status</li>
 <li>503 error on/off</li>
-<li>Google analytics field</li>
-<li>Login on/off</li>
-<li>Exclude pages in Maintenance mode</li>
-
+<li>Google analytics support</li>
+<li>Exclude selected pages from Maintenance mode</li>
+<li>Support for all popular caching plugins</li>
 </ul>
 
-
-<a target="_blank" href="https://maintenance.fruitfulcode.com/">View demo</a>
-
-
-<h3>Maintenance PRO</h3>
-<strong>Required Free version.</strong> All features from the FREE version included + 
-
-<ul>
-<li>Unique scheduler countdown</li>
-<li>User permissions</li>
-<li>Fullscreen background gallery</li>
-<li>Gallery patterns overlays</li> 
-<li>Background gallery with the overlay</li>
-<li>Background video from the media gallery</li>
-<li>Background video from Youtube/Vimeo</li>
-<li>Additional HTML area</li>
-<li>Social media profiles (<a target="_blank" href="http://zurb.com/playground/foundation-icons">Foundation icons</a>)</li>
-<li>Email newsletter subscribe form (<a target="_blank" href="http://mailchimp.com/">MailChimp</a> and  <a href="https://www.campaignmonitor.com/">Campaign Monitor</a> integration) </li>
-</ul>
-
-<a target="_blank" href="https://maintenance.fruitfulcode.com/">Get additional functionality</a>
-
-<h3>Translation</h3>
-
-<ul>
-<li>Russian (ru_RU)</li>
-<li>Brazilian Portuguese (pt_BR)</li>
-<li>German (de_DE)</li>
-<li>Spanish (es_ES)</li>
-<li>Farsi Persian (fa_IR)</li>
-<li>Turkish (tr_TR)</li>
-<li>French (fr_FR)</li>
-<li>Chinese (zh_CN)</li>
-<li>Czech (cs_CZ)</li>
-<li>Ukrainian (uk_UA)</li>
-<li>Finnish (fi_FI)</li>
-<li>Italian (it_IT)</li>
-<li>Arabic (Ar)</li>
-<li>Dutch (nl_NL)</li>
-</ul>
-
-<p>If you would like to create a new translation to your native language, you can send the <a target="_blank" href="http://codex.wordpress.org/Translating_WordPress">text of PO and MO files</a> to the <a href="http://fruitfulcode.com" target="_blank">Fruitful Code</a> and we’ll include it into the next plugin update.</p><p> You can download the latest version of the program to work with the PO and MO files - <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.</p>
-<p>This plugin is 100% <a target="_blank" href="https://maintenance.fruitfulcode.com/license/">GPL</a>.</p>
-
-<h3>Technical support</h3>
-If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us.
-
-<h3>How to thank developers</h3>
-<ol>
-<li>If you like our plugin and want to thank us, please <a href="http://wordpress.org/support/view/plugin-reviews/maintenance?filter=5">leave us a review</a></li>
-<li>Make a review on your blog or in the journal with the URL link to the official plugin page and plugin demo </li>
-<li>Recommend "Maintenance plugin" to your friends</li>
-<li>Each purchasing of <a target="_blank" href="https://maintenance.fruitfulcode.com/">PRO</a> version make us happier</li>
-</ol>
-
-Thanks for using!
+<h3>Support</h3>
+If you have any problems, questions or recommendations about WP Maintenance please open a ticket in the <a href="https://wordpress.org/support/plugin/maintenance/">official support forum</a>. We answer all questions within hours!
+Want to say "thank you"? Please leave a <a href="http://wordpress.org/support/view/plugin-reviews/maintenance?filter=5">review</a>.
 
 == Installation ==
 
-1.	Upload the «Maintenance» folder to the /wp-content/plugins/ directory
-2.	Activate the plugin through the 'Plugins' menu in WordPress
-3.	Go to Dashboard > Maintenance
+Follow the usual routine;
+
+1. Open WordPress admin, go to Plugins, click Add New
+2. Enter "maintenance" in search and hit Enter
+3. Locate the Maintenance plugin by searching for our mascot, click "Install Now"
+4. Activate & open plugin's settings page located in the main WP admin menu
+
+Or if needed, upload manually;
+
+1. Download the plugin.
+2. Unzip it and upload to _/wp-content/plugins/_
+3. Open WordPress admin - Plugins and click "Activate" next to the plugin
+4. Activate & open plugin's settings page located in the main WP admin menu
+
 
 == Screenshots ==
-1. Maintenance options page
-2. Default maintenance page
-3. Customized maintenance page
-4. Login sidebar
+1. Maintenance page with default design
+2. Log in form is built into the maintenance page
+3. Maintenance plugin options page
+
 
 == Frequently Asked Questions ==
 
 = I have activated plugin and don’t see any changes, looks like plugin is not working. =
 
-Try to check in different browser. If you a logged as wordpress user you see website in normal mode.
+Try to check in different browser. If you a logged as WordPress user you see the website in normal mode.
 
 = Will my site remain visible to search engines while maintenance mode is on? =
 
-The site will not be visible to search engines. "503 Service Temporarily Unavailable" can be changed in plugin options.
+The site will not be visible to search engines only if "503 Service Temporarily Unavailable" option is enabled.
 
-= Where can I find out the username and password to get to the site? = 
+= Where can I find out the username and password to get to the site? =
 
-You can use your administrator access or create new user in wordpress dashboard
-http://yousite.com/wp-admin/users.php
+You can use your "normal" WP administrator access or create a new user in WordPress dashboard - Users.
 
 = If I incorrectly write a login and password I will see the error on the page wp-login? =
-No, it will be display error on current maintenance page, without redirect to wp-login page
 
-= I haven’t found an answer to my question, what should I do? = 
-You can check <a href="http://wordpress.org/support/plugin/maintenance">support forum</a> or <a class="send-mail" target="_blank" href="mailto:mail@fruitfulcode.com?subject=Maintenance%20Plugin">send email to us</a>
+No, it will be display error on current maintenance page, without redirect to wp-login page.
+
+= I haven’t found an answer to my question, what should I do? =
+
+Please post the question on the <a href="http://wordpress.org/support/plugin/maintenance">support forum</a>.
+
 
 == Change log ==
+
+= v3.85 =
+- 2019/11/28
+- bug fixes
+- added integration with Amelia Booking
+- added support for Hummingbird Cache plugin
+
+= v3.80 =
+- 2019/09/25
+- numerous bug fixes
+- added preview button
+- 400,000 installations; 3,790,000 downloads
+
+= 3.7.1 =
+- Bug fix: Restored admin bar notification
+- Bug fix: Preview mode
+- Update: Translations
+
+= 3.7.0 =
+- Improvement: Code optimization
+
+= 3.6.4 =
+- Improvement: Code optimization
+- Update: Removed 'Show admin bar' option
+- Update: Removed statistic
+- Update: Removed subscription
+- Update: Translations
+
+= 3.6.3 =
+- Bug fix: Deactivated statistics
+
+= 3.6.2 =
+- New: Added option to switch sound on video
+- New: Added child theme support
+- New: Added statistics
+- Update: Updated translations
+- Bug fix: background color for login form
+
 = 3.6.1 =
 - Improvement: setting max width logo size
 - Bug fix: Change template_include hook priority
@@ -235,11 +236,11 @@ You can check <a href="http://wordpress.org/support/plugin/maintenance">support 
 * Bug fix: save content and settings if plugin disabled
 * Bug fix: if footer text is empty not showing text
 
-= 2.5 = 
+= 2.5 =
 * New: French translation
 * Update: WordPress 4.3 support
 * Bug fix: Footer and social media icons for mobiles
-* Bug fix: Exclude pages now by post id 
+* Bug fix: Exclude pages now by post id
 * Bug fix: Check exclude pages with empty reading options
 
 = 2.4 =
@@ -276,12 +277,12 @@ You can check <a href="http://wordpress.org/support/plugin/maintenance">support 
 * Added scroll for extra height
 * Translation updates
 
-= 2.1 = 
+= 2.1 =
 * New option Login on/off
 * New option Google Analytics field
 * Responsive bug fix
 
-= 2.0.1 = 
+= 2.0.1 =
 * New translation Brazilian Portuguese
 * Bug fix in title
 * Bug fix blur background image scroll
@@ -299,7 +300,7 @@ You can check <a href="http://wordpress.org/support/plugin/maintenance">support 
 
 = 1.2.3 =
 * Wordpress 3.6 support
-* Bug fix 
+* Bug fix
 * Warning Messages, open_basedir conflict - resolved.
 
 = 1.2.2 =

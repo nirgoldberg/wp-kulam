@@ -1,8 +1,6 @@
 <?php
 namespace Elementor;
 
-use Elementor\Modules\DynamicTags\Module as TagsModule;
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -55,7 +53,7 @@ class Widget_Html extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'eicon-coding';
+		return 'eicon-code';
 	}
 
 	/**
@@ -119,10 +117,10 @@ class Widget_Html extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.0.0
+	 * @since 2.9.0
 	 * @access protected
 	 */
-	protected function _content_template() {
+	protected function content_template() {
 		?>
 		{{{ settings.html }}}
 		<?php

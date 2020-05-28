@@ -92,6 +92,10 @@ class Group_Control_Image_Size extends Group_Control_Base {
 
 		$image_sizes[] = 'full';
 
+		if ( ! empty( $image['id'] ) && ! wp_attachment_is_image( $image['id'] ) ) {
+			$image['id'] = '';
+		}
+
 		if ( ! empty( $image['id'] ) && in_array( $size, $image_sizes ) ) {
 			$image_class .= " attachment-$size size-$size";
 			$image_attr = [
@@ -103,7 +107,7 @@ class Group_Control_Image_Size extends Group_Control_Base {
 			$image_src = self::get_attachment_image_src( $image['id'], $image_size_key, $settings );
 
 			if ( ! $image_src && isset( $image['url'] ) ) {
-				$image_src = $image['url'] ;
+				$image_src = $image['url'];
 			}
 
 			if ( ! empty( $image_src ) ) {
@@ -113,7 +117,21 @@ class Group_Control_Image_Size extends Group_Control_Base {
 			}
 		}
 
-		return $html;
+		/**
+		 * Get Attachment Image HTML
+		 *
+		 * Filters the Attachment Image HTML
+		 *
+		 * @since 2.4.0
+		 * @param string $html the attachment image HTML string
+		 * @param array  $settings       Control settings.
+		 * @param string $image_size_key Optional. Settings key for image size.
+		 *                               Default is `image`.
+		 * @param string $image_key      Optional. Settings key for image. Default
+		 *                               is null. If not defined uses image size key
+		 *                               as the image key.
+		 */
+		return apply_filters( 'elementor/image_size/get_attachment_image_html', $html, $settings, $image_size_key, $image_key );
 	}
 
 	/**
@@ -208,6 +226,10 @@ class Group_Control_Image_Size extends Group_Control_Base {
 
 		$image_src = wp_get_attachment_image_src( $attachment_id, $attachment_size );
 
+		if ( empty( $image_src[0] ) && 'thumbnail' !== $attachment_size ) {
+			$image_src = wp_get_attachment_image_src( $attachment_id );
+		}
+
 		return ! empty( $image_src[0] ) ? $image_src[0] : '';
 	}
 
@@ -245,7 +267,6 @@ class Group_Control_Image_Size extends Group_Control_Base {
 		$fields['size'] = [
 			'label' => _x( 'Image Size', 'Image Size Control', 'elementor' ),
 			'type' => Controls_Manager::SELECT,
-			'label_block' => false,
 		];
 
 		$fields['custom_dimension'] = [

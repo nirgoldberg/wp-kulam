@@ -85,7 +85,7 @@ class Widget_Google_Maps extends Widget_Base {
 	 * @return array Widget keywords.
 	 */
 	public function get_keywords() {
-		return [ 'google', 'map', 'embed' ];
+		return [ 'google', 'map', 'embed', 'location' ];
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Widget_Google_Maps extends Widget_Base {
 		$this->add_control(
 			'address',
 			[
-				'label' => __( 'Address', 'elementor' ),
+				'label' => __( 'Location', 'elementor' ),
 				'type' => Controls_Manager::TEXT,
 				'dynamic' => [
 					'active' => true,
@@ -158,18 +158,6 @@ class Widget_Google_Maps extends Widget_Base {
 		);
 
 		$this->add_control(
-			'prevent_scroll',
-			[
-				'label' => __( 'Prevent Scroll', 'elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'default' => 'yes',
-				'selectors' => [
-					'{{WRAPPER}} iframe' => 'pointer-events: none;',
-				],
-			]
-		);
-
-		$this->add_control(
 			'view',
 			[
 				'label' => __( 'View', 'elementor' ),
@@ -203,7 +191,6 @@ class Widget_Google_Maps extends Widget_Base {
 				'selector' => '{{WRAPPER}} iframe',
 			]
 		);
-
 
 		$this->end_controls_tab();
 
@@ -242,6 +229,7 @@ class Widget_Google_Maps extends Widget_Base {
 
 		$this->end_controls_tabs();
 
+		$this->end_controls_section();
 	}
 
 	/**
@@ -276,8 +264,8 @@ class Widget_Google_Maps extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.0.0
+	 * @since 2.9.0
 	 * @access protected
 	 */
-	protected function _content_template() {}
+	protected function content_template() {}
 }

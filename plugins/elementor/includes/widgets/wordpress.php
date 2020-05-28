@@ -124,6 +124,10 @@ class Widget_WordPress extends Widget_Base {
 		return [ 'wordpress', 'widget' ];
 	}
 
+	public function get_help_url() {
+		return '';
+	}
+
 	/**
 	 * Whether the reload preview is required or not.
 	 *
@@ -156,7 +160,9 @@ class Widget_WordPress extends Widget_Base {
 		echo '<input type="hidden" class="id_base" value="' . esc_attr( $instance->id_base ) . '" />';
 		echo '<input type="hidden" class="widget-id" value="widget-' . esc_attr( $this->get_id() ) . '" />';
 		echo '<div class="widget-content">';
-		$instance->form( $this->get_settings( 'wp' ) );
+		$widget_data = $this->get_settings( 'wp' );
+		$instance->form( $widget_data );
+		do_action( 'in_widget_form', $instance, null, $widget_data );
 		echo '</div></div></div>';
 		return ob_get_clean();
 	}
@@ -192,15 +198,17 @@ class Widget_WordPress extends Widget_Base {
 	 * Returns the WordPress widget settings, to be used in Elementor.
 	 *
 	 * @access protected
-	 * @since 1.0.0
+	 * @since 2.3.0
 	 *
 	 * @return array Parsed settings.
 	 */
-	protected function _get_parsed_settings() {
-		$settings = parent::_get_parsed_settings();
+	protected function get_init_settings() {
+		$settings = parent::get_init_settings();
 
 		if ( ! empty( $settings['wp'] ) ) {
-			$settings['wp'] = $this->get_widget_instance()->update( $settings['wp'], [] );
+			$widget = $this->get_widget_instance();
+			$instance = $widget->update( $settings['wp'], [] );
+			$settings['wp'] = apply_filters( 'widget_update_callback', $instance, $settings['wp'], [], $widget );
 		}
 
 		return $settings;
@@ -253,9 +261,18 @@ class Widget_WordPress extends Widget_Base {
 		 * @param array            $default_widget_args Default widget arguments.
 		 * @param Widget_WordPress $this                The WordPress widget.
 		 */
-		$default_widget_args = apply_filters( 'elementor/widgets/wordpress/widget_args', $default_widget_args, $this ); // WPCS: spelling ok.
+		$default_widget_args = apply_filters( 'elementor/widgets/wordpress/widget_args', $default_widget_args, $this );
+		$is_gallery_widget = 'wp-widget-media_gallery' === $this->get_name();
+
+		if ( $is_gallery_widget ) {
+			add_filter( 'wp_get_attachment_link', [ $this, 'add_lightbox_data_to_image_link' ], 10, 2 );
+		}
 
 		$this->get_widget_instance()->widget( $default_widget_args, $this->get_settings( 'wp' ) );
+
+		if ( $is_gallery_widget ) {
+			remove_filter( 'wp_get_attachment_link', [ $this, 'add_lightbox_data_to_image_link' ] );
+		}
 	}
 
 	/**
@@ -263,7 +280,7 @@ class Widget_WordPress extends Widget_Base {
 	 *
 	 * Written as a Backbone JavaScript template and used to generate the live preview.
 	 *
-	 * @since 1.0.0
+	 * @since 2.9.0
 	 * @access protected
 	 */
 	protected function content_template() {}

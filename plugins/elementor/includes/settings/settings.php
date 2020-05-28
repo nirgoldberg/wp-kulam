@@ -4,6 +4,7 @@ namespace Elementor;
 use Elementor\Core\Responsive\Responsive;
 use Elementor\Core\Settings\General\Manager as General_Settings_Manager;
 use Elementor\Core\Settings\Manager;
+use Elementor\TemplateLibrary\Source_Local;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -65,6 +66,14 @@ class Settings extends Settings_Page {
 	 * @access public
 	 */
 	public function register_admin_menu() {
+		global $menu;
+
+		$menu[] = [ '', 'read', 'separator-elementor', '', 'wp-menu-separator elementor' ]; // WPCS: override ok.
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
 		add_menu_page(
 			__( 'Elementor', 'elementor' ),
 			__( 'Elementor', 'elementor' ),
@@ -72,8 +81,45 @@ class Settings extends Settings_Page {
 			self::PAGE_ID,
 			[ $this, 'display_settings_page' ],
 			'',
-			99
+			'58.5'
 		);
+	}
+
+	/**
+	 * Reorder the Elementor menu items in admin.
+	 * Based on WC.
+	 *
+	 * @since 2.4.0
+	 *
+	 * @param array $menu_order Menu order.
+	 * @return array
+	 */
+	public function menu_order( $menu_order ) {
+		// Initialize our custom order array.
+		$elementor_menu_order = [];
+
+		// Get the index of our custom separator.
+		$elementor_separator = array_search( 'separator-elementor', $menu_order, true );
+
+		// Get index of library menu.
+		$elementor_library = array_search( Source_Local::ADMIN_MENU_SLUG, $menu_order, true );
+
+		// Loop through menu order and do some rearranging.
+		foreach ( $menu_order as $index => $item ) {
+			if ( 'elementor' === $item ) {
+				$elementor_menu_order[] = 'separator-elementor';
+				$elementor_menu_order[] = $item;
+				$elementor_menu_order[] = Source_Local::ADMIN_MENU_SLUG;
+
+				unset( $menu_order[ $elementor_separator ] );
+				unset( $menu_order[ $elementor_library ] );
+			} elseif ( ! in_array( $item, [ 'separator-elementor' ], true ) ) {
+				$elementor_menu_order[] = $item;
+			}
+		}
+
+		// Return order.
+		return $elementor_menu_order;
 	}
 
 	/**
@@ -98,12 +144,24 @@ class Settings extends Settings_Page {
 
 		add_submenu_page(
 			self::PAGE_ID,
+			__( 'Custom Icons', 'elementor' ),
+			__( 'Custom Icons', 'elementor' ),
+			'manage_options',
+			'elementor_custom_icons',
+			[ $this, 'elementor_custom_icons' ]
+		);
+
+		add_submenu_page(
+			self::PAGE_ID,
 			'',
 			'<span class="dashicons dashicons-star-filled" style="font-size: 17px"></span> ' . __( 'Go Pro', 'elementor' ),
 			'manage_options',
 			'go_elementor_pro',
 			[ $this, 'handle_external_redirects' ]
 		);
+
+		add_submenu_page( Source_Local::ADMIN_MENU_SLUG, __( 'Theme Templates', 'elementor' ), __( 'Theme Builder', 'elementor' ), 'manage_options', 'theme_templates', [ $this, 'elementor_theme_templates' ] );
+		add_submenu_page( Source_Local::ADMIN_MENU_SLUG, __( 'Popups', 'elementor' ), __( 'Popups', 'elementor' ), 'manage_options', 'popup_templates', [ $this, 'elementor_popups' ] );
 	}
 
 	/**
@@ -120,7 +178,16 @@ class Settings extends Settings_Page {
 		add_submenu_page(
 			self::PAGE_ID,
 			'',
-			__( 'Knowledge Base', 'elementor' ),
+			__( 'Getting Started', 'elementor' ),
+			'manage_options',
+			'elementor-getting-started',
+			[ $this, 'elementor_getting_started' ]
+		);
+
+		add_submenu_page(
+			self::PAGE_ID,
+			'',
+			__( 'Get Help', 'elementor' ),
 			'manage_options',
 			'go_knowledge_base_site',
 			[ $this, 'handle_external_redirects' ]
@@ -156,6 +223,62 @@ class Settings extends Settings_Page {
 	/**
 	 * Display settings page.
 	 *
+	 * Output the content for the getting started page.
+	 *
+	 * @since 2.2.0
+	 * @access public
+	 */
+	public function elementor_getting_started() {
+		if ( User::is_current_user_can_edit_post_type( 'page' ) ) {
+			$create_new_label = __( 'Create Your First Page', 'elementor' );
+			$create_new_cpt = 'page';
+		} elseif ( User::is_current_user_can_edit_post_type( 'post' ) ) {
+			$create_new_label = __( 'Create Your First Post', 'elementor' );
+			$create_new_cpt = 'post';
+		}
+
+		?>
+		<div class="wrap">
+			<div class="e-getting-started">
+				<div class="e-getting-started__box postbox">
+					<div class="e-getting-started__header">
+						<div class="e-getting-started__title">
+							<div class="e-logo-wrapper"><i class="eicon-elementor"></i></div>
+
+							<?php echo __( 'Getting Started', 'elementor' ); ?>
+						</div>
+						<a class="e-getting-started__skip" href="<?php echo esc_url( admin_url() ); ?>">
+							<i class="eicon-close" aria-hidden="true" title="<?php esc_attr_e( 'Skip', 'elementor' ); ?>"></i>
+							<span class="elementor-screen-only"><?php echo __( 'Skip', 'elementor' ); ?></span>
+						</a>
+					</div>
+					<div class="e-getting-started__content">
+						<div class="e-getting-started__content--narrow">
+							<h2><?php echo __( 'Welcome to Elementor', 'elementor' ); ?></h2>
+							<p><?php echo __( 'Get introduced to Elementor by watching our "Getting Started" video series. It will guide you through the steps needed to create your website. Then click to create your first page.', 'elementor' ); ?></p>
+						</div>
+
+						<div class="e-getting-started__video">
+							<iframe width="620" height="350" src="https://www.youtube-nocookie.com/embed/videoseries?list=PLZyp9H25CboH8b_wsNyOmstckiOE8aUBg&amp;controls=1&amp;modestbranding=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+
+						<div class="e-getting-started__actions e-getting-started__content--narrow">
+							<?php if ( ! empty( $create_new_cpt ) ) : ?>
+							<a href="<?php echo esc_url( Utils::get_create_new_post_url( $create_new_cpt ) ); ?>" class="button button-primary button-hero"><?php echo esc_html( $create_new_label ); ?></a>
+							<?php endif; ?>
+
+							<a href="https://go.elementor.com/getting-started/" target="_blank" class="button button-secondary button-hero"><?php echo __( 'Watch the Full Guide', 'elementor' ); ?></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.wrap -->
+		<?php
+	}
+
+	/**
+	 * Display settings page.
+	 *
 	 * Output the content for the custom fonts page.
 	 *
 	 * @since 2.0.0
@@ -165,10 +288,73 @@ class Settings extends Settings_Page {
 		?>
 		<div class="wrap">
 			<div class="elementor-blank_state">
-				<i class="eicon-nerd-chuckle"></i>
+				<img src="<?php echo ELEMENTOR_ASSETS_URL . 'images/go-pro-wp-dashboard.svg'; ?>" />
 				<h2><?php echo __( 'Add Your Custom Fonts', 'elementor' ); ?></h2>
 				<p><?php echo __( 'Custom Fonts allows you to add your self-hosted fonts and use them on your Elementor projects to create a unique brand language.', 'elementor' ); ?></p>
-				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="#"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-fonts&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+			</div>
+		</div><!-- /.wrap -->
+		<?php
+	}
+
+	/**
+	 * Display settings page.
+	 *
+	 * Output the content for the custom icons page.
+	 *
+	 * @since 2.8.0
+	 * @access public
+	 */
+	public function elementor_custom_icons() {
+		?>
+		<div class="wrap">
+			<div class="elementor-blank_state">
+				<img src="<?php echo ELEMENTOR_ASSETS_URL . 'images/go-pro-wp-dashboard.svg'; ?>" />
+				<h2><?php echo __( 'Add Your Custom Icons', 'elementor' ); ?></h2>
+				<p><?php echo __( 'Don\'t rely solely on the FontAwesome icons everyone else is using! Differentiate your website and your style with custom icons you can upload from your favorite icons source.', 'elementor' ); ?></p>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/pro/?utm_source=wp-custom-icons&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+			</div>
+		</div><!-- /.wrap -->
+		<?php
+	}
+
+	/**
+	 * Display settings page.
+	 *
+	 * Output the content for the Popups page.
+	 *
+	 * @since 2.4.0
+	 * @access public
+	 */
+	public function elementor_popups() {
+		?>
+		<div class="wrap">
+			<div class="elementor-blank_state">
+				<i class="eicon-nerd-chuckle"></i>
+				<h2><?php echo __( 'Get Popup Builder', 'elementor' ); ?></h2>
+				<p><?php echo __( 'Popup Builder lets you take advantage of all the amazing features in Elementor, so you can build beautiful & highly converting popups. Go pro and start designing your popups today.', 'elementor' ); ?></p>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/popup-builder/?utm_source=popup-templates&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
+			</div>
+		</div><!-- /.wrap -->
+		<?php
+	}
+
+	/**
+	 * Display settings page.
+	 *
+	 * Output the content for the Theme Templates page.
+	 *
+	 * @since 2.4.0
+	 * @access public
+	 */
+	public function elementor_theme_templates() {
+		?>
+		<div class="wrap">
+			<div class="elementor-blank_state">
+				<i class="eicon-nerd-chuckle"></i>
+				<h2><?php echo __( 'Get Theme Builder', 'elementor' ); ?></h2>
+				<p><?php echo __( 'Theme Builder is the industry leading all-in-one solution that lets you customize every part of your WordPress theme visually: Header, Footer, Single, Archive & WooCommerce.', 'elementor' ); ?></p>
+				<a class="elementor-button elementor-button-default elementor-button-go-pro" target="_blank" href="<?php echo Utils::get_pro_link( 'https://elementor.com/theme-builder/?utm_source=theme-templates&utm_campaign=gopro&utm_medium=wp-dash' ); ?>"><?php echo __( 'Go Pro', 'elementor' ); ?></a>
 			</div>
 		</div><!-- /.wrap -->
 		<?php
@@ -189,6 +375,8 @@ class Settings extends Settings_Page {
 
 		// Save general settings in one list for a future usage
 		$this->handle_general_settings_update();
+
+		$this->maybe_remove_all_admin_notices();
 	}
 
 	/**
@@ -207,10 +395,6 @@ class Settings extends Settings_Page {
 		if ( isset( $submenu['elementor'] ) ) {
 			// @codingStandardsIgnoreStart
 			$submenu['elementor'][0][0] = __( 'Settings', 'elementor' );
-
-			$hold_menu_data = $submenu['elementor'][0];
-			$submenu['elementor'][0] = $submenu['elementor'][1];
-			$submenu['elementor'][1] = $hold_menu_data;
 			// @codingStandardsIgnoreEnd
 		}
 	}
@@ -256,9 +440,7 @@ class Settings extends Settings_Page {
 								'field_args' => [
 									'type' => 'hidden',
 								],
-								'setting_args' => [
-									'sanitize_callback' => 'time',
-								],
+								'setting_args' => [ $validations_class_name, 'current_time' ],
 							],
 							'cpt_support' => [
 								'label' => __( 'Post Types', 'elementor' ),
@@ -291,12 +473,12 @@ class Settings extends Settings_Page {
 						'label' => __( 'Improve Elementor', 'elementor' ),
 						'fields' => [
 							'allow_tracking' => [
-								'label' => __( 'Usage Data Tracking', 'elementor' ),
+								'label' => __( 'Usage Data Sharing', 'elementor' ),
 								'field_args' => [
 									'type' => 'checkbox',
 									'value' => 'yes',
 									'default' => '',
-									'sub_desc' => __( 'Opt-in to our anonymous plugin data collection and to updates. We guarantee no sensitive data is collected.', 'elementor' ) . sprintf( ' <a href="%1$s" target="_blank">%2$s</a>', 'https://go.elementor.com/usage-data-tracking/', __( 'Learn more.', 'elementor' ) ),
+									'sub_desc' => __( 'Become a super contributor by opting in to share non-sensitive plugin data and to get our updates.', 'elementor' ) . sprintf( ' <a href="%1$s" target="_blank">%2$s</a>', 'https://go.elementor.com/usage-data-tracking/', __( 'Learn more.', 'elementor' ) ),
 								],
 								'setting_args' => [ __NAMESPACE__ . '\Tracker', 'check_for_settings_optin' ],
 							],
@@ -323,6 +505,7 @@ class Settings extends Settings_Page {
 								'field_args' => [
 									'type' => 'number',
 									'attributes' => [
+										'min' => 300,
 										'placeholder' => '1140',
 										'class' => 'medium-text',
 									],
@@ -375,7 +558,8 @@ class Settings extends Settings_Page {
 										'class' => 'medium-text',
 									],
 									'sub_desc' => 'px',
-									'desc' => __( 'Sets the breakpoint between desktop and tablet devices. Below this breakpoint tablet layout will appear (Default: ' . $default_breakpoints['lg'] . ').', 'elementor' ),
+									/* translators: %d: Breakpoint value */
+									'desc' => sprintf( __( 'Sets the breakpoint between desktop and tablet devices. Below this breakpoint tablet layout will appear (Default: %dpx).', 'elementor' ), $default_breakpoints['lg'] ),
 								],
 							],
 							'viewport_md' => [
@@ -389,7 +573,8 @@ class Settings extends Settings_Page {
 										'class' => 'medium-text',
 									],
 									'sub_desc' => 'px',
-									'desc' => __( 'Sets the breakpoint between tablet and mobile devices. Below this breakpoint mobile layout will appear (Default: ' . $default_breakpoints['md'] . ').', 'elementor' ),
+									/* translators: %d: Breakpoint value */
+									'desc' => sprintf( __( 'Sets the breakpoint between tablet and mobile devices. Below this breakpoint mobile layout will appear (Default: %dpx).', 'elementor' ), $default_breakpoints['md'] ),
 								],
 							],
 							'global_image_lightbox' => [
@@ -424,12 +609,7 @@ class Settings extends Settings_Page {
 										'external' => __( 'External File', 'elementor' ),
 										'internal' => __( 'Internal Embedding', 'elementor' ),
 									],
-									'desc' => '<div class="elementor-css-print-method-description" data-value="external" style="display: none">' .
-											  __( 'Use external CSS files for all generated stylesheets. Choose this setting for better performance (recommended).', 'elementor' ) .
-											  '</div>' .
-											  '<div class="elementor-css-print-method-description" data-value="internal" style="display: none">' .
-											  __( 'Use internal CSS that is embedded in the head of the page. For troubleshooting server configuration conflicts and managing development environments.', 'elementor' ) .
-											  '</div>',
+									'desc' => '<div class="elementor-css-print-method-description" data-value="external" style="display: none">' . __( 'Use external CSS files for all generated stylesheets. Choose this setting for better performance (recommended).', 'elementor' ) . '</div><div class="elementor-css-print-method-description" data-value="internal" style="display: none">' . __( 'Use internal CSS that is embedded in the head of the page. For troubleshooting server configuration conflicts and managing development environments.', 'elementor' ) . '</div>',
 								],
 							],
 							'editor_break_lines' => [
@@ -441,6 +621,18 @@ class Settings extends Settings_Page {
 										1 => __( 'Enable', 'elementor' ),
 									],
 									'desc' => __( 'For troubleshooting server configuration conflicts.', 'elementor' ),
+								],
+							],
+							'enable_unfiltered_files_upload' => [
+								'label' => __( 'Enable Unfiltered Files Uploads', 'elementor' ),
+								'field_args' => [
+									'type' => 'select',
+									'std' => '',
+									'options' => [
+										'' => __( 'Disable', 'elementor' ),
+										1 => __( 'Enable', 'elementor' ),
+									],
+									'desc' => __( 'Please note! Allowing uploads of any files (SVG & JSON included) is a potential security risk.', 'elementor' ) . '<br>' . __( 'Elementor will try to sanitize the unfiltered files, removing potential malicious code and scripts.', 'elementor' ) . '<br>' . __( 'We recommend you only enable this feature if you understand the security risks involved.', 'elementor' ),
 								],
 							],
 						],
@@ -497,6 +689,27 @@ class Settings extends Settings_Page {
 	}
 
 	/**
+	 * @since 2.2.0
+	 * @access private
+	 */
+	private function maybe_remove_all_admin_notices() {
+		$elementor_pages = [
+			'elementor-getting-started',
+			'elementor_custom_fonts',
+			'elementor_custom_icons',
+			'elementor-license',
+			'popup_templates',
+			'theme_templates',
+		];
+
+		if ( empty( $_GET['page'] ) || ! in_array( $_GET['page'], $elementor_pages, true ) ) {
+			return;
+		}
+
+		remove_all_actions( 'admin_notices' );
+	}
+
+	/**
 	 * Settings page constructor.
 	 *
 	 * Initializing Elementor "Settings" page.
@@ -517,9 +730,12 @@ class Settings extends Settings_Page {
 		add_action( 'add_option_elementor_css_print_method', [ $this, 'update_css_print_method' ] );
 		add_action( 'update_option_elementor_css_print_method', [ $this, 'update_css_print_method' ] );
 
+		add_filter( 'custom_menu_order', '__return_true' );
+		add_filter( 'menu_order', [ $this, 'menu_order' ] );
+
 		foreach ( Responsive::get_editable_breakpoints() as $breakpoint_key => $breakpoint ) {
 			foreach ( [ 'add', 'update' ] as $action ) {
-				add_action( "{$action}_option_elementor_viewport_{$breakpoint_key}", [ 'Elementor\Responsive', 'compile_stylesheet_templates' ] );
+				add_action( "{$action}_option_elementor_viewport_{$breakpoint_key}", [ 'Elementor\Core\Responsive\Responsive', 'compile_stylesheet_templates' ] );
 			}
 		}
 	}

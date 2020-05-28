@@ -1,6 +1,8 @@
 <?php
 namespace Elementor;
 
+use Elementor\Core\Settings\Manager as SettingsManager;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -31,18 +33,6 @@ abstract class Widget_Base extends Element_Base {
 	 * @var bool
 	 */
 	protected $_has_template_content = true;
-
-	/**
-	 * Element edit tools.
-	 *
-	 * Holds all the edit tools of the element. For example: delete, duplicate etc.
-	 *
-	 * @access protected
-	 * @static
-	 *
-	 * @var array
-	 */
-	protected static $_edit_tools;
 
 	/**
 	 * Get element type.
@@ -221,9 +211,9 @@ abstract class Widget_Base extends Element_Base {
 	 * @access public
 	 *
 	 * @param string $section_id Section ID.
-	 * @param array  $args       Section arguments.
+	 * @param array  $args       Section arguments Optional.
 	 */
-	public function start_controls_section( $section_id, array $args ) {
+	public function start_controls_section( $section_id, array $args = [] ) {
 		parent::start_controls_section( $section_id, $args );
 
 		static $is_first_section = true;
@@ -285,27 +275,6 @@ abstract class Widget_Base extends Element_Base {
 	}
 
 	/**
-	 * Get default edit tools.
-	 *
-	 * Retrieve the element default edit tools. Used to set initial tools.
-	 * By default the element has no edit tools.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 * @static
-	 *
-	 * @return array Default edit tools.
-	 */
-	protected static function get_default_edit_tools() {
-		return [
-			'edit' => [
-				'title' => __( 'Edit', 'elementor' ),
-				'icon' => 'edit',
-			],
-		];
-	}
-
-	/**
 	 * Register widget skins.
 	 *
 	 * This method is activated while initializing the widget base class. It is
@@ -331,12 +300,12 @@ abstract class Widget_Base extends Element_Base {
 	 * the control, element name, type, icon and more. This method also adds
 	 * widget type, keywords and categories.
 	 *
-	 * @since 1.0.10
+	 * @since 2.9.0
 	 * @access protected
 	 *
 	 * @return array The initial widget config.
 	 */
-	protected function _get_initial_config() {
+	protected function get_initial_config() {
 		$config = [
 			'widget_type' => $this->get_name(),
 			'keywords' => $this->get_keywords(),
@@ -345,7 +314,22 @@ abstract class Widget_Base extends Element_Base {
 			'show_in_panel' => $this->show_in_panel(),
 		];
 
-		return array_merge( parent::_get_initial_config(), $config );
+		$stack = Plugin::$instance->controls_manager->get_element_stack( $this );
+
+		if ( $stack ) {
+			$config['controls'] = $this->get_stack( false )['controls'];
+			$config['tabs_controls'] = $this->get_tabs_controls();
+		}
+
+		return array_merge( parent::get_initial_config(), $config );
+	}
+
+	/**
+	 * @since 2.3.1
+	 * @access protected
+	 */
+	protected function should_print_empty() {
+		return false;
 	}
 
 	/**
@@ -360,7 +344,6 @@ abstract class Widget_Base extends Element_Base {
 	 * @param string $template_content Template content.
 	 */
 	protected function print_template_content( $template_content ) {
-		$this->render_edit_tools();
 		?>
 		<div class="elementor-widget-container">
 			<?php
@@ -431,7 +414,88 @@ abstract class Widget_Base extends Element_Base {
 
 		$settings = $this->get_settings();
 
-		$this->add_render_attribute( '_wrapper', 'data-element_type', $this->get_name() . '.' . ( ! empty( $settings['_skin'] ) ? $settings['_skin'] : 'default' ) );
+		$this->add_render_attribute( '_wrapper', 'data-widget_type', $this->get_name() . '.' . ( ! empty( $settings['_skin'] ) ? $settings['_skin'] : 'default' ) );
+	}
+
+	/**
+	 * Add lightbox data to image link.
+	 *
+	 * Used to add lightbox data attributes to image link HTML.
+	 *
+	 * @since 2.9.1
+	 * @access public
+	 *
+	 * @param string $link_html Image link HTML.
+	 * @param string $id Attachment id.
+	 *
+	 * @return string Image link HTML with lightbox data attributes.
+	 */
+	public function add_lightbox_data_to_image_link( $link_html, $id ) {
+		$settings = $this->get_settings_for_display();
+		$open_lightbox = isset( $settings['open_lightbox'] ) ? $settings['open_lightbox'] : null;
+
+		if ( Plugin::$instance->editor->is_edit_mode() ) {
+			$this->add_render_attribute( 'link', 'class', 'elementor-clickable', true );
+		}
+
+		$this->add_lightbox_data_attributes( 'link', $id, $open_lightbox, $this->get_id(), true );
+		return preg_replace( '/^<a/', '<a ' . $this->get_render_attribute_string( 'link' ), $link_html );
+	}
+
+	/**
+	 * Add Light-Box attributes.
+	 *
+	 * Used to add Light-Box-related data attributes to links that open media files.
+	 *
+	 * @param array|string $element         The link HTML element.
+	 * @param int $id                       The ID of the image
+	 * @param string $lightbox_setting_key  The setting key that dictates weather to open the image in a lightbox
+	 * @param string $group_id              Unique ID for a group of lightbox images
+	 * @param bool $overwrite               Optional. Whether to overwrite existing
+	 *                                      attribute. Default is false, not to overwrite.
+	 *
+	 * @return Widget_Base Current instance of the widget.
+	 * @since 2.9.0
+	 * @access public
+	 *
+	 */
+	public function add_lightbox_data_attributes( $element, $id = null, $lightbox_setting_key = null, $group_id = null, $overwrite = false ) {
+		$general_settings_model = SettingsManager::get_settings_managers( 'general' )->get_model();
+		$is_global_image_lightbox_enabled = 'yes' === $general_settings_model->get_settings( 'elementor_global_image_lightbox' );
+
+		if ( 'no' === $lightbox_setting_key ) {
+			if ( $is_global_image_lightbox_enabled ) {
+				$this->add_render_attribute( $element, 'data-elementor-open-lightbox', 'no' );
+			}
+
+			return $this;
+		}
+
+		if ( 'yes' !== $lightbox_setting_key && ! $is_global_image_lightbox_enabled ) {
+			return $this;
+		}
+
+		$attributes['data-elementor-open-lightbox'] = 'yes';
+
+		if ( $group_id ) {
+			$attributes['data-elementor-lightbox-slideshow'] = $group_id;
+		}
+
+		if ( $id ) {
+			$lightbox_image_attributes = Plugin::$instance->images_manager->get_lightbox_image_attributes( $id );
+
+			if ( isset( $lightbox_image_attributes['title'] ) ) {
+				$attributes['data-elementor-lightbox-title'] = $lightbox_image_attributes['title'];
+			}
+
+			if ( isset( $lightbox_image_attributes['description'] ) ) {
+				$attributes['data-elementor-lightbox-description'] = $lightbox_image_attributes['description'];
+			}
+		}
+
+		$this->add_render_attribute( $element, $attributes, null, $overwrite );
+
+		return $this;
 	}
 
 	/**
@@ -457,24 +521,24 @@ abstract class Widget_Base extends Element_Base {
 		 */
 		do_action( 'elementor/widget/before_render_content', $this );
 
-		if ( Plugin::$instance->editor->is_edit_mode() ) {
-			$this->render_edit_tools();
+		ob_start();
+
+		$skin = $this->get_current_skin();
+		if ( $skin ) {
+			$skin->set_parent( $this );
+			$skin->render();
+		} else {
+			$this->render();
 		}
 
+		$widget_content = ob_get_clean();
+
+		if ( empty( $widget_content ) ) {
+			return;
+		}
 		?>
 		<div class="elementor-widget-container">
 			<?php
-			ob_start();
-
-			$skin = $this->get_current_skin();
-			if ( $skin ) {
-				$skin->set_parent( $this );
-				$skin->render();
-			} else {
-				$this->render();
-			}
-
-			$widget_content = ob_get_clean();
 
 			/**
 			 * Render widget content.
@@ -792,5 +856,34 @@ abstract class Widget_Base extends Element_Base {
 	 */
 	public function get_skins() {
 		return Plugin::$instance->skins_manager->get_skins( $this );
+	}
+
+	/**
+	 * @param string $plugin_title  Plugin's title
+	 * @param string $since         Plugin version widget was deprecated
+	 * @param string $last          Plugin version in which the widget will be removed
+	 * @param string $replacement   Widget replacement
+	 */
+	protected function deprecated_notice( $plugin_title, $since, $last = '', $replacement = '' ) {
+		$this->start_controls_section( 'Deprecated',
+			[
+				'label' => __( 'Deprecated', 'elementor' ),
+			]
+		);
+
+		$this->add_control(
+			'deprecated_notice',
+			[
+				'type' => Controls_Manager::DEPRECATED_NOTICE,
+				'widget' => $this->get_title(),
+				'since' => $since,
+				'last' => $last,
+				'plugin' => $plugin_title,
+				'replacement' => $replacement,
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 }

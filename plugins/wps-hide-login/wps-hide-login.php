@@ -5,9 +5,10 @@ Description: Protect your website by changing the login URL and preventing acces
 Donate link: https://www.paypal.me/donateWPServeur
 Author: WPServeur, NicolasKulka, tabrisrp
 Author URI: https://wpserveur.net
-Version: 1.4.3
+Version: 1.5.6
 Requires at least: 4.1
-Tested up to: 4.9
+Tested up to: 5.4
+Requires PHP: 7.0
 Domain Path: languages
 Text Domain: wpserveur-hide-login
 License: GPLv2 or later
@@ -20,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'WPS_HIDE_LOGIN_VERSION', '1.4.3' );
+define( 'WPS_HIDE_LOGIN_VERSION', '1.5.6' );
 define( 'WPS_HIDE_LOGIN_FOLDER', 'wps-hide-login' );
 
 define( 'WPS_HIDE_LOGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -37,7 +38,7 @@ function plugins_loaded_wps_hide_login_plugin() {
 
 	load_plugin_textdomain( 'wpserveur-hide-login', false, dirname( WPS_HIDE_LOGIN_BASENAME ) . '/languages' );
 
-	$message = __( 'Do you like plugin WPS Hide Login? <br> Thank you for taking a few seconds to note us on', 'wps-hide-login' );
+	$message = __( 'Do you like plugin WPS Hide Login? <br> Thank you for taking a few seconds to note us on', 'wpserveur-hide-login' );
 	if( 'fr_FR' === get_locale() ) {
 		$message = 'Vous aimez l\'extension WPS Hide Login ?<br>Merci de prendre quelques secondes pour nous noter sur';
 	}

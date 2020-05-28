@@ -1,6 +1,7 @@
 <?php
 namespace Elementor\Core\DynamicTags;
 
+use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use Elementor\Core\Files\CSS\Post;
 use Elementor\Core\Files\CSS\Post_Preview;
 use Elementor\Plugin;
@@ -36,6 +37,29 @@ class Manager {
 	 */
 	public function __construct() {
 		$this->add_actions();
+	}
+
+	/**
+	 * Localize settings.
+	 *
+	 * Add new localized settings for the dynamic module.
+	 *
+	 * Fired by `elementor/editor/localize_settings` filter.
+	 *
+	 * @access public
+	 *
+	 * @param array $settings Localized settings.
+	 *
+	 * @return array Localized settings.
+	 */
+	public function localize_settings( $settings ) {
+		$settings = array_replace_recursive( $settings, [
+			'i18n' => [
+				'dynamic' => __( 'Dynamic', 'elementor' ),
+			],
+		] );
+
+		return $settings;
 	}
 
 	/**
@@ -224,6 +248,10 @@ class Manager {
 		return $tags[ $tag_name ];
 	}
 
+	/**
+	 * @since 2.0.9
+	 * @access public
+	 */
 	public function get_tags() {
 		if ( ! did_action( 'elementor/dynamic_tags/register_tags' ) ) {
 			/**
@@ -258,6 +286,7 @@ class Manager {
 	}
 
 	/**
+	 * @since 2.0.9
 	 * @access public
 	 *
 	 * @param string $tag_name
@@ -328,26 +357,22 @@ class Manager {
 	}
 
 	/**
-	 * @since  2.0.0
+	 * @since 2.0.0
 	 * @access public
 	 *
 	 * @throws \Exception If post ID is missing.
 	 * @throws \Exception If current user don't have permissions to edit the post.
 	 */
-	public function ajax_render_tags() {
-		Plugin::$instance->editor->verify_ajax_nonce();
-
-		$posted = $_POST; // WPCS: CSRF OK.
-
-		if ( empty( $posted['post_id'] ) ) {
+	public function ajax_render_tags( $data ) {
+		if ( empty( $data['post_id'] ) ) {
 			throw new \Exception( 'Missing post id.' );
 		}
 
-		if ( ! User::is_current_user_can_edit( $posted['post_id'] ) ) {
+		if ( ! User::is_current_user_can_edit( $data['post_id'] ) ) {
 			throw new \Exception( 'Access denied.' );
 		}
 
-		Plugin::$instance->db->switch_to_post( $posted['post_id'] );
+		Plugin::$instance->db->switch_to_post( $data['post_id'] );
 
 		/**
 		 * Before dynamic tags rendered.
@@ -360,7 +385,7 @@ class Manager {
 
 		$tags_data = [];
 
-		foreach ( $posted['tags'] as $tag_key ) {
+		foreach ( $data['tags'] as $tag_key ) {
 			$tag_key_parts = explode( '-', $tag_key );
 
 			$tag_name = base64_decode( $tag_key_parts[0] );
@@ -381,7 +406,7 @@ class Manager {
 		 */
 		do_action( 'elementor/dynamic_tags/after_render' );
 
-		wp_send_json_success( $tags_data );
+		return $tags_data;
 	}
 
 	/**
@@ -403,6 +428,8 @@ class Manager {
 	}
 
 	/**
+	 * @since 2.1.0
+	 * @access public
 	 * @param Post $css_file
 	 */
 	public function after_enqueue_post_css( $css_file ) {
@@ -414,9 +441,17 @@ class Manager {
 			$post_id_for_data = $post_id;
 		}
 
-		$css_file = new Dynamic_CSS( $post_id, $post_id_for_data );
+		$css_file = Dynamic_CSS::create( $post_id, $post_id_for_data );
 
 		$css_file->enqueue();
+	}
+
+	/**
+	 * @since 2.3.0
+	 * @access public
+	 */
+	public function register_ajax_actions( Ajax $ajax ) {
+		$ajax->register_ajax_action( 'render_tags', [ $this, 'ajax_render_tags' ] );
 	}
 
 	/**
@@ -424,7 +459,8 @@ class Manager {
 	 * @access private
 	 */
 	private function add_actions() {
-		add_action( 'wp_ajax_elementor_render_tags', [ $this, 'ajax_render_tags' ] );
+		add_action( 'elementor/ajax/register_actions', [ $this, 'register_ajax_actions' ] );
 		add_action( 'elementor/css-file/post/enqueue', [ $this, 'after_enqueue_post_css' ] );
+		add_filter( 'elementor/editor/localize_settings', [ $this, 'localize_settings' ] );
 	}
 }

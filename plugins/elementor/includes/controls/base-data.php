@@ -31,25 +31,6 @@ abstract class Base_Data_Control extends Base_Control {
 	}
 
 	/**
-	 * Retrieve default control settings.
-	 *
-	 * Get the default settings of the control. Used to return the default
-	 * settings while initializing the control.
-	 *
-	 * @since 2.0.0
-	 * @access protected
-	 *
-	 * @return array Control default settings.
-	 */
-	protected function get_default_settings() {
-		$default_settings = parent::get_default_settings();
-
-		$default_settings['dynamic'] = false;
-
-		return $default_settings;
-	}
-
-	/**
 	 * Get data control value.
 	 *
 	 * Retrieve the value of the data control from a specific Controls_Stack settings.
@@ -107,14 +88,20 @@ abstract class Base_Data_Control extends Base_Control {
 	 * while extracting CSS from the `selectors` data argument.
 	 *
 	 * @since 1.5.0
+	 * @since 2.3.3 New `$control_data` parameter added.
 	 * @access public
 	 *
 	 * @param string $css_property  CSS property.
 	 * @param string $control_value Control value.
+	 * @param array  $control_data Control Data.
 	 *
 	 * @return string Control style value.
 	 */
-	public function get_style_value( $css_property, $control_value ) {
+	public function get_style_value( $css_property, $control_value, array $control_data ) {
+		if ( 'DEFAULT' === $css_property ) {
+			return $control_data['default'];
+		}
+
 		return $control_value;
 	}
 
