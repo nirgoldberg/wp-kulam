@@ -81,10 +81,6 @@ $google_fonts = mtnc_add_google_fonts();
     echo '<link rel="stylesheet" href="' . WEGLOT_URL_DIST . '/css/front-css.css?v=' . WEGLOT_VERSION . '" type="text/css">';
     echo '<script src="' . WEGLOT_URL_DIST . '/front-js.js?v=' . WEGLOT_VERSION . '"></script>';
   }
-
-  if (mtnc_is_amelia_active() && $mt_options['amelia_enabled'] == 1) {
-    $mtnc->mtcn_amelia_scripts_and_styles();
-  }
 	?>
 </head>
 
@@ -102,18 +98,6 @@ $google_fonts = mtnc_add_google_fonts();
 		<div id="content" class="site-content">
 			<div class="center">
                 <?php do_action( 'content_section' ); ?>
-                
-                <?php
-                if (mtnc_is_amelia_active() && $mt_options['amelia_enabled'] == 1) {
-                  echo do_shortcode('[ameliabooking]');
-                }
-                ?>
-
-                <?php
-                if (mtnc_is_mailoptin_active() && $mt_options['mailoptin_campaign'] > 0) {
-                  echo MailOptin\Core\Admin\Customizer\OptinForm\OptinFormFactory::build($mt_options['mailoptin_campaign']);
-                }
-                ?>
 			</div>
 		</div>
 	</div> <!-- end wrapper -->
@@ -150,25 +134,6 @@ $google_fonts = mtnc_add_google_fonts();
 <?php endif; ?>
 <?php do_action( 'load_options_style' ); ?>
 <?php do_action( 'load_custom_scripts' );
-if (mtnc_is_mailoptin_active()) {
-  echo '<script type="text/javascript">
-              var mailoptin_globals = {
-                  "admin_url":"' . admin_url() . '",
-                  "public_js":"' . MAILOPTIN_ASSETS_URL . 'js/src",
-                  "nonce":"' . wp_create_nonce('mailoptin-admin-nonce') . '",
-                  "mailoptin_ajaxurl":"' . MailOptin\Core\AjaxHandler::get_endpoint() . '",
-                  "ajaxurl":"' . admin_url('admin-ajax.php') . '",
-                  "split_test_start_label":"Start Test",
-                  "split_test_pause_label":"Pause Test",
-                  "is_customize_preview":"false",
-                  "disable_impression_tracking":"false",
-                  "chosen_search_placeholder":"Type to search",
-                  "js_confirm_text":"Are you sure you want to do this?",
-                  "js_clear_stat_text":"Are you sure you want to do this? Clicking OK will delete all your optin analytics records."};
-          </script>';
-  echo '<script src="' . MAILOPTIN_ASSETS_URL . '/js/mailoptin.min.js"></script>';
-}
-
 
 ?>
 

@@ -326,9 +326,13 @@ footer .center {
 	max-width: 100%;
 }
 
-/*.logo-box-retina {*/
-	/*display: none*/
-/*}*/
+@media only screen and (min-width: 200px) and (max-width: 670px) {
+  div.logo-box > img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
 
 .logo.istext {
 	max-width: 100%;

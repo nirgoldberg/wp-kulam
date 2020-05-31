@@ -3,7 +3,7 @@
 	Plugin Name: Maintenance
 	Plugin URI: http://wordpress.org/plugins/maintenance/
 	Description: Put your site in maintenance mode, away from the public view. Use maintenance plugin if your website is in development or you need to change a few things, run an upgrade. Make it only accessible to logged in users.
-	Version: 3.85
+	Version: 3.90
 	Author: WP Maintenance
 	Author URI: https://wpmaintenancemode.com/
 	License: GPL2
@@ -48,15 +48,14 @@ class MTNC
     add_action('init', array(&$this, 'mtnc_admin_bar'));
     add_action('init', array(&$this, 'mtnc_set_global_options'), 1);
 
-    add_action('admin_action_mtnc_install_mailoptin', array(&$this, 'install_mailoptin'));
     add_action('admin_action_mtnc_install_weglot', array(&$this, 'install_weglot'));
-    add_action('admin_action_mtnc_install_amelia', array(&$this, 'install_amelia'));
 
     add_filter(
       'plugin_action_links_' . plugin_basename(__FILE__),
       array(&$this, 'plugin_action_links')
     );
     add_filter('install_plugins_table_api_args_featured', array(&$this, 'featured_plugins_tab'));
+    add_filter('install_plugins_table_api_args_recommended', array(&$this, 'featured_plugins_tab'));
   }
 
   // add settings link to plugins page
@@ -149,6 +148,9 @@ class MTNC
     if (is_callable(array('Hummingbird\WP_Hummingbird', 'flush_cache'))) {
       Hummingbird\WP_Hummingbird::flush_cache(true, false);
     }
+    if (function_exists('rocket_clean_domain')) {
+      rocket_clean_domain();
+    }
   }
 
   public function mtnc_user_logout()
@@ -232,9 +234,10 @@ class MTNC
   {
     remove_filter('plugins_api_result', array(__CLASS__, 'plugins_api_result'), 10, 3);
 
-    $res = $this->add_plugin_favs('wp-reset', $res);
+    $res = $this->add_plugin_favs('simple-author-box', $res);
     $res = $this->add_plugin_favs('eps-301-redirects', $res);
     $res = $this->add_plugin_favs('wp-force-ssl', $res);
+    $res = $this->add_plugin_favs('security-ninja', $res);
 
     return $res;
   } // plugins_api_result
@@ -298,123 +301,7 @@ class MTNC
     echo '</div>';
   } // install_weglot
 
-  // auto download / install / activate Amelia Booking plugin
-  function install_amelia()
-  {
-    if (false === current_user_can('administrator')) {
-      wp_die('Sorry, you have to be an admin to run this action.');
-    }
 
-    $plugin_slug = 'ameliabooking/ameliabooking.php';
-    $plugin_zip = 'https://downloads.wordpress.org/plugin/ameliabooking.latest-stable.zip';
-
-    @include_once ABSPATH . 'wp-admin/includes/plugin.php';
-    @include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-    @include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-    @include_once ABSPATH . 'wp-admin/includes/file.php';
-    @include_once ABSPATH . 'wp-admin/includes/misc.php';
-    echo '<style>
-		body{
-			font-family: sans-serif;
-			font-size: 14px;
-			line-height: 1.5;
-			color: #444;
-		}
-		</style>';
-
-    echo '<div style="margin: 20px; color:#444;">';
-    echo 'If things are not done in a minute <a target="_parent" href="' . admin_url('plugin-install.php?s=ameliabooking&tab=search&type=term') . '">install the plugin manually via Plugins page</a><br><br>';
-    echo 'Starting ...<br><br>';
-
-    wp_cache_flush();
-    $upgrader = new Plugin_Upgrader();
-    echo 'Check if Amelia Booking is already installed ... <br />';
-    if ($this->is_plugin_installed($plugin_slug)) {
-      echo 'Amelia Booking is already installed! <br /><br />Making sure it\'s the latest version.<br />';
-      $upgrader->upgrade($plugin_slug);
-      $installed = true;
-    } else {
-      echo 'Installing Amelia Booking.<br />';
-      $installed = $upgrader->install($plugin_zip);
-    }
-    wp_cache_flush();
-
-    if (!is_wp_error($installed) && $installed) {
-      echo 'Activating Amelia Booking.<br />';
-      $activate = activate_plugin($plugin_slug);
-
-      echo 'Amelia Booking Activated.<br />';
-
-      $mt_options = mtnc_get_plugin_options(true);
-      $mt_options['amelia_enabled'] = 1;
-      update_option('maintenance_options', $mt_options);
-
-      echo '<script>setTimeout(function() { top.location = "admin.php?page=maintenance"; }, 1000);</script>';
-      echo '<br>If you are not redirected in a few seconds - <a href="admin.php?page=maintenance" target="_parent">click here</a>.';
-
-    } else {
-      echo 'Could not install Amelia Booking. You\'ll have to <a target="_parent" href="' . admin_url('plugin-install.php?s=ameliabooking&tab=search&type=term') . '">download and install manually</a>.';
-    }
-
-    echo '</div>';
-  } // install_ameliabooking
-
-  // auto download / install / activate MailOptin plugin
-  function install_mailoptin() {
-    if (false === current_user_can('administrator')) {
-      wp_die('Sorry, you have to be an admin to run this action.');
-    }
-
-    $plugin_slug = 'mailoptin/mailoptin.php';
-    $plugin_zip = 'https://downloads.wordpress.org/plugin/mailoptin.latest-stable.zip';
-
-    @include_once ABSPATH . 'wp-admin/includes/plugin.php';
-    @include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-    @include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
-    @include_once ABSPATH . 'wp-admin/includes/file.php';
-    @include_once ABSPATH . 'wp-admin/includes/misc.php';
-    echo '<style>
-		body{
-			font-family: sans-serif;
-			font-size: 14px;
-			line-height: 1.5;
-			color: #444;
-		}
-		</style>';
-
-    echo '<div style="margin: 20px; color:#444;">';
-    echo 'If things are not done in a minute <a target="_parent" href="' . admin_url('plugin-install.php?s=mailoptin&tab=search&type=term') . '">install the plugin manually via Plugins page</a><br><br>';
-    echo 'Starting ...<br><br>';
-
-    wp_cache_flush();
-    $upgrader = new Plugin_Upgrader();
-    echo 'Check if MailOptin is already installed ... <br />';
-    if ($this->is_plugin_installed($plugin_slug)) {
-      echo 'MailOptin is already installed! <br /><br />Making sure it\'s the latest version.<br />';
-      $upgrader->upgrade($plugin_slug);
-      $installed = true;
-    } else {
-      echo 'Installing MailOptin.<br />';
-      $installed = $upgrader->install($plugin_zip);
-    }
-    wp_cache_flush();
-
-    if (!is_wp_error($installed) && $installed) {
-      echo 'Activating MailOptin.<br />';
-      $activate = activate_plugin($plugin_slug);
-
-      if (is_null($activate)) {
-        echo 'MailOptin Activated.<br />';
-
-        echo '<script>setTimeout(function() { top.location = "admin.php?page=maintenance"; }, 1000);</script>';
-        echo '<br>If you are not redirected in a few seconds - <a href="admin.php?page=maintenance" target="_parent">click here</a>.';
-      }
-    } else {
-      echo 'Could not install MailOptin. You\'ll have to <a target="_parent" href="' . admin_url('plugin-install.php?s=mailoptin&tab=search&type=term') .'">download and install manually</a>.';
-    }
-
-    echo '</div>';
-  } // install_mailoptin
 
   function is_plugin_installed($slug)
   {
@@ -430,56 +317,6 @@ class MTNC
     }
   } // is_plugin_installed
 
-  function mtcn_amelia_scripts_and_styles()
-  {
-        $settingsService = new AmeliaBooking\Domain\Services\Settings\SettingsService(new AmeliaBooking\Infrastructure\WP\SettingsService\SettingsStorage());
-
-        // Enqueue Scripts
-        if ($settingsService->getSetting('payments', 'payPal')['enabled'] === true) {
-            echo '<script src="https://www.paypalobjects.com/api/checkout.js"></script>';
-        }
-
-        echo '<script src="https://polyfill.io/v2/polyfill.js?features=Intl.~locale.en"></script>';
-
-        echo '<script>
-        var wpAmeliaUrls = '.wp_json_encode( [
-            'wpAmeliaPluginURL'     => AMELIA_URL,
-            'wpAmeliaPluginAjaxURL' => AMELIA_ACTION_URL
-        ] ).';
-        </script>';
-
-        echo '<script>
-        var wpAmeliaLabels = '.wp_json_encode( AmeliaBooking\Infrastructure\WP\Translations\FrontendStrings::getAllStrings() ).';
-        </script>';
-
-        echo '<script>
-        var wpAmeliaSettings = '.wp_json_encode( $settingsService->getFrontendSettings() ).';
-        </script>';
-
-        echo '<script>
-        var localeLanguage = '.wp_json_encode( AMELIA_LOCALE ).';
-        </script>';
-
-        echo '<script>
-        var fileUploadExtensions = '.wp_json_encode( array_keys(AmeliaBooking\Application\Services\CustomField\CustomFieldApplicationService::$allowedUploadedFileExtensions) ).';
-        </script>';
-
-        // Fix for Divi theme.
-        // Don't enqueue script if it's activated Divi Visual Page Builder
-        if (empty($_GET['et_fb'])) {
-            echo '<script src="' . AMELIA_URL . 'public/js/frontend/amelia-booking.js?v=' . AMELIA_VERSION . '"></script>';
-        }
-
-        if ($settingsService->getSetting('payments', 'stripe')['enabled'] === true) {
-            echo '<script src="https://js.stripe.com/v3/"></script>';
-        }
-
-        // Enqueue Styles
-        echo '<link rel="stylesheet" href="' . AMELIA_URL . 'public/css/frontend/vendor.css?v=' . AMELIA_VERSION . '" type="text/css">';
-        echo '<link rel="stylesheet" href="' . UPLOADS_URL . '/amelia/css/amelia-booking.css?v=' . AMELIA_VERSION . '" type="text/css">';
-
-    }
-
-}
+} // class MTNC
 
 $mtnc = new MTNC();

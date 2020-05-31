@@ -227,6 +227,10 @@ function mtnc_get_options_style()
     $options_style .= '}';
   }
 
+  if ($mt_options['blur_intensity'] == '0') {
+    $options_style .= ' body > .main-container:after { background-color: transparent; } ';
+  }
+
   if (!empty($mt_options['body_font_family'])) {
     $options_style .= 'body {font-family: ' . esc_attr($mt_options['body_font_family']) . '; }';
   }

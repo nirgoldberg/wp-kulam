@@ -1,9 +1,9 @@
 === Maintenance ===
-Contributors: WebFactory, UnderConstructionPage, googlemapswidget, wpreset
+Contributors: WebFactory, UnderConstructionPage, googlemapswidget, wpreset, securityninja
 Tags: maintenance, maintenance mode, maintenance page, coming soon, coming soon page, under construction, under construction page
 Requires at least: 4.0
 Tested up to: 5.4
-Stable tag: 3.85
+Stable tag: 3.90
 Requires PHP: 5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,9 +16,8 @@ Maintenance plugin allows the WordPress site administrator to close the website 
 
 Thanks to our partners at <a href="https://wordpress.org/plugins/weglot/">Weglot</a>, Maintenance is fully multilanguage ready and you can instantly translate your maintenance page to 100+ languages with one click.
 
-WP Maintenance has full support for collecting leads and subscribers via optin boxes in content, and optin popups. We've integrated <a href="https://wordpress.org/plugins/mailoptin/">MailOptin</a> a great, free plugin into Maintenance that connects to MailChimp and numerous other autoresponder services allowing you to easily collect emails.
+Let <a href="https://wordpress.org/plugins/security-ninja/">Security Ninja</a> take care of your site's security from day one! Run over 50 security tests with one click. Get a detailed report and automatically fix security issues.
 
-You can easily add events and bookings calendar to your maintenance page thanks to our integration with <a href="https://wordpress.org/plugins/ameliabooking/">Amelia</a> - a free events & appointments booking calendar. It sets up in minutes and you can immediately start taking appointments. 
 
 <h3>Features</h3>
 <ul>
@@ -86,7 +85,14 @@ No, it will be display error on current maintenance page, without redirect to wp
 Please post the question on the <a href="http://wordpress.org/support/plugin/maintenance">support forum</a>.
 
 
-== Change log ==
+== Changelog ==
+
+= v3.90 =
+- 2020/05/30
+- bug fixes
+- removed integration with Amelia Booking
+- added support for WP Rocket Cache plugin
+- fixed blur issue
 
 = v3.85 =
 - 2019/11/28

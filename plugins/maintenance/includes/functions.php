@@ -136,7 +136,7 @@ function mtnc_generate_image_filed($title, $id, $name, $value, $class, $name_btn
   $url        = '';
   if ($value !== '') {
     $image = wp_get_attachment_image_src($value, 'full');
-    $url   = esc_url($image[0]);
+    $url   = @esc_url($image[0]);
   }
 
   $out_filed .= '<div class="' . esc_attr($class) . '" style="background-image:url(' . $url . ')">';
@@ -303,8 +303,8 @@ function mtnc_page_create_meta_boxes_widget_support()
   global $mtnc_variable;
 
   add_meta_box('promo-review2', __('Help us keep the plugin free &amp; maintained', 'maintenance'), 'mtnc_review_box', $mtnc_variable->options_page, 'side', 'high');
-  if (!mtnc_is_amelia_active()) {
-    add_meta_box('promo-amelia', __('Add Events & Appointments Booking to Your Maintenance Page', 'maintenance'), 'mtnc_promo_amelia', $mtnc_variable->options_page, 'side', 'default');
+  if (!mtnc_is_sn_active()) {
+    add_meta_box('promo-sn', __('Protect your site from day one with Security Ninja', 'maintenance'), 'mtnc_promo_sn', $mtnc_variable->options_page, 'side', 'default');
   }
   add_meta_box('promo-content2', __('Something is not working? Do you need our help?', 'maintenance'), 'mtnc_contact_support', $mtnc_variable->options_page, 'side', 'default');
   //add_meta_box('promo-extended', __('Translate Maintanance page to 100+ languages', 'maintenance'), 'mtnc_extended_version', $mtnc_variable->options_page, 'side', 'default');
@@ -346,7 +346,6 @@ function mtnc_add_data_fields($object, $box)
         mtnc_generate_input_filed(__('Headline', 'maintenance'), 'heading', 'heading', $heading);
         mtnc_generate_tinymce_filed(__('Description', 'maintenance'), 'description', 'description', $description);
         mtnc_generate_input_filed(__('Footer Text', 'maintenance'), 'footer_text', 'footer_text', $footer_text);
-        mtnc_amelia_option();
         mtnc_weglot_option();
         mtnc_generate_check_filed(__('Show Some Love', 'maintenance'), __('Show a small link in the footer to let others know you\'re using this awesome &amp; free plugin', 'maintenance'), 'show_some_love', 'show_some_love', !empty($mt_option['show_some_love']));
         mtnc_generate_number_filed(__('Set Logo width', 'maintenance'), 'logo_width', 'logo_width', $logo_width);
@@ -359,7 +358,6 @@ function mtnc_add_data_fields($object, $box)
 
         do_action('mtnc_color_fields');
         do_action('mtnc_font_fields');
-        mtnc_mailoptin_option();
         mtnc_generate_check_filed(__('503 Response Code', 'maintenance'), __('Service temporarily unavailable, Google analytics will be disabled.', 'maintenance'), '503_enabled', '503_enabled', !empty($mt_option['503_enabled']));
 
         $gg_analytics_id = '';
@@ -385,70 +383,6 @@ function mtnc_add_data_fields($object, $box)
     </tbody>
   </table>
 <?php
-}
-
-// check if MailOptin plugin is active and min version installed
-function mtnc_is_mailoptin_active() {
-  if (!function_exists('is_plugin_active') || !function_exists('get_plugin_data')) {
-   require_once ABSPATH . 'wp-admin/includes/plugin.php';
-  }
-
-  if (is_plugin_active('mailoptin/mailoptin.php')) {
-    $mailoptin_info = get_plugin_data(ABSPATH . 'wp-content/plugins/mailoptin/mailoptin.php');
-    if( version_compare($mailoptin_info['Version'], '1.2.10.1', '<')) {
-      return false;
-    } else {
-      return true;
-    }
-  } else {
-    return false;
-  }
-} // is_mailoptin_active
-
-function mtnc_mailoptin_option() {
-  $mt_option = mtnc_get_plugin_options(true);
-
-  if (mtnc_is_mailoptin_active()) {
-    global $wpdb;
-
-    $mailoptin_campaigns = $wpdb->get_results('SELECT * FROM ' . $wpdb->prefix . 'mo_optin_campaigns');
-    $campaigns = array();
-
-    if (!empty($mailoptin_campaigns)) {
-      $campaigns[] = array('val' => -1, 'label' => 'Disable optins');
-      foreach ($mailoptin_campaigns as $mailoptin_campaign) {
-        if ($mailoptin_campaign->optin_type == 'lightbox') {
-          $type = 'lightbox optin';
-        } else {
-          $type = 'content box optin';
-        }
-        $campaigns[] = array('val' => $mailoptin_campaign->id, 'label' => $mailoptin_campaign->name . ' - ' . $type);
-      } // foreach
-    } // if campaigns
-
-    echo '<tr id="mailoptin-settings">';
-    echo '<th><label for="mailoptin_campaign">Optin Boxes &amp; Popups</label></th>';
-    echo '<td>';
-    if ($campaigns) {
-      echo '<select name="lib_options[mailoptin_campaign]" id="mailoptin_campaign">';
-      echo mtnc_create_select_options($campaigns, $mt_option['mailoptin_campaign']);
-      echo '</select>';
-    } else {
-      echo '<p><a href="' . admin_url('admin.php?page=mailoptin-optin-campaigns') . '">Create your first optin</a> to start collecting leads and subscribers</p>';
-    }
-    echo 'Create, edit and manage optins on the <a href="' . admin_url('admin.php?page=mailoptin-optin-campaigns') . '">MailOptin campaigns page</a>. Lightbox optins are more prominent but some users find them annoying. Content box optins tend to generate leads of higher quality.';
-    echo '</td>';
-    echo '</tr>';
-  } else {
-    echo '<tr>';
-    echo '<th><label for="">Optin Boxes &amp; Popups</label></th>';
-    echo '<td>';
-    echo '<input type="checkbox" id="mailoptin_support" type="checkbox" value="1" class="skip-save open-mailoptin-upsell">';
-    echo '<p class="description">Collecting leads and subscribers is one of the most important aspect of any business. ';
-    echo 'To add optin boxes &amp; optin popups compatible with Mailchimp and many other autoresponders <a href="#" class="open-mailoptin-upsell">install the free MailOptin plugin</a>. It seamlessly integrates with Maintenance, offers numerous options and will enable you to collect leads without any additional costs.</p>';
-    echo '</td>';
-    echo '</tr>';
-  } // mailoptin not active
 }
 
 // helper function for creating dropdowns
@@ -517,23 +451,6 @@ function mtnc_weglot_option() {
     } // weglot not active
 }
 
-function mtnc_amelia_option() {
-    $mt_option = mtnc_get_plugin_options(true);
-
-    if (mtnc_is_amelia_active()) {
-        mtnc_generate_check_filed(__('Show Events &amp; Appointments Booking Calendar', 'maintenance'), __('Amelia is an events &amp; appointments booking plugin that allows to set up a fully-featured automated booking system on your WordPress website and is a handy tool for small businesses and individuals that depend on stable appointment booking processes.', 'maintenance'), 'amelia_enabled', 'amelia_enabled', !empty($mt_option['amelia_enabled']));
-      } else {
-        echo '<tr>';
-        echo '<th><label for="amelia_enabled">Show Events &amp; Appointments Booking Calendar</label></th>';
-        echo '<td>';
-            echo '<input type="checkbox" id="amelia_enabled" type="checkbox" value="1" class="skip-save open-amelia-upsell">';
-            echo 'Amelia is a free events &amp; appointments booking plugin that allows to set up a fully-featured automated booking system on your WordPress site and is a handy tool for small businesses and individuals that depend on stable appointment booking processes. ';
-            echo '<a href="#" class="open-amelia-upsell">Install the Amelia Booking plugin</a>';
-        echo '</td>';
-        echo '</tr>';
-      } // weglot not active
-  }
-
 // check if Weglot is completely set up
 function mtnc_is_weglot_setup() {
   if (!mtnc_is_weglot_active()) {
@@ -567,22 +484,17 @@ function mtnc_is_weglot_active() {
 } // is_weglot_active
 
 // check if Weglot plugin is active and min version installed
-function mtnc_is_amelia_active() {
+function mtnc_is_sn_active() {
     if (!function_exists('is_plugin_active') || !function_exists('get_plugin_data')) {
      require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
 
-    if (is_plugin_active('ameliabooking/ameliabooking.php')) {
-      $weglot_info = get_plugin_data(ABSPATH . 'wp-content/plugins/ameliabooking/ameliabooking.php');
-      if( version_compare($weglot_info['Version'], '1.0.10', '<')) {
-        return false;
-      } else {
-        return true;
-      }
+    if (is_plugin_active('security-ninja/security-ninja.php')) {
+      return true;
     } else {
       return false;
     }
-} // is_amelia_active
+} // is_sn_active
 
 function mtnc_add_css_fields()
 {
@@ -2185,13 +2097,11 @@ function mtnc_extended_version()
   echo $promo_text; // phpcs:ignore WordPress.Security.EscapeOutput
 }
 
-function mtnc_promo_amelia()
+function mtnc_promo_sn()
 {
   $promo_text  = '';
-  if (mtnc_is_amelia_active()) {
-    $promo_text .= '<p>You are minutes away from having your events and booking calendar thanks to <a href="https://wordpress.org/plugins/ameliabooking/" target="_blank">Amelia</a>! Make sure you configure everything in <a href="' . admin_url('admin.php?page=wpamelia-dashboard#/dashboard') . '" target="_blank">Amelia options</a> so that visitors can book their attendances and appointments.</p>';
-  } else {
-    $promo_text .= '<a title="Install Amelia and add Event and Appointments Booking" href="#" class="open-amelia-upsell"><img src="' . MTNC_URI . 'images/amelia.png" alt="Install Amelia and add Event and Appointments Booking" title="Install Amelia and add Event and Appointments Booking"></a>';
+  if (!mtnc_is_sn_active()) {
+    $promo_text .= '<a href="' . admin_url('plugin-install.php?fix-install-button=1&tab=plugin-information&plugin=security-ninja&TB_iframe=true&width=600&height=550') . '" class="thickbox open-plugin-details-modal"><img src="' . MTNC_URI . 'images/security-ninja.png" alt="Security Ninja" title="Security Ninja"></a>';
   }
   echo $promo_text;
 }
@@ -2454,9 +2364,7 @@ function mtnc_get_default_array()
     'is_login'          => true,
     'custom_css'        => '',
     'exclude_pages'     => '',
-    'mailoptin_campaign'=> '-1',
     'default_settings'  => true,
-    'amelia_enabled'    => 0
   );
 
   return apply_filters('mtnc_get_default_array', $defaults);

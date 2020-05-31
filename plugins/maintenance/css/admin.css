@@ -44,48 +44,29 @@
   line-height: 150%;
 }
 
-.weglot-upsell-dialog .ui-dialog-titlebar,
-.amelia-upsell-dialog .ui-dialog-titlebar {
+.weglot-upsell-dialog .ui-dialog-titlebar {
   background: linear-gradient(140deg, #335ee2 10%, #271f50 90%);
   text-align: center;
   height: 55px;
 }
 
-.weglot-upsell-dialog .ui-dialog-titlebar img,
-.mailoptin-upsell-dialog .ui-dialog-titlebar img,
-.amelia-upsell-dialog .ui-dialog-titlebar img {
+.weglot-upsell-dialog .ui-dialog-titlebar img {
   height: 32px;
   display: inline-block;
   margin: 11px 0 0 0;
 }
-.mailoptin-upsell-dialog .ui-dialog-titlebar{
-  background: #2980b9;
-  text-align: center;
-  height: 55px;
-}
 
-.amelia-upsell-dialog .ui-dialog-titlebar {
-  background: #3ba6ff;
-  text-align: center;
-  height: 55px;
-}
-
-.weglot-upsell-dialog .ui-button.ui-dialog-titlebar-close,
-.mailoptin-upsell-dialog .ui-button.ui-dialog-titlebar-close,
-.amelia-upsell-dialog .ui-button.ui-dialog-titlebar-close {
+.weglot-upsell-dialog .ui-button.ui-dialog-titlebar-close {
   color: #fff;
   height: 55px;
 }
 
-#promo-extended img,
-#promo-amelia img {
+#promo-extended img {
   max-width: 100%;
 }
 
-#promo-amelia .inside {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+#promo-sn img {
+  max-width: 100%;
 }
 
 #wpbody-content .metabox-holder {

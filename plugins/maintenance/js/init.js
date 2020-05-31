@@ -111,14 +111,6 @@ jQuery(window).ready(function($) {
 
     return false;
   });
-  $('#mailoptin_support').on('click change', function(e) {
-    e.preventDefault();
-    $(this).prop("checked", false);
-
-    $('#mailoptin-upsell-dialog').dialog('open');
-
-    return false;
-  });
 
   // upsell dialog init
   $('#weglot-upsell-dialog').dialog({'dialogClass': 'wp-dialog weglot-upsell-dialog',
@@ -152,90 +144,9 @@ jQuery(window).ready(function($) {
     return false;
   });
 
-  $('#amelia-upsell-dialog').dialog({'dialogClass': 'wp-dialog amelia-upsell-dialog',
-                              'modal': 1,
-                              'resizable': false,
-                              'title': 'Translate your maintenance page to any language', //todo
-                              'zIndex': 9999,
-                              'width': 550,
-                              'height': 'auto',
-                              'show': 'fade',
-                              'hide': 'fade',
-                              'open': function(event, ui) {
-                                maintenance_fix_dialog_close(event, ui);
-                                $(this).siblings().find('span.ui-dialog-title').html(mtnc.amelia_dialog_upsell_title);
-                              },
-                              'close': function(event, ui) { },
-                              'autoOpen': false,
-                              'closeOnEscape': true
-  });
-  $(window).resize(function(e) {
-    $('#amelia-upsell-dialog').dialog("option", "position", {my: "center", at: "center", of: window});
-  });
-
-  $('body').on('click', '.open-amelia-upsell', function(e) {
-    e.preventDefault();
-
-    $(this).blur();
-
-    $('#amelia-upsell-dialog').dialog('open');
-
-    return false;
-  });
-
-  $('body').on('click', '.open-mailoptin-upsell', function(e) {
-    e.preventDefault();
-
-    $(this).blur();
-
-    $('#mailoptin-upsell-dialog').dialog('open');
-
-    return false;
-  });
-
-
   jQuery('#install-weglot').on('click',function(e){
     $('#weglot-upsell-dialog').dialog('close');
     jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + mtnc.weglot_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
-    jQuery('#wpwrap').css('pointer-events', 'none');
-    e.preventDefault();
-    return false;
-  });
-
-  jQuery('#install-amelia').on('click',function(e){
-    $('#amelia-upsell-dialog').dialog('close');
-    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + mtnc.amelia_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
-    jQuery('#wpwrap').css('pointer-events', 'none');
-    e.preventDefault();
-    return false;
-  });
-
-  // upsell dialog init
-  $('#mailoptin-upsell-dialog').dialog({'dialogClass': 'wp-dialog mailoptin-upsell-dialog',
-                              'modal': 1,
-                              'resizable': false,
-                              'title': 'Start Collecting Leads and Subscribers',
-                              'zIndex': 9999,
-                              'width': 550,
-                              'height': 'auto',
-                              'show': 'fade',
-                              'hide': 'fade',
-                              'open': function(event, ui) {
-                                maintenance_fix_dialog_close(event, ui);
-                                $(this).siblings().find('span.ui-dialog-title').html(mtnc.mailoptin_dialog_upsell_title);
-                              },
-                              'close': function(event, ui) { },
-                              'autoOpen': false,
-                              'closeOnEscape': true
-  });
-  $(window).resize(function(e) {
-    $('#mailoptin-upsell-dialog').dialog("option", "position", {my: "center", at: "center", of: window});
-  });
-
-
-  jQuery('#install-mailoptin').on('click',function(e){
-    $('#mailoptin-upsell-dialog').dialog('close');
-    jQuery('body').append('<div style="width:550px;height:450px; position:fixed;top:10%;left:50%;margin-left:-275px; color:#444; background-color: #fbfbfb;border:1px solid #DDD; border-radius:4px;box-shadow: 0px 0px 0px 4000px rgba(0, 0, 0, 0.85);z-index: 9999999;"><iframe src="' + mtnc.mailoptin_install_url + '" style="width:100%;height:100%;border:none;" /></div>');
     jQuery('#wpwrap').css('pointer-events', 'none');
     e.preventDefault();
     return false;
