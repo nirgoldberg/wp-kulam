@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - WordPress Importer - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-13 06:25:14+0000\n"
+"PO-Revision-Date: 2020-05-28 09:50:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - WordPress Importer - Stable (latest release)\n"
 
@@ -103,7 +103,7 @@ msgstr "Importer les fichiers joints"
 
 #: class-wp-import.php:254
 msgid "Download and import file attachments"
-msgstr "Téléverser le fichier et l’importer"
+msgstr "Téléverser et importer les fichiers joints"
 
 #: class-wp-import.php:258
 msgid "Submit"
