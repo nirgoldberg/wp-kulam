@@ -2,18 +2,14 @@
 namespace ElementorPro\Modules\Social\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Plugin;
-use Elementor\Settings;
-use Elementor\Utils;
-use Elementor\Widget_Base;
+use ElementorPro\Base\Base_Widget;
 use ElementorPro\Modules\Social\Classes\Facebook_SDK_Manager;
-use ElementorPro\Modules\Social\Module;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Facebook_Page extends Widget_Base {
+class Facebook_Page extends Base_Widget {
 
 	public function get_name() {
 		return 'facebook-page';
@@ -27,8 +23,8 @@ class Facebook_Page extends Widget_Base {
 		return 'eicon-fb-feed';
 	}
 
-	public function get_categories() {
-		return [ 'pro-elements' ];
+	public function get_keywords() {
+		return [ 'facebook', 'social', 'embed', 'page' ];
 	}
 
 	protected function _register_controls() {
@@ -44,7 +40,7 @@ class Facebook_Page extends Widget_Base {
 		$this->add_control(
 			'url',
 			[
-				'label' => __( 'URL', 'elementor-pro' ),
+				'label' => __( 'Link', 'elementor-pro' ),
 				'placeholder' => 'https://www.facebook.com/your-page/',
 				'default' => 'https://www.facebook.com/elemntor/',
 				'label_block' => true,
@@ -82,7 +78,7 @@ class Facebook_Page extends Widget_Base {
 		$this->add_control(
 			'show_cover',
 			[
-				'label' => __( 'Cover', 'elementor-pro' ),
+				'label' => __( 'Cover Photo', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
@@ -91,12 +87,11 @@ class Facebook_Page extends Widget_Base {
 		$this->add_control(
 			'show_facepile',
 			[
-				'label' => __( 'Profile Photos ', 'elementor-pro' ),
+				'label' => __( 'Profile Photos', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
 			]
 		);
-
 
 		$this->add_control(
 			'show_cta',
@@ -134,6 +129,7 @@ class Facebook_Page extends Widget_Base {
 
 		if ( empty( $settings['url'] ) ) {
 			echo $this->get_title() . ': ' . esc_html__( 'Please enter a valid URL', 'elementor-pro' ); // XSS ok.
+
 			return;
 		}
 
@@ -148,6 +144,7 @@ class Facebook_Page extends Widget_Base {
 			'data-hide-cover' => $settings['show_cover'] ? 'false' : 'true', // if `show` - don't hide.
 			'data-show-facepile' => $settings['show_facepile'] ? 'true' : 'false',
 			'data-hide-cta' => $settings['show_cta'] ? 'false' : 'true', // if `show` - don't hide.
+			'data-adapt-container-width' => 'true', // try to adapt width (min 180px max 500px)
 			// The style prevent's the `widget.handleEmptyWidget` to set it as an empty widget.
 			'style' => 'min-height: 1px;height:' . $height,
 		];

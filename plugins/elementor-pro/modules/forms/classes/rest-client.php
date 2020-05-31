@@ -1,12 +1,14 @@
 <?php
 namespace ElementorPro\Modules\Forms\Classes;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Rest_Client {
 
 	private $api_base_url = '';
-	private $user_agent = 'Elementor Pro Forms (elementor.com)';
+	private $user_agent = 'Elementor Forms (elementor.com)';
 	public $request_cache = [];
 	private $headers = [];
 	private $request_args = [];
@@ -18,7 +20,34 @@ class Rest_Client {
 			 ->set_request_arg( 'sslverify', false )
 			 ->add_headers( 'User-Agent', $this->user_agent );
 
+		/**
+		 * Elementor form Rest Client Init
+		 *
+		 * Fires on client init
+		 *
+		 * @since 2.4.0
+		 *
+		 * @param Rest_Client $this
+		 */
+		do_action( 'elementor-pro/forms/rest_client/init', $this );
+
 		return $this;
+	}
+
+	/**
+	 * set base url
+	 * @param string $url
+	 */
+	public function set_base_url( $url ) {
+		$this->api_base_url = $url;
+	}
+
+	/**
+	 * get base url
+	 * @return string
+	 */
+	public function get_base_url() {
+		return $this->api_base_url;
 	}
 
 	/**
@@ -30,42 +59,48 @@ class Rest_Client {
 	public function add_headers( $key, $value = null ) {
 		if ( ! is_array( $key ) ) {
 			$this->headers[ $key ] = $value;
+
 			return $this;
 		}
 		foreach ( $key as $header => $header_value ) {
 			$this->headers[ $header ] = $header_value;
 		}
+
 		return $this;
 	}
 
 	/**
 	 * @param string $name
-	 * @param null $value
+	 * @param null   $value
 	 *
 	 * @return $this
 	 */
 	public function set_request_arg( $name = '', $value = null ) {
 		$this->request_args[ $name ] = $value;
+
 		return $this;
 	}
 
 	/**
 	 * @uses request
+	 *
 	 * @param string $endpoint
-	 * @param null $data
+	 * @param null   $data
 	 *
 	 * @return array|mixed
 	 * @throws \Exception
 	 */
 	public function post( $endpoint = '', $data = null ) {
 		$request_body = wp_json_encode( $data );
+
 		return $this->request( 'POST', $endpoint, $request_body );
 	}
 
 	/**
 	 * @uses request
+	 *
 	 * @param string $endpoint
-	 * @param null $data
+	 * @param null   $data
 	 *
 	 * @return array|mixed
 	 * @throws \Exception
@@ -77,8 +112,8 @@ class Rest_Client {
 	/**
 	 * @param string $method
 	 * @param string $endpoint
-	 * @param null $request_body
-	 * @param int $valid_response_code
+	 * @param null   $request_body
+	 * @param int    $valid_response_code
 	 *
 	 * @return array
 	 * @throws \Exception
@@ -115,7 +150,7 @@ class Rest_Client {
 		$response_body = json_decode( wp_remote_retrieve_body( $response ), true );
 
 		if ( ! is_array( $response_body ) ) {
-			throw new \Exception( 'Rest Client Error: unexpected response type ' );
+			throw new \Exception( 'Rest Client Error: unexpected response type' );
 		}
 
 		$return = [

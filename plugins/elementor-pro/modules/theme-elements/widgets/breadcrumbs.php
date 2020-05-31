@@ -2,8 +2,8 @@
 namespace ElementorPro\Modules\ThemeElements\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
@@ -27,12 +27,22 @@ class Breadcrumbs extends Base {
 		return [ 'breadcrumbs' ];
 	}
 
+	public function get_keywords() {
+		return [ 'yoast', 'seo', 'breadcrumbs', 'internal links' ];
+	}
+
 	private function is_breadcrumbs_enabled() {
 		$breadcrumbs_enabled = current_theme_supports( 'yoast-seo-breadcrumbs' );
 		if ( ! $breadcrumbs_enabled ) {
+			// The check for option 'wpseo_internallinks' is a BC fix for old versions of Yoast (<7.0.0).
+			// In this version Yoast changed the DB key for the breadcrumbs options to 'wpseo_titles'.
 			$options = get_option( 'wpseo_internallinks' );
+			if ( empty( $options ) ) {
+				$options = get_option( 'wpseo_titles' );
+			}
 			$breadcrumbs_enabled = true === $options['breadcrumbs-enable'];
 		}
+
 		return $breadcrumbs_enabled;
 	}
 
@@ -48,9 +58,9 @@ class Breadcrumbs extends Base {
 			$this->add_control(
 				'html_disabled_alert',
 				[
-					'raw' => __( 'Breadcrumbs are disabled in the Yoast SEO', 'elementor-pro' ) . ' ' . sprintf( '<a href="%s" target="_blank">%s</a>', admin_url( 'admin.php?page=wpseo_advanced&tab=breadcrumbs' ), __( 'Breadcrumbs Panel', 'elementor-pro' ) ),
+					'raw' => __( 'Breadcrumbs are disabled in the Yoast SEO', 'elementor-pro' ) . ' ' . sprintf( '<a href="%s" target="_blank">%s</a>', admin_url( 'admin.php?page=wpseo_titles#top#breadcrumbs' ), __( 'Breadcrumbs Panel', 'elementor-pro' ) ),
 					'type' => Controls_Manager::RAW_HTML,
-					'content_classes' => 'elementor-panel-alert elementor-panel-alert-danger',
+					'content_classes' => 'elementor-panel-alert elementor-panel-alert-info',
 				]
 			);
 		}
@@ -63,15 +73,15 @@ class Breadcrumbs extends Base {
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'elementor-pro' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'elementor-pro' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'elementor-pro' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 				],
 				'prefix_class' => 'elementor%s-align-',
@@ -97,7 +107,7 @@ class Breadcrumbs extends Base {
 		$this->add_control(
 			'html_description',
 			[
-				'raw' => __( 'Additional settings are available in the Yoast SEO', 'elementor-pro' ) . ' ' . sprintf( '<a href="%s" target="_blank">%s</a>', admin_url( 'admin.php?page=wpseo_advanced&tab=breadcrumbs' ), __( 'Breadcrumbs Panel', 'elementor-pro' ) ),
+				'raw' => __( 'Additional settings are available in the Yoast SEO', 'elementor-pro' ) . ' ' . sprintf( '<a href="%s" target="_blank">%s</a>', admin_url( 'admin.php?page=wpseo_titles#top#breadcrumbs' ), __( 'Breadcrumbs Panel', 'elementor-pro' ) ),
 				'type' => Controls_Manager::RAW_HTML,
 				'content_classes' => 'elementor-descriptor',
 			]
@@ -118,7 +128,7 @@ class Breadcrumbs extends Base {
 			[
 				'name' => 'typography',
 				'selector' => '{{WRAPPER}}',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
 			]
 		);
 

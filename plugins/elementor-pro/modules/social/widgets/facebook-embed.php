@@ -2,15 +2,14 @@
 namespace ElementorPro\Modules\Social\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Widget_Base;
+use ElementorPro\Base\Base_Widget;
 use ElementorPro\Modules\Social\Classes\Facebook_SDK_Manager;
-use ElementorPro\Modules\Social\Module;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Facebook_Embed extends Widget_Base {
+class Facebook_Embed extends Base_Widget {
 
 	public function get_name() {
 		return 'facebook-embed';
@@ -26,6 +25,10 @@ class Facebook_Embed extends Widget_Base {
 
 	public function get_categories() {
 		return [ 'pro-elements' ];
+	}
+
+	public function get_keywords() {
+		return [ 'facebook', 'social', 'embed', 'video', 'post', 'comment' ];
 	}
 
 	protected function _register_controls() {
@@ -57,6 +60,9 @@ class Facebook_Embed extends Widget_Base {
 			[
 				'label' => __( 'URL', 'elementor-pro' ),
 				'default' => 'https://www.facebook.com/elemntor/posts/1823653464612271',
+				'dynamic' => [
+					'active' => true,
+				],
 				'label_block' => true,
 				'condition' => [
 					'type' => 'post',
@@ -70,6 +76,9 @@ class Facebook_Embed extends Widget_Base {
 			[
 				'label' => __( 'URL', 'elementor-pro' ),
 				'default' => 'https://www.facebook.com/elemntor/videos/1683988961912056/',
+				'dynamic' => [
+					'active' => true,
+				],
 				'label_block' => true,
 				'condition' => [
 					'type' => 'video',
@@ -83,6 +92,9 @@ class Facebook_Embed extends Widget_Base {
 			[
 				'label' => __( 'URL', 'elementor-pro' ),
 				'default' => 'https://www.facebook.com/elemntor/videos/1811703749140576/?comment_id=1812873919023559',
+				'dynamic' => [
+					'active' => true,
+				],
 				'label_block' => true,
 				'condition' => [
 					'type' => 'comment',
@@ -156,15 +168,17 @@ class Facebook_Embed extends Widget_Base {
 	}
 
 	public function render() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
 		if ( empty( $settings['type'] ) ) {
 			esc_html_e( 'Please set the embed type', 'elementor-pro' );
+
 			return;
 		}
 
 		if ( 'comment' === $settings['type'] && empty( $settings['comment_url'] ) || 'post' === $settings['type'] && empty( $settings['post_url'] ) || 'video' === $settings['type'] && empty( $settings['video_url'] ) ) {
 			esc_html_e( 'Please enter a valid URL', 'elementor-pro' );
+
 			return;
 		}
 

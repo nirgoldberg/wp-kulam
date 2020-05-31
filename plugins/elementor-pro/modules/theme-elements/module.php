@@ -22,6 +22,8 @@ class Module extends Module_Base {
 			'Author_Box',
 			'Post_Comments',
 			'Post_Navigation',
+			'Post_Info',
+			'Sitemap',
 		];
 
 		if ( $this->is_yoast_seo_active() ) {
@@ -33,23 +35,5 @@ class Module extends Module_Base {
 
 	public function is_yoast_seo_active() {
 		return function_exists( 'yoast_breadcrumb' );
-	}
-
-	private function add_panel_category() {
-		// Add element category in panel
-		\Elementor\Plugin::$instance->elements_manager->add_category(
-			'theme-elements',
-			[
-				'title' => __( 'Theme Elements', 'elementor-pro' ),
-				'icon' => 'font',
-			],
-			1
-		);
-	}
-
-	public function __construct() {
-		parent::__construct();
-
-		$this->add_panel_category();
 	}
 }

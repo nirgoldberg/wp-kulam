@@ -1,12 +1,12 @@
 <?php
 namespace ElementorPro\Modules\Forms;
 
+use Elementor\Core\Common\Modules\Ajax\Module as Ajax;
 use ElementorPro\Base\Module_Base;
 use ElementorPro\Modules\Forms\Actions;
 use ElementorPro\Modules\Forms\Classes;
 use ElementorPro\Modules\Forms\Fields;
 use ElementorPro\Modules\Forms\Controls\Fields_Map;
-use ElementorPro\Modules\Forms\Widgets\Form;
 use ElementorPro\Plugin;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,9 +37,10 @@ class Module extends Module_Base {
 	public function localize_settings( $settings ) {
 		$settings = array_replace_recursive( $settings, [
 			'i18n' => [
-				'x_field' => __( '{0} Field', 'elementor-pro' ),
+				'x_field' => __( '%s Field', 'elementor-pro' ),
 			],
 		] );
+
 		return $settings;
 	}
 
@@ -67,35 +68,28 @@ class Module extends Module_Base {
 		$controls_manager->register_control( Fields_Map::CONTROL_TYPE, new Fields_Map() );
 	}
 
-	public function forms_panel_action_data() {
-		Plugin::elementor()->editor->verify_ajax_nonce();
-
-		if ( empty( $_POST['service'] ) ) {
-			wp_send_json_error( new \WP_Error( 'service_required' ) );
+	/**
+	 * @param array $data
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function forms_panel_action_data( array $data ) {
+		if ( empty( $data['service'] ) ) {
+			throw new \Exception( 'service_required' );
 		}
 
-		/** @var \ElementorPro\Modules\Forms\Classes\Action_Base $action */
-		$action = $this->get_form_actions( $_POST['service'] );
+		/** @var \ElementorPro\Modules\Forms\Classes\Integration_Base $integration */
+		$integration = $this->get_form_actions( $data['service'] );
 
-		if ( ! $action ) {
-			wp_send_json_error( new \WP_Error( 'action_not_found' ) );
+		if ( ! $integration ) {
+			throw new \Exception( 'action_not_found' );
 		}
 
-		try {
-			$return_array = $action->handle_panel_request();
-
-			wp_send_json_success( $return_array );
-
-		} catch ( \Exception $exception ) {
-			$return_array = [
-				'message' => $exception->getMessage(),
-			];
-
-			wp_send_json_error( $return_array );
-		}
+		return $integration->handle_panel_request( $data );
 	}
 
-	public function add_form_field_type( $type = '', $instance ) {
+	public function add_form_field_type( $type, $instance ) {
 		$this->field_types[ $type ] = $instance;
 	}
 
@@ -115,12 +109,19 @@ class Module extends Module_Base {
 		return $this->form_actions;
 	}
 
+	public function register_ajax_actions( Ajax $ajax ) {
+		$ajax->register_ajax_action( 'pro_forms_panel_action_data', [ $this, 'forms_panel_action_data' ] );
+	}
+
+	/**
+	 * Module constructor.
+	 */
 	public function __construct() {
 		parent::__construct();
 
 		add_filter( 'elementor_pro/editor/localize_settings', [ $this, 'localize_settings' ] );
 		add_action( 'elementor/controls/controls_registered', [ $this, 'register_controls' ] );
-		add_action( 'wp_ajax_elementor_pro_forms_panel_action_data', [ $this, 'forms_panel_action_data' ] );
+		add_action( 'elementor/ajax/register_actions', [ $this, 'register_ajax_actions' ] );
 
 		//fields
 		$this->add_form_field_type( 'time', new Fields\Time() );
@@ -131,18 +132,22 @@ class Module extends Module_Base {
 		$this->add_form_field_type( 'upload', new Fields\Upload() );
 
 		$this->add_component( 'recaptcha', new Classes\Recaptcha_Handler() );
+		$this->add_component( 'recaptcha_v3', new Classes\Recaptcha_V3_Handler() );
 		$this->add_component( 'honeypot', new Classes\Honeypot_Handler() );
 
 		// Actions Handlers
 		$this->add_form_action( 'email', new Actions\Email() );
 		$this->add_form_action( 'email2', new Actions\Email2() );
-		$this->add_form_action( 'mailchimp', new Actions\Mailchimp() );
 		$this->add_form_action( 'redirect', new Actions\Redirect() );
 		$this->add_form_action( 'webhook', new Actions\Webhook() );
+		$this->add_form_action( 'mailchimp', new Actions\Mailchimp() );
 		$this->add_form_action( 'drip', new Actions\Drip() );
 		$this->add_form_action( 'activecampaign', new Actions\Activecampaign() );
 		$this->add_form_action( 'getresponse', new Actions\Getresponse() );
 		$this->add_form_action( 'convertkit', new Actions\Convertkit() );
+		$this->add_form_action( 'mailerlite', new Actions\Mailerlite() );
+		$this->add_form_action( 'slack', new Actions\Slack() );
+		$this->add_form_action( 'discord', new Actions\Discord() );
 
 		// Plugins actions
 
@@ -172,6 +177,15 @@ class Module extends Module_Base {
 		if ( Classes\Ajax_Handler::is_form_submitted() ) {
 			$this->add_component( 'ajax_handler', new Classes\Ajax_Handler() );
 
+			/**
+			 * Elementor form submitted.
+			 *
+			 * Fires when the form is submitted.
+			 *
+			 * @since 2.0.0
+			 *
+			 * @param Module $this An instance of the form module.
+			 */
 			do_action( 'elementor_pro/forms/form_submitted', $this );
 		}
 	}

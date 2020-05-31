@@ -2,13 +2,15 @@
 namespace ElementorPro\Modules\Pricing\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
+use Elementor\Repeater;
 use ElementorPro\Base\Base_Widget;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Price_List extends Base_Widget {
 
@@ -24,8 +26,8 @@ class Price_List extends Base_Widget {
 		return 'eicon-price-list';
 	}
 
-	public function get_categories() {
-		return [ 'pro-elements' ];
+	public function get_keywords() {
+		return [ 'pricing', 'list', 'product', 'image', 'menu' ];
 	}
 
 	protected function _register_controls() {
@@ -37,61 +39,90 @@ class Price_List extends Base_Widget {
 			]
 		);
 
+		$repeater = new Repeater();
+
+		$repeater->add_control(
+			'price',
+			[
+				'label' => __( 'Price', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'title',
+			[
+				'label' => __( 'Title', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => '',
+				'label_block' => 'true',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'item_description',
+			[
+				'label' => __( 'Description', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXTAREA,
+				'default' => '',
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'image',
+			[
+				'label' => __( 'Image', 'elementor-pro' ),
+				'type' => Controls_Manager::MEDIA,
+				'default' => [],
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'link',
+			[
+				'label' => __( 'Link', 'elementor-pro' ),
+				'type' => Controls_Manager::URL,
+				'default' => [ 'url' => '#' ],
+				'dynamic' => [
+					'active' => true,
+				],
+			]
+		);
+
 		$this->add_control(
 			'price_list',
 			[
 				'label' => __( 'List Items', 'elementor-pro' ),
 				'type' => Controls_Manager::REPEATER,
-				'fields' => [
-					[
-						'name' => 'price',
-						'label' => __( 'Price', 'elementor-pro' ),
-						'type' => Controls_Manager::TEXT,
-						'default' => '',
-					],
-					[
-						'name' => 'title',
-						'label' => __( 'Title & Description', 'elementor-pro' ),
-						'type' => Controls_Manager::TEXT,
-						'default' => '',
-						'label_block' => 'true',
-					],
-					[
-						'name' => 'item_description',
-						'label' => __( 'Description', 'elementor-pro' ),
-						'type' => Controls_Manager::TEXTAREA,
-						'default' => '',
-						'show_label' => false,
-					],
-					[
-						'name' => 'image',
-						'label' => __( 'Image', 'elementor-pro' ),
-						'type' => Controls_Manager::MEDIA,
-						'default' => [],
-					],
-					[
-						'name' => 'link',
-						'label' => __( 'Link', 'elementor-pro' ),
-						'type' => Controls_Manager::URL,
-						'default' => [ 'url' => '#' ],
-					],
-				],
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
 						'title' => __( 'First item on the list', 'elementor-pro' ),
-						'item_description' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'elementor-pro' ),
+						'item_description' => __( 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'elementor-pro' ),
 						'price' => '$20',
 						'link' => [ 'url' => '#' ],
 					],
 					[
 						'title' => __( 'Second item on the list', 'elementor-pro' ),
-						'item_description' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'elementor-pro' ),
+						'item_description' => __( 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'elementor-pro' ),
 						'price' => '$9',
 						'link' => [ 'url' => '#' ],
 					],
 					[
 						'title' => __( 'Third item on the list', 'elementor-pro' ),
-						'item_description' => __( 'I am item content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'elementor-pro' ),
+						'item_description' => __( 'Lorem ipsum dolor sit amet consectetur adipiscing elit dolor', 'elementor-pro' ),
 						'price' => '$32',
 						'link' => [ 'url' => '#' ],
 					],
@@ -104,7 +135,7 @@ class Price_List extends Base_Widget {
 		$this->start_controls_section(
 			'section_list_style',
 			[
-				'label' => __( 'List Style', 'elementor-pro' ),
+				'label' => __( 'List', 'elementor-pro' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -123,8 +154,8 @@ class Price_List extends Base_Widget {
 				'label' => __( 'Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_1,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-price-list-header' => 'color: {{VALUE}};',
@@ -136,7 +167,7 @@ class Price_List extends Base_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'heading_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementor-price-list-header',
 			]
 		);
@@ -156,8 +187,8 @@ class Price_List extends Base_Widget {
 				'label' => __( 'Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-price-list-description' => 'color: {{VALUE}};',
@@ -169,7 +200,7 @@ class Price_List extends Base_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'description_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 				'selector' => '{{WRAPPER}} .elementor-price-list-description',
 			]
 		);
@@ -196,8 +227,9 @@ class Price_List extends Base_Widget {
 					'none' => __( 'None', 'elementor-pro' ),
 				],
 				'default' => 'dotted',
+				'render_type' => 'template',
 				'selectors' => [
-					'{{WRAPPER}} .elementor-price-list-separator' => 'border-bottom-style: {{VALUE}};',
+					'{{WRAPPER}} .elementor-price-list-separator' => 'border-bottom-style: {{VALUE}}',
 				],
 			]
 		);
@@ -216,7 +248,7 @@ class Price_List extends Base_Widget {
 					'separator_style!' => 'none',
 				],
 				'selectors' => [
-					'{{WRAPPER}} .elementor-price-list-separator' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-price-list-separator' => 'border-bottom-width: {{SIZE}}{{UNIT}}',
 				],
 				'default' => [
 					'size' => 2,
@@ -230,8 +262,8 @@ class Price_List extends Base_Widget {
 				'label' => __( 'Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_2,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-price-list-separator' => 'border-bottom-color: {{VALUE}};',
@@ -266,7 +298,7 @@ class Price_List extends Base_Widget {
 		$this->start_controls_section(
 			'section_image_style',
 			[
-				'label' => __( 'Image Style', 'elementor-pro' ),
+				'label' => __( 'Image', 'elementor-pro' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -319,7 +351,7 @@ class Price_List extends Base_Widget {
 		$this->start_controls_section(
 			'section_item_style',
 			[
-				'label' => __( 'Item Style', 'elementor-pro' ),
+				'label' => __( 'Item', 'elementor-pro' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'show_label' => false,
 			]
@@ -353,11 +385,20 @@ class Price_List extends Base_Widget {
 			'vertical_align',
 			[
 				'label' => __( 'Vertical Align', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT,
+				'type' => Controls_Manager::CHOOSE,
 				'options' => [
-					'top' => __( 'Top', 'elementor-pro' ),
-					'bottom' => __( 'Bottom', 'elementor-pro' ),
-					'center' => __( 'Center', 'elementor-pro' ),
+					'top' => [
+						'title' => __( 'Top', 'elementor-pro' ),
+						'icon' => 'eicon-v-align-top',
+					],
+					'center' => [
+						'title' => __( 'Center', 'elementor-pro' ),
+						'icon' => 'eicon-v-align-middle',
+					],
+					'bottom' => [
+						'title' => __( 'Bottom', 'elementor-pro' ),
+						'icon' => 'eicon-v-align-bottom',
+					],
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-price-list-item' => 'align-items: {{VALUE}};',
@@ -366,7 +407,7 @@ class Price_List extends Base_Widget {
 					'top' => 'flex-start',
 					'bottom' => 'flex-end',
 				],
-				'default' => 'flex-start',
+				'default' => 'top',
 			]
 		);
 
@@ -394,14 +435,9 @@ class Price_List extends Base_Widget {
 		if ( $url ) {
 			$unique_link_id = 'item-link-' . $item_id;
 
-			$this->add_render_attribute( $unique_link_id, [
-				'href' => $url,
-				'class' => 'elementor-price-list-item',
-			] );
+			$this->add_render_attribute( $unique_link_id, 'class', 'elementor-price-list-item' );
 
-			if ( $item['link']['is_external'] ) {
-				$this->add_render_attribute( $unique_link_id, 'target', '_blank' );
-			}
+			$this->add_link_attributes( $unique_link_id, $item['link'] );
 
 			return '<li><a ' . $this->get_render_attribute_string( $unique_link_id ) . '>';
 		} else {
@@ -418,39 +454,62 @@ class Price_List extends Base_Widget {
 	}
 
 	protected function render() {
-		$instance = $this->get_settings();
+		$settings = $this->get_settings_for_display(); ?>
 
-		echo '<ul class="elementor-price-list">';
+		<ul class="elementor-price-list">
 
-		foreach ( $instance['price_list'] as $item ) {
-			echo $this->render_item_header( $item );
+		<?php foreach ( $settings['price_list'] as $index => $item ) : ?>
+			<?php if ( ! empty( $item['title'] ) || ! empty( $item['price'] ) || ! empty( $item['item_description'] ) ) :
+				$title_repeater_setting_key = $this->get_repeater_setting_key( 'title', 'price_list', $index );
+				$description_repeater_setting_key = $this->get_repeater_setting_key( 'item_description', 'price_list', $index );
+				$this->add_inline_editing_attributes( $title_repeater_setting_key );
+				$this->add_inline_editing_attributes( $description_repeater_setting_key );
+				$this->add_render_attribute( $title_repeater_setting_key, 'class', 'elementor-price-list-title' );
+				$this->add_render_attribute( $description_repeater_setting_key, 'class', 'elementor-price-list-description' );
+				?>
+				<?php echo $this->render_item_header( $item ); ?>
+				<?php if ( ! empty( $item['image']['url'] ) ) : ?>
+					<div class="elementor-price-list-image">
+					<?php echo $this->render_image( $item, $settings ); ?>
+				</div>
+				<?php endif; ?>
 
-			if ( ! empty( $item['image']['url'] ) ) {
-				echo '<div class="elementor-price-list-image">' . $this->render_image( $item, $instance ) . '</div>';
-			}
+				<div class="elementor-price-list-text">
+				<?php if ( ! empty( $item['title'] ) || ! empty( $item['price'] ) ) : ?>
+					<div class="elementor-price-list-header">
+					<?php if ( ! empty( $item['title'] ) ) : ?>
+						<span <?php echo $this->get_render_attribute_string( $title_repeater_setting_key ); ?>><?php echo $item['title']; ?></span>
+					<?php endif; ?>
+						<?php if ( 'none' != $settings['separator_style'] ) : ?>
+							<span class="elementor-price-list-separator"></span>
+						<?php endif; ?>
+						<?php if ( ! empty( $item['price'] ) ) : ?>
+							<span class="elementor-price-list-price"><?php echo $item['price']; ?></span>
+						<?php endif; ?>
+				</div>
+				<?php endif; ?>
+					<?php if ( ! empty( $item['item_description'] ) ) : ?>
+						<p <?php echo $this->get_render_attribute_string( $description_repeater_setting_key ); ?>><?php echo $item['item_description']; ?></p>
+					<?php endif; ?>
+			</div>
+				<?php echo $this->render_item_footer( $item ); ?>
+			<?php endif; ?>
+		<?php endforeach; ?>
 
-			echo '<div class="elementor-price-list-text">';
-			echo '<div class="elementor-price-list-header">';
-			echo '<span class="elementor-price-list-title">' . $item['title'] . '</span>';
+		</ul>
 
-			if ( 'none' != $instance['separator_style'] ) {
-				echo '<span class="elementor-price-list-separator"></span>';
-			}
-
-			echo '<span class="elementor-price-list-price">' . $item['price'] . '</span>';
-			echo '</div>'; // end header
-			echo '<p class="elementor-price-list-description">' . $item['item_description'] . '</p>';
-			echo '</div>'; // end text
-
-			echo $this->render_item_footer( $item );
-
-		} ?>
 		<?php
-
-		echo '</ul>';
 	}
 
-	protected function _content_template() {
+	/**
+	 * Render Price List widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since 2.9.0
+	 * @access protected
+	 */
+	protected function content_template() {
 		?>
 		<ul class="elementor-price-list">
 			<#
@@ -461,7 +520,10 @@ class Price_List extends Base_Widget {
 					if ( item.link.url ) {
 						item_open_wrap = '<li><a href="' + item.link.url + '" class="elementor-price-list-item">';
 						item_close_wrap = '</a></li>';
-					} #>
+					}
+
+					if ( ! _.isEmpty( item.title ) || ! _.isEmpty( item.price ) || ! _.isEmpty( item.description ) || ! _.isEmpty( item.image ) ) { #>
+
 					{{{ item_open_wrap }}}
 					<# if ( item.image && item.image.id ) {
 
@@ -480,16 +542,41 @@ class Price_List extends Base_Widget {
 						<# } #>
 
 					<# } #>
-					<div class="elementor-price-list-text">
-						<div class="elementor-price-list-header">
-							<span class="elementor-price-list-title">{{{ item.title }}}</span>
-							<span class="elementor-price-list-separator"></span>
-							<span class="elementor-price-list-price">{{{ item.price }}}</span>
+
+
+					<# if ( ! _.isEmpty( item.title ) || ! _.isEmpty( item.price ) || ! _.isEmpty( item.item_description ) ) { #>
+						<div class="elementor-price-list-text">
+
+							<# if ( ! _.isEmpty( item.title ) || ! _.isEmpty( item.price ) ) { #>
+								<div class="elementor-price-list-header">
+
+								<# if ( ! _.isEmpty( item.title ) ) { #>
+									<span class="elementor-price-list-title">{{{ item.title }}}</span>
+								<# } #>
+
+								<# if ( 'none' != settings.separator_style ) { #>
+									<span class="elementor-price-list-separator"></span>
+								<# } #>
+
+								<# if ( ! _.isEmpty( item.price ) ) { #>
+									<span class="elementor-price-list-price">{{{ item.price }}}</span>
+								<# } #>
+
+								</div>
+							<# } #>
+
+							<# if ( ! _.isEmpty( item.item_description ) ) { #>
+								<p class="elementor-price-list-description">{{{ item.item_description }}}</p>
+							<# } #>
+
 						</div>
-						<p class="elementor-price-list-description">{{{ item.item_description }}}</p>
-					</div>
+					<# } #>
+
 					{{{ item_close_wrap }}}
+
+					<# } #>
 			 <# } #>
 		</ul>
-	<?php }
+		<?php
+	}
 }

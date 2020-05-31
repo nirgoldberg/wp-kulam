@@ -2,15 +2,14 @@
 namespace ElementorPro\Modules\Posts\Skins;
 
 use Elementor\Controls_Manager;
-use Elementor\Group_Control_Box_Shadow;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Image_Size;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
 use Elementor\Widget_Base;
-use ElementorPro\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Skin_Cards extends Skin_Base {
 
@@ -56,6 +55,7 @@ class Skin_Cards extends Skin_Base {
 		$this->register_excerpt_controls();
 		$this->register_meta_data_controls();
 		$this->register_read_more_controls();
+		$this->register_link_controls();
 		$this->register_badge_controls();
 		$this->register_avatar_controls();
 	}
@@ -94,16 +94,6 @@ class Skin_Cards extends Skin_Base {
 	}
 
 	public function register_additional_design_image_controls() {
-
-		$this->update_control(
-			'section_design_image',
-			[
-				'condition' => [
-					$this->get_control_id( 'thumbnail!' ) => 'none',
-				],
-			]
-		);
-
 		$this->update_control(
 			'image_spacing',
 			[
@@ -134,7 +124,6 @@ class Skin_Cards extends Skin_Base {
 			'badge_position',
 			[
 				'label' => 'Badge Position',
-				'label_block' => false,
 				'type' => Controls_Manager::CHOOSE,
 				'options' => [
 					'left' => [
@@ -159,14 +148,14 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'badge_bg_color',
 			[
-				'label'     => __( 'Background Color', 'elementor-pro' ),
+				'label' => __( 'Background Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'background-color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_4,
 				],
 				'condition' => [
 					$this->get_control_id( 'show_badge' ) => 'yes',
@@ -177,7 +166,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'badge_color',
 			[
-				'label'     => __( 'Text Color', 'elementor-pro' ),
+				'label' => __( 'Text Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'color: {{VALUE}};',
@@ -191,7 +180,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'badge_radius',
 			[
-				'label'     => __( 'Border Radius', 'elementor-pro' ),
+				'label' => __( 'Border Radius', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -210,7 +199,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'badge_size',
 			[
-				'label'      => __( 'Size', 'elementor-pro' ),
+				'label' => __( 'Size', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -218,7 +207,7 @@ class Skin_Cards extends Skin_Base {
 						'max' => 50,
 					],
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
@@ -230,7 +219,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'badge_margin',
 			[
-				'label'      => __( 'Margin', 'elementor-pro' ),
+				'label' => __( 'Margin', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -240,7 +229,7 @@ class Skin_Cards extends Skin_Base {
 				'default' => [
 					'size' => 20,
 				],
-				'selectors'  => [
+				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card .elementor-post__badge' => 'margin: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
@@ -253,7 +242,7 @@ class Skin_Cards extends Skin_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'badge_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .elementor-post__card .elementor-post__badge',
 				'exclude' => [ 'font_size', 'line-height' ],
 				'condition' => [
@@ -278,7 +267,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'avatar_size',
 			[
-				'label'     => __( 'Size', 'elementor-pro' ),
+				'label' => __( 'Size', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -358,7 +347,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'card_bg_color',
 			[
-				'label'     => __( 'Background Color', 'elementor-pro' ),
+				'label' => __( 'Background Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card' => 'background-color: {{VALUE}}',
@@ -369,7 +358,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'card_border_color',
 			[
-				'label'     => __( 'Border Color', 'elementor-pro' ),
+				'label' => __( 'Border Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__card' => 'border-color: {{VALUE}}',
@@ -416,7 +405,7 @@ class Skin_Cards extends Skin_Base {
 		$this->add_control(
 			'card_padding',
 			[
-				'label' => __( 'Padding', 'elementor-pro' ),
+				'label' => __( 'Horizontal Padding', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'size_units' => [ 'px' ],
 				'range' => [
@@ -434,12 +423,29 @@ class Skin_Cards extends Skin_Base {
 		);
 
 		$this->add_control(
+			'card_vertical_padding',
+			[
+				'label' => __( 'Vertical Padding', 'elementor-pro' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-post__card' => 'padding-top: {{SIZE}}{{UNIT}}; padding-bottom: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
 			'box_shadow_box_shadow_type', // The name of this control is like that, for future extensibility to group_control box shadow.
 			[
 				'label' => __( 'Box Shadow', 'elementor-pro' ),
-			    'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'yes',
-				'prefix_class' => 'card-shadow-',
+				'type' => Controls_Manager::SWITCHER,
+				'prefix_class' => 'elementor-card-shadow-',
 				'default' => 'yes',
 			]
 		);
@@ -462,7 +468,6 @@ class Skin_Cards extends Skin_Base {
 			]
 		);
 
-
 		$this->add_control(
 			'meta_border_color',
 			[
@@ -483,6 +488,7 @@ class Skin_Cards extends Skin_Base {
 
 	protected function register_design_content_controls() {
 		parent::register_design_content_controls();
+
 		$this->remove_control( 'meta_spacing' );
 
 		$this->update_control(
@@ -491,6 +497,9 @@ class Skin_Cards extends Skin_Base {
 				'selectors' => [
 					'{{WRAPPER}} .elementor-post__read-more' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 				],
+			],
+			[
+				'recursive' => true,
 			]
 		);
 	}
@@ -559,8 +568,11 @@ class Skin_Cards extends Skin_Base {
 		if ( empty( $thumbnail_html ) ) {
 			return;
 		}
+
+		$optional_attributes_html = $this->get_optional_link_attributes_html();
+
 		?>
-		<a class="elementor-post__thumbnail__link" href="<?php echo get_permalink(); ?>">
+		<a class="elementor-post__thumbnail__link" href="<?php echo get_permalink(); ?>" <?php echo $optional_attributes_html; ?>>
 			<div class="elementor-post__thumbnail"><?php echo $thumbnail_html; ?></div>
 		</a>
 		<?php
@@ -585,4 +597,3 @@ class Skin_Cards extends Skin_Base {
 		$this->render_post_footer();
 	}
 }
-

@@ -5,9 +5,8 @@ use Elementor\Controls_Manager;
 use ElementorPro\Modules\Forms\Classes\Form_Record;
 use ElementorPro\Modules\Forms\Classes\Integration_Base;
 use ElementorPro\Modules\Forms\Controls\Fields_Map;
-use ElementorPro\Modules\Forms\Classes\Action_Base;
 use ElementorPro\Modules\Forms\Classes\Convertkit_Handler;
-use ElementorPro\Classes\Utils;
+use ElementorPro\Core\Utils;
 use Elementor\Settings;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -44,7 +43,8 @@ class Convertkit extends Integration_Base {
 		self::global_api_control(
 			$widget,
 			$this->get_global_api_key(),
-			'ConvertKit API key', [
+			'ConvertKit API key',
+			[
 				'convertkit_api_key_source' => 'default',
 			],
 			$this->get_name()
@@ -69,7 +69,7 @@ class Convertkit extends Integration_Base {
 			[
 				'label' => __( 'Custom API Key', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
-				'description' => __( 'Use this field to set a custom API key for the current form', 'elementor-pro' ),
+				'description' => __( 'Use this field to set a custom API Key for the current form', 'elementor-pro' ),
 				'condition' => [
 					'convertkit_api_key_source' => 'custom',
 				],
@@ -100,7 +100,6 @@ class Convertkit extends Integration_Base {
 				],
 			]
 		);
-
 
 		$widget->add_control(
 			'convertkit_fields_map',
@@ -159,6 +158,7 @@ class Convertkit extends Integration_Base {
 
 		if ( ! $subscriber ) {
 			$ajax_handler->add_admin_error_message( __( 'ConvertKit Integration requires an email field', 'elementor-pro' ) );
+
 			return;
 		}
 
@@ -183,6 +183,7 @@ class Convertkit extends Integration_Base {
 	/**
 	 * Create subscriber array from submitted data and form settings
 	 * returns a subscriber array or false on error
+	 *
 	 * @param Form_Record $record
 	 *
 	 * @return array|bool
@@ -220,14 +221,21 @@ class Convertkit extends Integration_Base {
 				continue;
 			}
 		}
+
 		return $subscriber;
 	}
 
-	public function handle_panel_request() {
-		if ( ! empty( $_POST['api_key'] ) && 'default' === $_POST['api_key'] ) {
+	/**
+	 * @param array $data
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function handle_panel_request( array $data ) {
+		if ( ! empty( $data['api_key'] ) && 'default' === $data['api_key'] ) {
 			$api_key = $this->get_global_api_key();
-		} elseif ( ! empty( $_POST['custom_api_key'] ) ) {
-			$api_key = $_POST['custom_api_key'];
+		} elseif ( ! empty( $data['custom_api_key'] ) ) {
+			$api_key = $data['custom_api_key'];
 		}
 
 		if ( empty( $api_key ) ) {
@@ -235,9 +243,8 @@ class Convertkit extends Integration_Base {
 		}
 
 		$handler = new Convertkit_Handler( $api_key );
-		if ( 'convertkit_get_forms' === $_POST['convertkit_action'] ) {
-			return $handler->get_forms_and_tags();
-		}
+
+		return $handler->get_forms_and_tags();
 	}
 
 	public function ajax_validate_api_token() {

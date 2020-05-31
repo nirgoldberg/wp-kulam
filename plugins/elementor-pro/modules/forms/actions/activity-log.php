@@ -3,7 +3,9 @@ namespace ElementorPro\Modules\Forms\Actions;
 
 use ElementorPro\Modules\Forms\Classes\Action_Base;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Integration with Activity Log
@@ -23,7 +25,7 @@ class Activity_Log extends Action_Base {
 	public function on_export( $element ) {}
 
 	public function aal_init_roles( $roles ) {
-		$roles['manage_options'][] = 'Elementor Pro Forms';
+		$roles['manage_options'][] = 'Elementor Forms';
 
 		return $roles;
 	}
@@ -32,7 +34,7 @@ class Activity_Log extends Action_Base {
 		aal_insert_log(
 			[
 				'action' => 'New Record',
-				'object_type' => 'Elementor Pro Forms',
+				'object_type' => 'Elementor Forms',
 				'object_id' => $record->get_form_settings( 'id' ),
 				'object_name' => $record->get_form_settings( 'form_name' ),
 			]

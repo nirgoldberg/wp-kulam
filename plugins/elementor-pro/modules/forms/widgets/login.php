@@ -2,14 +2,15 @@
 namespace ElementorPro\Modules\Forms\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
 use ElementorPro\Base\Base_Widget;
 use ElementorPro\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Login extends Base_Widget {
 
@@ -23,6 +24,10 @@ class Login extends Base_Widget {
 
 	public function get_icon() {
 		return 'eicon-lock-user';
+	}
+
+	public function get_keywords() {
+		return [ 'login', 'user', 'form' ];
 	}
 
 	protected function _register_controls() {
@@ -102,19 +107,19 @@ class Login extends Base_Widget {
 				'options' => [
 					'start' => [
 						'title' => __( 'Left', 'elementor-pro' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'elementor-pro' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'end' => [
 						'title' => __( 'Right', 'elementor-pro' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 					'stretch' => [
 						'title' => __( 'Justified', 'elementor-pro' ),
-						'icon' => 'fa fa-align-justify',
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
 				'prefix_class' => 'elementor%s-button-align-',
@@ -147,12 +152,38 @@ class Login extends Base_Widget {
 			[
 				'type' => Controls_Manager::URL,
 				'show_label' => false,
-				'show_external' => false,
+				'options' => false,
 				'separator' => false,
-				'placeholder' => 'http://your-link.com/',
+				'placeholder' => __( 'https://your-link.com', 'elementor-pro' ),
 				'description' => __( 'Note: Because of security reasons, you can ONLY use your current domain here.', 'elementor-pro' ),
 				'condition' => [
 					'redirect_after_login' => 'yes',
+				],
+			]
+		);
+
+		$this->add_control(
+			'redirect_after_logout',
+			[
+				'label' => __( 'Redirect After Logout', 'elementor-pro' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => '',
+				'label_off' => __( 'Off', 'elementor-pro' ),
+				'label_on' => __( 'On', 'elementor-pro' ),
+			]
+		);
+
+		$this->add_control(
+			'redirect_logout_url',
+			[
+				'type' => Controls_Manager::URL,
+				'show_label' => false,
+				'options' => false,
+				'separator' => false,
+				'placeholder' => __( 'https://your-link.com', 'elementor-pro' ),
+				'description' => __( 'Note: Because of security reasons, you can ONLY use your current domain here.', 'elementor-pro' ),
+				'condition' => [
+					'redirect_after_logout' => 'yes',
 				],
 			]
 		);
@@ -208,9 +239,6 @@ class Login extends Base_Widget {
 			[
 				'label' => __( 'Custom Label', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
-				'condition' => [
-					'show_labels' => 'yes',
-				],
 			]
 		);
 
@@ -234,7 +262,6 @@ class Login extends Base_Widget {
 				'type' => Controls_Manager::TEXT,
 				'default' => __( ' Username or Email Address', 'elementor-pro' ),
 				'condition' => [
-					'show_labels' => 'yes',
 					'custom_labels' => 'yes',
 				],
 			]
@@ -260,7 +287,6 @@ class Login extends Base_Widget {
 				'type' => Controls_Manager::TEXT,
 				'default' => __( 'Password', 'elementor-pro' ),
 				'condition' => [
-					'show_labels' => 'yes',
 					'custom_labels' => 'yes',
 				],
 			]
@@ -306,8 +332,8 @@ class Login extends Base_Widget {
 					'{{WRAPPER}} .elementor-field-group > a' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -321,8 +347,8 @@ class Login extends Base_Widget {
 					'{{WRAPPER}} .elementor-field-group > a:hover' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_4,
 				],
 			]
 		);
@@ -367,11 +393,11 @@ class Login extends Base_Widget {
 				'label' => __( 'Text Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .elementor-form-fields-wrapper' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-form-fields-wrapper label' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -380,8 +406,8 @@ class Login extends Base_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'label_typography',
-				'selector' => '{{WRAPPER}} .elementor-form-fields-wrapper',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'selector' => '{{WRAPPER}} .elementor-form-fields-wrapper label',
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -404,8 +430,8 @@ class Login extends Base_Widget {
 					'{{WRAPPER}} .elementor-field-group .elementor-field' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -415,7 +441,7 @@ class Login extends Base_Widget {
 			[
 				'name' => 'field_typography',
 				'selector' => '{{WRAPPER}} .elementor-field-group .elementor-field, {{WRAPPER}} .elementor-field-subgroup label',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -509,7 +535,7 @@ class Login extends Base_Widget {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .elementor-button',
 			]
 		);
@@ -520,8 +546,8 @@ class Login extends Base_Widget {
 				'label' => __( 'Background Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_4,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'background-color: {{VALUE}};',
@@ -532,8 +558,6 @@ class Login extends Base_Widget {
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'button_border',
-				'placeholder' => '1px',
-				'default' => '1px',
 				'selector' => '{{WRAPPER}} .elementor-button',
 				'separator' => 'before',
 			]
@@ -621,6 +645,41 @@ class Login extends Base_Widget {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_style_message',
+			[
+				'label' => __( 'Logged in Message', 'elementor-pro' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'message_color',
+			[
+				'label' => __( 'Text Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-widget-container .elementor-login__logged-in-message' => 'color: {{VALUE}};',
+				],
+				'scheme' => [
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'message_typography',
+				'selector' => '{{WRAPPER}} .elementor-widget-container .elementor-login__logged-in-message',
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+			]
+		);
+
+		$this->end_controls_section();
+
 	}
 
 	private function form_fields_render_attributes() {
@@ -707,14 +766,15 @@ class Login extends Base_Widget {
 		}
 
 		$this->add_render_attribute( 'field-group', 'class', 'elementor-field-required' )
-			->add_render_attribute( 'input', 'required', true )
-			->add_render_attribute( 'input', 'aria-required', 'true' );
+			 ->add_render_attribute( 'input', 'required', true )
+			 ->add_render_attribute( 'input', 'aria-required', 'true' );
 
 	}
 
 	protected function render() {
 		$settings = $this->get_settings();
 		$current_url = remove_query_arg( 'fake_arg' );
+		$logout_redirect = $current_url;
 
 		if ( 'yes' === $settings['redirect_after_login'] && ! empty( $settings['redirect_url']['url'] ) ) {
 			$redirect_url = $settings['redirect_url']['url'];
@@ -722,12 +782,16 @@ class Login extends Base_Widget {
 			$redirect_url = $current_url;
 		}
 
+		if ( 'yes' === $settings['redirect_after_logout'] && ! empty( $settings['redirect_logout_url']['url'] ) ) {
+			$logout_redirect = $settings['redirect_logout_url']['url'];
+		}
+
 		if ( is_user_logged_in() && ! Plugin::elementor()->editor->is_edit_mode() ) {
 			if ( 'yes' === $settings['show_logged_in_message'] ) {
 				$current_user = wp_get_current_user();
 
-				echo '<div class="elementor-login">' .
-					sprintf( __( 'You are Logged in as %1$s (<a href="%2$s">Logout</a>)', 'elementor-pro' ), $current_user->display_name, wp_logout_url( $current_url ) ) .
+				echo '<div class="elementor-login elementor-login__logged-in-message">' .
+					sprintf( __( 'You are Logged in as %1$s (<a href="%2$s">Logout</a>)', 'elementor-pro' ), $current_user->display_name, wp_logout_url( $logout_redirect ) ) .
 					'</div>';
 			}
 
@@ -767,7 +831,7 @@ class Login extends Base_Widget {
 						</label>
 					</div>
 				<?php endif; ?>
-				
+
 				<div <?php echo $this->get_render_attribute_string( 'submit-group' ); ?>>
 					<button type="submit" <?php echo $this->get_render_attribute_string( 'button' ); ?>>
 							<?php if ( ! empty( $settings['button_text'] ) ) : ?>
@@ -803,7 +867,15 @@ class Login extends Base_Widget {
 		<?php
 	}
 
-	protected function _content_template() {
+	/**
+	 * Render Login Form output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since 2.9.0
+	 * @access protected
+	 */
+	protected function content_template() {
 		?>
 		<div class="elementor-login elementor-form">
 			<div class="elementor-form-fields-wrapper">

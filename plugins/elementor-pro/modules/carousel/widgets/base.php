@@ -42,8 +42,9 @@ abstract class Base extends Base_Widget {
 			[
 				'label' => __( 'Slides', 'elementor-pro' ),
 				'type' => Controls_Manager::REPEATER,
-				'fields' => $repeater->get_fields(),
+				'fields' => $repeater->get_controls(),
 				'default' => $this->get_repeater_defaults(),
+				'separator' => 'after',
 			]
 		);
 
@@ -58,7 +59,6 @@ abstract class Base extends Base_Widget {
 					'fade' => __( 'Fade', 'elementor-pro' ),
 					'cube' => __( 'Cube', 'elementor-pro' ),
 				],
-				'separator' => 'before',
 				'frontend_available' => true,
 			]
 		);
@@ -79,11 +79,12 @@ abstract class Base extends Base_Widget {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'slides_to_scroll',
 			[
 				'type' => Controls_Manager::SELECT,
 				'label' => __( 'Slides to Scroll', 'elementor-pro' ),
+				'description' => __( 'Set how many slides are scrolled per swipe.', 'elementor-pro' ),
 				'options' => [ '' => __( 'Default', 'elementor-pro' ) ] + $slides_per_view,
 				'condition' => [
 					'effect' => 'slide',
@@ -154,9 +155,9 @@ abstract class Base extends Base_Widget {
 				'default' => 'yes',
 				'label_off' => __( 'Hide', 'elementor-pro' ),
 				'label_on' => __( 'Show', 'elementor-pro' ),
-				'frontend_available' => true,
 				'prefix_class' => 'elementor-arrows-',
 				'render_type' => 'template',
+				'frontend_available' => true,
 			]
 		);
 
@@ -170,7 +171,7 @@ abstract class Base extends Base_Widget {
 					'' => __( 'None', 'elementor-pro' ),
 					'bullets' => __( 'Dots', 'elementor-pro' ),
 					'fraction' => __( 'Fraction', 'elementor-pro' ),
-					'progress' => __( 'Progress', 'elementor-pro' ),
+					'progressbar' => __( 'Progress', 'elementor-pro' ),
 				],
 				'prefix_class' => 'elementor-pagination-type-',
 				'render_type' => 'template',
@@ -218,6 +219,19 @@ abstract class Base extends Base_Widget {
 				'label' => __( 'Infinite Loop', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
 				'default' => 'yes',
+				'frontend_available' => true,
+			]
+		);
+
+		$this->add_control(
+			'pause_on_hover',
+			[
+				'label' => __( 'Pause on Hover', 'elementor-pro' ),
+				'type' => Controls_Manager::SWITCHER,
+				'default' => 'yes',
+				'condition' => [
+					'autoplay' => 'yes',
+				],
 				'frontend_available' => true,
 			]
 		);
@@ -301,6 +315,23 @@ abstract class Base extends Base_Widget {
 		);
 
 		$this->add_control(
+			'slide_border_radius',
+			[
+				'label' => __( 'Border Radius', 'elementor-pro' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', '%' ],
+				'range' => [
+					'%' => [
+						'max' => 50,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'border-radius: {{SIZE}}{{UNIT}}',
+				],
+			]
+		);
+
+		$this->add_control(
 			'slide_border_color',
 			[
 				'label' => __( 'Border Color', 'elementor-pro' ),
@@ -320,23 +351,6 @@ abstract class Base extends Base_Widget {
 					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}}',
 				],
 				'separator' => 'before',
-			]
-		);
-
-		$this->add_control(
-			'slide_border_radius',
-			[
-				'label' => __( 'Border Radius', 'elementor-pro' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', '%' ],
-				'range' => [
-					'%' => [
-						'max' => 50,
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-main-swiper .swiper-slide' => 'border-radius: {{SIZE}}{{UNIT}}',
-				],
 			]
 		);
 
@@ -429,7 +443,7 @@ abstract class Base extends Base_Widget {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .swiper-pagination-bullet' => 'height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
-					'{{WRAPPER}} .swiper-container-horizontal .swiper-pagination-progress' => 'height: {{SIZE}}{{UNIT}}',
+					'{{WRAPPER}} .swiper-container-horizontal .swiper-pagination-progressbar' => 'height: {{SIZE}}{{UNIT}}',
 					'{{WRAPPER}} .swiper-pagination-fraction' => 'font-size: {{SIZE}}{{UNIT}}',
 				],
 				'condition' => [
@@ -444,7 +458,7 @@ abstract class Base extends Base_Widget {
 				'label' => __( 'Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .swiper-pagination-bullet-active, {{WRAPPER}} .swiper-pagination-progressbar' => 'background-color: {{VALUE}}',
+					'{{WRAPPER}} .swiper-pagination-bullet-active, {{WRAPPER}} .swiper-pagination-progressbar-fill' => 'background-color: {{VALUE}}',
 					'{{WRAPPER}} .swiper-pagination-fraction' => 'color: {{VALUE}}',
 				],
 				'condition' => [
@@ -458,7 +472,7 @@ abstract class Base extends Base_Widget {
 
 	protected function print_slider( array $settings = null ) {
 		if ( null === $settings ) {
-			$settings = $this->get_active_settings();
+			$settings = $this->get_settings_for_display();
 		}
 
 		$default_settings = [
@@ -488,10 +502,12 @@ abstract class Base extends Base_Widget {
 					<?php endif; ?>
 					<?php if ( $settings['show_arrows'] ) : ?>
 						<div class="elementor-swiper-button elementor-swiper-button-prev">
-							<i class="eicon-chevron-left"></i>
+							<i class="eicon-chevron-left" aria-hidden="true"></i>
+							<span class="elementor-screen-only"><?php _e( 'Previous', 'elementor-pro' ); ?></span>
 						</div>
 						<div class="elementor-swiper-button elementor-swiper-button-next">
-							<i class="eicon-chevron-right"></i>
+							<i class="eicon-chevron-right" aria-hidden="true"></i>
+							<span class="elementor-screen-only"><?php _e( 'Next', 'elementor-pro' ); ?></span>
 						</div>
 					<?php endif; ?>
 				<?php endif; ?>

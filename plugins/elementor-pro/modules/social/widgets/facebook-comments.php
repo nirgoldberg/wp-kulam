@@ -2,9 +2,7 @@
 namespace ElementorPro\Modules\Social\Widgets;
 
 use Elementor\Controls_Manager;
-use Elementor\Plugin;
-use Elementor\Utils;
-use Elementor\Widget_Base;
+use ElementorPro\Base\Base_Widget;
 use ElementorPro\Modules\Social\Classes\Facebook_SDK_Manager;
 use ElementorPro\Modules\Social\Module;
 
@@ -12,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-class Facebook_Comments extends Widget_Base {
+class Facebook_Comments extends Base_Widget {
 
 	public function get_name() {
 		return 'facebook-comments';
@@ -26,8 +24,8 @@ class Facebook_Comments extends Widget_Base {
 		return 'eicon-facebook-comments';
 	}
 
-	public function get_categories() {
-		return [ 'pro-elements' ];
+	public function get_keywords() {
+		return [ 'facebook', 'comments', 'embed' ];
 	}
 
 	protected function _register_controls() {
@@ -81,10 +79,26 @@ class Facebook_Comments extends Widget_Base {
 		);
 
 		$this->add_control(
+			'url_format',
+			[
+				'label' => __( 'URL Format', 'elementor-pro' ),
+				'type' => Controls_Manager::SELECT,
+				'options' => [
+					Module::URL_FORMAT_PLAIN => __( 'Plain Permalink', 'elementor-pro' ),
+					Module::URL_FORMAT_PRETTY => __( 'Pretty Permalink', 'elementor-pro' ),
+				],
+				'default' => Module::URL_FORMAT_PLAIN,
+				'condition' => [
+					'url_type' => Module::URL_TYPE_CURRENT_PAGE,
+				],
+			]
+		);
+
+		$this->add_control(
 			'url',
 			[
-				'label' => __( 'URL', 'elementor-pro' ),
-				'placeholder' => 'http://your-link.com',
+				'label' => __( 'Link', 'elementor-pro' ),
+				'placeholder' => __( 'https://your-link.com', 'elementor-pro' ),
 				'label_block' => true,
 				'condition' => [
 					'url_type' => Module::URL_TYPE_CUSTOM,
@@ -99,10 +113,11 @@ class Facebook_Comments extends Widget_Base {
 		$settings = $this->get_settings();
 
 		if ( Module::URL_TYPE_CURRENT_PAGE === $settings['url_type'] ) {
-			$permalink = Facebook_SDK_Manager::get_permalink();
+			$permalink = Facebook_SDK_Manager::get_permalink( $settings );
 		} else {
 			if ( ! filter_var( $settings['url'], FILTER_VALIDATE_URL ) ) {
 				echo $this->get_title() . ': ' . esc_html__( 'Please enter a valid URL', 'elementor-pro' ); // XSS ok.
+
 				return;
 			}
 

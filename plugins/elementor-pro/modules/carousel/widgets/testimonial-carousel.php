@@ -2,13 +2,14 @@
 namespace ElementorPro\Modules\Carousel\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Typography;
 use Elementor\Repeater;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
 use Elementor\Utils;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Testimonial_Carousel extends Base {
 
@@ -24,12 +25,16 @@ class Testimonial_Carousel extends Base {
 		return 'eicon-testimonial-carousel';
 	}
 
+	public function get_keywords() {
+		return [ 'testimonial', 'carousel', 'image' ];
+	}
+
 	protected function _register_controls() {
 		parent::_register_controls();
 
-		$this->start_injection([
+		$this->start_injection( [
 			'of' => 'slides',
-		]);
+		] );
 
 		$this->add_control(
 			'skin',
@@ -69,20 +74,19 @@ class Testimonial_Carousel extends Base {
 			[
 				'label' => __( 'Alignment', 'elementor-pro' ),
 				'type' => Controls_Manager::CHOOSE,
-				'label_block' => false,
 				'default' => 'center',
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'elementor-pro' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'elementor-pro' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'elementor-pro' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 				],
 				'prefix_class' => 'elementor-testimonial--align-',
@@ -155,7 +159,6 @@ class Testimonial_Carousel extends Base {
 			[
 				'label' => __( 'Border', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'yes',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-testimonial__content, {{WRAPPER}} .elementor-testimonial__content:after' => 'border-style: solid',
 				],
@@ -246,8 +249,8 @@ class Testimonial_Carousel extends Base {
 					'{{WRAPPER}} .elementor-testimonial__text' => 'color: {{VALUE}}',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -257,7 +260,7 @@ class Testimonial_Carousel extends Base {
 			[
 				'name' => 'content_typography',
 				'selector' => '{{WRAPPER}} .elementor-testimonial__text',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -279,8 +282,8 @@ class Testimonial_Carousel extends Base {
 					'{{WRAPPER}} .elementor-testimonial__name' => 'color: {{VALUE}}',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -290,7 +293,7 @@ class Testimonial_Carousel extends Base {
 			[
 				'name' => 'name_typography',
 				'selector' => '{{WRAPPER}} .elementor-testimonial__name',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_1,
 			]
 		);
 
@@ -312,8 +315,8 @@ class Testimonial_Carousel extends Base {
 					'{{WRAPPER}} .elementor-testimonial__title' => 'color: {{VALUE}}',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_1,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_1,
 				],
 			]
 		);
@@ -323,7 +326,7 @@ class Testimonial_Carousel extends Base {
 			[
 				'name' => 'title_typography',
 				'selector' => '{{WRAPPER}} .elementor-testimonial__title',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_2,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_2,
 			]
 		);
 
@@ -337,10 +340,10 @@ class Testimonial_Carousel extends Base {
 			]
 		);
 
-		$this->add_control(
+		$this->add_responsive_control(
 			'image_size',
 			[
-				'label' => __( 'Image Size', 'elementor-pro' ),
+				'label' => __( 'Size', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -375,7 +378,7 @@ class Testimonial_Carousel extends Base {
 		$this->add_responsive_control(
 			'image_gap',
 			[
-				'label' => __( 'Image Gap', 'elementor-pro' ),
+				'label' => __( 'Gap', 'elementor-pro' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -406,7 +409,6 @@ class Testimonial_Carousel extends Base {
 			[
 				'label' => __( 'Border', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
-				'return_value' => 'yes',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-testimonial__image img' => 'border-style: solid',
 				],
@@ -514,7 +516,7 @@ class Testimonial_Carousel extends Base {
 			[
 				'label' => __( 'Name', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Click Here', 'elementor-pro' ),
+				'default' => __( 'John Doe', 'elementor-pro' ),
 			]
 		);
 
@@ -523,7 +525,7 @@ class Testimonial_Carousel extends Base {
 			[
 				'label' => __( 'Title', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Click Here', 'elementor-pro' ),
+				'default' => __( 'CEO', 'elementor-pro' ),
 			]
 		);
 	}
@@ -533,7 +535,7 @@ class Testimonial_Carousel extends Base {
 
 		return [
 			[
-				'content' => __( 'I am slide content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor-pro' ),
+				'content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor-pro' ),
 				'name' => __( 'John Doe', 'elementor-pro' ),
 				'title' => __( 'CEO', 'elementor-pro' ),
 				'image' => [
@@ -541,7 +543,7 @@ class Testimonial_Carousel extends Base {
 				],
 			],
 			[
-				'content' => __( 'I am slide content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor-pro' ),
+				'content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor-pro' ),
 				'name' => __( 'John Doe', 'elementor-pro' ),
 				'title' => __( 'CEO', 'elementor-pro' ),
 				'image' => [
@@ -549,7 +551,7 @@ class Testimonial_Carousel extends Base {
 				],
 			],
 			[
-				'content' => __( 'I am slide content. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor-pro' ),
+				'content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.', 'elementor-pro' ),
 				'name' => __( 'John Doe', 'elementor-pro' ),
 				'title' => __( 'CEO', 'elementor-pro' ),
 				'image' => [
@@ -570,7 +572,7 @@ class Testimonial_Carousel extends Base {
 		$locations_inside = [ 'image_inline', 'image_stacked' ];
 
 		$print_outside = ( 'outside' === $location && in_array( $layout, $locations_outside ) );
-		$print_inside  = ( 'inside' === $location && in_array( $layout, $locations_inside ) );
+		$print_inside = ( 'inside' === $location && in_array( $layout, $locations_inside ) );
 
 		$html = '';
 		if ( $print_outside || $print_inside ) {

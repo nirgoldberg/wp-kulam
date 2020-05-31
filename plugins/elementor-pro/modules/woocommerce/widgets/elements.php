@@ -2,11 +2,12 @@
 namespace ElementorPro\Modules\Woocommerce\Widgets;
 
 use Elementor\Controls_Manager;
-use ElementorPro\Base\Base_Widget;
 use ElementorPro\Modules\QueryControl\Module as QueryModule;
 use ElementorPro\Modules\Woocommerce\Module;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Elements extends Base_Widget {
 
@@ -15,17 +16,37 @@ class Elements extends Base_Widget {
 	}
 
 	public function get_title() {
-		return __( 'Woo - Elements', 'elementor-pro' );
+		return __( 'WooCommerce Pages', 'elementor-pro' );
 	}
 
 	public function get_icon() {
-		return 'eicon-woocommerce';
+		return 'eicon-product-pages';
 	}
 
 	public function on_export( $element ) {
 		unset( $element['settings']['product_id'] );
 
 		return $element;
+	}
+
+	public function get_keywords() {
+		return [
+			'woocommerce',
+			'shop',
+			'store',
+			'cart',
+			'checkout',
+			'account',
+			'order tracking',
+			'shortcode',
+			'product',
+		];
+	}
+
+	public function get_categories() {
+		return [
+			'woocommerce-elements',
+		];
 	}
 
 	protected function _register_controls() {
@@ -39,7 +60,7 @@ class Elements extends Base_Widget {
 		$this->add_control(
 			'element',
 			[
-				'label' => __( 'Element', 'elementor-pro' ),
+				'label' => __( 'Page', 'elementor-pro' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
 					'' => '— ' . __( 'Select', 'elementor-pro' ) . ' —',
@@ -57,11 +78,14 @@ class Elements extends Base_Widget {
 			[
 				'label' => __( 'Product', 'elementor-pro' ),
 				'type' => QueryModule::QUERY_CONTROL_ID,
-				'post_type' => '',
 				'options' => [],
 				'label_block' => true,
-				'filter_type' => 'by_id',
-				'object_type' => [ 'product' ],
+				'autocomplete' => [
+					'object' => QueryModule::QUERY_OBJECT_POST,
+					'query' => [
+						'post_type' => [ 'product' ],
+					],
+				],
 				'condition' => [
 					'element' => [ 'product_page' ],
 				],
@@ -80,10 +104,9 @@ class Elements extends Base_Widget {
 				break;
 
 			case 'product_page':
-
 				if ( ! empty( $settings['product_id'] ) ) {
 					$product_data = get_post( $settings['product_id'] );
-					$product = ! empty( $product_data ) && in_array( $product_data->post_type, array( 'product', 'product_variation' ) ) ? wc_setup_product_data( $product_data ) : false;
+					$product = ! empty( $product_data ) && in_array( $product_data->post_type, [ 'product', 'product_variation' ] ) ? wc_setup_product_data( $product_data ) : false;
 				}
 
 				if ( empty( $product ) && current_user_can( 'manage_options' ) ) {

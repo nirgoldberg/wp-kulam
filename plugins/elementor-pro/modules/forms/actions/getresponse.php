@@ -6,10 +6,12 @@ use ElementorPro\Modules\Forms\Classes\Form_Record;
 use ElementorPro\Modules\Forms\Classes\Integration_Base;
 use ElementorPro\Modules\Forms\Controls\Fields_Map;
 use ElementorPro\Modules\Forms\Classes\Getresponse_Handler;
-use ElementorPro\Classes\Utils;
+use ElementorPro\Core\Utils;
 use Elementor\Settings;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Getresponse extends Integration_Base {
 
@@ -41,7 +43,8 @@ class Getresponse extends Integration_Base {
 		self::global_api_control(
 			$widget,
 			$this->get_global_api_key(),
-			'GetResponse API key', [
+			'GetResponse API key',
+			[
 				'getresponse_api_key_source' => 'default',
 			],
 			$this->get_name()
@@ -66,7 +69,7 @@ class Getresponse extends Integration_Base {
 			[
 				'label' => __( 'Custom API Key', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
-				'description' => __( 'Use this field to set a custom API key for the current form', 'elementor-pro' ),
+				'description' => __( 'Use this field to set a custom API Key for the current form', 'elementor-pro' ),
 				'condition' => [
 					'getresponse_api_key_source' => 'custom',
 				],
@@ -152,6 +155,7 @@ class Getresponse extends Integration_Base {
 
 		if ( ! $subscriber ) {
 			$ajax_handler->add_admin_error_message( __( 'GetResponse Integration requires an email field', 'elementor-pro' ) );
+
 			return;
 		}
 
@@ -179,6 +183,7 @@ class Getresponse extends Integration_Base {
 	/**
 	 * Create subscriber array from submitted data and form settings
 	 * returns a subscriber array or false on error
+	 *
 	 * @param Form_Record $record
 	 *
 	 * @return array|bool
@@ -224,6 +229,7 @@ class Getresponse extends Integration_Base {
 			}
 			$custom_fields[ $id ] = $field['value'];
 		}
+
 		return $custom_fields;
 	}
 
@@ -255,14 +261,21 @@ class Getresponse extends Integration_Base {
 			];
 		}
 		$subscriber['customFieldValues'] = $custom_fields;
+
 		return $subscriber;
 	}
 
-	public function handle_panel_request() {
-		if ( ! empty( $_POST['api_key'] ) && 'default' === $_POST['api_key'] ) {
+	/**
+	 * @param array $data
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function handle_panel_request( array $data ) {
+		if ( ! empty( $data['api_key'] ) && 'default' === $data['api_key'] ) {
 			$api_key = $this->get_global_api_key();
-		} elseif ( ! empty( $_POST['custom_api_key'] ) ) {
-			$api_key = $_POST['custom_api_key'];
+		} elseif ( ! empty( $data['custom_api_key'] ) ) {
+			$api_key = $data['custom_api_key'];
 		}
 
 		if ( empty( $api_key ) ) {
@@ -270,13 +283,12 @@ class Getresponse extends Integration_Base {
 		}
 
 		$handler = new Getresponse_Handler( $api_key );
-		if ( 'lists' === $_POST['getresponse_action'] ) {
+
+		if ( 'lists' === $data['getresponse_action'] ) {
 			return $handler->get_lists();
 		}
 
-		if ( 'get_fields' === $_POST['getresponse_action'] ) {
-			return $handler->get_fields();
-		}
+		return $handler->get_fields();
 	}
 
 	public function ajax_validate_api_token() {

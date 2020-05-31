@@ -1,12 +1,14 @@
 <?php
 namespace ElementorPro\Modules\Library\Widgets;
 
-use Elementor\Controls_Manager;
+use Elementor\Core\Base\Document;
 use ElementorPro\Base\Base_Widget;
-use ElementorPro\Modules\Library\Module;
+use ElementorPro\Modules\QueryControl\Module as QueryControlModule;
 use ElementorPro\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Template extends Base_Widget {
 
@@ -22,6 +24,10 @@ class Template extends Base_Widget {
 		return 'eicon-document-file';
 	}
 
+	public function get_keywords() {
+		return [ 'elementor', 'template', 'library', 'block', 'page' ];
+	}
+
 	public function is_reload_preview_required() {
 		return false;
 	}
@@ -34,42 +40,28 @@ class Template extends Base_Widget {
 			]
 		);
 
-		$templates = Module::get_templates();
-
-		if ( empty( $templates ) ) {
-
-			$this->add_control(
-				'no_templates',
-				[
-					'label' => false,
-					'type' => Controls_Manager::RAW_HTML,
-					'raw' => Module::empty_templates_message(),
-				]
-			);
-
-			return;
-		}
-
-		$options = [
-			'0' => '— ' . __( 'Select', 'elementor-pro' ) . ' —',
-		];
-
-		$types = [];
-
-		foreach ( $templates as $template ) {
-			$options[ $template['template_id'] ] = $template['title'] . ' (' . $template['type'] . ')';
-			$types[ $template['template_id'] ] = $template['type'];
-		}
+		$document_types = Plugin::elementor()->documents->get_document_types( [
+			'show_in_library' => true,
+		] );
 
 		$this->add_control(
 			'template_id',
 			[
 				'label' => __( 'Choose Template', 'elementor-pro' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '0',
-				'options' => $options,
-				'types' => $types,
-				'label_block'  => 'true',
+				'type' => QueryControlModule::QUERY_CONTROL_ID,
+				'label_block' => true,
+				'autocomplete' => [
+					'object' => QueryControlModule::QUERY_OBJECT_LIBRARY_TEMPLATE,
+					'query' => [
+						'meta_query' => [
+							[
+								'key' => Document::TYPE_META_KEY,
+								'value' => array_keys( $document_types ),
+								'compare' => 'IN',
+							],
+						],
+					],
+				],
 			]
 		);
 
@@ -78,6 +70,11 @@ class Template extends Base_Widget {
 
 	protected function render() {
 		$template_id = $this->get_settings( 'template_id' );
+
+		if ( 'publish' !== get_post_status( $template_id ) ) {
+			return;
+		}
+
 		?>
 		<div class="elementor-template">
 			<?php

@@ -3,7 +3,9 @@ namespace ElementorPro\Modules\Carousel;
 
 use ElementorPro\Base\Module_Base;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Module extends Module_Base {
 
@@ -11,6 +13,7 @@ class Module extends Module_Base {
 		return [
 			'Media_Carousel',
 			'Testimonial_Carousel',
+			'Reviews',
 		];
 	}
 

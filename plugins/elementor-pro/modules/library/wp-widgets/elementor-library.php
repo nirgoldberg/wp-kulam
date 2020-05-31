@@ -1,11 +1,13 @@
 <?php
 namespace ElementorPro\Modules\Library\WP_Widgets;
 
-use Elementor\TemplateLibrary\Source_Local;
+use Elementor\Core\Base\Document;
 use ElementorPro\Modules\Library\Module;
 use ElementorPro\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Elementor_Library extends \WP_Widget {
 
@@ -29,10 +31,12 @@ class Elementor_Library extends \WP_Widget {
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+			/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+			$title = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+			echo $args['before_title'] . $title . $args['after_title'];
 		}
 
-		if ( ! empty( $instance['template_id'] ) ) {
+		if ( ! empty( $instance['template_id'] ) && 'publish' === get_post_status( $instance['template_id'] ) ) {
 			$this->sidebar_id = $args['id'];
 
 			add_filter( 'elementor/frontend/builder_content_data', [ $this, 'filter_content_data' ] );
@@ -49,10 +53,12 @@ class Elementor_Library extends \WP_Widget {
 
 	/**
 	 * Avoid nesting a sidebar within a template that will appear in the sidebar itself
+	 *
 	 * @param array $data
+	 *
 	 * @return mixed
 	 */
-	function filter_content_data( $data ) {
+	public function filter_content_data( $data ) {
 		if ( ! empty( $data ) ) {
 			$data = Plugin::elementor()->db->iterate_data( $data, function( $element ) {
 				if ( 'widget' === $element['elType'] && 'sidebar' === $element['widgetType'] && $this->sidebar_id === $element['settings']['sidebar'] ) {
@@ -83,6 +89,7 @@ class Elementor_Library extends \WP_Widget {
 
 		if ( ! $templates ) {
 			echo Module::empty_templates_message();
+
 			return;
 		}
 		?>
@@ -99,7 +106,7 @@ class Elementor_Library extends \WP_Widget {
 				foreach ( $templates as $template ) :
 					$selected = selected( $template['template_id'], $instance['template_id'] );
 					?>
-					<option value="<?php echo $template['template_id'] ?>" <?php echo $selected; ?> data-type="<?php echo $template['type']; ?>">
+					<option value="<?php echo $template['template_id']; ?>" <?php echo $selected; ?> data-type="<?php echo esc_attr( $template['type'] ); ?>">
 						<?php echo $template['title']; ?> (<?php echo $template['type']; ?>)
 					</option>
 				<?php endforeach; ?>
@@ -107,15 +114,15 @@ class Elementor_Library extends \WP_Widget {
 			<?php
 			$style = ' style="display:none"';
 
-			$template_type = get_post_meta( $instance['template_id'], Source_Local::TYPE_META_KEY, true );
+			$template_type = get_post_meta( $instance['template_id'], Document::TYPE_META_KEY, true );
 
 			// 'widget' is editable only from an Elementor page
 			if ( 'page' === $template_type ) {
 				$style = '';
 			}
 			?>
-			<a target="_blank" class="elementor-edit-template"<?php echo $style; ?> href="<?php echo add_query_arg( 'elementor', '', get_permalink( $instance['template_id'] ) ); ?>">
-				<i class="fa fa-pencil"></i> <?php echo __( 'Edit Template', 'elementor-pro' ); ?>
+			<a target="_blank" class="elementor-edit-template"<?php echo $style; ?> href="<?php echo esc_url( add_query_arg( 'elementor', '', get_permalink( $instance['template_id'] ) ) ); ?>">
+				<i class="eicon-pencil"></i> <?php echo __( 'Edit Template', 'elementor-pro' ); ?>
 			</a>
 		</p>
 		<?php

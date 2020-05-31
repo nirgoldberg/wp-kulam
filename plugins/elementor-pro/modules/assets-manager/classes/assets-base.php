@@ -1,5 +1,4 @@
 <?php
-
 namespace ElementorPro\Modules\AssetsManager\Classes;
 
 use Elementor\Utils;
@@ -21,6 +20,7 @@ abstract class Assets_Base {
 		<div class="elementor-metabox-content">
 			<?php
 			foreach ( $fields as $field ) :
+				$field['saved'] = isset( $field['saved'] ) ? $field['saved'] : '';
 				echo $this->get_metabox_field_html( $field, $field['saved'] );
 			endforeach;
 			?>
@@ -29,16 +29,18 @@ abstract class Assets_Base {
 	}
 
 	public function get_metabox_field_html( $field, $saved ) {
-		$html  = '';
+		$html = '';
 
 		switch ( $field['field_type'] ) {
 			case 'html':
 				$html = $this->get_html_field( $field );
+
 				return $html;
 				break;
 
 			case 'html_tag':
 				$html = $this->get_html_tag( $field );
+
 				return $html;
 				break;
 
@@ -66,6 +68,10 @@ abstract class Assets_Base {
 				$html = $this->get_repeater_field( $field, $saved );
 				break;
 
+			case 'dropzone':
+				$html = $this->get_dropzone_field( $field, $saved );
+				break;
+
 			default:
 				$method = 'get_' . $field['field_type'] . 'field';
 				if ( method_exists( $this, $method ) ) {
@@ -90,6 +96,10 @@ abstract class Assets_Base {
 	}
 
 	public function get_input_field( $attributes ) {
+		if ( isset( $attributes['input_type'] ) ) {
+			$attributes['type'] = $attributes['input_type'];
+			unset( $attributes['input_type'] );
+		}
 		$input = '<input ' . $this->get_attribute_string( $attributes ) . '>';
 
 		return $input;
@@ -111,7 +121,7 @@ abstract class Assets_Base {
 		$input = '<select ';
 		$input .= $this->get_attribute_string( [
 			'name' => $field['id'],
-			'id'   => $field['id'],
+			'id' => $field['id'],
 		], $field );
 
 		$input .= '>' . "\n";
@@ -126,7 +136,7 @@ abstract class Assets_Base {
 		$input = '<textarea ';
 		$input .= $this->get_attribute_string( [
 			'name' => $field['id'],
-			'id'   => $field['id'],
+			'id' => $field['id'],
 		], $field );
 
 		$input .= '>' . esc_textarea( $html ) . '</textarea>';
@@ -136,7 +146,7 @@ abstract class Assets_Base {
 
 	public function get_file_field( $field, $saved ) {
 		$value = [
-			'id'  => '',
+			'id' => '',
 			'url' => '',
 		];
 
@@ -175,9 +185,7 @@ abstract class Assets_Base {
 				'data-ext' => isset( $field['ext'] ) ? $field['ext'] : '',
 				'data-upload_text' => __( 'Upload', 'elementor-pro' ),
 				'data-remove_text' => __( 'Delete', 'elementor-pro' ),
-				/* translators: %s font file format */
 				'data-box_title' => isset( $field['box_title'] ) ? $field['box_title'] : '',
-				/* translators: %s font file format */
 				'data-box_action' => isset( $field['box_action'] ) ? $field['box_action'] : '',
 			]
 		);
@@ -187,6 +195,43 @@ abstract class Assets_Base {
 
 	public function get_html_field( $field ) {
 		return $field['raw_html'];
+	}
+
+	public function get_dropzone_field( $field ) {
+		ob_start();
+		$input_attributes = [
+			'type' => 'file',
+			'name' => $field['id'],
+			'id' => $field['id'],
+			'accept' => $field['accept'],
+			'class' => 'box__file',
+		];
+		if ( ! empty( $field['multiple'] ) ) {
+			$input_attributes['multiple'] = true;
+		}
+		$input_html = $this->get_input_field( $input_attributes );
+		$field['label'] = '<h4><span class="box__dragndrop">' . __( 'Drag & Drop to Upload', 'elementor-pro' ) . '</span></h4>';
+		if ( ! empty( $field['sub-label'] ) ) {
+			$field['label'] .= '<h5>' . $field['sub-label'] . '</h5>';
+		}
+		?>
+		<div class="elementor-dropzone-field">
+			<div class="box__input">
+				<div class="elementor--dropzone--upload__icon">
+					<i class="eicon-library-upload"></i>
+				</div>
+				<?php echo $input_html; ?>
+				<?php echo $this->get_field_label( $field ); ?>
+				<div class="elementor-button elementor--dropzone--upload__browse">
+					<span><?php esc_html_e( 'Click here to browse', 'elementor-pro' ); ?></span>
+				</div>
+			</div>
+			<div class="box__uploading"><?php esc_html_e( 'Uploading&hellip;', 'elementor-pro' ); ?></div>
+			<div class="box__success"><?php esc_html_e( 'Done!', 'elementor-pro' ); ?></div>
+			<div class="box__error"><?php esc_html_e( 'Error!', 'elementor-pro' ); ?> <span></span>.</div>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 
 	public function get_repeater_field( $field, $saved ) {
@@ -211,7 +256,7 @@ abstract class Assets_Base {
 		$row_label_html = '<span ' . $this->get_attribute_string( $row_label_html_args ) . '>' . $label . '</span>';
 		ob_start();
 		?>
-		<script type="text/template" id="<?php echo $js_id . '_block'; ?>">
+		<script type="text/template" id="<?php echo esc_attr( $js_id . '_block' ); ?>">
 			<div class="repeater-block block-visible">
 				<?php
 				echo $row_label_html;
@@ -240,7 +285,7 @@ abstract class Assets_Base {
 				echo $this->get_repeater_tools( $field );
 				echo '<div class="repeater-content hidden form-table">';
 				foreach ( $field['fields'] as $sub_field ) {
-				    $default = isset( $sub_field['default'] ) ? $sub_field['default'] : '';
+					$default = isset( $sub_field['default'] ) ? $sub_field['default'] : '';
 					$item_meta = isset( $item[ $sub_field['id'] ] ) ? $item[ $sub_field['id'] ] : $default;
 					$sub_field['real_id'] = $sub_field['id'];
 					$sub_field['id'] = $id . '[' . $counter . '][' . $sub_field['id'] . ']';
@@ -248,7 +293,7 @@ abstract class Assets_Base {
 				}
 				echo '</div>'; // end table
 				echo '</div>';
-				$counter ++;
+				$counter++;
 			}
 		}
 		echo '<input type="button" class="button elementor-button add-repeater-row" value="' . esc_attr( $add_label ) . '" data-template-id="' . $js_id . '_block">';
@@ -272,13 +317,13 @@ abstract class Assets_Base {
 		$close_title = isset( $field['close_title'] ) ? $field['close_title'] : __( 'Close', 'elementor-pro' );
 
 		return '<span class="elementor-repeater-tool-btn close-repeater-row" title="' . esc_attr( $close_title ) . '">
-                    <i class="eicon-times"></i>' . $close_title . '
+                    <i class="eicon-times" aria-hidden="true"></i>' . $close_title . '
                 </span>
                 <span class="elementor-repeater-tool-btn toggle-repeater-row" title="' . esc_attr( $toggle_title ) . '">
-                    <i class="eicon-edit"></i>' . $toggle_title . '
+                    <i class="eicon-edit" aria-hidden="true"></i>' . $toggle_title . '
                 </span>
                 <span class="elementor-repeater-tool-btn remove-repeater-row" data-confirm="' . $confirm . '" title="' . esc_attr( $remove_title ) . '">
-                    <i class="eicon-trash"></i>' . $remove_title . '
+                    <i class="eicon-trash" aria-hidden="true"></i>' . $remove_title . '
                 </span>';
 	}
 
@@ -300,6 +345,7 @@ abstract class Assets_Base {
 			foreach ( $data as $key => $value ) {
 				$data[ $key ] = $this->sanitize_text_field_recursive( $value );
 			}
+
 			return $data;
 		}
 

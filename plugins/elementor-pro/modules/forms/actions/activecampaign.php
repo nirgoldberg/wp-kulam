@@ -6,7 +6,7 @@ use Elementor\Settings;
 use ElementorPro\Modules\Forms\Classes\Form_Record;
 use ElementorPro\Modules\Forms\Controls\Fields_Map;
 use ElementorPro\Modules\Forms\Classes;
-use ElementorPro\Classes\Utils;
+use ElementorPro\Core\Utils;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
@@ -47,7 +47,8 @@ class Activecampaign extends Classes\Integration_Base {
 		self::global_api_control(
 			$widget,
 			$this->get_global_api_key(),
-			'ActiveCampaign API credentials', [
+			'ActiveCampaign API credentials',
+			[
 				'activecampaign_api_credentials_source' => 'default',
 			],
 			$this->get_name()
@@ -72,7 +73,7 @@ class Activecampaign extends Classes\Integration_Base {
 			[
 				'label' => __( 'API Key', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
-				'description' => __( 'Use this field to set a custom API key for the current form', 'elementor-pro' ),
+				'description' => __( 'Use this field to set a custom API Key for the current form', 'elementor-pro' ),
 				'condition' => [
 					'activecampaign_api_credentials_source' => 'custom',
 				],
@@ -182,6 +183,7 @@ class Activecampaign extends Classes\Integration_Base {
 
 		if ( ! $subscriber ) {
 			$ajax_handler->add_admin_error_message( __( 'ActiveCampaign Integration requires an email field and a selected list', 'elementor-pro' ) );
+
 			return;
 		}
 
@@ -204,6 +206,7 @@ class Activecampaign extends Classes\Integration_Base {
 	/**
 	 * Create subscriber array from submitted data and form settings
 	 * returns a subscriber array or false on error
+	 *
 	 * @param Form_Record $record
 	 *
 	 * @return array|bool
@@ -257,13 +260,19 @@ class Activecampaign extends Classes\Integration_Base {
 		return $subscriber;
 	}
 
-	public function handle_panel_request() {
-		if ( ! empty( $_POST['api_cred'] ) && 'default' === $_POST['api_cred'] ) {
+	/**
+	 * @param array $data
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function handle_panel_request( array $data ) {
+		if ( ! empty( $data['api_cred'] ) && 'default' === $data['api_cred'] ) {
 			$api_key = $this->get_global_api_key();
 			$api_url = $this->get_global_api_url();
-		} elseif ( ! empty( $_POST['api_key'] ) && ! empty( $_POST['api_url'] ) ) {
-			$api_key = $_POST['api_key'];
-			$api_url = $_POST['api_url'];
+		} elseif ( ! empty( $data['api_key'] ) && ! empty( $data['api_url'] ) ) {
+			$api_key = $data['api_key'];
+			$api_url = $data['api_url'];
 		}
 
 		if ( empty( $api_key ) ) {
@@ -275,9 +284,8 @@ class Activecampaign extends Classes\Integration_Base {
 		}
 
 		$handler = new Classes\Activecampaign_Handler( $api_key, $api_url );
-		if ( 'activecampaign_list' === $_POST['activecampaign_action'] ) {
-			return $handler->get_lists();
-		}
+
+		return $handler->get_lists();
 	}
 
 	public function ajax_validate_api_token() {
@@ -309,7 +317,7 @@ class Activecampaign extends Classes\Integration_Base {
 					'label' => __( 'API URL', 'elementor-pro' ),
 					'field_args' => [
 						'type' => 'url',
-						'desc' => sprintf( __( 'To integrate with our forms you need an <a href="%s" target="_blank">API key</a>.', 'elementor-pro' ), 'https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API' ),
+						'desc' => sprintf( __( 'To integrate with our forms you need an <a href="%s" target="_blank">API Key</a>.', 'elementor-pro' ), 'https://help.activecampaign.com/hc/en-us/articles/207317590-Getting-started-with-the-API' ),
 					],
 				],
 				'validate_api_data' => [

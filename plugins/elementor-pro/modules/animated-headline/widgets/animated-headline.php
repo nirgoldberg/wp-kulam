@@ -2,14 +2,16 @@
 namespace ElementorPro\Modules\AnimatedHeadline\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Typography;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
-use Elementor\Widget_Base;
+use Elementor\Modules\DynamicTags\Module as TagsModule;
+use ElementorPro\Base\Base_Widget;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
-class Animated_Headline extends Widget_Base {
+class Animated_Headline extends Base_Widget {
 
 	public function get_name() {
 		return 'animated-headline';
@@ -23,8 +25,8 @@ class Animated_Headline extends Widget_Base {
 		return 'eicon-animated-headline';
 	}
 
-	public function get_categories() {
-		return [ 'pro-elements' ];
+	public function get_keywords() {
+		return [ 'headline', 'heading', 'animation', 'title', 'text' ];
 	}
 
 	protected function _register_controls() {
@@ -105,8 +107,14 @@ class Animated_Headline extends Widget_Base {
 			[
 				'label' => __( 'Before Text', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::TEXT_CATEGORY,
+					],
+				],
 				'default' => __( 'This page is', 'elementor-pro' ),
-				'placeholder' => __( 'Your Headline', 'elementor-pro' ),
+				'placeholder' => __( 'Enter your headline', 'elementor-pro' ),
 				'label_block' => true,
 				'separator' => 'before',
 			]
@@ -135,7 +143,6 @@ class Animated_Headline extends Widget_Base {
 				'placeholder' => __( 'Enter each word in a separate line', 'elementor-pro' ),
 				'separator' => 'none',
 				'default' => "Better\nBigger\nFaster",
-				'rows' => 5,
 				'condition' => [
 					'headline_style' => 'rotate',
 				],
@@ -148,9 +155,27 @@ class Animated_Headline extends Widget_Base {
 			[
 				'label' => __( 'After Text', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
-				'placeholder' => __( 'Your Headline', 'elementor-pro' ),
+				'dynamic' => [
+					'active' => true,
+					'categories' => [
+						TagsModule::TEXT_CATEGORY,
+					],
+				],
+				'placeholder' => __( 'Enter your headline', 'elementor-pro' ),
 				'label_block' => true,
 				'separator' => 'none',
+			]
+		);
+
+		$this->add_control(
+			'link',
+			[
+				'label' => __( 'Link', 'elementor-pro' ),
+				'type' => Controls_Manager::URL,
+				'dynamic' => [
+					'active' => true,
+				],
+				'separator' => 'before',
 			]
 		);
 
@@ -159,23 +184,21 @@ class Animated_Headline extends Widget_Base {
 			[
 				'label' => __( 'Alignment', 'elementor-pro' ),
 				'type' => Controls_Manager::CHOOSE,
-				'label_block' => false,
 				'options' => [
 					'left' => [
 						'title' => __( 'Left', 'elementor-pro' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'elementor-pro' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'right' => [
 						'title' => __( 'Right', 'elementor-pro' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 				],
 				'default' => 'center',
-				'separator' => 'before',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-headline' => 'text-align: {{VALUE}}',
 				],
@@ -221,8 +244,8 @@ class Animated_Headline extends Widget_Base {
 				'label' => __( 'Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_4,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-headline-dynamic-wrapper path' => 'stroke: {{VALUE}}',
@@ -253,8 +276,8 @@ class Animated_Headline extends Widget_Base {
 				'label' => __( 'Bring to Front', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
 				'selectors' => [
-					"{{WRAPPER}} .elementor-headline-dynamic-wrapper svg" => 'z-index: 2',
-					"{{WRAPPER}} .elementor-headline-dynamic-text" => 'z-index: auto',
+					'{{WRAPPER}} .elementor-headline-dynamic-wrapper svg' => 'z-index: 2',
+					'{{WRAPPER}} .elementor-headline-dynamic-text' => 'z-index: auto',
 				],
 			]
 		);
@@ -265,7 +288,7 @@ class Animated_Headline extends Widget_Base {
 				'label' => __( 'Rounded Edges', 'elementor-pro' ),
 				'type' => Controls_Manager::SWITCHER,
 				'selectors' => [
-					"{{WRAPPER}} .elementor-headline-dynamic-wrapper path" => 'stroke-linecap: round; stroke-linejoin: round',
+					'{{WRAPPER}} .elementor-headline-dynamic-wrapper path' => 'stroke-linecap: round; stroke-linejoin: round',
 				],
 			]
 		);
@@ -286,8 +309,8 @@ class Animated_Headline extends Widget_Base {
 				'label' => __( 'Text Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_2,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-headline-plain-text' => 'color: {{VALUE}}',
@@ -300,7 +323,7 @@ class Animated_Headline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'title_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementor-headline',
 			]
 		);
@@ -320,8 +343,8 @@ class Animated_Headline extends Widget_Base {
 				'label' => __( 'Text Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_2,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_2,
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-headline-dynamic-text' => 'color: {{VALUE}}',
@@ -333,9 +356,9 @@ class Animated_Headline extends Widget_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'words_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_1,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_1,
 				'selector' => '{{WRAPPER}} .elementor-headline-dynamic-text',
-				'exclude' => ['font_size'],
+				'exclude' => [ 'font_size' ],
 			]
 		);
 
@@ -343,7 +366,7 @@ class Animated_Headline extends Widget_Base {
 	}
 
 	protected function render() {
-		$settings = $this->get_settings();
+		$settings = $this->get_settings_for_display();
 
 		$tag = $settings['tag'];
 
@@ -359,27 +382,42 @@ class Animated_Headline extends Widget_Base {
 			}
 		}
 
+		if ( ! empty( $settings['link']['url'] ) ) {
+			$this->add_link_attributes( 'url', $settings['link'] );
+
+			echo '<a ' . $this->get_render_attribute_string( 'url' ) . '>';
+		}
+
 		?>
 		<<?php echo $tag; ?> <?php echo $this->get_render_attribute_string( 'headline' ); ?>>
 			<?php if ( ! empty( $settings['before_text'] ) ) : ?>
 				<span class="elementor-headline-plain-text elementor-headline-text-wrapper"><?php echo $settings['before_text']; ?></span>
 			<?php endif; ?>
-
-			<?php if ( ! empty( $settings['rotating_text'] ) ) : ?>
-				<span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper"></span>
-			<?php endif; ?>
-
+			<span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper"></span>
 			<?php if ( ! empty( $settings['after_text'] ) ) : ?>
 				<span class="elementor-headline-plain-text elementor-headline-text-wrapper"><?php echo $settings['after_text']; ?></span>
 			<?php endif; ?>
 		</<?php echo $tag; ?>>
 		<?php
+
+		if ( ! empty( $settings['link']['url'] ) ) {
+			echo '</a>';
+		}
 	}
 
-	protected function _content_template() {
+	/**
+	 * Render Animated Headline widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since 2.9.0
+	 * @access protected
+	 */
+	protected function content_template() {
 		?>
 		<#
-		var headlineClasses = 'elementor-headline';
+		var headlineClasses = 'elementor-headline',
+			tag = settings.tag;
 
 		if ( 'rotate' === settings.headline_style ) {
 			headlineClasses += ' elementor-headline-animation-type-' + settings.animation_type;
@@ -390,20 +428,26 @@ class Animated_Headline extends Widget_Base {
 				headlineClasses += ' elementor-headline-letters';
 			}
 		}
-		#>
-		<{{{ settings.tag }}} class="{{{ headlineClasses }}}">
-			<# if ( settings.before_text ) { #>
-				<span class="elementor-headline-plain-text elementor-headline-text-wrapper">{{{ settings.before_text }}}</span>
-			<# } #>
 
-			<# if ( settings.rotating_text ) { #>
-				<span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper"></span>
-			<# } #>
+		if ( settings.link.url ) { #>
+			<a href="#">
+		<# } #>
+				<{{{ tag }}} class="{{{ headlineClasses }}}">
+					<# if ( settings.before_text ) { #>
+						<span class="elementor-headline-plain-text elementor-headline-text-wrapper">{{{ settings.before_text }}}</span>
+					<# } #>
 
-			<# if ( settings.after_text ) { #>
-				<span class="elementor-headline-plain-text elementor-headline-text-wrapper">{{{ settings.after_text }}}</span>
-			<# } #>
-		</{{{ settings.tag }}}>
+					<# if ( settings.rotating_text ) { #>
+						<span class="elementor-headline-dynamic-wrapper elementor-headline-text-wrapper"></span>
+					<# } #>
+
+					<# if ( settings.after_text ) { #>
+						<span class="elementor-headline-plain-text elementor-headline-text-wrapper">{{{ settings.after_text }}}</span>
+					<# } #>
+				</{{{ tag }}}>
+		<# if ( settings.link.url ) { #>
+			</a>
+		<# } #>
 		<?php
 	}
 }

@@ -2,17 +2,20 @@
 namespace ElementorPro\Modules\Forms\Widgets;
 
 use Elementor\Controls_Manager;
+use Elementor\Core\Schemes;
 use Elementor\Group_Control_Border;
 use Elementor\Group_Control_Typography;
+use Elementor\Icons_Manager;
 use Elementor\Repeater;
-use Elementor\Scheme_Color;
-use Elementor\Scheme_Typography;
-use ElementorPro\Classes\Utils;
+use ElementorPro\Core\Utils;
 use ElementorPro\Modules\Forms\Classes\Ajax_Handler;
 use ElementorPro\Modules\Forms\Classes\Form_Base;
 use ElementorPro\Modules\Forms\Module;
+use ElementorPro\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Form extends Form_Base {
 
@@ -26,6 +29,10 @@ class Form extends Form_Base {
 
 	public function get_icon() {
 		return 'eicon-form-horizontal';
+	}
+
+	public function get_keywords() {
+		return [ 'form', 'forms', 'field', 'button', 'mailchimp', 'drip', 'mailpoet', 'convertkit', 'getresponse', 'recaptcha', 'zapier', 'webhook', 'activecampaign', 'slack', 'discord', 'mailerlite' ];
 	}
 
 	protected function _register_controls() {
@@ -50,6 +57,15 @@ class Form extends Form_Base {
 			'hidden' => __( 'Hidden', 'elementor-pro' ),
 		];
 
+		/**
+		 * Forms field types.
+		 *
+		 * Filters the list of field types displayed in the form `field_type` control.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $field_types Field types.
+		 */
 		$field_types = apply_filters( 'elementor_pro/forms/field_types', $field_types );
 
 		$repeater->start_controls_tabs( 'form_fields_tabs' );
@@ -74,18 +90,6 @@ class Form extends Form_Base {
 				'label' => __( 'Label', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
 				'default' => '',
-			]
-		);
-
-		$repeater->add_control(
-			'field_value',
-			[
-				'label' => __( 'Value', 'elementor-pro' ),
-				'type' => Controls_Manager::TEXT,
-				'default' => '',
-				'condition' => [
-					'field_type' => 'hidden',
-				],
 			]
 		);
 
@@ -130,6 +134,7 @@ class Form extends Form_Base {
 							'value' => [
 								'checkbox',
 								'recaptcha',
+								'recaptcha_v3',
 								'hidden',
 								'html',
 							],
@@ -145,7 +150,7 @@ class Form extends Form_Base {
 				'label' => __( 'Options', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXTAREA,
 				'default' => '',
-				'description' => __( 'Enter each option in a separate line', 'elementor-pro' ),
+				'description' => __( 'Enter each option in a separate line. To differentiate between label and value, separate them with a pipe char ("|"). For example: First Name|f_name', 'elementor-pro' ),
 				'conditions' => [
 					'terms' => [
 						[
@@ -194,7 +199,6 @@ class Form extends Form_Base {
 						],
 						[
 							'name' => 'allow_multiple',
-							'operator' => '===',
 							'value' => 'true',
 						],
 					],
@@ -229,6 +233,9 @@ class Form extends Form_Base {
 			[
 				'label' => __( 'HTML', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXTAREA,
+				'dynamic' => [
+					'active' => true,
+				],
 				'conditions' => [
 					'terms' => [
 						[
@@ -267,6 +274,7 @@ class Form extends Form_Base {
 							'value' => [
 								'hidden',
 								'recaptcha',
+								'recaptcha_v3',
 							],
 						],
 					],
@@ -292,8 +300,7 @@ class Form extends Form_Base {
 		);
 
 		$repeater->add_control(
-			'recaptcha_size',
-			[
+			'recaptcha_size', [
 				'label' => __( 'Size', 'elementor-pro' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => 'normal',
@@ -334,6 +341,28 @@ class Form extends Form_Base {
 		);
 
 		$repeater->add_control(
+			'recaptcha_badge', [
+				'label' => __( 'Badge', 'elementor-pro' ),
+				'type' => Controls_Manager::SELECT,
+				'default' => 'bottomright',
+				'options' => [
+					'bottomright' => __( 'Bottom Right', 'elementor-pro' ),
+					'bottomleft' => __( 'Bottom Left', 'elementor-pro' ),
+					'inline' => __( 'Inline', 'elementor-pro' ),
+				],
+				'description' => __( 'To view the validation badge, switch to preview mode', 'elementor-pro' ),
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'value' => 'recaptcha_v3',
+						],
+					],
+				],
+			]
+		);
+
+		$repeater->add_control(
 			'css_classes',
 			[
 				'label' => __( 'CSS Classes', 'elementor-pro' ),
@@ -345,30 +374,67 @@ class Form extends Form_Base {
 
 		$repeater->end_controls_tab();
 
-		$repeater->start_controls_tab( 'form_fields_advanced_tab', [
-			'label' => __( 'Advanced', 'elementor-pro' ),
-			'condition' => [
-				'field_type!' => 'html',
-			],
-		] );
+		$repeater->start_controls_tab(
+			'form_fields_advanced_tab',
+			[
+				'label' => __( 'Advanced', 'elementor-pro' ),
+				'condition' => [
+					'field_type!' => 'html',
+				],
+			]
+		);
 
 		$repeater->add_control(
-			'_id',
+			'field_value',
 			[
-				'label' => __( 'Custom ID', 'elementor-pro' ),
+				'label' => __( 'Default Value', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => '',
+				'dynamic' => [
+					'active' => true,
+				],
+				'conditions' => [
+					'terms' => [
+						[
+							'name' => 'field_type',
+							'operator' => 'in',
+							'value' => [
+								'text',
+								'email',
+								'textarea',
+								'url',
+								'tel',
+								'radio',
+								'select',
+								'number',
+								'date',
+								'time',
+								'hidden',
+							],
+						],
+					],
+				],
+			]
+		);
+
+		$repeater->add_control(
+			'custom_id',
+			[
+				'label' => __( 'ID', 'elementor-pro' ),
 				'type' => Controls_Manager::TEXT,
 				'description' => __( 'Please make sure the ID is unique and not used elsewhere in this form. This field allows <code>A-z 0-9</code> & underscore chars without spaces.', 'elementor-pro' ),
 				'render_type' => 'none',
 			]
 		);
 
+		$shortcode_template = '{{ view.container.settings.get( \'custom_id\' ) }}';
 		$repeater->add_control(
 			'shortcode',
 			[
 				'label' => __( 'Shortcode', 'elementor-pro' ),
 				'type' => Controls_Manager::RAW_HTML,
 				'classes' => 'forms-field-shortcode',
-				'raw' => '<input class="elementor-form-field-shortcode" readonly />',
+				'raw' => '<input class="elementor-form-field-shortcode" value=\'[field id="' . $shortcode_template . '"]\' readonly />',
 			]
 		);
 
@@ -397,17 +463,17 @@ class Form extends Form_Base {
 			'form_fields',
 			[
 				'type' => Controls_Manager::REPEATER,
-				'fields' => array_values( $repeater->get_controls() ),
+				'fields' => $repeater->get_controls(),
 				'default' => [
 					[
-						'_id' => 'name',
+						'custom_id' => 'name',
 						'field_type' => 'text',
 						'field_label' => __( 'Name', 'elementor-pro' ),
 						'placeholder' => __( 'Name', 'elementor-pro' ),
 						'width' => '100',
 					],
 					[
-						'_id' => 'email',
+						'custom_id' => 'email',
 						'field_type' => 'email',
 						'required' => 'true',
 						'field_label' => __( 'Email', 'elementor-pro' ),
@@ -415,7 +481,7 @@ class Form extends Form_Base {
 						'width' => '100',
 					],
 					[
-						'_id' => 'message',
+						'custom_id' => 'message',
 						'field_type' => 'textarea',
 						'field_label' => __( 'Message', 'elementor-pro' ),
 						'placeholder' => __( 'Message', 'elementor-pro' ),
@@ -463,7 +529,6 @@ class Form extends Form_Base {
 				'type' => Controls_Manager::SWITCHER,
 				'label_on' => __( 'Show', 'elementor-pro' ),
 				'label_off' => __( 'Hide', 'elementor-pro' ),
-				'return_value' => 'yes',
 				'default' => '',
 				'condition' => [
 					'show_labels!' => '',
@@ -546,19 +611,19 @@ class Form extends Form_Base {
 				'options' => [
 					'start' => [
 						'title' => __( 'Left', 'elementor-pro' ),
-						'icon' => 'fa fa-align-left',
+						'icon' => 'eicon-text-align-left',
 					],
 					'center' => [
 						'title' => __( 'Center', 'elementor-pro' ),
-						'icon' => 'fa fa-align-center',
+						'icon' => 'eicon-text-align-center',
 					],
 					'end' => [
 						'title' => __( 'Right', 'elementor-pro' ),
-						'icon' => 'fa fa-align-right',
+						'icon' => 'eicon-text-align-right',
 					],
 					'stretch' => [
 						'title' => __( 'Justified', 'elementor-pro' ),
-						'icon' => 'fa fa-align-justify',
+						'icon' => 'eicon-text-align-justify',
 					],
 				],
 				'default' => 'stretch',
@@ -567,12 +632,11 @@ class Form extends Form_Base {
 		);
 
 		$this->add_control(
-			'button_icon',
+			'selected_button_icon',
 			[
 				'label' => __( 'Icon', 'elementor-pro' ),
-				'type' => Controls_Manager::ICON,
-				'label_block' => true,
-				'default' => '',
+				'type' => Controls_Manager::ICONS,
+				'fa4compatibility' => 'button_icon',
 			]
 		);
 
@@ -587,7 +651,7 @@ class Form extends Form_Base {
 					'right' => __( 'After', 'elementor-pro' ),
 				],
 				'condition' => [
-					'button_icon!' => '',
+					'selected_button_icon[value]!' => '',
 				],
 			]
 		);
@@ -603,12 +667,25 @@ class Form extends Form_Base {
 					],
 				],
 				'condition' => [
-					'button_icon!' => '',
+					'selected_button_icon[value]!' => '',
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button .elementor-align-icon-right' => 'margin-left: {{SIZE}}{{UNIT}};',
 					'{{WRAPPER}} .elementor-button .elementor-align-icon-left' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
+			]
+		);
+
+		$this->add_control(
+			'button_css_id',
+			[
+				'label' => __( 'Button ID', 'elementor-pro' ),
+				'type' => Controls_Manager::TEXT,
+				'default' => '',
+				'title' => __( 'Add your custom id WITHOUT the Pound key. e.g: my-id', 'elementor-pro' ),
+				'description' => __( 'Please make sure the ID is unique and not used elsewhere on the page this form is displayed. This field allows <code>A-z 0-9</code> & underscore chars without spaces.', 'elementor-pro' ),
+				'separator' => 'before',
+
 			]
 		);
 
@@ -790,6 +867,7 @@ class Form extends Form_Base {
 				],
 				'selectors' => [
 					'{{WRAPPER}} .elementor-field-group' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .elementor-field-group.recaptcha_v3-bottomleft, {{WRAPPER}} .elementor-field-group.recaptcha_v3-bottomright' => 'margin-bottom: 0;',
 					'{{WRAPPER}} .elementor-form-fields-wrapper' => 'margin-bottom: -{{SIZE}}{{UNIT}};',
 				],
 			]
@@ -801,9 +879,6 @@ class Form extends Form_Base {
 				'label' => __( 'Label', 'elementor-pro' ),
 				'type' => Controls_Manager::HEADING,
 				'separator' => 'before',
-				'condition' => [
-					'show_labels!' => '',
-				],
 			]
 		);
 
@@ -829,9 +904,6 @@ class Form extends Form_Base {
 					'body {{WRAPPER}} .elementor-labels-above .elementor-field-group > label' => 'padding-bottom: {{SIZE}}{{UNIT}};',
 					// for the label position = above option
 				],
-				'condition' => [
-					'show_labels!' => '',
-				],
 			]
 		);
 
@@ -844,11 +916,8 @@ class Form extends Form_Base {
 					'{{WRAPPER}} .elementor-field-group > label, {{WRAPPER}} .elementor-field-subgroup label' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
-				],
-				'condition' => [
-					'show_labels!' => '',
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -863,7 +932,6 @@ class Form extends Form_Base {
 					'{{WRAPPER}} .elementor-mark-required .elementor-field-label:after' => 'color: {{COLOR}};',
 				],
 				'condition' => [
-					'show_labels!' => '',
 					'mark_required' => 'yes',
 				],
 			]
@@ -874,10 +942,60 @@ class Form extends Form_Base {
 			[
 				'name' => 'label_typography',
 				'selector' => '{{WRAPPER}} .elementor-field-group > label',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
-				'condition' => [
-					'show_labels!' => '',
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+			]
+		);
+
+		$this->add_control(
+			'heading_html',
+			[
+				'label' => __( 'HTML Field', 'elementor-pro' ),
+				'type' => Controls_Manager::HEADING,
+				'separator' => 'before',
+			]
+		);
+
+		$this->add_control(
+			'html_spacing',
+			[
+				'label' => __( 'Spacing', 'elementor-pro' ),
+				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 0,
 				],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 60,
+					],
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-field-type-html' => 'padding-bottom: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'html_color',
+			[
+				'label' => __( 'Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-field-type-html' => 'color: {{VALUE}};',
+				],
+				'scheme' => [
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'html_typography',
+				'selector' => '{{WRAPPER}} .elementor-field-type-html',
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -900,8 +1018,8 @@ class Form extends Form_Base {
 					'{{WRAPPER}} .elementor-field-group .elementor-field' => 'color: {{VALUE}};',
 				],
 				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_3,
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_3,
 				],
 			]
 		);
@@ -911,7 +1029,7 @@ class Form extends Form_Base {
 			[
 				'name' => 'field_typography',
 				'selector' => '{{WRAPPER}} .elementor-field-group .elementor-field, {{WRAPPER}} .elementor-field-subgroup label',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_3,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
 			]
 		);
 
@@ -990,6 +1108,21 @@ class Form extends Form_Base {
 		);
 
 		$this->add_control(
+			'button_background_color',
+			[
+				'label' => __( 'Background Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'scheme' => [
+					'type' => Schemes\Color::get_type(),
+					'value' => Schemes\Color::COLOR_4,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .elementor-button' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
 			'button_text_color',
 			[
 				'label' => __( 'Text Color', 'elementor-pro' ),
@@ -997,6 +1130,7 @@ class Form extends Form_Base {
 				'default' => '',
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .elementor-button svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -1005,33 +1139,15 @@ class Form extends Form_Base {
 			Group_Control_Typography::get_type(),
 			[
 				'name' => 'button_typography',
-				'scheme' => Scheme_Typography::TYPOGRAPHY_4,
+				'scheme' => Schemes\Typography::TYPOGRAPHY_4,
 				'selector' => '{{WRAPPER}} .elementor-button',
-			]
-		);
-
-		$this->add_control(
-			'button_background_color',
-			[
-				'label' => __( 'Background Color', 'elementor-pro' ),
-				'type' => Controls_Manager::COLOR,
-				'scheme' => [
-					'type' => Scheme_Color::get_type(),
-					'value' => Scheme_Color::COLOR_4,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .elementor-button' => 'background-color: {{VALUE}};',
-				],
 			]
 		);
 
 		$this->add_group_control(
 			Group_Control_Border::get_type(), [
 				'name' => 'button_border',
-				'placeholder' => '1px',
-				'default' => '1px',
 				'selector' => '{{WRAPPER}} .elementor-button',
-				'separator' => 'before',
 			]
 		);
 
@@ -1069,23 +1185,23 @@ class Form extends Form_Base {
 		);
 
 		$this->add_control(
-			'button_hover_color',
-			[
-				'label' => __( 'Text Color', 'elementor-pro' ),
-				'type' => Controls_Manager::COLOR,
-				'selectors' => [
-					'{{WRAPPER}} .elementor-button:hover' => 'color: {{VALUE}};',
-				],
-			]
-		);
-
-		$this->add_control(
 			'button_background_hover_color',
 			[
 				'label' => __( 'Background Color', 'elementor-pro' ),
 				'type' => Controls_Manager::COLOR,
 				'selectors' => [
 					'{{WRAPPER}} .elementor-button:hover' => 'background-color: {{VALUE}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'button_hover_color',
+			[
+				'label' => __( 'Text Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-button:hover' => 'color: {{VALUE}};',
 				],
 			]
 		);
@@ -1117,10 +1233,88 @@ class Form extends Form_Base {
 		$this->end_controls_tabs();
 
 		$this->end_controls_section();
+
+		$this->start_controls_section(
+			'section_messages_style',
+			[
+				'label' => __( 'Messages', 'elementor-pro' ),
+				'tab' => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name' => 'message_typography',
+				'scheme' => Schemes\Typography::TYPOGRAPHY_3,
+				'selector' => '{{WRAPPER}} .elementor-message',
+			]
+		);
+
+		$this->add_control(
+			'success_message_color',
+			[
+				'label' => __( 'Success Message Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-message.elementor-message-success' => 'color: {{COLOR}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'error_message_color',
+			[
+				'label' => __( 'Error Message Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-message.elementor-message-danger' => 'color: {{COLOR}};',
+				],
+			]
+		);
+
+		$this->add_control(
+			'inline_message_color',
+			[
+				'label' => __( 'Inline Message Color', 'elementor-pro' ),
+				'type' => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .elementor-message.elementor-help-inline' => 'color: {{COLOR}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+	}
+
+	private function render_icon_with_fallback( $settings ) {
+		$migrated = isset( $settings['__fa4_migrated']['selected_button_icon'] );
+		$is_new = empty( $settings['button_icon'] ) && Icons_Manager::is_migration_allowed();
+
+		if ( $is_new || $migrated ) {
+			Icons_Manager::render_icon( $settings['selected_button_icon'], [ 'aria-hidden' => 'true' ] );
+		} else {
+			?><i class="<?php echo esc_attr( $settings['button_icon'] ); ?>" aria-hidden="true"></i><?php
+		}
 	}
 
 	protected function render() {
-		$instance = $this->get_settings();
+		$instance = $this->get_settings_for_display();
+
+		if ( ! Plugin::elementor()->editor->is_edit_mode() ) {
+			/**
+			 * Elementor form Pre render.
+			 *
+			 * Fires before the from is rendered in the frontend
+			 *
+			 * @since 2.4.0
+			 *
+			 * @param array $instance current form settings
+			 * @param Form $this current form widget instance
+			 */
+			do_action( 'elementor-pro/forms/pre_render', $instance, $this );
+		}
 
 		$this->add_render_attribute(
 			[
@@ -1184,10 +1378,20 @@ class Form extends Form_Base {
 			$this->add_render_attribute( 'form', 'name', $instance['form_name'] );
 		}
 
+		if ( ! empty( $instance['button_css_id'] ) ) {
+			$this->add_render_attribute( 'button', 'id', $instance['button_css_id'] );
+		}
+
 		?>
 		<form class="elementor-form" method="post" <?php echo $this->get_render_attribute_string( 'form' ); ?>>
-			<input type="hidden" name="post_id" value="<?php echo Utils::get_current_post_id() ?>" />
-			<input type="hidden" name="form_id" value="<?php echo $this->get_id() ?>" />
+			<input type="hidden" name="post_id" value="<?php echo Utils::get_current_post_id(); ?>"/>
+			<input type="hidden" name="form_id" value="<?php echo $this->get_id(); ?>"/>
+
+			<?php if ( is_singular() ) {
+				// `queried_id` may be different from `post_id` on Single theme builder templates.
+				?>
+				<input type="hidden" name="queried_id" value="<?php echo get_the_ID(); ?>"/>
+			<?php } ?>
 
 			<div <?php echo $this->get_render_attribute_string( 'wrapper' ); ?>>
 				<?php
@@ -1195,14 +1399,40 @@ class Form extends Form_Base {
 					$item['input_size'] = $instance['input_size'];
 					$this->form_fields_render_attributes( $item_index, $instance, $item );
 
+					$field_type = $item['field_type'];
+
+					/**
+					 * Render form field.
+					 *
+					 * Filters the field rendered by Elementor Forms.
+					 *
+					 * @since 1.0.0
+					 *
+					 * @param array $item       The field value.
+					 * @param int   $item_index The field index.
+					 * @param Form  $this       An instance of the form.
+					 */
 					$item = apply_filters( 'elementor_pro/forms/render/item', $item, $item_index, $this );
-					$item = apply_filters( 'elementor_pro/forms/render/item/' . $item['field_type'], $item, $item_index, $this );
+
+					/**
+					 * Render form field.
+					 *
+					 * Filters the field rendered by Elementor Forms.
+					 *
+					 * The dynamic portion of the hook name, `$field_type`, refers to the field type.
+					 *
+					 * @since 1.0.0
+					 *
+					 * @param array $item       The field value.
+					 * @param int   $item_index The field index.
+					 * @param Form  $this       An instance of the form.
+					 */
+					$item = apply_filters( "elementor_pro/forms/render/item/{$field_type}", $item, $item_index, $this );
 
 					if ( 'hidden' === $item['field_type'] ) {
 						$item['field_label'] = false;
-						$this->add_render_attribute( 'input' . $item_index, 'value', $item['field_value'] );
 					}
-				?>
+					?>
 				<div <?php echo $this->get_render_attribute_string( 'field-group' . $item_index ); ?>>
 					<?php
 					if ( $item['field_label'] && 'html' !== $item['field_type'] ) {
@@ -1211,7 +1441,7 @@ class Form extends Form_Base {
 
 					switch ( $item['field_type'] ) :
 						case 'html':
-							echo $item['field_html'];
+							echo do_shortcode( $item['field_html'] );
 							break;
 						case 'textarea':
 							echo $this->make_textarea_field( $item, $item_index );
@@ -1235,17 +1465,35 @@ class Form extends Form_Base {
 							echo '<input size="1" ' . $this->get_render_attribute_string( 'input' . $item_index ) . '>';
 							break;
 						default:
-							do_action( 'elementor_pro/forms/render_field/' . $item['field_type'], $item, $item_index, $this );
+							$field_type = $item['field_type'];
+
+							/**
+							 * Elementor form field render.
+							 *
+							 * Fires when a field is rendered.
+							 *
+							 * The dynamic portion of the hook name, `$field_type`, refers to the field type.
+							 *
+							 * @since 1.0.0
+							 *
+							 * @param array $item       The field value.
+							 * @param int   $item_index The field index.
+							 * @param Form  $this       An instance of the form.
+							 */
+							do_action( "elementor_pro/forms/render_field/{$field_type}", $item, $item_index, $this );
 					endswitch;
 					?>
 				</div>
 				<?php endforeach; ?>
 				<div <?php echo $this->get_render_attribute_string( 'submit-group' ); ?>>
 					<button type="submit" <?php echo $this->get_render_attribute_string( 'button' ); ?>>
-						<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); // TODO: what to do about content-wrapper ?>>
-							<?php if ( ! empty( $instance['button_icon'] ) ) : ?>
+						<span <?php echo $this->get_render_attribute_string( 'content-wrapper' ); ?>>
+							<?php if ( ! empty( $instance['button_icon'] ) || ! empty( $instance['selected_button_icon'] ) ) : ?>
 								<span <?php echo $this->get_render_attribute_string( 'icon-align' ); ?>>
-									<i class="<?php echo esc_attr( $instance['button_icon'] ); ?>"></i>
+									<?php $this->render_icon_with_fallback( $instance ); ?>
+									<?php if ( empty( $instance['button_text'] ) ) : ?>
+										<span class="elementor-screen-only"><?php _e( 'Submit', 'elementor-pro' ); ?></span>
+									<?php endif; ?>
 								</span>
 							<?php endif; ?>
 							<?php if ( ! empty( $instance['button_text'] ) ) : ?>
@@ -1256,10 +1504,19 @@ class Form extends Form_Base {
 				</div>
 			</div>
 		</form>
-	<?php
+		<?php
 	}
 
-	protected function _content_template() {
+	/**
+	 * Render Form widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 * @since 2.9.0
+	 * @access protected
+	 */
+	protected function content_template() {
+		$submit_text = esc_html__( 'Submit', 'elementor-pro' );
 		?>
 		<form class="elementor-form" id="{{settings.form_id}}" name="{{settings.form_name}}">
 			<div class="elementor-form-fields-wrapper elementor-labels-{{settings.label_position}}">
@@ -1316,7 +1573,7 @@ class Form extends Form_Base {
 								break;
 
 							case 'textarea':
-								inputField = '<textarea class="elementor-field elementor-field-textual elementor-size-' + settings.input_size + ' ' + itemClasses + '" name="form_field_' + i + '" id="form_field_' + i + '" rows="' + item.rows + '" ' + required + ' ' + placeholder + '></textarea>';
+								inputField = '<textarea class="elementor-field elementor-field-textual elementor-size-' + settings.input_size + ' ' + itemClasses + '" name="form_field_' + i + '" id="form_field_' + i + '" rows="' + item.rows + '" ' + required + ' ' + placeholder + '>' + item.field_value + '</textarea>';
 								break;
 
 							case 'select':
@@ -1328,7 +1585,21 @@ class Form extends Form_Base {
 									inputField = '<div class="elementor-field elementor-select-wrapper ' + itemClasses + '">';
 									inputField += '<select class="elementor-field-textual elementor-size-' + settings.input_size + '" name="form_field_' + i + '" id="form_field_' + i + '" ' + required + multiple + size + ' >';
 									for ( var x in options ) {
-										inputField += '<option value="' + options[x] + '">' + options[x] + '</option>';
+										var option_value = options[ x ];
+										var option_label = options[ x ];
+										var option_id = 'form_field_option' + i + x;
+
+										if ( options[ x ].indexOf( '|' ) > -1 ) {
+											var label_value = options[ x ].split( '|' );
+											option_label = label_value[0];
+											option_value = label_value[1];
+										}
+
+										view.addRenderAttribute( option_id, 'value', option_value );
+										if ( item.field_value.split( ',' ) .indexOf( option_value ) ) {
+											view.addRenderAttribute( option_id, 'selected', 'selected' );
+										}
+										inputField += '<option ' + view.getRenderAttributeString( option_id ) + '>' + option_label + '</option>';
 									}
 									inputField += '</select></div>';
 								}
@@ -1346,8 +1617,29 @@ class Form extends Form_Base {
 									inputField = '<div class="elementor-field-subgroup ' + itemClasses + ' ' + item.inline_list + '">';
 
 									for ( var x in options ) {
-										inputField += '<span class="elementor-field-option"><input type="' + item.field_type + '" value="' + options[ x ] + '" id="form_field_' + i + '-' + x + '" name="form_field_' + i + multiple + '" ' + required + '> ';
-										inputField += '<label for="form_field_' + i + '-' + x + '">' + options[ x ] + '</label></span>';
+										var option_value = options[ x ];
+										var option_label = options[ x ];
+										var option_id = 'form_field_' + item.field_type + i + x;
+										if ( options[x].indexOf( '|' ) > -1 ) {
+											var label_value = options[x].split( '|' );
+											option_label = label_value[0];
+											option_value = label_value[1];
+										}
+
+										view.addRenderAttribute( option_id, {
+											value: option_value,
+											type: item.field_type,
+											id: 'form_field_' + i + '-' + x,
+											name: 'form_field_' + i + multiple
+										} );
+
+										if ( option_value ===  item.field_value ) {
+											view.addRenderAttribute( option_id, 'checked', 'checked' );
+										}
+
+										inputField += '<span class="elementor-field-option"><input ' + view.getRenderAttributeString( option_id ) + ' ' + required + '> ';
+										inputField += '<label for="form_field_' + i + '-' + x + '">' + option_label + '</label></span>';
+
 									}
 
 									inputField += '</div>';
@@ -1361,7 +1653,7 @@ class Form extends Form_Base {
 							case 'number':
 							case 'search':
 								itemClasses = 'elementor-field-textual ' + itemClasses;
-								inputField = '<input size="1" type="' + item.field_type + '" class="elementor-field elementor-size-' + settings.input_size + ' ' + itemClasses + '" name="form_field_' + i + '" id="form_field_' + i + '" ' + required + ' ' + placeholder + ' >';
+								inputField = '<input size="1" type="' + item.field_type + '" value="' + item.field_value + '" class="elementor-field elementor-size-' + settings.input_size + ' ' + itemClasses + '" name="form_field_' + i + '" id="form_field_' + i + '" ' + required + ' ' + placeholder + ' >';
 								break;
 							default:
 								inputField = elementor.hooks.applyFilters( 'elementor_pro/forms/content_template/field/' + item.field_type, '', item, i, settings );
@@ -1394,14 +1686,22 @@ class Form extends Form_Base {
 						buttonClasses += ' elementor-sm-' + settings.button_width_mobile;
 					}
 
+					var iconHTML = elementor.helpers.renderIcon( view, settings.selected_button_icon, { 'aria-hidden': true }, 'i' , 'object' ),
+						migrated = elementor.helpers.isIconMigrated( settings, 'selected_button_icon' );
+
 					#>
 
 					<div class="{{ buttonClasses }}">
-						<button type="submit" class="elementor-button elementor-size-{{ settings.button_size }} elementor-button-{{ settings.button_type }} elementor-animation-{{ settings.button_hover_animation }}">
+						<button id="{{ settings.button_css_id }}" type="submit" class="elementor-button elementor-size-{{ settings.button_size }} elementor-button-{{ settings.button_type }} elementor-animation-{{ settings.button_hover_animation }}">
 							<span>
-								<# if ( settings.button_icon ) { #>
+								<# if ( settings.button_icon || settings.selected_button_icon ) { #>
 									<span class="elementor-button-icon elementor-align-icon-{{ settings.button_icon_align }}">
-										<i class="{{ settings.button_icon }}"></i>
+										<# if ( iconHTML && iconHTML.rendered && ( ! settings.button_icon || migrated ) ) { #>
+											{{{ iconHTML.value }}}
+										<# } else { #>
+											<i class="{{ settings.button_icon }}" aria-hidden="true"></i>
+										<# } #>
+										<span class="elementor-screen-only"><?php echo $submit_text; ?></span>
 									</span>
 								<# } #>
 

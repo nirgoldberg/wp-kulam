@@ -1,9 +1,19 @@
 <?php
 namespace ElementorPro;
 
+use ElementorPro\Core\Admin\Admin;
+use ElementorPro\Core\Connect;
+use Elementor\Core\Responsive\Files\Frontend as FrontendFile;
+use Elementor\Core\Responsive\Responsive;
 use Elementor\Utils;
+use ElementorPro\Core\Editor\Editor;
+use ElementorPro\Core\Modules_Manager;
+use ElementorPro\Core\Preview\Preview;
+use ElementorPro\Core\Upgrade\Manager as UpgradeManager;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 /**
  * Main class plugin
@@ -16,9 +26,34 @@ class Plugin {
 	private static $_instance;
 
 	/**
-	 * @var Manager
+	 * @var Modules_Manager
 	 */
 	public $modules_manager;
+
+	/**
+	 * @var UpgradeManager
+	 */
+	public $upgrade;
+
+	/**
+	 * @var Editor
+	 */
+	public $editor;
+
+	/**
+	 * @var Preview
+	 */
+	public $preview;
+
+	/**
+	 * @var Admin
+	 */
+	public $admin;
+
+	/**
+	 * @var License\Admin
+	 */
+	public $license_admin;
 
 	private $classes_aliases = [
 		'ElementorPro\Modules\PanelPostsControl\Module' => 'ElementorPro\Modules\QueryControl\Module',
@@ -27,11 +62,13 @@ class Plugin {
 	];
 
 	/**
-	 * @deprecated
+	 * @deprecated since 1.1.0 Use `ELEMENTOR_PRO_VERSION` instead
 	 *
 	 * @return string
 	 */
 	public function get_version() {
+		_deprecated_function( __METHOD__, '1.1.0' );
+
 		return ELEMENTOR_PRO_VERSION;
 	}
 
@@ -46,7 +83,7 @@ class Plugin {
 	 */
 	public function __clone() {
 		// Cloning instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'elementor-pro' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Something went wrong.', 'elementor-pro' ), '1.0.0' );
 	}
 
 	/**
@@ -57,7 +94,7 @@ class Plugin {
 	 */
 	public function __wakeup() {
 		// Unserializing instances of the class is forbidden
-		_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'elementor-pro' ), '1.0.0' );
+		_doing_it_wrong( __FUNCTION__, __( 'Something went wrong.', 'elementor-pro' ), '1.0.0' );
 	}
 
 	/**
@@ -77,15 +114,6 @@ class Plugin {
 		}
 
 		return self::$_instance;
-	}
-
-	private function includes() {
-		require ELEMENTOR_PRO_PATH . 'includes/modules-manager.php';
-
-		if ( is_admin() ) {
-			require ELEMENTOR_PRO_PATH . 'includes/upgrades.php';
-			require ELEMENTOR_PRO_PATH . 'includes/admin.php';
-		}
 	}
 
 	public function autoload( $class ) {
@@ -128,11 +156,29 @@ class Plugin {
 
 		$direction_suffix = is_rtl() ? '-rtl' : '';
 
+		$frontend_file_name = 'frontend' . $direction_suffix . $suffix . '.css';
+
+		$has_custom_file = Responsive::has_custom_breakpoints();
+
+		if ( $has_custom_file ) {
+			$frontend_file = new FrontendFile( 'custom-pro-' . $frontend_file_name, self::get_responsive_templates_path() . $frontend_file_name );
+
+			$time = $frontend_file->get_meta( 'time' );
+
+			if ( ! $time ) {
+				$frontend_file->update();
+			}
+
+			$frontend_file_url = $frontend_file->get_url();
+		} else {
+			$frontend_file_url = ELEMENTOR_PRO_ASSETS_URL . 'css/' . $frontend_file_name;
+		}
+
 		wp_enqueue_style(
 			'elementor-pro',
-			ELEMENTOR_PRO_ASSETS_URL . 'css/frontend' . $direction_suffix . $suffix . '.css',
+			$frontend_file_url,
 			[],
-			ELEMENTOR_PRO_VERSION
+			$has_custom_file ? null : ELEMENTOR_PRO_VERSION
 		);
 	}
 
@@ -143,7 +189,8 @@ class Plugin {
 			'elementor-pro-frontend',
 			ELEMENTOR_PRO_URL . 'assets/js/frontend' . $suffix . '.js',
 			[
-				'jquery',
+				'elementor-frontend-modules',
+				'elementor-sticky',
 			],
 			ELEMENTOR_PRO_VERSION,
 			true
@@ -154,47 +201,21 @@ class Plugin {
 			'nonce' => wp_create_nonce( 'elementor-pro-frontend' ),
 		];
 
-		wp_localize_script(
+		/**
+		 * Localize frontend settings.
+		 *
+		 * Filters the frontend localized settings.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $locale_settings Localized settings.
+		 */
+		$locale_settings = apply_filters( 'elementor_pro/frontend/localize_settings', $locale_settings );
+
+		Utils::print_js_config(
 			'elementor-pro-frontend',
 			'ElementorProFrontendConfig',
-			apply_filters( 'elementor_pro/frontend/localize_settings', $locale_settings )
-		);
-	}
-
-	public function enqueue_editor_scripts() {
-		$suffix = Utils::is_script_debug() ? '' : '.min';
-
-		wp_enqueue_script(
-			'elementor-pro',
-			ELEMENTOR_PRO_URL . 'assets/js/editor' . $suffix . '.js',
-			[
-				'backbone-marionette',
-			],
-			ELEMENTOR_PRO_VERSION,
-			true
-		);
-
-		$is_license_active = false;
-
-		$license_key = License\Admin::get_license_key();
-
-		if ( ! empty( $license_key ) ) {
-			$license_data = License\API::get_license_data();
-
-			if ( ! empty( $license_data['license'] ) && License\API::STATUS_VALID === $license_data['license'] ) {
-				$is_license_active = true;
-			}
-		}
-
-		$locale_settings = [
-			'i18n' => [],
-			'isActive' => $is_license_active,
-		];
-
-		wp_localize_script(
-			'elementor-pro',
-			'ElementorProConfig',
-			apply_filters( 'elementor_pro/editor/localize_settings', $locale_settings )
+			$locale_settings
 		);
 	}
 
@@ -212,59 +233,83 @@ class Plugin {
 		);
 
 		wp_register_script(
-			'social-share',
-			ELEMENTOR_PRO_URL . 'assets/lib/social-share/social-share' . $suffix . '.js',
+			'elementor-sticky',
+			ELEMENTOR_PRO_URL . 'assets/lib/sticky/jquery.sticky' . $suffix . '.js',
 			[
 				'jquery',
 			],
-			'0.2.17',
+			ELEMENTOR_PRO_VERSION,
 			true
 		);
 	}
 
-	public function enqueue_editor_styles() {
+	public function register_preview_scripts() {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-		wp_enqueue_style(
-			'elementor-pro',
-			ELEMENTOR_PRO_URL . 'assets/css/editor' . $suffix . '.css',
+		wp_enqueue_script(
+			'elementor-pro-preview',
+			ELEMENTOR_PRO_URL . 'assets/js/preview' . $suffix . '.js',
 			[
-				'elementor-editor',
+				'elementor-frontend',
 			],
-			ELEMENTOR_PRO_VERSION
+			ELEMENTOR_PRO_VERSION,
+			true
 		);
 	}
 
-	public function elementor_init() {
-		$this->modules_manager = new Manager();
+	public function get_responsive_stylesheet_templates( $templates ) {
+		$templates_paths = glob( self::get_responsive_templates_path() . '*.css' );
 
-		$elementor = \Elementor\Plugin::$instance;
+		foreach ( $templates_paths as $template_path ) {
+			$file_name = 'custom-pro-' . basename( $template_path );
 
-		// Add element category in panel
-		$elementor->elements_manager->add_category(
-			'pro-elements',
-			[
-				'title' => __( 'Pro Elements', 'elementor-pro' ),
-				'icon' => 'font',
-			],
-			1
-		);
+			$templates[ $file_name ] = $template_path;
+		}
 
-		$elementor->editor->add_editor_template( __DIR__ . '/includes/templates/editor.php' );
+		return $templates;
+	}
 
+	public function on_elementor_init() {
+		$this->modules_manager = new Modules_Manager();
+
+		/** TODO: BC for Elementor v2.4.0 */
+		if ( class_exists( '\Elementor\Core\Upgrade\Manager' ) ) {
+			$this->upgrade = UpgradeManager::instance();
+		}
+
+		/**
+		 * Elementor Pro init.
+		 *
+		 * Fires on Elementor Pro init, after Elementor has finished loading but
+		 * before any headers are sent.
+		 *
+		 * @since 1.0.0
+		 */
 		do_action( 'elementor_pro/init' );
 	}
 
+	/**
+	 * @param \Elementor\Core\Base\Document $document
+	 */
+	public function on_document_save_version( $document ) {
+		$document->update_meta( '_elementor_pro_version', ELEMENTOR_PRO_VERSION );
+	}
+
+	private function get_responsive_templates_path() {
+		return ELEMENTOR_PRO_ASSETS_PATH . 'css/templates/';
+	}
+
 	private function setup_hooks() {
-		add_action( 'elementor/init', [ $this, 'elementor_init' ] );
+		add_action( 'elementor/init', [ $this, 'on_elementor_init' ] );
 
 		add_action( 'elementor/frontend/before_register_scripts', [ $this, 'register_frontend_scripts' ] );
-
-		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
-		add_action( 'elementor/editor/before_enqueue_scripts', [ $this, 'enqueue_editor_scripts' ] );
+		add_action( 'elementor/preview/enqueue_scripts', [ $this, 'register_preview_scripts' ] );
 
 		add_action( 'elementor/frontend/before_enqueue_scripts', [ $this, 'enqueue_frontend_scripts' ] );
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'enqueue_styles' ] );
+
+		add_filter( 'elementor/core/responsive/get_stylesheet_templates', [ $this, 'get_responsive_stylesheet_templates' ] );
+		add_action( 'elementor/document/save_version', [ $this, 'on_document_save_version' ] );
 	}
 
 	/**
@@ -273,15 +318,22 @@ class Plugin {
 	private function __construct() {
 		spl_autoload_register( [ $this, 'autoload' ] );
 
-		$this->includes();
+		new Connect\Manager();
 
 		$this->setup_hooks();
 
+		$this->editor = new Editor();
+
+		$this->preview = new Preview();
+
 		if ( is_admin() ) {
-			new Upgrades();
-			new Admin();
-			new License\Admin();
+			$this->admin = new Admin();
+			$this->license_admin = new License\Admin();
 		}
+	}
+
+	final public static function get_title() {
+		return __( 'Elementor Pro', 'elementor-pro' );
 	}
 }
 

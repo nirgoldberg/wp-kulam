@@ -28,7 +28,7 @@ class Activecampaign_Handler {
 	}
 
 	private function init_rest_client( $api_key, $base_url ) {
-		$this->api_key  = $api_key;
+		$this->api_key = $api_key;
 		$this->rest_client = new Rest_Client( trailingslashit( $base_url ) . 'admin/api.php' );
 	}
 
@@ -78,20 +78,72 @@ class Activecampaign_Handler {
 
 		$return_array = [
 			'lists' => $lists,
+			'fields' => $this->get_fields(),
 		];
 
 		return $return_array;
 	}
 
 	/**
+	 * get ActiveCampaign custom fields associated with API key
+	 * @return array
+	 * @throws \Exception
+	 */
+	private function get_fields() {
+		$results = $this->rest_client->get( '?api_action=list_field_view', [
+			'api_key' => $this->api_key,
+			'ids' => 'all',
+			'api_output' => 'json',
+		] );
+
+		$fields = [];
+
+		if ( ! empty( $results['body'] ) ) {
+			foreach ( $results['body'] as $index => $field ) {
+				if ( ! is_array( $field ) ) {
+					continue;
+				}
+				$fields[] = [
+					'remote_label' => $field['title'],
+					'remote_type' => $this->normalize_type( $field['type'] ),
+					'remote_id' => 'field[' . $field['id'] . ',0]',
+					'remote_required' => (bool) $field['isrequired'],
+				];
+			}
+		}
+
+		return $fields;
+	}
+
+	private function normalize_type( $type ) {
+		static $types = [
+			'text' => 'text',
+			'number' => 'number',
+			'address' => 'text',
+			'phone' => 'text',
+			'date' => 'text',
+			'url' => 'url',
+			'imageurl' => 'url',
+			'radio' => 'radio',
+			'dropdown' => 'select',
+			'birthday' => 'text',
+			'zip' => 'text',
+		];
+
+		return $types[ $type ];
+	}
+
+	/**
 	 * create contact at Activecampaign via api
+	 *
 	 * @param array $subscriber_data
 	 *
 	 * @return array|mixed
 	 * @throws \Exception
 	 */
 	public function create_subscriber( $subscriber_data = [] ) {
-		$end_point = '?api_action=contact_add&api_key=' . $this->api_key . '&api_output=json';
+		$end_point = '?api_action=contact_sync&api_key=' . $this->api_key . '&api_output=json';
+
 		return $this->rest_client->request( 'POST', $end_point, $subscriber_data );
 	}
 }

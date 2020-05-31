@@ -1,7 +1,6 @@
 <?php
 namespace ElementorPro\Modules\Social;
 
-use Elementor\Widget_Base;
 use ElementorPro\Base\Module_Base;
 use ElementorPro\Modules\Social\Classes\Facebook_SDK_Manager;
 
@@ -12,6 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Module extends Module_Base {
 	const URL_TYPE_CURRENT_PAGE = 'current_page';
 	const URL_TYPE_CUSTOM = 'custom';
+	const URL_FORMAT_PLAIN = 'plain';
+	const URL_FORMAT_PRETTY = 'pretty';
 
 	public function get_widgets() {
 		return [

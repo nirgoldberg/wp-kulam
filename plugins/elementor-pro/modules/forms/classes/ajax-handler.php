@@ -5,7 +5,9 @@ use Elementor\Utils;
 use ElementorPro\Modules\Forms\Module;
 use ElementorPro\Plugin;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Ajax_Handler {
 
@@ -28,14 +30,14 @@ class Ajax_Handler {
 	const SUBSCRIBER_ALREADY_EXISTS = 'subscriber_already_exists';
 
 	public static function is_form_submitted() {
-		return Utils::is_ajax() && isset( $_POST['action'] ) && 'elementor_pro_forms_send_form' === $_POST['action'];
+		return wp_doing_ajax() && isset( $_POST['action'] ) && 'elementor_pro_forms_send_form' === $_POST['action'];
 	}
 
 	public static function get_default_messages() {
 		return [
-			self::SUCCESS => __( 'The form was sent successfully!', 'elementor-pro' ),
-			self::ERROR => __( 'Please fill in the required fields.', 'elementor-pro' ),
-			self::FIELD_REQUIRED => __( 'Required', 'elementor-pro' ),
+			self::SUCCESS => __( 'The form was sent successfully.', 'elementor-pro' ),
+			self::ERROR => __( 'An error occured.', 'elementor-pro' ),
+			self::FIELD_REQUIRED => __( 'This field is required.', 'elementor-pro' ),
 			self::INVALID_FORM => __( 'There\'s something wrong. The form is invalid.', 'elementor-pro' ),
 			self::SERVER_ERROR => __( 'Server error. Form not sent.', 'elementor-pro' ),
 			self::SUBSCRIBER_ALREADY_EXISTS => __( 'Subscriber already exists.', 'elementor-pro' ),
@@ -56,30 +58,46 @@ class Ajax_Handler {
 	}
 
 	public function ajax_send_form() {
+		// $post_id that holds the form settings.
 		$post_id = $_POST['post_id'];
+
+		// $queried_id the post for dynamic values data.
+		if ( isset( $_POST['queried_id'] ) ) {
+			$queried_id = $_POST['queried_id'];
+		} else {
+			$queried_id = $post_id;
+		}
+
+		// Make the post as global post for dynamic values.
+		Plugin::elementor()->db->switch_to_post( $queried_id );
 
 		$form_id = $_POST['form_id'];
 
 		$elementor = Plugin::elementor();
+		$document = $elementor->documents->get( $post_id );
 
-		$meta = $elementor->db->get_plain_editor( $post_id );
-
-		$form = Module::find_element_recursive( $meta, $form_id );
-
-		if ( ! $form ) {
-			$this
-				->add_error_message( self::get_default_message( self::INVALID_FORM, $form['settings'] ) )
-				->send();
+		if ( $document ) {
+			$form = Module::find_element_recursive( $document->get_elements_data(), $form_id );
 		}
 
 		if ( ! empty( $form['templateID'] ) ) {
-			$global_meta = $elementor->db->get_plain_editor( $form['templateID'] );
-			$form = $global_meta[0];
+			$template = $elementor->documents->get( $form['templateID'] );
+
+			if ( $template ) {
+				$global_meta = $template->get_elements_data();
+				$form = $global_meta[0];
+			}
+		}
+
+		if ( empty( $form ) ) {
+			$this
+				->add_error_message( self::get_default_message( self::INVALID_FORM, [] ) )
+				->send();
 		}
 
 		// restore default values
 		$widget = $elementor->elements_manager->create_element_instance( $form );
-		$form['settings'] = $widget->get_active_settings();
+		$form['settings'] = $widget->get_settings_for_display();
 		$form['settings']['id'] = $form_id;
 
 		$this->current_form = $form;
@@ -125,6 +143,16 @@ class Ajax_Handler {
 			$cf7db->run( $record, $this );
 		}
 
+		/**
+		 * New Elementor form record.
+		 *
+		 * Fires before a new form record is send by ajax.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param Form_Record  $record An instance of the form record.
+		 * @param Ajax_Handler $this   An instance of the ajax handler.
+		 */
 		do_action( 'elementor_pro/forms/new_record', $record, $this );
 
 		$this->send();

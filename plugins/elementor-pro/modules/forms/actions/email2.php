@@ -3,7 +3,9 @@ namespace ElementorPro\Modules\Forms\Actions;
 
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 class Email2 extends Email {
 
@@ -17,6 +19,10 @@ class Email2 extends Email {
 
 	protected function get_control_id( $control_id ) {
 		return $control_id . '_2';
+	}
+
+	protected function get_reply_to( $record, $fields ) {
+		return isset( $fields['email_reply_to'] ) ? $fields['email_reply_to'] : '';
 	}
 
 	public function register_settings_section( $widget ) {
