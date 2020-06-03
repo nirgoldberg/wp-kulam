@@ -1114,6 +1114,35 @@ body.modal-open,
 	background-color: transparent !important;
 }
 
+.pswp__item .wrapper {
+	margin: 0 auto;
+	width: 75%;
+	height: 100%;
+}
+
+.pswp__item .wrapper .video-wrapper {
+	position: relative;
+	padding-top: 56.25%;
+	top: 50%;
+	text-align: center;
+	-webkit-transform:	translateY(-50%);
+	-ms-transform:		translateY(-50%);
+	transform:			translateY(-50%);
+}
+
+.pswp__item .wrapper .video-wrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.pwsp__item video {
+	width: 100% !important;
+	height: auto !important;
+}
+
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
 	.pswp {
 		-webkit-backdrop-filter: blur(5px);
@@ -1151,16 +1180,6 @@ body.modal-open,
 	transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
 	fill: #cc181e;
 	fill-opacity: 1;
-}
-
-.YouTubePopUp-Wrap .loading {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -13px;
-	margin-left: -36px;
-	color: #fff;
 }
 
 /*************/
@@ -2168,6 +2187,14 @@ output:lang(he-IL) {
 		margin-right: auto;
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	/******************/
+	/* gallery single */
+	/******************/
+
+	.pswp__item .wrapper {
+		width: 100%;
 	}
 
 	/***************/

@@ -800,8 +800,8 @@ var $ = jQuery,
 			for (index=gallery['active_images'], j=0 ; j<maxLoad && gallery['images'].length>index ; index++, j++) {
 				// expose image
 				var imageItem =
-					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">' +
-						'<a href="' + gallery['images'][index]['url'] + '" itemprop="contentUrl">' +
+					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ' + (gallery['images'][index]['description'] ? 'data-type="video" data-video=\'<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" src="' + gallery['images'][index]['description'] + '" width="960" height="640" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>\'' : '') + '>' +
+						'<a href="' + (gallery['images'][index]['description'] ? '#' : gallery['images'][index]['url']) + '" itemprop="contentUrl">' +
 							'<img class="no-border" src="' + gallery['images'][index]['url'] + '" itemprop="thumbnail" alt="' + gallery['images'][index]['alt'] + '" />' +
 						'</a>' +
 						'<figcaption itemprop="caption description" style="background-image:url(\'' + gallery['images'][index]['url'] + '\');background-color:' + gallery['scheme_color'] + ';">' +
@@ -809,7 +809,6 @@ var $ = jQuery,
 								'<div class="title">' + gallery['images'][index]['title'] + '</div>' +
 								'<div class="date">' + gallery['images'][index]['date'] +  '</div>' +
 								(gallery['images'][index]['caption'] ? '<div class="caption-content">' + gallery['images'][index]['caption'] +  '</div>' : '') +
-								'<div class="description hidden">' + gallery['images'][index]['description'] + '</div>' +
 							'</div>' +
 						'</figcaption>' +
 						(gallery['images'][index]['description'] ? '<div class="play"><svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="m .66,37.62 c 0,0 .66,4.70 2.70,6.77 2.58,2.71 5.98,2.63 7.49,2.91 5.43,.52 23.10,.68 23.12,.68 .00,-1.3e-5 14.29,-0.02 23.81,-0.71 1.32,-0.15 4.22,-0.17 6.81,-2.89 2.03,-2.07 2.70,-6.77 2.70,-6.77 0,0 .67,-5.52 .67,-11.04 l 0,-5.17 c 0,-5.52 -0.67,-11.04 -0.67,-11.04 0,0 -0.66,-4.70 -2.70,-6.77 C 62.03,.86 59.13,.84 57.80,.69 48.28,0 34.00,0 34.00,0 33.97,0 19.69,0 10.18,.69 8.85,.84 5.95,.86 3.36,3.58 1.32,5.65 .66,10.35 .66,10.35 c 0,0 -0.55,4.50 -0.66,9.45 l 0,8.36 c .10,4.94 .66,9.45 .66,9.45 z" fill="#1f1f1e" fill-opacity="0.81"></path><path d="m 26.96,13.67 18.37,9.62 -18.37,9.55 -0.00,-19.17 z" fill="#fff"></path><path d="M 45.02,23.46 45.32,23.28 26.96,13.67 43.32,24.34 45.02,23.46 z" fill="#ccc"></path></svg></div>' : '') +
@@ -869,20 +868,27 @@ var $ = jQuery,
 					var galleryColItems = $(this).children('.gallery-item');
 
 					$(galleryColItems).each(function() {
-						var index = $(this).attr('data-index'),
+						var index = $(this).data('index'),
 							link = $(this).children('a'),
 							caption = $(this).children('figcaption'),
 							date = $(this).children('figcaption').find('.date'),
-							description = $(this).children('figcaption').find('.description'),
 							img = link.children('img');
 
 						// create slide object
-						var item = {
-							src: link.attr('href'),
-							w: img[0].naturalWidth,
-							h: img[0].naturalHeight,
-							msrc: img.attr('src')
-						};
+						var item;
+
+						if ($(this).data('type') == 'video') {
+							item = {
+								html: $(this).data('video')
+							};
+						} else {
+							item = {
+								src: link.attr('href'),
+								w: img[0].naturalWidth,
+								h: img[0].naturalHeight,
+								msrc: img.attr('src')
+							};
+						}
 
 						if (caption) {
 							item.title = caption.html();
@@ -890,10 +896,6 @@ var $ = jQuery,
 
 						if (date) {
 							item.date = date.html();
-						}
-
-						if (description.html()) {
-							item.videoSrc = description.html();
 						}
 
 						item.el = $(this)[0]; // save link to element for getThumbBoundsFn
@@ -971,96 +973,31 @@ var $ = jQuery,
 				gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
 				gallery.init();
 
-				detectVideo(gallery.currItem);
-
 				gallery.listen('beforeChange', function() {
-					removeVideo(gallery);
+					var currItem = $(gallery.currItem.container);
+					$('.pswp__video').removeClass('active');
+					var currItemIframe = currItem.find('.pswp__video').addClass('active');
+					$('.pswp__video').each(function() {
+						if (!$(this).hasClass('active')) {
+							$(this).attr('src', $(this).attr('src'));
+						}
+					});
 				});
 
-				gallery.listen('afterChange', function() {
-					detectVideo(gallery.currItem);
+				gallery.listen('close', function() {
+					$('.pswp__video').each(function() {
+						$(this).attr('src', $(this).attr('src'));
+					});
 				});
 
 				$(document).off('pswpTap').on('pswpTap', function(e){
 
-					var container = $(gallery.currItem.container),
-						img = container.find('img.youtubeClass');
-						targetClass = $(e.target).attr('class');
-
-					if (typeof targetClass !== 'undefined' && targetClass.substring(0, 6) == 'pswp__')
-						return;
-
-					if (img.length) {
-						img.YouTubePopUp();
-					}
+					if ($(e.target).hasClass('wrapper'))
+						gallery.close();
 
 				});
 
 			};
-
-			var detectVideo = function(item) {
-
-				if (typeof(item.videoSrc) != 'undefined') {
-					setTimeout(function(){addVideoIframe(item)},600);
-				}
-
-			};
-
-			var addVideoIframe = function(item) {
-
-				var container = $(item.container),
-					img = container.find('img:not(.youtubeClass):not(.pswp__img--placeholder)');
-
-				if (img.length) {
-					var buttonContainer = container.find('.gallery-viewer-play-video-btn-container');
-
-					if (buttonContainer.length == 0) {
-						buttonContainer = $('<div class="gallery-viewer-play-video-btn-container"><div class="play"><svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="m .66,37.62 c 0,0 .66,4.70 2.70,6.77 2.58,2.71 5.98,2.63 7.49,2.91 5.43,.52 23.10,.68 23.12,.68 .00,-1.3e-5 14.29,-0.02 23.81,-0.71 1.32,-0.15 4.22,-0.17 6.81,-2.89 2.03,-2.07 2.70,-6.77 2.70,-6.77 0,0 .67,-5.52 .67,-11.04 l 0,-5.17 c 0,-5.52 -0.67,-11.04 -0.67,-11.04 0,0 -0.66,-4.70 -2.70,-6.77 C 62.03,.86 59.13,.84 57.80,.69 48.28,0 34.00,0 34.00,0 33.97,0 19.69,0 10.18,.69 8.85,.84 5.95,.86 3.36,3.58 1.32,5.65 .66,10.35 .66,10.35 c 0,0 -0.55,4.50 -0.66,9.45 l 0,8.36 c .10,4.94 .66,9.45 .66,9.45 z" fill="#1f1f1e" fill-opacity="0.81"></path><path d="m 26.96,13.67 18.37,9.62 -18.37,9.55 -0.00,-19.17 z" fill="#fff"></path><path d="M 45.02,23.46 45.32,23.28 26.96,13.67 43.32,24.34 45.02,23.46 z" fill="#ccc"></path></svg></div></div>');
-
-						var clonedImg = img.clone();
-						clonedImg.attr('href', item.videoSrc)
-							.addClass('youtubeClass')
-							.removeClass('pswp__img')
-							.css({
-								'width'  : '100%',
-								'height' : '100%'
-							});
-
-						buttonContainer.prepend( clonedImg );
-					}
-
-					buttonContainer.css({
-							'width'  : img.outerWidth() +'px',
-							'height' : img.outerHeight() +'px'
-						})
-						.appendTo(container);
-
-					img.hide();
-				}
-
-			};
-
-			function removeVideo(gallery) {
-
-				var container = $(gallery.container),
-					buttonContainers = container.find('.gallery-viewer-play-video-btn-container');
-
-				$.each(buttonContainers, function(){
-					var $thisButtonContainer = $(this),
-						container = $thisButtonContainer.closest('.pswp__item');
-
-					if (container.length) {
-						var img = container.find('img:not(.youtubeClass):not(.pswp__img--placeholder)');
-
-						$thisButtonContainer.remove();
-
-						if (img.length) {
-							img.show();
-						}
-					}
-				});
-
-			}
 
 			// loop through all gallery elements and bind events
 			var galleryElements = document.querySelectorAll( gallerySelector );

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.7.10
+ * @version		1.7.18
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -40,10 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		get_template_part( 'partials/footer/footer-photoswipe' );
 		wp_enqueue_style ( 'photoswipe' );
 		wp_enqueue_style ( 'photoswipe-default-skin' );
-		wp_enqueue_style ( 'youtube-popup' );
 		wp_enqueue_script( 'photoswipe' );
 		wp_enqueue_script( 'photoswipe-ui-default' );
-		wp_enqueue_script( 'youtube-popup' );
 
 	}
 
