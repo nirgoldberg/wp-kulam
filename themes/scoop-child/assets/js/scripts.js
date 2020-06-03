@@ -798,6 +798,9 @@ var $ = jQuery,
 				maxLoad = showAll ? gallery['images'].length : KULAM_general.params.images_more_interval;
 
 			for (index=gallery['active_images'], j=0 ; j<maxLoad && gallery['images'].length>index ; index++, j++) {
+				// remove video url query string
+				gallery['images'][index]['description'] = gallery['images'][index]['description'].split('&')[0];
+
 				// fix youtube embed url string
 				gallery['images'][index]['description'] = gallery['images'][index]['description'].replace('watch?v=', 'embed/');
 
