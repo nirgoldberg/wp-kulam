@@ -798,6 +798,12 @@ var $ = jQuery,
 				maxLoad = showAll ? gallery['images'].length : KULAM_general.params.images_more_interval;
 
 			for (index=gallery['active_images'], j=0 ; j<maxLoad && gallery['images'].length>index ; index++, j++) {
+				// fix youtube embed url string
+				gallery['images'][index]['description'] = gallery['images'][index]['description'].replace('watch?v=', 'embed/');
+
+				// fix vimeo embed url string
+				gallery['images'][index]['description'] = gallery['images'][index]['description'].replace('https://vimeo.com/', 'https://player.vimeo.com/video/');
+
 				// expose image
 				var imageItem =
 					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ' + (gallery['images'][index]['description'] ? 'data-type="video" data-video=\'<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" src="' + gallery['images'][index]['description'] + '" width="960" height="640" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>\'' : '') + '>' +
