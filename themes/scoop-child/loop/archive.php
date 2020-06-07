@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.7.12
+ * @version		1.7.21
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -46,6 +46,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			$category_description			= category_description( $category->term_id );
 			$category_description_toggling	= get_field( 'acf-option_category_description_toggling', 'option' );
 			$google_map						= get_field( 'acf-category_google_map', 'category_' . $category->term_id );
+			$google_map_zoom				= get_field( 'acf-category_google_map_zoom', 'category_' . $category->term_id );
 			$google_maps_api				= get_field( 'acf-option_google_maps_api', 'option' );
 			$popup_image					= get_field( 'acf-category_popup_image', 'category_' . $category->term_id );
 			$popup_button_text				= get_field( 'acf-category_popup_button_text', 'category_' . $category->term_id );
@@ -109,7 +110,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 			if ( $google_map && $google_maps_api ) { ?>
 
-				<div class="acf-map" data-zoom="16">
+				<div class="acf-map" data-zoom="<?php echo $google_map_zoom ?: '14'; ?>">
 					<div class="marker" data-lat="<?php echo esc_attr( $google_map[ 'lat' ] ); ?>" data-lng="<?php echo esc_attr( $google_map[ 'lng' ] ); ?>"></div>
 				</div>
 

@@ -799,6 +799,7 @@ body.modal-open,
 	margin-bottom: 20px;
 	font-size: 16px;
 	text-transform: none;
+	white-space: normal;
 	outline: none !important;
 }
 

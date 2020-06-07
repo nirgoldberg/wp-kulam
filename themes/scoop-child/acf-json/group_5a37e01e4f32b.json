@@ -37,6 +37,26 @@
             "height": ""
         },
         {
+            "key": "field_5edc9cd3af3a2",
+            "label": "Map Zoom",
+            "name": "acf-category_google_map_zoom",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 14,
+            "min": "",
+            "max": 19,
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5ec0d55809848",
             "label": "Popup",
             "name": "",
@@ -223,5 +243,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1589699054
+    "modified": 1591516526
 }
