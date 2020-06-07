@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.6.2
+ * @version		1.7.21
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -44,14 +44,25 @@ if ( have_posts() ) :
 				<div class="entry-content">
 					<?php if ( ! Pojo_Core::instance()->builder->display_builder() ) : ?>
 
-						<?php the_content(); ?>
+						<?php if ( get_field( 'display_acf_form' ) ) { ?>
 
-						<?php
-							/**
-							 * ACF form
-							 */
-							get_template_part( 'partials/acf-form' );
-						?>
+							<?php
+								/**
+								 * ACF form
+								 */
+								get_template_part( 'partials/acf-form' );
+							?>
+
+						<?php } else { ?>
+
+							<?php
+								/**
+								 * the_content
+								 */
+								the_content();
+							?>
+
+						<?php } ?>
 
 						<?php pojo_link_pages(); ?>
 

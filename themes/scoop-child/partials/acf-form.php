@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials
- * @version     1.7.6
+ * @version     1.7.21
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,6 +14,11 @@ if ( ! function_exists( 'get_field' ) )
 if ( get_field( 'display_acf_form' ) ) {
 
 	if ( is_user_logged_in() ) {
+
+		/**
+		 * the_content
+		 */
+		the_content();
 
 		/**
 		 * Variables
