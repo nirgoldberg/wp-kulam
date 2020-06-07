@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.7.21
+ * @version		1.7.22
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -110,7 +110,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 			if ( $google_map && $google_maps_api ) { ?>
 
-				<div class="acf-map" data-zoom="<?php echo $google_map_zoom ?: '14'; ?>">
+				<div class="acf-map" data-zoom="<?php echo $google_map_zoom ?: '11'; ?>">
 					<div class="marker" data-lat="<?php echo esc_attr( $google_map[ 'lat' ] ); ?>" data-lng="<?php echo esc_attr( $google_map[ 'lng' ] ); ?>"></div>
 				</div>
 

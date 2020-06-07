@@ -787,7 +787,9 @@ var $ = jQuery,
 		 * @param   showAll (bool) Whether to load all images
 		 * @return  N/A
 		 */
-		lazyLoad : function (id, gallery, showAll = false) {
+		lazyLoad : function (id, gallery, showAll) {
+
+			showAll = typeof showAll !== 'undefined' ? showAll : false;
 
 			// variables
 			var controls = $('.'+id).next('.controls'),

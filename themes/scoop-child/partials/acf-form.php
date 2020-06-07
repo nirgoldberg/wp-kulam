@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials
- * @version     1.7.21
+ * @version     1.7.22
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -43,6 +43,7 @@ if ( get_field( 'display_acf_form' ) ) {
 
 	<?php } else { ?>
 
+		<p><?php _e( 'In order to save / upload posts or view saved content, you must register / log-in to your account', 'kulam-scoop' ); ?></p>
 		<button data-toggle="modal" data-target="#modal-login" data-redirect="/share" data-show-pre-text="true"><?php _e( 'Login', 'kulam-scoop' ); ?></button>
 
 	<?php }
