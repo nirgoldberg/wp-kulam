@@ -811,7 +811,7 @@ var $ = jQuery,
 
 				// expose image
 				var imageItem =
-					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ' + (gallery['images'][index]['description'] ? 'data-type="video" data-video=\'<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" src="' + gallery['images'][index]['description'] + '" width="960" height="640" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>\'' : '') + '>' +
+					'<figure class="gallery-item" data-index="' + index + '" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" ' + (gallery['images'][index]['description'] ? 'data-type="video" data-video-src="' + gallery['images'][index]['description'] + '" data-video=\'<div class="wrapper"><div class="video-wrapper"><iframe class="pswp__video" src="' + gallery['images'][index]['description'] + '" width="960" height="640" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>\'' : '') + '>' +
 						'<a href="' + (gallery['images'][index]['description'] ? '#' : gallery['images'][index]['url']) + '" itemprop="contentUrl">' +
 							'<img class="no-border" src="' + gallery['images'][index]['url'] + '" itemprop="thumbnail" alt="' + gallery['images'][index]['alt'] + '" />' +
 						'</a>' +
@@ -890,14 +890,16 @@ var $ = jQuery,
 
 						if ($(this).data('type') == 'video') {
 							item = {
-								html: $(this).data('video')
+								html: $(this).data('video'),
+								clipboard: $(this).data('video-src')
 							};
 						} else {
 							item = {
 								src: link.attr('href'),
 								w: img[0].naturalWidth,
 								h: img[0].naturalHeight,
-								msrc: img.attr('src')
+								msrc: img.attr('src'),
+								clipboard: link.attr('href')
 							};
 						}
 
@@ -1593,6 +1595,27 @@ var $ = jQuery,
 				}
 
 			}
+
+		},
+
+		/**
+		 * copyToClipboard
+		 *
+		 * @param   str (string)
+		 * @return  N/A
+		 */
+		copyToClipboard : function(str) {
+
+			// variables
+			var strings = $.parseJSON(js_globals.strings),
+				$temp = $("<input>");
+
+			$("body").append($temp);
+			$temp.val(str).select();
+			document.execCommand("copy");
+			$temp.remove();
+
+			alert(strings.copied_to_clipboard);
 
 		},
 

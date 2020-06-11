@@ -240,6 +240,10 @@ a.pswp__share--pinterest:hover {
 a.pswp__share--download:hover {
   background: #DDD; }
 
+a.pswp__share--clipboard:hover {
+  background: #DDD;
+  cursor: pointer; }
+
 /*
 
 	3. Index indicator ("1 of X" counter)

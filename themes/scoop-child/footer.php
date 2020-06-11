@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.7.18
+ * @version		1.7.23
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -45,12 +45,17 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	}
 
+	$strings = array(
+		'copied_to_clipboard'	=> __( 'Link has been copied to clipboard. You may share it anywhere', 'kulam-scoop' ),
+	);
+
 ?>
 
 <script>
 
 	var js_globals = {};
-	js_globals.galleries = '<?php echo json_encode( $globals['_galleries'] ); ?>';
+	js_globals.galleries	= '<?php echo json_encode( $globals['_galleries'] ); ?>';
+	js_globals.strings		= '<?php echo json_encode( $strings ); ?>';
 
 </script>
 

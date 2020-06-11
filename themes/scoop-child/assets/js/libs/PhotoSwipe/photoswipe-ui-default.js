@@ -92,10 +92,14 @@ var PhotoSwipeUI_Default =
 				{id:'twitter', label:'Tweet', url:'https://twitter.com/intent/tweet?text={{text}}&url={{raw_image_url}}'},
 				{id:'pinterest', label:'Pin it', url:'http://www.pinterest.com/pin/create/button/'+
 													'?url={{url}}&media={{image_url}}&description={{text}}'},
-				{id:'download', label:'Download image', url:'{{raw_image_url}}', download:true}
+				{id:'download', label:'Download image', url:'{{raw_image_url}}', download:true},
+				{id:'clipboard', label:'Copy {{url_type}} link', url:'{{raw_image_url}}'}
 			],
+			getURLTypeForShare: function( /* shareButtonData */ ) {
+				return typeof pswp.currItem.html !== 'undefined' ? 'video' : 'image';
+			},
 			getImageURLForShare: function( /* shareButtonData */ ) {
-				return pswp.currItem.src || '';
+				return pswp.currItem.clipboard || '';
 			},
 			getPageURLForShare: function( /* shareButtonData */ ) {
 				return window.location.href;
@@ -235,6 +239,8 @@ var PhotoSwipeUI_Default =
 			var shareButtonOut = '',
 				shareButtonData,
 				shareURL,
+				shareLabel,
+				url_type,
 				image_url,
 				page_url,
 				share_text;
@@ -242,6 +248,7 @@ var PhotoSwipeUI_Default =
 			for(var i = 0; i < _options.shareButtons.length; i++) {
 				shareButtonData = _options.shareButtons[i];
 
+				url_type = _options.getURLTypeForShare(shareButtonData);
 				image_url = _options.getImageURLForShare(shareButtonData);
 				page_url = _options.getPageURLForShare(shareButtonData);
 				share_text = _options.getTextForShare(shareButtonData);
@@ -251,10 +258,13 @@ var PhotoSwipeUI_Default =
 									.replace('{{raw_image_url}}', image_url )
 									.replace('{{text}}', encodeURIComponent(share_text) );
 
-				shareButtonOut += '<a href="' + shareURL + '" target="_blank" '+
+				shareLabel = shareButtonData.label.replace('{{url_type}}', url_type);
+
+				shareButtonOut += '<a ' + ('clipboard' != shareButtonData.id ? 'href="' + shareURL + '" target="_blank" ' : 'data-clipboard="' + image_url + '" onclick="KULAM_general.copyToClipboard(\'' + image_url + '\')" ') +
 									'class="pswp__share--' + shareButtonData.id + '"' +
 									(shareButtonData.download ? 'download' : '') + '>' +
-									shareButtonData.label + '</a>';
+									shareLabel + '</a>';
+
 
 				if(_options.parseShareButtonOut) {
 					shareButtonOut = _options.parseShareButtonOut(shareButtonData, shareButtonOut);
