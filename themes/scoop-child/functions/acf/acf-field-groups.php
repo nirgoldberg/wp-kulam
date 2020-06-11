@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.22
+ * @version		1.7.23
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -3482,7 +3482,7 @@ acf_add_local_field_group(array(
 	'fields' => array(
 		array(
 			'key' => 'field_5d6cbdbcddbb1',
-			'label' => __('Homepage', 'kulam-scoop'),
+			'label' => __('Homepage Categories Grid', 'kulam-scoop'),
 			'name' => '',
 			'type' => 'tab',
 			'instructions' => '',
@@ -3755,6 +3755,64 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 				'id' => '',
 			),
 			'default_value' => '',
+		),
+		array(
+			'key' => 'field_5ee1d84b120a2',
+			'label' => __('Gallery', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5ee1f33b120a3',
+			'label' => __('Upload Button Text', 'kulam-scoop'),
+			'name' => 'acf-option_gallery_upload_button_text',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array(
+			'key' => 'field_5ee1f3c7120a4',
+			'label' => __('Upload Page', 'kulam-scoop'),
+			'name' => 'acf-option_gallery_upload_page',
+			'type' => 'page_link',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'page',
+			),
+			'taxonomy' => '',
+			'allow_null' => 0,
+			'allow_archives' => 1,
+			'multiple' => 0,
 		),
 		array(
 			'key' => 'field_5cd11da3dcb13',

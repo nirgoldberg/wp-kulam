@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5d6cbdbcddbb1",
-            "label": "Homepage",
+            "label": "Homepage Categories Grid",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -278,6 +278,64 @@
             "default_value": ""
         },
         {
+            "key": "field_5ee1d84b120a2",
+            "label": "Gallery",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ee1f33b120a3",
+            "label": "Upload Button Text",
+            "name": "acf-option_gallery_upload_button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5ee1f3c7120a4",
+            "label": "Upload Page",
+            "name": "acf-option_gallery_upload_page",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        },
+        {
             "key": "field_5cd11da3dcb13",
             "label": "Social",
             "name": "",
@@ -427,5 +485,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1586730058
+    "modified": 1591866476
 }
