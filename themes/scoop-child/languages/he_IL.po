@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-06-11 16:24+0300\n"
-"PO-Revision-Date: 2020-06-11 16:24+0300\n"
+"POT-Creation-Date: 2020-06-14 12:35+0300\n"
+"PO-Revision-Date: 2020-06-14 12:35+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -1340,8 +1340,8 @@ msgid "Save your favorite contents"
 msgstr "שמור את התכנים המועדפים שלך"
 
 #: functions/shortcodes.php:806
-msgid "Load more"
-msgstr "טען עוד"
+msgid "Show more"
+msgstr "הצג עוד"
 
 #: functions/shortcodes.php:807
 msgid "View all"
