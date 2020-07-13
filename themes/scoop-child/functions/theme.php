@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.18
+ * @version     1.7.25
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -133,7 +133,7 @@ function kulam_enqueue_scripts() {
 
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
 	wp_register_script( 'auto-complete',			get_stylesheet_directory_uri() . '/assets/js/auto-complete.min.js',							array( 'jquery' ),									KULAM_VERSION,	true );
-	wp_register_script( 'cycle2',					'https://malsup.github.io/jquery.cycle2.js',												array( 'jquery' ),									KULAM_VERSION,	true );
+	wp_register_script( 'cycle2',					get_stylesheet_directory_uri() . '/assets/js/jquery.cycle2.min.js',							array( 'jquery' ),									KULAM_VERSION,	true );
 	wp_register_script( 'cycle2-swipe',				get_stylesheet_directory_uri() . '/assets/js/jquery.cycle2.swipe.min.js',					array( 'jquery' ),									KULAM_VERSION,	true );
 	wp_register_script( 'kulam-js',					get_stylesheet_directory_uri() . '/assets/js/scripts.js',									array( 'jquery', 'auto-complete' ),					KULAM_VERSION,	true );
 
