@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.7.9
+ * @version		1.7.27
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -46,11 +46,12 @@ function kulam_add_custom_menu_items( $items, $args ) {
 	/**
 	 * Variables
 	 */
-	$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
-	$search_form_type		= get_field( 'acf-option_search_form_type', 'option' );
-	$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
-	$lang					= get_locale();
-	$locations				= array( 'primary', 'primary_mobile', 'sticky_menu' );
+	$my_siddur_activate_module	= get_field( 'acf-option_my_siddur_activate_module', 'option' );
+	$my_siddur_custom_label		= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+	$search_form_type			= get_field( 'acf-option_search_form_type', 'option' );
+	$my_siddur_label			= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
+	$lang						= get_locale();
+	$locations					= array( 'primary', 'primary_mobile', 'sticky_menu' );
 
 	if ( in_array( $args->theme_location, $locations ) ) {
 
@@ -58,13 +59,13 @@ function kulam_add_custom_menu_items( $items, $args ) {
 
 			if ( 'he_IL' == $lang ) {
 
-				$items .= '<li class="menu-item my-siddur"><a href="/my-siddur" role="link"><span>' . $my_siddur_label . '</span></a></li>';
+				$items .= false !== $my_siddur_activate_module ? '<li class="menu-item my-siddur"><a href="/my-siddur" role="link"><span>' . $my_siddur_label . '</span></a></li>' : '';
 				$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>התנתק</span></a></li>';
 
 			}
 			else {
 
-				$items .= '<li class="menu-item my-siddur"><a href="/en/my-siddur" role="link"><span>' . $my_siddur_label . '</span></a></li>';
+				$items .= false !== $my_siddur_activate_module ? '<li class="menu-item my-siddur"><a href="/en/my-siddur" role="link"><span>' . $my_siddur_label . '</span></a></li>' : '';
 				$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>Logout</span></a></li>';
 
 			}
@@ -72,7 +73,7 @@ function kulam_add_custom_menu_items( $items, $args ) {
 		}
 		else {
 
-			$items .= '<li class="menu-item my-siddur"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true"><span>' . $my_siddur_label . '</span></a></li>';
+			$items .= false !== $my_siddur_activate_module ? '<li class="menu-item my-siddur"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="/my-siddur" data-show-pre-text="true"><span>' . $my_siddur_label . '</span></a></li>' : '';
 			$items .= '<li class="menu-item logout"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span>' . __( 'Login', 'kulam-scoop' ) . '</span></a></li>';
 
 		}

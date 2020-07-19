@@ -6,7 +6,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.2.0
+ * @version     1.7.27
  */
 get_header();
 
@@ -32,7 +32,7 @@ if ( is_array( $folders ) ) {
 	}
 }
 
-if ( $folder && $user && $site ) :
+if ( $folder && $user && $site && function_exists( 'get_field' ) && false !== get_field( 'acf-option_my_siddur_activate_module', 'option' ) ) :
 
 	global $wpdb;
 	$table_name = $wpdb->prefix . 'public_folders';

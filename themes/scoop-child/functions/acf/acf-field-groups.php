@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.26
+ * @version		1.7.27
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -3672,6 +3672,25 @@ acf_add_local_field_group(array(
 			'prepend' => '',
 			'append' => '',
 			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_5f14140ff80b8',
+			'label' => __('Activate Module', 'kulam-scoop'),
+			'name' => 'acf-option_my_siddur_activate_module',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 1,
+			'ui' => 1,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
 		),
 	),
 	'location' => array(

@@ -4,19 +4,23 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.3.11
+ * @version     1.7.27
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+if ( ! function_exists( 'get_field' ) )
+	return;
 
 /**
  * Variables
  */
 global $_pojo_parent_id;
 
-$site_id			= get_current_blog_id();
-$post_id			= get_the_ID();
-$categories			= '';
-$categories_terms	= get_the_category();
+$site_id					= get_current_blog_id();
+$post_id					= get_the_ID();
+$categories					= '';
+$categories_terms			= get_the_category();
+$my_siddur_activate_module	= get_field( 'acf-option_my_siddur_activate_module', 'option' );
 
 if ( ! empty( $categories_terms ) && ! is_wp_error( $categories_terms ) ) :
 	$categories = wp_list_pluck( $categories_terms, 'name' );
@@ -52,59 +56,64 @@ endif;
 						<span class="entry-user vcard author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></span>
 					<?php endif; ?>
 
-					<span class="favorite">
-						<?php
+					<?php if ( false !== $my_siddur_activate_module ) { ?>
 
-							if ( ! ( is_user_logged_in() ) ) { ?>
+						<span class="favorite">
+							<?php
 
-								<span class="wrap-heart"><a class="siddur-button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
+								if ( ! ( is_user_logged_in() ) ) { ?>
 
-							<?php } else {
+									<span class="wrap-heart"><a class="siddur-button" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true"><i class="fa fa-heart-o" aria-hidden="true"></i></a></span>
 
-								$user_id	= get_current_user_id();
-								$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
+								<?php } else {
 
-								$favorite			= $favorite ? json_decode( $favorite, true ) : '';
-								$in_favorite		= $favorite && in_array( $post_id, $favorite );
-								$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
-								$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur'; ?>
+									$user_id	= get_current_user_id();
+									$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
 
-								<span class="wrap-heart"><a href='#' class="siddur-button siddur-toggle-button" data-post-id="<?php echo $post_id; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><i class="fa <?php echo $in_favorite ? 'fa-heart' : 'fa-heart-o'; ?>" aria-hidden="true"></i></a></span>
+									$favorite			= $favorite ? json_decode( $favorite, true ) : '';
+									$in_favorite		= $favorite && in_array( $post_id, $favorite );
+									$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
+									$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur'; ?>
+
+									<span class="wrap-heart"><a href='#' class="siddur-button siddur-toggle-button" data-post-id="<?php echo $post_id; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>"><i class="fa <?php echo $in_favorite ? 'fa-heart' : 'fa-heart-o'; ?>" aria-hidden="true"></i></a></span>
+
+								<?php }
+
+							?>
+						</span><!-- .favorite -->
+
+						<?php if ( $page_template && in_array( $page_template, array( 'template-siddur.php', 'template-siddur-folder.php' ) ) ) {
+
+							if ( 'template-siddur.php' == $page_template && $folders ) {
+								$icon_class	= 'fa-plus';
+								$tooltip	= __( 'Add to folder', 'kulam-scoop' );
+							}
+							elseif ( 'template-siddur-folder.php' == $page_template ) {
+								$icon_class	= 'fa-minus';
+								$tooltip	= __( 'Remove from folder', 'kulam-scoop' );
+							}
+
+							if ( $icon_class ) { ?>
+
+								<span class="folders-assignment <?php echo substr( $page_template, 0, -4 ); ?>">
+									<a class="pojo-tooltip" id="folders-assignment-post-<?php echo $post_id; ?>" title="<?php echo $tooltip; ?>">
+										<i class="fa <?php echo $icon_class; ?>"></i>
+									</a>
+								</span><!-- .folders-assignment -->
 
 							<?php }
 
-						?>
-					</span><!-- .favorite -->
-
-					<?php if ( $page_template && in_array( $page_template, array( 'template-siddur.php', 'template-siddur-folder.php' ) ) ) {
-
-						if ( 'template-siddur.php' == $page_template && $folders ) {
-							$icon_class	= 'fa-plus';
-							$tooltip	= __( 'Add to folder', 'kulam-scoop' );
 						}
-						elseif ( 'template-siddur-folder.php' == $page_template ) {
-							$icon_class	= 'fa-minus';
-							$tooltip	= __( 'Remove from folder', 'kulam-scoop' );
-						}
-
-						if ( $icon_class ) { ?>
-
-							<span class="folders-assignment <?php echo substr( $page_template, 0, -4 ); ?>">
-								<a class="pojo-tooltip" id="folders-assignment-post-<?php echo $post_id; ?>" title="<?php echo $tooltip; ?>">
-									<i class="fa <?php echo $icon_class; ?>"></i>
-								</a>
-							</span><!-- .folders-assignment -->
-
-						<?php }
 
 					} ?>
+
 				</div>
 			</div>
 		<?php endif; ?>
 		<div class="caption">
 			<h3 class="grid-heading entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 			<?php po_print_archive_excerpt( $_pojo_parent_id ); ?>
-			
+
 			<?php
 
 				//avg of rating

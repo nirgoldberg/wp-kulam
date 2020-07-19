@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.5.2
+ * @version		1.7.27
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,12 +14,13 @@ if ( ! function_exists( 'get_field' ) )
 /**
  * Variables
  */
-$strip_image			= get_field( 'acf-option_strip_image', 'option' );
-$my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
-$my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
-$site_id				= get_current_blog_id();
-$post_id				= get_the_ID();
-$lang					= get_locale();
+$strip_image				= get_field( 'acf-option_strip_image', 'option' );
+$my_siddur_activate_module	= get_field( 'acf-option_my_siddur_activate_module', 'option' );
+$my_siddur_custom_label		= get_field( 'acf-option_my_siddur_custom_label', 'option' );
+$my_siddur_label			= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
+$site_id					= get_current_blog_id();
+$post_id					= get_the_ID();
+$lang						= get_locale();
 
 $enable_activity_types	= get_field( 'acf-option_enable_activity_types_custom_taxonomy', 'option' );
 
@@ -119,35 +120,39 @@ if ( $enable_audiences && true === $enable_audiences ) {
 						<!-- my siddur -->
 						<?php
 
-							$add_to_siddur_label		= __( 'Add to ', 'kulam-scoop' ) . $my_siddur_label;
-							$remove_from_siddur_label	= __( 'Remove from ', 'kulam-scoop' ) . $my_siddur_label;
-							$add_to_siddur_icon			= 'fa-heart-o';
-							$remove_from_siddur_icon	= 'fa-heart';
+							if ( false !== $my_siddur_activate_module ) {
 
-							if ( ! ( is_user_logged_in() ) ) { ?>
+								$add_to_siddur_label		= __( 'Add to ', 'kulam-scoop' ) . $my_siddur_label;
+								$remove_from_siddur_label	= __( 'Remove from ', 'kulam-scoop' ) . $my_siddur_label;
+								$add_to_siddur_icon			= 'fa-heart-o';
+								$remove_from_siddur_icon	= 'fa-heart';
 
-								<a class="entry-siddur siddur-button" href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true" title="<?php echo $add_to_siddur_label; ?>">
-									<span class="fa <?php echo $add_to_siddur_icon; ?>"></span>
-								</a>
+								if ( ! ( is_user_logged_in() ) ) { ?>
 
-							<?php } else {
+									<a class="entry-siddur siddur-button" href="#" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="true" title="<?php echo $add_to_siddur_label; ?>">
+										<span class="fa <?php echo $add_to_siddur_icon; ?>"></span>
+									</a>
 
-								$user_id	= get_current_user_id();
-								$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
+								<?php } else {
 
-								$favorite			= $favorite ? json_decode( $favorite, true ) : '';
-								$in_favorite		= $favorite && in_array( $post_id, $favorite );
-								$btn_text			= $in_favorite ? $remove_from_siddur_label : $add_to_siddur_label;
-								$btn_toggle_text	= $in_favorite ? $add_to_siddur_label : $remove_from_siddur_label;
-								$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
-								$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur';
-								$btn_icon			= $in_favorite ? $remove_from_siddur_icon : $add_to_siddur_icon; ?>
+									$user_id	= get_current_user_id();
+									$favorite	= get_user_meta( $user_id, 'favorite' . $site_id , true );
 
-								<a class="entry-siddur siddur-button siddur-toggle-button" href="#" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>" title="<?php echo $btn_text; ?>">
-									<span class="fa <?php echo $btn_icon; ?>"></span>
-								</a>
+									$favorite			= $favorite ? json_decode( $favorite, true ) : '';
+									$in_favorite		= $favorite && in_array( $post_id, $favorite );
+									$btn_text			= $in_favorite ? $remove_from_siddur_label : $add_to_siddur_label;
+									$btn_toggle_text	= $in_favorite ? $add_to_siddur_label : $remove_from_siddur_label;
+									$btn_action			= $in_favorite ? 'remove_from_siddur' : 'add_to_siddur';
+									$btn_toggle_action	= $in_favorite ? 'add_to_siddur' : 'remove_from_siddur';
+									$btn_icon			= $in_favorite ? $remove_from_siddur_icon : $add_to_siddur_icon; ?>
 
-							<?php }
+									<a class="entry-siddur siddur-button siddur-toggle-button" href="#" data-toggle-text="<?php echo $btn_toggle_text; ?>" data-action="<?php echo $btn_action; ?>" data-toggle-action="<?php echo $btn_toggle_action; ?>" title="<?php echo $btn_text; ?>">
+										<span class="fa <?php echo $btn_icon; ?>"></span>
+									</a>
+
+								<?php }
+
+							}
 
 						?>
 						<!-- facebook -->
