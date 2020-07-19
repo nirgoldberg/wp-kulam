@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.24
+ * @version     1.7.27
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -25,6 +25,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 	 * Variables
 	 */
 	$categories_in_row			= get_field( 'acf-option_homepage_categories_in_row', 'option' );
+	$my_siddur_activate_module	= get_field( 'acf-option_my_siddur_activate_module', 'option' );
 	$my_siddur_custom_label		= get_field( 'acf-option_my_siddur_custom_label', 'option' );
 	$my_siddur_label			= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 	$my_siddur_tile_bg			= get_field( 'acf-option_my_siddur_tile_background_image', 'option' );
@@ -109,7 +110,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 		'</div>';
 
 	// custom tile for "My Siddur"
-	$markup .=
+	$markup .= false !== $my_siddur_activate_module ?
 		'<div class="tile-box-wrapper tile-box-album col-sm-3 col-xs-6">' .
 			( ( is_user_logged_in() ) ?
 			'<a href="/my-siddur" role="link" class="tile-box-link"' . $my_siddur_tile_bg_markup . '>' :
@@ -122,7 +123,7 @@ function kulam_generate_homepage_tiles( $atts ) {
 					'</div>' .
 				'</div>' .
 			'</a>' .
-		'</div>';
+		'</div>' : '';
 
 	$markup .= '</div></div>';
 
