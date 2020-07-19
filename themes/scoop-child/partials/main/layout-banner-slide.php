@@ -4,30 +4,37 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials/main
- * @version     1.7.15
+ * @version     1.7.26
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 /**
  * Variables
  */
-$title				= $slide[ 'title' ];
-$title_font_att		= $slide[ 'title_font_attributes' ];
-$short_desc			= $slide[ 'short_description' ];
-$desc				= $slide[ 'description' ];
-$link				= $slide[ 'link' ];
-$link_target		= $slide[ 'link_target' ];
-$color				= $slide[ 'text_color' ];
-$bg_image			= $slide[ 'background_image' ];
-$image				= $slide[ 'image' ];
+$title					= $slide[ 'title' ];
+$title_font_att			= $slide[ 'title_font_attributes' ];
+$short_desc				= $slide[ 'short_description' ];
+$short_desc_font_att	= $slide[ 'short_description_font_attributes' ];
+$desc					= $slide[ 'description' ];
+$link					= $slide[ 'link' ];
+$link_target			= $slide[ 'link_target' ];
+$color					= $slide[ 'text_color' ];
+$bg_image				= $slide[ 'background_image' ];
+$image					= $slide[ 'image' ];
 
-$title_font_att		= $title_font_att[ 'override_defaults' ] ? $title_font_att : $def_title_font_att;
+$title_font_att			= $title_font_att[ 'override_defaults' ]		? $title_font_att		: $def_title_font_att;
+$short_desc_font_att	= $short_desc_font_att[ 'override_defaults' ]	? $short_desc_font_att	: $def_short_desc_font_att;
 
-$title_style		= '';
-$title_style		.= $title_font_att[ 'top_margin' ] !== false	? 'margin-top:' . $title_font_att[ 'top_margin' ] . 'px;' : '';
-$title_style		.= $title_font_att[ 'font_family' ]				? 'font-family:\'' . $title_font_att[ 'font_family' ] . '\';' : '';
-$title_style		.= $title_font_att[ 'font_size' ]				? 'font-size:' . $title_font_att[ 'font_size' ] . 'px;line-height:' . $title_font_att[ 'font_size' ] . 'px;' : '';
-$title_style		.= $title_font_att[ 'font_weight' ]				? 'font-weight:' . $title_font_att[ 'font_weight' ] . ';' : '';
+$title_style			= '';
+$title_style			.= $title_font_att[ 'top_margin' ] !== false	? 'margin-top:' . $title_font_att[ 'top_margin' ] . 'px;' : '';
+$title_style			.= $title_font_att[ 'font_family' ]				? 'font-family:\'' . $title_font_att[ 'font_family' ] . '\';' : '';
+$title_style			.= $title_font_att[ 'font_size' ]				? 'font-size:' . $title_font_att[ 'font_size' ] . 'px;line-height:' . $title_font_att[ 'font_size' ] . 'px;' : '';
+$title_style			.= $title_font_att[ 'font_weight' ]				? 'font-weight:' . $title_font_att[ 'font_weight' ] . ';' : '';
+
+$short_desc_style		= '';
+$short_desc_style		.= $short_desc_font_att[ 'font_size' ]			? 'font-size:' . $short_desc_font_att[ 'font_size' ] . 'px;line-height:1.25;' : '';
+$short_desc_style		.= $short_desc_font_att[ 'font_weight' ]		? 'font-weight:' . $short_desc_font_att[ 'font_weight' ] . ';' : '';
+$short_desc_style		.= $short_desc_font_att[ 'font_color' ]			? 'color:' . $short_desc_font_att[ 'font_color' ] . ';' : '';
 
 if ( ! $title || ! $color || ! $bg_image || ! $image )
 	return;
@@ -66,7 +73,7 @@ if ( $link ) {
 	<div class="text-wrap" <?php echo $text_wrap_style ? 'style="' . $text_wrap_style . '"' : ''; ?>>
 
 		<div class="title" <?php echo $title_style ? 'style="' . $title_style . '"' : ''; ?>><?php echo $title; ?></div>
-		<div class="short-desc"><?php echo $short_desc; ?></div>
+		<div class="short-desc" <?php echo $short_desc_style ? 'style="' . $short_desc_style . '"' : ''; ?>><?php echo $short_desc; ?></div>
 		<div class="desc"><?php echo $desc; ?></div>
 		<div class="control cycle-prev visible-xs"></div>
 		<div class="control cycle-next visible-xs"></div>

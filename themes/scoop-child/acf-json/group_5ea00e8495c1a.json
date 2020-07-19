@@ -243,6 +243,136 @@
                                     "new_lines": "br"
                                 },
                                 {
+                                    "key": "field_5f1408dca5d29",
+                                    "label": "Short Description Font Attributes",
+                                    "name": "short_description_font_attributes",
+                                    "type": "group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5f1408dca5d2a",
+                                            "label": "Override Defaults",
+                                            "name": "override_defaults",
+                                            "type": "true_false",
+                                            "instructions": "Override default font attributes for this particular slide",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": ""
+                                        },
+                                        {
+                                            "key": "field_5f1408dca5d2c",
+                                            "label": "Font Size",
+                                            "name": "font_size",
+                                            "type": "number",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5f1408dca5d2a",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": 16,
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "px",
+                                            "min": 8,
+                                            "max": 48,
+                                            "step": 1
+                                        },
+                                        {
+                                            "key": "field_5f1408dca5d2d",
+                                            "label": "Font Weight",
+                                            "name": "font_weight",
+                                            "type": "select",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5f1408dca5d2a",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "normal": "Normal",
+                                                "bold": "Bold",
+                                                "100": "100",
+                                                "200": "200",
+                                                "300": "300",
+                                                "400": "400",
+                                                "500": "500",
+                                                "600": "600",
+                                                "700": "700",
+                                                "800": "800",
+                                                "900": "900"
+                                            },
+                                            "default_value": "normal",
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "ui": 0,
+                                            "ajax": 0,
+                                            "return_format": "value",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5f140905a5d2f",
+                                            "label": "Font Color",
+                                            "name": "font_color",
+                                            "type": "color_picker",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5f1408dca5d2a",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "#FFFFFF"
+                                        }
+                                    ]
+                                },
+                                {
                                     "key": "field_5ea01e6c3c22e",
                                     "label": "Description",
                                     "name": "description",
@@ -476,6 +606,93 @@
                                     "min": 0,
                                     "max": 200,
                                     "step": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5f14081ea5d23",
+                            "label": "Short Description Font Attributes",
+                            "name": "short_description_font_attributes",
+                            "type": "group",
+                            "instructions": "Default font attributes for slides sub titles (short description). These attributes may be overridden in a slide level",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5f14081ea5d25",
+                                    "label": "Font Size",
+                                    "name": "font_size",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 16,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "px",
+                                    "min": 8,
+                                    "max": 48,
+                                    "step": 1
+                                },
+                                {
+                                    "key": "field_5f14081ea5d26",
+                                    "label": "Font Weight",
+                                    "name": "font_weight",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "normal": "Normal",
+                                        "bold": "Bold",
+                                        "100": "100",
+                                        "200": "200",
+                                        "300": "300",
+                                        "400": "400",
+                                        "500": "500",
+                                        "600": "600",
+                                        "700": "700",
+                                        "800": "800",
+                                        "900": "900"
+                                    },
+                                    "default_value": "normal",
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "return_format": "value",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5f140882a5d28",
+                                    "label": "Font Color",
+                                    "name": "font_color",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "#FFFFFF"
                                 }
                             ]
                         },
@@ -1007,5 +1224,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1590409748
+    "modified": 1595149872
 }
