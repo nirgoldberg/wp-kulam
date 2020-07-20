@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.28
+ * @version		1.7.29
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -17,6 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	Posts Carousels
  * @fieldgroup	Ratings
  * @fieldgroup	Category Attributes
+ * @fieldgroup	Post Attributes
  * @fieldgroup	User Information
  * @fieldgroup	Slideshow Attributes
  * @fieldgroup	Gallery Attributes
@@ -2665,6 +2666,49 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_5f15a41b0952f',
+	'title' => __('Post Attributes', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5f15a44ff8f2b',
+			'label' => __('Show Filters', 'kulam-scoop'),
+			'name' => 'acf-post_show_filters',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 1,
+			'ui' => 1,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 7,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5820857489fcb',
 	'title' => __('User Information', 'kulam-scoop'),
 	'fields' => array(
@@ -2743,7 +2787,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 7,
+	'menu_order' => 8,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3141,7 +3185,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 8,
+	'menu_order' => 9,
 	'position' => 'side',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3264,7 +3308,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 9,
+	'menu_order' => 10,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3305,7 +3349,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 10,
+	'menu_order' => 11,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',

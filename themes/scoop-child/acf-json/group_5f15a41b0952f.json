@@ -1,12 +1,12 @@
 {
-    "key": "group_5eb961ab57a1c",
-    "title": "Attachment Attributes",
+    "key": "group_5f15a41b0952f",
+    "title": "Post Attributes",
     "fields": [
         {
-            "key": "field_5eb9638fc2c0c",
-            "label": "Date",
-            "name": "acf-attachment_date",
-            "type": "date_picker",
+            "key": "field_5f15a44ff8f2b",
+            "label": "Show Filters",
+            "name": "acf-post_show_filters",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,27 +15,29 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d.m.Y",
-            "return_format": "d.m.Y",
-            "first_day": 0
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
         [
             {
-                "param": "attachment",
+                "param": "post_type",
                 "operator": "==",
-                "value": "image"
+                "value": "post"
             }
         ]
     ],
-    "menu_order": 11,
-    "position": "normal",
+    "menu_order": 7,
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1595253709
+    "modified": 1595254733
 }
