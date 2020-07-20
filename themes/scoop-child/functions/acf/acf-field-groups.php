@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.27
+ * @version		1.7.28
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	Gallery Attributes
  * @fieldgroup	Attachment Attributes
  * @fieldgroup	Header/Footer Settings
+ * @fieldgroup	Custom Taxonomies Settings
  * @fieldgroup	My Siddur Settings
  * @fieldgroup	General Settings
  * @fieldgroup	ACF Form Fields
@@ -3651,6 +3652,94 @@ acf_add_local_field_group(array(
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_5f144a5d12b11',
+	'title' => __('Custom Taxonomies Settings', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5f144b60b40dd',
+			'label' => __('Custom Taxonomies Generator', 'kulam-scoop'),
+			'name' => 'acf-option_custom_taxonomies_generator',
+			'type' => 'repeater',
+			'instructions' => __('Add/remove/update custom taxonomies.
+In case of WPML based website, This field should be defined globally for default language only', 'kulam-scoop'),
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_5f144dffb40e0',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'table',
+			'button_label' => __('Add Custom Taxonomy', 'kulam-scoop'),
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5f144cb2b40de',
+					'label' => __('Name', 'kulam-scoop'),
+					'name' => 'name',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array(
+					'key' => 'field_5f144dffb40e0',
+					'label' => __('Singular Name', 'kulam-scoop'),
+					'name' => 'singular_name',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-custom-taxonomies',
+			),
+		),
+	),
+	'menu_order' => 102,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'left',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5ceaa42a7cfb6',
 	'title' => __('My Siddur Settings', 'kulam-scoop'),
 	'fields' => array(
@@ -3702,7 +3791,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 102,
+	'menu_order' => 103,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -4193,7 +4282,7 @@ Image dimensions: 1140x268 (px)', 'kulam-scoop'),
 			),
 		),
 	),
-	'menu_order' => 103,
+	'menu_order' => 104,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -4239,7 +4328,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 104,
+	'menu_order' => 105,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',

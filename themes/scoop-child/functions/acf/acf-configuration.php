@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.6
+ * @version		1.7.28
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -38,6 +38,13 @@ function kulam_acf_init() {
 		));
 
 		acf_add_options_sub_page( array(
+			'page_title' 	=> __( 'Custom Taxonomies Settings', 'kulam-scoop' ),
+			'menu_title' 	=> __( 'Custom Taxonomies', 'kulam-scoop' ),
+			'menu_slug' 	=> 'acf-options-custom-taxonomies',
+			'parent_slug' 	=> 'site-options',
+		));
+
+		acf_add_options_sub_page( array(
 			'page_title' 	=> __( 'My Siddur Settings', 'kulam-scoop' ),
 			'menu_title' 	=> __( 'My Siddur', 'kulam-scoop' ),
 			'menu_slug' 	=> 'acf-options-my-siddur',
@@ -55,6 +62,43 @@ function kulam_acf_init() {
 
 }
 add_action( 'acf/init', 'kulam_acf_init' );
+
+/**
+ * kulam_acf_set_default_language
+ *
+ * This function sets ACF default language.
+ * Used to fetch an options field value from the default language
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_acf_set_default_language() {
+
+	// return
+	return acf_get_setting( 'default_language' );
+
+}
+
+/**
+ * kulam_acf_get_global_option
+ *
+ * This function fetches an options field value from the default language
+ *
+ * @param	$name (string)
+ * @return	(mix)
+ */
+function kulam_acf_get_global_option( $name ) {
+
+	add_filter( 'acf/settings/current_language', 'kulam_acf_set_default_language', 100 );
+
+	$option = get_field( $name, 'option' );
+
+	remove_filter( 'acf/settings/current_language', 'kulam_acf_set_default_language', 100 );
+
+	// return
+	return $option;
+
+}
 
 /**
  * kulam_acf_add_local_field_group_top_posts
@@ -524,3 +568,202 @@ function kulam_acf_pc_generate_shortcodes( $post_id ) {
 
 }
 add_action( 'acf/save_post', 'kulam_acf_pc_generate_shortcodes', 5 );
+
+/**
+ * kulam_acf_register_custom_taxonomies
+ *
+ * This function registers custom taxonomies based on acf-option_custom_taxonomies_generator ACF repeater
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_acf_register_custom_taxonomies() {
+
+	/**
+	 * Variables
+	 */
+	$custom_tax	= kulam_acf_get_global_option( 'acf-option_custom_taxonomies_generator' );
+
+	if ( ! $custom_tax )
+		return;
+
+	foreach ( $custom_tax as $tax ) {
+
+		/**
+		 * Variables
+		 */
+		$name		= $tax[ 'name' ];
+		$singular	= $tax[ 'singular_name' ];
+
+		if ( ! $name || ! $singular )
+			continue;
+
+		$labels = kulam_get_custom_taxonomy_labels( $name, $singular );
+
+		if ( ! $labels )
+			continue;
+
+		$args = array(
+			'labels'				=> $labels,
+			'public'				=> true,
+			'hierarchical'			=> true,
+			'show_in_rest'			=> true,
+			'show_admin_column'		=> true,
+		);
+
+		register_taxonomy( urldecode( sanitize_title( urldecode( 'post_tax_' . $singular ) ) ), 'post', $args );
+
+	}
+
+}
+add_action( 'init', 'kulam_acf_register_custom_taxonomies' );
+
+/**
+ * kulam_get_custom_taxonomy_labels
+ *
+ * This function generates custom taxonomy labels
+ *
+ * @param	$name (string)
+ * @param	$singular (string)
+ * @return	(array)
+ */
+function kulam_get_custom_taxonomy_labels( $name, $singular ) {
+
+	$labels = array();
+
+	if ( $name && $singular ) {
+
+		$labels = array(
+			'name'							=> $name,
+			'singular_name'					=> $singular,
+			'menu_name'						=> $name,
+			'search_items'					=> sprintf( __( 'Search %s',						'kulam-scoop' ), $name ),
+			'popular_items'					=> sprintf( __( 'Popular %s',						'kulam-scoop' ), $name ),
+			'all_items'						=> sprintf( __( 'All %s',							'kulam-scoop' ), $name ),
+			'parent_item'					=> sprintf( __( 'Parent %s',						'kulam-scoop' ), $singular ),
+			'parent_item_colon'				=> sprintf( __( 'Parent %s:',						'kulam-scoop' ), $singular ),
+			'edit_item'						=> sprintf( __( 'Edit %s',							'kulam-scoop' ), $singular ),
+			'view_item'						=> sprintf( __( 'View %s',							'kulam-scoop' ), $singular ),
+			'update_item'					=> sprintf( __( 'Update %s',						'kulam-scoop' ), $singular ),
+			'add_new_item'					=> sprintf( __( 'Add New %s',						'kulam-scoop' ), $singular ),
+			'new_item_name'					=> sprintf( __( 'New %s Name',						'kulam-scoop' ), $singular ),
+			'separate_items_with_commas'	=> sprintf( __( 'Separate %s with commas',			'kulam-scoop' ), $name ),
+			'add_or_remove_items'			=> sprintf( __( 'Add or remove %s',					'kulam-scoop' ), $name ),
+			'choose_from_most_used'			=> sprintf( __( 'Choose from the most used %s',		'kulam-scoop' ), $name ),
+			'not_found'						=> sprintf( __( 'No %s Found',						'kulam-scoop' ), $name ),
+			'no_terms'						=> sprintf( __( 'No %s',							'kulam-scoop' ), $name ),
+			'items_list_navigation'			=> sprintf( __( '%s list navigation',				'kulam-scoop' ), $name ),
+			'items_list'					=> sprintf( __( '%s list',							'kulam-scoop' ), $name ),
+			'back_to_items'					=> sprintf( __( '&larr; Back to %s',				'kulam-scoop' ), $name ),
+		);
+
+	}
+
+	// return
+	return $labels;
+
+}
+
+/**
+ * kulam_acf_unregister_custom_taxonomies
+ *
+ * This function provides the following for each deleted custom taxonomy:
+ * 1. Delete custom taxonomy terms
+ * 2. Unregister custom taxonomy
+ *
+ * @param	$post_id (int) Post ID
+ * @return	N/A
+ */
+function kulam_acf_unregister_custom_taxonomies( $post_id ) {
+
+	/**
+	 * Variables
+	 */
+	$custom_tax_key		= 'field_5f144b60b40dd';
+	$singular_name_key	= 'field_5f144dffb40e0';
+
+	if ( ! isset( $_POST[ 'acf' ][ $custom_tax_key ] ) )
+		return;
+
+	// get pre-registered custom taxonomies
+	$old_custom_tax = kulam_acf_get_global_option( 'acf-option_custom_taxonomies_generator' );
+
+	if ( ! $old_custom_tax )
+		return;
+
+	foreach ( $old_custom_tax as $old_tax ) {
+
+		/**
+		 * Variables
+		 */
+		$old_singular_name	= $old_tax[ 'singular_name' ];
+		$old_tax_found		= false;
+
+		if ( $_POST[ 'acf' ][ $custom_tax_key ] ) {
+			foreach ( $_POST[ 'acf' ][ $custom_tax_key ] as $row => $tax ) {
+				if ( $old_singular_name == $tax[ $singular_name_key ] ) {
+					$old_tax_found = true;
+					break;
+				}
+			}
+		}
+
+		if ( ! $old_tax_found ) {
+
+			$taxonomy = urldecode( sanitize_title( urldecode( 'post_tax_' . $old_singular_name ) ) );
+
+			// pre-registered tax has not found
+			// Delete custom taxonomy terms
+			kulam_acf_delete_custom_taxonomy_terms( $taxonomy );
+
+			// Unregister custom taxonomy
+			kulam_acf_unregister_custom_taxonomy( $taxonomy );
+
+		}
+
+	}
+
+}
+add_action( 'acf/save_post', 'kulam_acf_unregister_custom_taxonomies', 5 );
+
+/**
+ * kulam_acf_delete_custom_taxonomy_terms
+ *
+ * This function deletes custom taxonomy terms
+ *
+ * @param	$taxonomy (string)
+ * @return	N/A
+ */
+function kulam_acf_delete_custom_taxonomy_terms( $taxonomy ) {
+
+	// get taxonomy terms
+	$terms = get_terms(array(
+		'taxonomy'		=> $taxonomy,
+		'hide_empty'	=> false,
+	));
+
+	if ( ! $terms ) {
+		return;
+	}
+
+	foreach ( $terms as $term ) {
+
+		wp_delete_term( $term->term_id, $taxonomy );
+
+	}
+
+}
+
+/**
+ * kulam_acf_unregister_custom_taxonomy
+ *
+ * This function unregisters custom taxonomy
+ *
+ * @param	$taxonomy (string)
+ * @return	N/A
+ */
+function kulam_acf_unregister_custom_taxonomy( $taxonomy ) {
+
+	unregister_taxonomy_for_object_type( $taxonomy, 'post' );
+
+}

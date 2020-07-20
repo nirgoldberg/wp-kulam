@@ -1,0 +1,87 @@
+{
+    "key": "group_5f144a5d12b11",
+    "title": "Custom Taxonomies Settings",
+    "fields": [
+        {
+            "key": "field_5f144b60b40dd",
+            "label": "Custom Taxonomies Generator",
+            "name": "acf-option_custom_taxonomies_generator",
+            "type": "repeater",
+            "instructions": "Add\/remove\/update custom taxonomies.\r\nIn case of WPML based website, This field should be defined globally for default language only",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5f144dffb40e0",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add Custom Taxonomy",
+            "sub_fields": [
+                {
+                    "key": "field_5f144cb2b40de",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5f144dffb40e0",
+                    "label": "Singular Name",
+                    "name": "singular_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-custom-taxonomies"
+            }
+        ]
+    ],
+    "menu_order": 102,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1595189534
+}
