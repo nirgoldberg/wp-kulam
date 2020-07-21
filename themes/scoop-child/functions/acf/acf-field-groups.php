@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.30
+ * @version		1.7.31
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -2568,45 +2568,6 @@ acf_add_local_field_group(array(
 			'default_value' => '',
 		),
 		array(
-			'key' => 'field_5f15c269465bd',
-			'label' => __('Filters', 'kulam-scoop'),
-			'name' => '',
-			'type' => 'tab',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'placement' => 'top',
-			'endpoint' => 0,
-		),
-		array(
-			'key' => 'field_5f15c586179b0',
-			'label' => __('Filters', 'kulam-scoop'),
-			'name' => 'acf-category_filters',
-			'type' => 'taxonomy_relationship',
-			'instructions' => __('Choose taxonomies in order to filter posts associated with them in the category page', 'kulam-scoop'),
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'post_type' => array(
-				0 => 'post',
-			),
-			'filters' => array(
-				0 => 'search',
-			),
-			'min' => '',
-			'max' => '',
-			'return_format' => 'object',
-		),
-		array(
 			'key' => 'field_5ec0d5ba09849',
 			'label' => __('General', 'kulam-scoop'),
 			'name' => '',
@@ -3479,9 +3440,99 @@ acf_add_local_field_group(array(
 			),
 			'message' => '',
 			'default_value' => 1,
-			'ui' => 0,
+			'ui' => 1,
 			'ui_on_text' => '',
 			'ui_off_text' => '',
+		),
+		array(
+			'key' => 'field_5f173acbf7dfe',
+			'label' => __('Categories Field Label', 'kulam-scoop'),
+			'name' => 'acf-option_advanced_search_categories_label',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5e890285f6c85',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 'Choose a category',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array(
+			'key' => 'field_5f173ca9f7dff',
+			'label' => __('Search by Categories', 'kulam-scoop'),
+			'name' => 'acf-option_advanced_search_categories',
+			'type' => 'taxonomy',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5e890285f6c85',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'category',
+			'field_type' => 'multi_select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
+		),
+		array(
+			'key' => 'field_5f17399af7dfd',
+			'label' => __('Search by Taxonomy Filters', 'kulam-scoop'),
+			'name' => 'acf-option_advanced_search _filters',
+			'type' => 'taxonomy_relationship',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5e890285f6c85',
+						'operator' => '==',
+						'value' => '1',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'post',
+			),
+			'filters' => array(
+				0 => 'search',
+			),
+			'min' => '',
+			'max' => '',
+			'return_format' => 'object',
 		),
 		array(
 			'key' => 'field_5eb0f6c571e08',
