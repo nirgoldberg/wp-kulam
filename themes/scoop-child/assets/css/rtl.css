@@ -11,9 +11,30 @@
 	float: left;
 }
 
+.search-header .advanced-search-fields-wrapper {
+	text-align: right;
+}
+
+.search-header .menu-search-input .checkbox-list ul.children {
+	padding: 0 20px 0 0;
+}
+
+.search-header .menu-search-input .checkbox-list li input {
+	margin: -1px 0 0 4px;
+}
+
 .search-header .menu-search-submit {
 	left: 10px;
 	right: auto;
+}
+
+.search-header .menu-search-submit input {
+	left: 0;
+	right: auto;
+}
+
+.advanced-search .advanced-search-btn {
+	text-align: left;
 }
 
 .advanced-search .advanced-search-fields-wrapper .instructions {

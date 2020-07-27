@@ -55,28 +55,69 @@ header .logo img,
 	line-height: normal !important;
 }
 
+.search-header .advanced-search-fields-wrapper {
+	text-align: left;
+}
+
+.search-header .advanced-search-fields-wrapper .menu-search-input-text {
+	margin: 15px 0;
+}
+
 .search-header .menu-search-input {
 	margin: 10px 0;
 	display: block;
 }
 
+.search-header .menu-search-input .list-title {
+	margin: 15px 0 3px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.search-header .menu-search-input .checkbox-list-holder {
+	max-height: 200px;
+	border: 1px solid #ccd0d4;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+.search-header .menu-search-input .checkbox-list {
+	margin: 0;
+	padding: 10px;
+	list-style: none;
+}
+
+.search-header .menu-search-input .checkbox-list ul.children {
+	margin: 0;
+	padding: 0 0 0 20px;
+	list-style: none;
+}
+
+.search-header .menu-search-input .checkbox-list li {
+	position: relative;
+	margin: 0;
+	line-height: 22px;
+	font-size: 13px;
+}
+
+.search-header .menu-search-input .checkbox-list li label {
+	font-weight: normal;
+	display: inline;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.search-header .menu-search-input .checkbox-list li input {
+	margin: -1px 4px 0 0;
+	vertical-align: middle;
+	border: 1px solid #7e8993;
+	border-radius: 4px;
+	cursor: pointer;
+	outline: 0;
+}
+
 .search-header .menu-search-input-text .menu-search-input {
 	margin: 0 0 5px;
-}
-
-.search-header .menu-search-input input,
-.search-header .menu-search-input select {
-	padding: 0 10px;
-	width: 100%;
-	height: 40px;
-	line-height: 40px;
-	border: 1px solid gray;
-	border-radius: 0;
-}
-
-.search-header .menu-search-input input {
-	padding: 0 14px;
-	color: #000;
 }
 
 .search-header .menu-search-input input::-webkit-input-placeholder {
@@ -119,6 +160,10 @@ header .logo img,
 	padding: 0;
 }
 
+.advanced-search .advanced-search-btn {
+	text-align: right;
+}
+
 .advanced-search .advanced-search-btn a {
 	text-decoration: underline;
 	cursor: pointer;
@@ -154,6 +199,10 @@ header .logo img,
 }
 
 #modal-search .modal-body {
+	padding: 0;
+	top: 5%;
+	max-height: calc(90% - 60px);
+	overflow-y: auto;
 	text-align: center;
 }
 
@@ -161,6 +210,7 @@ header .logo img,
 	float: none;
 	margin: 0;
 	width: 100%;
+	max-width: 300px;
 }
 
 /************************/

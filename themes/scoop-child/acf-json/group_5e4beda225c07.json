@@ -104,7 +104,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Choose a category",
+            "default_value": "Choose Category",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -134,18 +134,18 @@
                 "id": ""
             },
             "taxonomy": "category",
-            "field_type": "multi_select",
-            "allow_null": 0,
+            "field_type": "checkbox",
             "add_term": 0,
             "save_terms": 0,
             "load_terms": 0,
             "return_format": "object",
-            "multiple": 0
+            "multiple": 0,
+            "allow_null": 0
         },
         {
             "key": "field_5f17399af7dfd",
             "label": "Search by Taxonomy Filters",
-            "name": "acf-option_advanced_search _filters",
+            "name": "acf-option_advanced_search_filters",
             "type": "taxonomy_relationship",
             "instructions": "",
             "required": 0,
@@ -422,5 +422,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1595358551
+    "modified": 1595794853
 }

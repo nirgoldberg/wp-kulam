@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.25
+ * @version     1.7.32
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -150,6 +150,7 @@ function kulam_enqueue_scripts() {
 		'strings'		=> array(
 			'read_more'		=> __( 'READ MORE', 'kulam-scoop' ),
 		),
+		'query_string'	=> $_GET,
 	);
 
 	wp_localize_script( 'kulam-js', 'ajaxdata', $params );

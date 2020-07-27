@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.31
+ * @version		1.7.32
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -3465,7 +3465,7 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => 'Choose a category',
+			'default_value' => 'Choose Category',
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',
@@ -3495,18 +3495,18 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'taxonomy' => 'category',
-			'field_type' => 'multi_select',
-			'allow_null' => 0,
+			'field_type' => 'checkbox',
 			'add_term' => 0,
 			'save_terms' => 0,
 			'load_terms' => 0,
 			'return_format' => 'object',
 			'multiple' => 0,
+			'allow_null' => 0,
 		),
 		array(
 			'key' => 'field_5f17399af7dfd',
 			'label' => __('Search by Taxonomy Filters', 'kulam-scoop'),
-			'name' => 'acf-option_advanced_search _filters',
+			'name' => 'acf-option_advanced_search_filters',
 			'type' => 'taxonomy_relationship',
 			'instructions' => '',
 			'required' => 0,
