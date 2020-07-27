@@ -165,7 +165,7 @@ function kulam_search_get_category_terms_field() {
 
 						}
 
-						if ( ! $parent || ! $depth ) {
+						if ( ! $parent && ! $depth ) {
 
 							// close last term
 							$output .= '</li>';
