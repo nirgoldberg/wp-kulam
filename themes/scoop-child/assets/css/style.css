@@ -1499,10 +1499,10 @@ input.save-rating {
 	background-color: transparent;
 	border: none;
 }
-div#new-fold
-	{width: 100vw;
+div#new-fold {
+	width: 100vw;
 	height: 100vh;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 10vh;
 	z-index: 9999;
