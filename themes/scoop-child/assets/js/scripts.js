@@ -162,6 +162,9 @@ var $ = jQuery,
 		 */
 		advanced_search : function() {
 
+			// advanced search categories tree styling
+			KULAM_general.advanced_search_categories();
+
 			// open advanced search in case of advanced search field is set
 			KULAM_general.maybe_open_advanced_search();
 
@@ -177,6 +180,35 @@ var $ = jQuery,
 
 			// auto complete
 			//KULAM_general.advanced_search_auto_complete();
+
+		},
+
+		/**
+		 * advanced_search_categories
+		 *
+		 * Called from advanced_search
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		advanced_search_categories : function() {
+
+			// variables
+			var categories_tree_sections = $('.menu-search-input-category');
+
+			if (categories_tree_sections.length) {
+				categories_tree_sections.each(function(i, tree) {
+
+					var tree_lis = $(tree).find('.checkbox-list li');
+
+					tree_lis.each(function(j, li) {
+						if ($(li).children('.children').length) {
+							$(li).children('label').children('span').css('text-decoration', 'underline');
+						}
+					});
+
+				});
+			}
 
 		},
 

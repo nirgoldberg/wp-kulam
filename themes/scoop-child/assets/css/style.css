@@ -108,12 +108,18 @@ header .logo img,
 }
 
 .search-header .menu-search-input .checkbox-list li input {
-	margin: -1px 4px 0 0;
+	float: left;
+	margin: 4px 4px 0 0;
 	vertical-align: middle;
 	border: 1px solid #7e8993;
 	border-radius: 4px;
 	cursor: pointer;
 	outline: 0;
+}
+
+.search-header .menu-search-input .checkbox-list li span {
+	padding-left: 20px;
+	display: block;
 }
 
 .search-header .menu-search-input-text .menu-search-input {

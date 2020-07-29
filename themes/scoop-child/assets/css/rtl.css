@@ -20,7 +20,13 @@
 }
 
 .search-header .menu-search-input .checkbox-list li input {
-	margin: -1px 0 0 4px;
+	float: right;
+	margin: 4px 0 0 4px;
+}
+
+.search-header .menu-search-input .checkbox-list li span {
+	padding-left: 0;
+	padding-right: 20px;
 }
 
 .search-header .menu-search-submit {

@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.32
+ * @version     1.7.33
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -26,7 +26,7 @@ function kulam_search_get_post_formats_field() {
 
 	if ( $formats ) {
 
-		$output .= '<span id="menu-search-input-post-format" class="menu-search-input">' .
+		$output .= '<span class="menu-search-input menu-search-input-post-format">' .
 			'<div class="list-title">' . __( 'Choose Post Format', 'kulam-scoop' ) . '</div>' .
 			'<div class="checkbox-list-holder">' .
 				'<ul class="checkbox-list">';
@@ -35,7 +35,7 @@ function kulam_search_get_post_formats_field() {
 						'0',
 						'filters[post_format]',
 						isset( $_GET[ 'filters' ][ 'post_format' ] ) && is_array( $_GET[ 'filters' ][ 'post_format' ] ) ? checked( in_array( '0', $_GET[ 'filters' ][ 'post_format' ], true ), 1, false ) : '',
-						__( 'Text', 'kulam-scoop' ),
+						__( 'Text', 'kulam-scoop' )
 					);
 
 					foreach ( $formats as $f ) {
@@ -115,7 +115,7 @@ function kulam_search_get_category_terms_field() {
 
 	if ( $terms ) {
 
-		$output .= '<span id="menu-search-input-category" class="menu-search-input">' .
+		$output .= '<span class="menu-search-input menu-search-input-category">' .
 			'<div class="list-title">' . $categories_field_label . '</div>' .
 			'<div class="checkbox-list-holder">' .
 				'<ul class="checkbox-list">';
@@ -218,8 +218,13 @@ function kulam_search_get_category_terms() {
 
 	foreach ( $categories as $term ) {
 
+		/**
+		 * Uncomment this in order to check terms based on their direct number of terms
+
 		if ( $term->count <= 1 )
 			continue;
+
+		*/
 
 		$terms[] = $term;
 
@@ -254,7 +259,7 @@ function kulam_search_get_taxonomies_fields() {
 			if ( ! $tax )
 				continue;
 
-			$output .= '<span id="menu-search-input-' . $tax->name . '" class="menu-search-input">' .
+			$output .= '<span class="menu-search-input menu-search-input-' . $tax->name . '">' .
 				'<div class="list-title">' . __( 'Choose', 'kulam-scoop' ) . ' ' . $tax->labels->singular_name . '</div>' .
 				'<div class="checkbox-list-holder">' .
 					'<ul class="checkbox-list">';
