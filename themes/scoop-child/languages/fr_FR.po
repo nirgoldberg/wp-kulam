@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
 "POT-Creation-Date: 2020-08-10 11:12+0300\n"
-"PO-Revision-Date: 2020-08-10 11:23+0300\n"
+"PO-Revision-Date: 2020-08-10 13:52+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
@@ -38,7 +38,7 @@ msgstr ""
 
 #: core/api.php:203
 msgid "Read More"
-msgstr "POUR EN SAVOIR DAVANTAGE"
+msgstr "Cliquez ici"
 
 #: core/api.php:364
 msgid "Read More &raquo;"
@@ -1177,7 +1177,7 @@ msgstr ""
 
 #: functions/modal-login.php:51
 msgid "Register Now"
-msgstr ""
+msgstr "Inscription"
 
 #: functions/modal-registration.php:36
 msgid "Registration"
@@ -1540,7 +1540,7 @@ msgstr "Montrer moins"
 
 #: functions/theme.php:151
 msgid "READ MORE"
-msgstr ""
+msgstr "Cliquez ici"
 
 #: header.php:91 header.php:194
 msgid "Toggle navigation"
@@ -1686,7 +1686,7 @@ msgstr ""
 
 #: partials/main/layout-links-boxes-link.php:51
 msgid "Read more"
-msgstr ""
+msgstr "Cliquez ici"
 
 #: partials/search.php:20
 msgid "Search..."

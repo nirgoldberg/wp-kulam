@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.7.27
+ * @version		1.7.35
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -60,13 +60,13 @@ function kulam_add_custom_menu_items( $items, $args ) {
 			if ( 'he_IL' == $lang ) {
 
 				$items .= false !== $my_siddur_activate_module ? '<li class="menu-item my-siddur"><a href="/my-siddur" role="link"><span>' . $my_siddur_label . '</span></a></li>' : '';
-				$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>התנתק</span></a></li>';
+				$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a></li>';
 
 			}
 			else {
 
 				$items .= false !== $my_siddur_activate_module ? '<li class="menu-item my-siddur"><a href="/en/my-siddur" role="link"><span>' . $my_siddur_label . '</span></a></li>' : '';
-				$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>Logout</span></a></li>';
+				$items .= '<li class="menu-item logout"><a href="' . wp_logout_url(home_url()) . '"><span>' . __( 'Logout', 'kulam-scoop' ) . '</span></a></li>';
 
 			}
 
