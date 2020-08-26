@@ -150,15 +150,19 @@
 					.main-wrapper {
 						padding-left: 0;
 						padding-right: 0;
+
+						.main-layout-title-wrap {
+							margin-bottom: 35px;
+						}
 					}
 				}
 			}
 		}
 	}
 
-	/*******************/
-	/* homepage banner */
-	/*******************/
+	/***************/
+	/* main banner */
+	/***************/
 
 	.main-banner {
 		.slide {
@@ -189,10 +193,6 @@
 	/*********************/
 
 	.main-recent-posts {
-		.title-wrap {
-			margin-bottom: 35px;
-		}
-
 		.post-wrap {
 			.post-meta {
 				padding: 15px;
@@ -222,9 +222,9 @@
 
 @media (max-width: 480px) {
 
-	/*******************/
-	/* homepage banner */
-	/*******************/
+	/***************/
+	/* main banner */
+	/***************/
 
 	.main-banner {
 		.controls {
@@ -355,9 +355,17 @@
 
 @media (min-width: 1200px) {
 
-	/*******************/
-	/* homepage banner */
-	/*******************/
+	/***********/
+	/* general */
+	/***********/
+
+	.col-20 {
+		width: 20%;
+	}
+
+	/***************/
+	/* main banner */
+	/***************/
 
 	.main-banner {
 		.controls {
@@ -392,9 +400,27 @@
 		padding: 0.729166667vw 3.75vw;
 	}
 
-	/*******************/
-	/* homepage banner */
-	/*******************/
+	/********/
+	/* main */
+	/********/
+
+	body.page-template-main {
+		#primary {
+			& > .container {
+				#content {
+					.main-wrapper {
+						.main-layout-title-wrap {
+							margin-bottom: 50px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/***************/
+	/* main banner */
+	/***************/
 
 	.main-banner {
 		.slide {
@@ -450,10 +476,6 @@
 	/*********************/
 
 	.main-recent-posts {
-		.title-wrap {
-			margin-bottom: 50px;
-		}
-
 		.post-wrap {
 			.post-meta {
 				position: relative;
@@ -542,9 +564,9 @@
 
 @media (min-width: 768px) and (max-width: 1199px) {
 
-	/*******************/
-	/* homepage banner */
-	/*******************/
+	/***************/
+	/* main banner */
+	/***************/
 
 	.main-banner {
 		.controls {
@@ -598,9 +620,9 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
 
-	/*******************/
-	/* homepage banner */
-	/*******************/
+	/***************/
+	/* main banner */
+	/***************/
 
 	.main-banner {
 		.controls {

@@ -60,7 +60,7 @@ if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post()
 							$image_html .
 							'<div class="post-meta">' .
 								'<div class="title">' . get_the_title() . '</div>' .
-								'<div class="more">' . __( 'Read more &rarr;', 'scoop-child' ) . '</div>' .
+								'<div class="more">' . __( 'Read more', 'scoop-child' ) . '</div>' .
 							'</div>' .
 						'</div>' .
 					'</div>';
@@ -76,7 +76,7 @@ if ( ! $posts )
 <div class="main-recent-posts" <?php echo $layout_style ? 'style="' . $layout_style . '"' : ''; ?>>
 	<div class="recent-posts-wrap container">
 
-		<div class="title-wrap">
+		<div class="main-layout-title-wrap">
 
 			<h2><?php echo $title; ?></h2>
 			<?php echo $sub_title ? '<div class="sub-title">' . $sub_title . '</div>' : ''; ?>

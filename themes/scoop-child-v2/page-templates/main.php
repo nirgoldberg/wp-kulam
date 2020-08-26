@@ -49,6 +49,26 @@ get_header();
 
 						break;
 
+					case 'image' :
+
+						/*********/
+						/* image */
+						/*********/
+
+						get_template_part( 'partials/main/layout', 'image' );
+
+						break;
+
+					case 'image_gallery' :
+
+						/******************/
+						/* image_gallery */
+						/******************/
+
+						get_template_part( 'partials/main/layout', 'image-gallery' );
+
+						break;
+
 					case 'links_strip' :
 
 						/***************/

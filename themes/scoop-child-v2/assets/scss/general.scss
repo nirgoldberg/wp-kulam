@@ -162,13 +162,25 @@ body.page-template-main {
 	#primary {
 		& > .container {
 			max-width: 100%;
+
+			#content {
+				.main-wrapper {
+					.main-layout-title-wrap {
+						text-align: center;
+
+						h2 {
+							margin: 0;
+						}
+					}
+				}
+			}
 		}
 	}
 }
 
-/*******************/
-/* homepage banner */
-/*******************/
+/***************/
+/* main banner */
+/***************/
 
 .main-banner {
 	position: relative;
@@ -223,14 +235,6 @@ body.page-template-main {
 /*********************/
 
 .main-recent-posts {
-	.title-wrap {
-		text-align: center;
-
-		h2 {
-			margin: 0;
-		}
-	}
-
 	.post-wrap {
 		margin-bottom: 30px;
 		background-color: #FFF;
@@ -283,7 +287,9 @@ body.page-template-main {
 			}
 
 			.more {
+				padding-right: 20px;
 				font-weight: bold;
+				background: url('../images/icons/path.png') center right no-repeat;
 			}
 		}
 	}
@@ -301,9 +307,34 @@ body.page-template-main {
 
 			span {
 				padding-right: 20px;
-				width: 8px;
-				height: 13px;
 				background: url('../images/icons/right.png') center right no-repeat;
+			}
+		}
+	}
+}
+
+/**************/
+/* main image */
+/**************/
+
+.main-image {
+	text-align: center;
+}
+
+/**********************/
+/* main image gallery */
+/**********************/
+
+.main-image-gallery {
+	.gallery-wrap {
+		.image-wrap {
+			height: 150px;
+			text-align: center;
+
+			img {
+				@include vertical-align;
+				max-width: 100%;
+				max-height: 100%;
 			}
 		}
 	}
