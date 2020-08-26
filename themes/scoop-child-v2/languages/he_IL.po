@@ -1,0 +1,1795 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kulam-scoop 1.0.0\n"
+"POT-Creation-Date: 2020-07-28 01:55+0300\n"
+"PO-Revision-Date: 2020-07-28 02:09+0300\n"
+"Last-Translator: Nir Goldberg <nir@htmline.com>\n"
+"Language-Team: Nir Goldberg <nir@htmline.com>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: content/content-grid_three.php:53 loop/single.php:102
+msgid "No Comments"
+msgstr "אין תגובות"
+
+#: content/content-grid_three.php:53 loop/single.php:102
+msgid "One Comment"
+msgstr "תגובה אחת"
+
+#: content/content-grid_three.php:53 loop/single.php:102
+msgid "% Comments"
+msgstr "% תגובות"
+
+#: content/content-grid_three.php:89
+msgid "Add to folder"
+msgstr "הוסף לתיקייה"
+
+#: content/content-grid_three.php:93
+msgid "Remove from folder"
+msgstr "הסר מתיקייה"
+
+#: core/api.php:203
+msgid "Read More"
+msgstr "קרא עוד"
+
+#: core/api.php:364
+msgid "Read More &raquo;"
+msgstr "המאמר הבא &raquo;"
+
+#: core/api.php:427
+msgid "Numbers"
+msgstr ""
+
+#: core/api.php:431
+msgid "Infinite Scroll"
+msgstr ""
+
+#: core/api.php:434
+msgid "Hide"
+msgstr ""
+
+#: footer.php:23
+msgid "All rights reserved"
+msgstr "כל הזכויות שמורות"
+
+#: footer.php:49
+msgid "Link has been copied to clipboard. You may share it anywhere"
+msgstr "הקישור הועתק ללוח. אתה יכול לשתף אותו בכל מקום"
+
+#: functions/acf/acf-configuration.php:27
+#: functions/acf/acf-configuration.php:28
+msgid "Site Setup"
+msgstr "הגדרות האתר"
+
+#: functions/acf/acf-configuration.php:34
+#: functions/acf/acf-field-groups.php:3364
+msgid "Header/Footer Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:35
+msgid "Header/Footer"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:41
+#: functions/acf/acf-field-groups.php:3790
+msgid "Custom Taxonomies Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:42
+msgid "Custom Taxonomies"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:48
+#: functions/acf/acf-field-groups.php:3878
+msgid "My Siddur Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:49 functions/menus.php:52
+#: functions/post-types.php:210 functions/shortcodes.php:30 loop/archive.php:19
+#: loop/single.php:20
+msgid "My Siddur"
+msgstr "הסידור שלי"
+
+#: functions/acf/acf-configuration.php:55
+#: functions/acf/acf-field-groups.php:3940
+msgid "General Settings"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:56
+#: functions/acf/acf-field-groups.php:1990
+#: functions/acf/acf-field-groups.php:2572
+#: functions/acf/acf-field-groups.php:3149
+msgid "General"
+msgstr "כללי"
+
+#: functions/acf/acf-configuration.php:139
+msgid "Post Types Top Posts"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:200
+#, php-format
+msgid "%s Top Posts"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:359
+msgid "Read Only?"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:364
+#: functions/acf/acf-configuration.php:376 template-siddur-folder.php:58
+msgid "No"
+msgstr "לא"
+
+#: functions/acf/acf-configuration.php:365
+#: functions/acf/acf-configuration.php:377 template-siddur-folder.php:57
+msgid "Yes"
+msgstr "כן"
+
+#: functions/acf/acf-configuration.php:371
+msgid "Disabled?"
+msgstr ""
+
+#: functions/acf/acf-configuration.php:640
+#, php-format
+msgid "Search %s"
+msgstr "חפש %s"
+
+#: functions/acf/acf-configuration.php:641
+#, php-format
+msgid "Popular %s"
+msgstr "%s נפוצים"
+
+#: functions/acf/acf-configuration.php:642
+#, php-format
+msgid "All %s"
+msgstr "כל ה%s"
+
+#: functions/acf/acf-configuration.php:643
+#, php-format
+msgid "Parent %s"
+msgstr "%s הורה"
+
+#: functions/acf/acf-configuration.php:644
+#, php-format
+msgid "Parent %s:"
+msgstr "%s הורה:"
+
+#: functions/acf/acf-configuration.php:645
+#, php-format
+msgid "Edit %s"
+msgstr "ערוך %s"
+
+#: functions/acf/acf-configuration.php:646
+#, php-format
+msgid "View %s"
+msgstr "הצג %s"
+
+#: functions/acf/acf-configuration.php:647
+#, php-format
+msgid "Update %s"
+msgstr "עדכן %s"
+
+#: functions/acf/acf-configuration.php:648
+#, php-format
+msgid "Add New %s"
+msgstr "הוסף %s חדש"
+
+#: functions/acf/acf-configuration.php:649
+#, php-format
+msgid "New %s Name"
+msgstr "שם %s חדש"
+
+#: functions/acf/acf-configuration.php:650
+#, php-format
+msgid "Separate %s with commas"
+msgstr "%s מופרדים בפסיק"
+
+#: functions/acf/acf-configuration.php:651
+#, php-format
+msgid "Add or remove %s"
+msgstr "הוסף או הסר %s"
+
+#: functions/acf/acf-configuration.php:652
+#, php-format
+msgid "Choose from the most used %s"
+msgstr "בחר מתוך ה%s הנפוצים ביותר"
+
+#: functions/acf/acf-configuration.php:653
+#, php-format
+msgid "No %s Found"
+msgstr "לא נמצאו %s"
+
+#: functions/acf/acf-configuration.php:654
+#, php-format
+msgid "No %s"
+msgstr "לא קיימים %s"
+
+#: functions/acf/acf-configuration.php:655
+#, php-format
+msgid "%s list navigation"
+msgstr "רשימת ניווט %s"
+
+#: functions/acf/acf-configuration.php:656
+#, php-format
+msgid "%s list"
+msgstr "רשיימת %s"
+
+#: functions/acf/acf-configuration.php:657
+#, php-format
+msgid "&larr; Back to %s"
+msgstr "&rarr; בחזרה ל%s"
+
+#: functions/acf/acf-field-groups.php:35
+msgid "Homepage"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:39
+msgid "Main Template Layouts"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:54
+msgid "Banner"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:59
+msgid "Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:74
+#, fuzzy
+#| msgid "Add to folder"
+msgid "Add Slide"
+msgstr "הוסף לתיקייה"
+
+#: functions/acf/acf-field-groups.php:78 functions/acf/acf-field-groups.php:986
+#: functions/acf/acf-field-groups.php:1682
+#: functions/acf/acf-field-groups.php:1697
+#: functions/acf/acf-field-groups.php:2843
+#: functions/acf/acf-field-groups.php:2859
+#: functions/acf/acf-field-groups.php:3204
+msgid "Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:99 functions/acf/acf-field-groups.php:536
+msgid "Title Font Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:114
+#: functions/acf/acf-field-groups.php:294
+msgid "Override Defaults"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:117
+#: functions/acf/acf-field-groups.php:297
+msgid "Override default font attributes for this particular slide"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:133
+#: functions/acf/acf-field-groups.php:551
+#: functions/acf/acf-field-groups.php:1718
+#: functions/acf/acf-field-groups.php:1877
+#: functions/acf/acf-field-groups.php:2880
+#: functions/acf/acf-field-groups.php:3038
+#: functions/acf/acf-field-groups.php:4169
+msgid "Font Family"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:156
+#: functions/acf/acf-field-groups.php:313
+#: functions/acf/acf-field-groups.php:566
+#: functions/acf/acf-field-groups.php:661
+#: functions/acf/acf-field-groups.php:1733
+#: functions/acf/acf-field-groups.php:1892
+#: functions/acf/acf-field-groups.php:2895
+#: functions/acf/acf-field-groups.php:3053
+#: functions/acf/acf-field-groups.php:4184
+msgid "Font Size"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:185
+#: functions/acf/acf-field-groups.php:342
+#: functions/acf/acf-field-groups.php:587
+#: functions/acf/acf-field-groups.php:682
+#: functions/acf/acf-field-groups.php:1754
+#: functions/acf/acf-field-groups.php:1913
+#: functions/acf/acf-field-groups.php:2916
+#: functions/acf/acf-field-groups.php:3074
+msgid "Font Weight"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:205
+#: functions/acf/acf-field-groups.php:362
+#: functions/acf/acf-field-groups.php:599
+#: functions/acf/acf-field-groups.php:694
+#: functions/acf/acf-field-groups.php:1766
+#: functions/acf/acf-field-groups.php:1925
+#: functions/acf/acf-field-groups.php:2928
+#: functions/acf/acf-field-groups.php:3086
+msgid "Normal"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:206
+#: functions/acf/acf-field-groups.php:363
+#: functions/acf/acf-field-groups.php:600
+#: functions/acf/acf-field-groups.php:695
+#: functions/acf/acf-field-groups.php:1767
+#: functions/acf/acf-field-groups.php:1926
+#: functions/acf/acf-field-groups.php:2929
+#: functions/acf/acf-field-groups.php:3087
+msgid "Bold"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:207
+#: functions/acf/acf-field-groups.php:364
+#: functions/acf/acf-field-groups.php:601
+#: functions/acf/acf-field-groups.php:696
+#: functions/acf/acf-field-groups.php:1768
+#: functions/acf/acf-field-groups.php:1927
+#: functions/acf/acf-field-groups.php:2930
+#: functions/acf/acf-field-groups.php:3088
+msgid "100"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:208
+#: functions/acf/acf-field-groups.php:365
+#: functions/acf/acf-field-groups.php:602
+#: functions/acf/acf-field-groups.php:697
+#: functions/acf/acf-field-groups.php:1769
+#: functions/acf/acf-field-groups.php:1928
+#: functions/acf/acf-field-groups.php:2931
+#: functions/acf/acf-field-groups.php:3089
+msgid "200"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:209
+#: functions/acf/acf-field-groups.php:366
+#: functions/acf/acf-field-groups.php:603
+#: functions/acf/acf-field-groups.php:698
+#: functions/acf/acf-field-groups.php:1770
+#: functions/acf/acf-field-groups.php:1929
+#: functions/acf/acf-field-groups.php:2932
+#: functions/acf/acf-field-groups.php:3090
+msgid "300"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:210
+#: functions/acf/acf-field-groups.php:367
+#: functions/acf/acf-field-groups.php:604
+#: functions/acf/acf-field-groups.php:699
+#: functions/acf/acf-field-groups.php:1771
+#: functions/acf/acf-field-groups.php:1930
+#: functions/acf/acf-field-groups.php:2933
+#: functions/acf/acf-field-groups.php:3091
+msgid "400"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:211
+#: functions/acf/acf-field-groups.php:368
+#: functions/acf/acf-field-groups.php:605
+#: functions/acf/acf-field-groups.php:700
+#: functions/acf/acf-field-groups.php:1772
+#: functions/acf/acf-field-groups.php:1931
+#: functions/acf/acf-field-groups.php:2934
+#: functions/acf/acf-field-groups.php:3092
+msgid "500"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:212
+#: functions/acf/acf-field-groups.php:369
+#: functions/acf/acf-field-groups.php:606
+#: functions/acf/acf-field-groups.php:701
+#: functions/acf/acf-field-groups.php:1773
+#: functions/acf/acf-field-groups.php:1932
+#: functions/acf/acf-field-groups.php:2935
+#: functions/acf/acf-field-groups.php:3093
+msgid "600"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:213
+#: functions/acf/acf-field-groups.php:370
+#: functions/acf/acf-field-groups.php:607
+#: functions/acf/acf-field-groups.php:702
+#: functions/acf/acf-field-groups.php:1774
+#: functions/acf/acf-field-groups.php:1933
+#: functions/acf/acf-field-groups.php:2936
+#: functions/acf/acf-field-groups.php:3094
+msgid "700"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:214
+#: functions/acf/acf-field-groups.php:371
+#: functions/acf/acf-field-groups.php:608
+#: functions/acf/acf-field-groups.php:703
+#: functions/acf/acf-field-groups.php:1775
+#: functions/acf/acf-field-groups.php:1934
+#: functions/acf/acf-field-groups.php:2937
+#: functions/acf/acf-field-groups.php:3095
+msgid "800"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:215
+#: functions/acf/acf-field-groups.php:372
+#: functions/acf/acf-field-groups.php:609
+#: functions/acf/acf-field-groups.php:704
+#: functions/acf/acf-field-groups.php:1776
+#: functions/acf/acf-field-groups.php:1935
+#: functions/acf/acf-field-groups.php:2938
+#: functions/acf/acf-field-groups.php:3096
+msgid "900"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:229
+#: functions/acf/acf-field-groups.php:623
+msgid "Top Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:260
+#, fuzzy
+#| msgid "Folder description"
+msgid "Short Description"
+msgstr "תיאור התיקייה"
+
+#: functions/acf/acf-field-groups.php:279
+#: functions/acf/acf-field-groups.php:646
+#, fuzzy
+#| msgid "Folder description"
+msgid "Short Description Font Attributes"
+msgstr "תיאור התיקייה"
+
+#: functions/acf/acf-field-groups.php:384
+#: functions/acf/acf-field-groups.php:716
+#: functions/acf/acf-field-groups.php:4138
+msgid "Font Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:409
+#: functions/acf/acf-field-groups.php:3242
+#, fuzzy
+#| msgid "Folder description"
+msgid "Description"
+msgstr "תיאור התיקייה"
+
+#: functions/acf/acf-field-groups.php:428
+#: functions/acf/acf-field-groups.php:846
+#: functions/acf/acf-field-groups.php:1005
+#: functions/acf/acf-field-groups.php:1844
+#: functions/acf/acf-field-groups.php:3006
+#: functions/acf/acf-field-groups.php:3720
+msgid "Link"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:444
+#, fuzzy
+#| msgid "Link to share"
+msgid "Link Target"
+msgstr "קישור לשיתוף"
+
+#: functions/acf/acf-field-groups.php:456
+#: functions/acf/acf-field-groups.php:874
+#: functions/acf/acf-field-groups.php:1033
+#: functions/acf/acf-field-groups.php:3753
+msgid "Same window"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:457
+#: functions/acf/acf-field-groups.php:875
+#: functions/acf/acf-field-groups.php:1034
+#: functions/acf/acf-field-groups.php:3754
+msgid "New window"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:471
+msgid "Text Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:486
+#: functions/acf/acf-field-groups.php:1820
+#: functions/acf/acf-field-groups.php:1964
+#: functions/acf/acf-field-groups.php:2588
+#: functions/acf/acf-field-groups.php:2982
+#: functions/acf/acf-field-groups.php:3125
+msgid "Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:489
+#: functions/acf/acf-field-groups.php:513
+msgid "Image dimensions: 767x577 (px)"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:510
+#: functions/acf/acf-field-groups.php:889
+#: functions/acf/acf-field-groups.php:1048
+#: functions/acf/acf-field-groups.php:2497
+msgid "Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:539
+msgid ""
+"Default font attributes for slides titles. These attributes may be "
+"overridden in a slide level"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:649
+msgid ""
+"Default font attributes for slides sub titles (short description). These "
+"attributes may be overridden in a slide level"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:733
+#: functions/acf/acf-field-groups.php:915
+#: functions/acf/acf-field-groups.php:1192
+msgid "Top Padding"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:754
+#: functions/acf/acf-field-groups.php:936
+#: functions/acf/acf-field-groups.php:1213
+msgid "Bottom Padding"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:780
+msgid "Links Strip"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:785
+#: functions/acf/acf-field-groups.php:967
+#: functions/acf/acf-field-groups.php:3680
+msgid "Links"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:800
+#: functions/acf/acf-field-groups.php:982
+#, fuzzy
+#| msgid "Add to "
+msgid "Add Link"
+msgstr "הוסף אל "
+
+#: functions/acf/acf-field-groups.php:804
+msgid "Main Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:825
+msgid "Sub Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:862
+#: functions/acf/acf-field-groups.php:1021
+#: functions/acf/acf-field-groups.php:3741
+msgid "Target"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:962
+msgid "Links Boxes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1051
+msgid "Image dimensions: 767x530 (px)"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1072
+msgid "Left Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1087
+#: functions/acf/acf-field-groups.php:1146
+msgid "Desktop"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1108
+#: functions/acf/acf-field-groups.php:1167
+msgid "Mobile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1131
+msgid "Right Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1237
+msgid "Add Layout"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1263
+msgid "ACF Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1267
+#: functions/acf/acf-field-groups.php:1278
+msgid "Display Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1286
+msgid "ACF Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1306
+msgid "upload"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1307
+msgid "user_profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1320
+msgid "Form Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1347
+msgid "Form Content Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1374
+msgid "Form Category Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1421
+#: functions/acf/acf-field-groups.php:4153
+msgid "Questions & Answers"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1425
+msgid "Q&A Blocks"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1440
+msgid "Add Q&A Block"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1444
+#: functions/acf/acf-field-groups.php:1596
+msgid "ID"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1447
+msgid "Use this field as a slug for your shortcode, e.g. [kulam_qna id=ID]"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1463
+#: functions/acf/acf-field-groups.php:1617
+#: functions/acf/acf-field-groups.php:2806
+#: functions/acf/acf-field-groups.php:2822
+msgid "Shortcode"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1466
+#: functions/acf/acf-field-groups.php:1620
+msgid ""
+"Auto generated after post save/update.\n"
+"Copy and paste this code into your post editor"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1485
+msgid "Questions"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1500
+#, fuzzy
+#| msgid "Add to "
+msgid "Add Question"
+msgstr "הוסף אל "
+
+#: functions/acf/acf-field-groups.php:1504
+#, fuzzy
+#| msgid "Registration"
+msgid "Question"
+msgstr "הרשמה"
+
+#: functions/acf/acf-field-groups.php:1523
+msgid "Answer"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1573
+msgid "Posts Carousels"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1577
+msgid "Carousels"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1592
+msgid "Add Carousel"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1599
+msgid "Use this field as a slug for your shortcode, e.g. [kulam_pc id=ID]"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1639
+msgid "Posts Categories"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1661
+msgid "Number of Posts"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1664
+msgid "Select 0 to show all posts"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1790
+#: functions/acf/acf-field-groups.php:1949
+#: functions/acf/acf-field-groups.php:2952
+#: functions/acf/acf-field-groups.php:3110
+#: functions/acf/acf-field-groups.php:4205
+msgid "Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1805
+#: functions/acf/acf-field-groups.php:2967
+msgid "Background Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1862
+#: functions/acf/acf-field-groups.php:3022
+msgid "Slide Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2005
+#: functions/acf/acf-field-groups.php:3165
+#: functions/acf/acf-field-groups.php:3261
+msgid "Scheme Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2022
+msgid "Carousel Options"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2037
+msgid "Slide Width"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2058
+msgid "Slide Height"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2079
+msgid "Slide Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2100
+msgid "Minimum Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2121
+msgid "Maximum Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2142
+#, fuzzy
+#| msgid "Add to folder"
+msgid "Move Slides"
+msgstr "הוסף לתיקייה"
+
+#: functions/acf/acf-field-groups.php:2163
+msgid "Navigation"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2175
+msgid "Arrows"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2176
+msgid "Bullets"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2177
+msgid "Both"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2178
+msgid "None"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2192
+msgid "Transition Speed"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2213
+msgid "Slide Duration"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2234
+msgid "Auto Play"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2246
+#: functions/acf/acf-field-groups.php:2273
+msgid "On"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2247
+#: functions/acf/acf-field-groups.php:2274
+msgid "Off"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2261
+msgid "Auto Pause Hover"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2319
+msgid "Ratings"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2323
+msgid "דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2342
+msgid "שם דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2363
+msgid "ratings"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2382
+msgid "rating name"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2423
+#: functions/acf/acf-field-groups.php:4028
+msgid "Category Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2427
+#: functions/acf/acf-field-groups.php:2443
+msgid "Google Map"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2461
+msgid "Map Zoom"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2481
+msgid "Popup"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2521
+msgid "Button Text"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2542
+msgid "Button Text Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2557
+msgid "Button Background Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2612
+msgid "Content"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2628 functions/post-types.php:146
+#: functions/post-types.php:148 functions/post-types.php:169
+msgid "Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2631
+msgid "Leave this field empty to display default Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2670
+msgid "Post Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2674
+#, fuzzy
+#| msgid "Show less"
+msgid "Show Filters"
+msgstr "הצג פחות"
+
+#: functions/acf/acf-field-groups.php:2713
+msgid "User Information"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2717
+msgid "Profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2720
+msgid "Tell us something about yourself!"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2736
+msgid "Gender"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2748
+msgid "Female"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2749
+msgid "Male"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2760
+msgid "Date of Birth"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2802
+msgid "Slideshow Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3200 functions/post-types.php:95
+msgid "Gallery Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3225
+#: functions/acf/acf-field-groups.php:3327
+msgid "Date"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3276
+msgid "Images"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3323
+msgid "Attachment Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3368
+#, fuzzy
+#| msgid "Search"
+msgid "Search Form"
+msgstr "חיפוש"
+
+#: functions/acf/acf-field-groups.php:3384
+#, fuzzy
+#| msgid "Search Post Types"
+msgid "Search Form Type"
+msgstr "חפש סוגי מאמר"
+
+#: functions/acf/acf-field-groups.php:3396
+msgid "Minimalist"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3397
+msgid "Exposed"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3411
+msgid "Search Input Placeholder"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3430 partials/search.php:52
+msgid "Advanced Search"
+msgstr "חיפוש מתקדם"
+
+#: functions/acf/acf-field-groups.php:3449
+msgid "Categories Field Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3478
+#, fuzzy
+#| msgid "Search Audiences"
+msgid "Search by Categories"
+msgstr "חפש קהלים"
+
+#: functions/acf/acf-field-groups.php:3508
+msgid "Search by Taxonomy Filters"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3539
+msgid "Contact Details"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3555 functions/modal-registration.php:45
+#: functions/widgets/contact-details/contact-details.php:113
+msgid "Email"
+msgstr "שלח דוא\"ל"
+
+#: functions/acf/acf-field-groups.php:3573
+#: functions/widgets/contact-details/contact-details.php:114
+msgid "Address"
+msgstr "כתובת"
+
+#: functions/acf/acf-field-groups.php:3594
+#: functions/widgets/contact-details/contact-details.php:115
+msgid "Phone"
+msgstr "טלפון"
+
+#: functions/acf/acf-field-groups.php:3615
+msgid "Social Networks"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3630
+msgid "Youtube"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3646 loop/single.php:160
+msgid "Facebook"
+msgstr "Facebook"
+
+#: functions/acf/acf-field-groups.php:3662
+msgid "Instagram"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3699
+msgid "Icon"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3702
+msgid "Select icon from https://developer.wordpress.org/resource/dashicons/"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3794
+msgid "Custom Taxonomies Generator"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3797
+msgid ""
+"Add/remove/update custom taxonomies.\n"
+"In case of WPML based website, This field should be defined globally for "
+"default language only"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3810
+msgid "Add Custom Taxonomy"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3814
+msgid "Name"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3835
+msgid "Singular Name"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3882
+msgid "Custom Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3901
+msgid "Activate Module"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3944
+msgid "Homepage Categories Grid"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3960
+msgid "Categories in Row"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3980
+msgid "My Siddur Tile Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4004
+msgid "Upload Tile Background Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4044
+msgid "Category Page Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4047
+msgid ""
+"Default selected Post Types to be displayed in a category page.\n"
+"Additional Post Types may be added and re-sorted per each category"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4067
+msgid "Category Description Toggling"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4086
+msgid "Google Maps API"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4107
+msgid "Subcategory Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4123
+msgid "Background color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4220 functions/post-types.php:82
+msgid "Gallery"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4236
+msgid "Upload Button Text"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4257
+#, fuzzy
+#| msgid "Upload"
+msgid "Upload Page"
+msgstr "משהו משלך"
+
+#: functions/acf/acf-field-groups.php:4278
+msgid "Social"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4294
+msgid "Google Analytics Code"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4297
+msgid "Code format: UA-XXXXXXXXX-X"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4313
+msgid "Google Tag Manager Code"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4316
+msgid "Code format: GTM-XXXXXX"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4332
+msgid "Misc"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4348
+msgid "Enable Activity Types custom taxonomy"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4367
+msgid "Enable Audiences custom taxonomy"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4386
+msgid "Strip Image"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4389
+msgid ""
+"Default strip which will be displayed in single post, page and category.\n"
+"Image dimensions: 1140x268 (px)"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4431
+msgid "ACF Form Fields"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4435
+msgid "Category"
+msgstr ""
+
+#: functions/menus.php:22
+msgid "Homepage Tiles"
+msgstr ""
+
+#: functions/menus.php:23
+msgid "Footer Menu #01"
+msgstr ""
+
+#: functions/menus.php:24
+msgid "Footer Menu #02"
+msgstr ""
+
+#: functions/menus.php:77 functions/modal-login.php:34
+#: functions/modal-login.php:52 functions/modal-registration.php:56
+#: header.php:107 header.php:210 partials/acf-form.php:47
+msgid "Login"
+msgstr "התחבר"
+
+#: functions/modal-login.php:40 partials/acf-form.php:46
+msgid ""
+"In order to save / upload posts or view saved content, you must register / "
+"log-in to your account"
+msgstr ""
+"יש להירשם/ להתחבר לחשבונך על מנת לשמור תכנים באזור האישי, להעלות תכנים שלך "
+"לאתר או לצפות בתכנים המועדפים ששמרת בחשבונך"
+
+#: functions/modal-login.php:44 functions/modal-registration.php:44
+msgid "User"
+msgstr "שם משתמש"
+
+#: functions/modal-login.php:45 functions/modal-registration.php:46
+msgid "Password"
+msgstr "סיסמא"
+
+#: functions/modal-login.php:51
+msgid "Register Now"
+msgstr "עוד לא מחובר? להרשמה לחץ כאן"
+
+#: functions/modal-registration.php:36
+msgid "Registration"
+msgstr "הרשמה"
+
+#: functions/modal-registration.php:49
+msgid "Please enter the following text in the box below:"
+msgstr "אנא הזן את הטקסט בתיבה מתחת:"
+
+#: functions/modal-registration.php:57
+msgid "Register"
+msgstr "הירשם"
+
+#: functions/post-types.php:81 functions/post-types.php:98
+msgid "Galleries"
+msgstr ""
+
+#: functions/post-types.php:83
+#, fuzzy
+#| msgid "Add to folder"
+msgid "Add New"
+msgstr "הוסף לתיקייה"
+
+#: functions/post-types.php:84
+msgid "Add New Gallery"
+msgstr ""
+
+#: functions/post-types.php:85
+msgid "Edit Gallery"
+msgstr ""
+
+#: functions/post-types.php:86
+msgid "New Gallery"
+msgstr ""
+
+#: functions/post-types.php:87
+#, fuzzy
+#| msgid "View all posts by"
+msgid "View Gallery"
+msgstr "צפה בסוג מאמר"
+
+#: functions/post-types.php:88
+msgid "View Galleries"
+msgstr ""
+
+#: functions/post-types.php:89
+#, fuzzy
+#| msgid "Search Audiences"
+msgid "Search Galleries"
+msgstr "חפש קהלים"
+
+#: functions/post-types.php:90
+#, fuzzy
+#| msgid "No Audiences found"
+msgid "No galleries found"
+msgstr "לא נמצאו קהלים"
+
+#: functions/post-types.php:91
+msgid "No galleries found in Trash"
+msgstr ""
+
+#: functions/post-types.php:92
+msgid "Parent Gallery:"
+msgstr ""
+
+#: functions/post-types.php:93
+msgid "All Galleries"
+msgstr ""
+
+#: functions/post-types.php:94
+#, fuzzy
+#| msgid "Archive %s"
+msgid "Gallery Archives"
+msgstr "ארכיון %s"
+
+#: functions/post-types.php:96
+msgid "Insert into gallery"
+msgstr ""
+
+#: functions/post-types.php:97
+msgid "Uploaded to this gallery"
+msgstr ""
+
+#: functions/post-types.php:99
+msgid "Filter galleries list"
+msgstr ""
+
+#: functions/post-types.php:100
+msgid "Galleries list navigation"
+msgstr ""
+
+#: functions/post-types.php:101
+msgid "Galleries list"
+msgstr ""
+
+#: functions/post-types.php:102
+msgid "Gallery published"
+msgstr ""
+
+#: functions/post-types.php:103
+msgid "Gallery published privately"
+msgstr ""
+
+#: functions/post-types.php:104
+msgid "Gallery reverted to draft"
+msgstr ""
+
+#: functions/post-types.php:105
+msgid "Gallery scheduled"
+msgstr ""
+
+#: functions/post-types.php:106
+msgid "Gallery updated"
+msgstr ""
+
+#: functions/post-types.php:147
+msgid "Post Type"
+msgstr "סוג מאמר"
+
+#: functions/post-types.php:149
+msgid "All Post Types"
+msgstr "כל סוגי המאמר"
+
+#: functions/post-types.php:150
+msgid "Edit Post Type"
+msgstr "ערוך סוג מאמר"
+
+#: functions/post-types.php:151
+msgid "View Post Type"
+msgstr "צפה בסוג מאמר"
+
+#: functions/post-types.php:152
+msgid "Update Post Type"
+msgstr "עדכן סוג מאמר"
+
+#: functions/post-types.php:153
+msgid "Add New Post Type"
+msgstr "הוסף סוג מאמר חדש"
+
+#: functions/post-types.php:154
+msgid "New Post Type Name"
+msgstr "שם סוג מאמר חדש"
+
+#: functions/post-types.php:155
+msgid "Parent Post Type"
+msgstr "סוג מאמר הורה"
+
+#: functions/post-types.php:156
+msgid "Parent Post Type:"
+msgstr "סוג מאמר הורה:"
+
+#: functions/post-types.php:157
+msgid "Search Post Types"
+msgstr "חפש סוגי מאמר"
+
+#: functions/post-types.php:158
+msgid "Popular Post Types"
+msgstr "סוגי מאמר נפוצים"
+
+#: functions/post-types.php:159
+msgid "Separate Post Types with commas"
+msgstr "סוגי מאמר מופרדים בפסיק"
+
+#: functions/post-types.php:160
+msgid "Add or remove Post Types"
+msgstr "הוסף או הסר סוגי מאמר"
+
+#: functions/post-types.php:161
+msgid "Choose from the most used Post Types"
+msgstr "בחר מתוך סוגי המאמר הנפוצים ביותר"
+
+#: functions/post-types.php:162
+msgid "No Post Types found"
+msgstr "לא נמצאו סוגי מאמר"
+
+#: functions/post-types.php:163
+msgid "← Back to Post Types"
+msgstr "← חזרה לסוגי מאמר"
+
+#: functions/post-types.php:209 functions/post-types.php:216
+msgid "Siddurim"
+msgstr "סידורים"
+
+#: functions/post-types.php:256 functions/post-types.php:258
+#: functions/post-types.php:279
+msgid "Activity Types"
+msgstr "סוגי פעילות"
+
+#: functions/post-types.php:257
+msgid "Activity Type"
+msgstr "סוג פעילות"
+
+#: functions/post-types.php:259
+msgid "All Activity Types"
+msgstr "כל סוגי הפעילות"
+
+#: functions/post-types.php:260
+msgid "Edit Activity Type"
+msgstr "ערוך סוג פעילות"
+
+#: functions/post-types.php:261
+msgid "View Activity Type"
+msgstr "צפה בסוג פעילות"
+
+#: functions/post-types.php:262
+msgid "Update Activity Type"
+msgstr "עדכן סוג פעילות"
+
+#: functions/post-types.php:263
+msgid "Add New Activity Type"
+msgstr "הוסף סוג פעילות חדש"
+
+#: functions/post-types.php:264
+msgid "New Activity Type Name"
+msgstr "שם סוג פעילות חדש"
+
+#: functions/post-types.php:265
+msgid "Parent Activity Type"
+msgstr "סוג פעילות הורה"
+
+#: functions/post-types.php:266
+msgid "Parent Activity Type:"
+msgstr "סוג פעילות הורה:"
+
+#: functions/post-types.php:267
+msgid "Search Activity Types"
+msgstr "חפש סוגי פעילות"
+
+#: functions/post-types.php:268
+msgid "Popular Activity Types"
+msgstr "סוגי פעילות נפוצים"
+
+#: functions/post-types.php:269
+msgid "Separate Activity Types with commas"
+msgstr "סוגי פעילות מופרדים בפסיק"
+
+#: functions/post-types.php:270
+msgid "Add or remove Activity Types"
+msgstr "הוסף או הסר סוגי פעילות"
+
+#: functions/post-types.php:271
+msgid "Choose from the most used Activity Types"
+msgstr "בחר מתוך סוגי הפעילות הנפוצים ביותר"
+
+#: functions/post-types.php:272
+msgid "No Activity Types found"
+msgstr "לא נמצאו סוגי פעילות"
+
+#: functions/post-types.php:273
+msgid "← Back to Activity Types"
+msgstr "← חזרה לסוגי פעילות"
+
+#: functions/post-types.php:317 functions/post-types.php:319
+#: functions/post-types.php:340
+msgid "Audiences"
+msgstr "קהלים"
+
+#: functions/post-types.php:318
+msgid "Audience"
+msgstr "קהל"
+
+#: functions/post-types.php:320
+msgid "All Audiences"
+msgstr "כל הקהלים"
+
+#: functions/post-types.php:321
+msgid "Edit Audience"
+msgstr "ערוך קהל"
+
+#: functions/post-types.php:322
+msgid "View Audience"
+msgstr "הצג קהל"
+
+#: functions/post-types.php:323
+msgid "Update Audience"
+msgstr "עדכן קהל"
+
+#: functions/post-types.php:324
+msgid "Add New Audience"
+msgstr "הוסף קהל חדש"
+
+#: functions/post-types.php:325
+msgid "New Audience Name"
+msgstr "שם קהל חדש"
+
+#: functions/post-types.php:326
+msgid "Parent Audience"
+msgstr "קהל הורה"
+
+#: functions/post-types.php:327
+msgid "Parent Audience:"
+msgstr "קהל הורה:"
+
+#: functions/post-types.php:328
+msgid "Search Audiences"
+msgstr "חפש קהלים"
+
+#: functions/post-types.php:329
+msgid "Popular Audiences"
+msgstr "קהלים נפוצים"
+
+#: functions/post-types.php:330
+msgid "Separate Audiences with commas"
+msgstr "קהלים מופרדים בפסיק"
+
+#: functions/post-types.php:331
+msgid "Add or remove Audiences"
+msgstr "הוסף או הסר קהלים"
+
+#: functions/post-types.php:332
+msgid "Choose from the most used Audiences"
+msgstr "בחר מתוך הקהלים הנפוצים ביותר"
+
+#: functions/post-types.php:333
+msgid "No Audiences found"
+msgstr "לא נמצאו קהלים"
+
+#: functions/post-types.php:334
+msgid "← Back to Audiences"
+msgstr "← חזרה לקהלים"
+
+#: functions/search.php:30
+msgid "Choose Post Format"
+msgstr "בחר פורמט פוסט"
+
+#: functions/search.php:38 functions/theme.php:212
+msgid "Text"
+msgstr "טקסט"
+
+#: functions/search.php:113
+msgid "Choose Category"
+msgstr "בחר קטגוריה"
+
+#: functions/search.php:258
+msgid "Choose"
+msgstr "בחר"
+
+#: functions/shortcodes.php:37
+msgid "Posts"
+msgstr "סוגי מאמרים"
+
+#: functions/shortcodes.php:38
+msgid "Upload"
+msgstr "משהו משלך"
+
+#: functions/shortcodes.php:39
+msgid "Upload something of your own"
+msgstr "שתף את העולם במנהגים שלך"
+
+#: functions/shortcodes.php:41
+msgid "Save your favorite contents"
+msgstr "שמור את התכנים המועדפים שלך"
+
+#: functions/shortcodes.php:807
+msgid "Show more"
+msgstr "הצג עוד"
+
+#: functions/shortcodes.php:808
+msgid "View all"
+msgstr "הצג הכל"
+
+#: functions/shortcodes.php:809
+msgid "Show less"
+msgstr "הצג פחות"
+
+#: functions/theme.php:151
+msgid "READ MORE"
+msgstr "קרא עוד"
+
+#: header.php:91 header.php:194
+msgid "Toggle navigation"
+msgstr ""
+
+#: header.php:104 header.php:207
+msgid "Logout"
+msgstr "התנתק"
+
+#: header.php:142 header.php:245
+#, php-format
+msgid "<a href=\"%s\">Choose Menu</a>"
+msgstr ""
+
+#: includes/class-pojo-child-customize-register-fields.php:11
+msgid "Logo Width"
+msgstr ""
+
+#: includes/class-pojo-child-customize-register-fields.php:19
+msgid "Logo"
+msgstr ""
+
+#: loop/archive.php:64 loop/archive.php:66 loop/archive.php:68
+#, php-format
+msgid "Archive for %s"
+msgstr "ארכיון של %s"
+
+#: loop/archive.php:66
+#, fuzzy
+#| msgid "F Y"
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr "F Y"
+
+#: loop/archive.php:68
+#, fuzzy
+#| msgid "Y"
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr "Y"
+
+#: loop/archive.php:74 loop/archive.php:76
+#, php-format
+msgid "Archive %s"
+msgstr "ארכיון %s"
+
+#: loop/archive.php:82
+#, php-format
+msgid "All posts by %s"
+msgstr "כל סוגי המאמרים של %s"
+
+#: loop/archive.php:84
+msgid "Archive"
+msgstr "ארכיון"
+
+#: loop/archive.php:200 loop/archive.php:222
+#, php-format
+msgid "Click here to show less <i>%s</i> content"
+msgstr "הצג פחות תכני <i>%s</i>"
+
+#: loop/archive.php:200
+#, php-format
+msgid "Click here to show more <i>%s</i> content"
+msgstr "הצג תכני <i>%s</i> נוספים"
+
+#: loop/page.php:82
+msgid "&laquo; Previous"
+msgstr "&laquo; הקודם"
+
+#: loop/page.php:83
+msgid "Next &raquo;"
+msgstr "הבא &raquo;"
+
+#: loop/single.php:47 template-siddur-folder.php:44
+msgid "Please type or paste email addresses with a space between each one:"
+msgstr "הקלד או הדבק את כתובות המייל לשיתוף עם רווח בין כתובת אחת לשניה:"
+
+#: loop/single.php:49 template-siddur-folder.php:46
+msgid "Send"
+msgstr "שלח"
+
+#: loop/single.php:57 template-siddur-folder.php:91
+msgid "Link to share"
+msgstr "קישור לשיתוף"
+
+#: loop/single.php:126
+msgid "Add to "
+msgstr "הוסף אל "
+
+#: loop/single.php:127
+msgid "Remove from "
+msgstr "הסר מ"
+
+#: loop/single.php:165
+msgid "Twitter"
+msgstr "Twitter"
+
+#: loop/single.php:180
+msgid "Share"
+msgstr "שיתוף"
+
+#: loop/single.php:192
+msgid "Print"
+msgstr "הדפסה"
+
+#: loop/single.php:302
+msgid "Please rate this post:"
+msgstr "בבקשה, דרג פוסט זה:"
+
+#: loop/single.php:342
+msgid "Submit Rating"
+msgstr "שמור דירוג"
+
+#: loop/single.php:355
+msgid "Thank you for rating!"
+msgstr "הדירוג התקבל. תודה!"
+
+#: loop/single.php:366
+msgid "Tags: "
+msgstr "תגיות: "
+
+#: loop/single.php:378
+msgid "Activity Types: "
+msgstr "סוגי פעילות: "
+
+#: loop/single.php:390
+msgid "Audiences: "
+msgstr "קהלים: "
+
+#: loop/single.php:400
+msgid "About the Author"
+msgstr "אודות המחבר"
+
+#: loop/single.php:407
+msgid "View all posts by"
+msgstr "צפה בסוג מאמר"
+
+#: loop/single.php:420
+msgid "&laquo; Previous Post"
+msgstr "&laquo; המאמר הקודם"
+
+#: loop/single.php:421
+msgid "Next Post &raquo;"
+msgstr "המאמר הבא &raquo;"
+
+#: partials/main/layout-links-boxes-link.php:51
+msgid "Read more"
+msgstr "קרא עוד"
+
+#: partials/search.php:20
+msgid "Search..."
+msgstr "חיפוש באתר..."
+
+#: partials/search.php:32
+msgid "Free text..."
+msgstr "טקסט חופשי..."
+
+#: partials/search.php:36 partials/search.php:84
+msgid "Search"
+msgstr "חיפוש"
+
+#: partials/search.php:56
+msgid "Please select at least one field and click Search"
+msgstr "יש לבחור שדה אחד או יותר ולהקליק על חיפוש"
+
+#: template-siddur-folder.php:53
+msgid "In order to share this folder you must set it public"
+msgstr "על מנת לשתף תיקייה זו עליך להגדיר אותה ציבורית"
+
+#: template-siddur-folder.php:55
+msgid ""
+"Note! When you share this folder, all content in it becomes public and "
+"anyone can see it on the Web. Do you confirm?"
+msgstr ""
+"שים לב! כאשר תשתף תיקייה זו , כל התכנים בה יהפכו לציבוריים וכל אחד יוכל "
+"לראותם ברשת. האם אתה מאשר?"
+
+#: template-siddur-folder.php:60
+msgid "Done"
+msgstr "בצע"
+
+#: template-siddur-folder.php:70 template-siddur.php:60
+msgid "Folder Name"
+msgstr "שם התיקייה"
+
+#: template-siddur-folder.php:71
+msgid "Here you can rename the folder"
+msgstr "כאן ניתן לשנות את שם התיקייה"
+
+#: template-siddur-folder.php:72 template-siddur.php:61
+msgid "Allowed characters: digits, letters, spaces and dashes"
+msgstr "תווים מורשים: ספרות, אותיות, רווחים ומקפים"
+
+#: template-siddur-folder.php:74 template-siddur.php:63
+msgid "Folder description"
+msgstr "תיאור התיקייה"
+
+#: template-siddur-folder.php:77
+msgid "Delete this folder?"
+msgstr "למחוק את התיקייה הזו?"
+
+#: template-siddur-folder.php:81
+msgid "Public folder?"
+msgstr "תיקייה ציבורית?"
+
+#: template-siddur-folder.php:82
+msgid "Save settings"
+msgstr "שמור הגדרות"
+
+#: template-siddur.php:64
+msgid "Add"
+msgstr "הוסף"
+
+#: vendors/acf.php:181
+msgid "Submit for review"
+msgstr "שלח לאישור"
+
+#: vendors/acf.php:182
+msgid ""
+"<b>Success!</b> Your article was submitted successfully and will be reviewed "
+"shortly."
+msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
+
+#: vendors/acf.php:193
+msgid "Update Account"
+msgstr "עדכון חשבון"
+
+#: vendors/acf.php:194
+msgid "<b>Success!</b> Your account is now up-to-date with the new info."
+msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."

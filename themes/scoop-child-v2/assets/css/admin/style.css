@@ -1,0 +1,13 @@
+/*********/
+/* admin */
+/*********/
+
+.top-posts-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.top-posts-wrapper td {
+	padding: 0 10px 0 0 !important;
+	display: block;
+}

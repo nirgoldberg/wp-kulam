@@ -1,0 +1,216 @@
+@import "../../../scoop/assets/css/rtl.min.css";
+
+/* Your CSS code goes here
+-------------------------------------- */
+
+/*******************/
+/* advanced search */
+/*******************/
+
+.search-header {
+	float: left;
+}
+
+.search-header .advanced-search-fields-wrapper {
+	text-align: right;
+}
+
+.search-header .menu-search-input .checkbox-list ul.children {
+	padding: 0 20px 0 0;
+}
+
+.search-header .menu-search-input .checkbox-list li input {
+	float: right;
+	margin: 4px 0 0 4px;
+}
+
+.search-header .menu-search-input .checkbox-list li span {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+.search-header .menu-search-submit {
+	left: 10px;
+	right: auto;
+}
+
+.search-header .menu-search-submit input {
+	left: 0;
+	right: auto;
+}
+
+.advanced-search .advanced-search-btn {
+	text-align: left;
+}
+
+.advanced-search .advanced-search-fields-wrapper .instructions {
+	padding-left: 20px;
+	padding-right: 0;
+}
+
+.advanced-search .advanced-search-fields-wrapper .instructions span {
+	left: 0;
+	right: auto;
+}
+
+/*********/
+/* login */
+/*********/
+
+header .logo .login,
+.sticky-header .logo .login {
+	float: left;
+}
+
+/*******************/
+/* navigation menu */
+/*******************/
+
+.nav-main.search-form-exposed {
+	float: right !important;
+}
+
+/*****************/
+/* auto complete */
+/*****************/
+
+.autocomplete-suggestions {
+	text-align: right;
+}
+
+/*******/
+/* Q&A */
+/*******/
+
+.kulam-qna > li .qna-title:after {
+	left: 0;
+	right: auto;
+}
+
+/*************/
+/* slideshow */
+/*************/
+
+.kulam-slideshow .pojo-slideshow .slide .bx-caption > span {
+	direction: rtl;
+}
+
+/***********/
+/* gallery */
+/***********/
+
+.kulam-gallery-layout-content figure .play {
+	left: 6px;
+	right: auto;
+}
+
+.kulam-gallery-layout-content .btn {
+	float: right;
+	margin: 0 0 30px 15px;
+}
+
+/**********/
+/* footer */
+/**********/
+
+#footer-widgets .widget.Contact_Details li.contact-details-social ul li {
+	float: right;
+	margin-left: 20px;
+	margin-right: auto;
+}
+
+/* Subcategory Menu */
+
+nav {
+    float: right;
+}
+
+form.wpcf7-form {
+    direction: rtl;
+    display: flex;
+}
+.choosing-items {
+    direction: ltr;
+}
+
+#sidebar{
+    display: none;
+}
+
+i.fa.fa-arrow-circle-o-right.my-siddur {
+	margin-left: 25px;
+	margin-right: 9px;
+	left: auto;
+	right: 8px;
+	transform: rotate(180deg);
+}
+
+/**************/
+/* responsive */
+/**************/
+
+@media (max-width: 1199px) {}
+
+@media (max-width: 991px) {}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 480px) {}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {
+
+	/************************/
+	/* homepage links strip */
+	/************************/
+
+	.links-strip-wrap .link-wrap a .img-wrap {
+		margin-left: 10px;
+		margin-right: 0;
+	}
+
+	.links-strip-wrap .link-wrap a .link-title .main-title,
+	.links-strip-wrap .link-wrap a .link-title .sub-title {
+		text-align: right;
+	}
+
+	/**********/
+	/* footer */
+	/**********/
+
+	.pull-left-copyright {
+		float: right;
+		text-align: right;
+	}
+
+	.pull-right-copyright {
+		float: left;
+	}
+}
+
+@media (min-width: 481px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 481px) and (max-width: 1199px) {}
+
+@media (min-width: 481px) and (max-width: 991px) {}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+	/********************/
+	/* categories tiles */
+	/********************/
+
+	.tile-box-wrapper {
+		float: right !important;
+	}
+
+}

@@ -1,0 +1,3 @@
+[submodule "plugins/htmline-membership"]
+	path = plugins/htmline-membership
+	url = git@github.com:nirgoldberg/htmline-membership.git

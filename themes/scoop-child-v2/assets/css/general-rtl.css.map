@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAQ,uDAA4C,CAQ5C,kEAAuD",
+"sources": ["../scss/general-rtl.scss"],
+"names": [],
+"file": "general-rtl.css"
+}

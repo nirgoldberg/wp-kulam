@@ -1,0 +1,311 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kulam-Scoop\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-10 14:52+0300\n"
+"PO-Revision-Date: 2019-04-10 14:54+0300\n"
+"Last-Translator: Itay Banner <itay@ibanner.co.il>\n"
+"Language-Team: Hebrew\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: __;_e;esc_html__;esc_url__;esc_url_e;esc_html_e;"
+"esc_attr__;esc_attr_e;_x;_nx\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: content/content-grid_three.php:43 loop/single.php:84
+msgid "No Comments"
+msgstr "אין תגובות"
+
+#: content/content-grid_three.php:43 loop/single.php:84
+msgid "One Comment"
+msgstr "תגובה אחת"
+
+#: content/content-grid_three.php:43 loop/single.php:84
+msgid "% Comments"
+msgstr "% תגובות"
+
+#: core/api.php:203
+msgid "Read More"
+msgstr ""
+
+#: core/api.php:364
+msgid "Read More &raquo;"
+msgstr "המאמר הבא &raquo;"
+
+#: core/api.php:427
+msgid "Numbers"
+msgstr ""
+
+#: core/api.php:431
+msgid "Infinite Scroll"
+msgstr ""
+
+#: core/api.php:434
+msgid "Hide"
+msgstr ""
+
+#: functions/menus.php:28 functions/shortcodes.php:27
+#: includes/cpt-config.php:55 loop/archive.php:44 partials/functions.php:125
+msgid "My Siddur"
+msgstr "הסידור שלי"
+
+#: functions/menus.php:60 functions/modal-login.php:34
+#: functions/modal-login.php:52 functions/modal-registration.php:56
+#: header.php:184 header.php:287
+msgid "Login"
+msgstr "התחבר"
+
+#: functions/modal-login.php:40
+msgid ""
+"In order to save posts or view saved content, you must register / log-in to "
+"your account"
+msgstr "על מנת לשמור או לצפות בתכנים ששמרת, יש להירשם / להתחבר לחשבונך באתר"
+
+#: functions/modal-login.php:44 functions/modal-registration.php:44
+msgid "User"
+msgstr "שם משתמש"
+
+#: functions/modal-login.php:45 functions/modal-registration.php:46
+msgid "Password"
+msgstr "סיסמא"
+
+#: functions/modal-login.php:51
+msgid "Register Now"
+msgstr "עוד לא מחובר? להרשמה לחץ כאן"
+
+#: functions/modal-registration.php:36
+msgid "Registration"
+msgstr "הרשמה"
+
+#: functions/modal-registration.php:45
+msgid "Email"
+msgstr "שלח דוא\"ל"
+
+#: functions/modal-registration.php:49
+msgid "Please enter the following text in the box below:"
+msgstr "אנא הזן את הטקסט בתיבה מתחת"
+
+#: functions/modal-registration.php:57
+msgid "Register"
+msgstr "הירשם"
+
+#: functions/shortcodes.php:37
+msgid "Posts"
+msgstr "סוגי מאמרים"
+
+#: functions/shortcodes.php:38
+msgid "Upload"
+msgstr "משהו משלך"
+
+#: functions/shortcodes.php:39
+msgid "Upload somthing of your own"
+msgstr "שתף את העולם במנהגים שלך"
+
+#: functions/shortcodes.php:41
+msgid "Save your favorite contents"
+msgstr "שמור את התכנים המועדפים שלך"
+
+#: header.php:168 header.php:271
+msgid "Toggle navigation"
+msgstr ""
+
+#: header.php:181 header.php:284
+msgid "Logout"
+msgstr "התנתק"
+
+#: header.php:219 header.php:322
+#, php-format
+msgid "<a href=\"%s\">Choose Menu</a>"
+msgstr ""
+
+#: includes/class-pojo-child-customize-register-fields.php:11
+msgid "Logo Width"
+msgstr ""
+
+#: includes/class-pojo-child-customize-register-fields.php:19
+msgid "Logo"
+msgstr ""
+
+#: includes/cpt-config.php:11 includes/cpt-config.php:13
+#: includes/cpt-config.php:23
+msgid "Post Types"
+msgstr "סוגי מאמרים"
+
+#: includes/cpt-config.php:12
+msgid "Post Type"
+msgstr "סוג מאמר"
+
+#: includes/cpt-config.php:14
+msgid "All Post Types"
+msgstr "כל סוגי הפרסומים"
+
+#: includes/cpt-config.php:15
+msgid "Edit Post Type"
+msgstr "ערוך סוג מאמר"
+
+#: includes/cpt-config.php:16
+msgid "View Post Type"
+msgstr "צפה בסוג מאמר"
+
+#: includes/cpt-config.php:17
+msgid "Update Post Type"
+msgstr "עדכן סוג מאמר"
+
+#: includes/cpt-config.php:18
+msgid "Add New Post Type"
+msgstr "הוסף סוג מאמר חדש"
+
+#: includes/cpt-config.php:19
+msgid "New Post Type Name"
+msgstr "שם סוג המאמר החדש"
+
+#: includes/cpt-config.php:54 includes/cpt-config.php:59
+msgid "Siddurim"
+msgstr "סידורים"
+
+#: loop/archive.php:30 loop/archive.php:32 loop/archive.php:34
+#, php-format
+msgid "Archive for %s"
+msgstr "ארכיון של %s"
+
+#: loop/archive.php:32
+msgid "F Y"
+msgstr "F Y"
+
+#: loop/archive.php:34
+msgid "Y"
+msgstr "Y"
+
+#: loop/archive.php:40 loop/archive.php:42
+#, php-format
+msgid "Archive %s"
+msgstr "ארכיון %s"
+
+#: loop/archive.php:53
+#, php-format
+msgid "All posts by %s"
+msgstr "כל סוגי המאמרים של %s"
+
+#: loop/archive.php:55
+msgid "Archive"
+msgstr "ארכיון"
+
+#: loop/archive.php:104
+#, php-format
+msgid "Click For More %s"
+msgstr "הקלק לעוד %s"
+
+#: loop/archive.php:131
+msgid "Back to category"
+msgstr "חזרה"
+
+#: loop/page.php:50
+msgid "&laquo; Previous"
+msgstr "&laquo; הקודם"
+
+#: loop/page.php:51
+msgid "Next &raquo;"
+msgstr "הבא &raquo;"
+
+#: loop/single.php:97 loop/single.php:103 partials/functions.php:44
+msgid "Add to My Siddur"
+msgstr "הוסף לסידור שלי"
+
+#: loop/single.php:118 partials/functions.php:45
+msgid "Remove from My Siddur"
+msgstr "להסיר מהסידור שלי"
+
+#: loop/single.php:134
+msgid "Facebook"
+msgstr "Facebook"
+
+#: loop/single.php:137
+msgid "Twitter"
+msgstr "Twitter"
+
+#: loop/single.php:163
+msgid "Print"
+msgstr "הדפסה"
+
+#: loop/single.php:420
+msgid "About the Author"
+msgstr "אודות המחבר"
+
+#: loop/single.php:427
+msgid "View all posts by"
+msgstr "צפה בסוג מאמר"
+
+#: loop/single.php:440
+msgid "&laquo; Previous Post"
+msgstr "&laquo; המאמר הקודם"
+
+#: loop/single.php:441
+msgid "Next Post &raquo;"
+msgstr "המאמר הבא &raquo;"
+
+#: partials/search.php:60
+msgid "search..."
+msgstr "חיפוש באתר..."
+
+#: partials/search.php:64 partials/search.php:122
+msgid "Search"
+msgstr ""
+
+#: partials/search.php:69
+msgid "Advanced Search"
+msgstr "חיפוש מתקדם"
+
+#: partials/search.php:78
+msgid "Choose a post format"
+msgstr "בחר פורמט פוסט"
+
+#: partials/search.php:94
+msgid "Choose a post type"
+msgstr "בחר סוג מאמר"
+
+#: partials/search.php:110
+msgid "Choose a category"
+msgstr "בחר קטגוריה"
+
+#: vendors/acf.php:23 vendors/acf.php:26
+msgid "Site Setup"
+msgstr "הגדרות אתר"
+
+#: vendors/acf.php:179
+msgid "Video Unavailable"
+msgstr "וידאו לא זמן"
+
+#: vendors/acf.php:219
+msgid "Submit for review"
+msgstr "שלח לאישור"
+
+#: vendors/acf.php:220
+msgid ""
+"<b>Success!</b> Your article was submitted successfully and will be reviewed "
+"shortly."
+msgstr "כל הכבוד! המאמר שלך נשלח בהצלחה ויאושר בקרוב."
+
+#: vendors/acf.php:230
+msgid "Update Account"
+msgstr "עדכון חשבון"
+
+#: vendors/acf.php:231
+msgid "<b>Success!</b> Your account is now up-to-date with the new info."
+msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
+
+#~ msgid "My Album"
+#~ msgstr "האלבום שלי"
+
+#~ msgid "Read more"
+#~ msgstr "קרא עוד"
+
+#~ msgid "My Siddur: %s"
+#~ msgstr "השבת שלי: %s"
+
+#~ msgid "Itay Banner"
+#~ msgstr "איתי בנר"
