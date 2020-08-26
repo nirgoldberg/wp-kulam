@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.7.6
+ * @version		2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -36,6 +36,16 @@ get_header();
 						/**********/
 
 						get_template_part( 'partials/main/layout', 'banner' );
+
+						break;
+
+					case 'recent_posts' :
+
+						/****************/
+						/* recent_posts */
+						/****************/
+
+						get_template_part( 'partials/main/layout', 'recent-posts' );
 
 						break;
 

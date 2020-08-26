@@ -1,4 +1,4 @@
-@import "params";
+@import "functions";
 
 @media (max-width: 1799px) {
 	body:before {
@@ -184,6 +184,33 @@
 		}
 	}
 
+	/*********************/
+	/* main recent posts */
+	/*********************/
+
+	.main-recent-posts {
+		.title-wrap {
+			margin-bottom: 35px;
+		}
+
+		.post-wrap {
+			.post-meta {
+				padding: 15px;
+				min-height: 180px;
+
+				.title {
+					font-size: font_size(18px, 375px);
+				}
+
+				.more {
+					position: absolute;
+					bottom: 15px;
+					font-size: font_size(14px, 375px);
+				}
+			}
+		}
+	}
+
 	/**********/
 	/* footer */
 	/**********/
@@ -291,6 +318,24 @@
 		}
 	}
 
+	/*********************/
+	/* main recent posts */
+	/*********************/
+
+	.main-recent-posts {
+		.post-wrap {
+			.post-meta {
+				.title {
+					font-size: 18px;
+				}
+
+				.more {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+
 	/**************/
 	/* menu modal */
 	/**************/
@@ -367,9 +412,8 @@
 							url('../images/bg/line.png') 65% 98% no-repeat,
 							url('../images/bg/girl.png') 100% 75% no-repeat;
 				background-size: 40%, 39% 15%, 22%;
-				-webkit-box-shadow: -20px 3px 39px -23px #D4D4D4;
-				-moz-box-shadow: -20px 3px 39px -23px #D4D4D4;
-				box-shadow: -20px 3px 39px -23px #D4D4D4;
+				@include box-shadow(-20px, 3px, #D4D4D4, 39px, -23px);
+
 				z-index: 1;
 
 				.short-desc {
@@ -398,6 +442,37 @@
 			position: absolute;
 			left: 8.333333333vw;
 			z-index: 1000;
+		}
+	}
+
+	/*********************/
+	/* main recent posts */
+	/*********************/
+
+	.main-recent-posts {
+		.title-wrap {
+			margin-bottom: 50px;
+		}
+
+		.post-wrap {
+			.post-meta {
+				position: relative;
+				padding-top: 52.136752137%;
+
+				.title {
+					position: absolute;
+					padding: 7.122507123%;
+					top: 0;
+					left: 0;
+				}
+
+				.more {
+					position: absolute;
+					padding: 7.122507123%;
+					bottom: 0;
+					left: 0;
+				}
+			}
 		}
 	}
 
@@ -438,7 +513,26 @@
 
 @media (min-width: 992px) and (max-width: 1799px) {}
 
-@media (min-width: 992px) and (max-width: 1499px) {}
+@media (min-width: 992px) and (max-width: 1499px) {
+
+	/*********************/
+	/* main recent posts */
+	/*********************/
+
+	.main-recent-posts {
+		.post-wrap {
+			.post-meta {
+				.title {
+					font-size: 14px;
+				}
+
+				.more {
+					font-size: 12px;
+				}
+			}
+		}
+	}
+}
 
 @media (min-width: 992px) and (max-width: 1199px) {}
 
@@ -473,7 +567,26 @@
 	}
 }
 
-@media (min-width: 768px) and (max-width: 991px) {}
+@media (min-width: 768px) and (max-width: 991px) {
+
+	/*********************/
+	/* main recent posts */
+	/*********************/
+
+	.main-recent-posts {
+		.post-wrap {
+			.post-meta {
+				.title {
+					font-size: 18px;
+				}
+
+				.more {
+					font-size: 14px;
+				}
+			}
+		}
+	}
+}
 
 @media (min-width: 481px) and (max-width: 1799px) {}
 

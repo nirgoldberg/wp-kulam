@@ -1,0 +1,145 @@
+@import "params";
+
+@function font-size($font_size, $viewport) {
+	@return ($font_size*100/$viewport)+vw;
+}
+
+@mixin not-selectable {
+	-webkit-user-select: none;
+	-moz-user-select:    none;
+	-ms-user-select:     none;
+	-o-user-select:      none;
+	user-select:         none;
+}
+
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+@mixin box-shadow($h_offset, $v_offset, $color, $blur: 0, $spread: 0, $inset: false) {
+	@if $inset == true {
+		-webkit-box-shadow: inset $h_offset $v_offset $blur $spread $color;
+		-moz-box-shadow:    inset $h_offset $v_offset $blur $spread $color;
+		box-shadow:         inset $h_offset $v_offset $blur $spread $color;
+	} @else {
+		-webkit-box-shadow: $h_offset $v_offset $blur $spread $color;
+		-moz-box-shadow:    $h_offset $v_offset $blur $spread $color;
+		box-shadow:         $h_offset $v_offset $blur $spread $color;
+	}
+}
+
+@mixin no-wrap($disable-white-space: true) {
+	@if $disable-white-space == true {
+		white-space: nowrap;
+	}
+
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+@mixin transition($efx: opacity, $speed: .25s) {
+	-webkit-transition: #{$efx} $speed;
+	-moz-transition:    #{$efx} $speed;
+	-ms-transition:     #{$efx} $speed;
+	-o-transition:      #{$efx} $speed;
+	transition:         #{$efx} $speed;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility:    hidden;
+	-ms-backface-visibility:     hidden;
+	backface-visibility:         hidden;
+}
+
+@mixin transform($efx) {
+	-webkit-transform: $efx;
+	-moz-transform:    $efx;
+	-ms-transform:     $efx;
+	-o-transform:      $efx;
+	transform:         $efx;
+}
+
+@mixin vertical-gradient($top, $bottom, $top-pos: 0%, $bottom-pos: 100%) {
+	background-image: -webkit-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+	background-image: -moz-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+	background-image: -ms-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+	background-image: -o-linear-gradient(top, $top $top-pos, $bottom $bottom-pos);
+	background-image: linear-gradient(to top, $top $top-pos, $bottom $bottom-pos);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#{ie-hex-str($bottom)}', endColorstr='#{ie-hex-str($top)}');
+}
+
+@mixin horizontal-gradient($left, $right, $left-pos: 0%, $right-pos: 100%) {
+	background-image: -webkit-linear-gradient(left, $left $left-pos, $right $right-pos);
+	background-image: -moz-linear-gradient(left, $left $left-pos, $right $right-pos);
+	background-image: -ms-linear-gradient(left, $left $left-pos, $right $right-pos);
+	background-image: -o-linear-gradient(left, $left $left-pos, $right $right-pos);
+	background-image: linear-gradient(to right, $left $left-pos, $right $right-pos);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#{ie-hex-str($right)}', endColorstr='#{ie-hex-str($left)}');
+}
+
+@mixin border-radius($radius, $background-clip: true) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius:    $radius;
+	border-radius:         $radius;
+
+	@if $background-clip {
+		-webkit-background-clip: padding-box;
+		-moz-background-clip:    padding;
+		background-clip:         padding-box;
+	}
+}
+
+@mixin calc($property, $expression) {
+	#{$property}: -moz-calc(#{$expression});
+	#{$property}: -o-calc(#{$expression});
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@mixin center-align {
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	-webkit-transform:	translateX(-50%);
+	-ms-transform:		translateX(-50%);
+	transform:			translateX(-50%);
+}
+
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform:	translateY(-50%);
+	-ms-transform:		translateY(-50%);
+	transform:			translateY(-50%);
+}
+
+@mixin flipH {
+	-moz-transform:		scaleX(-1);
+	-o-transform:		scaleX(-1);
+	-webkit-transform:	scaleX(-1);
+	transform:			scaleX(-1);
+	filter:				FlipH;
+	-ms-filter:			"FlipH";
+}
+
+@mixin opacity($opacity: 0.70) {
+	-khtml-opacity: $opacity;
+	-moz-opacity:   $opacity;
+	opacity:        $opacity;
+}
+
+@mixin blur($blur: 10px) {
+	-webkit-filter: blur($blur);
+	-moz-filter:    blur($blur);
+	-o-filter:      blur($blur);
+	-ms-filter:     blur($blur);
+	filter:         url(blur.svg#blur);
+	filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='$blur');
+}
+
+@mixin placeholder-style() {
+	&::-webkit-input-placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+}

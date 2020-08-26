@@ -223,3 +223,19 @@ function kulam_rename_post_formats( $translated, $text, $context, $domain ) {
 
 }
 add_filter( 'gettext_with_context', 'kulam_rename_post_formats', 10, 4 );
+
+/**
+ * kulam_admin_post_thumbnail_html
+ *
+ * This function filters admin thumbnail meta box in order to add required thumbnail dimensions
+ *
+ * @param   $content (string)
+ * @return  (string)
+ */
+function kulam_admin_post_thumbnail_html( $content ) {
+
+	// return
+	return $content . 'Image dimensions: 1140x728 (px)';
+
+}
+add_filter( 'admin_post_thumbnail_html', 'kulam_admin_post_thumbnail_html' );
