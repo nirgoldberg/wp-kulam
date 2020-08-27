@@ -1657,6 +1657,35 @@ var $ = jQuery,
 		},
 
 		/**
+		 * align_post_boxes
+		 *
+		 * Called from loaded
+		 *
+		 * @param   countInRow (int) Number of elements in a row or 0 to reset alignment
+		 * @return  N/A
+		 */
+		align_post_boxes : function(countInRow) {
+
+			// vars
+			var posts_wrap = $('.posts-wrap'),
+				post_boxes = posts_wrap.find('.post-meta');
+
+			// reset elements height
+			post_boxes.css('height', 'auto');
+
+			// set same height for all elements in a row
+			if (countInRow) {
+				// vars
+				var post_boxes_first_in_row = posts_wrap.children('div:nth-child('+countInRow+'n+1)');
+
+				$.each(post_boxes_first_in_row, function() {
+					$(this).nextAll().andSelf().slice(0, countInRow).find('.post-meta').setAllToMaxHeight();
+				});
+			}
+
+		},
+
+		/**
 		 * copyToClipboard
 		 *
 		 * @param   str (string)
@@ -1737,6 +1766,17 @@ var $ = jQuery,
 
 			// homepage grid
 			KULAM_general.homepage_grid();
+
+			// post boxes alignment
+			if (KULAM_general.params.breakpoint >= 992) {
+				KULAM_general.align_post_boxes(4);
+			}
+			else if (KULAM_general.params.breakpoint >= 768 && KULAM_general.params.breakpoint <= 991) {
+				KULAM_general.align_post_boxes(2);
+			}
+			else {
+				KULAM_general.align_post_boxes();
+			}
 
 		}
 

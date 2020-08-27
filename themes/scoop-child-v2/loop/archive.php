@@ -52,6 +52,9 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			$popup_button_text				= get_field( 'acf-category_popup_button_text', 'category_' . $category->term_id );
 			$popup_button_text_color		= get_field( 'acf-category_popup_button_text_color', 'category_' . $category->term_id );
 			$popup_button_bg_color			= get_field( 'acf-category_popup_button_bg_color', 'category_' . $category->term_id );
+			$category_icon					= get_field( 'acf-category_category_icon', 'category_' . $category->term_id );
+			$category_filters				= get_field( 'acf-category_filters', 'category_' . $category->term_id );
+			$filters						= $category_filters ? array_map( function( $tax ){ return $tax->name; }, $category_filters ) : array();
 
 			// add category popup image modal
 			add_action( 'wp_footer', 'kulam_modal_category_popup_image' );
@@ -59,7 +62,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 		} ?>
 
 		<div class="page-title">
-			<h1 class="entry-title"><?php
+			<h1 class="entry-title <?php echo $category_icon ? 'has-icon" style="background-image: url(\'' . $category_icon[ 'url' ] . '\'); min-height:' . $category_icon[ 'height' ] . 'px;"' : '"'; ?>><?php
 				if ( is_day() ) :
 					printf( __( 'Archive for %s', 'pojo' ), '<span>' . get_the_date() . '</span>' );
 				elseif ( is_month() ) :
@@ -115,12 +118,6 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 				</div>
 
 			<?php }
-
-			if ( get_term_children( $category->term_id, 'category' ) ) {
-
-				get_template_part( 'partials/subcat-menu' );
-
-			}
 
 		} ?>
 
@@ -229,10 +226,54 @@ if ( have_posts() ) {
 
 			}
 
+		} else {
+
+			// no post types
+			// get posts
+			$posts = array();
+
+			$args = array(
+				'posts_per_page'	=> -1,
+				'tax_query'			=> array(
+					array(
+						'taxonomy'	=> 'category',
+						'field'		=> 'term_id',
+						'terms'		=> $category->term_id,
+					),
+				),
+			);
+			$query = new WP_Query( $args );
+
+			if ( $query->have_posts() ) : ?>
+
+				<?php
+					/**
+					 * display filters section
+					 */
+					include( locate_template( 'partials/category/filters.php' ) );
+				?>
+
+				<div class="posts-wrap row">
+
+					<?php while( $query->have_posts() ) : $query->the_post();
+
+						// get post taxonomies
+						$taxonomies = get_post_taxonomies();
+
+						// include only assigned taxonomy filters
+						$taxonomies = array_intersect( $taxonomies, $filters );
+
+						echo kulam_get_post( $taxonomies );
+
+					endwhile; ?>
+
+				</div>
+
+			<?php endif; wp_reset_postdata();
+
 		}
 
-	}
-	else {
+	} else {
 
 		do_action( 'pojo_before_content_loop', $display_type );
 
@@ -247,8 +288,7 @@ if ( have_posts() ) {
 
 	}
 
-}
-else {
+} else {
 
 	pojo_get_content_template_part( 'content', 'none' );
 

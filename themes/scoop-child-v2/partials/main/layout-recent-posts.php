@@ -37,34 +37,7 @@ $query = new WP_Query( $args );
 
 if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
 
-	// get post thumbnail ID
-	$thumbnail_id = get_post_thumbnail_id( $post->ID );
-
-	$image_html = '';
-
-	if ( ! empty( $thumbnail_id ) ) {
-
-		$attachment_src = wp_get_attachment_image_src( $thumbnail_id, 'large' );
-
-		if ( $attachment_src ) {
-			$attachment_url = $attachment_src[0];
-			$image_title = get_the_title();
-			$image_html = sprintf( '<div class="post-image"><img src="%1$s" alt="%2$s" /></div>', $attachment_url, esc_attr( $image_title ) );
-		}
-
-	}
-
-	if ( ! empty( $image_html ) ) {
-		$posts[] =	'<div class="col-md-3 col-sm-6">' .
-						'<div class="post-wrap">' .
-							$image_html .
-							'<div class="post-meta">' .
-								'<div class="title">' . get_the_title() . '</div>' .
-								'<div class="more">' . __( 'Read more', 'scoop-child' ) . '</div>' .
-							'</div>' .
-						'</div>' .
-					'</div>';
-	}
+	$posts[] = kulam_get_post();
 
 endwhile; endif; wp_reset_postdata();
 

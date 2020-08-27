@@ -165,10 +165,10 @@
         },
         {
             "key": "field_5d024ba641baa",
-            "label": "Background Image",
-            "name": "acf-category_background_image",
+            "label": "Category Icon",
+            "name": "acf-category_category_icon",
             "type": "image",
-            "instructions": "",
+            "instructions": "This icon will be displayed as a background for the category title",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -186,6 +186,29 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5f47cc98011bf",
+            "label": "Filters",
+            "name": "acf-category_filters",
+            "type": "taxonomy_relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "filters": [
+                "search"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object"
         },
         {
             "key": "field_5ec0e00d230ae",
@@ -243,5 +266,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598298376
+    "modified": 1598542160
 }

@@ -2929,10 +2929,10 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5d024ba641baa',
-			'label' => __('Background Image', 'kulam-scoop'),
-			'name' => 'acf-category_background_image',
+			'label' => __('Category Icon', 'kulam-scoop'),
+			'name' => 'acf-category_category_icon',
 			'type' => 'image',
-			'instructions' => '',
+			'instructions' => __('This icon will be displayed as a background for the category title', 'kulam-scoop'),
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -2950,6 +2950,29 @@ acf_add_local_field_group(array(
 			'max_height' => '',
 			'max_size' => '',
 			'mime_types' => '',
+		),
+		array(
+			'key' => 'field_5f47cc98011bf',
+			'label' => __('Filters', 'kulam-scoop'),
+			'name' => 'acf-category_filters',
+			'type' => 'taxonomy_relationship',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'post',
+			),
+			'filters' => array(
+				0 => 'search',
+			),
+			'min' => '',
+			'max' => '',
+			'return_format' => 'object',
 		),
 		array(
 			'key' => 'field_5ec0e00d230ae',
@@ -3007,7 +3030,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1595357380,
 ));
 
 acf_add_local_field_group(array(
@@ -4727,44 +4749,6 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'endpoint' => 0,
 		),
 		array(
-			'key' => 'field_5d63767651bc8',
-			'label' => __('Enable Activity Types custom taxonomy', 'kulam-scoop'),
-			'name' => 'acf-option_enable_activity_types_custom_taxonomy',
-			'type' => 'true_false',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'message' => '',
-			'default_value' => 0,
-			'ui' => 0,
-			'ui_on_text' => '',
-			'ui_off_text' => '',
-		),
-		array(
-			'key' => 'field_5d6d6e5390f33',
-			'label' => __('Enable Audiences custom taxonomy', 'kulam-scoop'),
-			'name' => 'acf-option_enable_audiences_custom_taxonomy',
-			'type' => 'true_false',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'message' => '',
-			'default_value' => 0,
-			'ui' => 0,
-			'ui_on_text' => '',
-			'ui_off_text' => '',
-		),
-		array(
 			'key' => 'field_5e74a985c5ba1',
 			'label' => __('Strip Image', 'kulam-scoop'),
 			'name' => 'acf-option_strip_image',
@@ -4807,7 +4791,6 @@ Image dimensions: 1140x268 (px)', 'kulam-scoop'),
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1595165140,
 ));
 
 acf_add_local_field_group(array(

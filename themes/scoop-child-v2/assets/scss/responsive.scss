@@ -188,25 +188,57 @@
 		}
 	}
 
-	/*********************/
-	/* main recent posts */
-	/*********************/
+	/********************/
+	/* category archive */
+	/********************/
 
-	.main-recent-posts {
-		.post-wrap {
-			.post-meta {
-				padding: 15px;
-				min-height: 180px;
+	body.archive {
+		#primary {
 
-				.title {
-					font-size: font_size(18px, 375px);
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+				margin: 44px 0 30px;
+
+				#breadcrumbs {
+					display: none;
 				}
 
-				.more {
-					position: absolute;
-					bottom: 15px;
-					font-size: font_size(14px, 375px);
+				.page-title {
+					h1 {
+						font-size: font_size(35px, 767px);
+
+						&.has-icon {
+							min-height: 70px !important;
+							background-size: 90px;
+						}
+					}
 				}
+			}
+		}
+	}
+
+	/************/
+	/* post box */
+	/************/
+
+	.post-wrap {
+		.post-meta {
+			padding: 15px;
+			min-height: 150px;
+
+			.title {
+				font-size: font_size(18px, 375px);
+			}
+		}
+
+		.more {
+			padding: 15px;
+
+			span {
+				font-size: font_size(14px, 375px);
 			}
 		}
 	}
@@ -318,20 +350,20 @@
 		}
 	}
 
-	/*********************/
-	/* main recent posts */
-	/*********************/
+	/************/
+	/* post box */
+	/************/
 
-	.main-recent-posts {
-		.post-wrap {
-			.post-meta {
-				.title {
-					font-size: 18px;
-				}
+	.post-wrap {
+		.post-meta {
+			.title {
+				font-size: 18px;
+			}
+		}
 
-				.more {
-					font-size: 14px;
-				}
+		.more {
+			span {
+				font-size: 14px;
 			}
 		}
 	}
@@ -471,30 +503,41 @@
 		}
 	}
 
-	/*********************/
-	/* main recent posts */
-	/*********************/
+	/********************/
+	/* category archive */
+	/********************/
 
-	.main-recent-posts {
-		.post-wrap {
-			.post-meta {
-				position: relative;
-				padding-top: 52.136752137%;
+	body.archive {
+		#primary {
 
-				.title {
-					position: absolute;
-					padding: 7.122507123%;
-					top: 0;
-					left: 0;
-				}
+			/******************/
+			/* archive header */
+			/******************/
 
-				.more {
-					position: absolute;
-					padding: 7.122507123%;
-					bottom: 0;
-					left: 0;
+			header {
+				margin: 33px 0 42px;
+				background: url('../images/bg/girl-category.png') 100% 25px no-repeat;
+
+				.page-title {
+					h1 {
+						font-size: 32px;
+					}
 				}
 			}
+		}
+	}
+
+	/************/
+	/* post box */
+	/************/
+
+	.post-wrap {
+		.post-meta {
+			padding: 7.122507123%;
+		}
+
+		.more {
+			padding: 7.122507123%;
 		}
 	}
 
@@ -547,8 +590,10 @@
 				.title {
 					font-size: 14px;
 				}
+			}
 
-				.more {
+			.more {
+				span {
 					font-size: 12px;
 				}
 			}
@@ -601,8 +646,10 @@
 				.title {
 					font-size: 18px;
 				}
+			}
 
-				.more {
+			.more {
+				span {
 					font-size: 14px;
 				}
 			}

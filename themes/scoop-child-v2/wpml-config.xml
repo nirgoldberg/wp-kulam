@@ -4,7 +4,5 @@
 	</custom-types>
 	<taxonomies>
 		<taxonomy translate="1">post_types_tax</taxonomy>
-		<taxonomy translate="1">activity_types</taxonomy>
-		<taxonomy translate="1">audiences</taxonomy>
 	</taxonomies>
 </wpml-config>

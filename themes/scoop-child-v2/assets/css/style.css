@@ -456,11 +456,6 @@ header .logo .login a,
 	text-decoration: none;
 }
 
-.page-title h1 {
-	font-size: 36px;
-	font-weight: bold;
-}
-
 .page-title .more,
 .page-title .less {
 	position: relative;

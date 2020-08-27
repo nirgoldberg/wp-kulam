@@ -67,6 +67,9 @@ require_once( 'functions/search.php' );
 // users functions
 require_once( 'functions/users.php' );
 
+// post functions
+require_once( 'functions/post.php' );
+
 // htmline membership functions
 require_once( 'functions/htmline-membership.php' );
 

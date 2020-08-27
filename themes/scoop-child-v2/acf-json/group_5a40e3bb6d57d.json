@@ -406,44 +406,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5d63767651bc8",
-            "label": "Enable Activity Types custom taxonomy",
-            "name": "acf-option_enable_activity_types_custom_taxonomy",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5d6d6e5390f33",
-            "label": "Enable Audiences custom taxonomy",
-            "name": "acf-option_enable_audiences_custom_taxonomy",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_5e74a985c5ba1",
             "label": "Strip Image",
             "name": "acf-option_strip_image",
@@ -485,5 +447,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598298383
+    "modified": 1598541578
 }

@@ -297,6 +297,9 @@ function kulam_pojo_register_customize_sections( $sections = array() ) {
 
 	}
 
+	$field		= array_search( 'typo_nav_breadcrumbs', array_column( $sections[ $section ][ 'fields' ], 'id' ) );
+	$sections[ $section ][ 'fields' ][ $field ][ 'std' ][ 'size' ]				= '14px';
+
 	/**
 	 * Footer Widgets
 	 */
