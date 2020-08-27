@@ -110,6 +110,13 @@ get_header();
 		the_content();
 	?>
 
+	<?php
+		/**
+		 * Display scroll up button
+		 */
+		get_template_part( 'partials/scroll-top' );
+	?>
+
 </div>
 
 <?php get_footer(); ?>

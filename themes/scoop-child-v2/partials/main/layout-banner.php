@@ -34,7 +34,6 @@ $layout_style	.= $bottom_padding ? 'padding-bottom:' . $bottom_padding . 'px;' :
 	<div class="cycle-slideshow"
 		data-cycle-auto-height="calc"
 		data-cycle-fx="scrollHorz"
-		data-cycle-loader=true
 		data-cycle-log=false
 		data-cycle-slides="> .slide"
 		data-cycle-swipe=true

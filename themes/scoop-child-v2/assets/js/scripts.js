@@ -58,6 +58,9 @@ var $ = jQuery,
 				return this.height( Math.max.apply(this, $.map(this, function(e) { return $(e).height() })) );
 			}
 
+			// scroll top button event
+			KULAM_general.scroll_top();
+
 			// accessibility icon direction
 			KULAM_general.a11y_icon_direction();
 
@@ -93,6 +96,25 @@ var $ = jQuery,
 
 			// post types posts grid
 			KULAM_general.post_types_posts_grid();
+
+		},
+
+		/**
+		 * scroll_top
+		 *
+		 * Called from init
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		scroll_top : function() {
+
+			// variables
+			var icon = $('.scroll-top span');
+
+			icon.on('click', function() {
+				$('html, body').animate({ scrollTop: 0 }, 500);
+			});
 
 		},
 
