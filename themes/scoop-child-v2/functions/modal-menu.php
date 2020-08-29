@@ -20,7 +20,7 @@ function kulam_modal_menu() {
 
 	?>
 
-	<div class="modal fade" id="modal-menu" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal left fade" id="modal-menu" tabindex="-1" role="dialog" aria-hidden="true">
 
 		<div class="modal-dialog modal-dialog-fullscreen" role="document">
 			<div class="modal-content">

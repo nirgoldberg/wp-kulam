@@ -76,6 +76,9 @@ var $ = jQuery,
 			// bootstrap modal
 			KULAM_general.bootstrap_modal();
 
+			// category filters menu
+			KULAM_general.category_filters_menu();
+
 			// banner
 			KULAM_general.banner();
 
@@ -511,6 +514,25 @@ var $ = jQuery,
 				li.removeClass('close');
 			});
 
+		},
+
+		/**
+		 * category_filters_menu
+		 *
+		 * Called from init
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		category_filters_menu : function() {
+
+			// vars
+			var btn = $('.filters-menu-toggle'),
+				filters = btn.next();
+
+			btn.on('click', function() {
+				filters.toggleClass('active');
+			});
 		},
 
 		/**
@@ -1657,14 +1679,96 @@ var $ = jQuery,
 		},
 
 		/**
-		 * align_post_boxes
+		 * category_filters
 		 *
 		 * Called from loaded
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		category_filters : function() {
+
+			if (KULAM_general.params.breakpoint >= 1200) {
+				KULAM_general.align_category_filters(7);
+			}
+			else if (KULAM_general.params.breakpoint >= 992 && KULAM_general.params.breakpoint <= 1199) {
+				KULAM_general.align_category_filters(5);
+			}
+			else if (KULAM_general.params.breakpoint >= 768 && KULAM_general.params.breakpoint <= 991) {
+				KULAM_general.align_category_filters(4);
+			}
+			else {
+				KULAM_general.align_category_filters();
+			}
+
+		},
+
+		/**
+		 * align_category_filters
+		 *
+		 * Called from category_filters
+		 *
+		 * @param   countInRow (int) Number of elements in a row or 0 to reset alignment
+		 * @return  N/A
+		 */
+		align_category_filters : function(countInRow) {
+
+			if (!$('.filters-selections').length)
+				return;
+
+			// vars
+			var filters_wrap = $('.category-filters'),
+				filters = filters_wrap.find('.filters-selections'),
+				li = filters.children();
+
+			// reset elements height
+			li.css('width', '100%');
+
+			// setup number of elements in a row
+			if (countInRow) {
+				$filter_width = li.length >= countInRow ? 100/countInRow : 100/li.length;
+				li.css('width', $filter_width+'%');
+			}
+
+			// expose filters
+			filters_wrap.show();
+
+		},
+
+		/**
+		 * post_boxes
+		 *
+		 * Called from loaded
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		post_boxes : function() {
+
+			if (KULAM_general.params.breakpoint >= 992) {
+				KULAM_general.align_post_boxes(4);
+			}
+			else if (KULAM_general.params.breakpoint >= 768 && KULAM_general.params.breakpoint <= 991) {
+				KULAM_general.align_post_boxes(2);
+			}
+			else {
+				KULAM_general.align_post_boxes();
+			}
+
+		},
+
+		/**
+		 * align_post_boxes
+		 *
+		 * Called from post_boxes
 		 *
 		 * @param   countInRow (int) Number of elements in a row or 0 to reset alignment
 		 * @return  N/A
 		 */
 		align_post_boxes : function(countInRow) {
+
+			if (!$('.posts-wrap').length)
+				return;
 
 			// vars
 			var posts_wrap = $('.posts-wrap'),
@@ -1767,16 +1871,11 @@ var $ = jQuery,
 			// homepage grid
 			KULAM_general.homepage_grid();
 
+			// category filters alignment
+			KULAM_general.category_filters();
+
 			// post boxes alignment
-			if (KULAM_general.params.breakpoint >= 992) {
-				KULAM_general.align_post_boxes(4);
-			}
-			else if (KULAM_general.params.breakpoint >= 768 && KULAM_general.params.breakpoint <= 991) {
-				KULAM_general.align_post_boxes(2);
-			}
-			else {
-				KULAM_general.align_post_boxes();
-			}
+			KULAM_general.post_boxes();
 
 		}
 

@@ -17,17 +17,25 @@ $filter_width = count( $category_filters ) >= 7 ? 100/7 : 100/count( $category_f
 
 <div class="category-filters">
 
-	<ul class="filters-selections">
+	<div class="filters-menu">
 
-		<?php foreach ( $category_filters as $filter ) {
+		<div class="filters-menu-toggle visible-xs"><?php _e( 'Filter', 'kulam-scoop' ); ?></div>
 
-			echo	'<li class="tax_' . $filter->name . '" style="width:' . $filter_width . '%;">' .
-						$filter->label .
-						'<span class="count"></span>' .
-					'</li>';
+		<ul class="filters-selections">
 
-		} ?>
+			<?php foreach ( $category_filters as $filter ) {
 
-	</ul>
+				echo	'<li class="tax_' . $filter->name . '" style="width:' . $filter_width . '%;">' .
+							$filter->label .
+							'<span class="count"></span>' .
+						'</li>';
+
+			} ?>
+
+		</ul>
+
+	</div>
+
+	<div class="reset-filters"><?php _e( 'Reset filter', 'kulam-scoop' ); ?></div>
 
 </div>

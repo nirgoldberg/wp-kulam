@@ -2956,7 +2956,8 @@ acf_add_local_field_group(array(
 			'label' => __('Filters', 'kulam-scoop'),
 			'name' => 'acf-category_filters',
 			'type' => 'taxonomy_relationship',
-			'instructions' => '',
+			'instructions' => __('Category taxonomy will be included by default as the first filter.
+In case it will be manually chosen, its order will be setup accordingly', 'kulam-scoop'),
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(

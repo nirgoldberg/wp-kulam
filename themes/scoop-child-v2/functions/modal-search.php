@@ -20,7 +20,7 @@ function kulam_modal_search() {
 
 	?>
 
-	<div class="modal fade" id="modal-search" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal left fade" id="modal-search" tabindex="-1" role="dialog" aria-hidden="true">
 
 		<div class="modal-dialog modal-dialog-fullscreen" role="document">
 			<div class="modal-content">

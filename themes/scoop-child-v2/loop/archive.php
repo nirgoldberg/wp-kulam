@@ -54,6 +54,13 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			$popup_button_bg_color			= get_field( 'acf-category_popup_button_bg_color', 'category_' . $category->term_id );
 			$category_icon					= get_field( 'acf-category_category_icon', 'category_' . $category->term_id );
 			$category_filters				= get_field( 'acf-category_filters', 'category_' . $category->term_id );
+			$category_filters				= $category_filters ? $category_filters : array();
+
+			// add category taxonomy to $category_filters in case not exists
+			if ( ! in_array( 'category', array_map( function( $tax ){ return $tax->name; }, $category_filters ) ) ) {
+				array_unshift( $category_filters, get_taxonomy( 'category' ) );
+			}
+
 			$filters						= $category_filters ? array_map( function( $tax ){ return $tax->name; }, $category_filters ) : array();
 
 			// add category popup image modal

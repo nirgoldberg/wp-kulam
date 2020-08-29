@@ -192,7 +192,7 @@
             "label": "Filters",
             "name": "acf-category_filters",
             "type": "taxonomy_relationship",
-            "instructions": "",
+            "instructions": "Category taxonomy will be included by default as the first filter.\r\nIn case it will be manually chosen, its order will be setup accordingly",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -266,5 +266,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598542160
+    "modified": 1598728403
 }
