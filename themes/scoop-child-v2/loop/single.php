@@ -1,6 +1,6 @@
 <?php
 /**
- * Default Single
+ * Single
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
@@ -22,6 +22,27 @@ $site_id					= get_current_blog_id();
 $post_id					= get_the_ID();
 $show_filters				= get_field( 'acf-post_show_filters' );
 $lang						= get_locale();
+
+// get post category and custom taxonomies
+$categories = get_the_category();
+$category	= '';
+
+foreach( $categories as $c ) {
+	if ( get_post_meta( $post->ID, '_yoast_wpseo_primary_category', true ) == $c->term_id ) {
+		$category = $c;
+		break;
+	}
+}
+
+if ( ! $category ) {
+	$category = $categories[0];
+}
+
+// category icon
+$category_icon = get_field( 'acf-category_category_icon', 'category_' . $category->term_id );
+
+// post custom taxonomies
+$custom_tax	= get_object_taxonomies( 'post' );
 
 ?>
 
@@ -61,7 +82,7 @@ $lang						= get_locale();
 						</div>
 					<?php endif; ?>
 
-					<div class="breadcrumb"><?php get_breadcrumb(); ?></div>
+					<?php pojo_breadcrumbs(); ?>
 
 					<?php if ( pojo_is_show_page_title() ) : ?>
 						<div class="page-title">
@@ -98,7 +119,7 @@ $lang						= get_locale();
 
 				</header><!-- .entry-header -->
 
-				<div class="entry-sharing col-sm-1">
+				<div class="entry-sharing col-md-1">
 
 					<div class="wrap-sharing-public">
 
@@ -181,7 +202,59 @@ $lang						= get_locale();
 
 				</div><!-- .entry-sharing -->
 
-				<div class="entry-content col-sm-11">
+				<div class="entry-taxonomies col-md-4 col-md-push-7">
+					<div class="taxonomies">
+
+					<?php
+						echo	'<h2 class="category-title ' . ( $category_icon ? 'has-icon" style="background-image: url(\'' . $category_icon[ 'url' ] . '\');"' : '"' ) . '>' .
+									'<span>' . $category->name . '</span>' .
+								'</h2>';
+
+						if ( $custom_tax ) {
+
+							// store post terms
+							$terms_arr = array();
+
+							foreach ( $custom_tax as $tax ) {
+
+								if ( 'category' == $tax )
+									continue;
+
+								$terms = wp_get_post_terms( $post_id, $tax );
+
+								if ( $terms ) {
+									$terms_arr[ $tax ] = $terms;
+								}
+
+							}
+
+							if ( $terms_arr ) {
+
+								echo '<p class="keywords">' . __( 'Keywords', 'kulam-scoop' ) . '</p>';
+
+								echo '<ul>';
+
+									foreach ( $terms_arr as $tax => $terms ) {
+
+										echo '<li>';
+
+											echo '<div class="taxonomy-title">' . $tax . '</div>';
+											echo '<p>' . implode( ', ', array_map( function( $term ) { return $term->name; }, $terms ) ) . '</p>';
+
+										echo '</li>';
+
+									}
+
+								echo '</ul>';
+							}
+
+						}
+					?>
+
+					</div>
+				</div><!-- .entry-taxonomies -->
+
+				<div class="entry-content col-md-7 col-md-pull-4">
 
 					<div class="entry-format">
 

@@ -1906,7 +1906,25 @@ output:lang(he-IL) {
 	}
 }
 
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+
+	/***************/
+	/* single post */
+	/***************/
+
+	.entry-sharing{
+		padding: 0;
+		display: -webkit-box !important;
+	}
+
+	.wrap-sharing-public {
+		display: inline-flex;
+	}
+
+	.wrap-sharing-public > a {
+		padding: 10px;
+	}
+}
 
 @media (max-width: 767px) {
 
@@ -1998,23 +2016,6 @@ output:lang(he-IL) {
 
 	.pswp__item .wrapper {
 		width: 100%;
-	}
-
-	/***************/
-	/* single post */
-	/***************/
-
-	.entry-sharing{
-		padding: 0;
-		display: -webkit-box !important;
-	}
-
-	.wrap-sharing-public {
-		display: inline-flex;
-	}
-
-	.wrap-sharing-public > a {
-		padding: 10px;
 	}
 
 	/**********/

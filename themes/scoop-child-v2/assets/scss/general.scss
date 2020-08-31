@@ -549,6 +549,91 @@ body.archive {
 }
 
 /**********/
+/* single */
+/**********/
+
+body.single {
+	#primary {
+		background-color: #FFF;
+
+		/******************/
+		/* archive header */
+		/******************/
+
+		header {
+			#breadcrumbs {
+				margin-bottom: 50px;
+
+				.current {
+					font-weight: bold;
+				}
+			}
+		}
+
+		/********************/
+		/* entry taxonomies */
+		/********************/
+
+		.entry-taxonomies {
+			.taxonomies {
+				padding: 25px;
+				background-color: #FFF;
+				@include box-shadow(0, 3px, #E8E8E8, 32px, 0);
+
+				.category-title {
+					position: relative;
+					margin: 0 0 20px;
+
+					&.has-icon {
+						padding-left: 38px;
+						min-height: 70px !important;
+						background-position: left center;
+						background-repeat: no-repeat;
+						background-size: 90px;
+
+						span {
+							@include vertical-align;
+							position: absolute;
+						}
+					}
+
+					span {
+						line-height: normal;
+					}
+				}
+
+				.keywords {
+					line-height: 27px;
+					font-size: 14px;
+					font-size: #000;
+					border-bottom: 1px solid #E8E8E8;
+				}
+
+				ul {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+
+					li {
+						.taxonomy-title {
+							margin: 25px 0 15px;
+							font-size: 16px;
+							font-weight: bold;
+						}
+
+						p {
+							margin: 0;
+							font-size: 14px;
+							color: $font-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/**********/
 /* footer */
 /**********/
 
