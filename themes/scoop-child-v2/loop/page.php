@@ -66,22 +66,8 @@ if ( have_posts() ) :
 
 					<?php endif; ?>
 				</div>
-				<footer class="entry-footer">
-					<div class="entry-edit">
-						<?php pojo_button_post_edit(); ?>
-					</div>
-				</footer>
 			</div>
 		</article>
-		<?php
-			// Previous/next post navigation.
-			echo pojo_get_post_navigation(
-				array(
-					'prev_text' => __( '&laquo; Previous', 'pojo' ),
-					'next_text' => __( 'Next &raquo;', 'pojo' ),
-				)
-			);
-		?>
 	<?php endwhile;
 else :
 	pojo_get_content_template_part( 'content', 'none' );

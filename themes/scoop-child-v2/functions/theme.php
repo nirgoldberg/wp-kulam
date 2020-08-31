@@ -174,6 +174,51 @@ $globals = array(
 );
 
 /**
+ * kulam_redirect_failed_login
+ *
+ * This function hooks failed login
+ *
+ * @param   $username (string)
+ * @return  (bool)
+ */
+function kulam_redirect_failed_login( $username ) {
+
+	$referrer = ( isset( $_SERVER[ 'HTTP_REFERER' ] ) ) ? $_SERVER[ 'HTTP_REFERER' ] : $_SERVER[ 'PHP_SELF' ];
+	$referrer = add_query_arg( 'result', 'failed', $referrer );
+	$referrer = add_query_arg( 'username', $username, $referrer );
+
+	if ( ! empty( $referrer ) && ! strstr( $referrer, 'wp-login' ) && ! strstr( $referrer, 'wp-admin') ) {
+
+		wp_redirect( $referrer );
+		exit;
+
+	}
+
+}
+add_action( 'wp_login_failed', 'kulam_redirect_failed_login', 20, 1 );
+
+/**
+ * kulam_redirect_failed_authenticate_login
+ *
+ * This function hooks failed login
+ *
+ * @param   $username (string)
+ * @return  (bool)
+ */
+function kulam_redirect_failed_authenticate_login( $user, $username, $password ) {
+
+	// forcefully capture login failed to forcefully open wp_login_failed action,
+	// so that this event can be captured
+	if ( empty( $username ) || empty( $password ) ) {
+		do_action( 'wp_login_failed', $user );
+	}
+
+	return $user;
+
+}
+add_filter( 'authenticate', 'kulam_redirect_failed_authenticate_login', 10, 3 );
+
+/**
  * kulam_remove_admin_bar
  *
  * This function removes the admin bar for non administrators logged in users

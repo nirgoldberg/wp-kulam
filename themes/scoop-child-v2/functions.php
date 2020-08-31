@@ -46,12 +46,6 @@ require_once( 'functions/shortcodes.php' );
 // menu modal
 require_once( 'functions/modals/modal-menu.php' );
 
-// login modal
-require_once( 'functions/modals/modal-login.php' );
-
-// registration modal
-require_once( 'functions/modals/modal-registration.php' );
-
 // search modal
 require_once( 'functions/modals/modal-search.php' );
 

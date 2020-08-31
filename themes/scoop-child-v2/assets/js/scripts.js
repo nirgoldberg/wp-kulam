@@ -2254,15 +2254,7 @@ jQuery(document).ready(function ($) {
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {
 			if (response === "Success0") {
-				if ($('#redirectlog').val() == '#') {
-					window.location.reload(false);
-				}
-				else if ($('#langlog').val()) {
-					var home_url = document.location.origin;
-					var loc = home_url.concat("/en").concat($('#redirectlog').val());
-					window.location.href = loc;
-				}
-				else window.location.href = $('#redirectlog').val();
+				window.location.reload(false);
 			}
 			else {
 				response = response.substring(0, response.length - 1);

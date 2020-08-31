@@ -722,6 +722,49 @@ body.single {
 	}
 }
 
+/***********************/
+/* login/register form */
+/***********************/
+
+.form-section {
+	margin-bottom: 20px;
+
+	.form-wrap {
+		margin-bottom: 50px;
+
+		.form-title {
+			margin-bottom: 50px;
+			line-height: 24px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		form {
+			input {
+				margin-bottom: 20px;
+			}
+
+			button {
+				@include border-radius(24.5px);
+			}
+		}
+
+		.alternate-desc {
+			margin: 0;
+			height: 118px;
+		}
+
+		button {
+			margin: 0 20px 20px 0;
+			@include border-radius(24.5px);
+
+			a {
+				color: inherit;
+			}
+		}
+	}
+}
+
 /*******************/
 /* bootstrap modal */
 /*******************/

@@ -1146,13 +1146,6 @@ h2.post-type-title {
 	width: 39px;
 }
 
-.submit_reg ,.submit_log{
-	margin-top: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 115px;
-	display: block !important;
-}
 .registration_form, .login_form{
 	margin: auto;
 	width: 50%;

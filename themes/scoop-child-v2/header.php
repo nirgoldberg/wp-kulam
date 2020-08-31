@@ -96,7 +96,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 				<nav class="nav-login" role="navigation">
 					<ul>
 						<li class="menu-item search"><a href="#" role="link" data-toggle="modal" data-target="#modal-search"><span></span></a></li>
-						<li class="menu-item login"><a href="#" role="link" data-toggle="modal" data-target="#modal-login" data-redirect="#" data-show-pre-text="false"><span></span></a></li>
+						<li class="menu-item login"><a href="/login" role="link"><span></span></a></li>
 						<li class="menu-item menu"><a href="#" role="link" data-toggle="modal" data-target="#modal-menu"><span></span></a></li>
 					</ul>
 				</nav><!-- .nav-login -->
