@@ -87,7 +87,7 @@ function kulam_pojo_register_customize_sections( $sections = array() ) {
 	$sections[ $section ][ 'fields' ][ $field ][ 'std' ][ 'color' ]			= $color_scheme[ 'color-3' ];
 
 	$field		= array_search( 'bg_primary', array_column( $sections[ $section ][ 'fields' ], 'id' ) );
-	$sections[ $section ][ 'fields' ][ $field ][ 'std' ][ 'color' ]			= $color_scheme[ 'color-3' ];
+	$sections[ $section ][ 'fields' ][ $field ][ 'std' ][ 'color' ]			= '#FFFFFF';
 
 	$field		= array_search( 'button_typo', array_column( $sections[ $section ][ 'fields' ], 'id' ) );
 	$sections[ $section ][ 'fields' ][ $field ][ 'std' ][ 'family' ]		= $typography[ 'font-family' ];

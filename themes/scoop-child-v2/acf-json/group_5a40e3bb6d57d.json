@@ -390,6 +390,79 @@
             "maxlength": ""
         },
         {
+            "key": "field_5f4cc697aaa66",
+            "label": "Registration Form",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f4cc6bcaaa67",
+            "label": "Emails Delivery Opt-in Message",
+            "name": "acf-option-registration_form_emails_delivery_opt-in_message",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5f4cc790aaa68",
+            "label": "Privacy Policy Message",
+            "name": "acf-option-registration_form_privacy_policy_message",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_5f4cc7d7aaa69",
+            "label": "Cancelling Message",
+            "name": "acf-option-registration_form_cancelling_message",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5ca5febcbad83",
             "label": "Misc",
             "name": "",
@@ -447,5 +520,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598541578
+    "modified": 1598867571
 }

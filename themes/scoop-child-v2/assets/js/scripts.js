@@ -97,6 +97,9 @@ var $ = jQuery,
 			// galleries
 			KULAM_general.galleries();
 
+			// hmembership
+			KULAM_general.hmembership();
+
 			// my siddur
 			KULAM_general.my_siddur();
 
@@ -1413,6 +1416,31 @@ var $ = jQuery,
 			for(var i = 0, l = galleryElements.length; i < l; i++) {
 				galleryElements[i].setAttribute('data-pswp-uid', i+1);
 				galleryElements[i].onclick = onThumbnailsClick;
+			}
+
+		},
+
+		/**
+		 * hmembership
+		 *
+		 * Called from init
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		hmembership : function() {
+
+			// vars
+			var hmembership_form = $('.hmembership-form');
+
+			// change email field order
+			if (hmembership_form.length) {
+				// vars
+				email = hmembership_form.find('tbody').children('tr:first-child');
+				select = hmembership_form.find('tbody').children('tr.select');
+
+				// move
+				select.after(email);
 			}
 
 		},

@@ -358,6 +358,33 @@
 		}
 	}
 
+	/********/
+	/* page */
+	/********/
+
+	body.page {
+		#primary {
+
+			/**********/
+			/* header */
+			/**********/
+
+			header {
+				margin: 44px 0 30px;
+
+				#breadcrumbs {
+					display: none;
+				}
+
+				.page-title {
+					h1 {
+						font-size: font_size(35px, 767px);
+					}
+				}
+			}
+		}
+	}
+
 	/**********/
 	/* single */
 	/**********/
@@ -365,9 +392,9 @@
 	body.single {
 		#primary {
 
-			/******************/
-			/* archive header */
-			/******************/
+			/**********/
+			/* header */
+			/**********/
 
 			header {
 				margin: 44px 0 30px;
@@ -795,6 +822,29 @@
 		}
 	}
 
+	/********/
+	/* page */
+	/********/
+
+	body.page {
+		#primary {
+
+			/**********/
+			/* header */
+			/**********/
+
+			header {
+				margin: 33px 0 42px;
+
+				.page-title {
+					h1 {
+						font-size: 32px;
+					}
+				}
+			}
+		}
+	}
+
 	/**********/
 	/* single */
 	/**********/
@@ -802,9 +852,9 @@
 	body.single {
 		#primary {
 
-			/******************/
-			/* archive header */
-			/******************/
+			/**********/
+			/* header */
+			/**********/
 
 			header {
 				margin: 33px 0 42px;
@@ -828,6 +878,25 @@
 
 		#footer-widgets {
 			padding: 70px 0 90px;
+		}
+	}
+
+	/********************/
+	/* hmembership form */
+	/********************/
+
+	.hmembership-form {
+		max-width: 80%;
+
+		table {
+			tr {
+				&.email,
+				&.text,
+				&.select {
+					float: left;
+					width: 50%;
+				}
+			}
 		}
 	}
 }

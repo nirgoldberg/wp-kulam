@@ -1,6 +1,6 @@
 <?php
 /**
- * Single
+ * Default Single
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop

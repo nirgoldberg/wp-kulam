@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.7.21
+ * @version		2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -29,9 +29,7 @@ if ( have_posts() ) :
 							</div>
 						<?php endif; ?>
 
-						<?php if ( po_breadcrumbs_need_to_show() ) : ?>
-							<?php pojo_breadcrumbs(); ?>
-						<?php endif; ?>
+						<?php pojo_breadcrumbs(); ?>
 
 						<?php if ( pojo_is_show_page_title() ) : ?>
 							<div class="page-title">
