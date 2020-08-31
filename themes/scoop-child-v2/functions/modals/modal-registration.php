@@ -3,8 +3,8 @@
  * Registration Modal
  *
  * @author      Nir Goldberg
- * @package     scoop-child/functions
- * @version     1.6.1
+ * @package     scoop-child/functions/modals
+ * @version     2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -34,9 +34,7 @@ function kulam_modal_registration() {
 
 				<div class="modal-header">
 					<h5 class="modal-title"><?php _e( 'Registration', 'kulam-scoop' ); ?></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
 				</div>
 
 				<form>

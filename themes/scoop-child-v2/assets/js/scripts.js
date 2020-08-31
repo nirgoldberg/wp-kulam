@@ -79,6 +79,9 @@ var $ = jQuery,
 			// category filters menu
 			KULAM_general.category_filters_menu();
 
+			// category filters
+			KULAM_general.category_filter_events();
+
 			// banner
 			KULAM_general.banner();
 
@@ -472,6 +475,84 @@ var $ = jQuery,
 		 */
 		bootstrap_modal : function() {
 
+			// menu modal
+			KULAM_general.menu_modal();
+
+			// search modal
+			KULAM_general.search_modal();
+
+			// login modal
+			KULAM_general.login_modal();
+
+			// category filter modal
+			KULAM_general.category_filter_modal();
+
+		},
+
+		/**
+		 * menu_modal
+		 *
+		 * Called from bootstrap_modal
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		menu_modal : function() {
+
+			// menu button
+			$('.nav-login li.menu').on('click', function() {
+				// hide icon
+				$(this).addClass('close');
+			});
+
+			// triggered when modal is about to be hidden
+			$('#modal-menu').on('hide.bs.modal', function() {
+				// vars
+				var li = $('.nav-login li.menu');
+
+				// show icon
+				li.removeClass('close');
+			});
+
+		},
+
+		/**
+		 * search_modal
+		 *
+		 * Called from bootstrap_modal
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		search_modal : function() {
+
+			// menu button
+			$('.nav-login li.search').on('click', function() {
+				// hide icon
+				$(this).addClass('close');
+			});
+
+			// triggered when modal is about to be hidden
+			$('#modal-search').on('hide.bs.modal', function() {
+				// vars
+				var li = $('.nav-login li.search');
+
+				// show icon
+				li.removeClass('close');
+			});
+
+		},
+
+		/**
+		 * login_modal
+		 *
+		 * Called from bootstrap_modal
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		login_modal : function() {
+
 			// triggered when modal is about to be shown
 			$('#modal-login').on('show.bs.modal', function(e) {
 				// get data attributes of the clicked element
@@ -493,25 +574,44 @@ var $ = jQuery,
 				}
 			});
 
-			$('.nav-login li.search, .nav-login li.menu').on('click', function() {
-				// hide icon
-				$(this).addClass('close');
-			});
+		},
 
-			$('#modal-search').on('hide.bs.modal', function() {
-				// vars
-				var li = $('.nav-login li.search');
+		/**
+		 * category_filter_modal
+		 *
+		 * Called from bootstrap_modal
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		category_filter_modal : function() {
 
-				// show icon
-				li.removeClass('close');
-			});
+			// triggered when modal is about to be shown
+			$('#modal-category-filter').on('show.bs.modal', function(e) {
+				// get data attributes of the clicked element
+				var filter_name = $(e.relatedTarget).text(),
+					taxonomy = $(e.relatedTarget).parent().data('tax'),
+					filters = $('#modal-category-filter').find('.modal-body').children(),
+					current_filter = $('#modal-category-filter').find('.modal-body').children('ul[data-tax="' + taxonomy + '"]'),
+					no_terms_msg = $('#modal-category-filter').find('.no-terms'),
+					apply_filters = $('#modal-category-filter').find('.apply-filters');
 
-			$('#modal-menu').on('hide.bs.modal', function() {
-				// vars
-				var li = $('.nav-login li.menu');
+				// populate the filter title
+				$('#modal-category-filter').find('.filter-title').text(filter_name);
 
-				// show icon
-				li.removeClass('close');
+				// hide filters
+				filters.hide();
+				no_terms_msg.hide();
+
+				// expose required filter
+				if (current_filter.children().length) {
+					current_filter.show();
+					apply_filters.show();
+				} else {
+					// no terms exist
+					no_terms_msg.show();
+					apply_filters.hide();
+				}
 			});
 
 		},
@@ -528,11 +628,226 @@ var $ = jQuery,
 
 			// vars
 			var btn = $('.filters-menu-toggle'),
-				filters = btn.next();
+				filters = btn.next(),
+				lis = filters.children();
 
 			btn.on('click', function() {
 				filters.toggleClass('active');
+
+				// close mobile menu
+				lis.on('click', function() {
+					filters.removeClass('active');
+				});
 			});
+
+		},
+
+		/**
+		 * category_filter_events
+		 *
+		 * Called from init
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		category_filter_events : function() {
+
+			// vars
+			var lis = $('#modal-category-filter').find('.modal-body').children().find('li'),
+				reset = $('.reset-filters'),
+				apply_filters = $('#modal-category-filter').find('.apply-filters');
+
+			if (lis.length) {
+				// toggle category filter lists
+				lis.find('.expand').on('click', function(e) {
+					// vars
+					var li = $(this).closest('li');
+
+					e.preventDefault();
+					li.toggleClass('open');
+				});
+
+				// check/uncheck li
+				lis.find('input').on('click', function(e) {
+					// vars
+					var li = $(this).closest('li'),
+						taxonomy = li.closest('.checkbox-list').data('tax'),
+						term_id = li.data('id').substring(5),
+						value = $(this).next().text(),
+						state = $(this).prop('checked');
+
+					// updates filters state and posts displayed
+					KULAM_general.category_posts_update(taxonomy, term_id, value, state);
+
+					// bind uncheck event on checked filters
+					if (state) {
+						var checked_filter = $('.checked-filters').find('li[data-id="term_' + term_id + '"]');
+
+						// uncheck li
+						checked_filter.find('.remove').on('click', function() {
+							// updates filters state and posts displayed
+							KULAM_general.category_posts_update(taxonomy, term_id, value, false);
+						});
+					}
+				});
+			}
+
+			if (reset.length) {
+				reset.on('click', function() {
+					KULAM_general.reset_category_filters();
+				});
+			}
+
+			if (apply_filters.length) {
+				apply_filters.on('click', function() {
+					$('#modal-category-filter').modal('hide');
+				});
+			}
+
+		},
+
+		/**
+		 * category_posts_update
+		 *
+		 * updates filters state and posts displayed
+		 *
+		 * @param   taxonomy (string)
+		 * @param   term_id (int)
+		 * @param   value (string)
+		 * @param	state (bool)
+		 * @return  N/A
+		 */
+		category_posts_update : function(taxonomy, term_id, value, state) {
+
+			// vars
+			var filters_menu = $('.filters-selections'),
+				filter_menu_item = filters_menu.children('li[data-tax="' + taxonomy + '"]'),
+				category_filters = $('#modal-category-filter').find('.modal-body').children(),
+				checked_filters = $('.checked-filters'),
+				posts = $('.posts-wrap').children();
+
+			// update checked filters
+			if ( state ) {
+				// +1 to filter menu item
+				count = parseInt(filter_menu_item.data('count'));
+				filter_menu_item.data('count', count+1);
+				filter_menu_item.find('.count').text('(' + (count+1) + ')');
+
+				// add filter to checked filters
+				checked_filters.append('<li data-id="term_' + term_id + '"><span>' + value + '</span><span class="remove">X</span></li>');
+			}
+			else {
+				// -1 to filter menu item
+				count = parseInt(filter_menu_item.data('count'));
+				filter_menu_item.data('count', count-1);
+
+				if ( count == 1 ) {
+					filter_menu_item.find('.count').text('');
+				}
+				else {
+					filter_menu_item.find('.count').text('(' + (count-1) + ')');
+				}
+
+				// remove filter from checked filters
+				checked_filters.find('li[data-id="term_' + term_id + '"]').remove();
+
+				// uncheck filter from category filter modal
+				category_filters.find('li[data-id="term_' + term_id + '"]').children('label').children('input').prop('checked', false);
+			}
+
+			// expose/hide checked filters
+			if (checked_filters.children().length) {
+				// expose checked filters
+				checked_filters.show();
+			}
+			else {
+				// hide checked filters
+				checked_filters.hide();
+
+				// expose all posts
+				posts.show();
+			}
+
+			// update posts displayed
+			if (checked_filters.children().length) {
+				// hide all posts
+				posts.hide();
+
+				// vars
+				var posts_not_found_msg = $('.filtered-posts-not-found'),
+					posts_not_found = true;
+
+				$.each(posts, function(i, post) {
+					// vars
+					var show = true;
+
+					$.each(checked_filters.children(), function(j, filter) {
+						// vars
+						var term_id = $(filter).data('id');
+
+						if (!$(post).hasClass(term_id)) {
+							// don't show post
+							show = false;
+							return false;
+						}
+					});
+
+					if (show) {
+						$(post).show();
+						posts_not_found = false;
+					}
+				});
+
+				// expose not found error in case of no posts filtered
+				if (posts_not_found) {
+					posts_not_found_msg.show();
+				}
+				else {
+					posts_not_found_msg.hide();
+				}
+			}
+
+			// align post boxes
+			KULAM_general.post_boxes();
+
+		},
+
+		/**
+		 * reset_category_filters
+		 *
+		 * Called from category_filter_events
+		 *
+		 * @param   N/A
+		 * @return  N/A
+		 */
+		reset_category_filters : function() {
+
+			var filters_menu = $('.filters-selections'),
+				category_filters = $('#modal-category-filter').find('.modal-body').children(),
+				checked_filters = $('.checked-filters'),
+				posts = $('.posts-wrap').children(),
+				posts_not_found_msg = $('.filtered-posts-not-found');
+
+			// reset filters menu
+			filters_menu.children().data('count', 0);
+			filters_menu.find('.count').text('');
+
+			// reset category filters
+			category_filters.find('input').prop('checked', false);
+
+			// reset checked filters
+			checked_filters.find('li').remove();
+			checked_filters.hide();
+
+			// expose all posts
+			posts.show();
+
+			// hide not found error
+			posts_not_found_msg.hide();
+
+			// align post boxes
+			KULAM_general.post_boxes();
+
 		},
 
 		/**

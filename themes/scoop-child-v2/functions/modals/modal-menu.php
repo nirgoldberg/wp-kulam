@@ -3,7 +3,7 @@
  * Menu Modal
  *
  * @author		Nir Goldberg
- * @package		scoop-child/functions
+ * @package		scoop-child/functions/modals
  * @version		2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly

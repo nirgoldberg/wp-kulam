@@ -3,7 +3,7 @@
  * Post functions
  *
  * @author		Nir Goldberg
- * @package		scoop-child/partials
+ * @package		scoop-child/functions
  * @version		2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly

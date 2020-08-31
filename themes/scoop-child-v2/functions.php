@@ -44,19 +44,16 @@ require_once( 'functions/widgets.php' );
 require_once( 'functions/shortcodes.php' );
 
 // menu modal
-require_once( 'functions/modal-menu.php' );
+require_once( 'functions/modals/modal-menu.php' );
 
 // login modal
-require_once( 'functions/modal-login.php' );
+require_once( 'functions/modals/modal-login.php' );
 
 // registration modal
-require_once( 'functions/modal-registration.php' );
+require_once( 'functions/modals/modal-registration.php' );
 
 // search modal
-require_once( 'functions/modal-search.php' );
-
-// category popup image modal
-require_once( 'functions/modal-category-popup-image.php' );
+require_once( 'functions/modals/modal-search.php' );
 
 // svgs
 require_once( 'functions/svgs.php' );
@@ -67,6 +64,9 @@ require_once( 'functions/search.php' );
 // users functions
 require_once( 'functions/users.php' );
 
+// category functions
+require_once( 'functions/category.php' );
+
 // post functions
 require_once( 'functions/post.php' );
 
@@ -75,6 +75,25 @@ require_once( 'functions/htmline-membership.php' );
 
 // yoast functions
 require_once( 'functions/yoast.php' );
+
+/**
+ * kulam_category_modals
+ *
+ * This function includes category modals within the footer
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_category_modals() {
+
+	// category filter modal
+	require_once( 'functions/modals/modal-category-filter.php' );
+
+	// category popup image modal
+	require_once( 'functions/modals/modal-category-popup-image.php' );
+
+}
+add_action( 'wp_enqueue_scripts', 'kulam_category_modals' );
 
 /**
  *     SETUP FUNCTIONS

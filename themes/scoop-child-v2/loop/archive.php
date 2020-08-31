@@ -53,18 +53,8 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 			$popup_button_text_color		= get_field( 'acf-category_popup_button_text_color', 'category_' . $category->term_id );
 			$popup_button_bg_color			= get_field( 'acf-category_popup_button_bg_color', 'category_' . $category->term_id );
 			$category_icon					= get_field( 'acf-category_category_icon', 'category_' . $category->term_id );
-			$category_filters				= get_field( 'acf-category_filters', 'category_' . $category->term_id );
-			$category_filters				= $category_filters ? $category_filters : array();
-
-			// add category taxonomy to $category_filters in case not exists
-			if ( ! in_array( 'category', array_map( function( $tax ){ return $tax->name; }, $category_filters ) ) ) {
-				array_unshift( $category_filters, get_taxonomy( 'category' ) );
-			}
-
+			$category_filters				= kulam_get_category_filters( $category );
 			$filters						= $category_filters ? array_map( function( $tax ){ return $tax->name; }, $category_filters ) : array();
-
-			// add category popup image modal
-			add_action( 'wp_footer', 'kulam_modal_category_popup_image' );
 
 		} ?>
 
@@ -255,9 +245,9 @@ if ( have_posts() ) {
 
 				<?php
 					/**
-					 * display filters section
+					 * display filters menu
 					 */
-					include( locate_template( 'partials/category/filters.php' ) );
+					include( locate_template( 'partials/category/filters-menu.php' ) );
 				?>
 
 				<div class="posts-wrap row">
@@ -276,9 +266,15 @@ if ( have_posts() ) {
 
 				</div>
 
-			<?php endif; wp_reset_postdata();
+			<?php endif; wp_reset_postdata(); ?>
 
-		}
+			<div class="filtered-posts-not-found" style="display: none;">
+
+				<?php pojo_get_content_template_part( 'content', 'none' ); ?>
+
+			</div>
+
+		<?php }
 
 	} else {
 

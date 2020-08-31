@@ -3,8 +3,8 @@
  * Login Modal
  *
  * @author      Nir Goldberg
- * @package     scoop-child/functions
- * @version     1.7.12
+ * @package     scoop-child/functions/modals
+ * @version     2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -48,4 +48,8 @@ function kulam_modal_category_popup_image() {
 
 	<?php
 
+}
+
+if ( is_category() ) {
+	add_action( 'wp_footer', 'kulam_modal_category_popup_image' );
 }

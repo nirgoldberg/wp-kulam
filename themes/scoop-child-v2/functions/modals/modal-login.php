@@ -3,8 +3,8 @@
  * Login Modal
  *
  * @author      Nir Goldberg
- * @package     scoop-child/functions
- * @version     1.7.6
+ * @package     scoop-child/functions/modals
+ * @version     2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -32,9 +32,7 @@ function kulam_modal_login() {
 
 				<div class="modal-header">
 					<h5 class="modal-title"><?php _e( 'Login', 'kulam-scoop' ); ?></h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
 				</div>
 
 				<div class="pre-text"><?php _e( 'In order to save / upload posts or view saved content, you must register / log-in to your account', 'kulam-scoop' ); ?></div>

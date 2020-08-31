@@ -375,25 +375,37 @@ body.archive {
 
 					li {
 						position: relative;
-						padding: 10px 20px 10px 15px;
 						border-style: solid;
 						border-color: #E8E8E8;
-						white-space: nowrap;
-						text-overflow: ellipsis;
-						overflow: hidden;
-						cursor: pointer;
 
-						&:after {
-							content: "";
+						a {
+							padding: 10px 45px 10px 15px;
+							line-height: unset;
+							font-size: inherit;
+							color: #000 !important;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+							overflow: hidden;
+
+							&:after {
+								content: "";
+								position: absolute;
+								top: 17px;
+								right: 6px;
+								width: 7px;
+								height: 7px;
+								@include transform(rotate(45deg));
+								border-style: solid;
+								border-color: #000;
+								border-width: 0 1px 1px 0;
+							}
+						}
+
+						span {
 							position: absolute;
-							top: 17px;
-							right: 6px;
-							width: 7px;
-							height: 7px;
-							@include transform(rotate(45deg));
-							border-style: solid;
-							border-color: #000;
-							border-width: 0 1px 1px 0;
+							padding: 10px 0;
+							top: 0;
+							right: 20px;
 						}
 					}
 				}
@@ -413,6 +425,36 @@ body.archive {
 					width: 20px;
 					height: 100%;
 					background: url('../images/icons/filter.png') right center no-repeat;
+				}
+			}
+
+			.checked-filters {
+				float: left;
+				padding: 0;
+				display: none;
+
+				li {
+					float: left;
+					position: relative;
+					margin: 0 12px 12px 0;
+					padding: 0 35px 0 10px;
+					line-height: 33px;
+					font-size: 11px;
+					font-weight: 600;
+					border: 1px solid #E8E8E8;
+					@include border-radius(17.5px);
+
+					.remove {
+						position: absolute;
+						top: 0;
+						right: 10px;
+						width: 14px;
+						height: 100%;
+						font-size: 14px;
+						color: #666;
+						text-align: right;
+						cursor: pointer;
+					}
 				}
 			}
 		}
@@ -567,13 +609,24 @@ body.modal-open,
 		}
 
 		.modal-header {
+			padding: 20px;
+			min-height: unset;
+			border: 0;
+			overflow: hidden;
+
 			.modal-title {
 				display: inline-block;
 			}
 
 			button {
+				position: absolute;
 				margin: 0;
-				font-size: 28px;
+				top: 20px;
+				right: 20px;
+				width: 14px;
+				height: 25px;
+				background: url('../images/icons/close.png') center center no-repeat;
+				@include opacity(1);
 			}
 		}
 
@@ -691,15 +744,17 @@ body.modal-open,
 		background-size: 220px, calc(100% - 335px) 85.5px, 120px;
 		background-color: #FFF;
 
-		.nav-main {
-			.sf-menu {
-				margin: 0 auto;
-				width: 80%;
+		.modal-body {
+			.nav-main {
+				.sf-menu {
+					margin: 0 auto;
+					width: 80%;
 
-				li {
-					float: none;
-					margin-bottom: 10px;
-					display: block;
+					li {
+						float: none;
+						margin-bottom: 10px;
+						display: block;
+					}
 				}
 			}
 		}
@@ -711,18 +766,207 @@ body.modal-open,
 /****************/
 
 #modal-search {
-	.modal-body {
-		top: 10%;
-		padding: 0;
-		max-height: calc(90% - 60px);
-		overflow-y: auto;
-		text-align: center;
+	.modal-content {
+		.modal-body {
+			top: 10%;
+			padding: 0;
+			max-height: calc(90% - 60px);
+			overflow-y: auto;
+			text-align: center;
 
-		.search-header {
-			float: none;
-			margin: 0;
+			.search-header {
+				float: none;
+				margin: 0;
+				width: 100%;
+				max-width: 300px;
+			}
+		}
+	}
+}
+
+/*************************/
+/* category filter modal */
+/*************************/
+
+#modal-category-filter {
+	.modal-content {
+		.modal-header {
+			position: fixed;
+			top: 0;
+			left: 0;
 			width: 100%;
-			max-width: 300px;
+			height: 115px;
+			background: #FFF;
+			z-index: 10;
+
+			.reset-filters {
+				float: left;
+				position: relative;
+				padding-right: 20px;
+				font-size: 14px;
+				font-weight: bold;
+				cursor: pointer;
+
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0px;
+					right: 0px;
+					width: 20px;
+					height: 100%;
+					background: url('../images/icons/filter.png') right center no-repeat;
+				}
+			}
+
+			.filter-title {
+				margin: 50px 0 0;
+				font-size: 18px;
+				font-weight: bold;
+			}
+		}
+
+		.modal-body {
+			top: 0;
+
+			ul {
+				margin: 0;
+				list-style: none;
+
+				li {
+					position: relative;
+					font-size: 14px;
+					color: #000;
+
+					label {
+						margin: 0;
+						display: block;
+						cursor: pointer;
+
+						input {
+							position: relative;
+							margin: 0 10px 0 0;
+							padding: 0;
+							width: 18px;
+							height: 18px;
+							line-height: initial;
+							vertical-align: text-top;
+							@include border-radius(2px);
+							border: 1px solid #B6B6B6;
+							outline: 0;
+							box-sizing: border-box;
+							display: inline-block;
+							-webkit-appearance: none;
+
+							&:before {
+								content: "";
+								position: absolute;
+								top: 1px;
+								right: 5px;
+								width: 6px;
+								height: 11px;
+								@include transform(rotate(45deg));
+								border-style: solid;
+								border-color: #FFF;
+								border-width: 0 2px 2px 0;
+							}
+
+							&:checked {
+								border-color: #000;
+								background-color: #000;
+							}
+						}
+
+						.expand {
+							content: "";
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 12px;
+							background: url('../images/icons/plus.png') center center no-repeat;
+						}
+					}
+
+					ul {
+						padding-left: 18px;
+						display: none;
+					}
+
+					&.open {
+						& > label {
+							.expand {
+								background: url('../images/icons/minus.png') center center no-repeat;
+							}
+						}
+
+						& > ul {
+							display: block;
+						}
+					}
+				}
+			}
+
+			& > ul {
+				padding: 100px 0 80px;
+
+				& > li {
+					line-height: 50px;
+					border-bottom: 1px solid #E8E8E8;
+
+					& > label {
+						.expand {
+							height: 50px;
+						}
+					}
+
+					ul {
+						li {
+							line-height: 35px;
+
+							label {
+								font-weight: normal;
+
+								.expand {
+									height: 35px;
+								}
+							}
+						}
+					}
+
+					&.open {
+						& > ul {
+							margin: -7.5px 0 7.5px;
+						}
+					}
+				}
+			}
+
+			.no-terms {
+				padding-top: 135px;
+			}
+
+			.apply-filters {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100px;
+				background-color: #FFF;
+
+				span {
+					margin: 25px auto;
+					width: 335px;
+					height: 50px;
+					line-height: 50px;
+					background-color: $color-1;
+					@include border-radius(24.5px);
+					font-size: 16px;
+					font-weight: bold;
+					color: #000;
+					text-align: center;
+					display: block;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 }
