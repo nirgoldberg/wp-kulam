@@ -202,59 +202,63 @@ $custom_tax	= get_object_taxonomies( 'post' );
 
 				</div><!-- .entry-sharing -->
 
-				<div class="entry-taxonomies col-md-4 col-md-push-7">
-					<div class="taxonomies">
+				<?php if ( false !== $show_filters ) : ?>
 
-					<?php
-						echo	'<h2 class="category-title ' . ( $category_icon ? 'has-icon" style="background-image: url(\'' . $category_icon[ 'url' ] . '\');"' : '"' ) . '>' .
-									'<span>' . $category->name . '</span>' .
-								'</h2>';
+					<div class="entry-taxonomies col-md-4 col-md-push-7">
+						<div class="taxonomies">
 
-						if ( $custom_tax ) {
+						<?php
+							echo	'<h2 class="category-title ' . ( $category_icon ? 'has-icon" style="background-image: url(\'' . $category_icon[ 'url' ] . '\');"' : '"' ) . '>' .
+										'<span>' . $category->name . '</span>' .
+									'</h2>';
 
-							// store post terms
-							$terms_arr = array();
+							if ( $custom_tax ) {
 
-							foreach ( $custom_tax as $tax ) {
+								// store post terms
+								$terms_arr = array();
 
-								if ( 'category' == $tax )
-									continue;
+								foreach ( $custom_tax as $tax ) {
 
-								$terms = wp_get_post_terms( $post_id, $tax );
+									if ( 'category' == $tax )
+										continue;
 
-								if ( $terms ) {
-									$terms_arr[ $tax ] = $terms;
+									$terms = wp_get_post_terms( $post_id, $tax );
+
+									if ( $terms ) {
+										$terms_arr[ $tax ] = $terms;
+									}
+
+								}
+
+								if ( $terms_arr ) {
+
+									echo '<p class="keywords">' . __( 'Keywords', 'kulam-scoop' ) . '</p>';
+
+									echo '<ul>';
+
+										foreach ( $terms_arr as $tax => $terms ) {
+
+											echo '<li>';
+
+												echo '<div class="taxonomy-title">' . $tax . '</div>';
+												echo '<p>' . implode( ', ', array_map( function( $term ) { return $term->name; }, $terms ) ) . '</p>';
+
+											echo '</li>';
+
+										}
+
+									echo '</ul>';
 								}
 
 							}
+						?>
 
-							if ( $terms_arr ) {
+						</div>
+					</div><!-- .entry-taxonomies -->
 
-								echo '<p class="keywords">' . __( 'Keywords', 'kulam-scoop' ) . '</p>';
+				<?php endif; ?>
 
-								echo '<ul>';
-
-									foreach ( $terms_arr as $tax => $terms ) {
-
-										echo '<li>';
-
-											echo '<div class="taxonomy-title">' . $tax . '</div>';
-											echo '<p>' . implode( ', ', array_map( function( $term ) { return $term->name; }, $terms ) ) . '</p>';
-
-										echo '</li>';
-
-									}
-
-								echo '</ul>';
-							}
-
-						}
-					?>
-
-					</div>
-				</div><!-- .entry-taxonomies -->
-
-				<div class="entry-content col-md-7 col-md-pull-4">
+				<div class="entry-content <?php echo false !== $show_filters ? 'col-md-7 col-md-pull-4' : 'col-md-11'; ?>">
 
 					<div class="entry-format">
 

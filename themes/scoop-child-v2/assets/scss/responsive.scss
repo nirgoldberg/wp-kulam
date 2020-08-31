@@ -653,6 +653,16 @@
 	body.single {
 		#primary {
 
+			/*****************/
+			/* entry content */
+			/*****************/
+
+			.entry-content {
+				padding-right: 0;
+				padding-left: 30px;
+				border-left: 1px solid $color-1;
+			}
+
 			/********************/
 			/* entry taxonomies */
 			/********************/
