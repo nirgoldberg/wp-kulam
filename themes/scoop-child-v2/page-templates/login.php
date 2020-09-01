@@ -14,7 +14,9 @@ if ( ! function_exists( 'get_field' ) )
 get_header();
 
 // vars
-$strip_image = get_field( 'acf-option_strip_image', 'option' );
+$strip_image				= get_field( 'acf-option_strip_image', 'option' );
+$register_page				= get_field( 'acf-option_register_page', 'option' );
+$hmembership_register_page	= get_field( 'acf-option_hmembership_register_page', 'option' );
 
 do_action( 'pojo_get_start_layout', 'page', get_post_type(), '' );
 
@@ -79,8 +81,8 @@ if ( have_posts() ) :
 
 							<p class="alternate-desc"><?php _e( "Submit the capture recording and register as a teacher or student", 'kulam-scoop' ); ?></p>
 
-							<button class="button"><a href="/inscription-des-enseignants"><?php _e( 'Register as a teacher', 'kulam-scoop' ); ?></a></button>
-							<button class="button"><a href="/register"><?php _e( 'Register as a student', 'kulam-scoop' ); ?></a></button>
+							<button class="button"><a href="<?php echo $hmembership_register_page ? $hmembership_register_page : '#'; ?>"><?php _e( 'Register as a teacher', 'kulam-scoop' ); ?></a></button>
+							<button class="button"><a href="<?php echo $register_page ? $register_page : '#'; ?>"><?php _e( 'Register as a student', 'kulam-scoop' ); ?></a></button>
 
 						</div><!-- .login-wrap -->
 

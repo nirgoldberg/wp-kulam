@@ -189,3 +189,23 @@ function kulam_hmembership_form_get_radio_field_input( $output, $field ) {
 
 }
 add_filter( 'hmembership_form/get_radio_field_input', 'kulam_hmembership_form_get_radio_field_input', 10, 2 );
+
+/**
+ * kulam_hmembership_user_message_patterns
+ *
+ * @param   $patterns (array)
+ * @param	$user (object)
+ * @param	$user_email (string)
+ * @param	$user_info (string)
+ * @return  (array)
+ */
+function kulam_hmembership_user_message_patterns( $patterns, $user, $user_email, $user_info ) {
+
+	$patterns[ '{user_first_name}' ]	= $user->first_name;
+	$patterns[ '[user_last_name}' ]		= $user->last_name;
+
+	// return
+	return $patterns;
+
+}
+add_filter( 'hmembership_approval_notification_to_user_message_patterns', 'kulam_hmembership_user_message_patterns', 10, 4 );

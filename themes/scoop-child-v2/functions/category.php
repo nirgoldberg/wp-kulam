@@ -106,7 +106,7 @@ function kulam_get_category_filter_terms( $terms ) {
 			$term->taxonomy,
 			isset( $_GET[ 'filters' ][ 'category' ] ) && is_array( $_GET[ 'filters' ][ 'category' ] ) ? checked( in_array( $term->term_id, $_GET[ 'filters' ][ 'category' ] ), 1, false ) : '',
 			$term->name,
-			$has_children ? '<span class="expand"></span>' : '',
+			$has_children ? '<span class="expand"></span>' : ''
 		);
 
 		if ( $has_children ) {

@@ -11,13 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! function_exists( 'get_field' ) )
 	return;
 
-/**
- * Variables
- */
+// vars
 $strip_image			= get_field( 'acf-option_strip_image', 'option' );
 $my_siddur_custom_label	= get_field( 'acf-option_my_siddur_custom_label', 'option' );
 $my_siddur_label		= $my_siddur_custom_label ? $my_siddur_custom_label : __( 'My Siddur', 'kulam-scoop' );
 $display_type			= po_get_display_type();
+$user_state				= kulam_get_current_user_state();
 
 if ( is_category() ) {
 
@@ -140,6 +139,9 @@ if ( have_posts() ) {
 			));
 		}
 
+		// prevent use of $post_types here as a temporary solution for this page template
+		$post_types = null;
+
 		if ( ! empty( $post_types ) && ! is_wp_error( $post_types ) ) {
 
 			$single_post_type = ( count( $post_types ) == 1 );
@@ -239,6 +241,34 @@ if ( have_posts() ) {
 					),
 				),
 			);
+
+			// modify query according to user state ( hmembership_member | logged_in | public )
+			if ( in_array( $user_state, array( 'logged_in', 'public' ) ) ) {
+
+				// setup meta_query
+				$args[ 'meta_query' ] = array(
+					'relation'		=> 'OR',
+					array(
+						'key'		=> 'acf-post_restrict_post',
+						'compare'	=> 'NOT EXISTS',
+					),
+				);
+
+				if ( 'logged_in' == $user_state ) {
+					$value = array( 'public', 'logged_in' );
+				}
+				else {
+					$value = array( 'public' );
+				}
+
+				$args[ 'meta_query' ][] = array(
+					'key'		=> 'acf-post_restrict_post',
+					'value'		=> $value,
+					'compare'	=> 'IN',
+				);
+
+			}
+
 			$query = new WP_Query( $args );
 
 			if ( $query->have_posts() ) : ?>

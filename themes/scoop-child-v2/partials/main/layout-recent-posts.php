@@ -11,14 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! function_exists( 'get_field' ) )
 	return;
 
-/**
- * Variables
- */
+// vars
 $title			= get_sub_field( 'title' );
 $sub_title		= get_sub_field( 'sub_title' );
 $category		= get_sub_field( 'posts_category' );
 $top_padding	= get_sub_field( 'top_padding' );
 $bottom_padding	= get_sub_field( 'bottom_padding' );
+$user_state		= kulam_get_current_user_state();
 
 if ( ! $title || ! $category )
 	return;
@@ -33,6 +32,34 @@ $args = array(
 	'category__in'		=> array( $category ),
 	'posts_per_page'	=> 4,
 );
+
+// modify query according to user state ( hmembership_member | logged_in | public )
+if ( in_array( $user_state, array( 'logged_in', 'public' ) ) ) {
+
+	// setup meta_query
+	$args[ 'meta_query' ] = array(
+		'relation'		=> 'OR',
+		array(
+			'key'		=> 'acf-post_restrict_post',
+			'compare'	=> 'NOT EXISTS',
+		),
+	);
+
+	if ( 'logged_in' == $user_state ) {
+		$value = array( 'public', 'logged_in' );
+	}
+	else {
+		$value = array( 'public' );
+	}
+
+	$args[ 'meta_query' ][] = array(
+		'key'		=> 'acf-post_restrict_post',
+		'value'		=> $value,
+		'compare'	=> 'IN',
+	);
+
+}
+
 $query = new WP_Query( $args );
 
 if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();

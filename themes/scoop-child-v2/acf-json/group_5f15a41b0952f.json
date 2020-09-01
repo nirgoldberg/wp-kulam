@@ -20,6 +20,32 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5f4deb56f610b",
+            "label": "Restrict Post",
+            "name": "acf-post_restrict_post",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "hmembership_member": "Members only",
+                "logged_in": "Logged in Users",
+                "public": "Public"
+            },
+            "default_value": "public",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         }
     ],
     "location": [
@@ -39,5 +65,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598298487
+    "modified": 1598957758
 }

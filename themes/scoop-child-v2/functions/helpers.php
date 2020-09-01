@@ -86,3 +86,86 @@ function kulam_get_taxonomy_hierarchy( $taxonomy, $parent = 0 ) {
 	return $children;
 
 }
+
+/**
+ * kulam_is_restricted_content
+ *
+ * This function returns true if the current user is allowed to get the current post content
+ * according to the current user state
+ *
+ * @param	N/A
+ * @return	(bool)
+ */
+function kulam_is_restricted_content() {
+
+	if ( ! function_exists( 'get_field' ) )
+		return true;
+
+	// vars
+	$user_state		= kulam_get_current_user_state();
+	$restrict_post	= get_field( 'acf-post_restrict_post' );
+
+	if ( ! $restrict_post )
+		return false;
+
+	switch ( $user_state ) {
+
+		case 'hmembership_member' :
+
+			return false;
+
+		case 'logged_in' :
+
+			if ( 'hmembership_member' == $restrict_post ) {
+				return true;
+			}
+
+			return false;
+
+		case 'public' :
+
+			if ( in_array( $restrict_post, array( 'hmembership_member', 'logged_in' ) ) ) {
+				return true;
+			}
+
+			return false;
+
+	}
+
+	// return
+	return false;
+
+}
+
+/**
+ * kulam_get_current_user_state
+ *
+ * This function returns the current user state
+ * Possible options: hmembership_member | logged_in | public
+ *
+ * @param	N/A
+ * @return	(string)
+ */
+function kulam_get_current_user_state() {
+
+	// vars
+	$user_state = 'public';
+
+	if ( is_user_logged_in() ) {
+
+		$user = wp_get_current_user();
+		$roles = ( array ) $user->roles;
+
+		if ( in_array( 'hmembership_member', $roles ) ) {
+			$user_state = 'hmembership_member';
+		}
+		else {
+			$user_state = 'logged_in';
+		}
+
+	}
+
+	// return
+	return $user_state;
+
+}

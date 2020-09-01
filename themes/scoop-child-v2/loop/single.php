@@ -11,9 +11,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! function_exists( 'get_field' ) )
 	return;
 
-/**
- * Variables
- */
+if ( kulam_is_restricted_content() ) { ?>
+
+	<div class="not-allowed-content">
+
+		<?php echo pojo_alert( __( 'Sorry, You are not allowed to see this content.', 'kulam-scoop' ), false, false, 'danger' ); ?>
+
+	</div>
+
+	<?php
+
+	// return
+	return;
+
+}
+
+// vars
 $strip_image				= get_field( 'acf-option_strip_image', 'option' );
 $my_siddur_activate_module	= get_field( 'acf-option_my_siddur_activate_module', 'option' );
 $my_siddur_custom_label		= get_field( 'acf-option_my_siddur_custom_label', 'option' );
