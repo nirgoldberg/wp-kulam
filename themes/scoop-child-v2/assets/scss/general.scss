@@ -10,6 +10,20 @@
 	border-radius: 24px;
 }
 
+button {
+	padding: 0 !important;
+	border: 0 !important;
+
+	a {
+		padding: 10.5px 27px;
+		display: block;
+	}
+
+	&[type="submit"] {
+		padding: 10.5px 27px !important;
+	}
+}
+
 .scroll-top {
 	margin: 200px auto;
 	width: 186px;
@@ -553,6 +567,46 @@ body.archive {
 	}
 }
 
+/***********************/
+/* registration banner */
+/***********************/
+
+.registration-banner-wrap {
+	margin: 30px 0 50px;
+	@include box-shadow(0, 3px, #E8E8E8, 32px, 0);
+	overflow: hidden;
+
+	.registration-banner {
+		background-color: #FFF;
+		background-repeat: no-repeat;
+		background-size: cover;
+		@include border-radius(4px);
+
+		.text-wrap {
+			color: #000;
+
+			.title {
+				line-height: normal;
+				font-weight: bold;
+			}
+
+			.text {
+				line-height: normal;
+			}
+		}
+
+		.buttons-wrap {
+			button {
+				@include border-radius(24.5px);
+
+				a {
+					color: #000;
+				}
+			}
+		}
+	}
+}
+
 /********/
 /* page */
 /********/
@@ -602,6 +656,8 @@ body.single {
 		/********************/
 
 		.entry-taxonomies {
+			margin-bottom: 30px;
+
 			.taxonomies {
 				padding: 25px;
 				background-color: #FFF;
@@ -714,6 +770,7 @@ body.single {
 
 	.hmembership-form-button {
 		margin: 20px 0 0 20px;
+		padding: 9px 27px !important;
 		@include border-radius(24.5px);
 	}
 

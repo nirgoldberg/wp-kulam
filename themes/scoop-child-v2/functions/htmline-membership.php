@@ -130,13 +130,11 @@ function kulam_hmembership_form_get_radio_field_input( $output, $field ) {
 	if ( ! empty ( $field[ 'options' ] ) && is_array( $field[ 'options' ] ) ) {
 
 		// vars
-		$options_markup					= '';
-		$iterator						= 0;
-		$emails_delivery_opt_in_message	= get_field( 'acf-option-registration_form_emails_delivery_opt-in_message', 'option' );
-		$privacy_policy_message			= get_field( 'acf-option-registration_form_privacy_policy_message', 'option' );
-		$cancelling_message				= get_field( 'acf-option-registration_form_cancelling_message', 'option' );
-		$pre_text						= '';
-		$post_text						= '';
+		$options_markup							= '';
+		$iterator								= 0;
+		$login_registration_registration_form	= get_field( 'acf-option_login_registration_registration_form', 'option' );
+		$pre_text								= '';
+		$post_text								= '';
 
 		foreach ( $field[ 'options' ] as $key => $label ) {
 
@@ -156,17 +154,17 @@ function kulam_hmembership_form_get_radio_field_input( $output, $field ) {
 
 			case 'hmembership-5':
 
-				$pre_text = '<tr class="pre-text"><td>' . $emails_delivery_opt_in_message . '</td></tr>';
+				$pre_text = '<tr class="pre-text"><td>' . $login_registration_registration_form[ 'emails_delivery_opt-in_message' ] . '</td></tr>';
 				break;
 
 			case 'hmembership-6':
 
-				$pre_text = '<tr class="pre-text"><td>' . $privacy_policy_message . '</td></tr>';
+				$pre_text = '<tr class="pre-text"><td>' . $login_registration_registration_form[ 'privacy_policy_message' ] . '</td></tr>';
 				break;
 
 			case 'hmembership-7':
 
-				$post_text = '<tr class="post-text"><td>' . $cancelling_message . '</td></tr>';
+				$post_text = '<tr class="post-text"><td>' . $login_registration_registration_form[ 'cancelling_message' ] . '</td></tr>';
 
 		}
 
@@ -202,7 +200,7 @@ add_filter( 'hmembership_form/get_radio_field_input', 'kulam_hmembership_form_ge
 function kulam_hmembership_user_message_patterns( $patterns, $user, $user_email, $user_info ) {
 
 	$patterns[ '{user_first_name}' ]	= $user->first_name;
-	$patterns[ '[user_last_name}' ]		= $user->last_name;
+	$patterns[ '{user_last_name}' ]		= $user->last_name;
 
 	// return
 	return $patterns;

@@ -304,6 +304,13 @@ if ( have_posts() ) {
 
 			</div>
 
+			<?php
+				/**
+				 * Display registration banner
+				 */
+				get_template_part( 'partials/registration-banner' );
+			?>
+
 		<?php }
 
 	} else {

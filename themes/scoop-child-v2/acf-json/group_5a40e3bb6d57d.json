@@ -406,10 +406,10 @@
             "endpoint": 0
         },
         {
-            "key": "field_5f4de70b84e90",
-            "label": "Login Page",
-            "name": "acf-option_login_page",
-            "type": "page_link",
+            "key": "field_5f4e6bd79c683",
+            "label": "Pages",
+            "name": "acf-oprion_login_registration_pages",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -418,19 +418,78 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5f4de70b84e90",
+                    "label": "Login Page",
+                    "name": "login_page",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "allow_archives": 1,
+                    "multiple": 0
+                },
+                {
+                    "key": "field_5f4de77984e91",
+                    "label": "Register Page",
+                    "name": "register_page",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "allow_archives": 1,
+                    "multiple": 0
+                },
+                {
+                    "key": "field_5f4de9fae2d4e",
+                    "label": "Membership Register Page",
+                    "name": "hmembership_register_page",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "allow_archives": 1,
+                    "multiple": 0
+                }
+            ]
         },
         {
-            "key": "field_5f4de77984e91",
-            "label": "Register Page",
-            "name": "acf-option_register_page",
-            "type": "page_link",
+            "key": "field_5f4e758154cfb",
+            "label": "Login Form",
+            "name": "acf-oprion_login_registration_login_form",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -439,40 +498,34 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
-        },
-        {
-            "key": "field_5f4de9fae2d4e",
-            "label": "Membership Register Page",
-            "name": "acf-option_hmembership_register_page",
-            "type": "page_link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "page"
-            ],
-            "taxonomy": "",
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5f4e75fa54cfc",
+                    "label": "Registration Invitation Message",
+                    "name": "registration_invitation_message",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                }
+            ]
         },
         {
             "key": "field_5f4cc697aaa66",
             "label": "Registration Form",
-            "name": "",
-            "type": "tab",
+            "name": "acf-option_login_registration_registration_form",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -481,14 +534,72 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
-            "endpoint": 0
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5f4cc6bcaaa67",
+                    "label": "Emails Delivery Opt-in Message",
+                    "name": "emails_delivery_opt-in_message",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5f4cc790aaa68",
+                    "label": "Privacy Policy Message",
+                    "name": "privacy_policy_message",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5f4cc7d7aaa69",
+                    "label": "Cancelling Message",
+                    "name": "cancelling_message",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                }
+            ]
         },
         {
-            "key": "field_5f4cc6bcaaa67",
-            "label": "Emails Delivery Opt-in Message",
-            "name": "acf-option-registration_form_emails_delivery_opt-in_message",
-            "type": "textarea",
+            "key": "field_5f4e715b80860",
+            "label": "Registration Banner",
+            "name": "acf-option_login_registration_banner",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -497,17 +608,53 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5f4e717a80861",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5f4e718d80862",
+                    "label": "Text",
+                    "name": "text",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                }
+            ]
         },
         {
-            "key": "field_5f4cc790aaa68",
-            "label": "Privacy Policy Message",
-            "name": "acf-option-registration_form_privacy_policy_message",
-            "type": "textarea",
+            "key": "field_5f4e721780863",
+            "label": "Buttons",
+            "name": "acf-option_login_registration_buttons",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -516,30 +663,51 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5f4cc7d7aaa69",
-            "label": "Cancelling Message",
-            "name": "acf-option-registration_form_cancelling_message",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5f4e726280864",
+                    "label": "Member Registration",
+                    "name": "member_registration",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5f4e72a980865",
+                    "label": "Normal Registration",
+                    "name": "normal_registration",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                }
+            ]
         },
         {
             "key": "field_5ca5febcbad83",
@@ -599,5 +767,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598941725
+    "modified": 1598984858
 }
