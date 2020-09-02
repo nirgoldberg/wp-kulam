@@ -18,8 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function kulam_hmembership_user_userdata( $userdata, $user ) {
 
 	// vars
-	$user_info		= unserialize( $user[ 'user_info' ] );
-	$field_keys		= array_keys( $user_info );
+	$user_info		= json_decode( $user[ 'user_info' ] );
 	$field_labels	= array(
 		'user_nicename'	=> 'First Name',
 		'display_name'	=> 'First Name',
@@ -27,14 +26,24 @@ function kulam_hmembership_user_userdata( $userdata, $user ) {
 		'last_name'		=> 'Last Name',
 	);
 
+	if ( ! $user_info )
+		return $userdata;
+
+	$field_keys = array();
+
+	// get user info keys
+	foreach ( $user_info as $key => $value) {
+		$field_keys[] = $key;
+	}
+
 	// store relevant userdata found in user info
 	$userdata_info = array();
 
 	foreach ( $field_labels as $key => $value ) {
 		$matches = preg_grep( "/hmembership-[\d+]-(" . sanitize_title_with_dashes( $value ) . ")/", $field_keys );
 
-		if ( $matches && $user_info[ current( $matches ) ][ 'value' ] ) {
-			$userdata_info[ $key ] = $user_info[ current( $matches ) ][ 'value' ];
+		if ( $matches && $user_info->{current( $matches )}->value ) {
+			$userdata_info[ $key ] = $user_info->{current( $matches )}->value;
 		}
 	}
 
