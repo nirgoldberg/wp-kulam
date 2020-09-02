@@ -473,6 +473,29 @@
 			}
 		}
 	}
+
+	/***************/
+	/* links boxes */
+	/***************/
+
+	.links-boxes {
+		.box-wrap {
+			.box {
+				a {
+					.text-wrap {
+						.sub-title {
+							margin-bottom: 20px;
+							font-size: 30px;
+						}
+
+						button {
+							padding: 8px 18px !important;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1800px) {
@@ -1011,7 +1034,31 @@
 	}
 }
 
-@media (min-width: 481px) {}
+@media (min-width: 481px) {
+
+	/***************/
+	/* links boxes */
+	/***************/
+
+	.links-boxes {
+		.box-wrap {
+			.box {
+				a {
+					.text-wrap {
+						.sub-title {
+							margin-bottom: 30px;
+							font-size: 35px;
+						}
+
+						button {
+							padding: 13px 27px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 @media (min-width: 1500px) and (max-width: 1799px) {
 

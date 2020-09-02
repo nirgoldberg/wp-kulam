@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @fieldgroup	ACF Front-End Form
  * @fieldgroup	Questions & Answers
  * @fieldgroup	Posts Carousels
+ * @fieldgroup	Links Boxes
  * @fieldgroup	Ratings
  * @fieldgroup	Category Attributes
  * @fieldgroup	Post Attributes
@@ -2658,6 +2659,185 @@ Copy and paste this code into your post editor', 'kulam-scoop'),
 ));
 
 acf_add_local_field_group(array(
+	'key' => 'group_5f4fb52d9e6fe',
+	'title' => __('Links Boxes', 'kulam-scoop'),
+	'fields' => array(
+		array(
+			'key' => 'field_5f4fb57b32c2c',
+			'label' => __('Links Boxes', 'kulam-scoop'),
+			'name' => 'acf-links_boxes',
+			'type' => 'repeater',
+			'instructions' => __('Copy and paste this code into your post editor: [kulam_link_boxes]', 'kulam-scoop'),
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_5f4fb5ca32c2e',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'row',
+			'button_label' => __('Add Link Box', 'kulam-scoop'),
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5f4fb5b932c2d',
+					'label' => __('Icon', 'kulam-scoop'),
+					'name' => 'icon',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+				array(
+					'key' => 'field_5f4fb5ca32c2e',
+					'label' => __('Main Title', 'kulam-scoop'),
+					'name' => 'main_title',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array(
+					'key' => 'field_5f4fb6a532c2f',
+					'label' => __('Sub Title', 'kulam-scoop'),
+					'name' => 'sub_title',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array(
+					'key' => 'field_5f4fb6c732c30',
+					'label' => __('Button Text', 'kulam-scoop'),
+					'name' => 'button_text',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+					'readonly' => 0,
+					'disabled' => 0,
+				),
+				array(
+					'key' => 'field_5f4fb6df32c31',
+					'label' => __('Link', 'kulam-scoop'),
+					'name' => 'link',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_5f4fc1a5e40a1',
+					'label' => __('Image', 'kulam-scoop'),
+					'name' => 'image',
+					'type' => 'image',
+					'instructions' => __('Image Dimensions: 730x650(px)', 'kulam-scoop'),
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'preview_size' => 'thumbnail',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+	),
+	'menu_order' => 5,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+));
+
+acf_add_local_field_group(array(
 	'key' => 'group_5c4f03398b667',
 	'title' => __('Ratings', 'kulam-scoop'),
 	'fields' => array(
@@ -2751,7 +2931,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 5,
+	'menu_order' => 6,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -2759,7 +2939,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1588177181,
 ));
 
 acf_add_local_field_group(array(
@@ -2976,6 +3155,27 @@ In case it will be manually chosen, its order will be setup accordingly', 'kulam
 			'return_format' => 'object',
 		),
 		array(
+			'key' => 'field_5f4fb385424ca',
+			'label' => __('Categories Filter Label', 'kulam-scoop'),
+			'name' => 'acf-category_categories_filter_label',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => 'Categories',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array(
 			'key' => 'field_5ec0e00d230ae',
 			'label' => __('Content', 'kulam-scoop'),
 			'name' => '',
@@ -3023,7 +3223,7 @@ In case it will be manually chosen, its order will be setup accordingly', 'kulam
 			),
 		),
 	),
-	'menu_order' => 6,
+	'menu_order' => 7,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3092,7 +3292,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 7,
+	'menu_order' => 8,
 	'position' => 'side',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3181,7 +3381,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 8,
+	'menu_order' => 9,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3189,7 +3389,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1595253768,
 ));
 
 acf_add_local_field_group(array(
@@ -3576,7 +3775,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 9,
+	'menu_order' => 10,
 	'position' => 'side',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3584,7 +3783,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1595253751,
 ));
 
 acf_add_local_field_group(array(
@@ -3700,7 +3898,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 10,
+	'menu_order' => 11,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3708,7 +3906,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1595253733,
 ));
 
 acf_add_local_field_group(array(
@@ -3742,7 +3939,7 @@ acf_add_local_field_group(array(
 			),
 		),
 	),
-	'menu_order' => 11,
+	'menu_order' => 12,
 	'position' => 'normal',
 	'style' => 'default',
 	'label_placement' => 'top',
@@ -3750,7 +3947,6 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
-	'modified' => 1595253709,
 ));
 
 acf_add_local_field_group(array(

@@ -29,7 +29,7 @@
             }
         ]
     ],
-    "menu_order": 11,
+    "menu_order": 12,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -37,5 +37,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598298475
+    "modified": 1599059084
 }

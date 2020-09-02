@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.27
+ * @version     2.0.0
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -820,3 +820,61 @@ function kulam_gallery_html( $id ) {
 	return $output;
 
 }
+
+/**
+ * kulam_links_boxes
+ *
+ * This function adds the "kulam_link_boxes" Shortcode
+ *
+ * @param	$atts (array)
+ * @return	(string)
+ */
+function kulam_link_boxes() {
+
+	if ( ! function_exists( 'get_field' ) )
+		return '';
+
+	// vars
+	$boxes	= get_field( 'acf-links_boxes' );
+	$output	= '';
+
+	if ( ! $boxes || ! is_array( $boxes ) )
+		return $output;
+
+	$output .= '<!-- Links Boxes --><div class="links-boxes row">';
+
+	foreach ( $boxes as $box ) {
+
+		// vars
+		$icon			= $box[ 'icon' ];
+		$main_title		= $box[ 'main_title' ];
+		$sub_title		= $box[ 'sub_title' ];
+		$button_text	= $box[ 'button_text' ];
+		$link			= $box[ 'link' ];
+		$image			= $box[ 'image' ];
+
+		if ( ! $main_title || ! $link || ! $image )
+			continue;
+
+		$output .=	'<div class="box-wrap col-sm-6">' .
+						'<div class="box">' .
+							'<a href="' . $link . '" style="background-image: url(\'' . $image[ 'url' ] . '\');">' .
+								'<div class="text-wrap">' .
+									( $icon ? '<div class="icon"><img src="' . $icon[ 'url' ] . '" alt="' . $main_title . '" /></div>' : '' ) .
+									'<div class="main-title">' . $main_title . '</div>' .
+									( $sub_title ? '<div class="sub-title">' . $sub_title . '</div>' : '' ) .
+									( $button_text ? '<button class="button">' . $button_text . '</button>' : '' ) .
+								'</div>' .
+							'</a>' .
+						'</div>' .
+					'</div>';
+
+	}
+
+	$output .= '</div><!-- End of Links Boxes -->';
+
+	// return
+	return $output;
+
+}
+add_shortcode( 'kulam_link_boxes', 'kulam_link_boxes' );
