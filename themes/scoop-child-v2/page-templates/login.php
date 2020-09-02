@@ -18,6 +18,7 @@ $strip_image					= get_field( 'acf-option_strip_image', 'option' );
 $login_registration_pages		= get_field( 'acf-oprion_login_registration_pages', 'option' );
 $login_registration_buttons		= get_field( 'acf-option_login_registration_buttons', 'option' );
 $login_registration_login_form	= get_field( 'acf-oprion_login_registration_login_form', 'options' );
+$page_showing					= basename( $_SERVER[ 'REQUEST_URI' ] );
 
 do_action( 'pojo_get_start_layout', 'page', get_post_type(), '' );
 
@@ -53,7 +54,21 @@ if ( have_posts() ) :
 
 								<div class="form-title"><?php _e( 'Your Details', 'kulam-scoop' ); ?></div>
 
-								<form name="loginform" id="loginform" action="<?php echo wp_login_url( get_permalink() ); ?>" method="post">
+								<div class="error-msg">
+
+									<?php if ( strpos( $page_showing, 'failed' ) !== false ) {
+
+										printf( '<strong>%s:</strong> %s', __( 'ERROR', 'kulam-scoop' ), __( 'Invalid username and/or password.', 'kulam-scoop' ) );
+
+									} elseif ( strpos( $page_showing, 'blank' ) !== false ) {
+
+										printf( '<strong>%s:</strong> %s', __( 'ERROR', 'kulam-scoop' ), __( 'Username and/or Password is empty.', 'kulam-scoop' ) );
+
+									} ?>
+
+								</div>
+
+								<form name="loginform" id="loginform" action="<?php echo wp_login_url(); ?>" method="post">
 									<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" placeholder="<?php _e( 'Username or Email Address', 'kulam-scoop' ); ?>" >
 									<input type="password" name="pwd" id="user_pass" class="input password-input" value="" size="20" placeholder="<?php _e( 'Password', 'kulam-scoop' ); ?>" >
 									<button type="submit" name="wp-submit" id="wp-submit" class="button"><?php _e( 'Login', 'kulam-scoop' ); ?></button>

@@ -22,6 +22,9 @@ require_once( 'functions/post-types.php' );
 // theme functions
 require_once( 'functions/theme.php' );
 
+// login functions
+require_once( 'functions/login.php' );
+
 // pojo functions
 require_once( 'functions/pojo.php' );
 

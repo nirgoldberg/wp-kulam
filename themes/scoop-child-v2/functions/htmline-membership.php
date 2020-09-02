@@ -92,7 +92,7 @@ function kulam_hmembership_form_get_select_field_input( $output, $field ) {
 		$options_markup			= '';
 
 		if ( ! $field[ 'default' ] ) {
-			array_unshift( $field[ 'options' ],  __( 'Classes I teach', 'kulam-scoop' ) );
+			array_unshift( $field[ 'options' ],  __( 'Classes I teach', 'kulam-scoop' ) . ( $field[ 'required' ] ? '<span> *</span>' : '' ) );
 		}
 
 		foreach ( $field[ 'options' ] as $key => $label ) {
