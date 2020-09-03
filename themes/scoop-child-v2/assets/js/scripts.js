@@ -1095,7 +1095,7 @@ var $ = jQuery,
 			var read_more_wrap = '<div class="read-more"><span>' + ajaxdata.strings.read_more + '</span></div>',
 				bg_image = slide.find('img').attr('src'),
 				color_scheme = slide.closest('.kulam-slideshow').data('scheme-color'),
-				rgba_color_scheme = KULAM_general.hexToRgbA(color_scheme, '.5');
+				rgba_color_scheme = color_scheme ? KULAM_general.hexToRgbA(color_scheme, '.5') : 'transparent';
 
 			slide.children('a').append(read_more_wrap);
 
@@ -2127,6 +2127,14 @@ var $ = jQuery,
 
 				$.each(post_boxes_first_in_row, function() {
 					$(this).nextAll().andSelf().slice(0, countInRow).find('.post-meta').setAllToMaxHeight();
+				});
+			}
+			else {
+				// handle only slideshow post boxes
+				$.each(posts_wrap, function() {
+					if ($(this).parent('.kulam-slideshow').length) {
+						$(this).find('.post-meta').setAllToMaxHeight();
+					}
 				});
 			}
 

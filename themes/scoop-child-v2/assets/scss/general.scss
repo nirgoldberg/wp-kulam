@@ -276,11 +276,12 @@ body.page-template-main {
 	}
 }
 
-/*********************/
-/* main recent posts */
-/*********************/
+/*******************************************/
+/* main recent posts / main posts carousel */
+/*******************************************/
 
-.main-recent-posts {
+.main-recent-posts,
+.main-posts-carousel {
 	.more-posts {
 		line-height: 48px;
 		border: 1px solid #E8E8E8;
@@ -295,6 +296,33 @@ body.page-template-main {
 			span {
 				padding-right: 20px;
 				background: url('../images/icons/right.png') center right no-repeat;
+			}
+		}
+	}
+}
+
+/***********************/
+/* main posts carousel */
+/***********************/
+
+.main-posts-carousel {
+	.kulam-slideshow {
+		.main-layout-title-wrap {
+			.kulam-slideshow-title {
+				margin-bottom: 0;
+			}
+		}
+
+		.posts-wrap {
+			.pojo-slideshow.slideshow-bullets {
+				padding-bottom: 23px;
+			}
+
+			.post-wrap {
+				.post-info {
+					background-repeat: no-repeat;
+					background-position: center center;
+				}
 			}
 		}
 	}

@@ -13,6 +13,9 @@ if ( ! function_exists( 'get_field' ) )
 
 get_header();
 
+// layout index
+$index = 0;
+
 ?>
 
 <div class="main-wrapper col-sm-12">
@@ -25,6 +28,7 @@ get_header();
 
 			<?php while ( have_rows( 'acf-main_template_layouts' ) ) : the_row();
 
+				$index++;
 				$layout = get_row_layout();
 
 				switch ( $layout ) :
@@ -46,6 +50,16 @@ get_header();
 						/****************/
 
 						get_template_part( 'partials/main/layout', 'recent-posts' );
+
+						break;
+
+					case 'posts_carousel' :
+
+						/****************/
+						/* posts_carousel */
+						/****************/
+
+						include( locate_template( 'partials/main/layout-posts-carousel.php' ) );
 
 						break;
 

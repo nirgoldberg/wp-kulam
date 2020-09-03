@@ -143,7 +143,26 @@
 	}
 }
 
-@media (max-width: 1199px) {}
+@media (max-width: 1199px) {
+
+	/***********************/
+	/* main posts carousel */
+	/***********************/
+
+	.main-posts-carousel {
+		.kulam-slideshow {
+			.posts-wrap {
+				.bx-has-controls-direction {
+					margin-bottom: 76px;
+
+					.bx-pager {
+						bottom: -84px;
+					}
+				}
+			}
+		}
+	}
+}
 
 @media (max-width: 991px) {
 
