@@ -107,6 +107,8 @@ $js_array[ 'auto' ]			= true;
 $js_array[ 'pager' ]		= 'bullets' === $navigation || 'both' === $navigation;
 $js_array[ 'controls' ]		= empty( $navigation ) || 'both' === $navigation;
 
+$js_array[ 'touchEnabled' ]	= false;
+
 $js_json	= ! empty( $js_array ) ? json_encode( $js_array ) : '';
 $print_js	= '<script>jQuery(function($){$("div.pojo-slideshow-' . $id . '").bxSlider(' . $js_json . ');});</script>';
 
