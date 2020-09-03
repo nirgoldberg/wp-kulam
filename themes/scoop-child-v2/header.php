@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 if ( function_exists( 'get_field' ) ) {
 
-	$search_form_type	= get_field( 'acf-option_search_form_type', 'option' );
-	$login_page			= get_field( 'acf-option_login_page', 'option' );
+	$search_form_type			= get_field( 'acf-option_search_form_type', 'option' );
+	$login_registration_pages	= get_field( 'acf-oprion_login_registration_pages', 'option' );
 
 }
 
@@ -97,7 +97,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 				<nav class="nav-login" role="navigation">
 					<ul>
 						<li class="menu-item search"><a href="#" role="link" data-toggle="modal" data-target="#modal-search"><span></span></a></li>
-						<li class="menu-item login"><a href="<?php echo $login_page ? $login_page : '#'; ?>" role="link"><span></span></a></li>
+						<li class="menu-item login"><a href="<?php echo $login_registration_pages[ 'login_page' ] ? $login_registration_pages[ 'login_page' ] : '#'; ?>" role="link"><span></span></a></li>
 						<li class="menu-item menu"><a href="#" role="link" data-toggle="modal" data-target="#modal-menu"><span></span></a></li>
 					</ul>
 				</nav><!-- .nav-login -->
