@@ -65,7 +65,7 @@ function kulam_get_post( $taxonomies = array() ) {
 									'<div class="title">' . get_the_title() . '</div>' .
 									$terms_list .
 								'</div>' .
-								'<div class="more"><span>' . __( 'Read more', 'scoop-child' ) . '</span></div>' .
+								'<div class="more"><span>' . __( 'Read more', 'kulam-scoop' ) . '</span></div>' .
 							'</div>' .
 						'</a>' .
 					'</div>';

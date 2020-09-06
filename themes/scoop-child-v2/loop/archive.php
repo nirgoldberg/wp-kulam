@@ -103,7 +103,7 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 
 				?>
 
-				<button class="btn category-popup-button" data-toggle="modal" data-target="#modal-category-popup-image" style="<?php echo $style; ?>"><?php echo $popup_button_text; ?></button>
+				<button class="btn category-popup-button kulam-button" data-toggle="modal" data-target="#modal-category-popup-image" style="<?php echo $style; ?>"><?php echo $popup_button_text; ?></button>
 
 			<?php }
 

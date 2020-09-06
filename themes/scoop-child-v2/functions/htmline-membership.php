@@ -89,11 +89,8 @@ function kulam_hmembership_form_get_select_field_input( $output, $field ) {
 
 		// vars
 		$attributes				= '';
+		$hidden					= '';
 		$options_markup			= '';
-
-		if ( ! $field[ 'default' ] ) {
-			array_unshift( $field[ 'options' ],  __( 'Classes I teach', 'kulam-scoop' ) . ( $field[ 'required' ] ? '<span> *</span>' : '' ) );
-		}
 
 		foreach ( $field[ 'options' ] as $key => $label ) {
 			$options_markup .=	sprintf( '<option value="%s" %s>%s</option>',
@@ -105,15 +102,18 @@ function kulam_hmembership_form_get_select_field_input( $output, $field ) {
 
 		if ( 'multiselect' === $field[ 'type' ] ) {
 			$attributes = ' multiple="multiple" ';
+		} else {
+			$hidden = ' style="display: none;"';
 		}
 
-		$output =	sprintf( '<tr class="select %5$s"><th scope="row" style="display: none;"><label for="%1$s">%2$s</label>%6$s</th><td><select name="%1$s[]" id="%1$s" %3$s>%4$s</select></td></tr>',
+		$output =	sprintf( '<tr class="select %5$s"><th scope="row"%7$s><label for="%1$s">%2$s</label>%6$s</th><td><select name="%1$s[]" id="%1$s" %3$s>%4$s</select></td></tr>',
 						$field[ 'id' ],
 						$field[ 'label' ],
 						$attributes,
 						$options_markup,
 						$field[ 'required' ] ? 'required' : '',
-						$field[ 'required' ] ? '<span> *</span>' : ''
+						$field[ 'required' ] ? '<span> *</span>' : '',
+						$hidden
 					);
 
 	}

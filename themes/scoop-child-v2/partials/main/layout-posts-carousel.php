@@ -182,7 +182,7 @@ if ( $title ) {
 include( locate_template( 'partials/main/layout-posts-carousel-posts.php' ) );
 
 $output .=				'<div class="more-posts">' .
-							'<a href="' . get_term_link( $category ) . '"><span>' . __( 'View all', 'scoop-child' ) . '</span></a>' .
+							'<a href="' . get_term_link( $category ) . '"><span>' . __( 'View all', 'kulam-scoop' ) . '</span></a>' .
 						'</div>' .
 					'</div><!-- End of Main Post Carousel #' . $id . ' -->' .
 				'</div>' .

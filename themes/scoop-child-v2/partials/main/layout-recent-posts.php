@@ -90,7 +90,7 @@ if ( ! $posts )
 		</div>
 
 		<div class="more-posts">
-			<a href="<?php echo get_term_link( $category ); ?>"><span><?php _e( 'View all', 'scoop-child' ); ?></span></a>
+			<a href="<?php echo get_term_link( $category ); ?>"><span><?php _e( 'View all', 'kulam-scoop' ); ?></span></a>
 		</div>
 
 	</div>

@@ -1,30 +1,32 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-08-10 11:12+0300\n"
-"PO-Revision-Date: 2020-08-10 13:52+0300\n"
+"POT-Creation-Date: 2020-09-06 12:35+0300\n"
+"PO-Revision-Date: 2020-09-06 12:56+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: .sass-cache\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
 
-#: content/content-grid_three.php:53 loop/single.php:102
+#: content/content-grid_three.php:53 loop/single.php:120
 msgid "No Comments"
 msgstr ""
 
-#: content/content-grid_three.php:53 loop/single.php:102
+#: content/content-grid_three.php:53 loop/single.php:120
 msgid "One Comment"
 msgstr ""
 
-#: content/content-grid_three.php:53 loop/single.php:102
+#: content/content-grid_three.php:53 loop/single.php:120
 msgid "% Comments"
 msgstr ""
 
@@ -56,11 +58,11 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: footer.php:23
+#: footer.php:25
 msgid "All rights reserved"
 msgstr ""
 
-#: footer.php:49
+#: footer.php:53
 msgid "Link has been copied to clipboard. You may share it anywhere"
 msgstr ""
 
@@ -70,7 +72,7 @@ msgid "Site Setup"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:34
-#: functions/acf/acf-field-groups.php:3364
+#: functions/acf/acf-field-groups.php:4647
 msgid "Header/Footer Settings"
 msgstr ""
 
@@ -79,7 +81,7 @@ msgid "Header/Footer"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:41
-#: functions/acf/acf-field-groups.php:3790
+#: functions/acf/acf-field-groups.php:5108
 msgid "Custom Taxonomies Settings"
 msgstr ""
 
@@ -88,25 +90,26 @@ msgid "Custom Taxonomies"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:48
-#: functions/acf/acf-field-groups.php:3878
+#: functions/acf/acf-field-groups.php:5197
 msgid "My Siddur Settings"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:49 functions/menus.php:52
-#: functions/post-types.php:210 functions/shortcodes.php:30 loop/archive.php:19
-#: loop/single.php:20
+#: functions/post-types.php:208 functions/shortcodes.php:30 loop/archive.php:17
+#: loop/single.php:33
 msgid "My Siddur"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:55
-#: functions/acf/acf-field-groups.php:3940
+#: functions/acf/acf-field-groups.php:5260
 msgid "General Settings"
 msgstr ""
 
 #: functions/acf/acf-configuration.php:56
-#: functions/acf/acf-field-groups.php:1990
-#: functions/acf/acf-field-groups.php:2572
-#: functions/acf/acf-field-groups.php:3149
+#: functions/acf/acf-field-groups.php:1271
+#: functions/acf/acf-field-groups.php:3033
+#: functions/acf/acf-field-groups.php:3788
+#: functions/acf/acf-field-groups.php:4432
 msgid "General"
 msgstr ""
 
@@ -227,920 +230,1142 @@ msgstr ""
 msgid "&larr; Back to %s"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:35
+#: functions/acf/acf-field-groups.php:36
 msgid "Homepage"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:39
+#: functions/acf/acf-field-groups.php:40
 msgid "Main Template Layouts"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:54
+#: functions/acf/acf-field-groups.php:55
 msgid "Banner"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:59
+#: functions/acf/acf-field-groups.php:60
 msgid "Slides"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:74
-#| msgid "Add to folder"
+#: functions/acf/acf-field-groups.php:75
 msgid "Add Slide"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:78 functions/acf/acf-field-groups.php:986
-#: functions/acf/acf-field-groups.php:1682
-#: functions/acf/acf-field-groups.php:1697
-#: functions/acf/acf-field-groups.php:2843
-#: functions/acf/acf-field-groups.php:2859
-#: functions/acf/acf-field-groups.php:3204
+#: functions/acf/acf-field-groups.php:79 functions/acf/acf-field-groups.php:787
+#: functions/acf/acf-field-groups.php:903
+#: functions/acf/acf-field-groups.php:918
+#: functions/acf/acf-field-groups.php:1596
+#: functions/acf/acf-field-groups.php:1714
+#: functions/acf/acf-field-groups.php:2034
+#: functions/acf/acf-field-groups.php:2729
+#: functions/acf/acf-field-groups.php:2744
+#: functions/acf/acf-field-groups.php:4130
+#: functions/acf/acf-field-groups.php:4146
+#: functions/acf/acf-field-groups.php:4487
+#: functions/acf/acf-field-groups.php:5873
 msgid "Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:99 functions/acf/acf-field-groups.php:536
+#: functions/acf/acf-field-groups.php:100
+#: functions/acf/acf-field-groups.php:519
 msgid "Title Font Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:114
-#: functions/acf/acf-field-groups.php:294
+#: functions/acf/acf-field-groups.php:115
+#: functions/acf/acf-field-groups.php:322
 msgid "Override Defaults"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:117
-#: functions/acf/acf-field-groups.php:297
+#: functions/acf/acf-field-groups.php:118
+#: functions/acf/acf-field-groups.php:325
 msgid "Override default font attributes for this particular slide"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:133
-#: functions/acf/acf-field-groups.php:551
-#: functions/acf/acf-field-groups.php:1718
-#: functions/acf/acf-field-groups.php:1877
-#: functions/acf/acf-field-groups.php:2880
-#: functions/acf/acf-field-groups.php:3038
-#: functions/acf/acf-field-groups.php:4169
+#: functions/acf/acf-field-groups.php:134
+#: functions/acf/acf-field-groups.php:534
+#: functions/acf/acf-field-groups.php:939
+#: functions/acf/acf-field-groups.php:1160
+#: functions/acf/acf-field-groups.php:2765
+#: functions/acf/acf-field-groups.php:2922
+#: functions/acf/acf-field-groups.php:4167
+#: functions/acf/acf-field-groups.php:4323
+#: functions/acf/acf-field-groups.php:5489
 msgid "Font Family"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:156
-#: functions/acf/acf-field-groups.php:313
-#: functions/acf/acf-field-groups.php:566
-#: functions/acf/acf-field-groups.php:661
-#: functions/acf/acf-field-groups.php:1733
-#: functions/acf/acf-field-groups.php:1892
-#: functions/acf/acf-field-groups.php:2895
-#: functions/acf/acf-field-groups.php:3053
-#: functions/acf/acf-field-groups.php:4184
-msgid "Font Size"
+#: functions/acf/acf-field-groups.php:157
+#: functions/acf/acf-field-groups.php:549
+msgid "Font Size (Desktop)"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:185
-#: functions/acf/acf-field-groups.php:342
-#: functions/acf/acf-field-groups.php:587
-#: functions/acf/acf-field-groups.php:682
-#: functions/acf/acf-field-groups.php:1754
-#: functions/acf/acf-field-groups.php:1913
-#: functions/acf/acf-field-groups.php:2916
-#: functions/acf/acf-field-groups.php:3074
-msgid "Font Weight"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:205
-#: functions/acf/acf-field-groups.php:362
-#: functions/acf/acf-field-groups.php:599
-#: functions/acf/acf-field-groups.php:694
-#: functions/acf/acf-field-groups.php:1766
-#: functions/acf/acf-field-groups.php:1925
-#: functions/acf/acf-field-groups.php:2928
-#: functions/acf/acf-field-groups.php:3086
-msgid "Normal"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:206
-#: functions/acf/acf-field-groups.php:363
-#: functions/acf/acf-field-groups.php:600
-#: functions/acf/acf-field-groups.php:695
-#: functions/acf/acf-field-groups.php:1767
-#: functions/acf/acf-field-groups.php:1926
-#: functions/acf/acf-field-groups.php:2929
-#: functions/acf/acf-field-groups.php:3087
-msgid "Bold"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:207
-#: functions/acf/acf-field-groups.php:364
-#: functions/acf/acf-field-groups.php:601
-#: functions/acf/acf-field-groups.php:696
-#: functions/acf/acf-field-groups.php:1768
-#: functions/acf/acf-field-groups.php:1927
-#: functions/acf/acf-field-groups.php:2930
-#: functions/acf/acf-field-groups.php:3088
-msgid "100"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:208
-#: functions/acf/acf-field-groups.php:365
-#: functions/acf/acf-field-groups.php:602
-#: functions/acf/acf-field-groups.php:697
-#: functions/acf/acf-field-groups.php:1769
-#: functions/acf/acf-field-groups.php:1928
-#: functions/acf/acf-field-groups.php:2931
-#: functions/acf/acf-field-groups.php:3089
-msgid "200"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:209
-#: functions/acf/acf-field-groups.php:366
-#: functions/acf/acf-field-groups.php:603
-#: functions/acf/acf-field-groups.php:698
-#: functions/acf/acf-field-groups.php:1770
-#: functions/acf/acf-field-groups.php:1929
-#: functions/acf/acf-field-groups.php:2932
-#: functions/acf/acf-field-groups.php:3090
-msgid "300"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:210
-#: functions/acf/acf-field-groups.php:367
-#: functions/acf/acf-field-groups.php:604
-#: functions/acf/acf-field-groups.php:699
-#: functions/acf/acf-field-groups.php:1771
-#: functions/acf/acf-field-groups.php:1930
-#: functions/acf/acf-field-groups.php:2933
-#: functions/acf/acf-field-groups.php:3091
-msgid "400"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:211
-#: functions/acf/acf-field-groups.php:368
-#: functions/acf/acf-field-groups.php:605
-#: functions/acf/acf-field-groups.php:700
-#: functions/acf/acf-field-groups.php:1772
-#: functions/acf/acf-field-groups.php:1931
-#: functions/acf/acf-field-groups.php:2934
-#: functions/acf/acf-field-groups.php:3092
-msgid "500"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:212
-#: functions/acf/acf-field-groups.php:369
-#: functions/acf/acf-field-groups.php:606
-#: functions/acf/acf-field-groups.php:701
-#: functions/acf/acf-field-groups.php:1773
-#: functions/acf/acf-field-groups.php:1932
-#: functions/acf/acf-field-groups.php:2935
-#: functions/acf/acf-field-groups.php:3093
-msgid "600"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:213
-#: functions/acf/acf-field-groups.php:370
-#: functions/acf/acf-field-groups.php:607
-#: functions/acf/acf-field-groups.php:702
-#: functions/acf/acf-field-groups.php:1774
-#: functions/acf/acf-field-groups.php:1933
-#: functions/acf/acf-field-groups.php:2936
-#: functions/acf/acf-field-groups.php:3094
-msgid "700"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:214
-#: functions/acf/acf-field-groups.php:371
-#: functions/acf/acf-field-groups.php:608
-#: functions/acf/acf-field-groups.php:703
-#: functions/acf/acf-field-groups.php:1775
-#: functions/acf/acf-field-groups.php:1934
-#: functions/acf/acf-field-groups.php:2937
-#: functions/acf/acf-field-groups.php:3095
-msgid "800"
+#: functions/acf/acf-field-groups.php:186
+#: functions/acf/acf-field-groups.php:570
+msgid "Font Size (Mobile)"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:215
-#: functions/acf/acf-field-groups.php:372
+#: functions/acf/acf-field-groups.php:370
+#: functions/acf/acf-field-groups.php:591
+#: functions/acf/acf-field-groups.php:684
+#: functions/acf/acf-field-groups.php:975
+#: functions/acf/acf-field-groups.php:1196
+#: functions/acf/acf-field-groups.php:2801
+#: functions/acf/acf-field-groups.php:2958
+#: functions/acf/acf-field-groups.php:4203
+#: functions/acf/acf-field-groups.php:4359
+msgid "Font Weight"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:235
+#: functions/acf/acf-field-groups.php:390
+#: functions/acf/acf-field-groups.php:603
+#: functions/acf/acf-field-groups.php:696
+#: functions/acf/acf-field-groups.php:987
+#: functions/acf/acf-field-groups.php:1208
+#: functions/acf/acf-field-groups.php:2813
+#: functions/acf/acf-field-groups.php:2970
+#: functions/acf/acf-field-groups.php:4215
+#: functions/acf/acf-field-groups.php:4371
+msgid "Normal"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:236
+#: functions/acf/acf-field-groups.php:391
+#: functions/acf/acf-field-groups.php:604
+#: functions/acf/acf-field-groups.php:697
+#: functions/acf/acf-field-groups.php:988
+#: functions/acf/acf-field-groups.php:1209
+#: functions/acf/acf-field-groups.php:2814
+#: functions/acf/acf-field-groups.php:2971
+#: functions/acf/acf-field-groups.php:4216
+#: functions/acf/acf-field-groups.php:4372
+msgid "Bold"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:237
+#: functions/acf/acf-field-groups.php:392
+#: functions/acf/acf-field-groups.php:605
+#: functions/acf/acf-field-groups.php:698
+#: functions/acf/acf-field-groups.php:989
+#: functions/acf/acf-field-groups.php:1210
+#: functions/acf/acf-field-groups.php:2815
+#: functions/acf/acf-field-groups.php:2972
+#: functions/acf/acf-field-groups.php:4217
+#: functions/acf/acf-field-groups.php:4373
+msgid "100"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:238
+#: functions/acf/acf-field-groups.php:393
+#: functions/acf/acf-field-groups.php:606
+#: functions/acf/acf-field-groups.php:699
+#: functions/acf/acf-field-groups.php:990
+#: functions/acf/acf-field-groups.php:1211
+#: functions/acf/acf-field-groups.php:2816
+#: functions/acf/acf-field-groups.php:2973
+#: functions/acf/acf-field-groups.php:4218
+#: functions/acf/acf-field-groups.php:4374
+msgid "200"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:239
+#: functions/acf/acf-field-groups.php:394
+#: functions/acf/acf-field-groups.php:607
+#: functions/acf/acf-field-groups.php:700
+#: functions/acf/acf-field-groups.php:991
+#: functions/acf/acf-field-groups.php:1212
+#: functions/acf/acf-field-groups.php:2817
+#: functions/acf/acf-field-groups.php:2974
+#: functions/acf/acf-field-groups.php:4219
+#: functions/acf/acf-field-groups.php:4375
+msgid "300"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:240
+#: functions/acf/acf-field-groups.php:395
+#: functions/acf/acf-field-groups.php:608
+#: functions/acf/acf-field-groups.php:701
+#: functions/acf/acf-field-groups.php:992
+#: functions/acf/acf-field-groups.php:1213
+#: functions/acf/acf-field-groups.php:2818
+#: functions/acf/acf-field-groups.php:2975
+#: functions/acf/acf-field-groups.php:4220
+#: functions/acf/acf-field-groups.php:4376
+msgid "400"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:241
+#: functions/acf/acf-field-groups.php:396
 #: functions/acf/acf-field-groups.php:609
+#: functions/acf/acf-field-groups.php:702
+#: functions/acf/acf-field-groups.php:993
+#: functions/acf/acf-field-groups.php:1214
+#: functions/acf/acf-field-groups.php:2819
+#: functions/acf/acf-field-groups.php:2976
+#: functions/acf/acf-field-groups.php:4221
+#: functions/acf/acf-field-groups.php:4377
+msgid "500"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:242
+#: functions/acf/acf-field-groups.php:397
+#: functions/acf/acf-field-groups.php:610
+#: functions/acf/acf-field-groups.php:703
+#: functions/acf/acf-field-groups.php:994
+#: functions/acf/acf-field-groups.php:1215
+#: functions/acf/acf-field-groups.php:2820
+#: functions/acf/acf-field-groups.php:2977
+#: functions/acf/acf-field-groups.php:4222
+#: functions/acf/acf-field-groups.php:4378
+msgid "600"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:243
+#: functions/acf/acf-field-groups.php:398
+#: functions/acf/acf-field-groups.php:611
 #: functions/acf/acf-field-groups.php:704
-#: functions/acf/acf-field-groups.php:1776
-#: functions/acf/acf-field-groups.php:1935
-#: functions/acf/acf-field-groups.php:2938
-#: functions/acf/acf-field-groups.php:3096
+#: functions/acf/acf-field-groups.php:995
+#: functions/acf/acf-field-groups.php:1216
+#: functions/acf/acf-field-groups.php:2821
+#: functions/acf/acf-field-groups.php:2978
+#: functions/acf/acf-field-groups.php:4223
+#: functions/acf/acf-field-groups.php:4379
+msgid "700"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:244
+#: functions/acf/acf-field-groups.php:399
+#: functions/acf/acf-field-groups.php:612
+#: functions/acf/acf-field-groups.php:705
+#: functions/acf/acf-field-groups.php:996
+#: functions/acf/acf-field-groups.php:1217
+#: functions/acf/acf-field-groups.php:2822
+#: functions/acf/acf-field-groups.php:2979
+#: functions/acf/acf-field-groups.php:4224
+#: functions/acf/acf-field-groups.php:4380
+msgid "800"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:245
+#: functions/acf/acf-field-groups.php:400
+#: functions/acf/acf-field-groups.php:613
+#: functions/acf/acf-field-groups.php:706
+#: functions/acf/acf-field-groups.php:997
+#: functions/acf/acf-field-groups.php:1218
+#: functions/acf/acf-field-groups.php:2823
+#: functions/acf/acf-field-groups.php:2980
+#: functions/acf/acf-field-groups.php:4225
+#: functions/acf/acf-field-groups.php:4381
 msgid "900"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:229
-#: functions/acf/acf-field-groups.php:623
+#: functions/acf/acf-field-groups.php:257
+#: functions/acf/acf-field-groups.php:625
 msgid "Top Margin"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:260
-#| msgid "Folder description"
+#: functions/acf/acf-field-groups.php:288
 msgid "Short Description"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:279
-#: functions/acf/acf-field-groups.php:646
-#| msgid "Folder description"
+#: functions/acf/acf-field-groups.php:307
+#: functions/acf/acf-field-groups.php:648
 msgid "Short Description Font Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:384
-#: functions/acf/acf-field-groups.php:716
-#: functions/acf/acf-field-groups.php:4138
+#: functions/acf/acf-field-groups.php:341
+#: functions/acf/acf-field-groups.php:663
+#: functions/acf/acf-field-groups.php:954
+#: functions/acf/acf-field-groups.php:1175
+#: functions/acf/acf-field-groups.php:2780
+#: functions/acf/acf-field-groups.php:2937
+#: functions/acf/acf-field-groups.php:4182
+#: functions/acf/acf-field-groups.php:4338
+#: functions/acf/acf-field-groups.php:5504
+msgid "Font Size"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:412
+#: functions/acf/acf-field-groups.php:718
+#: functions/acf/acf-field-groups.php:5458
 msgid "Font Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:409
-#: functions/acf/acf-field-groups.php:3242
-#| msgid "Folder description"
-msgid "Description"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:428
-#: functions/acf/acf-field-groups.php:846
-#: functions/acf/acf-field-groups.php:1005
-#: functions/acf/acf-field-groups.php:1844
-#: functions/acf/acf-field-groups.php:3006
-#: functions/acf/acf-field-groups.php:3720
+#: functions/acf/acf-field-groups.php:437
+#: functions/acf/acf-field-groups.php:1063
+#: functions/acf/acf-field-groups.php:1896
+#: functions/acf/acf-field-groups.php:2053
+#: functions/acf/acf-field-groups.php:2889
+#: functions/acf/acf-field-groups.php:3466
+#: functions/acf/acf-field-groups.php:4291
+#: functions/acf/acf-field-groups.php:5040
 msgid "Link"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:444
-#| msgid "Link to share"
+#: functions/acf/acf-field-groups.php:453
 msgid "Link Target"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:456
-#: functions/acf/acf-field-groups.php:874
-#: functions/acf/acf-field-groups.php:1033
-#: functions/acf/acf-field-groups.php:3753
+#: functions/acf/acf-field-groups.php:465
+#: functions/acf/acf-field-groups.php:1924
+#: functions/acf/acf-field-groups.php:2081
+#: functions/acf/acf-field-groups.php:5073
 msgid "Same window"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:457
-#: functions/acf/acf-field-groups.php:875
-#: functions/acf/acf-field-groups.php:1034
-#: functions/acf/acf-field-groups.php:3754
+#: functions/acf/acf-field-groups.php:466
+#: functions/acf/acf-field-groups.php:1925
+#: functions/acf/acf-field-groups.php:2082
+#: functions/acf/acf-field-groups.php:5074
 msgid "New window"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:471
+#: functions/acf/acf-field-groups.php:478
 msgid "Text Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:486
-#: functions/acf/acf-field-groups.php:1820
-#: functions/acf/acf-field-groups.php:1964
-#: functions/acf/acf-field-groups.php:2588
-#: functions/acf/acf-field-groups.php:2982
-#: functions/acf/acf-field-groups.php:3125
-msgid "Background Image"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:489
-#: functions/acf/acf-field-groups.php:513
-msgid "Image dimensions: 767x577 (px)"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:510
-#: functions/acf/acf-field-groups.php:889
-#: functions/acf/acf-field-groups.php:1048
-#: functions/acf/acf-field-groups.php:2497
+#: functions/acf/acf-field-groups.php:493
+#: functions/acf/acf-field-groups.php:1591
+#: functions/acf/acf-field-groups.php:1638
+#: functions/acf/acf-field-groups.php:1937
+#: functions/acf/acf-field-groups.php:2094
+#: functions/acf/acf-field-groups.php:3482
+#: functions/acf/acf-field-groups.php:3713
 msgid "Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:539
+#: functions/acf/acf-field-groups.php:496
+msgid "Image dimensions: 1177x779 (px)"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:522
 msgid ""
 "Default font attributes for slides titles. These attributes may be "
 "overridden in a slide level"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:649
+#: functions/acf/acf-field-groups.php:651
 msgid ""
 "Default font attributes for slides sub titles (short description). These "
 "attributes may be overridden in a slide level"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:733
-#: functions/acf/acf-field-groups.php:915
-#: functions/acf/acf-field-groups.php:1192
+#: functions/acf/acf-field-groups.php:735
+#: functions/acf/acf-field-groups.php:851
+#: functions/acf/acf-field-groups.php:1544
+#: functions/acf/acf-field-groups.php:1662
+#: functions/acf/acf-field-groups.php:1783
+#: functions/acf/acf-field-groups.php:1963
+#: functions/acf/acf-field-groups.php:2238
 msgid "Top Padding"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:754
-#: functions/acf/acf-field-groups.php:936
-#: functions/acf/acf-field-groups.php:1213
+#: functions/acf/acf-field-groups.php:756
+#: functions/acf/acf-field-groups.php:872
+#: functions/acf/acf-field-groups.php:1565
+#: functions/acf/acf-field-groups.php:1683
+#: functions/acf/acf-field-groups.php:1804
+#: functions/acf/acf-field-groups.php:1984
+#: functions/acf/acf-field-groups.php:2259
 msgid "Bottom Padding"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:780
-msgid "Links Strip"
+#: functions/acf/acf-field-groups.php:782
+msgid "Recent Posts"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:785
-#: functions/acf/acf-field-groups.php:967
-#: functions/acf/acf-field-groups.php:3680
-msgid "Links"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:800
-#: functions/acf/acf-field-groups.php:982
-#| msgid "Add to "
-msgid "Add Link"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:804
-msgid "Main Title"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:825
+#: functions/acf/acf-field-groups.php:808
+#: functions/acf/acf-field-groups.php:1081
+#: functions/acf/acf-field-groups.php:1617
+#: functions/acf/acf-field-groups.php:1735
+#: functions/acf/acf-field-groups.php:1875
+#: functions/acf/acf-field-groups.php:3424
 msgid "Sub Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:862
-#: functions/acf/acf-field-groups.php:1021
-#: functions/acf/acf-field-groups.php:3741
-msgid "Target"
+#: functions/acf/acf-field-groups.php:829
+#: functions/acf/acf-field-groups.php:1102
+#, fuzzy
+#| msgid "Choose Category"
+msgid "Posts Category"
+msgstr "Choisissez la catégorie"
+
+#: functions/acf/acf-field-groups.php:898
+msgid "Posts Carousel"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:962
-msgid "Links Boxes"
+#: functions/acf/acf-field-groups.php:1009
+#: functions/acf/acf-field-groups.php:1230
+#: functions/acf/acf-field-groups.php:2835
+#: functions/acf/acf-field-groups.php:2992
+#: functions/acf/acf-field-groups.php:4237
+#: functions/acf/acf-field-groups.php:4393
+#: functions/acf/acf-field-groups.php:5525
+msgid "Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1051
-msgid "Image dimensions: 767x530 (px)"
+#: functions/acf/acf-field-groups.php:1024
+#: functions/acf/acf-field-groups.php:2850
+#: functions/acf/acf-field-groups.php:4252
+msgid "Background Color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1072
-msgid "Left Margin"
+#: functions/acf/acf-field-groups.php:1039
+#: functions/acf/acf-field-groups.php:1245
+#: functions/acf/acf-field-groups.php:2865
+#: functions/acf/acf-field-groups.php:3007
+#: functions/acf/acf-field-groups.php:4267
+#: functions/acf/acf-field-groups.php:4408
+msgid "Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1087
-#: functions/acf/acf-field-groups.php:1146
-msgid "Desktop"
+#: functions/acf/acf-field-groups.php:1124
+#: functions/acf/acf-field-groups.php:2708
+msgid "Number of Posts"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1108
-#: functions/acf/acf-field-groups.php:1167
-msgid "Mobile"
+#: functions/acf/acf-field-groups.php:1127
+#: functions/acf/acf-field-groups.php:2711
+msgid "Select 0 to show all posts"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1131
-msgid "Right Margin"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1237
-msgid "Add Layout"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1263
-msgid "ACF Front-End Form"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1267
-#: functions/acf/acf-field-groups.php:1278
-msgid "Display Front-End Form"
+#: functions/acf/acf-field-groups.php:1145
+#: functions/acf/acf-field-groups.php:2907
+#: functions/acf/acf-field-groups.php:4307
+msgid "Slide Title"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:1286
+#: functions/acf/acf-field-groups.php:3048
+#: functions/acf/acf-field-groups.php:4448
+#: functions/acf/acf-field-groups.php:4544
+msgid "Scheme Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1303
+#: functions/acf/acf-field-groups.php:3065
+msgid "Carousel Options"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1318
+#: functions/acf/acf-field-groups.php:3080
+msgid "Slide Width"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1339
+#: functions/acf/acf-field-groups.php:3122
+msgid "Slide Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1360
+#: functions/acf/acf-field-groups.php:3143
+msgid "Minimum Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1381
+#: functions/acf/acf-field-groups.php:3164
+msgid "Maximum Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1402
+#: functions/acf/acf-field-groups.php:3185
+msgid "Move Slides"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1423
+#: functions/acf/acf-field-groups.php:3206
+msgid "Navigation"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1435
+#: functions/acf/acf-field-groups.php:3218
+msgid "Arrows"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1436
+#: functions/acf/acf-field-groups.php:3219
+msgid "Bullets"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1437
+#: functions/acf/acf-field-groups.php:3220
+msgid "Both"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1438
+#: functions/acf/acf-field-groups.php:3221
+msgid "None"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1450
+#: functions/acf/acf-field-groups.php:3233
+msgid "Transition Speed"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1471
+#: functions/acf/acf-field-groups.php:3254
+msgid "Slide Duration"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1492
+#: functions/acf/acf-field-groups.php:3275
+msgid "Auto Play"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1504
+#: functions/acf/acf-field-groups.php:1529
+#: functions/acf/acf-field-groups.php:3287
+#: functions/acf/acf-field-groups.php:3312
+msgid "On"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1505
+#: functions/acf/acf-field-groups.php:1530
+#: functions/acf/acf-field-groups.php:3288
+#: functions/acf/acf-field-groups.php:3313
+msgid "Off"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1517
+#: functions/acf/acf-field-groups.php:3300
+msgid "Auto Pause Hover"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1641
+msgid "Image width: 1490px"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1709
+msgid "Image Gallery"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1756
+#: functions/acf/acf-field-groups.php:5540 functions/post-types.php:80
+msgid "Gallery"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1830
+msgid "Links Strip"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1835
+#: functions/acf/acf-field-groups.php:2015
+#: functions/acf/acf-field-groups.php:5000
+msgid "Links"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1850
+#: functions/acf/acf-field-groups.php:2030
+msgid "Add Link"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1854
+#: functions/acf/acf-field-groups.php:3403
+msgid "Main Title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:1912
+#: functions/acf/acf-field-groups.php:2069
+#: functions/acf/acf-field-groups.php:5061
+msgid "Target"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2010
+#: functions/acf/acf-field-groups.php:3356
+#: functions/acf/acf-field-groups.php:3360
+msgid "Links Boxes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2097
+msgid "Image dimensions: 767x530 (px)"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2118
+msgid "Left Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2133
+#: functions/acf/acf-field-groups.php:2192
+msgid "Desktop"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2154
+#: functions/acf/acf-field-groups.php:2213
+msgid "Mobile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2177
+msgid "Right Margin"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2283
+msgid "Add Layout"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2309
+msgid "ACF Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2313
+#: functions/acf/acf-field-groups.php:2324
+msgid "Display Front-End Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:2332
 msgid "ACF Form"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1306
+#: functions/acf/acf-field-groups.php:2352
 msgid "upload"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1307
+#: functions/acf/acf-field-groups.php:2353
 msgid "user_profile"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1320
+#: functions/acf/acf-field-groups.php:2365
 msgid "Form Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1347
+#: functions/acf/acf-field-groups.php:2392
 msgid "Form Content Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1374
+#: functions/acf/acf-field-groups.php:2419
 msgid "Form Category Title"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1421
-#: functions/acf/acf-field-groups.php:4153
+#: functions/acf/acf-field-groups.php:2467
+#: functions/acf/acf-field-groups.php:5473
 msgid "Questions & Answers"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1425
+#: functions/acf/acf-field-groups.php:2471
 msgid "Q&A Blocks"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1440
+#: functions/acf/acf-field-groups.php:2486
 msgid "Add Q&A Block"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1444
-#: functions/acf/acf-field-groups.php:1596
+#: functions/acf/acf-field-groups.php:2490
+#: functions/acf/acf-field-groups.php:2643
 msgid "ID"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1447
+#: functions/acf/acf-field-groups.php:2493
 msgid "Use this field as a slug for your shortcode, e.g. [kulam_qna id=ID]"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1463
-#: functions/acf/acf-field-groups.php:1617
-#: functions/acf/acf-field-groups.php:2806
-#: functions/acf/acf-field-groups.php:2822
+#: functions/acf/acf-field-groups.php:2509
+#: functions/acf/acf-field-groups.php:2664
+#: functions/acf/acf-field-groups.php:4093
+#: functions/acf/acf-field-groups.php:4109
 msgid "Shortcode"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1466
-#: functions/acf/acf-field-groups.php:1620
+#: functions/acf/acf-field-groups.php:2512
+#: functions/acf/acf-field-groups.php:2667
 msgid ""
 "Auto generated after post save/update.\n"
 "Copy and paste this code into your post editor"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1485
+#: functions/acf/acf-field-groups.php:2531
 msgid "Questions"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1500
-#| msgid "Add to "
+#: functions/acf/acf-field-groups.php:2546
 msgid "Add Question"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1504
-#| msgid "Registration"
+#: functions/acf/acf-field-groups.php:2550
 msgid "Question"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1523
+#: functions/acf/acf-field-groups.php:2569
 msgid "Answer"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1573
+#: functions/acf/acf-field-groups.php:2620
 msgid "Posts Carousels"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1577
+#: functions/acf/acf-field-groups.php:2624
 msgid "Carousels"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1592
+#: functions/acf/acf-field-groups.php:2639
 msgid "Add Carousel"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1599
+#: functions/acf/acf-field-groups.php:2646
 msgid "Use this field as a slug for your shortcode, e.g. [kulam_pc id=ID]"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1639
+#: functions/acf/acf-field-groups.php:2686
 msgid "Posts Categories"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:1661
-msgid "Number of Posts"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1664
-msgid "Select 0 to show all posts"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1790
-#: functions/acf/acf-field-groups.php:1949
-#: functions/acf/acf-field-groups.php:2952
-#: functions/acf/acf-field-groups.php:3110
-#: functions/acf/acf-field-groups.php:4205
-msgid "Color"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1805
-#: functions/acf/acf-field-groups.php:2967
-msgid "Background Color"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:1862
-#: functions/acf/acf-field-groups.php:3022
-msgid "Slide Title"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2005
-#: functions/acf/acf-field-groups.php:3165
-#: functions/acf/acf-field-groups.php:3261
-msgid "Scheme Color"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2022
-msgid "Carousel Options"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2037
-msgid "Slide Width"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2058
+#: functions/acf/acf-field-groups.php:3101
 msgid "Slide Height"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2079
-msgid "Slide Margin"
+#: functions/acf/acf-field-groups.php:3363
+msgid "Copy and paste this code into your post editor: [kulam_link_boxes]"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2100
-msgid "Minimum Slides"
+#: functions/acf/acf-field-groups.php:3375
+msgid "Add Link Box"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2121
-msgid "Maximum Slides"
+#: functions/acf/acf-field-groups.php:3379
+#: functions/acf/acf-field-groups.php:5019
+msgid "Icon"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2142
-#| msgid "Add to folder"
-msgid "Move Slides"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2163
-msgid "Navigation"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2175
-msgid "Arrows"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2176
-msgid "Bullets"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2177
-msgid "Both"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2178
-msgid "None"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2192
-msgid "Transition Speed"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2213
-msgid "Slide Duration"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2234
-msgid "Auto Play"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2246
-#: functions/acf/acf-field-groups.php:2273
-msgid "On"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2247
-#: functions/acf/acf-field-groups.php:2274
-msgid "Off"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2261
-msgid "Auto Pause Hover"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2319
-msgid "Ratings"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2323
-msgid "דירוג"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2342
-msgid "שם דירוג"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2363
-msgid "ratings"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2382
-msgid "rating name"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2423
-#: functions/acf/acf-field-groups.php:4028
-msgid "Category Attributes"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2427
-#: functions/acf/acf-field-groups.php:2443
-msgid "Google Map"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2461
-msgid "Map Zoom"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2481
-msgid "Popup"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2521
+#: functions/acf/acf-field-groups.php:3445
+#: functions/acf/acf-field-groups.php:3737
 msgid "Button Text"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2542
-msgid "Button Text Color"
+#: functions/acf/acf-field-groups.php:3485
+msgid "Image Dimensions: 730x650(px)"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:2557
-msgid "Button Background Color"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2612
-msgid "Content"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2628 functions/post-types.php:146
-#: functions/post-types.php:148 functions/post-types.php:169
-msgid "Post Types"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2631
-msgid "Leave this field empty to display default Post Types"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2670
-msgid "Post Attributes"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2674
-#| msgid "Show less"
-msgid "Show Filters"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2713
-msgid "User Information"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2717
-msgid "Profile"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2720
-msgid "Tell us something about yourself!"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2736
-msgid "Gender"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2748
-msgid "Female"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2749
-msgid "Male"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2760
-msgid "Date of Birth"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:2802
-msgid "Slideshow Attributes"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3200 functions/post-types.php:95
-msgid "Gallery Attributes"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3225
-#: functions/acf/acf-field-groups.php:3327
-msgid "Date"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3276
-msgid "Images"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3323
-msgid "Attachment Attributes"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3368
-#| msgid "Search"
-msgid "Search Form"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3384
-#| msgid "Search Post Types"
-msgid "Search Form Type"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3396
-msgid "Minimalist"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3397
-msgid "Exposed"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3411
-msgid "Search Input Placeholder"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3430 partials/search.php:52
-msgid "Advanced Search"
-msgstr "Recherche Avancée"
-
-#: functions/acf/acf-field-groups.php:3449
-msgid "Categories Field Label"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3478
-#| msgid "Search Audiences"
-msgid "Search by Categories"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3508
-msgid "Search by Taxonomy Filters"
+#: functions/acf/acf-field-groups.php:3535
+msgid "Ratings"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:3539
+msgid "דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3558
+msgid "שם דירוג"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3579
+msgid "ratings"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3598
+msgid "rating name"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3639
+#: functions/acf/acf-field-groups.php:5348
+msgid "Category Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3643
+#: functions/acf/acf-field-groups.php:3659
+msgid "Google Map"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3677
+msgid "Map Zoom"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3697
+msgid "Popup"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3758
+msgid "Button Text Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3773
+msgid "Button Background Color"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3804
+msgid "Category Icon"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3807
+msgid "This icon will be displayed as a background for the category title"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3828
+msgid "Filters"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3831
+msgid ""
+"Category taxonomy will be included by default as the first filter.\n"
+"In case it will be manually chosen, its order will be setup accordingly"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3852
+msgid "Categories Filter Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3873
+msgid "Content"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3889 functions/post-types.php:144
+#: functions/post-types.php:146 functions/post-types.php:167
+msgid "Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3892
+msgid "Leave this field empty to display default Post Types"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3931
+msgid "Post Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3935
+msgid "Show Filters"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3954
+msgid "Restrict Post"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3966
+msgid "Members only"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3967
+msgid "Logged in Users"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:3968
+msgid "Public"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4000
+msgid "User Information"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4004
+msgid "Profile"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4007
+msgid "Tell us something about yourself!"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4023
+msgid "Gender"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4035
+msgid "Female"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4036
+msgid "Male"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4047
+msgid "Date of Birth"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4089
+msgid "Slideshow Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4483 functions/post-types.php:93
+msgid "Gallery Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4508
+#: functions/acf/acf-field-groups.php:4610
+msgid "Date"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4525
+msgid "Description"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4559
+msgid "Images"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4606
+msgid "Attachment Attributes"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4651
+#: includes/class-pojo-child-customize-register-fields.php:19
+msgid "Logo"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4667
+msgid "Header Logo"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4691
+msgid "Footer Logo"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4715
+msgid "Search Form"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4731
+msgid "Search Input Placeholder"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4750 partials/search.php:52
+msgid "Advanced Search"
+msgstr "Recherche Avancée"
+
+#: functions/acf/acf-field-groups.php:4769
+msgid "Categories Field Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4798
+msgid "Search by Categories"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4828
+msgid "Search by Taxonomy Filters"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:4859
 msgid "Contact Details"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3555 functions/modal-registration.php:45
+#: functions/acf/acf-field-groups.php:4875
+#: functions/modals/modal-registration.php:43
 #: functions/widgets/contact-details/contact-details.php:113
+#: page-templates/register.php:60
 msgid "Email"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3573
+#: functions/acf/acf-field-groups.php:4893
 #: functions/widgets/contact-details/contact-details.php:114
 msgid "Address"
 msgstr "Adresse"
 
-#: functions/acf/acf-field-groups.php:3594
+#: functions/acf/acf-field-groups.php:4914
 #: functions/widgets/contact-details/contact-details.php:115
 msgid "Phone"
 msgstr "Téléphone"
 
-#: functions/acf/acf-field-groups.php:3615
+#: functions/acf/acf-field-groups.php:4935
 msgid "Social Networks"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3630
+#: functions/acf/acf-field-groups.php:4950
 msgid "Youtube"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3646 loop/single.php:160
+#: functions/acf/acf-field-groups.php:4966 loop/single.php:178
 msgid "Facebook"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3662
+#: functions/acf/acf-field-groups.php:4982
 msgid "Instagram"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3699
-msgid "Icon"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:3702
+#: functions/acf/acf-field-groups.php:5022
 msgid "Select icon from https://developer.wordpress.org/resource/dashicons/"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3794
+#: functions/acf/acf-field-groups.php:5112
 msgid "Custom Taxonomies Generator"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3797
+#: functions/acf/acf-field-groups.php:5115
 msgid ""
 "Add/remove/update custom taxonomies.\n"
 "In case of WPML based website, This field should be defined globally for "
 "default language only"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3810
+#: functions/acf/acf-field-groups.php:5128
 msgid "Add Custom Taxonomy"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3814
+#: functions/acf/acf-field-groups.php:5132
 msgid "Name"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3835
+#: functions/acf/acf-field-groups.php:5153
 msgid "Singular Name"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3882
+#: functions/acf/acf-field-groups.php:5201
 msgid "Custom Label"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3901
+#: functions/acf/acf-field-groups.php:5220
 msgid "Activate Module"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3944
+#: functions/acf/acf-field-groups.php:5264
 msgid "Homepage Categories Grid"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3960
+#: functions/acf/acf-field-groups.php:5280
 msgid "Categories in Row"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:3980
+#: functions/acf/acf-field-groups.php:5300
 msgid "My Siddur Tile Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4004
+#: functions/acf/acf-field-groups.php:5324
 msgid "Upload Tile Background Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4044
+#: functions/acf/acf-field-groups.php:5364
 msgid "Category Page Post Types"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4047
+#: functions/acf/acf-field-groups.php:5367
 msgid ""
 "Default selected Post Types to be displayed in a category page.\n"
 "Additional Post Types may be added and re-sorted per each category"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4067
+#: functions/acf/acf-field-groups.php:5387
 msgid "Category Description Toggling"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4086
+#: functions/acf/acf-field-groups.php:5406
 msgid "Google Maps API"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4107
+#: functions/acf/acf-field-groups.php:5427
 msgid "Subcategory Attributes"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4123
+#: functions/acf/acf-field-groups.php:5443
 msgid "Background color"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4220 functions/post-types.php:82
-msgid "Gallery"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:4236
+#: functions/acf/acf-field-groups.php:5556
 msgid "Upload Button Text"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4257
-#| msgid "Upload"
+#: functions/acf/acf-field-groups.php:5577
 msgid "Upload Page"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4278
+#: functions/acf/acf-field-groups.php:5598
 msgid "Social"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4294
+#: functions/acf/acf-field-groups.php:5614
 msgid "Google Analytics Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4297
+#: functions/acf/acf-field-groups.php:5617
 msgid "Code format: UA-XXXXXXXXX-X"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4313
+#: functions/acf/acf-field-groups.php:5633
 msgid "Google Tag Manager Code"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4316
+#: functions/acf/acf-field-groups.php:5636
 msgid "Code format: GTM-XXXXXX"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4332
+#: functions/acf/acf-field-groups.php:5652
+msgid "Login and Registration"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5668
+msgid "Pages"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5683
+#, fuzzy
+#| msgid "Login"
+msgid "Login Page"
+msgstr "Connexion"
+
+#: functions/acf/acf-field-groups.php:5704
+#, fuzzy
+#| msgid "Register"
+msgid "Register Page"
+msgstr "Inscription"
+
+#: functions/acf/acf-field-groups.php:5725
+msgid "Membership Register Page"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5748
+#, fuzzy
+#| msgid "Login"
+msgid "Login Form"
+msgstr "Connexion"
+
+#: functions/acf/acf-field-groups.php:5763
+msgid "Registration Invitation Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5784
+#, fuzzy
+#| msgid "Register Now"
+msgid "Registration Form"
+msgstr "Inscription"
+
+#: functions/acf/acf-field-groups.php:5799
+msgid "Emails Delivery Opt-in Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5818
+msgid "Privacy Policy Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5837
+msgid "Cancelling Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5858
+msgid "Registration Banner"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5892 functions/search.php:38
+#: functions/theme.php:212
+msgid "Text"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5913
+msgid "Buttons"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5928
+msgid "Member Registration"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5949
+msgid "Normal Registration"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5972
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4348
-msgid "Enable Activity Types custom taxonomy"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:4367
-msgid "Enable Audiences custom taxonomy"
-msgstr ""
-
-#: functions/acf/acf-field-groups.php:4386
+#: functions/acf/acf-field-groups.php:5988
 msgid "Strip Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4389
+#: functions/acf/acf-field-groups.php:5991
 msgid ""
 "Default strip which will be displayed in single post, page and category.\n"
 "Image dimensions: 1140x268 (px)"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4431
+#: functions/acf/acf-field-groups.php:6033
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4435
+#: functions/acf/acf-field-groups.php:6037
 msgid "Category"
+msgstr ""
+
+#: functions/htmline-membership.php:95
+msgid "Classes I teach"
 msgstr ""
 
 #: functions/menus.php:22
@@ -1155,352 +1380,226 @@ msgstr ""
 msgid "Footer Menu #02"
 msgstr ""
 
-#: functions/menus.php:77 functions/modal-login.php:34
-#: functions/modal-login.php:52 functions/modal-registration.php:56
-#: header.php:107 header.php:210 partials/acf-form.php:47
+#: functions/modals/modal-category-filter.php:33
+#: partials/category/filters-menu.php:46
+msgid "Reset filter"
+msgstr "Réinitialiser"
+
+#: functions/modals/modal-category-filter.php:46
+msgid "No terms found"
+msgstr ""
+
+#: functions/modals/modal-category-filter.php:48
+msgid "Apply Filters"
+msgstr ""
+
+#: functions/modals/modal-login.php:34 functions/modals/modal-login.php:50
+#: functions/modals/modal-registration.php:54 page-templates/login.php:74
+#: page-templates/register.php:91 partials/acf-form.php:47
 msgid "Login"
 msgstr "Connexion"
 
-#: functions/modal-login.php:40 partials/acf-form.php:46
+#: functions/modals/modal-login.php:38 partials/acf-form.php:46
 msgid ""
 "In order to save / upload posts or view saved content, you must register / "
 "log-in to your account"
 msgstr ""
 
-#: functions/modal-login.php:44 functions/modal-registration.php:44
+#: functions/modals/modal-login.php:42
+#: functions/modals/modal-registration.php:42 page-templates/register.php:59
 msgid "User"
 msgstr ""
 
-#: functions/modal-login.php:45 functions/modal-registration.php:46
+#: functions/modals/modal-login.php:43
+#: functions/modals/modal-registration.php:44 page-templates/login.php:73
+#: page-templates/register.php:61
 msgid "Password"
 msgstr ""
 
-#: functions/modal-login.php:51
+#: functions/modals/modal-login.php:49
 msgid "Register Now"
 msgstr "Inscription"
 
-#: functions/modal-registration.php:36
+#: functions/modals/modal-registration.php:36
 msgid "Registration"
 msgstr ""
 
-#: functions/modal-registration.php:49
+#: functions/modals/modal-registration.php:47 page-templates/register.php:64
 msgid "Please enter the following text in the box below:"
 msgstr ""
 
-#: functions/modal-registration.php:57
+#: functions/modals/modal-registration.php:55 page-templates/register.php:67
 msgid "Register"
 msgstr "Inscription"
 
-#: functions/post-types.php:81 functions/post-types.php:98
+#: functions/post-types.php:79 functions/post-types.php:96
 msgid "Galleries"
 msgstr ""
 
-#: functions/post-types.php:83
-#| msgid "Add to folder"
+#: functions/post-types.php:81
 msgid "Add New"
 msgstr ""
 
-#: functions/post-types.php:84
+#: functions/post-types.php:82
 msgid "Add New Gallery"
 msgstr ""
 
-#: functions/post-types.php:85
+#: functions/post-types.php:83
 msgid "Edit Gallery"
 msgstr ""
 
-#: functions/post-types.php:86
+#: functions/post-types.php:84
 msgid "New Gallery"
 msgstr ""
 
-#: functions/post-types.php:87
-#| msgid "View all posts by"
+#: functions/post-types.php:85
 msgid "View Gallery"
 msgstr ""
 
-#: functions/post-types.php:88
+#: functions/post-types.php:86
 msgid "View Galleries"
 msgstr ""
 
-#: functions/post-types.php:89
-#| msgid "Search Audiences"
+#: functions/post-types.php:87
 msgid "Search Galleries"
 msgstr ""
 
-#: functions/post-types.php:90
-#| msgid "No Audiences found"
+#: functions/post-types.php:88
 msgid "No galleries found"
 msgstr ""
 
-#: functions/post-types.php:91
+#: functions/post-types.php:89
 msgid "No galleries found in Trash"
 msgstr ""
 
-#: functions/post-types.php:92
+#: functions/post-types.php:90
 msgid "Parent Gallery:"
 msgstr ""
 
-#: functions/post-types.php:93
+#: functions/post-types.php:91
 msgid "All Galleries"
 msgstr ""
 
-#: functions/post-types.php:94
-#| msgid "Archive %s"
+#: functions/post-types.php:92
 msgid "Gallery Archives"
 msgstr ""
 
-#: functions/post-types.php:96
+#: functions/post-types.php:94
 msgid "Insert into gallery"
 msgstr ""
 
-#: functions/post-types.php:97
+#: functions/post-types.php:95
 msgid "Uploaded to this gallery"
 msgstr ""
 
-#: functions/post-types.php:99
+#: functions/post-types.php:97
 msgid "Filter galleries list"
 msgstr ""
 
-#: functions/post-types.php:100
+#: functions/post-types.php:98
 msgid "Galleries list navigation"
 msgstr ""
 
-#: functions/post-types.php:101
+#: functions/post-types.php:99
 msgid "Galleries list"
 msgstr ""
 
-#: functions/post-types.php:102
+#: functions/post-types.php:100
 msgid "Gallery published"
 msgstr ""
 
-#: functions/post-types.php:103
+#: functions/post-types.php:101
 msgid "Gallery published privately"
 msgstr ""
 
-#: functions/post-types.php:104
+#: functions/post-types.php:102
 msgid "Gallery reverted to draft"
 msgstr ""
 
-#: functions/post-types.php:105
+#: functions/post-types.php:103
 msgid "Gallery scheduled"
 msgstr ""
 
-#: functions/post-types.php:106
+#: functions/post-types.php:104
 msgid "Gallery updated"
 msgstr ""
 
-#: functions/post-types.php:147
+#: functions/post-types.php:145
 msgid "Post Type"
 msgstr ""
 
-#: functions/post-types.php:149
+#: functions/post-types.php:147
 msgid "All Post Types"
 msgstr ""
 
-#: functions/post-types.php:150
+#: functions/post-types.php:148
 msgid "Edit Post Type"
 msgstr ""
 
-#: functions/post-types.php:151
+#: functions/post-types.php:149
 msgid "View Post Type"
 msgstr ""
 
-#: functions/post-types.php:152
+#: functions/post-types.php:150
 msgid "Update Post Type"
 msgstr ""
 
-#: functions/post-types.php:153
+#: functions/post-types.php:151
 msgid "Add New Post Type"
 msgstr ""
 
-#: functions/post-types.php:154
+#: functions/post-types.php:152
 msgid "New Post Type Name"
 msgstr ""
 
-#: functions/post-types.php:155
+#: functions/post-types.php:153
 msgid "Parent Post Type"
 msgstr ""
 
-#: functions/post-types.php:156
+#: functions/post-types.php:154
 msgid "Parent Post Type:"
 msgstr ""
 
-#: functions/post-types.php:157
+#: functions/post-types.php:155
 msgid "Search Post Types"
 msgstr ""
 
-#: functions/post-types.php:158
+#: functions/post-types.php:156
 msgid "Popular Post Types"
 msgstr ""
 
-#: functions/post-types.php:159
+#: functions/post-types.php:157
 msgid "Separate Post Types with commas"
 msgstr ""
 
-#: functions/post-types.php:160
+#: functions/post-types.php:158
 msgid "Add or remove Post Types"
 msgstr ""
 
-#: functions/post-types.php:161
+#: functions/post-types.php:159
 msgid "Choose from the most used Post Types"
 msgstr ""
 
-#: functions/post-types.php:162
+#: functions/post-types.php:160
 msgid "No Post Types found"
 msgstr ""
 
-#: functions/post-types.php:163
+#: functions/post-types.php:161
 msgid "← Back to Post Types"
 msgstr ""
 
-#: functions/post-types.php:209 functions/post-types.php:216
+#: functions/post-types.php:207 functions/post-types.php:214
 msgid "Siddurim"
 msgstr ""
 
-#: functions/post-types.php:256 functions/post-types.php:258
-#: functions/post-types.php:279
-msgid "Activity Types"
-msgstr ""
-
-#: functions/post-types.php:257
-msgid "Activity Type"
-msgstr ""
-
-#: functions/post-types.php:259
-msgid "All Activity Types"
-msgstr ""
-
-#: functions/post-types.php:260
-msgid "Edit Activity Type"
-msgstr ""
-
-#: functions/post-types.php:261
-msgid "View Activity Type"
-msgstr ""
-
-#: functions/post-types.php:262
-msgid "Update Activity Type"
-msgstr ""
-
-#: functions/post-types.php:263
-msgid "Add New Activity Type"
-msgstr ""
-
-#: functions/post-types.php:264
-msgid "New Activity Type Name"
-msgstr ""
-
-#: functions/post-types.php:265
-msgid "Parent Activity Type"
-msgstr ""
-
-#: functions/post-types.php:266
-msgid "Parent Activity Type:"
-msgstr ""
-
-#: functions/post-types.php:267
-msgid "Search Activity Types"
-msgstr ""
-
-#: functions/post-types.php:268
-msgid "Popular Activity Types"
-msgstr ""
-
-#: functions/post-types.php:269
-msgid "Separate Activity Types with commas"
-msgstr ""
-
-#: functions/post-types.php:270
-msgid "Add or remove Activity Types"
-msgstr ""
-
-#: functions/post-types.php:271
-msgid "Choose from the most used Activity Types"
-msgstr ""
-
-#: functions/post-types.php:272
-msgid "No Activity Types found"
-msgstr ""
-
-#: functions/post-types.php:273
-msgid "← Back to Activity Types"
-msgstr ""
-
-#: functions/post-types.php:317 functions/post-types.php:319
-#: functions/post-types.php:340
-msgid "Audiences"
-msgstr ""
-
-#: functions/post-types.php:318
-msgid "Audience"
-msgstr ""
-
-#: functions/post-types.php:320
-msgid "All Audiences"
-msgstr ""
-
-#: functions/post-types.php:321
-msgid "Edit Audience"
-msgstr ""
-
-#: functions/post-types.php:322
-msgid "View Audience"
-msgstr ""
-
-#: functions/post-types.php:323
-msgid "Update Audience"
-msgstr ""
-
-#: functions/post-types.php:324
-msgid "Add New Audience"
-msgstr ""
-
-#: functions/post-types.php:325
-msgid "New Audience Name"
-msgstr ""
-
-#: functions/post-types.php:326
-msgid "Parent Audience"
-msgstr ""
-
-#: functions/post-types.php:327
-msgid "Parent Audience:"
-msgstr ""
-
-#: functions/post-types.php:328
-msgid "Search Audiences"
-msgstr ""
-
-#: functions/post-types.php:329
-msgid "Popular Audiences"
-msgstr ""
-
-#: functions/post-types.php:330
-msgid "Separate Audiences with commas"
-msgstr ""
-
-#: functions/post-types.php:331
-msgid "Add or remove Audiences"
-msgstr ""
-
-#: functions/post-types.php:332
-msgid "Choose from the most used Audiences"
-msgstr ""
-
-#: functions/post-types.php:333
-msgid "No Audiences found"
-msgstr ""
-
-#: functions/post-types.php:334
-msgid "← Back to Audiences"
-msgstr ""
+#: functions/post.php:68 partials/main/layout-links-boxes-link.php:51
+#: partials/main/layout-posts-carousel-posts.php:67
+msgid "Read more"
+msgstr "Cliquez ici"
 
 #: functions/search.php:30
 msgid "Choose Post Format"
 msgstr "Choisissez le format de l'article"
-
-#: functions/search.php:38 functions/theme.php:212
-msgid "Text"
-msgstr ""
 
 #: functions/search.php:113
 msgid "Choose Category"
@@ -1530,9 +1629,10 @@ msgstr ""
 msgid "Show more"
 msgstr "Montrer plus"
 
-#: functions/shortcodes.php:808
+#: functions/shortcodes.php:808 partials/main/layout-posts-carousel.php:185
+#: partials/main/layout-recent-posts.php:93
 msgid "View all"
-msgstr "Tout voir"
+msgstr "Toutes nos nouveautés"
 
 #: functions/shortcodes.php:809
 msgid "Show less"
@@ -1542,151 +1642,171 @@ msgstr "Montrer moins"
 msgid "READ MORE"
 msgstr "Cliquez ici"
 
-#: header.php:91 header.php:194
-msgid "Toggle navigation"
-msgstr ""
-
-#: header.php:104 header.php:207
-msgid "Logout"
-msgstr "Déconnexion"
-
-#: header.php:142 header.php:245
-#, php-format
-msgid "<a href=\"%s\">Choose Menu</a>"
-msgstr ""
-
 #: includes/class-pojo-child-customize-register-fields.php:11
 msgid "Logo Width"
 msgstr ""
 
-#: includes/class-pojo-child-customize-register-fields.php:19
-msgid "Logo"
-msgstr ""
-
-#: loop/archive.php:64 loop/archive.php:66 loop/archive.php:68
+#: loop/archive.php:63 loop/archive.php:65 loop/archive.php:67
 #, php-format
 msgid "Archive for %s"
 msgstr ""
 
-#: loop/archive.php:66
-#| msgid "F Y"
+#: loop/archive.php:65
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: loop/archive.php:68
-#| msgid "Y"
+#: loop/archive.php:67
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: loop/archive.php:74 loop/archive.php:76
+#: loop/archive.php:73 loop/archive.php:75
 #, php-format
 msgid "Archive %s"
 msgstr ""
 
-#: loop/archive.php:82
+#: loop/archive.php:81
 #, php-format
 msgid "All posts by %s"
 msgstr ""
 
-#: loop/archive.php:84
+#: loop/archive.php:83
 msgid "Archive"
 msgstr ""
 
-#: loop/archive.php:200 loop/archive.php:222
+#: loop/archive.php:196 loop/archive.php:218
 #, php-format
 msgid "Click here to show less <i>%s</i> content"
 msgstr "Cliquez ici pour afficher moins <i>%s</i> de contenu"
 
-#: loop/archive.php:200
+#: loop/archive.php:196
 #, php-format
 msgid "Click here to show more <i>%s</i> content"
 msgstr "Cliquez ici pour afficher plus <i>%s</i> de contenu"
 
-#: loop/page.php:82
-msgid "&laquo; Previous"
+#: loop/single.php:18
+msgid "Sorry, You are not allowed to see this content."
 msgstr ""
 
-#: loop/page.php:83
-msgid "Next &raquo;"
-msgstr ""
-
-#: loop/single.php:47 template-siddur-folder.php:44
+#: loop/single.php:65 template-siddur-folder.php:44
 msgid "Please type or paste email addresses with a space between each one:"
 msgstr ""
 
-#: loop/single.php:49 template-siddur-folder.php:46
+#: loop/single.php:67 template-siddur-folder.php:46
 msgid "Send"
 msgstr ""
 
-#: loop/single.php:57 template-siddur-folder.php:91
+#: loop/single.php:75 template-siddur-folder.php:91
 msgid "Link to share"
 msgstr ""
 
-#: loop/single.php:126
+#: loop/single.php:144
 msgid "Add to "
 msgstr ""
 
-#: loop/single.php:127
+#: loop/single.php:145
 msgid "Remove from "
 msgstr ""
 
-#: loop/single.php:165
+#: loop/single.php:183
 msgid "Twitter"
 msgstr ""
 
-#: loop/single.php:180
+#: loop/single.php:198
 msgid "Share"
 msgstr ""
 
-#: loop/single.php:192
+#: loop/single.php:210
 msgid "Print"
 msgstr ""
 
-#: loop/single.php:302
+#: loop/single.php:248
+msgid "Keywords"
+msgstr ""
+
+#: loop/single.php:376
 msgid "Please rate this post:"
 msgstr ""
 
-#: loop/single.php:342
+#: loop/single.php:416
 msgid "Submit Rating"
 msgstr ""
 
-#: loop/single.php:355
+#: loop/single.php:429
 msgid "Thank you for rating!"
 msgstr ""
 
-#: loop/single.php:366
+#: loop/single.php:440
 msgid "Tags: "
 msgstr ""
 
-#: loop/single.php:378
-msgid "Activity Types: "
-msgstr ""
-
-#: loop/single.php:390
-msgid "Audiences: "
-msgstr ""
-
-#: loop/single.php:400
+#: loop/single.php:448
 msgid "About the Author"
 msgstr ""
 
-#: loop/single.php:407
+#: loop/single.php:455
 msgid "View all posts by"
 msgstr ""
 
-#: loop/single.php:420
+#: loop/single.php:468
 msgid "&laquo; Previous Post"
 msgstr ""
 
-#: loop/single.php:421
+#: loop/single.php:469
 msgid "Next Post &raquo;"
 msgstr ""
 
-#: partials/main/layout-links-boxes-link.php:51
-msgid "Read more"
-msgstr "Cliquez ici"
+#: page-templates/login.php:55 page-templates/register.php:56
+msgid "Your Details"
+msgstr ""
+
+#: page-templates/login.php:61 page-templates/login.php:65
+msgid "ERROR"
+msgstr ""
+
+#: page-templates/login.php:61
+msgid "Invalid username and/or password."
+msgstr ""
+
+#: page-templates/login.php:65
+msgid "Username and/or Password is empty."
+msgstr ""
+
+#: page-templates/login.php:72
+msgid "Username or Email Address"
+msgstr ""
+
+#: page-templates/login.php:86 page-templates/register.php:77
+#, php-format
+msgid "Logged in as <b>%s</b>, "
+msgstr ""
+
+#: page-templates/login.php:87 page-templates/register.php:78
+msgid "Log out of this account"
+msgstr ""
+
+#: page-templates/login.php:87 page-templates/register.php:78
+msgid "Log out &raquo;"
+msgstr ""
+
+#: page-templates/login.php:96
+#, fuzzy
+#| msgid "Register"
+msgid "Not registered?"
+msgstr "Inscription"
+
+#: page-templates/register.php:87
+msgid "Already registered?"
+msgstr ""
+
+#: partials/category/filters-menu.php:25
+msgid "Filter"
+msgstr ""
+
+#: partials/main/layout-banner-slide.php:99
+msgid "Plus"
+msgstr ""
 
 #: partials/search.php:20
 msgid "Search..."
@@ -1767,3 +1887,6 @@ msgstr ""
 #: vendors/acf.php:194
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr ""
+
+#~ msgid "Logout"
+#~ msgstr "Déconnexion"
