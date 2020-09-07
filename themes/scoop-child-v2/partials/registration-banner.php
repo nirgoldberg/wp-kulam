@@ -35,14 +35,15 @@ if ( ! $pages || ! $banner || ! $buttons )
 			<div class="buttons-wrap row">
 
 				<div class="col-sm-6">
-					<button class="button">
+					<button>
 						<a href="<?php echo $pages[ 'hmembership_register_page' ]; ?>">
 							<?php echo $buttons[ 'member_registration' ]; ?>
 						</a>
 					</button>
 				</div>
+
 				<div class="col-sm-6">
-					<button class="button">
+					<button>
 						<a href="<?php echo $pages[ 'register_page' ]; ?>">
 							<?php echo $buttons[ 'normal_registration' ]; ?>
 						</a>

@@ -97,12 +97,13 @@ if ( have_posts() ) :
 
 							<p class="alternate-desc"><?php echo $login_registration_login_form[ 'registration_invitation_message' ]; ?></p>
 
-							<button class="button">
+							<button>
 								<a href="<?php echo $login_registration_pages[ 'hmembership_register_page' ]; ?>">
 									<?php echo $login_registration_buttons[ 'member_registration' ]; ?>
 								</a>
 							</button>
-							<button class="button">
+
+							<button>
 								<a href="<?php echo $login_registration_pages[ 'register_page' ]; ?>">
 									<?php echo $login_registration_buttons[ 'normal_registration' ]; ?>
 								</a>

@@ -96,7 +96,7 @@ if ( $link ) {
 		<div class="short-desc" <?php echo $short_desc_style ? 'style="' . $short_desc_style . '"' : ''; ?>><?php echo $short_desc; ?></div>
 
 		<?php if ( $link ) {
-			echo '<a class="button kulam-button">' . __( 'Plus', 'kulm-scoop' ) . '</a>';
+			echo '<a class="button">' . __( 'Plus', 'kulm-scoop' ) . '</a>';
 		} ?>
 
 		<div class="desc"><?php echo $desc; ?></div>

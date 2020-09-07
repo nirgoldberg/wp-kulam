@@ -19,7 +19,6 @@ $captcha_instance			= new ReallySimpleCaptcha();
 $word						= $captcha_instance->generate_random_word();
 $prefix						= mt_rand();
 $login_registration_pages	= get_field( 'acf-oprion_login_registration_pages', 'option' );
-$login_registration_buttons	= get_field( 'acf-option_login_registration_buttons', 'option' );
 
 do_action( 'pojo_get_start_layout', 'page', get_post_type(), '' );
 
@@ -86,7 +85,7 @@ if ( have_posts() ) :
 
 							<div class="form-title"><?php _e( 'Already registered?', 'kulam-scoop' ); ?></div>
 
-							<button class="button">
+							<button>
 								<a href="<?php echo $login_registration_pages[ 'login_page' ]; ?>">
 									<?php _e( 'Login', 'kulam-scoop' ); ?>
 								</a>
