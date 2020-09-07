@@ -1,3 +1,9 @@
 [submodule "plugins/htmline-membership"]
 	path = plugins/htmline-membership
 	url = git@github.com:nirgoldberg/htmline-membership.git
+[submodule "plugins/ms-taxonomies-sync"]
+	path = plugins/ms-taxonomies-sync
+	url = git@github.com:nirgoldberg/ms-taxonomies-sync.git
+[submodule "plugins/mce-link-button"]
+	path = plugins/mce-link-button
+	url = git@github.com:nirgoldberg/mce-link-button.git
