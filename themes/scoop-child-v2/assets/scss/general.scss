@@ -528,8 +528,9 @@ body.archive {
 	.post-image {
 		position: relative;
 		padding-top: 64.102564103%;
-		background: #000;
+		background-color: #FFF;
 		overflow: hidden;
+		@include transition(all, .2s);
 
 		img {
 			position: absolute;
@@ -553,6 +554,8 @@ body.archive {
 
 	&:hover {
 		.post-image {
+			background-color: #000;
+
 			img {
 				@include transform(scale(1.2));
 				@include opacity(.47);
@@ -1277,12 +1280,46 @@ body.modal-open,
 	}
 }
 
+/************/
+/* ACF form */
+/************/
+
+.acf-form {
+	.acf-form-submit {
+		padding: 15px 12px;
+
+		input {
+			border: 3px solid #CCC !important;
+		}
+	}
+}
+
 /*****************/
 /* accessibility */
 /*****************/
 
-.pojo-a11y-toolbar-toggle {
-	display: none;
+#pojo-a11y-toolbar {
+	.pojo-a11y-toolbar-toggle {
+		-webkit-box-shadow: none !important;
+		-moz-box-shadow:    none !important;
+		box-shadow:         none !important;
+
+		a {
+			color: $font-color !important;
+			background-color: transparent !important;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow:    none !important;
+			box-shadow:         none !important;
+			outline: none;
+		}
+	}
+
+	.pojo-a11y-toolbar-overlay {
+		border-color: $font-color !important;
+		-webkit-box-shadow: none !important;
+		-moz-box-shadow:    none !important;
+		box-shadow:         none !important;
+	}
 }
 
 /**************/
