@@ -141,7 +141,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Choose Category",
+            "default_value": "Category",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -457,5 +457,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1598344273
+    "modified": 1599658419
 }

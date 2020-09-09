@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     1.7.33
+ * @version     1.7.36
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -27,7 +27,7 @@ function kulam_search_get_post_formats_field() {
 	if ( $formats ) {
 
 		$output .= '<span class="menu-search-input menu-search-input-post-format">' .
-			'<div class="list-title">' . __( 'Choose Post Format', 'kulam-scoop' ) . '</div>' .
+			'<div class="list-title">' . __( 'Post Format', 'kulam-scoop' ) . '</div>' .
 			'<div class="checkbox-list-holder">' .
 				'<ul class="checkbox-list">';
 
@@ -110,7 +110,7 @@ function kulam_search_get_category_terms_field() {
 	$parents					= array();		// stack of parents (LIFO) in order to manage list structure
 	$last_term					= 0;			// last term ID added to the tree structure
 	$categories_field_label		= get_field( 'acf-option_advanced_search_categories_label', 'option' );
-	$categories_field_label		= $categories_field_label ?: __( 'Choose Category', 'kulam-scoop' );
+	$categories_field_label		= $categories_field_label ?: __( 'Category', 'kulam-scoop' );
 	$output						= '';
 
 	if ( $terms ) {
@@ -260,7 +260,7 @@ function kulam_search_get_taxonomies_fields() {
 				continue;
 
 			$output .= '<span class="menu-search-input menu-search-input-' . $tax->name . '">' .
-				'<div class="list-title">' . __( 'Choose', 'kulam-scoop' ) . ' ' . $tax->labels->singular_name . '</div>' .
+				'<div class="list-title">' . $tax->labels->singular_name . '</div>' .
 				'<div class="checkbox-list-holder">' .
 					'<ul class="checkbox-list">';
 

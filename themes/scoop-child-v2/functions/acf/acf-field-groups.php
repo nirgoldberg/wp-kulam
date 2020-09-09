@@ -4785,7 +4785,7 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => 'Choose Category',
+			'default_value' => 'Category',
 			'placeholder' => '',
 			'prepend' => '',
 			'append' => '',

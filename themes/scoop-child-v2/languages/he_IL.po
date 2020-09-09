@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-09-06 12:35+0300\n"
-"PO-Revision-Date: 2020-09-06 12:35+0300\n"
+"POT-Creation-Date: 2020-09-09 17:21+0300\n"
+"PO-Revision-Date: 2020-09-09 17:21+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -1167,7 +1167,7 @@ msgstr ""
 #: functions/acf/acf-field-groups.php:4875
 #: functions/modals/modal-registration.php:43
 #: functions/widgets/contact-details/contact-details.php:113
-#: page-templates/register.php:60
+#: page-templates/register.php:59
 msgid "Email"
 msgstr "שלח דוא\"ל"
 
@@ -1403,13 +1403,9 @@ msgstr ""
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:6037
+#: functions/acf/acf-field-groups.php:6037 functions/search.php:113
 msgid "Category"
-msgstr ""
-
-#: functions/htmline-membership.php:95
-msgid "Classes I teach"
-msgstr ""
+msgstr "קטגוריה"
 
 #: functions/menus.php:22
 msgid "Homepage Tiles"
@@ -1424,7 +1420,7 @@ msgid "Footer Menu #02"
 msgstr ""
 
 #: functions/modals/modal-category-filter.php:33
-#: partials/category/filters-menu.php:46
+#: partials/category/filters-menu.php:68
 msgid "Reset filter"
 msgstr ""
 
@@ -1442,11 +1438,11 @@ msgstr "הצג פחות"
 
 #: functions/modals/modal-login.php:34 functions/modals/modal-login.php:50
 #: functions/modals/modal-registration.php:54 page-templates/login.php:74
-#: page-templates/register.php:91 partials/acf-form.php:47
+#: page-templates/register.php:90 partials/acf-form.php:53
 msgid "Login"
 msgstr "התחבר"
 
-#: functions/modals/modal-login.php:38 partials/acf-form.php:46
+#: functions/modals/modal-login.php:38 partials/acf-form.php:49
 msgid ""
 "In order to save / upload posts or view saved content, you must register / "
 "log-in to your account"
@@ -1455,13 +1451,13 @@ msgstr ""
 "לאתר או לצפות בתכנים המועדפים ששמרת בחשבונך"
 
 #: functions/modals/modal-login.php:42
-#: functions/modals/modal-registration.php:42 page-templates/register.php:59
+#: functions/modals/modal-registration.php:42 page-templates/register.php:58
 msgid "User"
 msgstr "שם משתמש"
 
 #: functions/modals/modal-login.php:43
 #: functions/modals/modal-registration.php:44 page-templates/login.php:73
-#: page-templates/register.php:61
+#: page-templates/register.php:60
 msgid "Password"
 msgstr "סיסמא"
 
@@ -1473,11 +1469,11 @@ msgstr "עוד לא מחובר? להרשמה לחץ כאן"
 msgid "Registration"
 msgstr "הרשמה"
 
-#: functions/modals/modal-registration.php:47 page-templates/register.php:64
+#: functions/modals/modal-registration.php:47 page-templates/register.php:63
 msgid "Please enter the following text in the box below:"
 msgstr "אנא הזן את הטקסט בתיבה מתחת:"
 
-#: functions/modals/modal-registration.php:55 page-templates/register.php:67
+#: functions/modals/modal-registration.php:55 page-templates/register.php:66
 msgid "Register"
 msgstr "הירשם"
 
@@ -1657,16 +1653,8 @@ msgid "Read more"
 msgstr "קרא עוד"
 
 #: functions/search.php:30
-msgid "Choose Post Format"
-msgstr "בחר פורמט פוסט"
-
-#: functions/search.php:113
-msgid "Choose Category"
-msgstr "בחר קטגוריה"
-
-#: functions/search.php:263
-msgid "Choose"
-msgstr "בחר"
+msgid "Post Format"
+msgstr "פורמט פוסט"
 
 #: functions/shortcodes.php:37
 msgid "Posts"
@@ -1820,7 +1808,7 @@ msgstr "&laquo; המאמר הקודם"
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
-#: page-templates/login.php:55 page-templates/register.php:56
+#: page-templates/login.php:55 page-templates/register.php:55
 msgid "Your Details"
 msgstr ""
 
@@ -1840,16 +1828,16 @@ msgstr ""
 msgid "Username or Email Address"
 msgstr ""
 
-#: page-templates/login.php:86 page-templates/register.php:77
+#: page-templates/login.php:86 page-templates/register.php:76
 #, php-format
 msgid "Logged in as <b>%s</b>, "
 msgstr ""
 
-#: page-templates/login.php:87 page-templates/register.php:78
+#: page-templates/login.php:87 page-templates/register.php:77
 msgid "Log out of this account"
 msgstr ""
 
-#: page-templates/login.php:87 page-templates/register.php:78
+#: page-templates/login.php:87 page-templates/register.php:77
 #, fuzzy
 #| msgid "Next Post &raquo;"
 msgid "Log out &raquo;"
@@ -1861,11 +1849,11 @@ msgstr "המאמר הבא &raquo;"
 msgid "Not registered?"
 msgstr "הירשם"
 
-#: page-templates/register.php:87
+#: page-templates/register.php:86
 msgid "Already registered?"
 msgstr ""
 
-#: partials/category/filters-menu.php:25
+#: partials/category/filters-menu.php:58
 #, fuzzy
 #| msgid "Show less"
 msgid "Filter"
@@ -1956,125 +1944,3 @@ msgstr "עדכון חשבון"
 #: vendors/acf.php:194
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr "הצלחה! החשבון שלך מעודכן עם הנתונים החדשים."
-
-#, fuzzy
-#~| msgid "Search Post Types"
-#~ msgid "Search Form Type"
-#~ msgstr "חפש סוגי מאמר"
-
-#~ msgid "Activity Types"
-#~ msgstr "סוגי פעילות"
-
-#~ msgid "Activity Type"
-#~ msgstr "סוג פעילות"
-
-#~ msgid "All Activity Types"
-#~ msgstr "כל סוגי הפעילות"
-
-#~ msgid "Edit Activity Type"
-#~ msgstr "ערוך סוג פעילות"
-
-#~ msgid "View Activity Type"
-#~ msgstr "צפה בסוג פעילות"
-
-#~ msgid "Update Activity Type"
-#~ msgstr "עדכן סוג פעילות"
-
-#~ msgid "Add New Activity Type"
-#~ msgstr "הוסף סוג פעילות חדש"
-
-#~ msgid "New Activity Type Name"
-#~ msgstr "שם סוג פעילות חדש"
-
-#~ msgid "Parent Activity Type"
-#~ msgstr "סוג פעילות הורה"
-
-#~ msgid "Parent Activity Type:"
-#~ msgstr "סוג פעילות הורה:"
-
-#~ msgid "Search Activity Types"
-#~ msgstr "חפש סוגי פעילות"
-
-#~ msgid "Popular Activity Types"
-#~ msgstr "סוגי פעילות נפוצים"
-
-#~ msgid "Separate Activity Types with commas"
-#~ msgstr "סוגי פעילות מופרדים בפסיק"
-
-#~ msgid "Add or remove Activity Types"
-#~ msgstr "הוסף או הסר סוגי פעילות"
-
-#~ msgid "Choose from the most used Activity Types"
-#~ msgstr "בחר מתוך סוגי הפעילות הנפוצים ביותר"
-
-#~ msgid "No Activity Types found"
-#~ msgstr "לא נמצאו סוגי פעילות"
-
-#~ msgid "← Back to Activity Types"
-#~ msgstr "← חזרה לסוגי פעילות"
-
-#~ msgid "Audiences"
-#~ msgstr "קהלים"
-
-#~ msgid "Audience"
-#~ msgstr "קהל"
-
-#~ msgid "All Audiences"
-#~ msgstr "כל הקהלים"
-
-#~ msgid "Edit Audience"
-#~ msgstr "ערוך קהל"
-
-#~ msgid "View Audience"
-#~ msgstr "הצג קהל"
-
-#~ msgid "Update Audience"
-#~ msgstr "עדכן קהל"
-
-#~ msgid "Add New Audience"
-#~ msgstr "הוסף קהל חדש"
-
-#~ msgid "New Audience Name"
-#~ msgstr "שם קהל חדש"
-
-#~ msgid "Parent Audience"
-#~ msgstr "קהל הורה"
-
-#~ msgid "Parent Audience:"
-#~ msgstr "קהל הורה:"
-
-#~ msgid "Search Audiences"
-#~ msgstr "חפש קהלים"
-
-#~ msgid "Popular Audiences"
-#~ msgstr "קהלים נפוצים"
-
-#~ msgid "Separate Audiences with commas"
-#~ msgstr "קהלים מופרדים בפסיק"
-
-#~ msgid "Add or remove Audiences"
-#~ msgstr "הוסף או הסר קהלים"
-
-#~ msgid "Choose from the most used Audiences"
-#~ msgstr "בחר מתוך הקהלים הנפוצים ביותר"
-
-#~ msgid "No Audiences found"
-#~ msgstr "לא נמצאו קהלים"
-
-#~ msgid "← Back to Audiences"
-#~ msgstr "← חזרה לקהלים"
-
-#~ msgid "Logout"
-#~ msgstr "התנתק"
-
-#~ msgid "&laquo; Previous"
-#~ msgstr "&laquo; הקודם"
-
-#~ msgid "Next &raquo;"
-#~ msgstr "הבא &raquo;"
-
-#~ msgid "Activity Types: "
-#~ msgstr "סוגי פעילות: "
-
-#~ msgid "Audiences: "
-#~ msgstr "קהלים: "

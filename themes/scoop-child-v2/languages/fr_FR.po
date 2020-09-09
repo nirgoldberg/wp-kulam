@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-09-06 12:35+0300\n"
-"PO-Revision-Date: 2020-09-06 12:56+0300\n"
+"POT-Creation-Date: 2020-09-09 17:21+0300\n"
+"PO-Revision-Date: 2020-09-09 17:21+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
@@ -1134,7 +1134,7 @@ msgstr ""
 #: functions/acf/acf-field-groups.php:4875
 #: functions/modals/modal-registration.php:43
 #: functions/widgets/contact-details/contact-details.php:113
-#: page-templates/register.php:60
+#: page-templates/register.php:59
 msgid "Email"
 msgstr ""
 
@@ -1360,13 +1360,9 @@ msgstr ""
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:6037
+#: functions/acf/acf-field-groups.php:6037 functions/search.php:113
 msgid "Category"
-msgstr ""
-
-#: functions/htmline-membership.php:95
-msgid "Classes I teach"
-msgstr ""
+msgstr "Catégorie"
 
 #: functions/menus.php:22
 msgid "Homepage Tiles"
@@ -1381,7 +1377,7 @@ msgid "Footer Menu #02"
 msgstr ""
 
 #: functions/modals/modal-category-filter.php:33
-#: partials/category/filters-menu.php:46
+#: partials/category/filters-menu.php:68
 msgid "Reset filter"
 msgstr "Réinitialiser"
 
@@ -1395,24 +1391,24 @@ msgstr ""
 
 #: functions/modals/modal-login.php:34 functions/modals/modal-login.php:50
 #: functions/modals/modal-registration.php:54 page-templates/login.php:74
-#: page-templates/register.php:91 partials/acf-form.php:47
+#: page-templates/register.php:90 partials/acf-form.php:53
 msgid "Login"
 msgstr "Connexion"
 
-#: functions/modals/modal-login.php:38 partials/acf-form.php:46
+#: functions/modals/modal-login.php:38 partials/acf-form.php:49
 msgid ""
 "In order to save / upload posts or view saved content, you must register / "
 "log-in to your account"
 msgstr ""
 
 #: functions/modals/modal-login.php:42
-#: functions/modals/modal-registration.php:42 page-templates/register.php:59
+#: functions/modals/modal-registration.php:42 page-templates/register.php:58
 msgid "User"
 msgstr ""
 
 #: functions/modals/modal-login.php:43
 #: functions/modals/modal-registration.php:44 page-templates/login.php:73
-#: page-templates/register.php:61
+#: page-templates/register.php:60
 msgid "Password"
 msgstr ""
 
@@ -1424,11 +1420,11 @@ msgstr "Inscription"
 msgid "Registration"
 msgstr ""
 
-#: functions/modals/modal-registration.php:47 page-templates/register.php:64
+#: functions/modals/modal-registration.php:47 page-templates/register.php:63
 msgid "Please enter the following text in the box below:"
 msgstr ""
 
-#: functions/modals/modal-registration.php:55 page-templates/register.php:67
+#: functions/modals/modal-registration.php:55 page-templates/register.php:66
 msgid "Register"
 msgstr "Inscription"
 
@@ -1598,16 +1594,8 @@ msgid "Read more"
 msgstr "Cliquez ici"
 
 #: functions/search.php:30
-msgid "Choose Post Format"
-msgstr "Choisissez le format de l'article"
-
-#: functions/search.php:113
-msgid "Choose Category"
-msgstr "Choisissez la catégorie"
-
-#: functions/search.php:263
-msgid "Choose"
-msgstr ""
+msgid "Post Format"
+msgstr "Format de l'article"
 
 #: functions/shortcodes.php:37
 msgid "Posts"
@@ -1757,7 +1745,7 @@ msgstr ""
 msgid "Next Post &raquo;"
 msgstr ""
 
-#: page-templates/login.php:55 page-templates/register.php:56
+#: page-templates/login.php:55 page-templates/register.php:55
 msgid "Your Details"
 msgstr ""
 
@@ -1777,16 +1765,16 @@ msgstr ""
 msgid "Username or Email Address"
 msgstr ""
 
-#: page-templates/login.php:86 page-templates/register.php:77
+#: page-templates/login.php:86 page-templates/register.php:76
 #, php-format
 msgid "Logged in as <b>%s</b>, "
 msgstr ""
 
-#: page-templates/login.php:87 page-templates/register.php:78
+#: page-templates/login.php:87 page-templates/register.php:77
 msgid "Log out of this account"
 msgstr ""
 
-#: page-templates/login.php:87 page-templates/register.php:78
+#: page-templates/login.php:87 page-templates/register.php:77
 msgid "Log out &raquo;"
 msgstr ""
 
@@ -1796,11 +1784,11 @@ msgstr ""
 msgid "Not registered?"
 msgstr "Inscription"
 
-#: page-templates/register.php:87
+#: page-templates/register.php:86
 msgid "Already registered?"
 msgstr ""
 
-#: partials/category/filters-menu.php:25
+#: partials/category/filters-menu.php:58
 msgid "Filter"
 msgstr ""
 
@@ -1887,6 +1875,3 @@ msgstr ""
 #: vendors/acf.php:194
 msgid "<b>Success!</b> Your account is now up-to-date with the new info."
 msgstr ""
-
-#~ msgid "Logout"
-#~ msgstr "Déconnexion"

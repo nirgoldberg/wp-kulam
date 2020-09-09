@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-08-10 11:12+0300\n"
-"PO-Revision-Date: 2020-08-10 13:52+0300\n"
+"POT-Creation-Date: 2020-09-09 17:20+0300\n"
+"PO-Revision-Date: 2020-09-09 17:20+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -244,7 +244,6 @@ msgid "Slides"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:74
-#| msgid "Add to folder"
 msgid "Add Slide"
 msgstr ""
 
@@ -431,13 +430,11 @@ msgid "Top Margin"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:260
-#| msgid "Folder description"
 msgid "Short Description"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:279
 #: functions/acf/acf-field-groups.php:646
-#| msgid "Folder description"
 msgid "Short Description Font Attributes"
 msgstr ""
 
@@ -449,7 +446,6 @@ msgstr ""
 
 #: functions/acf/acf-field-groups.php:409
 #: functions/acf/acf-field-groups.php:3242
-#| msgid "Folder description"
 msgid "Description"
 msgstr ""
 
@@ -463,7 +459,6 @@ msgid "Link"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:444
-#| msgid "Link to share"
 msgid "Link Target"
 msgstr ""
 
@@ -542,7 +537,6 @@ msgstr ""
 
 #: functions/acf/acf-field-groups.php:800
 #: functions/acf/acf-field-groups.php:982
-#| msgid "Add to "
 msgid "Add Link"
 msgstr ""
 
@@ -664,12 +658,10 @@ msgid "Questions"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:1500
-#| msgid "Add to "
 msgid "Add Question"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:1504
-#| msgid "Registration"
 msgid "Question"
 msgstr ""
 
@@ -754,7 +746,6 @@ msgid "Maximum Slides"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:2142
-#| msgid "Add to folder"
 msgid "Move Slides"
 msgstr ""
 
@@ -872,7 +863,6 @@ msgid "Post Attributes"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:2674
-#| msgid "Show less"
 msgid "Show Filters"
 msgstr ""
 
@@ -926,12 +916,10 @@ msgid "Attachment Attributes"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:3368
-#| msgid "Search"
 msgid "Search Form"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:3384
-#| msgid "Search Post Types"
 msgid "Search Form Type"
 msgstr ""
 
@@ -956,7 +944,6 @@ msgid "Categories Field Label"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:3478
-#| msgid "Search Audiences"
 msgid "Search by Categories"
 msgstr ""
 
@@ -1089,7 +1076,6 @@ msgid "Upload Button Text"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:4257
-#| msgid "Upload"
 msgid "Upload Page"
 msgstr ""
 
@@ -1139,9 +1125,9 @@ msgstr ""
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:4435
+#: functions/acf/acf-field-groups.php:4435 functions/search.php:113
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #: functions/menus.php:22
 msgid "Homepage Tiles"
@@ -1155,6 +1141,10 @@ msgstr ""
 msgid "Footer Menu #02"
 msgstr ""
 
+#: functions/menus.php:63 functions/menus.php:69 header.php:104 header.php:207
+msgid "Logout"
+msgstr "Déconnexion"
+
 #: functions/menus.php:77 functions/modal-login.php:34
 #: functions/modal-login.php:52 functions/modal-registration.php:56
 #: header.php:107 header.php:210 partials/acf-form.php:47
@@ -1166,14 +1156,16 @@ msgid ""
 "In order to save / upload posts or view saved content, you must register / "
 "log-in to your account"
 msgstr ""
+"Pour enregistrer / télécharger des publications ou afficher le contenu "
+"enregistré, vous devez vous inscrire / vous connecter à votre compte"
 
 #: functions/modal-login.php:44 functions/modal-registration.php:44
 msgid "User"
-msgstr ""
+msgstr "Utilisateur"
 
 #: functions/modal-login.php:45 functions/modal-registration.php:46
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: functions/modal-login.php:51
 msgid "Register Now"
@@ -1185,7 +1177,7 @@ msgstr ""
 
 #: functions/modal-registration.php:49
 msgid "Please enter the following text in the box below:"
-msgstr ""
+msgstr "Veuillez saisir le texte suivant dans la case ci-dessous:"
 
 #: functions/modal-registration.php:57
 msgid "Register"
@@ -1196,7 +1188,6 @@ msgid "Galleries"
 msgstr ""
 
 #: functions/post-types.php:83
-#| msgid "Add to folder"
 msgid "Add New"
 msgstr ""
 
@@ -1213,7 +1204,6 @@ msgid "New Gallery"
 msgstr ""
 
 #: functions/post-types.php:87
-#| msgid "View all posts by"
 msgid "View Gallery"
 msgstr ""
 
@@ -1222,12 +1212,10 @@ msgid "View Galleries"
 msgstr ""
 
 #: functions/post-types.php:89
-#| msgid "Search Audiences"
 msgid "Search Galleries"
 msgstr ""
 
 #: functions/post-types.php:90
-#| msgid "No Audiences found"
 msgid "No galleries found"
 msgstr ""
 
@@ -1244,7 +1232,6 @@ msgid "All Galleries"
 msgstr ""
 
 #: functions/post-types.php:94
-#| msgid "Archive %s"
 msgid "Gallery Archives"
 msgstr ""
 
@@ -1495,19 +1482,11 @@ msgid "← Back to Audiences"
 msgstr ""
 
 #: functions/search.php:30
-msgid "Choose Post Format"
-msgstr "Choisissez le format de l'article"
+msgid "Post Format"
+msgstr "Format de l'article"
 
 #: functions/search.php:38 functions/theme.php:212
 msgid "Text"
-msgstr ""
-
-#: functions/search.php:113
-msgid "Choose Category"
-msgstr "Choisissez la catégorie"
-
-#: functions/search.php:263
-msgid "Choose"
 msgstr ""
 
 #: functions/shortcodes.php:37
@@ -1546,10 +1525,6 @@ msgstr "Cliquez ici"
 msgid "Toggle navigation"
 msgstr ""
 
-#: header.php:104 header.php:207
-msgid "Logout"
-msgstr "Déconnexion"
-
 #: header.php:142 header.php:245
 #, php-format
 msgid "<a href=\"%s\">Choose Menu</a>"
@@ -1569,13 +1544,11 @@ msgid "Archive for %s"
 msgstr ""
 
 #: loop/archive.php:66
-#| msgid "F Y"
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
 #: loop/archive.php:68
-#| msgid "Y"
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
@@ -1606,11 +1579,11 @@ msgstr "Cliquez ici pour afficher plus <i>%s</i> de contenu"
 
 #: loop/page.php:82
 msgid "&laquo; Previous"
-msgstr ""
+msgstr "&laquo; Précédent"
 
 #: loop/page.php:83
 msgid "Next &raquo;"
-msgstr ""
+msgstr "Suivant &raquo;"
 
 #: loop/single.php:47 template-siddur-folder.php:44
 msgid "Please type or paste email addresses with a space between each one:"
@@ -1638,7 +1611,7 @@ msgstr ""
 
 #: loop/single.php:180
 msgid "Share"
-msgstr ""
+msgstr "Partager"
 
 #: loop/single.php:192
 msgid "Print"
@@ -1678,11 +1651,11 @@ msgstr ""
 
 #: loop/single.php:420
 msgid "&laquo; Previous Post"
-msgstr ""
+msgstr "&laquo; Post précédent"
 
 #: loop/single.php:421
 msgid "Next Post &raquo;"
-msgstr ""
+msgstr "Prochain article &raquo;"
 
 #: partials/main/layout-links-boxes-link.php:51
 msgid "Read more"
@@ -1694,7 +1667,7 @@ msgstr ""
 
 #: partials/search.php:32
 msgid "Free text..."
-msgstr ""
+msgstr "Texte libre..."
 
 #: partials/search.php:36 partials/search.php:84
 msgid "Search"
@@ -1720,39 +1693,39 @@ msgstr ""
 
 #: template-siddur-folder.php:70 template-siddur.php:60
 msgid "Folder Name"
-msgstr ""
+msgstr "Nom de dossier"
 
 #: template-siddur-folder.php:71
 msgid "Here you can rename the folder"
-msgstr ""
+msgstr "Ici, vous pouvez renommer le dossier"
 
 #: template-siddur-folder.php:72 template-siddur.php:61
 msgid "Allowed characters: digits, letters, spaces and dashes"
-msgstr ""
+msgstr "Caractères autorisés: chiffres, lettres, espaces et tirets"
 
 #: template-siddur-folder.php:74 template-siddur.php:63
 msgid "Folder description"
-msgstr ""
+msgstr "Description du dossier"
 
 #: template-siddur-folder.php:77
 msgid "Delete this folder?"
-msgstr ""
+msgstr "Supprimer ce dossier?"
 
 #: template-siddur-folder.php:81
 msgid "Public folder?"
-msgstr ""
+msgstr "Supprimer ce dossier?"
 
 #: template-siddur-folder.php:82
 msgid "Save settings"
-msgstr ""
+msgstr "Enregistrer les paramètres"
 
 #: template-siddur.php:64
 msgid "Add"
-msgstr ""
+msgstr "Ajouter"
 
 #: vendors/acf.php:181
 msgid "Submit for review"
-msgstr ""
+msgstr "Soumettre pour correction"
 
 #: vendors/acf.php:182
 msgid ""
