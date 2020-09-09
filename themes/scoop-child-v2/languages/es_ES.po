@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
 "POT-Creation-Date: 2020-09-09 17:21+0300\n"
-"PO-Revision-Date: 2020-09-09 17:22+0300\n"
+"PO-Revision-Date: 2020-09-09 17:48+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: es_ES\n"
@@ -1802,7 +1802,7 @@ msgstr ""
 
 #: partials/search.php:32
 msgid "Free text..."
-msgstr ""
+msgstr "Texto libre..."
 
 #: partials/search.php:36 partials/search.php:84
 msgid "Search"
