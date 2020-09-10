@@ -248,6 +248,31 @@
             "endpoint": 1
         },
         {
+            "key": "field_5f5a0f5e8fe1a",
+            "label": "Sticky Posts",
+            "name": "acf-category_sticky_posts",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "id"
+        },
+        {
             "key": "field_5cf314117dac4",
             "label": "Post Types",
             "name": "acf-category_post_types",
@@ -287,5 +312,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1599059193
+    "modified": 1599738922
 }

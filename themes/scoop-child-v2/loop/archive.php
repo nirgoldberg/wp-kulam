@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		2.0.3
+ * @version		2.0.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -228,6 +228,9 @@ if ( have_posts() ) {
 		} else {
 
 			// no post types
+			// get sticky posts
+			$sticky_posts = get_field( 'acf-category_sticky_posts', 'category_' . $category->term_id );
+
 			// get posts
 			$posts = array();
 
@@ -269,9 +272,39 @@ if ( have_posts() ) {
 
 			}
 
-			$query = new WP_Query( $args );
+			// build array for two queries, including and excluding sticky posts accordingly
+			if ( $sticky_posts ) {
 
-			if ( $query->have_posts() ) : ?>
+				$query_args = array(
+					array_merge( $args, array( 'post__in' => $sticky_posts, 'orderby' => 'post__in' ) ),
+					array_merge( $args, array( 'post__not_in' => $sticky_posts ) ),
+				);
+
+			} else {
+				$query_args = array( $args );
+			}
+
+			// query posts
+			foreach ( $query_args as $args ) {
+
+				$query = new WP_Query( $args );
+
+				if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
+
+					// get post taxonomies
+					$taxonomies = get_post_taxonomies();
+
+					// include only assigned taxonomy filters
+					$taxonomies = array_intersect( $taxonomies, $filters );
+
+					$posts[] = kulam_get_post( $taxonomies );
+
+				endwhile; endif; wp_reset_postdata();
+
+			}
+
+			// display posts
+			if ( $posts ) : ?>
 
 				<?php
 					/**
@@ -282,21 +315,15 @@ if ( have_posts() ) {
 
 				<div class="posts-wrap row">
 
-					<?php while( $query->have_posts() ) : $query->the_post();
+					<?php foreach ( $posts as $p ) {
 
-						// get post taxonomies
-						$taxonomies = get_post_taxonomies();
+						echo $p;
 
-						// include only assigned taxonomy filters
-						$taxonomies = array_intersect( $taxonomies, $filters );
-
-						echo kulam_get_post( $taxonomies );
-
-					endwhile; ?>
+					} ?>
 
 				</div>
 
-			<?php endif; wp_reset_postdata(); ?>
+			<?php endif; ?>
 
 			<div class="filtered-posts-not-found" style="display: none;">
 

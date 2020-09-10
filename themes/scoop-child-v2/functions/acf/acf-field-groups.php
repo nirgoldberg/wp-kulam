@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.0.0
+ * @version		2.0.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -3883,6 +3883,31 @@ In case it will be manually chosen, its order will be setup accordingly', 'kulam
 			),
 			'placement' => 'top',
 			'endpoint' => 1,
+		),
+		array(
+			'key' => 'field_5f5a0f5e8fe1a',
+			'label' => __('Sticky Posts', 'kulam-scoop'),
+			'name' => 'acf-category_sticky_posts',
+			'type' => 'relationship',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'post_type' => array(
+				0 => 'post',
+			),
+			'taxonomy' => '',
+			'filters' => array(
+				0 => 'search',
+			),
+			'elements' => '',
+			'min' => '',
+			'max' => '',
+			'return_format' => 'id',
 		),
 		array(
 			'key' => 'field_5cf314117dac4',

@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		1.7.28
+ * @version		2.0.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -767,3 +767,27 @@ function kulam_acf_unregister_custom_taxonomy( $taxonomy ) {
 	unregister_taxonomy_for_object_type( $taxonomy, 'post' );
 
 }
+
+/**
+ * kulam_acf_category_posts_relationship_query
+ *
+ * This function filters the Relationship field query of category posts in order to include current category
+ *
+ * @param	$args (array)
+ * @param	$field (array)
+ * @param	$post_id (int)
+ * @return	array
+ */
+function kulam_acf_category_posts_relationship_query( $args, $field, $post_id ) {
+
+	if ( 'acf-category_sticky_posts' == $field['name'] ) {
+
+		$args[ 'cat' ] = $post_id;
+
+	}
+
+	// return
+	return $args;
+
+}
+add_filter( 'acf/fields/relationship/query', 'kulam_acf_category_posts_relationship_query', 10, 3 );
