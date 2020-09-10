@@ -6,7 +6,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.7.27
+ * @version		1.7.37
  */
 get_header();
 
@@ -48,7 +48,7 @@ if ( is_user_logged_in() && function_exists( 'get_field' ) && false !== get_fiel
 
 				</div>
 				<input type="hidden" class="post-ids" data-post-ids="" />
-				<input type="submit" class="add-to-folder" />
+				<input type="submit" class="add-to-folder" value="<?php _e( 'Add', 'kulam-scoop' ); ?>" />
 			</form>
 		</div><!-- .popup-new-folder#all-folders -->
 
