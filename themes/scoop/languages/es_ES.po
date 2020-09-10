@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Scoop 1.0.0\n"
 "Report-Msgid-Bugs-To: team@pojo.me\n"
-"POT-Creation-Date: 2020-09-09 15:21+0300\n"
-"PO-Revision-Date: 2020-09-09 15:42+0300\n"
+"POT-Creation-Date: 2020-09-10 10:35+0300\n"
+"PO-Revision-Date: 2020-09-10 10:35+0300\n"
 "Last-Translator: Ariel Klikstein <a@arielk.net>\n"
 "Language-Team: Pojo.me Team <team@pojo.me>\n"
 "Language: es_ES\n"
@@ -68,7 +68,7 @@ msgstr ""
 #: ../comments.php:82
 #, php-format
 msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
-msgstr ""
+msgstr "Conectado como <a href=\"%s/wp-admin/profile.php\">%s</a>."
 
 #: ../comments.php:83
 msgid "Log out of this account"
@@ -83,7 +83,7 @@ msgstr ""
 #: ../core/addons/wc-integration/widgets/class-wc-product-categories.php:35
 #: ../core/page-builder/templates/types/type-local.php:350
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #: ../comments.php:90 ../comments.php:91 ../comments.php:94 ../comments.php:95
 msgid "*"

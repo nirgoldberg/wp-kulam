@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		1.5.0
+ * @version		1.7.37
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -88,7 +88,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 						<?php if ( pojo_has_nav_menu( 'primary' ) ) { ?>
 
 							<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
+								<span class="sr-only"><?php _e( 'Toggle navigation', 'kulam-scoop' ); ?></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
@@ -139,7 +139,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'sf-menu hidden-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) );
 								wp_nav_menu( array( 'theme_location' => has_nav_menu( 'primary_mobile' ) ? 'primary_mobile' : 'primary', 'container' => false, 'menu_class' => 'mobile-menu visible-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) ); ?>
 							<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
-								<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'pojo' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
+								<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'kulam-scoop' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
 							<?php endif; ?>
 						</div>
 					</div>
@@ -191,7 +191,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 							<?php if ( pojo_has_nav_menu( 'sticky_menu' ) ) : ?>
 
 								<button type="button" class="navbar-toggle visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-									<span class="sr-only"><?php _e( 'Toggle navigation', 'pojo' ); ?></span>
+									<span class="sr-only"><?php _e( 'Toggle navigation', 'kulam-scoop' ); ?></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
@@ -242,7 +242,7 @@ if ( empty( $layout_site ) || ! in_array( $layout_site, array( 'wide', 'boxed' )
 									<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'sf-menu hidden-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) );
 									wp_nav_menu( array( 'theme_location' => has_nav_menu( 'primary_mobile' ) ? 'primary_mobile' : 'primary', 'container' => false, 'menu_class' => 'mobile-menu visible-xs', 'walker' => new Pojo_Navbar_Nav_Walker() ) ); ?>
 								<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
-									<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'pojo' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
+									<mark class="menu-no-found"><?php printf( __( '<a href="%s">Choose Menu</a>', 'kulam-scoop' ), admin_url( 'nav-menus.php?action=locations' ) ); ?></mark>
 								<?php endif; ?>
 							</div>
 						</div>

@@ -8,7 +8,7 @@ class Pojo_Scoop_Customize_Register_Field {
 
 		$fields[] = array(
 			'id'    => 'image_logo_width',
-			'title' => __( 'Logo Width', 'pojo' ),
+			'title' => __( 'Logo Width', 'kulam-scoop' ),
 			'std'   => '100px',
 			'selector' => '.logo .logo-img a img',
 			'change_type' => 'width',
@@ -16,7 +16,7 @@ class Pojo_Scoop_Customize_Register_Field {
 
 		$sections[] = array(
 			'id' => 'logo',
-			'title' => __( 'Logo', 'pojo' ),
+			'title' => __( 'Logo', 'kulam-scoop' ),
 			'desc' => '',
 			'fields' => $fields,
 		);

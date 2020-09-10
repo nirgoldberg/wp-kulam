@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.7.36
+ * @version		1.7.37
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -99,7 +99,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 							<span class="entry-time"><?php echo get_the_time(); ?></span>
 						<?php endif; ?>
 						<?php if ( po_single_metadata_show( 'comments' ) ) : ?>
-							<span class="entry-comment"><?php comments_popup_link( __( 'No Comments', 'pojo' ), __( 'One Comment', 'pojo' ), __( '% Comments', 'pojo' ), 'comments' ); ?></span>
+							<span class="entry-comment"><?php comments_popup_link( __( 'No Comments', 'kulam-scoop' ), __( 'One Comment', 'kulam-scoop' ), __( '% Comments', 'kulam-scoop' ), 'comments' ); ?></span>
 						<?php endif; ?>
 
 					</div>
@@ -157,12 +157,12 @@ if ( $enable_audiences && true === $enable_audiences ) {
 
 						?>
 						<!-- facebook -->
-						<a class="entry-facebook pojo-tooltip" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="<?php _e( 'Facebook', 'pojo' ); ?>" target="_blank">
+						<a class="entry-facebook pojo-tooltip" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&t=<?php the_title(); ?>" title="<?php _e( 'Facebook', 'kulam-scoop' ); ?>" target="_blank">
 							<span class="fa fa-facebook"></span>
 						</a>
 
 						<!-- twitter -->
-						<a class="entry-twitter pojo-tooltip" href="http://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink(); ?>" title="<?php _e( 'Twitter', 'pojo' ); ?>" target="_blank">
+						<a class="entry-twitter pojo-tooltip" href="http://twitter.com/home?status=<?php the_title(); ?> <?php the_permalink(); ?>" title="<?php _e( 'Twitter', 'kulam-scoop' ); ?>" target="_blank">
 							<span class="fa fa-twitter"></span>
 						</a>
 
@@ -189,7 +189,7 @@ if ( $enable_audiences && true === $enable_audiences ) {
 						*/ ?>
 
 						<!-- print -->
-						<a class="entry-print pojo-tooltip" href="javascript:window.print()" title="<?php _e( 'Print', 'pojo' ); ?>">
+						<a class="entry-print pojo-tooltip" href="javascript:window.print()" title="<?php _e( 'Print', 'kulam-scoop' ); ?>">
 							<span class="fa fa-print"></span>
 						</a>
 
@@ -397,14 +397,14 @@ if ( $enable_audiences && true === $enable_audiences ) {
 						<?php if ( pojo_is_show_about_author() ) : ?>
 							<div class="author-info media">
 								<div class="author-info-inner">
-									<h3 class="author-title"><?php _e( 'About the Author', 'pojo' ); ?></h3>
+									<h3 class="author-title"><?php _e( 'About the Author', 'kulam-scoop' ); ?></h3>
 									<div class="author-avatar pull-left">
 										<a href="<?php the_author_meta( 'user_url' ); ?>"><?php echo get_avatar( get_the_author_meta( 'email' ), '90' ); ?></a>
 									</div>
 									<div class="author-content media-body">
 										<h4 class="author-name">
 											<?php the_author_meta( 'user_firstname' ); ?> <?php the_author_meta( 'user_lastname' ); ?>
-											<small><a class="author-link" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" class="fn"><?php _e( 'View all posts by', 'pojo' ); ?> <?php echo get_the_author(); ?></a></small>
+											<small><a class="author-link" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" class="fn"><?php _e( 'View all posts by', 'kulam-scoop' ); ?> <?php echo get_the_author(); ?></a></small>
 										</h4>
 										<p class="author-bio">
 											<?php echo nl2br( get_the_author_meta( 'description' ) ); ?><br />
@@ -417,8 +417,8 @@ if ( $enable_audiences && true === $enable_audiences ) {
 							// Previous/next post navigation.
 							echo pojo_get_post_navigation(
 								array(
-									'prev_text' => __( '&laquo; Previous Post', 'pojo' ),
-									'next_text' => __( 'Next Post &raquo;', 'pojo' ),
+									'prev_text' => __( '&laquo; Previous Post', 'kulam-scoop' ),
+									'next_text' => __( 'Next Post &raquo;', 'kulam-scoop' ),
 								)
 							);
 						?>

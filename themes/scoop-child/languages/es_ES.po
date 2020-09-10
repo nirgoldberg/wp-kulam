@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-09-09 17:20+0300\n"
-"PO-Revision-Date: 2020-09-09 17:20+0300\n"
+"POT-Creation-Date: 2020-09-10 10:35+0300\n"
+"PO-Revision-Date: 2020-09-10 10:42+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: es_ES\n"
@@ -30,11 +30,11 @@ msgstr ""
 
 #: content/content-grid_three.php:89
 msgid "Add to folder"
-msgstr ""
+msgstr "Agregar a carpeta"
 
 #: content/content-grid_three.php:93
 msgid "Remove from folder"
-msgstr ""
+msgstr "Quitar de la carpeta"
 
 #: core/api.php:203
 msgid "Read More"
@@ -1615,7 +1615,7 @@ msgstr "Compartir"
 
 #: loop/single.php:192
 msgid "Print"
-msgstr ""
+msgstr "Impresión"
 
 #: loop/single.php:302
 msgid "Please rate this post:"
@@ -1671,7 +1671,7 @@ msgstr "Texto libre..."
 
 #: partials/search.php:36 partials/search.php:84
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: partials/search.php:56
 msgid "Please select at least one field and click Search"
@@ -1697,11 +1697,11 @@ msgstr "Nombre de la carpeta"
 
 #: template-siddur-folder.php:71
 msgid "Here you can rename the folder"
-msgstr "Aquí puede cambiar el nombre de la carpeta"
+msgstr "Aquí puede cambiar el nombre de la carpeta."
 
 #: template-siddur-folder.php:72 template-siddur.php:61
 msgid "Allowed characters: digits, letters, spaces and dashes"
-msgstr "Caracteres permitidos: dígitos, letras, espacios y guiones"
+msgstr "Caracteres permitidos: dígitos, letras, espacios y guiones."
 
 #: template-siddur-folder.php:74 template-siddur.php:63
 msgid "Folder description"

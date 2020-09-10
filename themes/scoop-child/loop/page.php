@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		1.7.21
+ * @version		1.7.37
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -79,8 +79,8 @@ if ( have_posts() ) :
 			// Previous/next post navigation.
 			echo pojo_get_post_navigation(
 				array(
-					'prev_text' => __( '&laquo; Previous', 'pojo' ),
-					'next_text' => __( 'Next &raquo;', 'pojo' ),
+					'prev_text' => __( '&laquo; Previous', 'kulam-scoop' ),
+					'next_text' => __( 'Next &raquo;', 'kulam-scoop' ),
 				)
 			);
 		?>
