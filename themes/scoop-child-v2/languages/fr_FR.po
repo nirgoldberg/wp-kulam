@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
 "POT-Creation-Date: 2020-09-10 10:10+0300\n"
-"PO-Revision-Date: 2020-09-10 10:11+0300\n"
+"PO-Revision-Date: 2020-09-10 20:59+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
@@ -1414,7 +1414,7 @@ msgstr ""
 
 #: functions/modals/modal-login.php:49
 msgid "Register Now"
-msgstr "Inscription"
+msgstr "Créer un compte"
 
 #: functions/modals/modal-registration.php:36
 msgid "Registration"
@@ -1422,11 +1422,11 @@ msgstr ""
 
 #: functions/modals/modal-registration.php:47 page-templates/register.php:63
 msgid "Please enter the following text in the box below:"
-msgstr ""
+msgstr "Entrez le texte dans l'encadré dessous:"
 
 #: functions/modals/modal-registration.php:55 page-templates/register.php:66
 msgid "Register"
-msgstr "Inscription"
+msgstr "Créer un compte"
 
 #: functions/post-types.php:79 functions/post-types.php:96
 msgid "Galleries"
@@ -1620,7 +1620,7 @@ msgstr "Montrer plus"
 #: functions/shortcodes.php:808 partials/main/layout-posts-carousel.php:185
 #: partials/main/layout-recent-posts.php:93
 msgid "View all"
-msgstr "Toutes nos nouveautés"
+msgstr "Voir tous"
 
 #: functions/shortcodes.php:809
 msgid "Show less"
@@ -1711,7 +1711,7 @@ msgstr ""
 
 #: loop/single.php:248
 msgid "Keywords"
-msgstr ""
+msgstr "Mots clés"
 
 #: loop/single.php:381
 msgid "Please rate this post:"
@@ -1747,7 +1747,7 @@ msgstr ""
 
 #: page-templates/login.php:55 page-templates/register.php:55
 msgid "Your Details"
-msgstr ""
+msgstr "Identifiants"
 
 #: page-templates/login.php:61 page-templates/login.php:65
 msgid "ERROR"
@@ -1779,14 +1779,12 @@ msgid "Log out &raquo;"
 msgstr ""
 
 #: page-templates/login.php:96
-#, fuzzy
-#| msgid "Register"
 msgid "Not registered?"
-msgstr "Inscription"
+msgstr "S'inscrire"
 
 #: page-templates/register.php:86
 msgid "Already registered?"
-msgstr ""
+msgstr "Se connecter"
 
 #: partials/category/filters-menu.php:58
 msgid "Filter"
@@ -1860,7 +1858,7 @@ msgstr ""
 
 #: vendors/acf.php:181
 msgid "Submit for review"
-msgstr ""
+msgstr "Soumettre votre contenu"
 
 #: vendors/acf.php:182
 msgid ""
