@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.7.27
+ * @version     2.0.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -50,7 +50,7 @@ endif;
 						<span class="entry-time"><?php echo get_the_time(); ?></span>
 					<?php endif; ?>
 					<?php if ( po_archive_metadata_show( 'comments', $_pojo_parent_id ) ) : ?>
-						<span class="entry-comment"><?php comments_popup_link( __( 'No Comments', 'pojo' ), __( 'One Comment', 'pojo' ), __( '% Comments', 'pojo' ), 'comments' ); ?></span>
+						<span class="entry-comment"><?php comments_popup_link( __( 'No Comments', 'kulam-scoop' ), __( 'One Comment', 'kulam-scoop' ), __( '% Comments', 'kulam-scoop' ), 'comments' ); ?></span>
 					<?php endif; ?>
 					<?php if ( po_archive_metadata_show( 'author', $_pojo_parent_id ) ) : ?>
 						<span class="entry-user vcard author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></span>

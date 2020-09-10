@@ -141,10 +141,10 @@ var $ = jQuery,
 			var icon = $('#pojo-a11y-toolbar');
 
 			if ($('body').hasClass('rtl')) {
-				icon.removeClass('pojo-a11y-toolbar-left').addClass('pojo-a11y-toolbar-right');
+				icon.removeClass('pojo-a11y-toolbar-right').addClass('pojo-a11y-toolbar-left');
 			}
 			else {
-				icon.removeClass('pojo-a11y-toolbar-right').addClass('pojo-a11y-toolbar-left');
+				icon.removeClass('pojo-a11y-toolbar-left').addClass('pojo-a11y-toolbar-right');
 			}
 
 		},

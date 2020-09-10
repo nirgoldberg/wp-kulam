@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child
- * @version     1.7.32
+ * @version     2.0.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -33,7 +33,7 @@ $advanced_search			= $advanced_search !== false ? true : false;
 		</span>
 
 		<span class="menu-search-submit fa fa-search">
-			<input type="submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
+			<input type="submit" value="<?php _e( 'Search', 'kulam-scoop' ); ?>" />
 		</span>
 
 	</div>
@@ -81,7 +81,7 @@ $advanced_search			= $advanced_search !== false ? true : false;
 					</div><!-- .advanced-search-fields -->
 
 					<span class="menu-search-input">
-						<input type="submit" class="advanced-search-submit" value="<?php _e( 'Search', 'pojo' ); ?>" />
+						<input type="submit" class="advanced-search-submit" value="<?php _e( 'Search', 'kulam-scoop' ); ?>" />
 					</span>
 
 				</div><!-- .advanced-search-fields-wrapper -->

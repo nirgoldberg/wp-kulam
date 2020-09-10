@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.0
+ * @version		2.0.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -84,7 +84,7 @@ if ( have_posts() ) :
 
 								<div class="logged-in">
 									<p><?php printf( __( 'Logged in as <b>%s</b>, ', 'kulam-scoop' ), $current_user->user_login ); ?>
-									<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'kulam-scoop' ); ?>"><?php _e( 'Log out &raquo;', 'pojo' ); ?></a></p>
+									<a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'kulam-scoop' ); ?>"><?php _e( 'Log out &raquo;', 'kulam-scoop' ); ?></a></p>
 								</div>
 
 							<?php } ?>

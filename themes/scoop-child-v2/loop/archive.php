@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/loop
- * @version		2.0.0
+ * @version		2.0.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -60,27 +60,27 @@ if ( ! is_home() && ! is_front_page() ) { ?>
 		<div class="page-title">
 			<h1 class="entry-title <?php echo $category_icon ? 'has-icon" style="background-image: url(\'' . $category_icon[ 'url' ] . '\'); min-height:' . $category_icon[ 'height' ] . 'px;"' : '"'; ?>><?php
 				if ( is_day() ) :
-					printf( __( 'Archive for %s', 'pojo' ), '<span>' . get_the_date() . '</span>' );
+					printf( __( 'Archive for %s', 'kulam-scoop' ), '<span>' . get_the_date() . '</span>' );
 				elseif ( is_month() ) :
-					printf( __( 'Archive for %s', 'pojo' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'pojo' ) ) . '</span>' );
+					printf( __( 'Archive for %s', 'kulam-scoop' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'kulam-scoop' ) ) . '</span>' );
 				elseif ( is_year() ) :
-					printf( __( 'Archive for %s', 'pojo' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'pojo' ) ) . '</span>' );
+					printf( __( 'Archive for %s', 'kulam-scoop' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'kulam-scoop' ) ) . '</span>' );
 				elseif ( is_category() ) :
 					echo '<span>' . single_cat_title( '', false ) . '</span>' . ( $category_description && $category_description_toggling ? '<span class="more">' . kulam_get_svg( 'info' ) . '</span><span class="less">' . kulam_get_svg( 'minus' ) . '</span>' : '' );
 				elseif ( is_tag() ) :
 					echo '<span>' . single_tag_title( '', false ) . '</span>';
 				elseif ( is_tax( 'post_format' ) ) :
-					printf( __( 'Archive %s', 'pojo' ), '<span>' . get_post_format_string( get_post_format() ) . '</span>' );
+					printf( __( 'Archive %s', 'kulam-scoop' ), '<span>' . get_post_format_string( get_post_format() ) . '</span>' );
 				elseif ( is_tax( 'post_types_tax' ) ) :
-					printf( __( 'Archive %s', 'pojo' ), '<span>' . $category->name . '</span>' );
+					printf( __( 'Archive %s', 'kulam-scoop' ), '<span>' . $category->name . '</span>' );
 				elseif ( is_tax( 'siddurim' ) ) :
 					echo $my_siddur_label . ' <span>' . wp_get_current_user()->display_name . '</span>';
 				elseif ( is_author() ) :
 					global $author;
 					$userdata = get_userdata( $author );
-					printf( __( 'All posts by %s', 'pojo' ), '<span>' . $userdata->display_name . '</span>' );
+					printf( __( 'All posts by %s', 'kulam-scoop' ), '<span>' . $userdata->display_name . '</span>' );
 				else :
-					_e( 'Archive', 'pojo' );
+					_e( 'Archive', 'kulam-scoop' );
 				endif;
 			?></h1>
 		</div>

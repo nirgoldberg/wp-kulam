@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-09-09 17:21+0300\n"
-"PO-Revision-Date: 2020-09-09 17:21+0300\n"
+"POT-Creation-Date: 2020-09-10 10:10+0300\n"
+"PO-Revision-Date: 2020-09-10 10:10+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -1776,35 +1776,35 @@ msgstr "הדפסה"
 msgid "Keywords"
 msgstr ""
 
-#: loop/single.php:376
+#: loop/single.php:381
 msgid "Please rate this post:"
 msgstr "בבקשה, דרג פוסט זה:"
 
-#: loop/single.php:416
+#: loop/single.php:421
 msgid "Submit Rating"
 msgstr "שמור דירוג"
 
-#: loop/single.php:429
+#: loop/single.php:434
 msgid "Thank you for rating!"
 msgstr "הדירוג התקבל. תודה!"
 
-#: loop/single.php:440
+#: loop/single.php:445
 msgid "Tags: "
 msgstr "תגיות: "
 
-#: loop/single.php:448
+#: loop/single.php:453
 msgid "About the Author"
 msgstr "אודות המחבר"
 
-#: loop/single.php:455
+#: loop/single.php:460
 msgid "View all posts by"
 msgstr "צפה בסוג מאמר"
 
-#: loop/single.php:468
+#: loop/single.php:473
 msgid "&laquo; Previous Post"
 msgstr "&laquo; המאמר הקודם"
 
-#: loop/single.php:469
+#: loop/single.php:474
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 

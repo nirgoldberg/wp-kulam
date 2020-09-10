@@ -200,7 +200,7 @@ function po_get_read_more( $parent_id ) {
 	$return         = '';
 
 	if ( empty( $text_read_more ) )
-		$text_read_more = __( 'Read More', 'pojo' );
+		$text_read_more = __( 'Read More', 'kulam-scoop' );
 	
 	if ( $add_read_more )
 		$return = sprintf( '<a href="%s" class="read-more">%s</a>', get_permalink(), $text_read_more );
@@ -361,7 +361,7 @@ function po_get_archive_readmore_text( $parent_id = 0, $force_get_value = false 
 
 	$readmore_text = pojo_get_option( 'archive_text_readmore' );
 	if ( empty( $readmore_text ) )
-		$readmore_text = __( 'Read More &raquo;', 'pojo' );
+		$readmore_text = __( 'Read More &raquo;', 'kulam-scoop' );
 
 	if ( ! empty( $parent_id ) && 0 !== $parent_id ) {
 		// Smart Page
@@ -424,14 +424,14 @@ function po_is_page_header_support( $post_type ) {
 function po_get_theme_pagination_support() {
 	$options = array(
 		// Default is Numbers.
-		'' => __( 'Numbers', 'pojo' ),
+		'' => __( 'Numbers', 'kulam-scoop' ),
 	);
 	
 	if ( current_theme_supports( 'pojo-infinite-scroll' ) ) {
-		$options['infinite-scroll'] = __( 'Infinite Scroll', 'pojo' );
+		$options['infinite-scroll'] = __( 'Infinite Scroll', 'kulam-scoop' );
 	}
 	
-	$options['hide'] = __( 'Hide', 'pojo' );
+	$options['hide'] = __( 'Hide', 'kulam-scoop' );
 	
 	return apply_filters( 'po_get_theme_pagination_support', $options );
 }

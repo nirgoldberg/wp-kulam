@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-09-09 17:21+0300\n"
-"PO-Revision-Date: 2020-09-09 17:48+0300\n"
+"POT-Creation-Date: 2020-09-10 10:11+0300\n"
+"PO-Revision-Date: 2020-09-10 10:12+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: es_ES\n"
@@ -1713,35 +1713,35 @@ msgstr ""
 msgid "Keywords"
 msgstr ""
 
-#: loop/single.php:376
+#: loop/single.php:381
 msgid "Please rate this post:"
 msgstr ""
 
-#: loop/single.php:416
+#: loop/single.php:421
 msgid "Submit Rating"
 msgstr ""
 
-#: loop/single.php:429
+#: loop/single.php:434
 msgid "Thank you for rating!"
 msgstr ""
 
-#: loop/single.php:440
+#: loop/single.php:445
 msgid "Tags: "
 msgstr ""
 
-#: loop/single.php:448
+#: loop/single.php:453
 msgid "About the Author"
 msgstr ""
 
-#: loop/single.php:455
+#: loop/single.php:460
 msgid "View all posts by"
 msgstr ""
 
-#: loop/single.php:468
+#: loop/single.php:473
 msgid "&laquo; Previous Post"
 msgstr ""
 
-#: loop/single.php:469
+#: loop/single.php:474
 msgid "Next Post &raquo;"
 msgstr ""
 
@@ -1806,7 +1806,7 @@ msgstr "Texto libre..."
 
 #: partials/search.php:36 partials/search.php:84
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: partials/search.php:56
 msgid "Please select at least one field and click Search"
