@@ -299,8 +299,18 @@ body.page-template-main {
 			display: block;
 
 			span {
-				padding-right: 20px;
-				background: url('../images/icons/right.png') center right no-repeat;
+				position: relative;
+				display: inline-block;
+
+				&:after {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 100%;
+					width: 20px;
+					height: 48px;
+					background: url('../images/icons/right.png') center right no-repeat;
+				}
 			}
 		}
 	}
@@ -597,9 +607,19 @@ body.archive {
 
 	.more {
 		span {
-			padding-right: 20px;
+			position: relative;
 			font-weight: bold;
-			background: url('../images/icons/path.png') center right no-repeat;
+			display: inline-block;
+
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 20px;
+				height: 25px;
+				background: url('../images/icons/path.png') center right no-repeat;
+			}
 		}
 	}
 }

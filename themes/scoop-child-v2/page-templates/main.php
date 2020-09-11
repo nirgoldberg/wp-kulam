@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.0
+ * @version		2.0.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -115,7 +115,7 @@ $index = 0;
 
 </div><!-- .main-wrapper -->
 
-<div class="container">
+<div class="col-sm-12">
 
 	<?php
 		/**

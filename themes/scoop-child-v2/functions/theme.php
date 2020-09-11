@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		2.0.0
+ * @version		2.0.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -89,11 +89,12 @@ function kulam_enqueue_styles() {
 	wp_register_style( 'photoswipe-default-skin',	get_stylesheet_directory_uri() . '/assets/css/libs/PhotoSwipe/default-skin/default-skin.css',	array(),						KULAM_VERSION );
 
 	// https://goodies.pixabay.com/javascript/auto-complete/demo.html
-	wp_enqueue_style( 'auto-complete',				get_stylesheet_directory_uri() . '/assets/css/admin/auto-complete.css',								array(),						KULAM_VERSION );
+	wp_enqueue_style( 'auto-complete',				get_stylesheet_directory_uri() . '/assets/css/admin/auto-complete.css',							array(),						KULAM_VERSION );
 	wp_enqueue_style( 'general',					get_stylesheet_directory_uri() . '/assets/css/general.css',										array( 'pojo-css-framework' ),	KULAM_VERSION );
 
 	if ( is_rtl() ) {
-		wp_enqueue_style( 'general-rtl', get_stylesheet_directory_uri() . '/assets/css/general-rtl.css', array( 'pojo-css-framework', 'general' ), KULAM_VERSION );
+		wp_enqueue_style( 'bootstrap-rtl',			get_stylesheet_directory_uri() . '/assets/css/libs/bootstrap-rtl.min.css',						array( 'pojo-css-framework' ),				KULAM_VERSION );
+		wp_enqueue_style( 'general-rtl', 			get_stylesheet_directory_uri() . '/assets/css/general-rtl.css',									array( 'pojo-css-framework', 'general' ),	KULAM_VERSION );
 	}
 
 }

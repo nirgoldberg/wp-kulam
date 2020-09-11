@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/partials/main
- * @version		2.0.0
+ * @version		2.0.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -64,7 +64,7 @@ if ( $posts ) {
 							get_permalink( $p->ID ),
 							$image_html,
 							$p->post_title,
-							__( 'Read more', 'scoop-child' )
+							__( 'Read more', 'kulam-scoop' )
 						);
 
 		}
