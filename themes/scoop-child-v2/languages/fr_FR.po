@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
 "POT-Creation-Date: 2020-09-10 10:10+0300\n"
-"PO-Revision-Date: 2020-09-10 20:59+0300\n"
+"PO-Revision-Date: 2020-09-13 13:39+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
@@ -1404,13 +1404,13 @@ msgstr ""
 #: functions/modals/modal-login.php:42
 #: functions/modals/modal-registration.php:42 page-templates/register.php:58
 msgid "User"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 #: functions/modals/modal-login.php:43
 #: functions/modals/modal-registration.php:44 page-templates/login.php:73
 #: page-templates/register.php:60
 msgid "Password"
-msgstr ""
+msgstr "Mot de passe"
 
 #: functions/modals/modal-login.php:49
 msgid "Register Now"
@@ -1763,7 +1763,7 @@ msgstr ""
 
 #: page-templates/login.php:72
 msgid "Username or Email Address"
-msgstr ""
+msgstr "Adresse mail ou pseudonyme"
 
 #: page-templates/login.php:86 page-templates/register.php:76
 #, php-format
