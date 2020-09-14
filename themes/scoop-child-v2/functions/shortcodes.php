@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     2.0.0
+ * @version     2.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -878,3 +878,28 @@ function kulam_link_boxes() {
 
 }
 add_shortcode( 'kulam_link_boxes', 'kulam_link_boxes' );
+
+/**
+ * kulam_link
+ *
+ * This function adds the "kulam_link" Shortcode
+ *
+ * @param	$atts (array)
+ * @param	$content (string)
+ * @return	(string)
+ */
+function kulam_link( $atts, $content = null ) {
+
+	extract( shortcode_atts( array(
+		'url'		=> '',
+		'target'	=> '_self'
+	), $atts ) );
+
+	if ( ! $url || ! $content )
+		return;
+
+	// return
+	return '<a href="' . $url . '" target="' . $target . '">' . $content . '</a>';
+
+}
+add_shortcode( 'kulam_link', 'kulam_link' );

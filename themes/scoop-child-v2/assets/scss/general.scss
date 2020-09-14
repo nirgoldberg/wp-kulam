@@ -850,8 +850,22 @@ body.single {
 				}
 			}
 
-			input[type="checkbox"] {
-				@include checkbox-style;
+			&.fieldset {
+				label {
+					input[type="checkbox"] {
+						@include checkbox-style;
+					}
+
+					span {
+						p {
+							display: inline;
+
+							a {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
 			}
 		}
 

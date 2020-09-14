@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     2.0.0
+ * @version     2.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -153,7 +153,7 @@ function kulam_hmembership_form_get_radio_field_input( $output, $field ) {
 									$field[ 'type' ],
 									$key,
 									checked( $field[ 'default' ], $key, false ),
-									$label,
+									apply_filters( 'the_content', $label ),
 									$iterator
 								);
 
