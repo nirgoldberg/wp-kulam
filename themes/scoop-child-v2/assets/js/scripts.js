@@ -2268,13 +2268,13 @@ jQuery(document).ready(function ($) {
 			return false;
 		}
 
-		if (!cookies.prop('checked') || !privacy_policy.prop('checked') || !terms_of_use.prop('checked')) {
+		if (cookies.length && !cookies.prop('checked') || privacy_policy.length && !privacy_policy.prop('checked') || terms_of_use.length && !terms_of_use.prop('checked')) {
 			$('.loader').hide();
 
-			var msg = "You must approve the following:\n";
-			msg += cookies.val() + "\n";
-			msg += privacy_policy.val() + "\n";
-			msg += terms_of_use.val() + "\n";
+			var msg = "You must approve the following:\n\n";
+			msg += cookies.length && !cookies.prop('checked') ? cookies.val() + "\n" : '';
+			msg += privacy_policy.length && !privacy_policy.prop('checked') ? privacy_policy.val() + "\n" : '';
+			msg += terms_of_use.length && !terms_of_use.prop('checked') ? terms_of_use.val() + "\n" : '';
 
 			alert(msg);
 			return false;
