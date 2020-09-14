@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.0
+ * @version		2.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -191,7 +191,7 @@ function create_account(){
 	$captcha = ( isset($_POST['captcha']) ? $_POST['captcha'] : '' );
 	$prefix = ( isset($_POST['prefix']) ? $_POST['prefix'] : '' );
 	if($captcha_instance->check( $prefix, $captcha )) {
-		if (!username_exists($user) && !email_exists($email)) {
+		if ($user && !username_exists($user) && $email && !email_exists($email)) {
 			$user_id = wp_create_user($user, $pass, $email);
 			if (!is_wp_error($user_id)) {
 				//user has been created

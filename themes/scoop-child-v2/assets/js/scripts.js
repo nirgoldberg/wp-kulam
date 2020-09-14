@@ -2244,20 +2244,49 @@ jQuery(document).ready(function ($) {
 
 	$('.submit_reg').click(function () {
 		$('.loader').show();
-		var email = $('#uemail').val();
+
+		// vars
+		var uname = $('#uname').val(),
+			email = $('#uemail').val(),
+			upass = $('#upass').val(),
+			cookies = $('#term_cookies'),
+			privacy_policy = $('#term_privacy_policy'),
+			terms_of_use = $('#term_terms_of_use'),
+			prefix = $('#prefix').val(),
+			captcha = $('#captcha').val();
+
+		if (!uname || !email || !upass) {
+			$('.loader').hide();
+			alert("Username/Email/Password is empty");
+			return false;
+		}
+
 		if (!validateEmail(email)) {
 			$('.loader').hide();
-			alert("email is not valid");
+			alert("Email is not valid");
 			$('#uemail').css("border-color", "red");
 			return false;
 		}
+
+		if (!cookies.prop('checked') || !privacy_policy.prop('checked') || !terms_of_use.prop('checked')) {
+			$('.loader').hide();
+
+			var msg = "You must approve the following:\n";
+			msg += cookies.val() + "\n";
+			msg += privacy_policy.val() + "\n";
+			msg += terms_of_use.val() + "\n";
+
+			alert(msg);
+			return false;
+		}
+
 		var data = {
 			action: 'create_account',
 			uemail: email,
-			upass: $('#upass').val(),
-			uname: $('#uname').val(),
-			prefix: $('#prefix').val(),
-			captcha: $('#captcha').val(),
+			upass: upass,
+			uname: uname,
+			prefix: prefix,
+			captcha: captcha,
 			security: ajaxdata.ajax_nonce
 		};
 		jQuery.post(ajaxdata.ajaxurl, data, function (response) {

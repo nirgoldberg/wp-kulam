@@ -25,6 +25,22 @@ $strip_image				= get_field( 'acf-option_strip_image', 'option' );
 $captcha_instance			= new ReallySimpleCaptcha();
 $word						= $captcha_instance->generate_random_word();
 $prefix						= mt_rand();
+$terms_pre_text				= $login_registration_website_registration_form[ 'terms_pre_text' ];
+
+$terms						= array(
+	'term_cookies'				=> array(
+		'label'					=> $login_registration_website_registration_form[ 'cookies_label' ],
+		'default'				=> $login_registration_website_registration_form[ 'cookies_default_value' ],
+	),
+	'term_privacy_policy'	=> array(
+		'label'					=> $login_registration_website_registration_form[ 'privacy_policy_label' ],
+		'default'				=> $login_registration_website_registration_form[ 'privacy_policy_default_value' ],
+	),
+	'term_terms_of_use'		=> array(
+		'label'					=> $login_registration_website_registration_form[ 'terms_of_use_label' ],
+		'default'				=> $login_registration_website_registration_form[ 'terms_of_use_default_value' ],
+	),
+);
 
 do_action( 'pojo_get_start_layout', 'page', get_post_type(), '' );
 
@@ -61,14 +77,46 @@ if ( have_posts() ) :
 								<div class="form-title"><?php _e( 'Your Details', 'kulam-scoop' ); ?></div>
 
 								<form>
-									<input type="text" id="uname" name="uname" placeholder="<?php _e( 'User', 'kulam-scoop' ); ?>" />
-									<input id="uemail" type="text" name="uemail" placeholder="<?php _e( 'Email', 'kulam-scoop' ); ?>" />
-									<input type="password" id="upass" name="upass" password="<?php _e( 'Password', 'kulam-scoop' ); ?>" placeholder="<?php _e( 'Password', 'kulam-scoop' ); ?>" />
-									<img src="/wp-content/plugins/really-simple-captcha/tmp/<?php echo $captcha_instance->generate_image( $prefix, $word ); ?>" />
-									<br />
-									<label for="captcha"><h6><?php _e( 'Please enter the following text in the box below:', 'kulam-scoop' ); ?></h6></label> <input id="captcha" type="text" name="captcha" />
-									<input hidden id="prefix" name="prefix" value="<?php echo $prefix ?>" />
-									<input type="hidden" id="redirect" name="redirect" />
+									<table>
+										<tbody>
+											<tr><td><input type="text" id="uname" name="uname" placeholder="<?php _e( 'User', 'kulam-scoop' ); ?>" /></td></tr>
+											<tr><td><input id="uemail" type="text" name="uemail" placeholder="<?php _e( 'Email', 'kulam-scoop' ); ?>" /></td></tr>
+											<tr><td><input type="password" id="upass" name="upass" password="<?php _e( 'Password', 'kulam-scoop' ); ?>" placeholder="<?php _e( 'Password', 'kulam-scoop' ); ?>" /></td></tr>
+
+											<?php echo $terms_pre_text ? '<tr><td><p>' . $terms_pre_text . '</p></td></tr>' : ''; ?>
+
+											<tr><td><fieldset>
+
+												<?php foreach ( $terms as $id => $term ) {
+
+													if ( $term[ 'label' ] ) {
+
+														$label		= apply_filters( 'the_content', $term[ 'label' ] );
+														$checked	= $term[ 'default' ] ? 'checked="checked"' : '';
+
+														echo '<label for="' . $id . '"><input id="' . $id . '" name="' . $id . '" type="checkbox" value="' . sanitize_text_field( $label ) . '" ' . $checked . '><span>' . $label . '</span></label>';
+
+													}
+
+												} ?>
+
+											</fieldset></td></tr>
+
+											<tr>
+												<td><img src="/wp-content/plugins/really-simple-captcha/tmp/<?php echo $captcha_instance->generate_image( $prefix, $word ); ?>" />
+													<br />
+													<label for="captcha"><h6><?php _e( 'Please enter the following text in the box below:', 'kulam-scoop' ); ?></h6></label> <input id="captcha" type="text" name="captcha" />
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<input hidden id="prefix" name="prefix" value="<?php echo $prefix ?>" />
+													<input type="hidden" id="redirect" name="redirect" />
+												</td>
+											</tr>
+										</tbody>
+									</table>
+
 									<button type="submit" class="button submit_reg"><?php _e( 'Register', 'kulam-scoop' ); ?></button>
 								</form>
 

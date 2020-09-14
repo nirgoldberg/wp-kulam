@@ -914,8 +914,28 @@ body.single {
 		}
 
 		form {
+			table {
+				width: 100%;
+			}
+
+			fieldset {
+				margin-bottom: 20px;
+
+				label {
+					display: block;
+
+					p {
+						display: inline;
+					}
+				}
+			}
+
 			input {
 				margin-bottom: 20px;
+
+				&[type="checkbox"] {
+					@include checkbox-style;
+				}
 			}
 		}
 

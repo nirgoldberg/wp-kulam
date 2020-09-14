@@ -554,6 +554,145 @@
                     "ui": 1,
                     "ui_on_text": "On",
                     "ui_off_text": "Off"
+                },
+                {
+                    "key": "field_5f5f972920a35",
+                    "label": "Terms Pre Text",
+                    "name": "terms_pre_text",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5f5f950d20a31",
+                    "label": "Cookies Label",
+                    "name": "cookies_label",
+                    "type": "text",
+                    "instructions": "Use \"kulam_link\" shortcode as a link, e.g. [kulam_link url=\"{url}\" target=\"{_self | _blank}\"]content[\/kulam_link]",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5f5f960820a33",
+                    "label": "Cookies Default Value",
+                    "name": "cookies_default_value",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off"
+                },
+                {
+                    "key": "field_5f5f95e920a32",
+                    "label": "Privacy Policy Label",
+                    "name": "privacy_policy_label",
+                    "type": "text",
+                    "instructions": "Use \"kulam_link\" shortcode as a link, e.g. [kulam_link url=\"{url}\" target=\"{_self | _blank}\"]content[\/kulam_link]",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5f5f96e620a34",
+                    "label": "Privacy Policy Default Value",
+                    "name": "privacy_policy_default_value",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off"
+                },
+                {
+                    "key": "field_5f5f994320a36",
+                    "label": "Terms of Use Label",
+                    "name": "terms_of_use_label",
+                    "type": "text",
+                    "instructions": "Use \"kulam_link\" shortcode as a link, e.g. [kulam_link url=\"{url}\" target=\"{_self | _blank}\"]content[\/kulam_link]",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_5f5f994c20a37",
+                    "label": "Terms of Use Default Value",
+                    "name": "terms_of_use_default_value",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off"
                 }
             ]
         },
@@ -803,5 +942,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1600092854
+    "modified": 1600101127
 }
