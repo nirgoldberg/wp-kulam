@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.3
+ * @version		2.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -14,11 +14,12 @@ if ( ! function_exists( 'get_field' ) )
 get_header();
 
 // vars
-$strip_image					= get_field( 'acf-option_strip_image', 'option' );
-$login_registration_pages		= get_field( 'acf-oprion_login_registration_pages', 'option' );
-$login_registration_buttons		= get_field( 'acf-option_login_registration_buttons', 'option' );
-$login_registration_login_form	= get_field( 'acf-oprion_login_registration_login_form', 'options' );
-$page_showing					= basename( $_SERVER[ 'REQUEST_URI' ] );
+$strip_image									= get_field( 'acf-option_strip_image', 'option' );
+$login_registration_pages						= get_field( 'acf-oprion_login_registration_pages', 'option' );
+$login_registration_buttons						= get_field( 'acf-option_login_registration_buttons', 'option' );
+$login_registration_login_form					= get_field( 'acf-oprion_login_registration_login_form', 'option' );
+$login_registration_website_registration_form	= get_field( 'acf-option_login_registration_website_registration_form', 'option' );
+$page_showing									= basename( $_SERVER[ 'REQUEST_URI' ] );
 
 do_action( 'pojo_get_start_layout', 'page', get_post_type(), '' );
 
@@ -103,11 +104,15 @@ if ( have_posts() ) :
 								</a>
 							</button>
 
-							<button>
-								<a href="<?php echo $login_registration_pages[ 'register_page' ]; ?>">
-									<?php echo $login_registration_buttons[ 'normal_registration' ]; ?>
-								</a>
-							</button>
+							<?php if ( ! isset( $login_registration_website_registration_form[ 'status' ] ) || true === $login_registration_website_registration_form[ 'status' ] ) { ?>
+
+								<button>
+									<a href="<?php echo $login_registration_pages[ 'register_page' ]; ?>">
+										<?php echo $login_registration_buttons[ 'normal_registration' ]; ?>
+									</a>
+								</button>
+
+							<?php } ?>
 
 						</div><!-- .login-wrap -->
 

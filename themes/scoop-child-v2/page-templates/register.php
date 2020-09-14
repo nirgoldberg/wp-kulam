@@ -4,12 +4,19 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.3
+ * @version		2.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 if ( ! function_exists( 'get_field' ) )
 	return;
+
+// is website registration form active
+$login_registration_website_registration_form	= get_field( 'acf-option_login_registration_website_registration_form', 'option' );
+$login_registration_pages						= get_field( 'acf-oprion_login_registration_pages', 'option' );
+
+if ( isset( $login_registration_website_registration_form[ 'status' ] ) && false === $login_registration_website_registration_form[ 'status' ] )
+	wp_redirect( $login_registration_pages[ 'login_page' ] );
 
 get_header();
 
@@ -18,7 +25,6 @@ $strip_image				= get_field( 'acf-option_strip_image', 'option' );
 $captcha_instance			= new ReallySimpleCaptcha();
 $word						= $captcha_instance->generate_random_word();
 $prefix						= mt_rand();
-$login_registration_pages	= get_field( 'acf-oprion_login_registration_pages', 'option' );
 
 do_action( 'pojo_get_start_layout', 'page', get_post_type(), '' );
 

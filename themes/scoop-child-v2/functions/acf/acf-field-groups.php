@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.0.4
+ * @version		2.0.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -5805,8 +5805,44 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			),
 		),
 		array(
+			'key' => 'field_5f5f790f47133',
+			'label' => __('Website Registration Form', 'kulam-scoop'),
+			'name' => 'acf-option_login_registration_website_registration_form',
+			'type' => 'group',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'layout' => 'row',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5f5f794747134',
+					'label' => __('Status', 'kulam-scoop'),
+					'name' => 'status',
+					'type' => 'true_false',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'message' => '',
+					'default_value' => 1,
+					'ui' => 1,
+					'ui_on_text' => __('On', 'kulam-scoop'),
+					'ui_off_text' => __('Off', 'kulam-scoop'),
+				),
+			),
+		),
+		array(
 			'key' => 'field_5f4cc697aaa66',
-			'label' => __('Registration Form', 'kulam-scoop'),
+			'label' => __('Member Registration Form', 'kulam-scoop'),
 			'name' => 'acf-option_login_registration_registration_form',
 			'type' => 'group',
 			'instructions' => '',
