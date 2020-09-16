@@ -651,6 +651,16 @@ body.archive {
 				line-height: normal;
 			}
 		}
+
+		.buttons-wrap {
+			&.register-not-allowed {
+				text-align: center;
+
+				button {
+					float: none !important;
+				}
+			}
+		}
 	}
 }
 

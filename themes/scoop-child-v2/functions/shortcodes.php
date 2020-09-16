@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     2.0.5
+ * @version     2.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -892,7 +892,7 @@ function kulam_link( $atts, $content = null ) {
 
 	extract( shortcode_atts( array(
 		'url'		=> '',
-		'target'	=> '_self'
+		'target'	=> '_blank'
 	), $atts ) );
 
 	if ( ! $url || ! $content )

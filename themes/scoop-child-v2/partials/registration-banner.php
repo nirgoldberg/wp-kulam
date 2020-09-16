@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/partials
- * @version		2.0.0
+ * @version		2.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -12,9 +12,11 @@ if ( is_user_logged_in() || ! function_exists( 'get_field' ) )
 	return;
 
 // vars
-$pages		= get_field( 'acf-oprion_login_registration_pages', 'option' );
-$banner		= get_field( 'acf-option_login_registration_banner', 'option' );
-$buttons	= get_field( 'acf-option_login_registration_buttons', 'option' );
+$pages											= get_field( 'acf-oprion_login_registration_pages', 'option' );
+$banner											= get_field( 'acf-option_login_registration_banner', 'option' );
+$buttons										= get_field( 'acf-option_login_registration_buttons', 'option' );
+$login_registration_website_registration_form	= get_field( 'acf-option_login_registration_website_registration_form', 'option' );
+$is_register_allowed							= ( ! isset( $login_registration_website_registration_form[ 'status' ] ) || true === $login_registration_website_registration_form[ 'status' ] );
 
 if ( ! $pages || ! $banner || ! $buttons )
 	return;
@@ -32,9 +34,9 @@ if ( ! $pages || ! $banner || ! $buttons )
 
 			</div>
 
-			<div class="buttons-wrap row">
+			<div class="buttons-wrap row <?php echo ! $is_register_allowed ? 'register-not-allowed' : ''; ?>">
 
-				<div class="col-sm-6">
+				<div class="col-sm-<?php echo $is_register_allowed ? '6' : '12'; ?>">
 					<button>
 						<a href="<?php echo $pages[ 'hmembership_register_page' ]; ?>">
 							<?php echo $buttons[ 'member_registration' ]; ?>
@@ -42,13 +44,17 @@ if ( ! $pages || ! $banner || ! $buttons )
 					</button>
 				</div>
 
-				<div class="col-sm-6">
-					<button>
-						<a href="<?php echo $pages[ 'register_page' ]; ?>">
-							<?php echo $buttons[ 'normal_registration' ]; ?>
-						</a>
-					</button>
-				</div>
+				<?php if ( $is_register_allowed ) { ?>
+
+					<div class="col-sm-6">
+						<button>
+							<a href="<?php echo $pages[ 'register_page' ]; ?>">
+								<?php echo $buttons[ 'normal_registration' ]; ?>
+							</a>
+						</button>
+					</div>
+
+				<?php } ?>
 
 			</div>
 

@@ -579,7 +579,7 @@
                     "label": "Cookies Label",
                     "name": "cookies_label",
                     "type": "text",
-                    "instructions": "Use \"kulam_link\" shortcode as a link, e.g. [kulam_link url=\"{url}\" target=\"{_self | _blank}\"]content[\/kulam_link]",
+                    "instructions": "Link syntax: [kulam_link url=\"URL\"]content[\/kulam_link]",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -619,7 +619,7 @@
                     "label": "Privacy Policy Label",
                     "name": "privacy_policy_label",
                     "type": "text",
-                    "instructions": "Use \"kulam_link\" shortcode as a link, e.g. [kulam_link url=\"{url}\" target=\"{_self | _blank}\"]content[\/kulam_link]",
+                    "instructions": "Link syntax: [kulam_link url=\"URL\"]content[\/kulam_link]",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -659,7 +659,7 @@
                     "label": "Terms of Use Label",
                     "name": "terms_of_use_label",
                     "type": "text",
-                    "instructions": "Use \"kulam_link\" shortcode as a link, e.g. [kulam_link url=\"{url}\" target=\"{_self | _blank}\"]content[\/kulam_link]",
+                    "instructions": "Link syntax: [kulam_link url=\"URL\"]content[\/kulam_link]",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -942,5 +942,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1600101127
+    "modified": 1600277779
 }

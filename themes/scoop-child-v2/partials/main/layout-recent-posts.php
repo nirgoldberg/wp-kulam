@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials/main
- * @version     2.0.0
+ * @version     2.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -24,6 +24,9 @@ if ( ! $title || ! $category )
 
 $layout_style	.= $top_padding ? 'padding-top:' . $top_padding . 'px;' : '';
 $layout_style	.= $bottom_padding ? 'padding-bottom:' . $bottom_padding . 'px;' : '';
+
+// get sticky posts
+$sticky_posts = get_field( 'acf-category_sticky_posts', 'category_' . $category );
 
 // get posts
 $posts = array();
@@ -60,16 +63,39 @@ if ( in_array( $user_state, array( 'logged_in', 'public' ) ) ) {
 
 }
 
-$query = new WP_Query( $args );
+// build array for two queries, including and excluding sticky posts accordingly
+if ( $sticky_posts ) {
 
-if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
+	$query_args = array(
+		array_merge( $args, array( 'post__in' => $sticky_posts, 'orderby' => 'post__in' ) ),
+		array_merge( $args, array( 'post__not_in' => $sticky_posts ) ),
+	);
 
-	$posts[] = kulam_get_post();
+} else {
+	$query_args = array( $args );
+}
 
-endwhile; endif; wp_reset_postdata();
+// query posts
+foreach ( $query_args as $args ) {
+
+	if ( count( $posts ) >= 4 )
+		continue;
+
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post();
+
+		$posts[] = kulam_get_post();
+
+	endwhile; endif; wp_reset_postdata();
+
+}
 
 if ( ! $posts )
 	return;
+
+// take first 4 posts
+$posts = array_slice( $posts, 0, 4 );
 
 ?>
 

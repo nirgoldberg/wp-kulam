@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.0.5
+ * @version		2.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -5862,7 +5862,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'label' => __('Cookies Label', 'kulam-scoop'),
 					'name' => 'cookies_label',
 					'type' => 'text',
-					'instructions' => __('Use "kulam_link" shortcode as a link, e.g. [kulam_link url="{url}" target="{_self | _blank}"]content[/kulam_link]', 'kulam-scoop'),
+					'instructions' => __('Link syntax: [kulam_link url="URL"]content[/kulam_link]', 'kulam-scoop'),
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
@@ -5902,7 +5902,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'label' => __('Privacy Policy Label', 'kulam-scoop'),
 					'name' => 'privacy_policy_label',
 					'type' => 'text',
-					'instructions' => __('Use "kulam_link" shortcode as a link, e.g. [kulam_link url="{url}" target="{_self | _blank}"]content[/kulam_link]', 'kulam-scoop'),
+					'instructions' => __('Link syntax: [kulam_link url="URL"]content[/kulam_link]', 'kulam-scoop'),
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
@@ -5942,7 +5942,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'label' => __('Terms of Use Label', 'kulam-scoop'),
 					'name' => 'terms_of_use_label',
 					'type' => 'text',
-					'instructions' => __('Use "kulam_link" shortcode as a link, e.g. [kulam_link url="{url}" target="{_self | _blank}"]content[/kulam_link]', 'kulam-scoop'),
+					'instructions' => __('Link syntax: [kulam_link url="URL"]content[/kulam_link]', 'kulam-scoop'),
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
