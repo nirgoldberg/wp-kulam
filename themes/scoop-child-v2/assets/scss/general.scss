@@ -1377,6 +1377,37 @@ body.modal-open,
 	}
 }
 
+/***************/
+/* GDPR banner */
+/***************/
+
+#cookie-law-info-bar[data-cli-style="cli-style-v2"] {
+	.cli-style-v2 {
+		display: block;
+
+		.cli-bar-message {
+			margin-bottom: 20px;
+			width: 100%;
+			display: block;
+		}
+
+		.cli-bar-btn_container {
+			margin: 0;
+			width: 100%;
+			text-align: left;
+			display: block;
+
+			.cli-plugin-button {
+				margin: 0 20px 20px 0;
+				padding: 10.5px 27px;
+				line-height: 1.5;
+				font-weight: bold;
+				@include border-radius(24.5px);
+			}
+		}
+	}
+}
+
 /**************/
 /* responsive */
 /**************/

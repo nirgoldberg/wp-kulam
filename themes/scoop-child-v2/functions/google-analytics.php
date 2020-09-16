@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.5.0
+ * @version		2.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,58 +22,32 @@ function google_analytics_head() {
 	/**
 	 * Variables
 	 */
-	$code = get_field( 'acf-option_google_analytics_code', 'option' );
+	$code								= get_field( 'acf-option_google_analytics_code', 'option' );
+	$gdpr_allowed_cookies				= isset( $_COOKIE[ 'viewed_cookie_policy' ] ) ? $_COOKIE[ 'viewed_cookie_policy' ] : '';
+	$gdpr_allowed_non_necessary_cookies	= isset( $_COOKIE[ 'cookielawinfo-checkbox-non-necessary' ] ) ? $_COOKIE[ 'cookielawinfo-checkbox-non-necessary' ] : 'yes';
 
-	// backward compatibility - to be removed after all sites have defined an analytics code via ACF
-	if ( ! $code ) {
+	// are cookies allowed
+	if (	! $code ||
+			'no' == $gdpr_allowed_cookies ||
+			! $gdpr_allowed_non_necessary_cookies ||
+			'yes' == $gdpr_allowed_cookies && 'no' == $gdpr_allowed_non_necessary_cookies ) {
 
-		$current_site = $_SERVER['HTTP_HOST'];
+		// vars
+		$cookies	= array( '_ga', '_gid', '_gat_gtag_' . str_replace( '-', '_', $code ) );
+		$host		= $_SERVER[ 'HTTP_HOST' ];
 
-		switch ( $current_site ) {
+		// get domain name
+		preg_match( "/[^\.\/]+\.[^\.\/]+$/", $host, $matches );
 
-			case 'kulam.org': $code = 'UA-130681933-1'; 
-			break;
-			case 'iac.kulam.org': $code = 'UA-132186797-1'; 
-			break;
-			case 'ki.kulam.org': $code = 'UA-132184397-1'; 
-			break;
-			case 'matnasim.kulam.org': $code = 'UA-132224897-1'; 
-			break;
-			case 'hashomer.kulam.org': $code = 'UA-131938138-1';
-			break;
-			case 'lachish.kulam.org': $code = 'UA-132184208-1';
-			break;
-			case 'einprat.kulam.org': $code = 'UA-131902577-1';
-			break;
-			case 'sfhillel.kulam.org': $code = 'UA-132190351-1';
-			break;
-			case 'shabbat.kulam.org': $code = 'UA-132195815-1';
-			break;
-			case 'onward.kulam.org': $code = 'UA-132172377-1';
-			break;
-			case 'jcogs.kulam.org': $code = 'UA-132215886-1';
-			break;
-			case 'masaisraeli.kulam.org': $code = 'UA-131909123-1';
-			break;
-			case 'kol-ami.kulam.org': $code = 'UA-132189842-1';
-			break;
-			case 'nachshon.kulam.org': $code = 'UA-132187822-1';
-			break;
-			case 'masaisrael.kulam.org': $code = 'UA-132186217-1';
-			break;
-			case 'ramah.kulam.org': $code = 'UA-132213676-1';
-			break;
-			case 'honeymoonisrael.kulam.org': $code = 'UA-132211552-1';
-			break;
-			case 'masa.kulam.org': $code = 'UA-131941060-1';
-			break;
-
+		// remove Google Analytics cookies
+		foreach ( $cookies as $cookie ) {
+			setcookie( $cookie, null, time() - DAY_IN_SECONDS, COOKIEPATH, '.' . $matches[0] );
 		}
 
-	}
-
-	if ( ! $code )
+		// return
 		return;
+
+	}
 
 	?>
 

@@ -458,6 +458,14 @@
 	.footer {
 		background:	url('../images/bg/jerusalem-light.png') 0 100% no-repeat;
 	}
+
+	/***************/
+	/* GDPR banner */
+	/***************/
+
+	#cookie-law-info-bar[data-cli-style="cli-style-v2"] {
+		padding: 35px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -1032,6 +1040,15 @@
 	.form-section {
 		margin: 0 auto;
 		max-width: 80%;
+	}
+
+
+	/***************/
+	/* GDPR banner */
+	/***************/
+
+	#cookie-law-info-bar[data-cli-style="cli-style-v2"] {
+		padding: 75px 110px;
 	}
 }
 

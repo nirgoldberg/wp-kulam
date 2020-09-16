@@ -343,6 +343,22 @@ body.single {
 	}
 }
 
+/***************/
+/* GDPR banner */
+/***************/
+
+#cookie-law-info-bar[data-cli-style="cli-style-v2"] {
+	.cli-style-v2 {
+		.cli-bar-btn_container {
+			text-align: right;
+
+			.cli-plugin-button {
+				margin: 0 0 20px 20px;
+			}
+		}
+	}
+}
+
 /**************/
 /* responsive */
 /**************/

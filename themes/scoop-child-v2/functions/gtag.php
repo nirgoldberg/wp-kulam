@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		1.5.0
+ * @version		2.0.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -22,10 +22,19 @@ function gtag_head() {
 	/**
 	 * Variables
 	 */
-	$code = get_field( 'acf-option_google_tag_manager_code', 'option' );
+	$code								= get_field( 'acf-option_google_tag_manager_code', 'option' );
+	$gdpr_allowed_cookies				= isset( $_COOKIE[ 'viewed_cookie_policy' ] ) ? $_COOKIE[ 'viewed_cookie_policy' ] : '';
+	$gdpr_allowed_non_necessary_cookies	= isset( $_COOKIE[ 'cookielawinfo-checkbox-non-necessary' ] ) ? $_COOKIE[ 'cookielawinfo-checkbox-non-necessary' ] : 'yes';
 
-	if ( ! $code )
+	// are cookies allowed
+	if (	! $code ||
+			'no' == $gdpr_allowed_cookies ||
+			! $gdpr_allowed_non_necessary_cookies ||
+			'yes' == $gdpr_allowed_cookies && 'no' == $gdpr_allowed_non_necessary_cookies ) {
+
 		return;
+
+	}
 
 	?>
 
@@ -56,10 +65,19 @@ function gtag_body() {
 	/**
 	 * Variables
 	 */
-	$code = get_field( 'acf-option_google_tag_manager_code', 'option' );
+	$code								= get_field( 'acf-option_google_tag_manager_code', 'option' );
+	$gdpr_allowed_cookies				= isset( $_COOKIE[ 'viewed_cookie_policy' ] ) ? $_COOKIE[ 'viewed_cookie_policy' ] : '';
+	$gdpr_allowed_non_necessary_cookies	= isset( $_COOKIE[ 'cookielawinfo-checkbox-non-necessary' ] ) ? $_COOKIE[ 'cookielawinfo-checkbox-non-necessary' ] : 'yes';
 
-	if ( ! $code )
+	// are cookies allowed
+	if (	! $code ||
+			'no' == $gdpr_allowed_cookies ||
+			! $gdpr_allowed_non_necessary_cookies ||
+			'yes' == $gdpr_allowed_cookies && 'no' == $gdpr_allowed_non_necessary_cookies ) {
+
 		return;
+
+	}
 
 	?>
 
