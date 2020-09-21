@@ -23,16 +23,10 @@
 		/*******/
 
 		.nav-login {
-			float: left;
-
 			ul {
 				li {
 					margin-left: 0;
 					margin-right: 25px;
-
-					&:first-child {
-						margin-right: 0;
-					}
 				}
 			}
 		}
@@ -41,7 +35,29 @@
 
 @media (max-width: 1199px) {}
 
-@media (max-width: 991px) {}
+@media (max-width: 991px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+
+		/*******/
+		/* nav */
+		/*******/
+
+		.nav-login {
+			ul {
+				li {
+					&:first-child {
+						margin-right: 0;
+					}
+				}
+			}
+		}
+	}
+}
 
 @media (max-width: 767px) {
 
@@ -144,8 +160,6 @@
 		/*******/
 
 		.nav-login {
-			float: left;
-
 			ul {
 				li {
 					margin-left: 0;
@@ -348,13 +362,49 @@
 
 @media (min-width: 1200px) and (max-width: 1799px) {}
 
-@media (min-width: 1200px) and (max-width: 1499px) {}
+@media (min-width: 1200px) and (max-width: 1499px) {
+
+	/************/
+	/* nav-main */
+	/************/
+
+	.nav-main {
+		.sf-menu {
+			li {
+				margin-left: 25px;
+				margin-right: 0;
+			}
+		}
+	}
+}
 
 @media (min-width: 992px) and (max-width: 1799px) {}
 
 @media (min-width: 992px) and (max-width: 1499px) {}
 
 @media (min-width: 992px) and (max-width: 1199px) {
+
+	/************/
+	/* nav-main */
+	/************/
+
+	.nav-main {
+		.sf-menu {
+			li {
+				margin-left: 10px;
+				margin-right: 0;
+
+				&.upload {
+					a {
+						span {
+							padding-left: 10px;
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	/********************/
 	/* category archive */

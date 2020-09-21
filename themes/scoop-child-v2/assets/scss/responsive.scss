@@ -66,7 +66,6 @@
 		.logo {
 			float: left !important;
 			margin: 0 !important;
-			max-width: 60% !important;
 			line-height: 70px;
 		}
 
@@ -75,15 +74,9 @@
 		/*******/
 
 		.nav-login {
-			float: right;
-
 			ul {
 				li {
 					margin-left: 25px;
-
-					&:first-child {
-						margin-left: 0;
-					}
 
 					a {
 						span {
@@ -94,14 +87,6 @@
 					}
 				}
 			}
-		}
-
-		/************/
-		/* nav-main */
-		/************/
-
-		.nav-main {
-			display: none;
 		}
 	}
 
@@ -167,6 +152,35 @@
 @media (max-width: 991px) {
 
 	/**********/
+	/* header */
+	/**********/
+
+	#header {
+
+		/*******/
+		/* nav */
+		/*******/
+
+		.nav-login {
+			ul {
+				li {
+					&:first-child {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+
+		/************/
+		/* nav-main */
+		/************/
+
+		.nav-main {
+			display: none;
+		}
+	}
+
+	/**********/
 	/* single */
 	/**********/
 
@@ -191,6 +205,21 @@
 }
 
 @media (max-width: 767px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+
+		/********/
+		/* logo */
+		/********/
+
+		.logo {
+			max-width: 40% !important;
+		}
+	}
 
 	/********/
 	/* main */
@@ -567,8 +596,6 @@
 		/*******/
 
 		.nav-login {
-			float: right;
-
 			ul {
 				li {
 					margin-left: 30px;
@@ -579,10 +606,6 @@
 								height: 72px;
 							}
 						}
-					}
-
-					&.menu {
-						display: none;
 					}
 				}
 			}
@@ -727,6 +750,27 @@
 }
 
 @media (min-width: 992px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+
+		/*******/
+		/* nav */
+		/*******/
+
+		.nav-login {
+			ul {
+				li {
+					&.menu {
+						display: none;
+					}
+				}
+			}
+		}
+	}
 
 	/**********/
 	/* single */
@@ -1095,11 +1139,38 @@
 
 @media (min-width: 1200px) and (max-width: 1799px) {}
 
-@media (min-width: 1200px) and (max-width: 1499px) {}
+@media (min-width: 1200px) and (max-width: 1499px) {
+
+	/************/
+	/* nav-main */
+	/************/
+
+	.nav-main {
+		.sf-menu {
+			li {
+				margin-right: 25px;
+			}
+		}
+	}
+}
 
 @media (min-width: 992px) and (max-width: 1799px) {}
 
 @media (min-width: 992px) and (max-width: 1499px) {
+
+	/************/
+	/* nav-main */
+	/************/
+
+	.nav-main {
+		.sf-menu {
+			li {
+				a {
+					font-size: 12px;
+				}
+			}
+		}
+	}
 
 	/*********************/
 	/* main recent posts */
@@ -1123,6 +1194,55 @@
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+
+		/************/
+		/* nav-main */
+		/************/
+
+		.nav-main {
+			.sf-menu {
+				li {
+					a {
+						&:before {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/************/
+	/* nav-main */
+	/************/
+
+	.nav-main {
+		.sf-menu {
+			li {
+				margin-right: 10px;
+
+				a {
+					span {
+						padding: 5px 0;
+					}
+				}
+
+				&.upload {
+					a {
+						span {
+							padding-right: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	/********************/
 	/* category archive */
@@ -1173,7 +1293,23 @@
 
 @media (min-width: 768px) and (max-width: 1799px) {}
 
-@media (min-width: 768px) and (max-width: 1499px) {}
+@media (min-width: 768px) and (max-width: 1499px) {
+
+	/**********/
+	/* header */
+	/**********/
+
+	#header {
+
+		/********/
+		/* logo */
+		/********/
+
+		.logo {
+			max-width: 25% !important;
+		}
+	}
+}
 
 @media (min-width: 768px) and (max-width: 1199px) {
 
