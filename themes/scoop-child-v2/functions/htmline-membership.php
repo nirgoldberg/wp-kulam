@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     2.0.5
+ * @version     2.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -171,7 +171,7 @@ function kulam_hmembership_form_get_radio_field_input( $output, $field ) {
 				$pre_text = '<tr class="pre-text"><td>' . $login_registration_registration_form[ 'privacy_policy_message' ] . '</td></tr>';
 				break;
 
-			case 'hmembership-7':
+			case 'hmembership-8':
 
 				$post_text = '<tr class="post-text"><td>' . $login_registration_registration_form[ 'cancelling_message' ] . '</td></tr>';
 

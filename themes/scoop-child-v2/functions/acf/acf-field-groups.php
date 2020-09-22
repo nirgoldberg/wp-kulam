@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.1
+ * @version		2.1.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -5750,7 +5750,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 				),
 				array(
 					'key' => 'field_5f4de77984e91',
-					'label' => __('Register Page', 'kulam-scoop'),
+					'label' => __('Website Register Page', 'kulam-scoop'),
 					'name' => 'register_page',
 					'type' => 'page_link',
 					'instructions' => '',
@@ -5886,7 +5886,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'label' => __('Cookies Label', 'kulam-scoop'),
 					'name' => 'cookies_label',
 					'type' => 'text',
-					'instructions' => __('Link syntax: [kulam_link url="URL"]content[/kulam_link]', 'kulam-scoop'),
+					'instructions' => __('Link syntax: [kulam_link text="TEXT" url="URL"]', 'kulam-scoop'),
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
@@ -5926,7 +5926,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'label' => __('Privacy Policy Label', 'kulam-scoop'),
 					'name' => 'privacy_policy_label',
 					'type' => 'text',
-					'instructions' => __('Link syntax: [kulam_link url="URL"]content[/kulam_link]', 'kulam-scoop'),
+					'instructions' => __('Link syntax: [kulam_link text="TEXT" url="URL"]', 'kulam-scoop'),
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
@@ -5966,7 +5966,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'label' => __('Terms of Use Label', 'kulam-scoop'),
 					'name' => 'terms_of_use_label',
 					'type' => 'text',
-					'instructions' => __('Link syntax: [kulam_link url="URL"]content[/kulam_link]', 'kulam-scoop'),
+					'instructions' => __('Link syntax: [kulam_link text="TEXT" url="URL"]', 'kulam-scoop'),
 					'required' => 0,
 					'conditional_logic' => 0,
 					'wrapper' => array(
@@ -6005,7 +6005,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 		),
 		array(
 			'key' => 'field_5f4cc697aaa66',
-			'label' => __('Member Registration Form', 'kulam-scoop'),
+			'label' => __('Membership Registration Form', 'kulam-scoop'),
 			'name' => 'acf-option_login_registration_registration_form',
 			'type' => 'group',
 			'instructions' => '',
@@ -6148,9 +6148,9 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'layout' => 'row',
 			'sub_fields' => array(
 				array(
-					'key' => 'field_5f4e726280864',
-					'label' => __('Member Registration', 'kulam-scoop'),
-					'name' => 'member_registration',
+					'key' => 'field_5f4e72a980865',
+					'label' => __('Website Registration', 'kulam-scoop'),
+					'name' => 'normal_registration',
 					'type' => 'text',
 					'instructions' => '',
 					'required' => 0,
@@ -6169,9 +6169,9 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'disabled' => 0,
 				),
 				array(
-					'key' => 'field_5f4e72a980865',
-					'label' => __('Normal Registration', 'kulam-scoop'),
-					'name' => 'normal_registration',
+					'key' => 'field_5f4e726280864',
+					'label' => __('Membership Registration', 'kulam-scoop'),
+					'name' => 'member_registration',
 					'type' => 'text',
 					'instructions' => '',
 					'required' => 0,

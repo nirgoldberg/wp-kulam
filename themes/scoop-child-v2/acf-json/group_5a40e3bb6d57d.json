@@ -443,7 +443,7 @@
                 },
                 {
                     "key": "field_5f4de77984e91",
-                    "label": "Register Page",
+                    "label": "Website Register Page",
                     "name": "register_page",
                     "type": "page_link",
                     "instructions": "",
@@ -579,7 +579,7 @@
                     "label": "Cookies Label",
                     "name": "cookies_label",
                     "type": "text",
-                    "instructions": "Link syntax: [kulam_link url=\"URL\"]content[\/kulam_link]",
+                    "instructions": "Link syntax: [kulam_link text=\"TEXT\" url=\"URL\"]",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -619,7 +619,7 @@
                     "label": "Privacy Policy Label",
                     "name": "privacy_policy_label",
                     "type": "text",
-                    "instructions": "Link syntax: [kulam_link url=\"URL\"]content[\/kulam_link]",
+                    "instructions": "Link syntax: [kulam_link text=\"TEXT\" url=\"URL\"]",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -659,7 +659,7 @@
                     "label": "Terms of Use Label",
                     "name": "terms_of_use_label",
                     "type": "text",
-                    "instructions": "Link syntax: [kulam_link url=\"URL\"]content[\/kulam_link]",
+                    "instructions": "Link syntax: [kulam_link text=\"TEXT\" url=\"URL\"]",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -698,7 +698,7 @@
         },
         {
             "key": "field_5f4cc697aaa66",
-            "label": "Member Registration Form",
+            "label": "Membership Registration Form",
             "name": "acf-option_login_registration_registration_form",
             "type": "group",
             "instructions": "",
@@ -841,9 +841,9 @@
             "layout": "row",
             "sub_fields": [
                 {
-                    "key": "field_5f4e726280864",
-                    "label": "Member Registration",
-                    "name": "member_registration",
+                    "key": "field_5f4e72a980865",
+                    "label": "Website Registration",
+                    "name": "normal_registration",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -862,9 +862,9 @@
                     "disabled": 0
                 },
                 {
-                    "key": "field_5f4e72a980865",
-                    "label": "Normal Registration",
-                    "name": "normal_registration",
+                    "key": "field_5f4e726280864",
+                    "label": "Membership Registration",
+                    "name": "member_registration",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -982,5 +982,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1600689918
+    "modified": 1600789626
 }
