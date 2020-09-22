@@ -1,6 +1,16 @@
 @import "../../../scoop-child-v2/assets/css/rtl.css";
 @import "functions";
 
+/***********/
+/* general */
+/***********/
+
+.scroll-top {
+	span {
+		@include flipH;
+	}
+}
+
 /**********/
 /* header */
 /**********/
@@ -28,13 +38,6 @@
 .nav-main {
 	.sf-menu {
 		li {
-			a {
-				&:before {
-					left: auto;
-					right: -30px;
-				}
-			}
-
 			&.upload a:after {
 				left: -15px;
 				right: auto;
@@ -171,6 +174,12 @@ body.archive {
 
 .post-wrap {
 	direction: rtl;
+
+	.post-image {
+		&:after {
+			@include flipH;
+		}
+	}
 
 	.post-meta {
 		.terms_list {

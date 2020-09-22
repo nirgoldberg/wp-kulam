@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		2.0.6
+ * @version		2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -83,6 +83,10 @@ add_action( 'admin_enqueue_scripts', 'kulam_enqueue_admin_scripts' );
  */
 function kulam_enqueue_styles() {
 
+	if ( function_exists( 'get_field' ) ) {
+		$skin = get_field( 'acf-option_template_skin', 'option' );
+	}
+
 	// dequeue already defined theme styles
 	wp_dequeue_style( 'pojo-style' );
 	wp_dequeue_style( 'pojo-style-rtl' );
@@ -96,9 +100,17 @@ function kulam_enqueue_styles() {
 	wp_enqueue_style( 'auto-complete',				get_stylesheet_directory_uri() . '/assets/css/admin/auto-complete.css',							array(),						KULAM_VERSION );
 	wp_enqueue_style( 'general',					get_stylesheet_directory_uri() . '/assets/css/general.css',										array( 'pojo-css-framework' ),	KULAM_VERSION );
 
+	if ( $skin ) {
+		wp_enqueue_style( $skin,					get_stylesheet_directory_uri() . '/assets/css/' . $skin . '.css',								array( 'general' ),				KULAM_VERSION );
+	}
+
 	if ( is_rtl() ) {
 		wp_enqueue_style( 'bootstrap-rtl',			get_stylesheet_directory_uri() . '/assets/css/libs/bootstrap-rtl.min.css',						array( 'pojo-css-framework' ),				KULAM_VERSION );
-		wp_enqueue_style( 'general-rtl', 			get_stylesheet_directory_uri() . '/assets/css/general-rtl.css',									array( 'pojo-css-framework', 'general' ),	KULAM_VERSION );
+		wp_enqueue_style( 'general-rtl',			get_stylesheet_directory_uri() . '/assets/css/general-rtl.css',									array( 'pojo-css-framework', 'general' ),	KULAM_VERSION );
+
+		if ( $skin ) {
+			wp_enqueue_style( $skin . '-rtl',		get_stylesheet_directory_uri() . '/assets/css/' . $skin . '-rtl.css',							array( $skin ),								KULAM_VERSION );
+		}
 	}
 
 }

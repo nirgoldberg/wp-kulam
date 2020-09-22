@@ -456,6 +456,30 @@
                                     "default_value": "#000000"
                                 },
                                 {
+                                    "key": "field_5f68c8c8039cd",
+                                    "label": "Text Background Image",
+                                    "name": "text_bg_image",
+                                    "type": "image",
+                                    "instructions": "Image dimensions: 707x495 (px)",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "jpg,jpeg"
+                                },
+                                {
                                     "key": "field_5ea01dee3c22b",
                                     "label": "Image",
                                     "name": "image",
@@ -2269,5 +2293,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1599119329
+    "modified": 1600703208
 }

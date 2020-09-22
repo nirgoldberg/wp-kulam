@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		2.0.0
+ * @version		2.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -381,9 +381,9 @@ function kulam_pojo_register_customize_sections( $sections = array() ) {
 	foreach ( $sections as $section ) {
 		foreach ( $section['fields'] as $field ) {
 			$option = get_theme_mod( $field['id'] );
-//			if ( ! $option ) {
+			if ( ! $option || isset( $option[ 'color' ] ) && 'null' == $option[ 'color' ] ) {
 				set_theme_mod( $field['id'], $field['std'] );
-//			}
+			}
 		}
 	}
 

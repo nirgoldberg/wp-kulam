@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
-"POT-Creation-Date: 2020-09-11 14:16+0300\n"
-"PO-Revision-Date: 2020-09-11 14:38+0300\n"
+"POT-Creation-Date: 2020-09-21 13:59+0300\n"
+"PO-Revision-Date: 2020-09-21 14:00+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: he\n"
@@ -264,7 +264,7 @@ msgstr "הוסף לתיקייה"
 #: functions/acf/acf-field-groups.php:4155
 #: functions/acf/acf-field-groups.php:4171
 #: functions/acf/acf-field-groups.php:4512
-#: functions/acf/acf-field-groups.php:5898
+#: functions/acf/acf-field-groups.php:6073
 msgid "Title"
 msgstr ""
 
@@ -726,6 +726,10 @@ msgstr ""
 #: functions/acf/acf-field-groups.php:1529
 #: functions/acf/acf-field-groups.php:3287
 #: functions/acf/acf-field-groups.php:3312
+#: functions/acf/acf-field-groups.php:5838
+#: functions/acf/acf-field-groups.php:5897
+#: functions/acf/acf-field-groups.php:5937
+#: functions/acf/acf-field-groups.php:5977
 msgid "On"
 msgstr ""
 
@@ -733,6 +737,10 @@ msgstr ""
 #: functions/acf/acf-field-groups.php:1530
 #: functions/acf/acf-field-groups.php:3288
 #: functions/acf/acf-field-groups.php:3313
+#: functions/acf/acf-field-groups.php:5839
+#: functions/acf/acf-field-groups.php:5898
+#: functions/acf/acf-field-groups.php:5938
+#: functions/acf/acf-field-groups.php:5978
 msgid "Off"
 msgstr ""
 
@@ -1171,7 +1179,7 @@ msgstr ""
 #: functions/acf/acf-field-groups.php:4900
 #: functions/modals/modal-registration.php:43
 #: functions/widgets/contact-details/contact-details.php:113
-#: page-templates/register.php:59
+#: page-templates/register.php:83
 msgid "Email"
 msgstr "דואר אלקטרוני"
 
@@ -1347,67 +1355,111 @@ msgstr ""
 #: functions/acf/acf-field-groups.php:5809
 #, fuzzy
 #| msgid "Registration"
-msgid "Registration Form"
+msgid "Website Registration Form"
 msgstr "הרשמה"
 
 #: functions/acf/acf-field-groups.php:5824
-msgid "Emails Delivery Opt-in Message"
+msgid "Status"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:5843
-msgid "Privacy Policy Message"
+msgid "Terms Pre Text"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:5862
-msgid "Cancelling Message"
+msgid "Cookies Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5865
+#: functions/acf/acf-field-groups.php:5905
+#: functions/acf/acf-field-groups.php:5945
+msgid "Link syntax: [kulam_link url=\"URL\"]content[/kulam_link]"
 msgstr ""
 
 #: functions/acf/acf-field-groups.php:5883
+msgid "Cookies Default Value"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5902
+msgid "Privacy Policy Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5923
+msgid "Privacy Policy Default Value"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5942
+msgid "Terms of Use Label"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5963
+msgid "Terms of Use Default Value"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:5984
+#, fuzzy
+#| msgid "Registration"
+msgid "Member Registration Form"
+msgstr "הרשמה"
+
+#: functions/acf/acf-field-groups.php:5999
+msgid "Emails Delivery Opt-in Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:6018
+msgid "Privacy Policy Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:6037
+msgid "Cancelling Message"
+msgstr ""
+
+#: functions/acf/acf-field-groups.php:6058
 #, fuzzy
 #| msgid "Registration"
 msgid "Registration Banner"
 msgstr "הרשמה"
 
-#: functions/acf/acf-field-groups.php:5917 functions/search.php:38
-#: functions/theme.php:213
+#: functions/acf/acf-field-groups.php:6092 functions/search.php:38
+#: functions/theme.php:217
 msgid "Text"
 msgstr "טקסט"
 
-#: functions/acf/acf-field-groups.php:5938
+#: functions/acf/acf-field-groups.php:6113
 msgid "Buttons"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:5953
+#: functions/acf/acf-field-groups.php:6128
 #, fuzzy
 #| msgid "Registration"
 msgid "Member Registration"
 msgstr "הרשמה"
 
-#: functions/acf/acf-field-groups.php:5974
+#: functions/acf/acf-field-groups.php:6149
 #, fuzzy
 #| msgid "Registration"
 msgid "Normal Registration"
 msgstr "הרשמה"
 
-#: functions/acf/acf-field-groups.php:5997
+#: functions/acf/acf-field-groups.php:6172
 msgid "Misc"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:6013
+#: functions/acf/acf-field-groups.php:6188
 msgid "Strip Image"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:6016
+#: functions/acf/acf-field-groups.php:6191
 msgid ""
 "Default strip which will be displayed in single post, page and category.\n"
 "Image dimensions: 1140x268 (px)"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:6058
+#: functions/acf/acf-field-groups.php:6233
 msgid "ACF Form Fields"
 msgstr ""
 
-#: functions/acf/acf-field-groups.php:6062 functions/search.php:113
+#: functions/acf/acf-field-groups.php:6237 functions/search.php:113
 msgid "Category"
 msgstr "קטגוריה"
 
@@ -1437,8 +1489,8 @@ msgid "Apply Filters"
 msgstr "סינון"
 
 #: functions/modals/modal-login.php:34 functions/modals/modal-login.php:50
-#: functions/modals/modal-registration.php:54 page-templates/login.php:74
-#: page-templates/register.php:90 partials/acf-form.php:53
+#: functions/modals/modal-registration.php:54 page-templates/login.php:75
+#: page-templates/register.php:144 partials/acf-form.php:53
 msgid "Login"
 msgstr "התחבר"
 
@@ -1451,13 +1503,13 @@ msgstr ""
 "לאתר או לצפות בתכנים המועדפים ששמרת בחשבונך"
 
 #: functions/modals/modal-login.php:42
-#: functions/modals/modal-registration.php:42 page-templates/register.php:58
+#: functions/modals/modal-registration.php:42 page-templates/register.php:82
 msgid "User"
 msgstr "שם משתמש"
 
 #: functions/modals/modal-login.php:43
-#: functions/modals/modal-registration.php:44 page-templates/login.php:73
-#: page-templates/register.php:60
+#: functions/modals/modal-registration.php:44 page-templates/login.php:74
+#: page-templates/register.php:84
 msgid "Password"
 msgstr "סיסמא"
 
@@ -1469,11 +1521,11 @@ msgstr "עוד לא מחובר? להרשמה לחץ כאן"
 msgid "Registration"
 msgstr "הרשמה"
 
-#: functions/modals/modal-registration.php:47 page-templates/register.php:63
+#: functions/modals/modal-registration.php:47 page-templates/register.php:108
 msgid "Please enter the following text in the box below:"
 msgstr "אנא הזן את הטקסט בתיבה מתחת:"
 
-#: functions/modals/modal-registration.php:55 page-templates/register.php:66
+#: functions/modals/modal-registration.php:55 page-templates/register.php:120
 msgid "Register"
 msgstr "הירשם"
 
@@ -1676,8 +1728,8 @@ msgstr "שמור את התכנים המועדפים שלך"
 msgid "Show more"
 msgstr "הצג עוד"
 
-#: functions/shortcodes.php:808 partials/main/layout-posts-carousel.php:185
-#: partials/main/layout-recent-posts.php:93
+#: functions/shortcodes.php:808 partials/main/layout-posts-carousel.php:205
+#: partials/main/layout-recent-posts.php:119
 msgid "View all"
 msgstr "הצג הכל"
 
@@ -1685,7 +1737,7 @@ msgstr "הצג הכל"
 msgid "Show less"
 msgstr "הצג פחות"
 
-#: functions/theme.php:152
+#: functions/theme.php:156
 msgid "READ MORE"
 msgstr "קרא עוד"
 
@@ -1808,44 +1860,44 @@ msgstr "&laquo; המאמר הקודם"
 msgid "Next Post &raquo;"
 msgstr "המאמר הבא &raquo;"
 
-#: page-templates/login.php:55 page-templates/register.php:55
+#: page-templates/login.php:56 page-templates/register.php:77
 msgid "Your Details"
 msgstr "הפרטים שלך"
 
-#: page-templates/login.php:61 page-templates/login.php:65
+#: page-templates/login.php:62 page-templates/login.php:66
 msgid "ERROR"
 msgstr "שגיאה"
 
-#: page-templates/login.php:61
+#: page-templates/login.php:62
 msgid "Invalid username and/or password."
 msgstr "שם משתמש ו/או סיסמא לא נכונים."
 
-#: page-templates/login.php:65
+#: page-templates/login.php:66
 msgid "Username and/or Password is empty."
 msgstr "שם משתמש ו/או סיסמא ריקים."
 
-#: page-templates/login.php:72
+#: page-templates/login.php:73
 msgid "Username or Email Address"
 msgstr "שם משתמש או דואר אלקטרוני"
 
-#: page-templates/login.php:86 page-templates/register.php:76
+#: page-templates/login.php:87 page-templates/register.php:130
 #, php-format
 msgid "Logged in as <b>%s</b>, "
 msgstr "מחובר כ- <b>%s</b>, "
 
-#: page-templates/login.php:87 page-templates/register.php:77
+#: page-templates/login.php:88 page-templates/register.php:131
 msgid "Log out of this account"
 msgstr "התנתק מחשבון זה"
 
-#: page-templates/login.php:87 page-templates/register.php:77
+#: page-templates/login.php:88 page-templates/register.php:131
 msgid "Log out &raquo;"
 msgstr "התנתק &raquo;"
 
-#: page-templates/login.php:96
+#: page-templates/login.php:97
 msgid "Not registered?"
 msgstr "לא רשום?"
 
-#: page-templates/register.php:86
+#: page-templates/register.php:140
 msgid "Already registered?"
 msgstr "כבר רשום?"
 
@@ -1854,8 +1906,8 @@ msgid "Filter"
 msgstr "סינון"
 
 #: partials/main/layout-banner-slide.php:99
-msgid "Plus"
-msgstr "קרא עוד"
+msgid "Show More"
+msgstr "הצג עוד"
 
 #: partials/search.php:20
 msgid "Search..."

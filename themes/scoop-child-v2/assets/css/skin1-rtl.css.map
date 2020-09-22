@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAuBQ,wEAA6D,CAbjE,8BAAS,CACR,IAAI,CAAE,IAAI,CACV,KAAK,CAAE,KAAK",
+"sources": ["../scss/skin1-rtl.scss"],
+"names": [],
+"file": "skin1-rtl.css"
+}

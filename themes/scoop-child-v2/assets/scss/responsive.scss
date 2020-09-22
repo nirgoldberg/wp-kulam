@@ -256,10 +256,6 @@
 				margin: -65px 30px 0;
 				padding: 20px 85px 180px 20px;
 				min-height: 495px;
-				background:	url('../images/bg/jerusalem.png') 0 calc(100% + 12px) no-repeat,
-							url('../images/bg/line.png') 65% calc(100% - 13px) no-repeat,
-							url('../images/bg/girl.png') 100% calc(100% - 12px) no-repeat;
-				background-size: 220px, calc(100% - 335px) 44.5px, 120px;
 
 				.short-desc {
 					margin: 6.041666667vw 0;
@@ -404,7 +400,6 @@
 	.registration-banner-wrap {
 		.registration-banner {
 			padding: 100px 0 50px;
-			background-image: url('../images/bg/registration-banner-bg-mobile.jpg');
 
 			.text-wrap {
 				.title {
@@ -478,14 +473,6 @@
 				}
 			}
 		}
-	}
-
-	/**********/
-	/* footer */
-	/**********/
-
-	.footer {
-		background:	url('../images/bg/jerusalem-light.png') 0 100% no-repeat;
 	}
 
 	/***************/
@@ -857,12 +844,7 @@
 				left: 0;
 				width: 40.681818182%;
 				height: 67.522464698%;
-				background:	url('../images/bg/jerusalem.png') 0 101% no-repeat,
-							url('../images/bg/line.png') 65% 98% no-repeat,
-							url('../images/bg/girl.png') 100% 75% no-repeat;
-				background-size: 40%, 39% 15%, 22%;
 				@include box-shadow(-20px, 3px, #D4D4D4, 39px, -23px);
-
 				z-index: 1;
 
 				.short-desc {
@@ -907,7 +889,6 @@
 
 			header {
 				margin: 33px 0 42px;
-				background: url('../images/bg/girl-category.png') 100% 25px no-repeat;
 
 				.page-title {
 					h1 {
@@ -981,7 +962,6 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background-image: url('../images/bg/registration-banner-bg.jpg');
 
 			.buttons-wrap {
 				& > div:first-child {
@@ -1050,9 +1030,6 @@
 	/**********/
 
 	.footer {
-		background:	url('../images/bg/jerusalem-light.png') 0 100% no-repeat,
-					url('../images/bg/girl-light.png') 100% calc(100% - 12px) no-repeat;
-
 		#footer-widgets {
 			padding: 70px 0 90px;
 		}

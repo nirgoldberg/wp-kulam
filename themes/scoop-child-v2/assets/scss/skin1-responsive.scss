@@ -1,0 +1,141 @@
+@import "functions";
+
+@media (max-width: 1799px) {}
+
+@media (max-width: 1499px) {}
+
+@media (max-width: 1199px) {}
+
+@media (max-width: 991px) {}
+
+@media (max-width: 767px) {
+
+	/***************/
+	/* main banner */
+	/***************/
+
+	.main-banner {
+		.slide {
+			.text-wrap {
+				background:	url('../images/bg/jerusalem.png') 0 calc(100% + 12px) no-repeat,
+							url('../images/bg/line.png') 65% calc(100% - 13px) no-repeat,
+							url('../images/bg/girl.png') 100% calc(100% - 12px) no-repeat;
+				background-size: 220px, calc(100% - 335px) 44.5px, 120px;
+			}
+		}
+	}
+
+	/***********************/
+	/* registration banner */
+	/***********************/
+
+	.registration-banner-wrap {
+		.registration-banner {
+			background-image: url('../images/bg/registration-banner-bg-mobile.jpg');
+		}
+	}
+
+	/**********/
+	/* footer */
+	/**********/
+
+	.footer {
+		background:	url('../images/bg/jerusalem-light.png') 0 100% no-repeat;
+	}
+}
+
+@media (max-width: 480px) {}
+
+@media (min-width: 1800px) {}
+
+@media (min-width: 1500px) {}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {
+
+	/***************/
+	/* main banner */
+	/***************/
+
+	.main-banner {
+		.slide {
+			.text-wrap {
+				background:	url('../images/bg/jerusalem.png') 0 101% no-repeat,
+							url('../images/bg/line.png') 65% 98% no-repeat,
+							url('../images/bg/girl.png') 100% 75% no-repeat;
+				background-size: 40%, 39% 15%, 22%;
+			}
+		}
+	}
+
+	/********************/
+	/* category archive */
+	/********************/
+
+	body.archive {
+		#primary {
+
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+				background: url('../images/bg/girl-category.png') 100% 25px no-repeat;
+			}
+		}
+	}
+
+	/***********************/
+	/* registration banner */
+	/***********************/
+
+	.registration-banner-wrap {
+		.registration-banner {
+			background-image: url('../images/bg/registration-banner-bg.jpg');
+		}
+	}
+
+	/**********/
+	/* footer */
+	/**********/
+
+	.footer {
+		background:	url('../images/bg/jerusalem-light.png') 0 100% no-repeat,
+					url('../images/bg/girl-light.png') 100% calc(100% - 12px) no-repeat;
+	}
+}
+
+@media (min-width: 481px) {}
+
+@media (min-width: 1500px) and (max-width: 1799px) {}
+
+@media (min-width: 1200px) and (max-width: 1799px) {}
+
+@media (min-width: 1200px) and (max-width: 1499px) {}
+
+@media (min-width: 992px) and (max-width: 1799px) {}
+
+@media (min-width: 992px) and (max-width: 1499px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 1799px) {}
+
+@media (min-width: 768px) and (max-width: 1499px) {}
+
+@media (min-width: 768px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 481px) and (max-width: 1799px) {}
+
+@media (min-width: 481px) and (max-width: 1499px) {}
+
+@media (min-width: 481px) and (max-width: 1199px) {}
+
+@media (min-width: 481px) and (max-width: 991px) {}
+
+@media (min-width: 481px) and (max-width: 767px) {}

@@ -173,15 +173,6 @@ button {
 				color: $menu-color !important;
 				display: inline-block;
 
-				&:before {
-					content: "";
-					position: absolute;
-					top: 8px;
-					left: -30px;
-					background-repeat: no-repeat;
-					z-index: -1;
-				}
-
 				span {
 					background: transparent !important;
 				}
@@ -196,11 +187,6 @@ button {
 				height: 19px;
 				background: url('../images/icons/upload.png') no-repeat;
 			}
-
-			&:nth-child(4n+1) a:before { width: 73px; height: 53px; background-image: url('../images/buttons/oval1a.png'); }
-			&:nth-child(4n+2) a:before { width: 73px; height: 53px; background-image: url('../images/buttons/oval2a.png'); }
-			&:nth-child(4n+3) a:before { width: 70px; height: 56px; background-image: url('../images/buttons/oval3a.png'); }
-			&:nth-child(4n+4) a:before { width: 62px; height: 56px; background-image: url('../images/buttons/oval4a.png'); }
 		}
 	}
 }
@@ -821,14 +807,6 @@ body.single {
 	}
 }
 
-/**********/
-/* footer */
-/**********/
-
-.footer {
-	background-color: $color-1;
-}
-
 /********************/
 /* hmembership form */
 /********************/
@@ -1144,10 +1122,6 @@ body.modal-open,
 
 #modal-menu {
 	.modal-content {
-		background:	url('../images/bg/jerusalem.png') 0 calc(100% - 28px) no-repeat,
-					url('../images/bg/line.png') 65% calc(100% - 13px) no-repeat,
-					url('../images/bg/girl.png') 100% calc(100% - 12px) no-repeat;
-		background-size: 220px, calc(100% - 335px) 85.5px, 120px;
 		background-color: #FFF;
 
 		.modal-body {

@@ -61,18 +61,6 @@
 
 @media (max-width: 767px) {
 
-	/***************/
-	/* main banner */
-	/***************/
-
-	.main-banner {
-		.slide {
-			.text-wrap {
-				padding: 20px 20px 180px 85px;
-			}
-		}
-	}
-
 	/********************/
 	/* category archive */
 	/********************/
@@ -272,14 +260,6 @@
 
 	body.archive {
 		#primary {
-
-			/******************/
-			/* archive header */
-			/******************/
-
-			header {
-				background-position: 0 25px;
-			}
 
 			/********************/
 			/* category filters */

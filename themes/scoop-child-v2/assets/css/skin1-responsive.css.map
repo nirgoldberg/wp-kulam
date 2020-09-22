@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAUA,yBAA0B,CAQvB,8BAAW,CACV,UAAU,CAAE,0LAEoD,CAChE,eAAe,CAAE,qCAAuC,CAU1D,8CAAqB,CACpB,gBAAgB,CAAE,qDAAqD,CAQzE,OAAQ,CACP,UAAU,CAAE,wDAAwD,EActE,yBAA0B,CAQvB,8BAAW,CACV,UAAU,CAAE,iJAEsC,CAClD,eAAe,CAAE,iBAAiB,CAgBnC,4BAAO,CACN,UAAU,CAAE,yDAAyD,CAUvE,8CAAqB,CACpB,gBAAgB,CAAE,8CAA8C,CAQlE,OAAQ,CACP,UAAU,CAAE,4HAC0D",
+"sources": ["../scss/skin1-responsive.scss"],
+"names": [],
+"file": "skin1-responsive.css"
+}

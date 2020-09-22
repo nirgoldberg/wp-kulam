@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAsBA,yBAA0B,CAavB,4BAAO,CACN,mBAAmB,CAAE,MAAM",
+"sources": ["../scss/skin1-responsive-rtl.scss"],
+"names": [],
+"file": "skin1-responsive-rtl.css"
+}

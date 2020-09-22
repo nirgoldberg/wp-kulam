@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials/main
- * @version     2.0.0
+ * @version     2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -19,6 +19,7 @@ $desc					= $slide[ 'description' ];
 $link					= $slide[ 'link' ];
 $link_target			= $slide[ 'link_target' ];
 $color					= $slide[ 'text_color' ];
+$text_bg_image			= $slide[ 'text_bg_image' ];
 $image					= $slide[ 'image' ];
 
 $title_font_att			= $title_font_att[ 'override_defaults' ]		? $title_font_att		: $def_title_font_att;
@@ -67,6 +68,7 @@ if ( $title_font_att[ 'font_family' ] ) {
 
 $text_wrap_style = '';
 $text_wrap_style .= $color ? 'color: ' . $color . ';' : '';
+$text_wrap_style .= $text_bg_image ? 'background: url(\'' . $text_bg_image[ 'url' ] . '\'); background-size: cover;' : '';
 
 if ( $link ) {
 	$link_event = ( 'self' == $link_target ) ? 'location.href=\'' . $link . '\'' : 'window.open(\'' . $link . '\')';
@@ -96,7 +98,7 @@ if ( $link ) {
 		<div class="short-desc" <?php echo $short_desc_style ? 'style="' . $short_desc_style . '"' : ''; ?>><?php echo $short_desc; ?></div>
 
 		<?php if ( $link ) {
-			echo '<a class="button">' . __( 'Plus', 'kulm-scoop' ) . '</a>';
+			echo '<a class="button">' . __( 'Show More', 'kulam-scoop' ) . '</a>';
 		} ?>
 
 		<div class="desc"><?php echo $desc; ?></div>

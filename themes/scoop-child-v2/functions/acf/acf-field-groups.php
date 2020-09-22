@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.0.6
+ * @version		2.1
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -487,6 +487,30 @@ acf_add_local_field_group(array(
 										'id' => '',
 									),
 									'default_value' => '#000000',
+								),
+								array(
+									'key' => 'field_5f68c8c8039cd',
+									'label' => __('Text Background Image', 'kulam-scoop'),
+									'name' => 'text_bg_image',
+									'type' => 'image',
+									'instructions' => __('Image dimensions: 707x495 (px)', 'kulam-scoop'),
+									'required' => 0,
+									'conditional_logic' => 0,
+									'wrapper' => array(
+										'width' => '',
+										'class' => '',
+										'id' => '',
+									),
+									'return_format' => 'array',
+									'preview_size' => 'thumbnail',
+									'library' => 'all',
+									'min_width' => '',
+									'min_height' => '',
+									'min_size' => '',
+									'max_width' => '',
+									'max_height' => '',
+									'max_size' => '',
+									'mime_types' => 'jpg,jpeg',
 								),
 								array(
 									'key' => 'field_5ea01dee3c22b',
@@ -6168,6 +6192,46 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			),
 		),
 		array(
+			'key' => 'field_5f6895ba07e42',
+			'label' => __('Skin', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5f68965107e43',
+			'label' => __('Template Skin', 'kulam-scoop'),
+			'name' => 'acf-option_template_skin',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'skin1' => __('Skin #1', 'kulam-scoop'),
+			),
+			'default_value' => false,
+			'allow_null' => 1,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+		array(
 			'key' => 'field_5ca5febcbad83',
 			'label' => __('Misc', 'kulam-scoop'),
 			'name' => '',
@@ -6189,7 +6253,7 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'name' => 'acf-option_strip_image',
 			'type' => 'image',
 			'instructions' => __('Default strip which will be displayed in single post, page and category.
-Image dimensions: 1140x268 (px)', 'kulam-scoop'),
+Image dimensions: 1490x268 (px)', 'kulam-scoop'),
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(

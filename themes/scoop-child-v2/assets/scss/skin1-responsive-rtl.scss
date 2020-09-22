@@ -1,0 +1,73 @@
+@import "functions";
+
+@media (max-width: 1799px) {}
+
+@media (max-width: 1499px) {}
+
+@media (max-width: 1199px) {}
+
+@media (max-width: 991px) {}
+
+@media (max-width: 767px) {}
+
+@media (max-width: 480px) {}
+
+@media (min-width: 1800px) {}
+
+@media (min-width: 1500px) {}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {
+
+	/********************/
+	/* category archive */
+	/********************/
+
+	body.archive {
+		#primary {
+
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+				background-position: 0 25px;
+			}
+		}
+	}
+}
+
+@media (min-width: 481px) {}
+
+@media (min-width: 1500px) and (max-width: 1799px) {}
+
+@media (min-width: 1200px) and (max-width: 1799px) {}
+
+@media (min-width: 1200px) and (max-width: 1499px) {}
+
+@media (min-width: 992px) and (max-width: 1799px) {}
+
+@media (min-width: 992px) and (max-width: 1499px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 1799px) {}
+
+@media (min-width: 768px) and (max-width: 1499px) {}
+
+@media (min-width: 768px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (min-width: 481px) and (max-width: 1799px) {}
+
+@media (min-width: 481px) and (max-width: 1499px) {}
+
+@media (min-width: 481px) and (max-width: 1199px) {}
+
+@media (min-width: 481px) and (max-width: 991px) {}
+
+@media (min-width: 481px) and (max-width: 767px) {}
