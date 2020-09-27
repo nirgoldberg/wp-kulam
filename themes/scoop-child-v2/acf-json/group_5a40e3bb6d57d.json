@@ -885,6 +885,41 @@
             ]
         },
         {
+            "key": "field_5f709a9ea3c8b",
+            "label": "Post Box",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5f709abea3c8c",
+            "label": "Show Taxonomy badges",
+            "name": "acf-option_postbox_show_taxonomy_badges",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_5f6895ba07e42",
             "label": "Skin",
             "name": "",
@@ -982,5 +1017,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1600789626
+    "modified": 1601215882
 }

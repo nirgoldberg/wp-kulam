@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		2.0.0
+ * @version		2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -21,7 +21,9 @@ function kulam_get_post( $taxonomies = array() ) {
 
 	// vars
 	global $post;
-	$output = '';
+
+	$show_taxonomy_badges	= function_exists( 'get_field' ) && false !== get_field( 'acf-option_postbox_show_taxonomy_badges', 'option' ) ? true : false;
+	$output					= '';
 
 	// get post thumbnail ID
 	$thumbnail_id = get_post_thumbnail_id( $post->ID );
@@ -41,7 +43,7 @@ function kulam_get_post( $taxonomies = array() ) {
 	}
 
 	// get post terms
-	$terms = $taxonomies ? wp_get_post_terms( $post->ID, $taxonomies, array( 'fields' => 'all' ) ) : array();
+	$terms = $taxonomies && $show_taxonomy_badges ? wp_get_post_terms( $post->ID, $taxonomies, array( 'fields' => 'all' ) ) : array();
 
 	// display
 	if ( ! empty( $image_html ) ) {

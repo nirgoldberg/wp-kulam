@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.1.1
+ * @version		2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -6190,6 +6190,41 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 					'disabled' => 0,
 				),
 			),
+		),
+		array(
+			'key' => 'field_5f709a9ea3c8b',
+			'label' => __('Post Box', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_5f709abea3c8c',
+			'label' => __('Show Taxonomy badges', 'kulam-scoop'),
+			'name' => 'acf-option_postbox_show_taxonomy_badges',
+			'type' => 'true_false',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 1,
+			'ui' => 1,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
 		),
 		array(
 			'key' => 'field_5f6895ba07e42',
