@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions/modals
- * @version     2.0.0
+ * @version     2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -18,10 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  */
 function kulam_modal_login() {
 
-	/**
-	 * Variables
-	 */
-	$lang = get_locale();
+	// vars
+	$login_registration_pages = get_field( 'acf-oprion_login_registration_pages', 'option' );
 
 	?>
 
@@ -37,19 +35,13 @@ function kulam_modal_login() {
 
 				<div class="pre-text"><?php _e( 'In order to save / upload posts or view saved content, you must register / log-in to your account', 'kulam-scoop' ); ?></div>
 
-				<form>
-					<div class="modal-body">
-						<label for="unamelog"><h6><?php _e( 'User', 'kulam-scoop' ); ?></h6></label> <input type="text" id="unamelog" name="unamelog" />
-						<label for="upasslog"><h6><?php _e( 'Password', 'kulam-scoop' ); ?></h6></label> <input type="password" id="upasslog" name="upasslog" />
-						<?php echo ( $lang != 'he_IL' ) ? '<input hidden id="langlog" value="' . $lang . '" />' : ''; ?>
-						<input type="hidden" id="redirectlog" name="redirectlog" />
-					</div>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modal-registration" data-redirect=""><?php _e( 'Register Now', 'kulam-scoop' ); ?></button>
-						<input type="submit" class="btn btn-primary submit_log" value="<?php _e( 'Login', 'kulam-scoop' ); ?>" />
-					</div>
-				</form>
+				<div class="modal-footer">
+					<button>
+						<a href="<?php echo $login_registration_pages[ 'login_page' ]; ?>">
+							<?php _e( 'Login', 'kulam-scoop' ); ?>
+						</a>
+					</button>
+				</div>
 
 			</div>
 		</div>
