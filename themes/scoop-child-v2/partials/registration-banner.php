@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/partials
- * @version		2.0.6
+ * @version		2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -17,9 +17,30 @@ $banner											= get_field( 'acf-option_login_registration_banner', 'option' 
 $buttons										= get_field( 'acf-option_login_registration_buttons', 'option' );
 $login_registration_website_registration_form	= get_field( 'acf-option_login_registration_website_registration_form', 'option' );
 $is_register_allowed							= ( ! isset( $login_registration_website_registration_form[ 'status' ] ) || true === $login_registration_website_registration_form[ 'status' ] );
+$banner_style									= '';
 
 if ( ! $pages || ! $banner || ! $buttons )
 	return;
+
+if ( $banner[ 'desktop_background' ] || $banner[ 'mobile_background' ] ) { ?>
+
+	<style>
+
+		<?php if ( $banner[ 'desktop_background' ] ) { ?>
+			@media (min-width: 768px) {
+				.registration-banner-wrap .registration-banner { background-image: url('<?php echo $banner[ 'desktop_background' ][ 'url' ]; ?>'); }
+			}
+		<?php } ?>
+
+		<?php if ( $banner[ 'mobile_background' ] ) { ?>
+			@media (max-width: 767px) {
+				.registration-banner-wrap .registration-banner { background-image: url('<?php echo $banner[ 'mobile_background' ][ 'url' ]; ?>'); }
+			}
+		<?php } ?>
+
+	</style>
+
+<?php }
 
 ?>
 

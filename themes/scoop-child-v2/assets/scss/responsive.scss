@@ -732,6 +732,10 @@
 			.text-wrap {
 				padding: 4.5% 0 1.5%;
 			}
+
+			.buttons-wrap {
+				padding-bottom: 4.5%;
+			}
 		}
 	}
 }
@@ -953,16 +957,7 @@
 	/***********************/
 
 	.registration-banner-wrap {
-		position: relative;
-		padding-top: 18.942436412%;
-
 		.registration-banner {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-
 			.buttons-wrap {
 				& > div:first-child {
 					button {
@@ -1264,6 +1259,10 @@
 			.text-wrap {
 				padding: 2.5% 0 1.5%;
 			}
+
+			.buttons-wrap {
+				padding-bottom: 2.5%;
+			}
 		}
 	}
 }
@@ -1390,6 +1389,8 @@
 			}
 
 			.buttons-wrap {
+				padding-bottom: 2.5%;
+
 				button {
 					padding: 6px 24px;
 

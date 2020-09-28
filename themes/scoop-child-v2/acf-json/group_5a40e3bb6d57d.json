@@ -822,6 +822,54 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": "br"
+                },
+                {
+                    "key": "field_5f7233f81b4af",
+                    "label": "Desktop Background",
+                    "name": "desktop_background",
+                    "type": "image",
+                    "instructions": "Image dimensions: 1490x283 (px)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5f7235231b4b0",
+                    "label": "Mobile Background",
+                    "name": "mobile_background",
+                    "type": "image",
+                    "instructions": "Image dimensions: 707x647 (px)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 }
             ]
         },
@@ -1017,5 +1065,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1601215882
+    "modified": 1601320518
 }
