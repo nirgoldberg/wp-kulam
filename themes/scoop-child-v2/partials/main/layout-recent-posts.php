@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/partials/main
- * @version     2.0.6
+ * @version     2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -12,12 +12,20 @@ if ( ! function_exists( 'get_field' ) )
 	return;
 
 // vars
-$title			= get_sub_field( 'title' );
-$sub_title		= get_sub_field( 'sub_title' );
-$category		= get_sub_field( 'posts_category' );
-$top_padding	= get_sub_field( 'top_padding' );
-$bottom_padding	= get_sub_field( 'bottom_padding' );
-$user_state		= kulam_get_current_user_state();
+$title				= get_sub_field( 'title' );
+$sub_title			= get_sub_field( 'sub_title' );
+$category			= get_sub_field( 'posts_category' );
+
+$slide_title		= get_sub_field( 'slide_title' );
+$slide_font_family	= $slide_title[ 'font_family' ];
+$slide_font_size	= $slide_title[ 'font_size' ];
+$slide_font_weight	= $slide_title[ 'font_weight' ];
+$slide_color		= $slide_title[ 'color' ];
+$slide_bg_image		= $slide_title[ 'background_image' ];
+
+$top_padding		= get_sub_field( 'top_padding' );
+$bottom_padding		= get_sub_field( 'bottom_padding' );
+$user_state			= kulam_get_current_user_state();
 
 if ( ! $title || ! $category )
 	return;
@@ -97,9 +105,48 @@ if ( ! $posts )
 // take first 4 posts
 $posts = array_slice( $posts, 0, 4 );
 
+// embed fonts
+if ( $slide_font_family ) {
+
+	add_filter( 'kulam_embed_google_fonts', function( $fonts ) use ( $slide_font_family ) {
+
+		$new_fonts		= array( $slide_font_family );
+		$added_fonts	= array();
+
+		foreach ( $new_fonts as $font ) {
+
+			if ( $font ) {
+				$added_fonts[] = array(
+					'family'	=> $font,
+					'type'		=> htmline_acf_web_fonts::get_font_type( $font ),
+				);
+			}
+
+		}
+
+		// return
+		return array_merge( $fonts, $added_fonts );
+
+	});
+
+}
+
+// recent posts ID
+$id = 'main-rp-' . $index;
+
 ?>
 
-<div class="main-recent-posts" <?php echo $layout_style ? 'style="' . $layout_style . '"' : ''; ?>>
+<style type="text/css">
+	<?php echo
+		( $slide_bg_image		? '#main-recent-posts-' . $id . ' .post-wrap .post-info {background-image:url(\'' . $slide_bg_image . '\');}' : '' ) .
+		( $slide_font_family	? '#main-recent-posts-' . $id . ' .post-wrap .post-info {font-family:\'' . $slide_font_family . '\';}' : '' ) .
+		( $slide_font_size		? '#main-recent-posts-' . $id . ' .post-wrap .post-info .post-meta {font-size:' . $slide_font_size . 'px;line-height:' . $slide_font_size . 'px;}' : '' ) .
+		( $slide_font_weight	? '#main-recent-posts-' . $id . ' .post-wrap .post-info .post-meta .title {font-weight:' . $slide_font_weight . ';}' : '' ) .
+		( $slide_color			? '#main-recent-posts-' . $id . ' .post-wrap .post-info {color:' . $slide_color . ';}' : '' );
+	?>
+</style>
+
+<div id="main-recent-posts-<?php echo $id; ?>" class="main-recent-posts" <?php echo $layout_style ? 'style="' . $layout_style . '"' : ''; ?>>
 	<div class="recent-posts-wrap container">
 
 		<div class="main-layout-title-wrap">

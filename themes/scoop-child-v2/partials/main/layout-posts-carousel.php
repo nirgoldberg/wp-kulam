@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/partials/main
- * @version		2.0.6
+ * @version		2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -180,13 +180,15 @@ if ( $title ) {
 	$style .= $title_font_size ? 'font-size:' . $title_font_size . 'px;line-height:' . $title_font_size . 'px;' : '';
 	$style .= $title_font_weight ? 'font-weight:' . $title_font_weight . ';' : '';
 	$style .= $title_color ? 'color:' . $title_color . ';' : '';
-	$style .= $title_bg_color && ! $title_bg_image ? 'padding:10px;display:inline-block;background-color:' . $title_bg_color . ';' : '';
-	$style .= $title_bg_image ? 'height: ' . $title_bg_image[ 'height' ] . 'px;' : '';
+
+	$title_style = '';
+	$title_style .= $title_bg_color && ! $title_bg_image ? 'padding:10px;display:inline-block;background-color:' . $title_bg_color . ';' : '';
+	$title_style .= $title_bg_image ? 'height: ' . $title_bg_image[ 'height' ] . 'px;' : '';
 
 	$output .=	'<div class="main-layout-title-wrap">' .
-					'<div ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="kulam-slideshow-title">' .
+					'<div ' . ( $title_style ? 'style="' . $title_style . '"' : '' ) . ' class="kulam-slideshow-title">' .
 						( $title_bg_image ? '<img src="' . $title_bg_image[ 'url' ] . '" style="margin-left: -' . intval( $title_bg_image[ 'width' ] )/2 . 'px;" alt="" />' : '' ) .
-						'<h2 class="title' . ( $title_bg_image ? ' has-bg-image' : '' ) . '">' .
+						'<h2 ' . ( $style ? 'style="' . $style . '"' : '' ) . ' class="title' . ( $title_bg_image ? ' has-bg-image' : '' ) . '">' .
 							( $title_link ? '<a href="' . $title_link . '"' . ( $title_color ? ' style="color:' . $title_color . ';"' : '' ) . '>' : '' ) .
 							$title .
 							( $title_link ? '</a>' : '' ) .

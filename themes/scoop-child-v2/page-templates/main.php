@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.4
+ * @version		2.1.3
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -49,7 +49,7 @@ $index = 0;
 						/* recent_posts */
 						/****************/
 
-						get_template_part( 'partials/main/layout', 'recent-posts' );
+						include( locate_template( 'partials/main/layout-recent-posts.php' ) );
 
 						break;
 

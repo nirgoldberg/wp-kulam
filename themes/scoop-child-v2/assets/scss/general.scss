@@ -164,11 +164,14 @@ button {
 	.sf-menu {
 		display: block;
 
+		& > li {
+			& > a {
+				display: inline-block;
+			}
+		}
+
 		li {
 			a {
-				color: $menu-color !important;
-				display: inline-block;
-
 				span {
 					background: transparent !important;
 				}

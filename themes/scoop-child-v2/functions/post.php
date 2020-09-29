@@ -63,11 +63,13 @@ function kulam_get_post( $taxonomies = array() ) {
 						'<a href="' . get_the_permalink() . '">' .
 							'<div class="post-wrap">' .
 								$image_html .
-								'<div class="post-meta">' .
-									'<div class="title">' . get_the_title() . '</div>' .
-									$terms_list .
+								'<div class="post-info">' .
+									'<div class="post-meta">' .
+										'<div class="title">' . get_the_title() . '</div>' .
+										$terms_list .
+									'</div>' .
+									'<div class="more"><span>' . __( 'Read more', 'kulam-scoop' ) . '</span></div>' .
 								'</div>' .
-								'<div class="more"><span>' . __( 'Read more', 'kulam-scoop' ) . '</span></div>' .
 							'</div>' .
 						'</a>' .
 					'</div>';

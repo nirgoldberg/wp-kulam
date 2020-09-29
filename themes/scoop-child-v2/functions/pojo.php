@@ -410,7 +410,7 @@ function kulam_pojo_style() {
 
 	?>
 
-	<style>
+	<style type="text/css">
 		body.page-template-main #primary {
 			background-color: <?php echo $primary_color; ?>;
 		}
