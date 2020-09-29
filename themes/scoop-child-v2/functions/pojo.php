@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		functions
- * @version		2.1
+ * @version		2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -394,3 +394,29 @@ function kulam_pojo_register_customize_sections( $sections = array() ) {
 
 }
 add_filter( 'pojo_register_customize_sections', 'kulam_pojo_register_customize_sections', 600 );
+
+/**
+ * kulam_pojo_style
+ *
+ * This function adds custom style according to Pojo customizer settings
+ *
+ * @param	N/A
+ * @return	N/A
+ */
+function kulam_pojo_style() {
+
+	// vars
+	$primary_color	= get_theme_mod( 'primary_color' );
+
+	?>
+
+	<style>
+		body.page-template-main #primary {
+			background-color: <?php echo $primary_color; ?>;
+		}
+	</style>
+
+	<?php
+
+}
+add_action( 'wp_head', 'kulam_pojo_style' );
