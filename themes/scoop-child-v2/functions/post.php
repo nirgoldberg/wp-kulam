@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions
- * @version		2.1.3
+ * @version		2.1.4
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -59,7 +59,7 @@ function kulam_get_post( $taxonomies = array() ) {
 
 		$terms_list = $terms_list ? '<ul class="terms_list">' . implode( ' ', $terms_list ) . '</ul>' : '';
 
-		$output =	'<div class="col-md-3 col-sm-6 ' . $classes . '">' .
+		$output =	'<div class="col-md-3 col-sm-6 unfiltered ' . $classes . '">' .
 						'<a href="' . get_the_permalink() . '">' .
 							'<div class="post-wrap">' .
 								$image_html .

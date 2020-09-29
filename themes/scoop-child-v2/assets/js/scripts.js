@@ -769,11 +769,13 @@ var $ = jQuery,
 
 				// expose all posts
 				posts.show();
+				posts.addClass('unfiltered');
 			}
 
 			// update posts displayed
 			if (checked_filters.children().length) {
 				// hide all posts
+				posts.removeClass('unfiltered');
 				posts.hide();
 
 				// vars
@@ -797,6 +799,7 @@ var $ = jQuery,
 
 					if (show) {
 						$(post).show();
+						$(post).addClass('unfiltered');
 						posts_not_found = false;
 					}
 				});
@@ -844,6 +847,7 @@ var $ = jQuery,
 
 			// expose all posts
 			posts.show();
+			posts.addClass('unfiltered');
 
 			// hide not found error
 			posts_not_found_msg.hide();
@@ -2120,23 +2124,21 @@ var $ = jQuery,
 			// reset elements height
 			post_boxes.css('height', 'auto');
 
-			// set same height for all elements in a row
-			if (countInRow) {
-				// vars
-				var post_boxes_first_in_row = posts_wrap.children('div:nth-child('+countInRow+'n+1)');
+			$.each(posts_wrap, function() {
+				if ($(this).parent('.kulam-slideshow').length) {
+					// slideshow post boxes
+					$(this).find('.post-meta').setAllToMaxHeight();
+				}
+				else if (countInRow) {
+					// set same height for all elements in a row
+					// vars
+					var post_boxes_first_in_row = posts_wrap.children('.unfiltered').filter(function(index) {return index % countInRow == 0;});
 
-				$.each(post_boxes_first_in_row, function() {
-					$(this).nextAll().andSelf().slice(0, countInRow).find('.post-meta').setAllToMaxHeight();
-				});
-			}
-			else {
-				// handle only slideshow post boxes
-				$.each(posts_wrap, function() {
-					if ($(this).parent('.kulam-slideshow').length) {
-						$(this).find('.post-meta').setAllToMaxHeight();
-					}
-				});
-			}
+					$.each(post_boxes_first_in_row, function() {
+						$(this).nextAll('.unfiltered').andSelf().slice(0, countInRow).find('.post-meta').setAllToMaxHeight();
+					});
+				}
+			});
 
 		},
 
