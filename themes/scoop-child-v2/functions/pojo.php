@@ -406,14 +406,34 @@ add_filter( 'pojo_register_customize_sections', 'kulam_pojo_register_customize_s
 function kulam_pojo_style() {
 
 	// vars
-	$primary_color	= get_theme_mod( 'primary_color' );
+	$primary_color				= get_theme_mod( 'primary_color' );
+	$button_background			= get_theme_mod( 'button_background' );
+	$button_background_hover	= get_theme_mod( 'button_background_hover' );
 
 	?>
 
 	<style type="text/css">
+
+		/********/
+		/* main */
+		/********/
+
 		body.page-template-main #primary {
 			background-color: <?php echo $primary_color; ?>;
 		}
+
+		/***************/
+		/* main banner */
+		/***************/
+
+		.main-banner .controls .control {
+			background-color: <?php echo $button_background; ?>;
+		}
+
+		.main-banner .controls .control:hover {
+			background-color: <?php echo $button_background_hover; ?>;
+		}
+
 	</style>
 
 	<?php
