@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
 "POT-Creation-Date: 2020-09-21 14:00+0300\n"
-"PO-Revision-Date: 2020-09-21 14:00+0300\n"
+"PO-Revision-Date: 2020-11-11 18:51+0200\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
@@ -1455,7 +1455,7 @@ msgstr "Connexion"
 msgid ""
 "In order to save / upload posts or view saved content, you must register / "
 "log-in to your account"
-msgstr ""
+msgstr "Si vous souhaitez partager vos ressources, inscrivez-vous"
 
 #: functions/modals/modal-login.php:42
 #: functions/modals/modal-registration.php:42 page-templates/register.php:82
