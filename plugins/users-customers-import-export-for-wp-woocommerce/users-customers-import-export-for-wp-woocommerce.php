@@ -6,249 +6,129 @@
   Description: Export and Import User/Customers details From and To your WordPress/WooCommerce.
   Author: WebToffee
   Author URI: https://www.webtoffee.com/product/wordpress-users-woocommerce-customers-import-export/
-  Version: 1.4.2
-  WC tested up to: 4.1.0
+  Version: 2.0.2
+  WC tested up to: 4.7.0
   Text Domain: users-customers-import-export-for-wp-woocommerce
   License: GPLv3
   License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
 
-if (!defined('ABSPATH') || !is_admin()) {
-    return;
+
+
+if ( !defined( 'ABSPATH' ) || !is_admin() ) {
+	return;
 }
+
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+define ( 'WT_U_IEW_PLUGIN_BASENAME', plugin_basename(__FILE__) );
+define ( 'WT_U_IEW_PLUGIN_PATH', plugin_dir_path(__FILE__) );
+define ( 'WT_U_IEW_PLUGIN_URL', plugin_dir_url(__FILE__));
+define ( 'WT_U_IEW_PLUGIN_FILENAME', __FILE__);
+if ( ! defined( 'WT_IEW_PLUGIN_ID_BASIC' ) ) {
+    define ( 'WT_IEW_PLUGIN_ID_BASIC', 'wt_import_export_for_woo_basic');
+}
+define ( 'WT_U_IEW_PLUGIN_NAME','User Import Export for WordPress/WooCommerce');
+define ( 'WT_U_IEW_PLUGIN_DESCRIPTION','Import and Export User From and To your WordPress/WooCommerce Store.');
+
+if ( ! defined( 'WT_IEW_DEBUG_BASIC' ) ) {
+    define ( 'WT_IEW_DEBUG_BASIC', false );
+}
+/**
+ * Currently plugin version.
+ * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define( 'WT_U_IEW_VERSION', '2.0.2' );
 
 /**
- * Function to check whether Premium version of User Import Export plugin is installed or not
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-wt-import-export-for-woo-activator.php
  */
-function wf_wordpress_user_import_export_premium_check(){
-	if ( is_plugin_active('customer-import-export-for-woocommerce/customer-import-export.php') ){
-		deactivate_plugins( basename( __FILE__ ) );
-		wp_die(__("You already have the Premium version installed. For any issues, kindly contact our <a target='_blank' href='https://www.webtoffee.com/support/'>support</a>.", "users-customers-import-export-for-wp-woocommerce"), "", array('back_link' => 1 ));
-	}        
-}
-register_activation_hook( __FILE__, 'wf_wordpress_user_import_export_premium_check' );
-
-
-if( !defined('WF_CUSTOMER_IMP_EXP_ID') )
-{
-	define("WF_CUSTOMER_IMP_EXP_ID", "wf_customer_imp_exp");
-}
-
-if( !defined('WF_CUSTOMER_IMP_EXP_VERSION') )
-{
-	define("WF_CUSTOMER_IMP_EXP_VERSION", "1.4.2");
+function activate_wt_import_export_for_woo_basic_user() {
+//        if(is_plugin_active('wt-import-export-for-woo-user/wt-import-export-for-woo-user.php')){           
+//            deactivate_plugins( basename( __FILE__ ) );
+//            wp_die(
+//                    '<p>'.__("Is everything fine? You already have the Premium version installed in your website. For any issues, kindly raise a ticket via <a target='_blank' href='https://www.webtoffee.com/support/'>support</a>")
+//                    . '</p> <a href="' . admin_url( 'plugins.php' ) . '">' . __( 'go back') . '</a>'
+//            );
+//        }    
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wt-import-export-for-woo-activator.php';
+	Wt_Import_Export_For_Woo_Basic_Activator_User::activate();
 }
 
 
-if( !defined('HF_WORDPRESS_CUSTOMER_IM_EX') )
-{
-	define("HF_WORDPRESS_CUSTOMER_IM_EX", "hf_wordpress_customer_im_ex");
-}
 
-if (!class_exists('WF_Customer_Import_Export_CSV')) :
-
-    /*
-     * Main CSV Import class
-     */
-
-    class WF_Customer_Import_Export_CSV {
-
-        /**
-         * Constructor
-         */
-        public function __construct() {
-	    if( !defined('WF_CustomerImpExpCsv_FILE') )
-	    {
-		define('WF_CustomerImpExpCsv_FILE', __FILE__);
-	    }
-
-            add_filter('woocommerce_screen_ids', array($this, 'woocommerce_screen_ids'));
-            add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'wf_plugin_action_links'));
-            add_action('init', array($this, 'load_plugin_textdomain'));
-            add_action('init', array($this, 'catch_export_request'), 20);
-            add_action('admin_init', array($this, 'register_importers'));
-            
-            add_filter('admin_footer_text', array($this, 'WT_admin_footer_text'), 100);
-            add_action('wp_ajax_ucie_wt_review_plugin', array($this, "review_plugin"));
-
-            // if (!get_option('UEIPF_Webtoffee_storefrog_admin_notices_dismissed')) {
-            //     add_action('admin_notices', array($this, 'webtoffee_storefrog_admin_notices'));
-            //     add_action('wp_ajax_UEIPF_webtoffee_storefrog_notice_dismiss', array($this, 'webtoffee_storefrog_notice_dismiss'));
-            // }
-
-            include_once( 'includes/class-wf-customerimpexpcsv-admin-screen.php' );
-            include_once( 'includes/importer/class-wf-customerimpexpcsv-importer.php' );
-            
-            include_once ('includes/class-wt-userimport-uninstall-feedback.php');
-            // WT Security Helper
-            include_once ('includes/class-wt-security-helper.php');
-
-            if (defined('DOING_AJAX')) {
-                include_once( 'includes/class-wf-customerimpexpcsv-ajax-handler.php' );
-            }
-        }
-
-        public function wf_plugin_action_links($links) {
-            
-            $plugin_links = array(
-                '<a href="' . admin_url('admin.php?page=hf_wordpress_customer_im_ex') . '">' . __('Import Export Users', 'users-customers-import-export-for-wp-woocommerce') . '</a>',
-                '<a target="_blank" href="https://www.webtoffee.com/product/wordpress-users-woocommerce-customers-import-export/" style="color:#3db634;">' . __('Premium Upgrade', 'users-customers-import-export-for-wp-woocommerce') . '</a>',
-                '<a target="_blank" href="https://wordpress.org/support/plugin/users-customers-import-export-for-wp-woocommerce/">' . __('Support', 'users-customers-import-export-for-wp-woocommerce') . '</a>',
-                '<a target="_blank" href="https://wordpress.org/support/plugin/users-customers-import-export-for-wp-woocommerce/reviews/">' . __('Review', 'users-customers-import-export-for-wp-woocommerce') . '</a>',
-            );
-
-            if (array_key_exists('deactivate', $links)) {
-
-                $links['deactivate'] = str_replace('<a', '<a class="userimport-deactivate-link"', $links['deactivate']);
-            }
-            return array_merge($plugin_links, $links);
-        }
-
-        /**
-         * Add screen ID
-         */
-        public function woocommerce_screen_ids($ids) {
-            $ids[] = 'admin'; // For import screen
-            return $ids;
-        }
-
-        /**
-         * Handle localisation
-         */
-        public function load_plugin_textdomain() {
-            load_plugin_textdomain('users-customers-import-export-for-wp-woocommerce', false, dirname(plugin_basename(__FILE__)) . '/lang/');
-        }
-
-        /**
-         * Catches an export request and exports the data. This class is only loaded in admin.
-         */
-        public function catch_export_request() {
-            if (!empty($_GET['action']) && !empty($_GET['page']) && $_GET['page'] == 'hf_wordpress_customer_im_ex') {
-                switch ($_GET['action']) {
-                    case "export" :
-                        $user_ok = self::hf_user_permission();
-                        if ($user_ok) {
-                            include_once( 'includes/exporter/class-wf-customerimpexpcsv-exporter.php' );
-                            WF_CustomerImpExpCsv_Exporter::do_export();
-                        } else {
-                            if (is_admin()) {
-                                add_action('admin_notices', array($this, 'wf_user_permission_ie_admin_notice'));
-                            } else {
-                                wp_redirect(wp_login_url());
-                            }
-                        }
-                        break;
-                }
-            }
-        }
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-wt-import-export-for-woo-deactivator.php
+ */
+function deactivate_wt_import_export_for_woo_basic_user() {
         
-        public function wf_user_permission_ie_admin_notice(){
-            echo '<div class="notice notice-error"><p>' . __('By default, admin and store manager are given access to export users. Please visit <a href="https://www.webtoffee.com/how-to-export-items-from-your-site-without-user-role-restriction/" target="_blank">here</a> for more details', 'users-customers-import-export-for-wp-woocommerce') . '</p></div>';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wt-import-export-for-woo-deactivator.php';
+	Wt_Import_Export_For_Woo_Basic_Deactivator_User::deactivate();
+}
+
+register_activation_hook( __FILE__, 'activate_wt_import_export_for_woo_basic_user' );
+register_deactivation_hook( __FILE__, 'deactivate_wt_import_export_for_woo_basic_user' );
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ */
+require plugin_dir_path( __FILE__ ) . 'includes/class-wt-import-export-for-woo.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    1.0.0
+ */
+function run_wt_import_export_for_woo_basic_user() {
+    
+    if ( ! defined( 'WT_IEW_BASIC_STARTED' ) ) {
+        define ( 'WT_IEW_BASIC_STARTED', 1);
+	$plugin = new Wt_Import_Export_For_Woo_Basic();
+	$plugin->run();                
+    }        
+}
+/** this added for a temporary when a plugin update with the option upload zip file. need to remove this after some version release */
+ if(!get_option('wt_u_iew_is_active'))
+ {   
+     update_option('wt_user_show_legecy_menu',1);
+     activate_wt_import_export_for_woo_basic_user();
+ }
+
+if(get_option('wt_u_iew_is_active'))
+{        
+    run_wt_import_export_for_woo_basic_user();        
+}
+
+/* Plugin page links */
+add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'wt_uiew_plugin_action_links_basic_user');
+
+function wt_uiew_plugin_action_links_basic_user($links)
+{
+	if(defined('WT_IEW_PLUGIN_ID_BASIC')) /* main plugin is available */
+	{
+		$links[] = '<a href="'.admin_url('admin.php?page='.WT_IEW_PLUGIN_ID_BASIC).'">'.__('Settings').'</a>';
+	}
+
+	$links[] = '<a href="https://www.webtoffee.com/user-import-export-plugin-wordpress-user-guide/" target="_blank">'.__('Documentation').'</a>';
+        $links[] = '<a target="_blank" href="https://wordpress.org/support/plugin/users-customers-import-export-for-wp-woocommerce/">' . __('Support') . '</a>';
+        $links[] = '<a target="_blank" href="https://www.webtoffee.com/product/wordpress-users-woocommerce-customers-import-export/?utm_source=free_plugin_listing&utm_medium=user_imp_exp_basic&utm_campaign=User_Import_Export&utm_content='.WT_U_IEW_VERSION.'" style="color:#3db634;">' . __('Premium Upgrade') . '</a>';        
+        if (array_key_exists('deactivate', $links)) {
+            $links['deactivate'] = str_replace('<a', '<a class="userimport-deactivate-link"', $links['deactivate']);
         }
-
-
-        /**
-         * Register importers for use
-         */
-        public function register_importers() {
-            register_importer('wordpress_hf_user_csv', 'WordPress User/Customers (CSV)', __('Import <strong>users/customers</strong> to your site via a csv file.', 'users-customers-import-export-for-wp-woocommerce'), 'WF_CustomerImpExpCsv_Importer::customer_importer');
-        }
-
-        public static function hf_user_permission() {
-            // Check if user has rights to export
-            $current_user = wp_get_current_user();
-            $current_user->roles = apply_filters('hf_add_user_roles', $current_user->roles);
-            $current_user->roles = array_unique($current_user->roles);
-            $user_ok = false;
-            $wf_roles = apply_filters('hf_user_permission_roles', array('administrator', 'shop_manager'));
-            if ($current_user instanceof WP_User) {
-                $can_users = array_intersect($wf_roles, $current_user->roles);
-                if (!empty($can_users) || is_super_admin($current_user->ID)) {
-                    $user_ok = true;
-                }
-            }
-            return $user_ok;
-        }
-        
-        function webtoffee_storefrog_admin_notices() {
-
-            if (apply_filters('webtoffee_storefrog_suppress_admin_notices', false) || !self::hf_user_permission() ) {
-                return;
-            }
-            $screen = get_current_screen();
-
-            $allowed_screen_ids = array('users_page_hf_wordpress_customer_im_ex');
-            if (in_array($screen->id, $allowed_screen_ids)|| (isset($_GET['import']) && $_GET['import'] == 'wordpress_hf_user_csv')) {
-
-                $notice = __('<h3>Save Time, Money & Hassle on Your WooCommerce Data Migration?</h3>', 'users-customers-import-export-for-wp-woocommerce');
-                $notice .= __('<h3>Use StoreFrog Migration Services.</h3>', 'users-customers-import-export-for-wp-woocommerce');
-
-                $content = '<style>.webtoffee-storefrog-nav-tab.updated {z-index:2; display: flex;align-items: center;margin: 18px 20px 10px 0;padding:23px;border-left-color: #2c85d7!important}.webtoffee-storefrog-nav-tab ul {margin: 0;}.webtoffee-storefrog-nav-tab h3 {margin-top: 0;margin-bottom: 9px;font-weight: 500;font-size: 16px;color: #2880d3;}.webtoffee-storefrog-nav-tab h3:last-child {margin-bottom: 0;}.webtoffee-storefrog-banner {flex-basis: 20%;padding: 0 15px;margin-left: auto;} .webtoffee-storefrog-banner a:focus{box-shadow: none;}</style>';
-                $content .= '<div class="updated woocommerce-message webtoffee-storefrog-nav-tab notice is-dismissible"><ul>' . $notice . '</ul><div class="webtoffee-storefrog-banner"><a href="http://www.storefrog.com/" target="_blank"> <img src="' . plugins_url(basename(plugin_dir_path(WF_CustomerImpExpCsv_FILE))) . '/images/storefrog.png"/></a></div><div style="position: absolute;top: 0;right: 1px;z-index: 10000;" ><button type="button" id="webtoffee-storefrog-notice-dismiss" class="notice-dismiss"><span class="screen-reader-text">' . __('Dismiss this notice.', 'users-customers-import-export-for-wp-woocommerce') . '</span></button></div></div>';
-                echo $content;
-
-                
-                $user_js = "jQuery( '#webtoffee-storefrog-notice-dismiss' ).click( function() {
-                                            jQuery.post( '" . admin_url("admin-ajax.php") . "', { action: 'UEIPF_webtoffee_storefrog_notice_dismiss' } );
-                                            jQuery('.webtoffee-storefrog-nav-tab').fadeOut();
-                                        });
-                                    ";
-                $js = "<!-- User Import JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) { $user_js });\n</script>\n";
-                echo $js;
-            }
-        }
-
-        function webtoffee_storefrog_notice_dismiss() {
-
-            if (!self::hf_user_permission()) {
-                update_option('UEIPF_Webtoffee_storefrog_admin_notices_dismissed', 1);
-                wp_die();
-            }
-            wp_die(-1);
-        }
-        
-        public function WT_admin_footer_text($footer_text) {
-            
-            if (!self::hf_user_permission()) {
-                return $footer_text;
-            }
-            $screen = get_current_screen();
-            $allowed_screen_ids = array('users_page_hf_wordpress_customer_im_ex');
-            if (in_array($screen->id, $allowed_screen_ids) || (isset($_GET['import']) && $_GET['import'] == 'wordpress_hf_user_csv')) {
-                if (!get_option('ucie_wt_plugin_reviewed')) {
-                    $footer_text = sprintf(
-                            __('If you like the plugin please leave us a %1$s review.', 'users-customers-import-export-for-wp-woocommerce'), '<a href="https://wordpress.org/support/plugin/users-customers-import-export-for-wp-woocommerce/reviews?rate=5#new-post" target="_blank" class="wt-review-link" data-rated="' . esc_attr__('Thanks :)', 'users-customers-import-export-for-wp-woocommerce') . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
-                    );
-
-                $user_js = "jQuery( 'a.wt-review-link' ).click( function() {
-                                                   jQuery.post( '" . admin_url("admin-ajax.php") . "', { action: 'ucie_wt_review_plugin' } );
-                                                   jQuery( this ).parent().text( jQuery( this ).data( 'rated' ) );
-                                           });";
-                $js = "<!-- User Import JavaScript -->\n<script type=\"text/javascript\">\njQuery(function($) { $user_js });\n</script>\n";
-                echo $js;
-                    
-                    
-                } else {
-                    $footer_text = __('Thank you for your review.', 'users-customers-import-export-for-wp-woocommerce');
-                }
-            }
-
-            return '<i>' . $footer_text . '</i>';
-        }
-
-        public function review_plugin() {
-            if (!self::hf_user_permission()) {
-                wp_die(-1);
-            }
-            update_option('ucie_wt_plugin_reviewed', 1);
-            wp_die();
-        }                       
-
-    }
-
-    endif;
-
-new WF_Customer_Import_Export_CSV();
+	return $links;
+}
 
 /*
  *  Displays update information for a plugin. 
@@ -264,3 +144,18 @@ function wt_users_customers_import_export_for_wp_woocommerce_update_message( $da
     }
 }
 add_action( 'in_plugin_update_message-users-customers-import-export-for-wp-woocommerce/users-customers-import-export-for-wp-woocommerce.php', 'wt_users_customers_import_export_for_wp_woocommerce_update_message', 10, 2 );
+
+// uninstall feedback catch
+include_once plugin_dir_path( __FILE__ ) . 'includes/class-wt-userimport-uninstall-feedback.php';
+
+
+
+// add dismissble banner for legecy menu
+include_once plugin_dir_path( __FILE__ ) . 'includes/class-wt-legecy-menu-moved.php';
+$user_egecy_menu = new wt_legecy_menu_moved('user');
+$user_egecy_menu->plugin_title = "User Import Export";
+$user_egecy_menu->old_menu = "Users > User Import Export";
+$user_egecy_menu->banner_message = sprintf(__("We have introduced a new main menu %sWebToffee Import Export(basic)%s for the %s plugin. Click the button below or dismiss this banner to remove the old menu from %s."),'<b>','</b>', $user_egecy_menu->plugin_title, $user_egecy_menu->old_menu);
+$user_egecy_menu->old_menu_params = array(array('parent_slug'=>'users.php', 'menu_title'=>'User Import Export', 'capability'=>'list_users'),
+                            array('parent_slug'=>'woocommerce', 'menu_title'=>'Customer Import Export', 'capability'=>'manage_woocommerce')
+                            );

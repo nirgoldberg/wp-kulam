@@ -1,0 +1,283 @@
+# Translation of Plugins - Embed Any Document - Development (trunk) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Embed Any Document - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-10-07 09:44:25+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Embed Any Document - Development (trunk)\n"
+
+#: inc/popup.php:103
+msgid "Do not cache this file (Affects performance)"
+msgstr "No almacenar en la caché este archivo (afecta al rendimiento)"
+
+#. translators: %1$s: strong opening tag, %2$s: strong closing tag
+#: inc/popup.php:96
+msgid "%1$s Note:%2$s Browser based PDF embedding feature is not supported by certain browsers and some external servers. Google viewer will be used as a fallback for the unsupported browsers."
+msgstr "%1$sNota:%2$s La característica de incrustación de PDF basada en el navegador no es compatible con ciertos navegadores y algunos servidores externos. Se usará el visor de Google como respaldo para los navegadores no compatibles."
+
+#: awsm-embed.php:344 blocks/document/modules/inspector.js:51
+msgid "Browser Based"
+msgstr "Basado en el navegador"
+
+#: awsm-embed.php:270
+msgid "Open in new tab"
+msgstr "Abrir en una nueva pestaña"
+
+#: awsm-embed.php:270
+msgid "Open"
+msgstr "Abrir"
+
+#: awsm-embed.php:266
+msgid "Reload document"
+msgstr "Recargar el documento"
+
+#: awsm-embed.php:266
+msgid "Reload"
+msgstr "Recargar"
+
+#: awsm-embed.php:262
+msgid "Taking too long?"
+msgstr "¿Tarda demasiado?"
+
+#: awsm-embed.php:261
+msgid "EAD Logo"
+msgstr "Logotipo de EAD"
+
+#: awsm-embed.php:255
+msgid "Loader"
+msgstr "Cargador"
+
+#: inc/settings.php:99
+msgid "Quick Help"
+msgstr "Ayuda rápida"
+
+#: inc/settings.php:77
+msgid "Github"
+msgstr "GitHub"
+
+#: inc/settings.php:76
+msgid "Twitter"
+msgstr "Twitter"
+
+#: inc/settings.php:75
+msgid "Facebook"
+msgstr "Facebook"
+
+#: inc/settings.php:72
+msgid "Designed and developed by"
+msgstr "Diseñado y desarrollado por"
+
+#: awsm-embed.php:530
+msgid "Embedded Document"
+msgstr "Documento incrustado"
+
+#: awsm-embed.php:205
+msgid "Select"
+msgstr "Seleccionar"
+
+#: inc/settings.php:19
+msgid "General Settings"
+msgstr "Ajustes generales"
+
+#: inc/popup.php:89
+msgid "Drive"
+msgstr "Drive"
+
+#: inc/popup.php:88
+msgid "Box"
+msgstr "Caja"
+
+#: inc/popup.php:74 inc/settings.php:51 blocks/document/modules/inspector.js:58
+msgid "Download Text"
+msgstr "Texto de descarga"
+
+#: inc/popup.php:40
+msgid "back"
+msgstr "volver"
+
+#: inc/popup.php:16
+msgid "Close"
+msgstr "Cerrar"
+
+#. translators: %1$s: Service provider
+#: awsm-embed.php:628
+msgid "Add From %1$s"
+msgstr "Añadir desde %1$s"
+
+#: awsm-embed.php:204
+msgid "From URL"
+msgstr "Desde una URL"
+
+#. Author URI of the plugin
+msgid "https://awsm.in"
+msgstr "https://awsm.in"
+
+#. Author of the plugin
+msgid "Awsm Innovations"
+msgstr "Awsm Innovations"
+
+#. Description of the plugin
+msgid "Embed Any Document WordPress plugin lets you upload and embed your documents easily in your WordPress website without any additional browser plugins like Flash or Acrobat reader. The plugin lets you choose between Google Docs Viewer and Microsoft Office Online to display your documents."
+msgstr "El plugin Embed Any Document para WordPress te permite subir e incrustar tus documentos fácilmente en tu web WordPress sin ningún plugin adicional en el navegador, como Flash o Acrobat Reader. El plugin te permite elegir entre los visores Google Docs Viewer y Microsoft Office Online para mostrar tus documentos."
+
+#. Plugin URI of the plugin
+msgid "http://awsm.in/embed-any-documents"
+msgstr "https://embedanydocument.com/plugin/"
+
+#. Plugin Name of the plugin
+#: awsm-embed.php:559
+msgid "Embed Any Document"
+msgstr "Embed Any Document"
+
+#: inc/settings.php:117 inc/settings.php:118
+msgid "FAQs"
+msgstr "FAQ"
+
+#: inc/settings.php:112 inc/settings.php:113
+msgid "Shortcode & Attributes"
+msgstr "Shortcode y atributos"
+
+#: inc/settings.php:107 inc/settings.php:108
+msgid "About Viewers"
+msgstr "Acerca de los visores"
+
+#: inc/settings.php:102 inc/settings.php:103
+msgid "How to Embed Documents?"
+msgstr "¿Cómo incrustar documentos?"
+
+#: inc/settings.php:92
+msgid "Open a Ticket"
+msgstr "Abre un tique"
+
+#: inc/settings.php:92
+msgid "Need Help?"
+msgstr "¿Necesitas ayuda?"
+
+#: inc/settings.php:86
+msgid "Rate Now!"
+msgstr "¡Valóralo ahora!"
+
+#: inc/settings.php:86
+msgid "Like the plugin?"
+msgstr "¿Te gusta el plugin?"
+
+#: inc/settings.php:34
+msgid "Enter values in pixels or percentage (Example: 500px or 100%)"
+msgstr "Introduce los valores en píxeles o en porcentaje (Ejemplo: 500px o 100%)"
+
+#: inc/popup.php:59 inc/settings.php:30 blocks/document/modules/inspector.js:72
+msgid "Height"
+msgstr "Alto"
+
+#: inc/popup.php:56 inc/settings.php:26 blocks/document/modules/inspector.js:68
+msgid "Width"
+msgstr "Ancho"
+
+#: inc/settings.php:24
+msgid "Default Size"
+msgstr "Tamaño por defecto"
+
+#: inc/popup.php:120
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: awsm-embed.php:256 inc/popup.php:116
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: inc/popup.php:116
+msgid "Insert"
+msgstr "Insertar"
+
+#: inc/popup.php:107
+msgid "Shortcode Preview"
+msgstr "Vista previa del shortcode"
+
+#: awsm-embed.php:345 blocks/document/modules/inspector.js:46
+msgid "Microsoft Office Online"
+msgstr "Microsoft Office Online"
+
+#: awsm-embed.php:343 blocks/document/modules/inspector.js:43
+msgid "Google Docs Viewer"
+msgstr "Google Docs Viewer"
+
+#: inc/popup.php:78 inc/popup.php:86 blocks/document/modules/inspector.js:84
+msgid "Viewer"
+msgstr "Visor"
+
+#: inc/popup.php:68 inc/settings.php:44 blocks/document/modules/inspector.js:79
+msgid "No Download"
+msgstr "Sin descarga"
+
+#: inc/popup.php:67 inc/settings.php:43 blocks/document/modules/inspector.js:78
+msgid "For Logged-in users"
+msgstr "Para los usuarios conectados"
+
+#: inc/popup.php:66 inc/settings.php:42 blocks/document/modules/inspector.js:77
+msgid "For all users"
+msgstr "Para todos los usuarios"
+
+#: inc/popup.php:63 inc/settings.php:38 blocks/document/modules/inspector.js:76
+msgid "Show Download Link"
+msgstr "Mostrar el enlace de descarga"
+
+#: inc/popup.php:53
+msgid "Advanced Options"
+msgstr "Opciones avanzadas"
+
+#: inc/popup.php:36
+msgid "Enter document URL"
+msgstr "Introduce la URL del documento"
+
+#: inc/popup.php:29
+msgid "Add from URL"
+msgstr "Añadir desde una URL"
+
+#: inc/popup.php:26
+msgid "Upload Document"
+msgstr "Subir un documento"
+
+#: awsm-embed.php:625
+msgid "Buy Pro Version"
+msgstr "Comprar la versión Pro"
+
+#: awsm-embed.php:569
+msgid "You do not have sufficient permissions to access this page."
+msgstr "No tienes suficientes permisos para acceder a esta página."
+
+#: awsm-embed.php:539
+msgid "No Url Found"
+msgstr "No se ha encontrado ninguna URL"
+
+#: awsm-embed.php:193 awsm-embed.php:401
+msgid "Download"
+msgstr "Descargar"
+
+#: awsm-embed.php:203
+msgid "Verifying..."
+msgstr "Verificando..."
+
+#: awsm-embed.php:202 inc/popup.php:38
+msgid "Add URL"
+msgstr "Añadir la URL"
+
+#: awsm-embed.php:201
+msgid "Invalid URL"
+msgstr "URL no válida"
+
+#: awsm-embed.php:200
+msgid "Nothing to insert"
+msgstr "Nada para insertar"
+
+#: awsm-embed.php:156
+msgid "Settings"
+msgstr "Ajustes"
+
+#: awsm-embed.php:143 inc/popup.php:18 blocks/document/main.js:76
+msgid "Add Document"
+msgstr "Añadir un documento"

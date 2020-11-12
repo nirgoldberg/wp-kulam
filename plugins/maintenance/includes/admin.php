@@ -4,7 +4,7 @@ add_action('admin_menu', 'mtnc_admin_setup');
 function mtnc_admin_setup()
 {
   global  $mtnc_variable;
-  $mtnc_variable->options_page = add_menu_page(__('Maintenance', 'maintenance'), __('Maintenance', 'maintenance'), 'manage_options', 'maintenance', 'mtnc_manage_options', MTNC_URI . '/images/icon-small.png');
+  $mtnc_variable->options_page = add_menu_page(__('Maintenance', 'maintenance'), __('Maintenance', 'maintenance'), 'manage_options', 'maintenance', 'mtnc_manage_options', MTNC_URI . 'images/icon-small.png');
 
   add_action('admin_init', 'mtnc_register_settings');
   add_action("admin_head-{$mtnc_variable->options_page}", 'mtnc_metaboxes_scripts');
@@ -14,6 +14,23 @@ function mtnc_admin_setup()
   add_action('admin_enqueue_scripts', 'mtnc_codemirror_enqueue_scripts');
   add_action('admin_footer', 'mtnc_plugin_information', 1, 0);
 }
+
+function mtnc_plugin_dismiss_dialog() {
+	if ( !wp_verify_nonce( $_REQUEST['nonce'], "mtnc_dismiss_nonce")) {
+		exit("Woof Woof Woof");
+	}
+
+	$meta = get_option('maintenance_meta', array());
+
+	if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'mtnc_dismiss_dialog') {
+		$meta['mtnc_dismiss_dialog'] = true;
+
+		update_option('maintenance_meta', $meta);
+    }
+
+	die();
+}
+add_action("wp_ajax_mtnc_dismiss_dialog", "mtnc_plugin_dismiss_dialog");
 
 function mtnc_plugin_information() {
   if (empty($_GET['fix-install-button']) || empty($_GET['tab']) || $_GET['tab'] != 'plugin-information') {
@@ -33,6 +50,7 @@ function mtnc_page_add_meta_boxes()
 
 function mtnc_register_settings()
 {
+
   if (!empty($_POST['lib_options']) && check_admin_referer('mtnc_edit_post', 'mtnc_nonce')) {
     if (!isset($_POST['lib_options']['state'])) {
       $_POST['lib_options']['state'] = 0;
@@ -75,9 +93,40 @@ function mtnc_admin_print_custom_styles()
 
   wp_enqueue_script('uploads_', MTNC_URI . 'js/uploads_.min.js', 'jquery', filemtime(MTNC_DIR . 'js/uploads_.min.js'), '');
   wp_register_script('mtnc', MTNC_URI . 'js/init.js', array('wp-color-picker'), filemtime(MTNC_DIR . 'js/init.js'), true);
-  wp_localize_script('mtnc', 'mtnc', array('path' => MTNC_URI,
-    'weglot_install_url' => add_query_arg(array('action' => 'mtnc_install_weglot', 'rnd' => rand()), admin_url('admin.php')),
-    'weglot_dialog_upsell_title' => '<img alt="Weglot" title="Weglot" src="' . MTNC_URI . 'images/weglot-logo-white.png' . '">'));
+
+  $cm_settings['codeEditor'] = wp_enqueue_code_editor(array('type' => 'text/css'));
+  $meta                                 = get_option('maintenance_meta', array());
+  $firstInstallDateTime             = date('Y-m-d H:i:s', $meta['first_install']);
+  $firstInstallDateTimeTimeStamp     = (new DateTime($firstInstallDateTime))->add(new DateInterval('PT15M'))->getTimestamp();
+
+  $nonce = wp_create_nonce("mtnc_dismiss_nonce");
+  $dismissDialogLink = admin_url('admin-ajax.php?action=mtnc_dismiss_dialog&nonce='.$nonce);
+
+  $meta = get_option('maintenance_meta', array());
+  $isDialogDismiss = isset($meta['mtnc_dismiss_dialog']) ? $meta['mtnc_dismiss_dialog'] : 0;
+  $isDialogDismiss = 1;
+
+  wp_localize_script(
+        'mtnc',
+    'mtnc',
+                array(
+                        'path' => MTNC_URI,
+                        'weglot_install_url' => add_query_arg(
+                                array(
+                                        'action' => 'mtnc_install_weglot',
+                                        'rnd' => rand()
+                                ),
+                                admin_url('admin.php')
+                        ),
+                        'weglot_dialog_upsell_title' => '<img alt="Weglot" title="Weglot" src="' . MTNC_URI . 'images/weglot-logo-white.png' . '">',
+                        'cm_settings' =>  $cm_settings,
+                        'site_url' => home_url(),
+                        'first_install_date' => $firstInstallDateTimeTimeStamp,
+                        'dismiss_dialog_link' => $dismissDialogLink,
+                        'isDialogDismiss' => $isDialogDismiss
+                )
+  );
+
   wp_enqueue_script('mtnc');
   wp_enqueue_style('mtnc', MTNC_URI . 'css/admin.css', '', filemtime(MTNC_DIR . 'css/admin.css'));
 
@@ -152,7 +201,42 @@ function mtnc_generate_plugin_page()
 {
   global  $mtnc_variable;
   $mt_option = mtnc_get_plugin_options(true);
+  $date      = new DateTime();
   ?>
+
+<div id="dialog-form-new-info" title="🚀 We're Rebuilding the Maintenance plugin! 🚀" style="display: none;">
+        <p>Dear user!<br>We're super excited to tell you that we started working on the new version of the Maintenance plugin. <b>We want you to be a part of the journey!</b> We need your ideas, your input, your feedback! That's why we want to send you the new version before it's available to the public. Here's what we have planned;</p>
+        <ul>
+            <li>simpler &amp; faster admin interface</li>
+            <li>pre-built themes so you can work even faster</li>
+            <li>easier access control via IPs, users, and secret links</li>
+            <li>better cache handling so you never get stuck in maintenance mode</li>
+        </ul>
+        <hr>
+        <p class="validateTips"></p>
+        <form id="dialog-form-new-info-form">
+            <fieldset>
+                <label for="name">Name (*)</label>
+                <input type="text" name="name" id="name" value="" placeholder="How shall we call you?" class="text ui-widget-content ui-corner-all" required>
+
+                <label for="email">Email (*)</label>
+                <input type="text" name="email" id="email" value="" placeholder="Your best email address" class="text ui-widget-content ui-corner-all" required>
+
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+                <span>
+                    <i>We hate SPAM and never send it! And we won't share your email with anybody else.</i>
+                </span>
+
+                <div class="buttons">
+                    <a href="#" class="submit-new-dialog button button-primary">I want to be the first to know about the new plugin version</a>
+                    <br>
+                    <a href="#" class="dismiss-new-dialog"><small>I'm not interested</small></a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
   <div id="maintenance-options" class="wrap">
     <form method="post" action="" enctype="multipart/form-data" name="options-form">
       <?php wp_nonce_field('mtnc_edit_post', 'mtnc_nonce'); ?>

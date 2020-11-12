@@ -442,3 +442,55 @@
 .theme-thumb .ribbon span {
   padding: 10px;
 }
+
+/******** DIALOG ********/
+#dialog-form-new-info-form label, #dialog-form-new-info-form input { display:block; margin-bottom: 5px; }
+#dialog-form-new-info-form input.text { margin-bottom:12px; width:95%; padding: .4em; }
+#dialog-form-new-info-form fieldset { padding:0; border:0; margin-top:25px; }
+#dialog-form-new-info-form input.ui-state-error { padding: .3em !important; background: palevioletred; }
+#dialog-form-new-info p.ui-state-highlight { border: 1px solid transparent !important; padding: 0.3em !important; background: palevioletred; display: inline; }
+
+.new-version-dialog .ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+
+.new-version-dialog .ui-dialog-titlebar {
+  text-align: center;
+  padding: 10px;
+}
+
+#dialog-form-new-info {
+  font-size: 15px;
+  padding: 10px 50px;
+}
+#dialog-form-new-info p {
+  font-size: 15px;
+}
+
+.new-version-dialog .ui-dialog-buttonpane {
+  text-align: center;
+}
+
+.new-version-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+  float: none;
+}
+
+.new-version-dialog .buttons {
+  padding: 20px 0 0 0;
+  text-align: center;
+}
+
+.new-version-dialog .buttons small {
+  display: inline-block;
+  padding: 10px 0 0 0;
+  opacity: 0.7;
+}
+
+.new-version-dialog .submit-new-dialog {
+  font-size: 17px;
+}
+
+.new-version-dialog ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}

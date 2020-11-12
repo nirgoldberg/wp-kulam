@@ -123,11 +123,13 @@ jQuery(document).ready(function($) {
             download = $('#ead-download').val(),
             provider = $('#ead-provider').val(),
             text = $('#ead-text').val(),
+            cache = $('#ead-cache').is(':checked'),
             heightstr = "",
             widthstr = "",
             downloadstr = "",
             providerstr = "",
             textstr="",
+            cachestr="",
             drivestr = "";
         if (ead_itemcheck('height', item)) {
             heightstr = ' height="' + height + '"';
@@ -145,7 +147,23 @@ jQuery(document).ready(function($) {
         if (ead_itemcheck('text', item) && download!='none' ) {
             textstr = ' text="' + text + '"';
         }
-        return '[embeddoc url="' + url + '"' + widthstr + heightstr + downloadstr + providerstr + drivestr + textstr +']';
+
+        if (provider == 'google') {
+            $('#eadcachemain').show();
+            if (cache) {
+                cachestr = ' cache="off"';
+            }
+        } else {
+            $('#eadcachemain').hide();
+        }
+
+        if (provider === 'browser') {
+            $('.ead-browser-viewer-note').show();
+        } else {
+            $('.ead-browser-viewer-note').hide();
+        }
+
+        return '[embeddoc url="' + url + '"' + widthstr + heightstr + downloadstr + providerstr + cachestr + drivestr + textstr +']';
     }
     // Checks with default setting value
     function ead_itemcheck(item, dataitem) {
@@ -180,7 +198,7 @@ jQuery(document).ready(function($) {
             ead_validateurl(checkurl);
         } else {
             $embedurl.addClass('urlerror');
-            updateshortcode();
+            ead_updateshortcode();
         }
     }
     function ead_is_valid_url(url) {
@@ -274,21 +292,49 @@ jQuery(document).ready(function($) {
     // Viewer Check
     function ead_valid_viewer(file, provider) {
         var cprovider = ["link", "upload"];
+
         var validext = msextension.split(',');
         var checkitem = file.filename;
         if (provider == 'link') {
             checkitem = file.url;
         }
         var ext = '.' + checkitem.split('.').pop();
-        $("#new-provider  option[value='microsoft']").attr('disabled', false);
-        if ($.inArray(provider, cprovider) != -1) {
-            if ($.inArray(ext, validext) == -1) {
+
+        var flexible_viewers = ['built-in', 'browser', 'microsoft'];
+        $.each(flexible_viewers, function(i, value) {
+            $("#new-provider option[value='" + value + "']").attr({
+                'disabled': false,
+                'hidden': false
+            });
+        });
+        $('.ead-browser-viewer-note').hide();
+
+        if ($.inArray(provider, cprovider) !== -1) {
+            if ($.inArray(ext, validext) === -1) {
                 newprovider = "google";
                 $("#new-provider option[value='google']").attr("selected", "selected");
-                $("#new-provider  option[value='microsoft']").attr('disabled', true);
+                $("#new-provider option[value='microsoft']").attr({
+                    'disabled': true,
+                    'hidden': true
+                });
             } else {
                 newprovider = "microsoft";
                 $("#new-provider option[value='microsoft']").attr("selected", "selected");
+            }
+
+            // Hide the Browser viewer and built-in viewer if the extension is not pdf and also if the provider is not in the supported providers list.
+            if (ext !== '.pdf'){
+                $("#new-provider option[value='browser']").attr({
+                    'disabled': true,
+                    'hidden': true
+                });
+            }
+
+            if (ext !== '.pdf' || (provider === 'link' && checkitem.indexOf(emebeder.site_url) === -1)) {
+                $("#new-provider option[value='built-in']").attr({
+                    'disabled': true,
+                    'hidden': true
+                });
             }
         }
     }

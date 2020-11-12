@@ -237,7 +237,7 @@ if (!class_exists('WT_UserImport_Uninstall_Feedback')) :
                 'wc_version' => (!defined('WC_VERSION')) ? '' : WC_VERSION,
                 'locale' => get_locale(),
                 'multisite' => is_multisite() ? 'Yes' : 'No',
-                'userimport_version' => WF_CUSTOMER_IMP_EXP_VERSION
+                'userimport_version' => WT_U_IEW_VERSION
             );
             // Write an action/hook here in webtoffe to recieve the data
             $resp = wp_remote_post('https://feedback.webtoffee.com/wp-json/userimport/v1/uninstall', array(

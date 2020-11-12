@@ -1,16 +1,11 @@
 <?php
-/**
- * Get ehad action for indexables.
- *
- * @package Yoast\WP\SEO\Actions\Indexables
- */
 
 namespace Yoast\WP\SEO\Actions\Indexables;
 
 use Yoast\WP\SEO\Surfaces\Meta_Surface;
 
 /**
- * Indexable_Head_Action class
+ * Get head action for indexables.
  */
 class Indexable_Head_Action {
 
@@ -44,7 +39,10 @@ class Indexable_Head_Action {
 			return $this->for_404();
 		}
 
-		return (object) [ 'head' => $meta->get_head(), 'status' => 200 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -61,7 +59,10 @@ class Indexable_Head_Action {
 			return $this->for_404();
 		}
 
-		return (object) [ 'head' => $meta->get_head(), 'status' => 200 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -78,7 +79,10 @@ class Indexable_Head_Action {
 			return $this->for_404();
 		}
 
-		return (object) [ 'head' => $meta->get_head(), 'status' => 200 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -95,7 +99,10 @@ class Indexable_Head_Action {
 			return $this->for_404();
 		}
 
-		return (object) [ 'head' => $meta->get_head(), 'status' => 200 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -112,7 +119,10 @@ class Indexable_Head_Action {
 			return $this->for_404();
 		}
 
-		return (object) [ 'head' => $meta->get_head(), 'status' => 200 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -127,7 +137,10 @@ class Indexable_Head_Action {
 			return $this->for_404();
 		}
 
-		return (object) [ 'head' => $meta->get_head(), 'status' => 200 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 200,
+		];
 	}
 
 	/**
@@ -137,6 +150,9 @@ class Indexable_Head_Action {
 	 */
 	public function for_404() {
 		$meta = $this->meta_surface->for_404();
-		return (object) [ 'head' => $meta->get_head(), 'status' => 404 ];
+		return (object) [
+			'head'   => $meta->get_head(),
+			'status' => 404,
+		];
 	}
 }

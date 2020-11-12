@@ -2,18 +2,18 @@
 # This file is distributed under the same license as the Plugins - Maintenance - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-14 18:43:20+0000\n"
+"PO-Revision-Date: 2020-09-18 09:12:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Maintenance - Stable (latest release)\n"
 
 #. Author URI of the plugin/theme
 msgid "http://fruitfulcode.com"
-msgstr "http://fruitfulcode.com"
+msgstr "https://fruitfulcode.com"
 
 #. Author of the plugin/theme
 msgid "fruitfulcode"
@@ -21,11 +21,11 @@ msgstr "fruitfulcode"
 
 #. Description of the plugin/theme
 msgid "Take your website for maintenance away from public view. Use maintenance plugin if your website is in development or you need to change a few things, run an upgrade. Make it only accessible by login and password. Plugin has a options to add a logo, background, headline, message, colors, login, etc. Extended PRO with more features version is available for purchase."
-msgstr "Pon tu página en modo mantenimiento alejado de la vista del público. Utiliza este plugin de mantenimiento si tu página web está en desarrollo o necesitas cambiar unas cuantas cosas, o ejecutar una actualización. Hazla accesible sólo a usuarios con contraseña. Este plugin tiene opciones como añadir un logotipo, fondo, titular, mensaje, colores, inicio sesión, etc. La versión extendida PRO con más funciones también está disponible para su compra."
+msgstr "Pon tu web en mantenimiento alejada de la vista del público. Usa este plugin de mantenimiento si tu web está en desarrollo o necesitas cambiar algunas cosas o ejecutar una actualización. Hazla accesible solo a los usuarios con contraseña. Este plugin tiene opciones para añadir un logotipo, un fondo, un titular, un mensaje, colores, acceso, etc. La versión PRO ampliada con más características está disponible para comprar."
 
 #. Plugin URI of the plugin/theme
 msgid "http://wordpress.org/plugins/maintenance/"
-msgstr "http://wordpress.org/plugins/maintenance/"
+msgstr "https://es.wordpress.org/plugins/maintenance/"
 
 #: load/functions.php:261
 msgid "Login"
@@ -45,7 +45,7 @@ msgstr "Nombre de usuario"
 
 #: load/functions.php:257
 msgid "User Login"
-msgstr "Iniciar sesión"
+msgstr "Acceso del usuario"
 
 #: load/functions.php:52
 msgid "You entered your login and password are incorrect!"
@@ -65,27 +65,27 @@ msgstr "¡Permiso de acceso denegado!"
 
 #: includes/functions.php:606
 msgid "Website will be available soon"
-msgstr "La página estará disponible pronto"
+msgstr "La web estará disponible pronto"
 
 #: includes/functions.php:605
 msgid "Maintenance mode is on"
-msgstr "Modo mantenimiento activado"
+msgstr "El modo mantenimiento está activado"
 
 #: includes/functions.php:604
 msgid "Website is under construction"
-msgstr "Página en construcción"
+msgstr "La web está en construcción"
 
 #: includes/functions.php:409
 msgid "Demo website"
-msgstr "Sitio web de demostración"
+msgstr "Web de demostración"
 
 #: includes/functions.php:405
 msgid "Purchase <a href=\"http://codecanyon.net/item/maintenance-wordpress-plugin/2781350?ref=fruitfulcode\" target=\"_blank\">PRO</a> version  with extended functionality. %1$s If you like our plugin please <a target=\"_blank\" href=\"http://wordpress.org/support/view/plugin-reviews/maintenance?filter=5\">rate it</a>, <a title=\"leave feedbacks\" href=\"%2$s\" target=\"_blank\">leave feedbacks</a>."
-msgstr "Comprar versión <a href=\"http://codecanyon.net/item/maintenance-wordpress-plugin/2781350?ref=fruitfulcode\" target=\"_blank\">PRO</a> con funcionalidad extendida.  %1$s Si te gusta nuestro plugin, por favor <a target=\"_blank\" href=\"http://wordpress.org/support/view/plugin-reviews/maintenance?filter=5\">puntúalo</a>, <a title=\"deja tus comentarios\" href=\"%2$s\" target=\"_blank\">deja tus comentarios</a>."
+msgstr "Compra la versión <a href=\"https://codecanyon.net/item/maintenance-wordpress-plugin/2781350?ref=fruitfulcode\" target=\"_blank\">PRO</a> con funcionalidad ampliada.  %1$s Si te gusta nuestro plugin, por favor, <a target=\"_blank\" href=\"https://wordpress.org/support/view/plugin-reviews/maintenance?filter=5\">valóralo</a>, <a title=\"deja tus comentarios\" href=\"%2$s\" target=\"_blank\">deja tus comentarios</a>."
 
 #: includes/functions.php:404
 msgid "Extended functionality"
-msgstr "Funcionalidad extendida"
+msgstr "Funcionalidad ampliada"
 
 #: includes/functions.php:391
 msgid "Zoner - Real Estate WordPress theme"
@@ -93,19 +93,19 @@ msgstr "Zoner - Tema inmobiliario para WordPress"
 
 #: includes/functions.php:385
 msgid "Love.ly - Simple & Elegant WordPress theme"
-msgstr "Love.ly - Un tema para WordPress simple y elegante"
+msgstr "Love.ly - Tema para WordPress sencillo y elegante"
 
 #: includes/functions.php:380
 msgid "ANAGLYPH - One page / Multi Page WordPress Theme"
-msgstr "ANAGLYPH - Plantilla Wordpress de Una página / Multi página"
+msgstr "ANAGLYPH - Tema para WordPress de una página / multipágina"
 
 #: includes/functions.php:374
 msgid "Premium WordPress themes"
-msgstr "Plantillas Premium Wordpress"
+msgstr "Temas premium para WordPress"
 
 #: includes/functions.php:363
 msgid "You may find answers to your questions at <a target=\"_blank\" href=\"http://wordpress.org/support/plugin/maintenance\">support forum</a><br>You may  <a target=\"_blank\" href=\"mailto:mail@fruitfulcode.com?subject=Maintenance plugin\">contact us</a> with customization requests and suggestions.<br> Please visit our website to learn about us and our services <a href=\"%1$s\" title=\"%2$s\">%2$s</a>"
-msgstr "Puedes encontrar respuestas a tus dudas en nuestro <a target=\"_blank\" href=\"http://wordpress.org/support/plugin/maintenance\">foro de soporte</a>.<br>Puedes <a target=\"_blank\" href=\"mailto:mail@fruitfulcode.com?subject=Maintenance plugin\">contactar con nosotros</a> para solicitar personalización y sugerencias.<br>Por favor visita nuestra web para saber más acerca de nosotros y nuestros servicios <a href=\"%1$s\" title=\"%2$s\">%2$s</a>."
+msgstr "Puedes encontrar respuestas a tus preguntas en el <a target=\"_blank\" href=\"https://wordpress.org/support/plugin/maintenance\">foro de soporte</a>.<br>Puedes <a target=\"_blank\" href=\"mailto:mail@fruitfulcode.com?subject=Plugin Maintenance\">contactar con nosotros</a> para peticiones de personalización y sugerencias.<br>Por favor, visita nuestra web para aprender más sobre nosotros y nuestros servicios <a href=\"%1$s\" title=\"%2$s\">%2$s</a>"
 
 #: includes/functions.php:362
 msgid "Have any questions?"
@@ -113,19 +113,19 @@ msgstr "¿Tienes preguntas?"
 
 #: includes/functions.php:354
 msgid "Font family"
-msgstr "Familia de fuente"
+msgstr "Familia de la fuente"
 
 #: includes/functions.php:347
 msgid "Font color"
-msgstr "Color de fuente"
+msgstr "Color de la fuente"
 
 #: includes/functions.php:346
 msgid "Background color"
-msgstr "Color de fondo"
+msgstr "Color del fondo"
 
 #: includes/functions.php:340
 msgid "Upload Background"
-msgstr "Subir fondo"
+msgstr "Subir un fondo"
 
 #: includes/functions.php:340
 msgid "Background image"
@@ -137,7 +137,7 @@ msgstr "Objeto no disponible."
 
 #: includes/functions.php:279
 msgid "Select the page to be displayed:"
-msgstr "Selecciona la página a mostrar"
+msgstr "Selecciona la página a mostrar:"
 
 #: includes/functions.php:265
 msgid "CSS Code"
@@ -145,15 +145,15 @@ msgstr "Código CSS"
 
 #: includes/functions.php:253
 msgid "Login On / Off"
-msgstr "Iniciar Sesión On / Off"
+msgstr "Acceso activado / desactivado"
 
 #: includes/functions.php:252
 msgid "Apply a blur"
-msgstr "Aplicar difuminado"
+msgstr "Aplicar el difuminado"
 
 #: includes/functions.php:252
 msgid "Background blur"
-msgstr "Difuminar fondo"
+msgstr "Difuminar el fondo"
 
 #: includes/functions.php:246
 msgid "Blur intensity"
@@ -165,11 +165,11 @@ msgstr "UA-XXXXX-X"
 
 #: includes/functions.php:245
 msgid "Google Analytics ID"
-msgstr "ID Google Analytics"
+msgstr "ID de Google Analytics"
 
 #: includes/functions.php:238
 msgid "Service temporarily unavailable"
-msgstr "Servicio temporalmente no disponible"
+msgstr "Servicio no disponible temporalmente"
 
 #: includes/functions.php:238
 msgid "503"
@@ -177,7 +177,7 @@ msgstr "503"
 
 #: includes/functions.php:237
 msgid "Show admin bar"
-msgstr "Mostrar barra de administración"
+msgstr "Mostrar la barra de administración"
 
 #: includes/functions.php:237
 msgid "Admin bar"
@@ -185,7 +185,7 @@ msgstr "Barra de administración"
 
 #: includes/functions.php:233
 msgid "Upload Logo"
-msgstr "Subir logo"
+msgstr "Subir un logotipo"
 
 #: includes/functions.php:233
 msgid "Logo"
@@ -193,7 +193,7 @@ msgstr "Logotipo"
 
 #: includes/functions.php:232
 msgid "Footer Text"
-msgstr "Texto de pie de página"
+msgstr "Texto del pie de página"
 
 #: includes/functions.php:231
 msgid "Description"
@@ -201,11 +201,11 @@ msgstr "Descripción"
 
 #: includes/functions.php:230
 msgid "Headline"
-msgstr "Cabecera"
+msgstr "Titular"
 
 #: includes/functions.php:229
 msgid "Page title"
-msgstr "Título de página"
+msgstr "Título de la página"
 
 #: includes/functions.php:208
 msgid "Support"
@@ -229,11 +229,11 @@ msgstr "CSS personalizado"
 
 #: includes/functions.php:187
 msgid "General Settings"
-msgstr "Ajustes"
+msgstr "Cambios generales"
 
 #: includes/functions.php:168
 msgid "Google Web Fonts"
-msgstr "Fuentes web Google"
+msgstr "Fuentes web de Google"
 
 #: includes/functions.php:161
 msgid "Standard Fonts"
@@ -241,7 +241,7 @@ msgstr "Fuentes estándar"
 
 #: includes/admin.php:88
 msgid "Save changes"
-msgstr "Guardar cambios"
+msgstr "Guardar los cambios"
 
 #. #-#-#-#-#  tmp-maintenance.pot (Maintenance 2.5)  #-#-#-#-#
 #. Plugin Name of the plugin/theme

@@ -1,11 +1,11 @@
 === Import Export WordPress Users ===
 Contributors: webtoffee
 Donate link: https://www.webtoffee.com/plugins/
-Tags: user import, user export, export customers, import customers, export users to csv, import users from csv, woocommerce export customers, export import users,  woocommerce import customers, woocommerce export customer email
+Tags: user import, user export, csv, woocommerce, customers, import, export, export customers, import customers, export users to csv, import users from csv, woocommerce export customers, export import users, woocommerce import customers, woocommerce export customer email
 Requires at least: 3.0.1
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 1.4.2
+Stable tag: 2.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,7 +20,7 @@ Import users and export users made fast and simple! Import Export WordPress User
 
  &#128312; Users Export - Export Users to CSV file.</li>
  &#128312; Users import - Import Users from CSV format to WordPress/WooCommerce Store.
- &#128312; Tested OK with WooCommerce 4.1.0
+ &#128312; Tested OK with WooCommerce 4.7.0
  &#128312; Tested OK with PHP 7.3.5
 
 Highlights: WordPress Users Export, WordPress Users CSV Import Suite, Export WordPress Users to CSV. Pro Version supports export and import of all additional user meta like WooCommerce details.
@@ -33,6 +33,8 @@ You can create the CSV from the scratch or you can export the users to get the f
 
 
 
+More information about the set up of the plugin and a sample CSV that is taken as input by the plugin is given in the <a rel="nofollow" href="https://www.webtoffee.com/user-import-export-plugin-wordpress-user-guide/">basic set up guide.</a>
+
 = Premium version Features =
 
 <blockquote>
@@ -43,7 +45,7 @@ Import Export WordPress Users & WooCommerce Customers
  &#9989; Option to choose All Roles or Multiple Roles while export (Basic Supports only single role at a time)
  &#9989; Various Filter options for exporting Customers.
  &#9989; Map and Transform fields while Importing Customers.
- &#9989; Change values while improting Customers using Evaluation Fields.
+ &#9989; Change values while importing Customers using Evaluation Fields.
  &#9989; Choice to Update or Skip existing imported Customers.
  &#9989; Choice to Send or Skip Emails for newly imported Customers.
  &#9989; WPML Supported. French language support Out of the Box.
@@ -158,7 +160,29 @@ By default, admin and store manager are given access to export users. Please vis
 3. Premium export Screen
 
 == Changelog ==
-
+= 2.0.2 =
+* Fix: Batch count issue for quick export.
+* Fix: Issue with password migration for quick import.
+* Tested OK with WC 4.7.0.
+* Version 2.0.0 onward has been revamped majorly.
+= 2.0.1 =
+* Fix: Browser popup blocker issue.
+* Tested OK with WC 4.6.1.
+= 2.0.0 =
+* Heads up! This version has been revamped majorly.
+* Improved UI for better user experience
+* Export/Import options: via a pre-saved template or a quick(standard columns) export/import
+* Option to export/import selective columns
+* Option to reorder columns during export
+* Import: Support for different types of delimiters
+* Export/Import options: Batch option with configurable batch count
+* History of all the Import/Export process
+* Dedicated logs for debugging failures
+* Tested OK with WC 4.6.0
+= 1.4.4 =
+* Tested OK with WC 4.5.0 and WP 5.5.1
+= 1.4.3 =
+* Tested OK with WC 4.3.1 and WP 5.4.2
 = 1.4.2 =
 * Tested OK with WC 4.1.0 and WP 5.4.1
 = 1.4.1 =
@@ -265,5 +289,8 @@ By default, admin and store manager are given access to export users. Please vis
 
 == Upgrade Notice ==
 
-= 1.4.2 =
-* Tested OK with WC 4.1.0 and WP 5.4.1
+= 2.0.2 =
+* Fix: Batch count issue for quick export.
+* Fix: Issue with password migration for quick import.
+* Tested OK with WC 4.7.0.
+* Version 2.0.0 onward has been revamped majorly.

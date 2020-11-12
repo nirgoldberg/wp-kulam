@@ -1,0 +1,234 @@
+# Translation of Plugins - Maintenance - Stable (latest release) in Hungarian
+# This file is distributed under the same license as the Plugins - Maintenance - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-07-28 18:40:04+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: hu\n"
+"Project-Id-Version: Plugins - Maintenance - Stable (latest release)\n"
+
+#: load/functions.php:261
+msgid "Login"
+msgstr "Belépés"
+
+#: load/functions.php:260
+msgid "Lost Password"
+msgstr "Elveszett jelszó"
+
+#: load/functions.php:259
+msgid "Password"
+msgstr "Jelszó"
+
+#: load/functions.php:258
+msgid "Username"
+msgstr "Felhasználónév"
+
+#: load/functions.php:257
+msgid "User Login"
+msgstr "Felhasználói belépés"
+
+#: load/functions.php:52
+msgid "You entered your login and password are incorrect!"
+msgstr "A megadott felhasználói név és jelszó nem megfelelő!"
+
+#: load/functions.php:49
+msgid "You entered your password are incorrect!"
+msgstr "A megadott jelszó nem megfelelő!"
+
+#: load/functions.php:45
+msgid "You entered your login are incorrect!"
+msgstr "A megadott felhasználói név nem megfelelő!"
+
+#: load/functions.php:37
+msgid "Permission access denied!"
+msgstr "Hozzáférés megtagadva!"
+
+#: includes/functions.php:606
+msgid "Website will be available soon"
+msgstr "A honlap hamarosan elérhető lesz"
+
+#: includes/functions.php:605
+msgid "Maintenance mode is on"
+msgstr "Karbantartás üzemmód aktív"
+
+#: includes/functions.php:604
+msgid "Website is under construction"
+msgstr "A honlap fejlesztés alatt áll"
+
+#: includes/functions.php:409
+msgid "Demo website"
+msgstr "Demó Weboldal"
+
+#: includes/functions.php:405
+msgid "Purchase <a href=\"http://codecanyon.net/item/maintenance-wordpress-plugin/2781350?ref=fruitfulcode\" target=\"_blank\">PRO</a> version  with extended functionality. %1$s If you like our plugin please <a target=\"_blank\" href=\"http://wordpress.org/support/view/plugin-reviews/maintenance?filter=5\">rate it</a>, <a title=\"leave feedbacks\" href=\"%2$s\" target=\"_blank\">leave feedbacks</a>."
+msgstr "Vásároljunk <a href=\"http://codecanyon.net/item/maintenance-wordpress-plugin/2781350?ref=fruitfulcode\" target=\"_blank\">PRO</a> verziót, kiterjesztett funkcionalitással. %1$s Valamint, ha tetszik a bővítmény <a target=\"_blank\" href=\"http://wordpress.org/support/view/plugin-reviews/maintenance?filter=5\">értékeljük itt</a>, <a title=\"leave feedbacks\" href=\"%2$s\" target=\"_blank\">vagy küldjünk visszajelzést</a>."
+
+#: includes/functions.php:404
+msgid "Extended functionality"
+msgstr "Kiterjesztett funkciók"
+
+#: includes/functions.php:391
+msgid "Zoner - Real Estate WordPress theme"
+msgstr "Zoner - Ingatlanos WordPress sablon"
+
+#: includes/functions.php:385
+msgid "Love.ly - Simple & Elegant WordPress theme"
+msgstr "Love.ly - egyszerű és elegáns WordPress sablon"
+
+#: includes/functions.php:380
+msgid "ANAGLYPH - One page / Multi Page WordPress Theme"
+msgstr "ANAGLYPH - Egy oldalas / Több oldalas WordPress Sablon"
+
+#: includes/functions.php:374
+msgid "Premium WordPress themes"
+msgstr "Prémium WordPress sablonok"
+
+#: includes/functions.php:363
+msgid "You may find answers to your questions at <a target=\"_blank\" href=\"http://wordpress.org/support/plugin/maintenance\">support forum</a><br>You may  <a target=\"_blank\" href=\"mailto:mail@fruitfulcode.com?subject=Maintenance plugin\">contact us</a> with customization requests and suggestions.<br> Please visit our website to learn about us and our services <a href=\"%1$s\" title=\"%2$s\">%2$s</a>"
+msgstr "Lehetőség van arra, hogy választ kapunk kérdéseinkre, ha meglátogatjuk a <a target=\"_blank\" href=\"http://wordpress.org/support/plugin/maintenance\">támogatás fórumát</a><br>Lehetőség van továbbá arra is, hogy <a target=\"_blank\" href=\"mailto:mail@fruitfulcode.com?subject=Maintenance plugin\">kapcsolatba lépjen velünk</a> testreszabási kérdéseikkel kapcsolatban.<br> Kérjük, látogassunk el a támogatás honlapjára és tudjunk meg többet rólunk és szolgáltatásainkról. <a href=\"%1$s\" title=\"%2$s\">%2$s</a>"
+
+#: includes/functions.php:362
+msgid "Have any questions?"
+msgstr "Kérdésed van?"
+
+#: includes/functions.php:354
+msgid "Font family"
+msgstr "Betűtípus"
+
+#: includes/functions.php:347
+msgid "Font color"
+msgstr "Betűszín"
+
+#: includes/functions.php:346
+msgid "Background color"
+msgstr "Háttérszín"
+
+#: includes/functions.php:340
+msgid "Upload Background"
+msgstr "Háttérkép feltöltése"
+
+#: includes/functions.php:340
+msgid "Background image"
+msgstr "Háttérkép"
+
+#: includes/functions.php:325
+msgid "Not available object."
+msgstr "Nincs ilyen objektum."
+
+#: includes/functions.php:279
+msgid "Select the page to be displayed:"
+msgstr "Megjelenítendő oldal kiválasztása:"
+
+#: includes/functions.php:265
+msgid "CSS Code"
+msgstr "CSS Kód"
+
+#: includes/functions.php:253
+msgid "Login On / Off"
+msgstr "Bejelentkezés Be / Ki"
+
+#: includes/functions.php:252
+msgid "Apply a blur"
+msgstr "Elmosás alkalmazása"
+
+#: includes/functions.php:252
+msgid "Background blur"
+msgstr "Elmosódott háttér"
+
+#: includes/functions.php:246
+msgid "Blur intensity"
+msgstr "Elmosódás intenzitása"
+
+#: includes/functions.php:245
+msgid "UA-XXXXX-X"
+msgstr "UA-XXXXX-X"
+
+#: includes/functions.php:245
+msgid "Google Analytics ID"
+msgstr "Google Analytics ID"
+
+#: includes/functions.php:238
+msgid "Service temporarily unavailable"
+msgstr "A szolgáltatás átmenetileg nem érhető el"
+
+#: includes/functions.php:238
+msgid "503"
+msgstr "503"
+
+#: includes/functions.php:237
+msgid "Show admin bar"
+msgstr "Admin sáv mutatása"
+
+#: includes/functions.php:237
+msgid "Admin bar"
+msgstr "Adminisztrátori sáv"
+
+#: includes/functions.php:233
+msgid "Upload Logo"
+msgstr "Logó feltöltése"
+
+#: includes/functions.php:233
+msgid "Logo"
+msgstr "Logó"
+
+#: includes/functions.php:232
+msgid "Footer Text"
+msgstr "Lábléc szövege"
+
+#: includes/functions.php:231
+msgid "Description"
+msgstr "Leírás"
+
+#: includes/functions.php:230
+msgid "Headline"
+msgstr "Címsor"
+
+#: includes/functions.php:229
+msgid "Page title"
+msgstr "Oldalcím"
+
+#: includes/functions.php:208
+msgid "Support"
+msgstr "Támogatás"
+
+#: includes/functions.php:202
+msgid "Fruitful Code projects"
+msgstr "Gyümölcsöző munkáink"
+
+#: includes/functions.php:195
+msgid "Pro version"
+msgstr "Pro verzió"
+
+#: includes/functions.php:189
+msgid "Exclude pages"
+msgstr "Kizárt oldalak"
+
+#: includes/functions.php:188
+msgid "Custom CSS"
+msgstr "Egyéni CSS"
+
+#: includes/functions.php:187
+msgid "General Settings"
+msgstr "Általános beállítások"
+
+#: includes/functions.php:168
+msgid "Google Web Fonts"
+msgstr "Google webes betűtípusok"
+
+#: includes/functions.php:161
+msgid "Standard Fonts"
+msgstr "Normál betűtípusok"
+
+#: includes/admin.php:88
+msgid "Save changes"
+msgstr "Beállítások mentése"
+
+#. #-#-#-#-#  tmp-maintenance.pot (Maintenance 2.5)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: includes/admin.php:73 includes/functions.php:539
+msgid "Maintenance"
+msgstr "Karbantartás"

@@ -18,7 +18,7 @@ function uploads_multimedia_init (title, btnName, editing, multiple) {
 }
 
 jQuery(document).ready(function() {
-   jQuery('.upload_btn').live('click', function( event ) {
+   jQuery('.upload_btn').on('click', function( event ) {
 			event.preventDefault();
 			var vLinkElem = jQuery(this);
 			var customData = vLinkElem.data('imagetype');
@@ -43,7 +43,7 @@ jQuery(document).ready(function() {
 			return false;
 		});
 	
-		jQuery('.delete-img').live('click', function( event ) {
+		jQuery('.delete-img').on('click', function( event ) {
 			event.preventDefault();
 				var vLinkElem = jQuery(this);
 					vLinkElem.parent().css('background-image', 'none'); 
