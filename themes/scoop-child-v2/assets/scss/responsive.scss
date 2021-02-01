@@ -530,6 +530,18 @@
 			}
 		}
 	}
+
+	/***********************/
+	/* login/register form */
+	/***********************/
+
+	.form-section {
+		.form-wrap {
+			.lost-password {
+				display: block;
+			}
+		}
+	}
 }
 
 @media (min-width: 1800px) {

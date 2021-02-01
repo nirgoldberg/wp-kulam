@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child
- * @version		2.0.5
+ * @version		2.1.5
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -73,6 +73,7 @@ if ( have_posts() ) :
 									<input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" placeholder="<?php _e( 'Username or Email Address', 'kulam-scoop' ); ?>" >
 									<input type="password" name="pwd" id="user_pass" class="input password-input" value="" size="20" placeholder="<?php _e( 'Password', 'kulam-scoop' ); ?>" >
 									<button type="submit" name="wp-submit" id="wp-submit" class="button"><?php _e( 'Login', 'kulam-scoop' ); ?></button>
+									<a href="<?php echo wp_lostpassword_url(); ?>" class="lost-password"><?php _e( 'Lost your password?', 'kulam-scoop' ); ?></a>
 									<input type="hidden" name="redirect_to" value="<?php echo get_permalink(); ?>">
 									<input type="hidden" name="testcookie" value="1">
 								</form>
