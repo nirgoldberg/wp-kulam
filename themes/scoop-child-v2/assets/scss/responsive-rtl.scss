@@ -133,6 +133,35 @@
 			}
 		}
 	}
+
+	/********************/
+	/* category archive */
+	/********************/
+
+	body.archive {
+		#primary {
+
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+
+				/**********************/
+				/* nav-sub-categories */
+				/**********************/
+
+				.nav-sub-categories {
+					.sf-menu {
+						li {
+							margin-left: 100px;
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1500px) {
@@ -338,6 +367,35 @@
 			}
 		}
 	}
+
+	/********************/
+	/* category archive */
+	/********************/
+
+	body.archive {
+		#primary {
+
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+
+				/**********************/
+				/* nav-sub-categories */
+				/**********************/
+
+				.nav-sub-categories {
+					.sf-menu {
+						li {
+							margin-left: 30px;
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1200px) and (max-width: 1799px) {}
@@ -353,6 +411,35 @@
 			li {
 				margin-left: 25px;
 				margin-right: 0;
+			}
+		}
+	}
+
+	/********************/
+	/* category archive */
+	/********************/
+
+	body.archive {
+		#primary {
+
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+
+				/**********************/
+				/* nav-sub-categories */
+				/**********************/
+
+				.nav-sub-categories {
+					.sf-menu {
+						li {
+							margin-left: 25px;
+							margin-right: 0;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -392,6 +479,26 @@
 
 	body.archive {
 		#primary {
+
+			/******************/
+			/* archive header */
+			/******************/
+
+			header {
+
+				/**********************/
+				/* nav-sub-categories */
+				/**********************/
+
+				.nav-sub-categories {
+					.sf-menu {
+						li {
+							margin-left: 10px;
+							margin-right: 0;
+						}
+					}
+				}
+			}
 
 			/********************/
 			/* category filters */

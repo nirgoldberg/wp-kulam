@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.1.3
+ * @version		2.1.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -3932,6 +3932,44 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'default_value' => '',
+		),
+		array(
+			'key' => 'field_603e0bf71106b',
+			'label' => __('Sub Categories Menu', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'top',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_603e0c231106c',
+			'label' => __('Categories', 'kulam-scoop'),
+			'name' => 'acf-category_sub_categories_menu_categories',
+			'type' => 'taxonomy',
+			'instructions' => __('Copy and paste this shortcode into Description field: [kulam_sub_categories_menu]', 'kulam-scoop'),
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'category',
+			'field_type' => 'multi_select',
+			'allow_null' => 0,
+			'add_term' => 0,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
 		),
 		array(
 			'key' => 'field_5ec0d5ba09849',

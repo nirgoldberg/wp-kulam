@@ -394,6 +394,33 @@ body.archive {
 					}
 				}
 			}
+
+			/**********************/
+			/* nav-sub-categories */
+			/**********************/
+
+			.nav-sub-categories {
+				.sf-menu {
+					margin: 0 0 20px;
+					padding-left: 30px;
+					overflow: hidden;
+					display: block;
+
+					& > li {
+						& > a {
+							display: inline-block;
+						}
+					}
+
+					li {
+						a {
+							span {
+								background: transparent !important;
+							}
+						}
+					}
+				}
+			}
 		}
 
 		/********************/

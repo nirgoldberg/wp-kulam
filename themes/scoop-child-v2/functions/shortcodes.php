@@ -4,7 +4,7 @@
  *
  * @author      Nir Goldberg
  * @package     scoop-child/functions
- * @version     2.1.1
+ * @version     2.1.6
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -903,3 +903,42 @@ function kulam_link( $atts ) {
 
 }
 add_shortcode( 'kulam_link', 'kulam_link' );
+
+/**
+ * kulam_sub_categories_menu
+ *
+ * This function adds the "kulam_sub_categories_menu" Shortcode
+ *
+ * @param	$atts (array)
+ * @return	(string)
+ */
+function kulam_sub_categories_menu() {
+
+	if ( ! is_category() || ! function_exists( 'get_field' ) )
+		return '';
+
+	// vars
+	$category_id	= get_query_var( 'cat' );
+	$categories		= get_field( 'acf-category_sub_categories_menu_categories', 'category_' . $category_id );
+	$output			= '';
+
+	if ( ! $categories || ! is_array( $categories ) )
+		return $output;
+
+	$output .=	'<!-- Sub Categories Menu --><nav class="nav-sub-categories">' .
+					'<div class="nav-sub-categories-inner">' .
+						'<ul class="sf-menu">';
+
+	foreach ( $categories as $cat ) {
+
+		$output .= '<li class="menu-item"><a href="' . get_category_link( $cat->term_id ) . '"><span>' . $cat->name . '</span></a></li>';
+
+	}
+
+	$output .=	'</ul></div></nav><!-- End of Sub Categories Menu -->';
+
+	// return
+	return $output;
+
+}
+add_shortcode( 'kulam_sub_categories_menu', 'kulam_sub_categories_menu' );

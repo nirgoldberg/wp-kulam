@@ -148,6 +148,44 @@
             "default_value": ""
         },
         {
+            "key": "field_603e0bf71106b",
+            "label": "Sub Categories Menu",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_603e0c231106c",
+            "label": "Categories",
+            "name": "acf-category_sub_categories_menu_categories",
+            "type": "taxonomy",
+            "instructions": "Copy and paste this shortcode into Description field: [kulam_sub_categories_menu]",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "object",
+            "multiple": 0
+        },
+        {
             "key": "field_5ec0d5ba09849",
             "label": "General",
             "name": "",
@@ -310,7 +348,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": true,
     "description": "",
-    "modified": 1599738922
+    "modified": 1614679712
 }

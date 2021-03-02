@@ -38,6 +38,48 @@
 	}
 }
 
+/********************/
+/* category archive */
+/********************/
+
+body.archive {
+	#primary {
+
+		/******************/
+		/* archive header */
+		/******************/
+
+		header {
+
+			/**********************/
+			/* nav-sub-categories */
+			/**********************/
+
+			.nav-sub-categories {
+				.sf-menu {
+					& > li {
+						& > a {
+							&:before {
+								content: "";
+								position: absolute;
+								top: 8px;
+								left: -30px;
+								background-repeat: no-repeat;
+								z-index: -1;
+							}
+						}
+
+						&:nth-child(4n+1) > a:before { width: 73px; height: 53px; background-image: url('../images/buttons/oval1a.png'); }
+						&:nth-child(4n+2) > a:before { width: 73px; height: 53px; background-image: url('../images/buttons/oval2a.png'); }
+						&:nth-child(4n+3) > a:before { width: 70px; height: 56px; background-image: url('../images/buttons/oval3a.png'); }
+						&:nth-child(4n+4) > a:before { width: 62px; height: 56px; background-image: url('../images/buttons/oval4a.png'); }
+					}
+				}
+			}
+		}
+	}
+}
+
 /**********/
 /* footer */
 /**********/
