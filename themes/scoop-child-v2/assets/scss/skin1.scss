@@ -80,6 +80,21 @@ body.archive {
 	}
 }
 
+.mcelb.button {
+	color: $font-color;
+	border: 0;
+	@include border-radius(6px);
+	background-color: $color-5;
+	@include transition(background-color, .5s);
+
+	&:hover {
+		color: $font-color;
+		background-color: rgba(203,222,230,.8);
+		background-image: unset;
+		@include transition(background-color, .5s);
+	}
+}
+
 /**********/
 /* footer */
 /**********/
