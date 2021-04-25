@@ -4,7 +4,7 @@
  *
  * @author		Nir Goldberg
  * @package		scoop-child/functions/acf
- * @version		2.1.6
+ * @version		2.1.8
  */
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
@@ -6477,6 +6477,67 @@ Additional Post Types may be added and re-sorted per each category', 'kulam-scoo
 			'return_format' => 'value',
 			'ajax' => 0,
 			'placeholder' => '',
+		),
+		array(
+			'key' => 'field_60856fe201285',
+			'label' => __('MCE Link Button', 'kulam-scoop'),
+			'name' => '',
+			'type' => 'tab',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'placement' => 'left',
+			'endpoint' => 0,
+		),
+		array(
+			'key' => 'field_608570ea01288',
+			'label' => __('Font Color', 'kulam-scoop'),
+			'name' => 'acf-option_mce_link_btn_font_color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '#2D2D2D',
+		),
+		array(
+			'key' => 'field_6085703901286',
+			'label' => __('Background Color', 'kulam-scoop'),
+			'name' => 'acf-option_mce_link_btn_background_color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '#EEEBE9',
+		),
+		array(
+			'key' => 'field_608570c601287',
+			'label' => __('Hover Background Color', 'kulam-scoop'),
+			'name' => 'acf-option_mce_link_btn_hover_background_color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '#F3E8E2',
 		),
 		array(
 			'key' => 'field_5ca5febcbad83',

@@ -29,7 +29,7 @@ msgctxt "primary color"
 msgid "Default"
 msgstr "ברירת מחדל"
 
-#: functions.php:168
+#: functions.php:169
 msgid "White"
 msgstr "לבן"
 
@@ -39,43 +39,43 @@ msgctxt "post"
 msgid "Featured"
 msgstr "מומלצים"
 
-#: functions.php:135
+#: functions.php:136
 msgid "Huge"
 msgstr "ענק"
 
-#: functions.php:129
+#: functions.php:130
 msgid "Large"
 msgstr "גדול"
 
-#: functions.php:123
+#: functions.php:124
 msgid "Normal"
 msgstr "רגיל"
 
-#: functions.php:117
+#: functions.php:118
 msgid "Small"
 msgstr "קטן"
 
-#: functions.php:136
+#: functions.php:137
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:130
+#: functions.php:131
 msgid "L"
 msgstr "L"
 
-#: functions.php:124
+#: functions.php:125
 msgid "M"
 msgstr "M"
 
-#: functions.php:118
+#: functions.php:119
 msgid "S"
 msgstr "S"
 
-#: functions.php:163
+#: functions.php:164
 msgid "Light Gray"
 msgstr "אפור בהיר"
 
-#: functions.php:158
+#: functions.php:159
 msgid "Dark Gray"
 msgstr "אפור כהה"
 
@@ -92,7 +92,7 @@ msgctxt "Used before full size attachment link."
 msgid "Full size"
 msgstr "גודל מלא"
 
-#: functions.php:190 template-parts/footer/footer-widgets.php:12
+#: template-parts/footer/footer-widgets.php:12 functions.php:194
 msgid "Footer"
 msgstr "פוטר"
 
@@ -112,7 +112,7 @@ msgstr "העמוד לא נמצא."
 msgid "Comments are closed."
 msgstr "סגור לתגובות."
 
-#: functions.php:61 template-parts/header/site-branding.php:46
+#: template-parts/header/site-branding.php:46 functions.php:61
 msgid "Social Links Menu"
 msgstr "תפריט קישורים חברתיים"
 
@@ -120,15 +120,16 @@ msgstr "תפריט קישורים חברתיים"
 msgid "Skip to content"
 msgstr "דילוג לתוכן"
 
-#: image.php:52 template-parts/content/content-page.php:27
 #: template-parts/content/content.php:49
-#: template-parts/content/content-single.php:40
+#: template-parts/content/content-page.php:27
+#: template-parts/content/content-single.php:40 image.php:52
 msgid "Pages:"
 msgstr "עמודים:"
 
 #. translators: %s: Post title. Only visible to screen readers.
+#. translators: %s: Post title.
 #: template-parts/content/content.php:36
-#: template-parts/content/content-single.php:27
+#: template-parts/content/content-single.php:27 functions.php:225
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "להמשיך לקרוא<span class=\"screen-reader-text\"> %s</span>"
 
@@ -147,11 +148,6 @@ msgstr "הפוסט הקודם"
 #: template-parts/content/content-none.php:16
 msgid "Nothing Found"
 msgstr "דבר לא נמצא"
-
-#. translators: 1: Link to WP admin new post page.
-#: template-parts/content/content-none.php:26
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "מוכנים לפרסם את הפוסט הראשון? <a href=\"%1$s\">התחילו כאן</a>."
 
 #: template-parts/content/content-none.php:39
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
@@ -192,7 +188,7 @@ msgstr "ארכיונים:"
 msgid "%s Archives:"
 msgstr "ארכיון %s:"
 
-#: classes/class-twentynineteen-walker-comment.php:87
+#: classes/class-twentynineteen-walker-comment.php:89
 msgid "Edit"
 msgstr "עריכה"
 

@@ -16,6 +16,7 @@ msgid "Twenty Seventeen brings your site to life with header video and immersive
 msgstr "תבנית Twenty Seventeen מעשירה את האתר עם תמונות מרשימות ואנימציות עדינות. תוך התמקדות באתרים עסקיים, התבנית מציגה אזורים מרובים בדף הבית, וידג'טים, תפריטי ניווט, תפריטי מדיה חברתית, לוגו ועוד. התבנית מאפשרת לבצע התאמה של אופן הפריסה עם בחירת סכימת צבעים והצגת המדיה באמצעות פורמטים. תבנית ברירת המחדל לשנת 2017 פועלת מצויין בהרבה שפות, לכל מטרה ועל כל מכשיר."
 
 #. Theme Name of the theme
+#: inc/block-patterns.php:17
 msgid "Twenty Seventeen"
 msgstr "Twenty Seventeen"
 
@@ -23,30 +24,30 @@ msgstr "Twenty Seventeen"
 msgid "Footer"
 msgstr "כותרת תחתונה"
 
-#: functions.php:340
+#: functions.php:346
 msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
 msgstr "הוסיפו ווידג׳טים לכאן כדי שיוצגו בסרגל הצידי של פוסטים ועמודי ארכיון באתר."
 
-#: functions.php:338 sidebar.php:18
+#: functions.php:344 sidebar.php:18
 msgid "Blog Sidebar"
 msgstr "סגל צידי באתר"
 
-#: template-parts/navigation/navigation-top.php:31
 #: template-parts/header/site-branding.php:34
+#: template-parts/navigation/navigation-top.php:31
 msgid "Scroll down to content"
 msgstr "גלול מטה אל התוכן"
 
-#: functions.php:181
+#: functions.php:187
 msgctxt "Theme starter content"
 msgid "Coffee"
 msgstr "קפה"
 
-#: functions.php:177
+#: functions.php:183
 msgctxt "Theme starter content"
 msgid "Sandwich"
 msgstr "סנדוויץ'"
 
-#: functions.php:173
+#: functions.php:179
 msgctxt "Theme starter content"
 msgid "Espresso"
 msgstr "אספרסו"
@@ -148,25 +149,25 @@ msgstr "סכימת צבעים"
 msgid "Default Header Image"
 msgstr "תמונת כותרת ברירת מחדל"
 
-#: functions.php:362
+#: functions.php:368
 msgid "Footer 2"
 msgstr "פוטר 2"
 
-#: functions.php:352 functions.php:364
+#: functions.php:358 functions.php:370
 msgid "Add widgets here to appear in your footer."
 msgstr "יש להוסיף וידג'טים שיוצגו בפוטר."
 
-#: functions.php:350
+#: functions.php:356
 msgid "Footer 1"
 msgstr "פוטר 1"
 
-#: functions.php:290
+#: functions.php:296
 msgctxt "Libre Franklin font: on or off"
 msgid "on"
 msgstr "off"
 
-#: functions.php:64 functions.php:205
-#: template-parts/navigation/navigation-top.php:12
+#: template-parts/navigation/navigation-top.php:12 functions.php:69
+#: functions.php:211
 msgid "Top Menu"
 msgstr "תפריט עליון"
 
@@ -195,11 +196,11 @@ msgstr "דבר לא נמצא"
 msgid "Previous Post"
 msgstr "הפוסט הקודם"
 
-#: comments.php:71 single.php:33
+#: single.php:33 comments.php:71
 msgid "Previous"
 msgstr "קודם"
 
-#: comments.php:72 single.php:34
+#: single.php:34 comments.php:72
 msgid "Next"
 msgstr "הבא"
 
@@ -224,12 +225,12 @@ msgid "Search Results for: %s"
 msgstr "תוצאות חיפוש עבור: %s"
 
 #. translators: %s: Post title.
-#: functions.php:392 template-parts/post/content-gallery.php:71
-#: template-parts/post/content-video.php:83
+#: template-parts/post/content.php:57 template-parts/post/content-audio.php:84
 #: template-parts/post/content-image.php:61
-#: template-parts/post/content-audio.php:84 template-parts/post/content.php:57
-#: template-parts/page/content-front-page-panels.php:45
+#: template-parts/post/content-video.php:83
+#: template-parts/post/content-gallery.php:71
 #: template-parts/page/content-front-page.php:42
+#: template-parts/page/content-front-page-panels.php:45 functions.php:398
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "להמשיך לקרוא<span class=\"screen-reader-text\"> %s</span>"
 
@@ -247,12 +248,12 @@ msgstr "דרישת המינימום להפעלת התבנית Twenty Seventeen �
 msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "עריכה<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: template-parts/post/content-gallery.php:78
-#: template-parts/post/content-video.php:90
+#: template-parts/post/content.php:64 template-parts/post/content-audio.php:91
 #: template-parts/post/content-image.php:68
-#: template-parts/post/content-audio.php:91 template-parts/post/content.php:64
-#: template-parts/page/content-page.php:26
+#: template-parts/post/content-video.php:90
+#: template-parts/post/content-gallery.php:78
 #: template-parts/page/content-front-page.php:48
+#: template-parts/page/content-page.php:26
 msgid "Pages:"
 msgstr "עמודים:"
 
@@ -264,15 +265,15 @@ msgstr "תפריט"
 msgid "Skip to content"
 msgstr "דילוג לתוכן"
 
-#: functions.php:484
+#: functions.php:490
 msgid "Collapse child menu"
 msgstr "הסתר תפריט"
 
-#: functions.php:483
+#: functions.php:489
 msgid "Expand child menu"
 msgstr "הצג תפריט"
 
-#: functions.php:65 functions.php:216
+#: functions.php:70 functions.php:222
 msgid "Social Links Menu"
 msgstr "תפריט קישורים חברתיים"
 
@@ -303,15 +304,15 @@ msgctxt "comments title"
 msgid "One Reply to &ldquo;%s&rdquo;"
 msgstr "תגובה אחת בנושא &ldquo;%s&rdquo;"
 
-#: archive.php:51 index.php:55 search.php:52
+#: index.php:55 archive.php:51 search.php:52
 msgid "Page"
 msgstr "עמוד"
 
-#: archive.php:50 index.php:54 search.php:51
+#: index.php:54 archive.php:50 search.php:51
 msgid "Next page"
 msgstr "עמוד הבא"
 
-#: archive.php:49 index.php:53 search.php:50
+#: index.php:53 archive.php:49 search.php:50
 msgid "Previous page"
 msgstr "עמוד קודם"
 
