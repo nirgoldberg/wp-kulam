@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kulam-scoop 1.0.0\n"
 "POT-Creation-Date: 2021-02-01 13:18+0200\n"
-"PO-Revision-Date: 2021-02-01 13:18+0200\n"
+"PO-Revision-Date: 2021-04-25 21:07+0300\n"
 "Last-Translator: Nir Goldberg <nir@htmline.com>\n"
 "Language-Team: Nir Goldberg <nir@htmline.com>\n"
 "Language: fr_FR\n"
@@ -1793,6 +1793,8 @@ msgstr "Cliquez ici pour afficher plus <i>%s</i> de contenu"
 #: loop/single.php:18
 msgid "Sorry, You are not allowed to see this content."
 msgstr ""
+"Pour accéder à ces ressources, vous devez vous inscrire gratuitement sur le "
+"site."
 
 #: loop/single.php:65 template-siddur-folder.php:44
 msgid "Please type or paste email addresses with a space between each one:"
