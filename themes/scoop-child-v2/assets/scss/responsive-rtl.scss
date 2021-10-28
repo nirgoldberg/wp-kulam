@@ -342,6 +342,7 @@
 		table {
 			tr {
 				&.email,
+				&.password,
 				&.text,
 				&.select {
 					float: right;

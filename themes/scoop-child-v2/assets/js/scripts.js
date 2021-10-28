@@ -98,7 +98,7 @@ var $ = jQuery,
 			KULAM_general.galleries();
 
 			// hmembership
-			KULAM_general.hmembership();
+			// KULAM_general.hmembership();
 
 			// my siddur
 			KULAM_general.my_siddur();
