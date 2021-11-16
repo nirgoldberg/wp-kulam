@@ -248,7 +248,7 @@ function kulam_register_siddurim() {
  */
 function kulam_register_activity_types() {
 
-	$enable_activity_types	= get_field( 'acf-option_enable_activity_types_custom_taxonomy', 'option' );
+	$enable_activity_types	= function_exists( 'get_field' ) ? get_field( 'acf-option_enable_activity_types_custom_taxonomy', 'option' ) : false;
 	$is_visible				= $enable_activity_types && true === $enable_activity_types;
 
 	$labels = array(
@@ -309,7 +309,7 @@ function kulam_register_activity_types() {
  */
 function kulam_register_audiences() {
 
-	$enable_audiences	= get_field( 'acf-option_enable_audiences_custom_taxonomy', 'option' );
+	function_exists( 'get_field' ) ? $enable_audiences	= get_field( 'acf-option_enable_audiences_custom_taxonomy', 'option' ) : false;
 	$is_visible			= $enable_audiences && true === $enable_audiences;
 
 	$labels = array(
